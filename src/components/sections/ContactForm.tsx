@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Send, Loader2 } from 'lucide-react';
+import { Send, Loader2, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,6 +12,7 @@ interface FormData {
   name: string;
   email: string;
   company: string;
+  role: string;
   phone: string;
   message: string;
 }
@@ -22,8 +23,8 @@ interface ContactFormProps {
 }
 
 export function ContactForm({
-  title = 'Demander un audit',
-  subtitle = 'Décrivez-nous votre contexte, nous vous recontactons sous 48h.',
+  title = 'Demander un diagnostic',
+  subtitle = 'Décrivez-nous votre contexte. On vous recontacte sous 48h avec une première analyse.',
 }: ContactFormProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -32,11 +33,14 @@ export function ContactForm({
     name: '',
     email: '',
     company: '',
+    role: '',
     phone: '',
     message: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     setError(null);
@@ -69,13 +73,13 @@ export function ContactForm({
   };
 
   return (
-    <div className="rounded-2xl bg-white p-8 shadow-lg">
+    <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg border border-gray-100">
       <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
       <p className="mt-2 text-gray-600">{subtitle}</p>
 
-      <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div className="space-y-2">
+      <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-1.5">
             <Label htmlFor="name">Nom complet *</Label>
             <Input
               id="name"
@@ -87,7 +91,7 @@ export function ContactForm({
               placeholder="Jean Dupont"
             />
           </div>
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor="email">Email professionnel *</Label>
             <Input
               id="email"
@@ -101,8 +105,8 @@ export function ContactForm({
           </div>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          <div className="space-y-2">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-1.5">
             <Label htmlFor="company">Entreprise *</Label>
             <Input
               id="company"
@@ -114,21 +118,41 @@ export function ContactForm({
               placeholder="Nom de votre entreprise"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="phone">Téléphone</Label>
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              value={formData.phone}
+          <div className="space-y-1.5">
+            <Label htmlFor="role">Votre fonction</Label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
               onChange={handleChange}
-              placeholder="06 00 00 00 00"
-            />
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            >
+              <option value="">Sélectionner...</option>
+              <option value="dirigeant">Dirigeant / Gérant</option>
+              <option value="daf">DAF / Responsable financier</option>
+              <option value="production">Responsable production</option>
+              <option value="qualite">Responsable qualité / QHSE</option>
+              <option value="logistique">Responsable logistique / Supply</option>
+              <option value="it">Responsable IT / DSI</option>
+              <option value="autre">Autre</option>
+            </select>
           </div>
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="message">Décrivez votre contexte et vos enjeux *</Label>
+        <div className="space-y-1.5">
+          <Label htmlFor="phone">Téléphone</Label>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="06 00 00 00 00"
+          />
+        </div>
+
+        <div className="space-y-1.5">
+          <Label htmlFor="message">Décrivez votre contexte *</Label>
           <Textarea
             id="message"
             name="message"
@@ -136,11 +160,20 @@ export function ContactForm({
             rows={5}
             value={formData.message}
             onChange={handleChange}
-            placeholder="Parlez-nous de vos données actuelles, vos problématiques, ce que vous aimeriez améliorer..."
+            placeholder="Ex : On utilise Sage + Excel, 2 personnes passent 3h/jour à ressaisir les commandes, on aimerait automatiser et avoir un tableau de bord..."
           />
+          {/* Aide contextuelle V2 */}
+          <div className="bg-gray-50 rounded-lg p-3 mt-2">
+            <p className="text-xs font-medium text-gray-700 mb-1.5">Pour nous aider à vous répondre :</p>
+            <ul className="text-xs text-gray-500 space-y-0.5">
+              <li>• Quels outils utilisez-vous ? (ERP, Excel, emails...)</li>
+              <li>• Quel est votre irritant principal ?</li>
+              <li>• Volume / fréquence concernés ?</li>
+            </ul>
+          </div>
         </div>
 
-        {error && <div className="rounded-lg bg-red-50 p-4 text-sm text-red-700">{error}</div>}
+        {error && <div className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</div>}
 
         <Button type="submit" size="lg" className="w-full gap-2" disabled={isLoading}>
           {isLoading ? (
@@ -156,9 +189,23 @@ export function ContactForm({
           )}
         </Button>
 
-        <p className="text-center text-xs text-gray-500">
-          En soumettant ce formulaire, vous acceptez d&apos;être recontacté par Armor Analytics.
-        </p>
+        {/* Réassurance et RGPD V2 */}
+        <div className="space-y-3 pt-2">
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
+            <span className="flex items-center gap-1">
+              <Clock className="h-3.5 w-3.5" />
+              Réponse sous 48h
+            </span>
+            <span className="flex items-center gap-1">
+              <Shield className="h-3.5 w-3.5" />
+              NDA possible dès le 1er échange
+            </span>
+          </div>
+          <p className="text-xs text-gray-400 text-center">
+            Vos données sont utilisées uniquement pour répondre à votre demande.
+            Conformité RGPD. Pas de spam, pas de revente.
+          </p>
+        </div>
       </form>
     </div>
   );

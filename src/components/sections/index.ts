@@ -5,3 +5,4 @@ export { Projects } from './Projects';
 export { FAQ } from './FAQ';
 export { ContactForm } from './ContactForm';
 export { ContactSection } from './ContactSection';
+export { Methodology } from './Methodology';

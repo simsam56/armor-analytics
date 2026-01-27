@@ -1,4 +1,4 @@
-import { Hero, Services, Process, Projects, FAQ, ContactSection } from '@/components/sections';
+import { Hero, Services, Projects, FAQ, ContactSection, Methodology } from '@/components/sections';
 import { JsonLd } from '@/components/JsonLd';
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
       <JsonLd />
       <Hero />
       <Services />
-      <Process />
+      <Methodology />
       <Projects />
       <FAQ />
       <ContactSection />
