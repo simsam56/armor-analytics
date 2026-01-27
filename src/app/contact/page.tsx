@@ -5,13 +5,13 @@ import { ContactForm } from '@/components/sections';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact - Parlons de votre projet data et IA',
+  title: 'Contact - Demander un diagnostic',
   description:
-    'Prenez rendez-vous ou demandez un audit gratuit. Premier échange sans engagement pour comprendre vos enjeux et identifier les opportunités.',
+    'Demandez un diagnostic ou réservez un appel découverte gratuit. Premier échange sans engagement pour comprendre vos enjeux et identifier les opportunités.',
   openGraph: {
-    title: 'Contact - Parlons de votre projet | Armor Analytics',
+    title: 'Contact - Demander un diagnostic | Armor Analytics',
     description:
-      'Prenez rendez-vous ou demandez un audit gratuit. Premier échange sans engagement pour comprendre vos enjeux.',
+      'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
   },
 };
 
@@ -35,10 +35,10 @@ export default function ContactPage() {
             {/* Left side - Calendly + Info */}
             <div className="space-y-8">
               <div className="rounded-2xl bg-white p-8 shadow-lg">
-                <h2 className="text-2xl font-bold text-gray-900">Prendre rendez-vous</h2>
+                <h2 className="text-2xl font-bold text-gray-900">Appel découverte gratuit</h2>
                 <p className="mt-2 text-gray-600">
-                  Réservez un créneau de 30 minutes pour un premier échange. Nous discuterons de vos
-                  enjeux et identifierons les pistes d&apos;amélioration.
+                  30 minutes pour comprendre votre contexte et identifier les opportunités.
+                  Sans engagement, sans jargon, on parle concret.
                 </p>
                 <div className="mt-6">
                   <Button size="lg" asChild className="w-full gap-2">
@@ -48,7 +48,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                     >
                       <Calendar className="h-5 w-5" />
-                      Voir les disponibilités
+                      Réserver un créneau
                     </a>
                   </Button>
                 </div>
@@ -83,10 +83,8 @@ export default function ContactPage() {
                     <MapPin className="h-5 w-5 text-blue-600" />
                     <div>
                       <p className="text-sm text-gray-500">Localisation</p>
-                      <p className="font-medium text-gray-900">
-                        {SITE_CONFIG.location.region}, France
-                      </p>
-                      <p className="text-sm text-gray-500">{SITE_CONFIG.location.city}</p>
+                      <p className="font-medium text-gray-900">Lorient, Bretagne</p>
+                      <p className="text-sm text-gray-500">Interventions sur site en Bretagne</p>
                     </div>
                   </div>
                 </div>
@@ -94,10 +92,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right side - Form */}
-            <ContactForm
-              title="Demander un audit"
-              subtitle="Décrivez-nous votre contexte et vos enjeux. Nous vous recontactons sous 48h avec une première analyse et des recommandations."
-            />
+            <ContactForm />
           </div>
         </div>
       </section>

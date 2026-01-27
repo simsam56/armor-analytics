@@ -9,10 +9,10 @@ export function ContactSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Parlons de votre projet
+            On en parle ?
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Premier échange gratuit et sans engagement pour comprendre vos enjeux.
+            Appel découverte gratuit de 30 min. Sans engagement, sans jargon, on parle concret.
           </p>
         </div>
 
@@ -20,9 +20,9 @@ export function ContactSection() {
           {/* Left side - Calendly + Info */}
           <div className="space-y-8">
             <div className="rounded-2xl bg-blue-50 p-8">
-              <h3 className="text-2xl font-bold text-gray-900">Prendre rendez-vous</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Appel découverte gratuit</h3>
               <p className="mt-2 text-gray-600">
-                Réservez un créneau de 30 minutes pour un premier échange.
+                30 minutes pour comprendre votre contexte et identifier les opportunités.
               </p>
               <div className="mt-6">
                 <Button size="lg" asChild className="w-full gap-2">
@@ -32,7 +32,7 @@ export function ContactSection() {
                     rel="noopener noreferrer"
                   >
                     <Calendar className="h-5 w-5" />
-                    Voir les disponibilités
+                    Réserver un créneau
                   </a>
                 </Button>
               </div>
@@ -59,7 +59,7 @@ export function ContactSection() {
                 </a>
                 <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-4">
                   <MapPin className="h-5 w-5 text-blue-600" />
-                  <span className="text-gray-700">{SITE_CONFIG.location.region}, France</span>
+                  <span className="text-gray-700">Lorient, Bretagne – Interventions sur site</span>
                 </div>
               </div>
             </div>
