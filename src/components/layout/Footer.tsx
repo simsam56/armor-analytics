@@ -1,36 +1,78 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin } from 'lucide-react';
-import { SITE_CONFIG, NAV_LINKS } from '@/lib/constants';
+import { Linkedin, Mail, MapPin, Calendar, Compass, Anchor, ArrowRight } from 'lucide-react';
+import { NAV_LINKS } from '@/lib/constants';
+import { getBrand, getCalendlyUrl, getContactEmail, getTagline, siteConfig } from '@/lib/site-config';
+import { Button } from '@/components/ui/button';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const brand = getBrand();
+  const tagline = getTagline();
+  const LogoIcon = brand.logo.icon === 'compass' ? Compass : Anchor;
 
   return (
-    <footer className="border-t border-gray-200 bg-gray-50">
+    <footer className="border-t border-slate-200 bg-slate-50">
+      {/* CTA Banner */}
+      <div className="bg-blue-600">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+            <div className="text-center sm:text-left">
+              <h3 className="text-lg font-semibold text-white">
+                Prêt à supprimer vos ressaisies ?
+              </h3>
+              <p className="text-blue-100 text-sm">
+                Diagnostic gratuit de 30 minutes, sans engagement.
+              </p>
+            </div>
+            <Button asChild variant="secondary" className="gap-2 shrink-0">
+              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
+                <Calendar className="h-4 w-4" />
+                Réserver un créneau
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Main footer content */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="inline-block">
-              <span className="text-xl font-bold text-gray-900">
-                Armor<span className="text-blue-600">Analytics</span>
-              </span>
+            <Link href="/" className="flex items-center gap-2">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
+                <LogoIcon className="h-5 w-5 text-white" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-slate-900 leading-tight">
+                  {brand.logo.text}
+                </span>
+                <span className="text-xs text-slate-500 leading-tight">{tagline}</span>
+              </div>
             </Link>
-            <p className="mt-4 max-w-md text-sm text-gray-600">
-              {SITE_CONFIG.tagline}. Structure agile et réseau de spécialistes pour accompagner les
-              PME industrielles dans leur transformation data et IA.
+            <p className="mt-4 max-w-md text-sm text-slate-600 leading-relaxed">
+              Collectif data & automatisation spécialisé PME industrielles. On supprime vos
+              ressaisies, on fiabilise vos données, et on vous donne les tableaux de bord pour
+              piloter votre activité.
             </p>
+            <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
+              <MapPin className="h-4 w-4 text-blue-600" />
+              <span>
+                Basés à {siteConfig.location.city} – Interventions en {siteConfig.location.region}
+              </span>
+            </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">Navigation</h3>
-            <ul className="mt-4 space-y-2">
+            <h3 className="text-sm font-semibold text-slate-900">Navigation</h3>
+            <ul className="mt-4 space-y-2.5">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-600 transition-colors hover:text-blue-600"
+                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
                   >
                     {link.label}
                   </Link>
@@ -41,49 +83,50 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900">Contact</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Contact</h3>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
-                  href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-blue-600"
+                  href={`mailto:${getContactEmail()}`}
+                  className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-blue-600"
                 >
                   <Mail className="h-4 w-4" />
-                  {SITE_CONFIG.email}
+                  {getContactEmail()}
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-600">
-                <MapPin className="h-4 w-4" />
-                {SITE_CONFIG.location.region}
-              </li>
-              <li>
-                <a
-                  href={SITE_CONFIG.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-blue-600"
-                >
-                  <Linkedin className="h-4 w-4" />
-                  LinkedIn
-                </a>
-              </li>
+              {siteConfig.social.linkedin && (
+                <li>
+                  <a
+                    href={siteConfig.social.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-blue-600"
+                  >
+                    <Linkedin className="h-4 w-4" />
+                    LinkedIn
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-200 pt-8">
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-slate-200 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-500">
-              © {currentYear} {SITE_CONFIG.name}. Tous droits réservés.
+            <p className="text-sm text-slate-500">
+              © {currentYear} {brand.name}. Tous droits réservés.
             </p>
             <div className="flex gap-6">
               <Link
                 href="/mentions-legales"
-                className="text-sm text-gray-500 transition-colors hover:text-blue-600"
+                className="text-sm text-slate-500 transition-colors hover:text-blue-600"
               >
                 Mentions légales
               </Link>
-              <span className="text-sm text-gray-400">{SITE_CONFIG.location.city}</span>
+              <span className="text-sm text-slate-400">
+                {siteConfig.location.city}, {siteConfig.location.region}
+              </span>
             </div>
           </div>
         </div>
