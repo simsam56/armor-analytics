@@ -117,10 +117,10 @@ export const siteConfig: SiteConfig = {
 
   location: {
     region: 'Bretagne',
-    city: 'Rennes',
+    city: 'Lorient',
     coordinates: {
-      lat: 48.1173,
-      lng: -1.6778,
+      lat: 47.7486,
+      lng: -3.3670,
     },
   },
 

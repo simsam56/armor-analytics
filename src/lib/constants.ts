@@ -1,10 +1,10 @@
 export const SITE_CONFIG = {
-  name: 'Armor Analytics',
-  tagline: 'Vos données au service de votre performance',
+  name: 'Balise Data',
+  tagline: 'Data & automatisation pour PME industrielles',
   description:
-    'Collectif data & automatisation basé à Lorient. Nous aidons les PME industrielles bretonnes à gagner du temps, fiabiliser leurs données et piloter leur activité. Interventions sur site en Bretagne.',
-  url: 'https://armor-analytics.fr',
-  email: 'contact@armor-analytics.fr',
+    'On supprime vos ressaisies et votre reporting manuel. Collectif data spécialisé PME industrielles bretonnes. Basés à Lorient, interventions en Bretagne.',
+  url: 'https://balisedata.fr',
+  email: 'contact@balisedata.fr',
   phone: '06 XX XX XX XX', // À remplacer
   location: {
     region: 'Bretagne',
@@ -12,9 +12,9 @@ export const SITE_CONFIG = {
     department: 'Morbihan',
   },
   social: {
-    linkedin: 'https://www.linkedin.com/company/armor-analytics',
+    linkedin: 'https://www.linkedin.com/company/balise-data',
   },
-  calendly: 'armor-analytics/decouverte-30min', // À remplacer par le vrai slug
+  calendly: 'balisedata/diagnostic', // À remplacer par le vrai slug
 };
 
 // Chiffres clés pour la crédibilité
@@ -437,9 +437,9 @@ export const PROJECTS = [
 export const FAQ_ITEMS = [
   {
     category: 'Fonctionnement',
-    question: 'Comment fonctionne le collectif Armor Analytics ?',
+    question: 'Comment fonctionne le collectif Balise Data ?',
     answer:
-      `Armor Analytics est un collectif de spécialistes data, automatisation et IA. Vous avez un interlocuteur unique (votre chef de projet), et nous mobilisons les compétences nécessaires selon votre projet : data engineer, développeur, data scientist. Pas d'usine à gaz : une équipe resserrée, senior, réactive.`,
+      `Balise Data est un collectif de spécialistes data, automatisation et IA. Vous avez un interlocuteur unique (votre chef de projet), et nous mobilisons les compétences nécessaires selon votre projet : data engineer, développeur, data scientist. Pas d'usine à gaz : une équipe resserrée, senior, réactive.`,
   },
   {
     category: 'Fonctionnement',

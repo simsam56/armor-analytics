@@ -42,9 +42,9 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL || 'contact@armor-analytics.fr',
+      to: process.env.CONTACT_EMAIL || 'contact@balisedata.fr',
       replyTo: body.email,
-      subject: `[Armor Analytics] Nouvelle demande de ${body.company}`,
+      subject: `[Balise Data] Nouvelle demande de ${body.company}`,
       html: `
         <h2>Nouvelle demande de contact</h2>
         <p><strong>Nom :</strong> ${body.name}</p>

@@ -3,7 +3,7 @@ import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
-  description: 'Mentions légales et informations juridiques du site Armor Analytics.',
+  description: 'Mentions légales et informations juridiques du site Balise Data.',
   robots: {
     index: false,
     follow: false,

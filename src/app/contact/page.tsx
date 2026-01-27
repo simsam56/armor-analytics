@@ -5,13 +5,13 @@ import { ContactForm } from '@/components/sections';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact - Demander un diagnostic',
+  title: 'Contact - Demander un diagnostic | Balise Data',
   description:
-    'Demandez un diagnostic ou réservez un appel découverte gratuit. Premier échange sans engagement pour comprendre vos enjeux et identifier les opportunités.',
+    'Demandez un diagnostic gratuit. Premier échange sans engagement pour comprendre vos enjeux data et automatisation.',
   openGraph: {
-    title: 'Contact - Demander un diagnostic | Armor Analytics',
+    title: 'Contact - Demander un diagnostic | Balise Data',
     description:
-      'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
+      'Demandez un diagnostic gratuit. Premier échange sans engagement.',
   },
 };
 
@@ -76,7 +76,7 @@ export default function ContactPage() {
                     <Linkedin className="h-5 w-5 text-blue-600" />
                     <div>
                       <p className="text-sm text-gray-500">LinkedIn</p>
-                      <p className="font-medium text-gray-900">Armor Analytics</p>
+                      <p className="font-medium text-gray-900">Balise Data</p>
                     </div>
                   </a>
                   <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-4">
