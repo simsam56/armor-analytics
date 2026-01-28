@@ -18,3 +18,9 @@ export { StackGridV4 } from './StackGridV4';
 export { ProjectsV4 } from './ProjectsV4';
 export { AboutV4 } from './AboutV4';
 export { StepsV4 } from './StepsV4';
+
+// V5 components - Balise IA
+export { HeroV5 } from './HeroV5';
+export { WhyBaliseIA } from './WhyBaliseIA';
+export { WhatWeDo } from './WhatWeDo';
+export { UseCasesV5 } from './UseCasesV5';
