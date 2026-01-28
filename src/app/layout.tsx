@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header, Footer } from '@/components/layout';
-import { SITE_CONFIG } from '@/lib/constants';
+import { getBrand, getSeoConfig, siteConfig } from '@/lib/site-config';
 import './globals.css';
 
 const geistSans = Geist({
@@ -16,40 +16,31 @@ const geistMono = Geist_Mono({
   display: 'swap',
 });
 
+const brand = getBrand();
+const seoConfig = getSeoConfig();
+
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_CONFIG.url),
+  metadataBase: new URL(`https://${brand.domain}`),
   title: {
-    default: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
-    template: `%s | ${SITE_CONFIG.name}`,
+    default: seoConfig.title,
+    template: `%s | ${brand.name}`,
   },
-  description: SITE_CONFIG.description,
-  keywords: [
-    'data',
-    'IA',
-    'PME',
-    'industrie',
-    'Bretagne',
-    'Lorient',
-    'automatisation',
-    'data engineering',
-    'data science',
-    'audit données',
-    'transformation digitale',
-  ],
-  authors: [{ name: SITE_CONFIG.name }],
-  creator: SITE_CONFIG.name,
+  description: seoConfig.description,
+  keywords: seoConfig.keywords,
+  authors: [{ name: brand.name }],
+  creator: brand.name,
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
+    url: `https://${brand.domain}`,
+    siteName: brand.name,
+    title: seoConfig.title,
+    description: seoConfig.description,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
-    description: SITE_CONFIG.description,
+    title: seoConfig.title,
+    description: seoConfig.description,
   },
   robots: {
     index: true,
@@ -61,6 +52,15 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  alternates: {
+    canonical: `https://${brand.domain}`,
+  },
+  other: {
+    'geo.region': 'FR-BRE',
+    'geo.placename': siteConfig.location.city,
+    'geo.position': `${siteConfig.location.coordinates.lat};${siteConfig.location.coordinates.lng}`,
+    'ICBM': `${siteConfig.location.coordinates.lat}, ${siteConfig.location.coordinates.lng}`,
   },
 };
 

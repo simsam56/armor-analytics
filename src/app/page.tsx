@@ -1,9 +1,8 @@
 import {
-  HeroV4,
-  StackGridV4,
-  StepsV4,
-  ProjectsV4,
-  AboutV4,
+  HeroV5,
+  WhyBaliseIA,
+  WhatWeDo,
+  UseCasesV5,
   FAQ,
   ContactSection,
 } from '@/components/sections';
@@ -13,11 +12,10 @@ export default function Home() {
   return (
     <>
       <JsonLd />
-      <HeroV4 />
-      <StackGridV4 />
-      <StepsV4 />
-      <ProjectsV4 limit={3} />
-      <AboutV4 />
+      <HeroV5 />
+      <WhyBaliseIA />
+      <WhatWeDo />
+      <UseCasesV5 limit={4} />
       <FAQ />
       <ContactSection />
     </>

@@ -3,6 +3,7 @@ import { Search, Zap, Brain, ArrowRight, Clock, CheckCircle, AlertCircle } from 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SERVICES, SITE_CONFIG } from '@/lib/constants';
+import { getCalendlyUrl } from '@/lib/site-config';
 
 const iconMap = {
   Search,
@@ -82,7 +83,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Ce que vous gagnez</h4>
                         <ul className="space-y-1">
-                          {service.benefits.map((benefit, idx) => (
+                          {service.whatYouGet.map((benefit, idx) => (
                             <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
                               <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                               {benefit}
@@ -91,19 +92,11 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                         </ul>
                       </div>
 
-                      {/* Livrables concrets V2 */}
+                      {/* Livrables concrets */}
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-2">Ce que vous recevez concrètement</h4>
                         <ul className="space-y-2">
-                          {service.concreteDeliverables?.map((deliverable, idx) => (
-                            <li key={idx} className="text-sm flex items-start gap-2">
-                              <span className="text-blue-600 mt-1 shrink-0">→</span>
-                              <span>
-                                <span className="text-gray-800">{deliverable.item}</span>
-                                <span className="text-gray-500 ml-1">({deliverable.format})</span>
-                              </span>
-                            </li>
-                          )) || service.deliverables.map((deliverable, idx) => (
+                          {service.deliverables.map((deliverable, idx) => (
                             <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
                               <span className="text-blue-600 mt-1">→</span>
                               {deliverable}
@@ -125,36 +118,6 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                         </div>
                       </div>
 
-                      {/* Variateurs de prix V2 */}
-                      {service.priceFactors && (
-                        <div className="bg-gray-50 rounded-lg p-3">
-                          <h4 className="text-sm font-medium text-gray-700 mb-2">
-                            Ce qui fait varier le prix
-                          </h4>
-                          <ul className="space-y-1">
-                            {service.priceFactors.map((factor, idx) => (
-                              <li key={idx} className="text-xs text-gray-600 flex items-start gap-1.5">
-                                <span className="text-gray-400">•</span>
-                                {factor}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Prérequis */}
-                      <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Prérequis</h4>
-                        <ul className="space-y-1">
-                          {service.prerequisites.map((prereq, idx) => (
-                            <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                              <span className="text-gray-400 mt-1">•</span>
-                              {prereq}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
                       {/* Note spéciale pour l'IA */}
                       {service.note && (
                         <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 flex gap-2">
@@ -170,7 +133,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                         variant={service.isEntryPoint ? 'default' : 'outline'}
                       >
                         <a
-                          href={`https://calendly.com/${SITE_CONFIG.calendly}`}
+                          href={getCalendlyUrl()}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -181,7 +144,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                   ) : (
                     <div className="space-y-4">
                       <ul className="space-y-2">
-                        {service.benefits.slice(0, 3).map((benefit, idx) => (
+                        {service.whatYouGet.slice(0, 3).map((benefit, idx) => (
                           <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
                             <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                             {benefit}
@@ -205,7 +168,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
         {showLink && (
           <div className="mt-12 text-center">
             <Button variant="outline" size="lg" asChild>
-              <Link href="/services" className="gap-2">
+              <Link href="/offres" className="gap-2">
                 Voir le détail des offres
                 <ArrowRight className="h-5 w-5" />
               </Link>
