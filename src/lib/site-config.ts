@@ -1,9 +1,9 @@
 /**
- * Site Configuration for Brand Switching
- * Toggle between "Balise Data" and "Donnée Ouest"
+ * Site Configuration - Balise IA
+ * Intelligence artificielle & automatisation pour PME bretonnes
  */
 
-export type BrandName = 'balise-data' | 'donnee-ouest';
+export type BrandName = 'balise-ia';
 
 interface BrandConfig {
   name: string;
@@ -14,7 +14,7 @@ interface BrandConfig {
   calendly: string;
   logo: {
     text: string;
-    icon: 'compass' | 'anchor';
+    icon: 'brain' | 'compass';
   };
   colors: {
     primary: string;
@@ -33,6 +33,7 @@ interface SiteConfig {
   location: {
     region: string;
     city: string;
+    secondaryCity: string;
     coordinates: {
       lat: number;
       lng: number;
@@ -43,73 +44,46 @@ interface SiteConfig {
     twitter?: string;
   };
   features: {
-    showBrandSwitcher: boolean;
     enableAnimations: boolean;
     showTechStack: boolean;
   };
 }
 
 export const siteConfig: SiteConfig = {
-  currentBrand: 'balise-data',
+  currentBrand: 'balise-ia',
 
   brands: {
-    'balise-data': {
-      name: 'Balise Data',
-      tagline: 'Data & automatisation pour PME industrielles',
-      description: 'Collectif data/IA spécialisé PME industrielles bretonnes. On supprime vos ressaisies et votre reporting manuel.',
-      domain: 'balisedata.fr',
-      email: 'contact@balisedata.fr',
-      calendly: 'balisedata/diagnostic',
+    'balise-ia': {
+      name: 'Balise IA',
+      tagline: 'Intelligence artificielle & automatisation pour PME bretonnes',
+      description:
+        'IA utile, pragmatique, orientée terrain et résultats mesurables. Automatisation, pilotage par la donnée et intelligence artificielle pour dirigeants de PME à Lorient, Rennes et en Bretagne.',
+      domain: 'balise-ia.fr',
+      email: 'contact@balise-ia.fr',
+      calendly: 'balise-ia/diagnostic',
       logo: {
-        text: 'Balise Data',
-        icon: 'compass',
+        text: 'Balise IA',
+        icon: 'brain',
       },
       colors: {
         primary: 'blue',
         accent: 'slate',
       },
       seo: {
-        title: 'Balise Data | Data & automatisation pour PME industrielles bretonnes',
-        description: 'On supprime vos ressaisies et votre reporting manuel. Collectif data/IA spécialisé PME industrielles en Bretagne. Diagnostic gratuit, ROI démontré.',
+        title: 'Balise IA | Intelligence artificielle pour PME en Bretagne',
+        description:
+          'Intelligence artificielle et automatisation pour PME bretonnes. Diagnostic IA gratuit, résultats mesurables. Basés à Lorient, interventions à Rennes et en Bretagne.',
         keywords: [
-          'automatisation PME',
-          'data industrie Bretagne',
-          'tableau de bord industriel',
-          'ERP PME',
-          'reporting automatisé',
-          'IA industrie',
-          'consultant data Bretagne',
-          'transformation digitale PME',
-        ],
-      },
-    },
-    'donnee-ouest': {
-      name: 'Donnée Ouest',
-      tagline: 'Data & automatisation pour PME industrielles',
-      description: 'Collectif data/IA spécialisé PME industrielles du Grand Ouest. On supprime vos ressaisies et votre reporting manuel.',
-      domain: 'donneeouest.fr',
-      email: 'contact@donneeouest.fr',
-      calendly: 'donneeouest/diagnostic',
-      logo: {
-        text: 'Donnée Ouest',
-        icon: 'anchor',
-      },
-      colors: {
-        primary: 'blue',
-        accent: 'slate',
-      },
-      seo: {
-        title: 'Donnée Ouest | Data & automatisation pour PME industrielles',
-        description: 'On supprime vos ressaisies et votre reporting manuel. Collectif data/IA spécialisé PME industrielles. Diagnostic gratuit, ROI démontré.',
-        keywords: [
-          'automatisation PME',
-          'data industrie',
-          'tableau de bord industriel',
-          'ERP PME',
-          'reporting automatisé',
-          'IA industrie',
-          'consultant data',
-          'transformation digitale PME',
+          'intelligence artificielle Bretagne',
+          'IA Bretagne',
+          'IA PME Bretagne',
+          'intelligence artificielle Lorient',
+          'intelligence artificielle Rennes',
+          'automatisation PME Bretagne',
+          'IA industrielle Bretagne',
+          'pilotage par la donnée PME',
+          'IA PME',
+          'automatisation entreprise Bretagne',
         ],
       },
     },
@@ -118,18 +92,18 @@ export const siteConfig: SiteConfig = {
   location: {
     region: 'Bretagne',
     city: 'Lorient',
+    secondaryCity: 'Rennes',
     coordinates: {
       lat: 47.7486,
-      lng: -3.3670,
+      lng: -3.367,
     },
   },
 
   social: {
-    linkedin: 'https://linkedin.com/company/balise-data',
+    linkedin: 'https://linkedin.com/company/balise-ia',
   },
 
   features: {
-    showBrandSwitcher: false,
     enableAnimations: true,
     showTechStack: true,
   },
@@ -158,4 +132,8 @@ export function getContactEmail(): string {
 
 export function getCalendlyUrl(): string {
   return `https://calendly.com/${getBrand().calendly}`;
+}
+
+export function getLocationString(): string {
+  return `Basés à ${siteConfig.location.city}, interventions à ${siteConfig.location.secondaryCity} et en ${siteConfig.location.region}`;
 }
