@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin, Calendar, Compass, Anchor, ArrowRight } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Calendar, Compass, Anchor, Brain, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 import { getBrand, getCalendlyUrl, getContactEmail, getTagline, siteConfig } from '@/lib/site-config';
 import { Button } from '@/components/ui/button';
@@ -8,7 +8,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const brand = getBrand();
   const tagline = getTagline();
-  const LogoIcon = brand.logo.icon === 'compass' ? Compass : Anchor;
+  const LogoIcon = brand.logo.icon === 'brain' ? Brain : brand.logo.icon === 'compass' ? Compass : Anchor;
 
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
@@ -18,10 +18,10 @@ export function Footer() {
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
               <h3 className="text-lg font-semibold text-white">
-                Prêt à supprimer vos ressaisies ?
+                Prêt à explorer l'IA pour votre PME ?
               </h3>
               <p className="text-blue-100 text-sm">
-                Diagnostic gratuit de 30 minutes, sans engagement.
+                Diagnostic IA gratuit de 30 minutes, sans engagement.
               </p>
             </div>
             <Button asChild variant="secondary" className="gap-2 shrink-0">
@@ -52,9 +52,8 @@ export function Footer() {
               </div>
             </Link>
             <p className="mt-4 max-w-md text-sm text-slate-600 leading-relaxed">
-              Collectif data & automatisation spécialisé PME industrielles. On supprime vos
-              ressaisies, on fiabilise vos données, et on vous donne les tableaux de bord pour
-              piloter votre activité.
+              Intelligence artificielle & automatisation pour PME bretonnes. IA pragmatique,
+              automatisation des process et pilotage par la donnée. Résultats mesurables garantis.
             </p>
             <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
               <MapPin className="h-4 w-4 text-blue-600" />
