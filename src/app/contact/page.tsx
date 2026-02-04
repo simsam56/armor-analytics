@@ -1,157 +1,148 @@
 import type { Metadata } from 'next';
-import { Calendar, Mail, MapPin, Linkedin, Clock, Shield, CheckCircle2 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { ContactForm, FAQ } from '@/components/sections';
-import { FadeIn } from '@/components/ui/fade-in';
-import { SITE_CONFIG } from '@/lib/constants';
-import { getCalendlyUrl, siteConfig } from '@/lib/site-config';
+import { Mail, MapPin, Clock, Shield } from 'lucide-react';
+import { ContactFormV7 } from '@/components/sections/ContactFormV7';
 
 export const metadata: Metadata = {
-  title: 'Contact - Diagnostic IA gratuit | Balise IA Bretagne',
+  title: 'Contact | Audit IA & données gratuit PME Bretagne — BALISE Data',
   description:
-    "Demandez un diagnostic IA gratuit de 30 minutes. Premier échange sans engagement pour comprendre vos enjeux IA et automatisation. Basés à Lorient.",
+    'Demandez un diagnostic gratuit IA et automatisation pour votre PME en Bretagne. Réponse sous 48h avec une première analyse personnalisée. Lorient, Rennes, Morbihan.',
+  keywords: 'audit données PME Bretagne, diagnostic IA gratuit Lorient, contact consultant automatisation Rennes, conseil data PME Morbihan',
   openGraph: {
-    title: 'Contact - Diagnostic IA gratuit | Balise IA Bretagne',
-    description:
-      "Demandez un diagnostic IA gratuit de 30 minutes. Sans engagement.",
+    title: 'Contact | Audit IA & données gratuit PME Bretagne',
+    description: 'Demandez un diagnostic gratuit. Réponse sous 48h.',
+    type: 'website',
+    locale: 'fr_FR',
   },
-  keywords: [
-    'contact Balise IA',
-    'diagnostic IA gratuit',
-    'consultant IA Lorient',
-    'consultant IA Bretagne',
-    'contact automatisation PME',
-  ],
+  alternates: {
+    canonical: 'https://balisedata.fr/contact',
+  },
 };
+
+const EMAIL = 'balisedata@gmail.com';
+
+const TRUST_POINTS = [
+  {
+    icon: Clock,
+    title: 'Réponse sous 48h',
+    description: 'Une première analyse personnalisée',
+  },
+  {
+    icon: Shield,
+    title: 'Sans engagement',
+    description: 'Échange libre et confidentiel',
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="py-16 sm:py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeIn direction="up">
-            <div className="text-center mb-12">
-              <p className="text-sm font-semibold uppercase tracking-wider text-blue-600">Contact</p>
-              <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
-                Parlons de votre projet IA
+      {/* Skip link for accessibility */}
+      <a href="#main-content" className="skip-link">
+        Aller au contenu principal
+      </a>
+
+      {/* Spacer for fixed header */}
+      <div className="h-[72px] sm:h-[104px]" />
+
+      <main id="main-content">
+        {/* Hero */}
+        <section className="section-padding bg-gradient-to-br from-[#F8FAF9] to-[#E2E8E5]" aria-labelledby="contact-title">
+          <div className="container-content">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in-up">
+              <h1
+                id="contact-title"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1E2922]"
+              >
+                Décrivez votre situation
               </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
-                Diagnostic gratuit de 30 minutes. On analyse votre contexte et on identifie
-                si l'IA ou l'automatisation peut vous aider. Sans engagement, sans jargon.
+              <p className="mt-4 text-lg text-[#64756C]">
+                On vous répond sous 48h avec une première analyse personnalisée.
               </p>
             </div>
-          </FadeIn>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Left side - Calendly + Info */}
-            <div className="space-y-6">
-              <FadeIn direction="up" delay={100}>
-                <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-slate-200">
-                  <h2 className="text-xl font-bold text-gray-900">Diagnostic IA gratuit</h2>
-                  <p className="mt-2 text-gray-600">
-                    30 minutes pour comprendre votre contexte, vos enjeux et identifier
-                    les opportunités d'IA et d'automatisation pour votre PME.
-                  </p>
-
-                  <ul className="mt-4 space-y-2">
-                    <li className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle2 className="h-4 w-4 text-green-600" />
-                      Sans engagement
-                    </li>
-                    <li className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle2 className="h-4 w-4 text-green-600" />
-                      Analyse de votre contexte
-                    </li>
-                    <li className="flex items-center gap-2 text-sm text-gray-600">
-                      <CheckCircle2 className="h-4 w-4 text-green-600" />
-                      Identification des quick wins
-                    </li>
-                  </ul>
-
-                  <div className="mt-6">
-                    <Button size="lg" asChild className="w-full gap-2">
-                      <a
-                        href={getCalendlyUrl()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Calendar className="h-5 w-5" />
-                        Réserver un créneau
-                      </a>
-                    </Button>
+            {/* Trust points */}
+            <div className="flex flex-wrap justify-center gap-8 mb-12">
+              {TRUST_POINTS.map((point, index) => (
+                <div key={point.title} className={`flex items-center gap-3 animate-fade-in-up delay-${(index + 1) * 100}`}>
+                  <div className="h-10 w-10 rounded-full bg-[#1B4D3E]/10 flex items-center justify-center">
+                    <point.icon className="h-5 w-5 text-[#1B4D3E]" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-[#1E2922]">{point.title}</p>
+                    <p className="text-sm text-[#64756C]">{point.description}</p>
                   </div>
                 </div>
-              </FadeIn>
-
-              <FadeIn direction="up" delay={200}>
-                <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg ring-1 ring-slate-200">
-                  <h2 className="text-lg font-bold text-gray-900 mb-4">Coordonnées</h2>
-                  <div className="space-y-3">
-                    <a
-                      href={`mailto:${SITE_CONFIG.email}`}
-                      className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-blue-300 hover:bg-blue-50"
-                    >
-                      <Mail className="h-5 w-5 text-blue-600 shrink-0" />
-                      <div>
-                        <p className="text-xs text-gray-500">Email</p>
-                        <p className="font-medium text-gray-900 text-sm">{SITE_CONFIG.email}</p>
-                      </div>
-                    </a>
-                    <a
-                      href={siteConfig.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 rounded-lg border border-gray-200 p-3 transition-colors hover:border-blue-300 hover:bg-blue-50"
-                    >
-                      <Linkedin className="h-5 w-5 text-blue-600 shrink-0" />
-                      <div>
-                        <p className="text-xs text-gray-500">LinkedIn</p>
-                        <p className="font-medium text-gray-900 text-sm">Balise IA</p>
-                      </div>
-                    </a>
-                    <div className="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
-                      <MapPin className="h-5 w-5 text-blue-600 shrink-0" />
-                      <div>
-                        <p className="text-xs text-gray-500">Localisation</p>
-                        <p className="font-medium text-gray-900 text-sm">
-                          {siteConfig.location.city}, {siteConfig.location.region}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          Interventions sur site en Bretagne
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-
-              <FadeIn direction="up" delay={300}>
-                <div className="rounded-xl bg-slate-50 p-4 ring-1 ring-slate-200">
-                  <div className="flex items-start gap-3">
-                    <Shield className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
-                    <div>
-                      <p className="font-medium text-slate-900 text-sm">Confidentialité garantie</p>
-                      <p className="text-xs text-slate-600 mt-1">
-                        NDA systématique. Vos données restent en France.
-                        On ne partage jamais vos informations.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
+              ))}
             </div>
-
-            {/* Right side - Form */}
-            <FadeIn direction="up" delay={200}>
-              <ContactForm />
-            </FadeIn>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <FAQ />
+        {/* Form section */}
+        <section className="section-padding bg-white" aria-labelledby="form-section">
+          <div className="container-content">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+              {/* Form */}
+              <div className="lg:col-span-7">
+                <div className="bg-[#F8FAF9] rounded-lg p-6 sm:p-8 lg:p-10 border border-[#E2E8E5]">
+                  <h2 id="form-section" className="sr-only">
+                    Formulaire de contact
+                  </h2>
+                  <ContactFormV7 />
+                </div>
+              </div>
+
+              {/* Contact info sidebar */}
+              <aside className="lg:col-span-5">
+                <div className="lg:sticky lg:top-32 space-y-8">
+                  {/* Direct contact */}
+                  <div>
+                    <h2 className="text-sm font-semibold text-[#1B4D3E] uppercase tracking-wide mb-4">
+                      Contact direct
+                    </h2>
+                    <a
+                      href={`mailto:${EMAIL}`}
+                      className="group flex items-center gap-3 text-[#1E2922] hover:text-[#1B4D3E] transition-colors"
+                    >
+                      <div className="h-10 w-10 rounded-full bg-[#F1F5F3] group-hover:bg-[#1B4D3E]/10 flex items-center justify-center transition-colors">
+                        <Mail className="h-5 w-5" aria-hidden="true" />
+                      </div>
+                      <span className="font-medium">{EMAIL}</span>
+                    </a>
+                  </div>
+
+                  {/* Location */}
+                  <div>
+                    <h2 className="text-sm font-semibold text-[#1B4D3E] uppercase tracking-wide mb-4">
+                      Localisation
+                    </h2>
+                    <div className="flex items-start gap-3">
+                      <div className="h-10 w-10 rounded-full bg-[#F1F5F3] flex items-center justify-center shrink-0">
+                        <MapPin className="h-5 w-5 text-[#1E2922]" aria-hidden="true" />
+                      </div>
+                      <address className="not-italic">
+                        <p className="font-medium text-[#1E2922]">Lorient, Morbihan</p>
+                        <p className="text-[#64756C]">Bretagne, France</p>
+                        <p className="mt-2 text-sm text-[#64756C]">
+                          Interventions sur site dans toute la Bretagne
+                        </p>
+                      </address>
+                    </div>
+                  </div>
+
+                  {/* Privacy note */}
+                  <div className="pt-6 border-t border-[#E2E8E5]">
+                    <p className="text-sm text-[#64756C] leading-relaxed">
+                      Vos informations sont confidentielles et ne seront utilisées que
+                      pour répondre à votre demande. Nous ne partageons jamais vos
+                      données avec des tiers.
+                    </p>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </main>
     </>
   );
 }

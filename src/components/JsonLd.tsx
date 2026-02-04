@@ -23,20 +23,16 @@ export function JsonLd() {
       },
       geoRadius: '150000',
     },
-    sameAs: [SITE_CONFIG.social.linkedin],
     serviceType: [
-      'Data Engineering',
-      'Data Science',
-      'Business Intelligence',
-      'Automatisation',
-      'Intelligence Artificielle',
+      'Automatisation de données',
+      'Tableaux de bord',
+      'Pilotage PME',
     ],
     knowsAbout: [
-      'Data Analytics',
-      'Machine Learning',
-      'ETL',
-      'Business Intelligence',
-      'Process Automation',
+      'Automatisation',
+      'Data',
+      'PME industrielles',
+      'Bretagne',
     ],
   };
 

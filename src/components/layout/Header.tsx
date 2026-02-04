@@ -1,60 +1,123 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Calendar, Compass, Anchor, Brain } from 'lucide-react';
+import { Menu, X, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { NAV_LINKS } from '@/lib/constants';
-import { getBrand, getCalendlyUrl, getTagline } from '@/lib/site-config';
+import { LogoWithIcon } from '@/components/ui/logo';
 import { cn } from '@/lib/utils';
+
+const NAV_LINKS = [
+  { href: '/', label: 'Accueil' },
+  { href: '/a-propos', label: 'À propos' },
+  { href: '/cas-clients', label: 'Cas clients' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const EMAIL = 'balisedata@gmail.com';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const brand = getBrand();
-  const tagline = getTagline();
-  const LogoIcon = brand.logo.icon === 'brain' ? Brain : brand.logo.icon === 'compass' ? Compass : Anchor;
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-8">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
-              <LogoIcon className="h-5 w-5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-slate-900 leading-tight">
-                {brand.logo.text}
-              </span>
-              <span className="text-[10px] text-slate-500 leading-tight hidden sm:block">
-                {tagline}
-              </span>
-            </div>
-          </Link>
+    <header
+      className={cn(
+        'fixed top-0 z-50 w-full transition-all duration-300',
+        scrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white'
+      )}
+      role="banner"
+    >
+      {/* Top bar */}
+      <div className="bg-[#1B4D3E] text-white py-2 hidden sm:block">
+        <div className="container-content flex justify-end">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="flex items-center gap-2 text-sm hover:text-[#74C69D] transition-colors"
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            {EMAIL}
+          </a>
+        </div>
+      </div>
 
-          {/* Desktop navigation */}
-          <div className="hidden lg:flex lg:gap-x-6">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+      {/* Main nav */}
+      <nav
+        className="container-content flex items-center justify-between py-3"
+        role="navigation"
+        aria-label="Navigation principale"
+      >
+        <Link
+          href="/"
+          className="flex items-center logo-hover focus-visible:outline-offset-4"
+          aria-label="BALISE Data - Accueil"
+        >
+          <LogoWithIcon size="md" />
+        </Link>
+
+        {/* Desktop nav */}
+        <div className="hidden lg:flex lg:items-center lg:gap-8">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-[#334139] transition-colors hover:text-[#1B4D3E] focus-visible:outline-offset-4"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Button
+            asChild
+            className="bg-[#1B4D3E] hover:bg-[#143D31] text-white rounded-md px-6 transition-base"
+          >
+            <Link href="/contact">
+              Diagnostic gratuit
+            </Link>
+          </Button>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="flex lg:hidden">
+        {/* Mobile */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="text-[#1B4D3E] hover:text-[#40916C] transition-colors sm:hidden"
+            aria-label="Envoyer un email"
+          >
+            <Mail className="h-5 w-5" aria-hidden="true" />
+          </a>
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700"
+            className="-m-2 inline-flex items-center justify-center rounded-lg p-3 text-[#334139] hover:bg-[#F8FAF9] transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
-            <span className="sr-only">Ouvrir le menu</span>
             {mobileMenuOpen ? (
               <X className="h-6 w-6" aria-hidden="true" />
             ) : (
@@ -62,46 +125,52 @@ export function Header() {
             )}
           </button>
         </div>
-
-        {/* Desktop CTAs */}
-        <div className="hidden lg:flex lg:items-center lg:gap-x-3">
-          <Button variant="ghost" asChild size="sm">
-            <Link href="/contact">Nous contacter</Link>
-          </Button>
-          <Button asChild size="sm" className="gap-2">
-            <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-              <Calendar className="h-4 w-4" />
-              Diagnostic gratuit
-            </a>
-          </Button>
-        </div>
       </nav>
 
       {/* Mobile menu */}
-      <div className={cn('lg:hidden', mobileMenuOpen ? 'block' : 'hidden')}>
-        <div className="space-y-1 px-4 pb-4">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block rounded-lg px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600"
-              onClick={() => setMobileMenuOpen(false)}
+      <div
+        id="mobile-menu"
+        className={cn(
+          'lg:hidden fixed inset-x-0 top-[72px] sm:top-[88px] bottom-0 bg-white transition-all duration-300',
+          mobileMenuOpen ? 'opacity-100 visible mobile-menu-enter' : 'opacity-0 invisible pointer-events-none'
+        )}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <div className="h-full flex flex-col px-6 py-6">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="flex items-center gap-2 text-sm text-[#64756C] hover:text-[#1B4D3E] py-3 border-b border-[#E2E8E5] sm:hidden"
+          >
+            <Mail className="h-4 w-4" aria-hidden="true" />
+            {EMAIL}
+          </a>
+
+          <nav className="flex-1 space-y-1 mt-4" aria-label="Menu mobile">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="block py-4 text-lg font-medium text-[#334139] hover:text-[#1B4D3E] border-b border-[#E2E8E5] transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="pt-6 pb-safe">
+            <Button
+              asChild
+              size="lg"
+              className="w-full bg-[#1B4D3E] hover:bg-[#143D31] text-white text-base py-6 rounded-md"
             >
-              {link.label}
-            </Link>
-          ))}
-          <div className="mt-4 flex flex-col gap-2 pt-4 border-t border-slate-200">
-            <Button variant="outline" asChild className="w-full">
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Nous contacter
+                Diagnostic gratuit
               </Link>
             </Button>
-            <Button asChild className="w-full gap-2">
-              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-                <Calendar className="h-4 w-4" />
-                Diagnostic gratuit – 30 min
-              </a>
-            </Button>
+            <p className="mt-4 text-center text-sm text-[#64756C]">
+              Réponse sous 48h — Sans engagement
+            </p>
           </div>
         </div>
       </div>

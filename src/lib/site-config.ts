@@ -1,9 +1,9 @@
 /**
- * Site Configuration - Balise IA
- * Intelligence artificielle & automatisation pour PME bretonnes
+ * Site Configuration - Balise Data V6
+ * Automatisation & pilotage des données pour PME bretonnes
  */
 
-export type BrandName = 'balise-ia';
+export type BrandName = 'balise-data';
 
 interface BrandConfig {
   name: string;
@@ -11,13 +11,13 @@ interface BrandConfig {
   description: string;
   domain: string;
   email: string;
-  calendly: string;
   logo: {
     text: string;
-    icon: 'brain' | 'compass';
+    icon: 'compass' | 'anchor';
   };
   colors: {
     primary: string;
+    secondary: string;
     accent: string;
   };
   seo: {
@@ -33,7 +33,6 @@ interface SiteConfig {
   location: {
     region: string;
     city: string;
-    secondaryCity: string;
     coordinates: {
       lat: number;
       lng: number;
@@ -41,49 +40,47 @@ interface SiteConfig {
   };
   social: {
     linkedin?: string;
-    twitter?: string;
   };
   features: {
     enableAnimations: boolean;
-    showTechStack: boolean;
   };
 }
 
 export const siteConfig: SiteConfig = {
-  currentBrand: 'balise-ia',
+  currentBrand: 'balise-data',
 
   brands: {
-    'balise-ia': {
-      name: 'Balise IA',
-      tagline: 'Intelligence artificielle & automatisation pour PME bretonnes',
+    'balise-data': {
+      name: 'Balise Data',
+      tagline: 'Automatisation & pilotage des données pour PME bretonnes',
       description:
-        'IA utile, pragmatique, orientée terrain et résultats mesurables. Automatisation, pilotage par la donnée et intelligence artificielle pour dirigeants de PME à Lorient, Rennes et en Bretagne.',
-      domain: 'balise-ia.fr',
-      email: 'contact@balise-ia.fr',
-      calendly: 'balise-ia/diagnostic',
+        'Balise Data aide les PME bretonnes à supprimer les tâches manuelles, fiabiliser leurs données et piloter leur activité avec des solutions concrètes et progressives.',
+      domain: 'balisedata.fr',
+      email: 'contact@balisedata.fr',
       logo: {
-        text: 'Balise IA',
-        icon: 'brain',
+        text: 'Balise Data',
+        icon: 'compass',
       },
       colors: {
         primary: 'blue',
-        accent: 'slate',
+        secondary: 'slate',
+        accent: 'blue',
       },
       seo: {
-        title: 'Balise IA | Intelligence artificielle pour PME en Bretagne',
+        title: 'Balise Data | Automatisation & pilotage des données pour PME bretonnes',
         description:
-          'Intelligence artificielle et automatisation pour PME bretonnes. Diagnostic IA gratuit, résultats mesurables. Basés à Lorient, interventions à Rennes et en Bretagne.',
+          'Balise Data aide les PME bretonnes à supprimer les tâches manuelles, fiabiliser leurs données et piloter leur activité. Basés à Lorient, interventions en Bretagne.',
         keywords: [
-          'intelligence artificielle Bretagne',
-          'IA Bretagne',
-          'IA PME Bretagne',
-          'intelligence artificielle Lorient',
-          'intelligence artificielle Rennes',
           'automatisation PME Bretagne',
-          'IA industrielle Bretagne',
-          'pilotage par la donnée PME',
-          'IA PME',
-          'automatisation entreprise Bretagne',
+          'automatisation processus PME',
+          'reporting direction PME',
+          'pilotage des données PME',
+          'consultant data Lorient',
+          'gestion données PME',
+          'tableau de bord PME',
+          'automatisation Excel',
+          'connexion ERP PME',
+          'data PME Bretagne',
         ],
       },
     },
@@ -92,7 +89,6 @@ export const siteConfig: SiteConfig = {
   location: {
     region: 'Bretagne',
     city: 'Lorient',
-    secondaryCity: 'Rennes',
     coordinates: {
       lat: 47.7486,
       lng: -3.367,
@@ -100,12 +96,11 @@ export const siteConfig: SiteConfig = {
   },
 
   social: {
-    linkedin: 'https://linkedin.com/company/balise-ia',
+    linkedin: 'https://linkedin.com/company/balise-data',
   },
 
   features: {
     enableAnimations: true,
-    showTechStack: true,
   },
 };
 
@@ -130,10 +125,6 @@ export function getContactEmail(): string {
   return getBrand().email;
 }
 
-export function getCalendlyUrl(): string {
-  return `https://calendly.com/${getBrand().calendly}`;
-}
-
 export function getLocationString(): string {
-  return `Basés à ${siteConfig.location.city}, interventions à ${siteConfig.location.secondaryCity} et en ${siteConfig.location.region}`;
+  return `Basés à ${siteConfig.location.city}, interventions en ${siteConfig.location.region}`;
 }

@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter, Geist_Mono } from 'next/font/google';
 import { Header, Footer } from '@/components/layout';
 import { getBrand, getSeoConfig, siteConfig } from '@/lib/site-config';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
   display: 'swap',
 });
@@ -71,9 +71,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
