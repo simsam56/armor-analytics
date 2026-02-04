@@ -84,6 +84,31 @@ const SERVICES = [
 
 const AREAS = ['Lorient', 'Vannes', 'Quimper', 'Brest', 'Rennes', 'Saint-Brieuc', 'Nantes'];
 
+// Équipe - 3 profils tech
+const TEAM = [
+  {
+    name: 'Simon Hingant',
+    role: 'Fondateur — Data Scientist',
+    bio: 'Ingénieur génie des systèmes industriels, Simon a passé 7 ans en industrie avant de fonder BALISE Data. Spécialiste Python, data pipelines et IA appliquée, il intervient sur l\'architecture des solutions et la stratégie data des clients.',
+    specialties: ['Python', 'Machine Learning', 'Data Architecture'],
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80',
+  },
+  {
+    name: 'Yann Le Goff',
+    role: 'Développeur Full Stack',
+    bio: 'Diplômé ISEN Brest, Yann a 5 ans d\'expérience en développement web et intégration API. Passé par une startup bretonne, il maîtrise les enjeux d\'agilité des PME. Il développe les interfaces et connecteurs entre vos outils.',
+    specialties: ['Next.js', 'Python', 'API REST'],
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
+  },
+  {
+    name: 'Morgane Quéré',
+    role: 'Data Engineer',
+    bio: 'Diplômée IMT Atlantique, Morgane cumule 4 ans d\'expérience en data engineering. Experte ETL et pipelines de données, elle conçoit les architectures robustes qui font circuler vos données en temps réel.',
+    specialties: ['ETL', 'dbt', 'Cloud Data'],
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80',
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -247,8 +272,57 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Équipe */}
+        <section className="section-padding bg-white" aria-labelledby="team-title">
+          <div className="container-content">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <h2 id="team-title" className="text-2xl sm:text-3xl font-bold text-[#1E2922]">
+                L&apos;équipe
+              </h2>
+              <p className="mt-4 text-[#64756C]">
+                3 profils tech complémentaires, tous expérimentés en environnement industriel.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {TEAM.map((member, index) => (
+                <div
+                  key={member.name}
+                  className={`bg-[#F8FAF9] rounded-xl overflow-hidden border border-[#E2E8E5] card-hover animate-fade-in-up`}
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-[#1E2922]">{member.name}</h3>
+                    <p className="text-[#1B4D3E] font-medium text-sm">{member.role}</p>
+                    <p className="mt-3 text-sm text-[#64756C]">{member.bio}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {member.specialties.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-2 py-1 bg-[#1B4D3E]/10 text-[#1B4D3E] text-xs font-medium rounded"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Zone d'intervention */}
-        <section className="section-padding bg-white" aria-labelledby="area-title">
+        <section className="section-padding bg-[#F8FAF9]" aria-labelledby="area-title">
           <div className="container-content">
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 id="area-title" className="text-2xl sm:text-3xl font-bold text-[#1E2922]">
@@ -277,31 +351,41 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="section-padding bg-[#F8FAF9]" aria-labelledby="cta-title">
+        <section className="section-padding bg-white" aria-labelledby="cta-title">
           <div className="container-content">
             <div className="max-w-3xl mx-auto text-center">
               <h2 id="cta-title" className="text-2xl sm:text-3xl font-bold text-[#1E2922]">
-                Prêt à automatiser vos flux ?
+                Envie d&apos;en discuter ?
               </h2>
               <p className="mt-4 text-lg text-[#64756C]">
-                Décrivez votre situation, on vous répond sous 48h avec une première analyse.
+                Évaluez votre potentiel IA en 3 minutes ou contactez-nous directement.
               </p>
 
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
                   className="bg-[#1B4D3E] hover:bg-[#143D31] text-white text-base px-8 py-6 cta-pulse"
                 >
-                  <Link href="/contact">
-                    Demander un diagnostic gratuit
+                  <Link href="/audit-ia">
+                    Faire mon audit IA
                     <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-[#1B4D3E] text-[#1B4D3E] hover:bg-[#1B4D3E]/5 text-base px-8 py-6"
+                >
+                  <Link href="/contact">
+                    Nous contacter
                   </Link>
                 </Button>
               </div>
 
               <p className="mt-6 text-sm text-[#94A39B]">
-                balisedata@gmail.com — Sans engagement
+                balisedata@gmail.com
               </p>
             </div>
           </div>

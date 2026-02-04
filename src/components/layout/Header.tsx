@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
   { href: '/', label: 'Accueil' },
+  { href: '/audit-ia', label: 'Audit IA', highlight: true },
   { href: '/a-propos', label: 'À propos' },
   { href: '/cas-clients', label: 'Cas clients' },
   { href: '/contact', label: 'Contact' },
@@ -86,9 +87,19 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-[#334139] transition-colors hover:text-[#1B4D3E] focus-visible:outline-offset-4"
+              className={cn(
+                "text-sm font-medium transition-colors focus-visible:outline-offset-4",
+                'highlight' in link && link.highlight
+                  ? "text-[#1B4D3E] font-semibold"
+                  : "text-[#334139] hover:text-[#1B4D3E]"
+              )}
             >
               {link.label}
+              {'highlight' in link && link.highlight && (
+                <span className="ml-1.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-[#1B4D3E] text-white">
+                  NEW
+                </span>
+              )}
             </Link>
           ))}
           <Button
@@ -96,7 +107,7 @@ export function Header() {
             className="bg-[#1B4D3E] hover:bg-[#143D31] text-white rounded-md px-6 transition-base"
           >
             <Link href="/contact">
-              Diagnostic gratuit
+              Nous contacter
             </Link>
           </Button>
         </div>
@@ -164,12 +175,12 @@ export function Header() {
               size="lg"
               className="w-full bg-[#1B4D3E] hover:bg-[#143D31] text-white text-base py-6 rounded-md"
             >
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Diagnostic gratuit
+              <Link href="/audit-ia" onClick={() => setMobileMenuOpen(false)}>
+                Faire mon audit IA
               </Link>
             </Button>
             <p className="mt-4 text-center text-sm text-[#64756C]">
-              Réponse sous 48h — Sans engagement
+              Gratuit • 3 minutes • Résultats immédiats
             </p>
           </div>
         </div>

@@ -8,6 +8,7 @@ const EMAIL = 'balisedata@gmail.com';
 const FOOTER_LINKS = {
   navigation: [
     { href: '/', label: 'Accueil' },
+    { href: '/audit-ia', label: 'Audit IA' },
     { href: '/a-propos', label: 'À propos' },
     { href: '/cas-clients', label: 'Cas clients' },
     { href: '/contact', label: 'Contact' },
@@ -43,8 +44,8 @@ export function Footer() {
                 variant="outline"
                 className="border-white/20 text-white hover:bg-white hover:text-[#1B4D3E] transition-base"
               >
-                <Link href="/contact">
-                  Diagnostic gratuit
+                <Link href="/audit-ia">
+                  Évaluer mon potentiel IA
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

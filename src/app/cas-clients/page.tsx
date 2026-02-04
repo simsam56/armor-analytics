@@ -235,25 +235,34 @@ export default function CasClientsPage() {
                 Votre situation ressemble à l&apos;une de ces problématiques ?
               </h2>
               <p className="mt-4 text-lg text-white/80">
-                Décrivez votre contexte, on vous répond sous 48h avec une première analyse
-                et des pistes d&apos;amélioration.
+                Faites le point sur votre maturité data en 3 minutes et découvrez les projets adaptés à votre contexte.
               </p>
 
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#1B4D3E] hover:bg-[#F1F5F3] text-base px-10 py-6 rounded-md shadow-lg hover-lift"
+                  className="bg-white text-[#1B4D3E] hover:bg-[#F1F5F3] text-base px-8 py-6 rounded-md shadow-lg hover-lift"
+                >
+                  <Link href="/audit-ia">
+                    Faire mon audit IA
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10 text-base px-8 py-6 rounded-md"
                 >
                   <Link href="/contact">
-                    Demander un diagnostic gratuit
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    Échanger avec nous
                   </Link>
                 </Button>
               </div>
 
               <p className="mt-6 text-sm text-white/60">
-                balisedata@gmail.com — Sans engagement — Lorient, Bretagne
+                balisedata@gmail.com — Lorient, Bretagne
               </p>
             </div>
           </div>

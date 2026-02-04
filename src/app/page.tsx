@@ -105,13 +105,28 @@ const TESTIMONIALS = [
   },
 ];
 
-// Équipe fondateurs
+// Équipe fondateurs (3 profils tech)
 const TEAM = [
   {
     name: 'Simon Hingant',
     role: 'Fondateur — Data Scientist',
-    bio: 'Ingénieur data, 7 ans d\'expérience industrie.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80',
+    bio: 'Ingénieur génie des systèmes industriels, 7 ans d\'expérience en industrie. Spécialiste Python, data pipelines et IA appliquée.',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&q=80',
+    linkedin: '#',
+  },
+  {
+    name: 'Yann Le Goff',
+    role: 'Développeur Full Stack',
+    bio: 'Diplômé ISEN Brest, 5 ans d\'expérience en développement web et intégration API. Ex-startup bretonne. Expert Next.js et Python.',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&q=80',
+    linkedin: '#',
+  },
+  {
+    name: 'Morgane Quéré',
+    role: 'Data Engineer',
+    bio: 'Diplômée IMT Atlantique, 4 ans en data engineering. Experte ETL, pipelines de données et architectures cloud.',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80',
+    linkedin: '#',
   },
 ];
 
@@ -189,8 +204,8 @@ export default function HomePage() {
                   size="lg"
                   className="bg-white text-[#1B4D3E] hover:bg-[#F1F5F3] text-base px-8 py-6 rounded-md shadow-lg cta-pulse"
                 >
-                  <Link href="/contact">
-                    Diagnostic gratuit
+                  <Link href="/audit-ia">
+                    Évaluer mon potentiel IA
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -202,7 +217,7 @@ export default function HomePage() {
                 >
                   <Link href="/cas-clients">
                     <Play className="mr-2 h-4 w-4" />
-                    Voir les résultats
+                    Voir les résultats clients
                   </Link>
                 </Button>
               </div>
@@ -523,14 +538,16 @@ export default function HomePage() {
                 </Button>
               </div>
 
-              {/* Fondateurs */}
-              <div className="grid gap-6 animate-fade-in-right">
-                {TEAM.map((member) => (
+              {/* Équipe - 3 profils */}
+              <div className="space-y-4 animate-fade-in-right">
+                <h3 className="text-lg font-semibold text-[#1E2922] mb-4">Notre équipe</h3>
+                {TEAM.map((member, index) => (
                   <div
                     key={member.name}
-                    className="flex items-center gap-6 bg-[#F8FAF9] rounded-xl p-6 border border-[#E2E8E5] card-hover"
+                    className="flex items-start gap-4 bg-[#F8FAF9] rounded-xl p-4 border border-[#E2E8E5] card-hover"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="relative h-24 w-24 rounded-xl overflow-hidden shrink-0">
+                    <div className="relative h-16 w-16 rounded-full overflow-hidden shrink-0 ring-2 ring-[#1B4D3E]/20">
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -538,10 +555,10 @@ export default function HomePage() {
                         className="object-cover"
                       />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-[#1E2922]">{member.name}</h3>
-                      <p className="text-[#1B4D3E] font-medium">{member.role}</p>
-                      <p className="mt-2 text-sm text-[#64756C]">{member.bio}</p>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-base font-semibold text-[#1E2922]">{member.name}</h4>
+                      <p className="text-sm text-[#1B4D3E] font-medium">{member.role}</p>
+                      <p className="mt-1 text-xs text-[#64756C] line-clamp-2">{member.bio}</p>
                     </div>
                   </div>
                 ))}
@@ -555,20 +572,31 @@ export default function HomePage() {
           <div className="container-content">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                Prêt à automatiser vos données ?
+                Prêt à passer à l&apos;action ?
               </h2>
               <p className="mt-4 text-lg text-white/80">
-                Décrivez votre situation. Réponse sous 48h avec une première analyse.
+                Faites le point sur votre maturité data en 3 minutes, ou échangeons directement.
               </p>
 
-              <div className="mt-8">
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#1B4D3E] hover:bg-[#F1F5F3] text-base px-10 py-6 rounded-md shadow-lg cta-pulse"
+                  className="bg-white text-[#1B4D3E] hover:bg-[#F1F5F3] text-base px-8 py-6 rounded-md shadow-lg cta-pulse"
+                >
+                  <Link href="/audit-ia">
+                    Faire mon audit IA
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10 text-base px-8 py-6 rounded-md"
                 >
                   <Link href="/contact">
-                    Demander un diagnostic gratuit
+                    Nous contacter
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -576,7 +604,7 @@ export default function HomePage() {
 
               <p className="mt-6 text-sm text-white/60 flex items-center justify-center gap-2">
                 <Users className="h-4 w-4" />
-                balisedata@gmail.com — Sans engagement
+                balisedata@gmail.com
               </p>
             </div>
           </div>
