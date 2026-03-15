@@ -5,14 +5,12 @@ import Link from 'next/link';
 import { Menu, X, Calendar, Compass, Anchor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NAV_LINKS } from '@/lib/constants';
-import { getBrand, getCalendlyUrl, getTagline } from '@/lib/site-config';
+import { siteConfig, getCalendlyUrl } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const brand = getBrand();
-  const tagline = getTagline();
-  const LogoIcon = brand.logo.icon === 'compass' ? Compass : Anchor;
+  const LogoIcon = siteConfig.logo.icon === 'compass' ? Compass : Anchor;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
@@ -25,10 +23,10 @@ export function Header() {
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold text-slate-900 leading-tight">
-                {brand.logo.text}
+                {siteConfig.logo.text}
               </span>
               <span className="text-[10px] text-slate-500 leading-tight hidden sm:block">
-                {tagline}
+                {siteConfig.tagline}
               </span>
             </div>
           </Link>

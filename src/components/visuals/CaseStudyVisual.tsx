@@ -348,7 +348,7 @@ export function MetricsBeforeAfter({ className = '' }: VisualProps) {
 
       {/* Before section */}
       <rect x="20" y="20" width="260" height="160" fill="#fef2f2" rx="8" />
-      <text x="150" y="45" textAnchor="middle" fill="#991b1b" fontSize="14" fontWeight="600">Avant Balise Data</text>
+      <text x="150" y="45" textAnchor="middle" fill="#991b1b" fontSize="14" fontWeight="600">Avant balise-ia</text>
 
       {/* Before metrics */}
       <rect x="35" y="60" width="110" height="50" fill="white" rx="4" />
@@ -372,7 +372,7 @@ export function MetricsBeforeAfter({ className = '' }: VisualProps) {
 
       {/* After section */}
       <rect x="320" y="20" width="260" height="160" fill="#f0fdf4" rx="8" />
-      <text x="450" y="45" textAnchor="middle" fill="#166534" fontSize="14" fontWeight="600">Après Balise Data</text>
+      <text x="450" y="45" textAnchor="middle" fill="#166534" fontSize="14" fontWeight="600">Après balise-ia</text>
 
       {/* After metrics */}
       <rect x="335" y="60" width="110" height="50" fill="white" rx="4" />

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Nos offres d'accompagnement data pour PME industrielles bretonnes : diagnostic et priorisation, projets d'automatisation, solutions IA ciblées. Tarifs transparents, résultats mesurables.",
   openGraph: {
-    title: 'Offres - Diagnostic, Automatisation & IA | Armor Analytics',
+    title: 'Offres - Diagnostic, Automatisation & IA | balise-ia',
     description:
       "Nos offres d'accompagnement data pour PME industrielles bretonnes : diagnostic, automatisation, IA. Tarifs transparents, résultats mesurables.",
   },
@@ -31,7 +31,7 @@ export default function ServicesPage() {
               Un collectif, pas une ESN
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Armor Analytics est un collectif de spécialistes seniors : data engineers, développeurs,
+              balise-ia est un collectif de spécialistes seniors : data engineers, développeurs,
               data scientists. Vous avez un interlocuteur unique et on mobilise les compétences
               nécessaires selon votre projet.
             </p>

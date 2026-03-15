@@ -1,11 +1,9 @@
 export { Hero } from './Hero';
 export { HeroV3 } from './HeroV3';
 export { Services } from './Services';
-export { Process } from './Process';
 export { Projects } from './Projects';
 export { FAQ } from './FAQ';
 export { ContactForm } from './ContactForm';
-export { ContactFormV3 } from './ContactFormV3';
 export { ContactSection } from './ContactSection';
 export { Methodology } from './Methodology';
 export { StackGrid } from './StackGrid';

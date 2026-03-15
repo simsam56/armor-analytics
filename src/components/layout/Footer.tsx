@@ -1,14 +1,12 @@
 import Link from 'next/link';
 import { Linkedin, Mail, MapPin, Calendar, Compass, Anchor, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
-import { getBrand, getCalendlyUrl, getContactEmail, getTagline, siteConfig } from '@/lib/site-config';
+import { siteConfig, getCalendlyUrl, getContactEmail } from '@/lib/site-config';
 import { Button } from '@/components/ui/button';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const brand = getBrand();
-  const tagline = getTagline();
-  const LogoIcon = brand.logo.icon === 'compass' ? Compass : Anchor;
+  const LogoIcon = siteConfig.logo.icon === 'compass' ? Compass : Anchor;
 
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
@@ -46,9 +44,9 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-slate-900 leading-tight">
-                  {brand.logo.text}
+                  {siteConfig.logo.text}
                 </span>
-                <span className="text-xs text-slate-500 leading-tight">{tagline}</span>
+                <span className="text-xs text-slate-500 leading-tight">{siteConfig.tagline}</span>
               </div>
             </Link>
             <p className="mt-4 max-w-md text-sm text-slate-600 leading-relaxed">
@@ -115,7 +113,7 @@ export function Footer() {
         <div className="mt-12 border-t border-slate-200 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-slate-500">
-              © {currentYear} {brand.name}. Tous droits réservés.
+              © {currentYear} {siteConfig.name}. Tous droits réservés.
             </p>
             <div className="flex gap-6">
               <Link

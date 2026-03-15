@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Découvrez des projets concrets réalisés pour des PME industrielles bretonnes : automatisation, centralisation des données, optimisation par l'IA. Contexte, approche et résultats.",
   openGraph: {
-    title: "Projets - Cas d'usage data et IA | Armor Analytics",
+    title: "Projets - Cas d'usage data et IA | balise-ia",
     description:
       "Découvrez des projets concrets réalisés pour des PME industrielles bretonnes : automatisation, centralisation des données, optimisation par l'IA.",
   },

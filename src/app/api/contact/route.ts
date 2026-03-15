@@ -1,31 +1,63 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { z } from 'zod';
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  company: string;
-  phone?: string;
-  message: string;
+// Zod schema for contact form validation
+const contactSchema = z.object({
+  name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères.').max(100),
+  email: z.string().email('Adresse email invalide.'),
+  company: z.string().min(1, "Le nom de l'entreprise est requis.").max(200),
+  role: z.string().max(100).optional(),
+  phone: z.string().max(20).optional(),
+  message: z.string().min(10, 'Le message doit contenir au moins 10 caractères.').max(5000),
+  // Honeypot field — must be empty
+  website: z.string().max(0, 'Champ invalide.').optional(),
+});
+
+// Simple in-memory rate limiter (per IP, 5 requests per 15 minutes)
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+
+  entry.count++;
+  return entry.count > RATE_LIMIT_MAX;
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const body: ContactFormData = await request.json();
-
-    // Basic validation
-    if (!body.name || !body.email || !body.company || !body.message) {
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    if (isRateLimited(ip)) {
       return NextResponse.json(
-        { error: 'Tous les champs obligatoires doivent être remplis.' },
-        { status: 400 }
+        { error: 'Trop de demandes. Veuillez réessayer dans quelques minutes.' },
+        { status: 429 }
       );
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
-      return NextResponse.json({ error: 'Adresse email invalide.' }, { status: 400 });
+    const body = await request.json();
+
+    // Honeypot check — if filled, silently succeed (bot trap)
+    if (body.website) {
+      return NextResponse.json({ success: true }, { status: 200 });
     }
+
+    // Zod validation
+    const result = contactSchema.safeParse(body);
+    if (!result.success) {
+      const firstError = result.error.issues[0]?.message || 'Données invalides.';
+      return NextResponse.json({ error: firstError }, { status: 400 });
+    }
+
+    const data = result.data;
 
     // Initialize Resend at runtime
     const apiKey = process.env.RESEND_API_KEY;
@@ -42,29 +74,31 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL || 'contact@armor-analytics.fr',
-      replyTo: body.email,
-      subject: `[Armor Analytics] Nouvelle demande de ${body.company}`,
+      to: process.env.CONTACT_EMAIL || 'contact@balise-ia.fr',
+      replyTo: data.email,
+      subject: `[balise-ia] Nouvelle demande de ${data.company}`,
       html: `
         <h2>Nouvelle demande de contact</h2>
-        <p><strong>Nom :</strong> ${body.name}</p>
-        <p><strong>Email :</strong> ${body.email}</p>
-        <p><strong>Entreprise :</strong> ${body.company}</p>
-        ${body.phone ? `<p><strong>Téléphone :</strong> ${body.phone}</p>` : ''}
+        <p><strong>Nom :</strong> ${data.name}</p>
+        <p><strong>Email :</strong> ${data.email}</p>
+        <p><strong>Entreprise :</strong> ${data.company}</p>
+        ${data.role ? `<p><strong>Fonction :</strong> ${data.role}</p>` : ''}
+        ${data.phone ? `<p><strong>Téléphone :</strong> ${data.phone}</p>` : ''}
         <hr />
         <h3>Message</h3>
-        <p>${body.message.replace(/\n/g, '<br />')}</p>
+        <p>${data.message.replace(/\n/g, '<br />')}</p>
       `,
       text: `
 Nouvelle demande de contact
 
-Nom : ${body.name}
-Email : ${body.email}
-Entreprise : ${body.company}
-${body.phone ? `Téléphone : ${body.phone}` : ''}
+Nom : ${data.name}
+Email : ${data.email}
+Entreprise : ${data.company}
+${data.role ? `Fonction : ${data.role}` : ''}
+${data.phone ? `Téléphone : ${data.phone}` : ''}
 
 Message :
-${body.message}
+${data.message}
       `,
     });
 

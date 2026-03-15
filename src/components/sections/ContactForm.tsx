@@ -15,6 +15,7 @@ interface FormData {
   role: string;
   phone: string;
   message: string;
+  website: string;
 }
 
 interface ContactFormProps {
@@ -36,6 +37,7 @@ export function ContactForm({
     role: '',
     phone: '',
     message: '',
+    website: '',
   });
 
   const handleChange = (
@@ -78,6 +80,20 @@ export function ContactForm({
       <p className="mt-2 text-gray-600">{subtitle}</p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+        {/* Honeypot anti-spam — hidden from real users */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <label htmlFor="website">Website</label>
+          <input
+            type="text"
+            id="website"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-1.5">
             <Label htmlFor="name">Nom complet *</Label>

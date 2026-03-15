@@ -13,7 +13,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getBrand, getCalendlyUrl, siteConfig } from '@/lib/site-config';
+import { getCalendlyUrl, siteConfig } from '@/lib/site-config';
 import { HeroIllustration } from '@/components/visuals';
 
 interface HeroV3Props {
@@ -23,7 +23,6 @@ interface HeroV3Props {
 }
 
 export function HeroV3({ variant = 'home', title, subtitle }: HeroV3Props) {
-  const brand = getBrand();
   const isHome = variant === 'home';
 
   const defaultTitle = 'On supprime vos ressaisies\net votre reporting manuel';
