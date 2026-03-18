@@ -24,8 +24,8 @@ interface ContactFormProps {
 }
 
 export function ContactForm({
-  title = 'Demander un diagnostic',
-  subtitle = 'Décrivez-nous votre contexte. On vous recontacte sous 48h avec une première analyse.',
+  title = 'Décrivez votre situation',
+  subtitle = 'On vous recontacte sous 48h avec une première analyse gratuite.',
 }: ContactFormProps) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);

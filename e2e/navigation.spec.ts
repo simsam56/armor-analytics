@@ -54,7 +54,7 @@ test.describe('Navigation et pages principales', () => {
   test('/audit-ia se charge avec le quiz', async ({ page }) => {
     await page.goto('/audit-ia');
     await expect(page).toHaveTitle(/Audit/);
-    await expect(page.locator('h1')).toContainText('maturité data');
+    await expect(page.locator('h1')).toContainText('données');
   });
 
   test('/mentions-legales se charge', async ({ page }) => {

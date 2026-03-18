@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ArrowRight, Mail, Building2, Loader2 } from 'lucide-react';
+import { ArrowRight, Building2, Loader2, Mail, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,9 +16,8 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
   const [company, setCompany] = useState('');
   const [errors, setErrors] = useState<{ email?: string; company?: string }>({});
 
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const validateEmail = (value: string): boolean => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,13 +25,13 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
     const newErrors: { email?: string; company?: string } = {};
 
     if (!email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = 'Requis pour recevoir vos résultats';
     } else if (!validateEmail(email)) {
-      newErrors.email = 'Email invalide';
+      newErrors.email = 'Format d\u2019email invalide';
     }
 
     if (!company.trim()) {
-      newErrors.company = 'Le nom de l\'entreprise est requis';
+      newErrors.company = 'Requis pour personnaliser vos recommandations';
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -45,69 +44,60 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
   };
 
   return (
-    <div className="animate-fade-in-up">
+    <div>
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-[#1B4D3E]/10 rounded-full mb-4">
-          <Mail className="w-8 h-8 text-[#1B4D3E]" />
-        </div>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] mb-3">
-          Dernière étape !
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+          Vos résultats sont prêts
         </h2>
-        <p className="text-[#64756C] text-lg max-w-md mx-auto">
-          Entrez vos coordonnées pour recevoir votre analyse personnalisée et vos recommandations.
+        <p className="mt-2 text-slate-600">
+          Indiquez votre entreprise et votre email pour recevoir votre analyse personnalisée.
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-5">
-        {/* Company */}
-        <div className="space-y-2">
-          <Label htmlFor="company" className="text-[#1E2922] font-medium flex items-center gap-2">
-            <Building2 className="w-4 h-4" />
-            Nom de votre entreprise
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+        <div className="space-y-1.5">
+          <Label htmlFor="audit-company" className="text-slate-900 font-medium flex items-center gap-2">
+            <Building2 className="w-4 h-4 text-slate-400" />
+            Entreprise
           </Label>
           <Input
-            id="company"
+            id="audit-company"
             type="text"
             value={company}
             onChange={(e) => {
               setCompany(e.target.value);
-              if (errors.company) setErrors(prev => ({ ...prev, company: undefined }));
+              if (errors.company) setErrors((prev) => ({ ...prev, company: undefined }));
             }}
-            placeholder="Ex: Armor Plastiques"
-            className={`h-12 text-base ${errors.company ? 'border-red-500' : 'border-[#E2E8E5]'} focus:border-[#1B4D3E] focus:ring-[#1B4D3E]`}
+            placeholder="Nom de votre entreprise"
+            className={`h-12 text-base ${errors.company ? 'border-red-400' : ''}`}
           />
-          {errors.company && (
-            <p className="text-sm text-red-600">{errors.company}</p>
-          )}
+          {errors.company && <p className="text-xs text-red-600">{errors.company}</p>}
         </div>
 
-        {/* Email */}
-        <div className="space-y-2">
-          <Label htmlFor="email" className="text-[#1E2922] font-medium flex items-center gap-2">
-            <Mail className="w-4 h-4" />
-            Votre email professionnel
+        <div className="space-y-1.5">
+          <Label htmlFor="audit-email" className="text-slate-900 font-medium flex items-center gap-2">
+            <Mail className="w-4 h-4 text-slate-400" />
+            Email professionnel
           </Label>
           <Input
-            id="email"
+            id="audit-email"
             type="email"
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
-              if (errors.email) setErrors(prev => ({ ...prev, email: undefined }));
+              if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
             }}
-            placeholder="prenom.nom@entreprise.fr"
-            className={`h-12 text-base ${errors.email ? 'border-red-500' : 'border-[#E2E8E5]'} focus:border-[#1B4D3E] focus:ring-[#1B4D3E]`}
+            placeholder="prenom@entreprise.fr"
+            className={`h-12 text-base ${errors.email ? 'border-red-400' : ''}`}
           />
-          {errors.email && (
-            <p className="text-sm text-red-600">{errors.email}</p>
-          )}
+          {errors.email && <p className="text-xs text-red-600">{errors.email}</p>}
         </div>
 
         <Button
           type="submit"
           size="lg"
           disabled={isLoading}
-          className="w-full bg-[#1B4D3E] hover:bg-[#143D31] text-white h-14 text-base rounded-xl"
+          className="w-full h-13 text-base"
         >
           {isLoading ? (
             <>
@@ -122,9 +112,10 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
           )}
         </Button>
 
-        <p className="text-center text-sm text-[#94A39B]">
-          Vos données restent confidentielles et ne seront jamais partagées.
-        </p>
+        <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-1">
+          <Shield className="h-3.5 w-3.5" />
+          <span>Données confidentielles · Pas de spam · Pas de revente</span>
+        </div>
       </form>
     </div>
   );

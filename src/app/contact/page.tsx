@@ -103,13 +103,10 @@ export default function ContactPage() {
 
             {/* Right side - Form */}
             <div>
-              <div className="mb-6">
-                <h2 className="text-lg font-semibold text-slate-900">Décrivez votre situation</h2>
-                <p className="mt-1 text-sm text-slate-500">
-                  Quels outils utilisez-vous ? Qu&apos;est-ce qui vous prend du temps ? On vous répond sous 48h avec une première analyse.
-                </p>
-              </div>
-              <ContactForm />
+              <ContactForm
+                title="Envoyez-nous un message"
+                subtitle="Décrivez votre contexte en quelques lignes. On vous répond sous 48h avec une première analyse gratuite."
+              />
             </div>
           </div>
         </div>
