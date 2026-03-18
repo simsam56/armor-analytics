@@ -48,7 +48,7 @@ test.describe('Navigation et pages principales', () => {
   test('/a-propos se charge', async ({ page }) => {
     await page.goto('/a-propos');
     await expect(page).toHaveTitle(/propos/);
-    await expect(page.locator('h1')).toContainText('experts');
+    await expect(page.locator('h1')).toContainText('collectif');
   });
 
   test('/audit-ia se charge avec le quiz', async ({ page }) => {

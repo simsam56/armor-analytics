@@ -244,9 +244,9 @@ const CASE_STUDIES = [
 ];
 
 const STATS = [
-  { value: '15+', label: 'Clients accompagnés' },
-  { value: '80%', label: 'Temps gagné en moyenne' },
-  { value: '48h', label: 'Délai de réponse' },
+  { value: '5', label: 'Secteurs industriels couverts' },
+  { value: '48h', label: 'Délai de première réponse' },
+  { value: '100%', label: 'Projets livrés en Bretagne' },
 ];
 
 export default function CasClientsPage() {

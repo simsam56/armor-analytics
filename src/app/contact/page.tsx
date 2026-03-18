@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Calendar, Mail, MapPin, Linkedin } from 'lucide-react';
+import { Calendar, Mail, MapPin, Linkedin, CheckCircle, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ContactForm, Hero } from '@/components/sections';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -20,7 +20,7 @@ export default function ContactPage() {
     <>
       <Hero
         title="Parlons de votre projet"
-        subtitle="Premier échange gratuit et sans engagement. Nous analysons votre contexte et vous proposons une approche adaptée à vos enjeux et votre budget."
+        subtitle="Premier échange gratuit et sans engagement. On analyse votre contexte et on vous propose une approche adaptée à vos enjeux."
       />
 
       <section className="py-16 sm:py-20 bg-white">
@@ -31,9 +31,25 @@ export default function ContactPage() {
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
                 <h2 className="text-2xl font-bold text-slate-900">Appel découverte gratuit</h2>
                 <p className="mt-2 text-slate-600">
-                  30 minutes pour comprendre votre contexte et identifier les opportunités.
-                  Sans engagement, sans jargon, on parle concret.
+                  30 minutes pour comprendre votre contexte, identifier les irritants et évaluer les opportunités. On parle concret, pas jargon.
                 </p>
+
+                {/* Réassurance inline */}
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500">
+                  <span className="flex items-center gap-1.5">
+                    <CheckCircle className="h-3.5 w-3.5 text-[#40916C]" />
+                    Sans engagement
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Shield className="h-3.5 w-3.5 text-[#40916C]" />
+                    NDA possible
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5 text-[#40916C]" />
+                    Réponse sous 48h
+                  </span>
+                </div>
+
                 <div className="mt-6">
                   <Button size="lg" asChild className="w-full gap-2">
                     <a
@@ -86,7 +102,15 @@ export default function ContactPage() {
             </div>
 
             {/* Right side - Form */}
-            <ContactForm />
+            <div>
+              <div className="mb-6">
+                <h2 className="text-lg font-semibold text-slate-900">Décrivez votre situation</h2>
+                <p className="mt-1 text-sm text-slate-500">
+                  Quels outils utilisez-vous ? Qu&apos;est-ce qui vous prend du temps ? On vous répond sous 48h avec une première analyse.
+                </p>
+              </div>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

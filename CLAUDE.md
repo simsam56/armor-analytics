@@ -14,81 +14,57 @@ npm run build        # Build production
 npm run lint         # ESLint avec --fix
 npm run typecheck    # TypeScript check
 npm run format       # Prettier write
-npm run test:e2e     # Tests E2E Playwright (17 tests)
+npm run test:e2e     # Tests E2E Playwright (17 tests, chromium)
+npm run test:e2e:ui  # Tests E2E avec interface graphique
 ```
 
-## Stack
-
-- **Next.js 16** (App Router) + **React 19** + **TypeScript** (strict)
-- **Tailwind CSS v4** via `@tailwindcss/postcss`
-- **shadcn/ui** (New York style, RSC, `@/components/ui/`)
-- **Resend** (emails contact + audit)
-- **googleapis** (Google Sheets, lead capture, optionnel)
-- **Zod** (validation runtime)
-- **Playwright** (tests E2E)
-- Path alias: `@/*` → `./src/*`
+Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.ts`
 
 ## Marque — Règles strictes
 
 - **Nom** : `balise-ia` (minuscules). Jamais "Armor Analytics", "BALISE Data", "balisedata".
 - **Email** : `contact@balise-ia.fr`. Jamais `balisedata@gmail.com`.
 - **URL** : `https://balise-ia.fr`. Jamais `balisedata.fr`, `armor-analytics.fr`.
-- **Palette** : vert breton `#1B4D3E` (primary), `#40916C` (accent), `slate-*` (gris). Jamais `blue-*` ni `gray-*`.
-- **Logo** : phare "Clean Silhouette" V3 — défini en SVG dans `src/components/ui/logo.tsx`
+- **Palette** : vert breton `#1B4D3E` (primary), `#40916C` (accent), `slate-*` (gris). Jamais `blue-*` ni `gray-*` dans les classes Tailwind.
+- **Logo** : phare "Clean Silhouette" V3 — SVG inline dans `src/components/ui/logo.tsx`
 - **Ton** : concret, terrain, sobre, orienté ROI. Pas de jargon startup.
 
 ## Architecture
 
-### Configuration
+### Configuration unique
 
-`src/lib/constants.ts` — source de vérité unique : `SITE_CONFIG`, `KEY_METRICS`, `SERVICES`, `PROJECTS`, `FAQ_ITEMS`, `NAV_LINKS`, `TRUST_SIGNALS` + helpers (`getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`)
+`src/lib/constants.ts` est la seule source de vérité. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES`, `PROJECTS`, `FAQ_ITEMS`, `NAV_LINKS`, `PROCESS_STEPS`, `TRUST_SIGNALS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`. Il n'y a pas de `site-config.ts` (supprimé et fusionné).
 
 ### Design system
 
-- **Hero homepage** : fond `#0F2B23`, CTA blanc inversé
-- **Hero pages intérieures** : fond `#0F2B23`, titre blanc, sous-titre `white/70`
-- **Header** : transparent sur hero → solide blanc au scroll (transition 300ms)
+- **Hero homepage** (`HeroV3`) : fond `#0F2B23`, CTA blanc inversé
+- **Hero pages intérieures** (`Hero`) : fond `#0F2B23`, API simplifiée `title` + `subtitle`
+- **Header** : transparent sur fond sombre → solide blanc au scroll (`scrolled` state). Logo bascule entre variant `white` et `default`.
 - **Sections** : alternance `bg-white` / `bg-slate-50`, padding `py-20 sm:py-24`
 - **Labels section** : `text-sm font-semibold uppercase tracking-wider text-[#40916C]`
 - **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
+- **CTA sombres** : fond `#0F2B23`, bouton blanc inversé `bg-white text-[#1B4D3E]`
 
-### Composants
+### Pages et routing
 
-- `src/components/layout/` — Header (transparent→solide), Footer (CTA vert + liens villes)
-- `src/components/sections/` — Hero, HeroV3, Services, Methodology, Projects, About, FAQ, ContactSection, ContactForm, TrustBand, StackGrid, LogoCarousel
-- `src/components/audit/` — Quiz audit IA complet
-- `src/components/ui/` — shadcn/ui + logo, animated-counter, fade-in
-
-### Pages
-
-- `/` — Homepage (Hero + TrustBand + Services + Methodology + Projects + About + FAQ + Contact)
-- `/services` — Offres détaillées
-- `/projets` — Cas clients avec avant/après
-- `/cas-clients` — Études de cas détaillées (5 cas avec témoignages)
-- `/a-propos` — Histoire, valeurs, avantages, zone d'intervention
-- `/audit-ia` — Quiz interactif 12 questions
-- `/contact` — Formulaire + Calendly
-- `/interventions/[ville]` — 6 pages SEO localisées (SSG)
+22 pages au total. Les pages `/interventions/[ville]` utilisent `generateStaticParams` pour pré-rendre 6 villes bretonnes (Lorient, Vannes, Quimper, Rennes, Brest, Saint-Brieuc). La homepage compose : HeroV3 → TrustBand → Services → Methodology → Projects → About → FAQ → ContactSection.
 
 ### API Routes
 
-- `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot, envoi Resend
-- `POST /api/audit` — Scoring quiz, email résultats, Google Sheets (optionnel)
+- `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot (`name="website"` off-screen), envoi Resend
+- `POST /api/audit` — Scoring quiz, email résultats, sauvegarde Google Sheets (optionnel)
 
 ### Tests E2E
 
-17 tests Playwright dans `e2e/` :
-- `navigation.spec.ts` — Pages principales, header, footer
-- `seo.spec.ts` — Meta tags, sitemap, robots, pages localisées, 404
-- `contact-form.spec.ts` — Validation, saisie, honeypot
+17 tests Playwright dans `e2e/` couvrant : navigation sur toutes les pages, meta tags SEO, sitemap/robots, pages localisées + 404, formulaire de contact (validation, saisie, honeypot). Le serveur de dev est réutilisé si déjà lancé.
 
 ## Code style
 
 - Prettier: semi, singleQuote, tabWidth 2, printWidth 100
-- ESLint: next/core-web-vitals + typescript + prettier
+- ESLint: next/core-web-vitals + typescript + prettier, `no-console` warn sauf warn/error
 - Tailwind: `slate-*` pour les gris, `[#1B4D3E]` / `[#40916C]` pour le brand
-- Apostrophes JSX : `&apos;` (texte français)
+- Apostrophes en JSX : utiliser `&apos;` (texte français avec beaucoup de `d'`, `l'`, `n'`)
 
 ## Environnement
 
-Voir `.env.example` pour toutes les variables nécessaires.
+Voir `.env.example` pour toutes les variables. Les 3 variables Resend sont requises, les 3 Google Sheets sont optionnelles.
