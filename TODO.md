@@ -13,49 +13,58 @@
 - [x] .env.example créé
 - [x] CLAUDE.md, README.md, TODO.md remis à jour
 
-## Phase 1 — Cohérence de marque
+## Phase 1 — Cohérence de marque (fait)
 
-- [ ] Migrer toute la palette bleu → vert brand (#1B4D3E / #40916C)
-- [ ] Mettre à jour les CSS custom properties (globals.css)
-- [ ] Unifier Hero.tsx et HeroV3.tsx
-- [ ] Supprimer ContactFormV7.tsx (orphelin)
-- [ ] Fusionner site-config.ts et constants.ts en une source de vérité
+- [x] Palette bleu → vert brand (#1B4D3E / #40916C)
+- [x] CSS custom properties (globals.css) alignées
+- [x] gray-* → slate-* partout
+- [x] ContactFormV7.tsx supprimé
+- [x] site-config.ts fusionné dans constants.ts
+- [x] Header premium : transparent → solide au scroll
 
-## Phase 2 — Homepage premium
+## Phase 2 — Homepage premium (fait)
 
-- [ ] Refonte hero : premium, sobre, orienté conversion
-- [ ] Bande de réassurance (trust signals visuels)
-- [ ] Section services plus lisible (cards propres, pas de bleu SaaS)
-- [ ] Section méthode en 3 étapes (design épuré)
-- [ ] Preuves / résultats concrets (avant/après)
-- [ ] CTA forts vers diagnostic + contact
-- [ ] Ancrage Lorient / Bretagne subtil
+- [x] Hero refondu : fond vert profond, CTA blanc inversé
+- [x] TrustBand (4 signaux de réassurance)
+- [x] Section Services redesignée (cards premium)
+- [x] Section Methodology refondée (3 étapes + métriques)
+- [x] Labels de section uniformisés
 
-## Phase 3 — Pages secondaires
+## Phase 3 — Pages secondaires (fait)
 
-- [ ] Page services : cohérence visuelle avec homepage
-- [ ] Page cas clients : mise en forme premium
-- [ ] Page à propos : crédibilité, équipe, valeurs
-- [ ] Page audit IA : quiz fonctionnel et soigné
-- [ ] Page contact : formulaire + Calendly intégrés
+- [x] Hero pages intérieures unifié (fond #0F2B23)
+- [x] /services refondue
+- [x] /projets refondue
+- [x] /cas-clients refondue
+- [x] /a-propos refondue (histoire, valeurs, avantages, zone intervention)
+- [x] /audit-ia harmonisée
+- [x] /contact refondue
+- [x] /merci et /mentions-légales harmonisées
 
-## Phase 4 — Crédibilité & preuves
+## Phase 4 — SEO local & performance (fait)
+
+- [x] 6 pages localisées /interventions/{ville} (SSG)
+- [x] Sitemap enrichi (13 URLs)
+- [x] next.config.ts remotePatterns pour images
+- [x] Liens villes dans le footer
+
+## Phase 5 — Tests (fait)
+
+- [x] Playwright installé et configuré
+- [x] 17 tests E2E (navigation, SEO, formulaire)
+- [x] Scripts test:e2e et test:e2e:ui ajoutés
+
+## Phase 6 — Crédibilité & preuves (à faire — nécessite contenu réel)
 
 - [ ] Vrais témoignages clients (quand disponibles)
 - [ ] Logos clients réels (quand autorisés)
 - [ ] Métriques réelles vérifiées
 - [ ] Photos équipe / terrain (quand disponibles)
 
-## Phase 5 — SEO local & performance
+## Phase 7 — Finitions (à faire)
 
 - [ ] Images OpenGraph personnalisées par page
-- [ ] Pages localisées (Lorient, Vannes, Quimper, Rennes)
-- [ ] Audit Lighthouse et optimisations
-- [ ] next/image pour toutes les images
-
-## Phase 6 — Qualité & monitoring
-
-- [ ] Tests E2E (Playwright)
-- [ ] Tests unitaires API
+- [ ] Audit Lighthouse complet et optimisations
 - [ ] Sentry pour le monitoring erreurs
 - [ ] Domaine personnalisé configuré
+- [ ] Tests unitaires API contact + audit

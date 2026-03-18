@@ -14,6 +14,7 @@ npm run build        # Build production
 npm run lint         # ESLint avec --fix
 npm run typecheck    # TypeScript check
 npm run format       # Prettier write
+npm run test:e2e     # Tests E2E Playwright (17 tests)
 ```
 
 ## Stack
@@ -24,6 +25,7 @@ npm run format       # Prettier write
 - **Resend** (emails contact + audit)
 - **googleapis** (Google Sheets, lead capture, optionnel)
 - **Zod** (validation runtime)
+- **Playwright** (tests E2E)
 - Path alias: `@/*` → `./src/*`
 
 ## Marque — Règles strictes
@@ -31,7 +33,7 @@ npm run format       # Prettier write
 - **Nom** : `balise-ia` (minuscules). Jamais "Armor Analytics", "BALISE Data", "balisedata".
 - **Email** : `contact@balise-ia.fr`. Jamais `balisedata@gmail.com`.
 - **URL** : `https://balise-ia.fr`. Jamais `balisedata.fr`, `armor-analytics.fr`.
-- **Palette** : vert breton `#1B4D3E` (primary), `#40916C` (accent). Pas de bleu.
+- **Palette** : vert breton `#1B4D3E` (primary), `#40916C` (accent), `slate-*` (gris). Jamais `blue-*` ni `gray-*`.
 - **Logo** : phare "Clean Silhouette" V3 — défini en SVG dans `src/components/ui/logo.tsx`
 - **Ton** : concret, terrain, sobre, orienté ROI. Pas de jargon startup.
 
@@ -39,42 +41,53 @@ npm run format       # Prettier write
 
 ### Configuration
 
-`src/lib/constants.ts` — source de vérité unique : `SITE_CONFIG`, `KEY_METRICS`, `SERVICES`, `PROJECTS`, `FAQ_ITEMS`, `NAV_LINKS`, `TRUST_SIGNALS`
+`src/lib/constants.ts` — source de vérité unique : `SITE_CONFIG`, `KEY_METRICS`, `SERVICES`, `PROJECTS`, `FAQ_ITEMS`, `NAV_LINKS`, `TRUST_SIGNALS` + helpers (`getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`)
 
-`src/lib/site-config.ts` — config typée avec helpers (`getCalendlyUrl()`, `getContactEmail()`). Utilisé par Header, Footer, layout. À terme, fusionner avec constants.ts.
+### Design system
+
+- **Hero homepage** : fond `#0F2B23`, CTA blanc inversé
+- **Hero pages intérieures** : fond `#0F2B23`, titre blanc, sous-titre `white/70`
+- **Header** : transparent sur hero → solide blanc au scroll (transition 300ms)
+- **Sections** : alternance `bg-white` / `bg-slate-50`, padding `py-20 sm:py-24`
+- **Labels section** : `text-sm font-semibold uppercase tracking-wider text-[#40916C]`
+- **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
 
 ### Composants
 
-- `src/components/layout/` — Header, Footer (logo SVG phare intégré)
-- `src/components/sections/` — Sections des pages (Hero, Services, FAQ, About, Contact...)
-- `src/components/audit/` — Quiz audit IA (AuditQuiz, QuizQuestion, QuizProgress, EmailCapture, AuditResult)
-- `src/components/ui/` — shadcn/ui + custom (logo, animated-counter, fade-in)
-- `src/components/visuals/` — Illustrations SVG (hero, cas clients, métriques avant/après)
+- `src/components/layout/` — Header (transparent→solide), Footer (CTA vert + liens villes)
+- `src/components/sections/` — Hero, HeroV3, Services, Methodology, Projects, About, FAQ, ContactSection, ContactForm, TrustBand, StackGrid, LogoCarousel
+- `src/components/audit/` — Quiz audit IA complet
+- `src/components/ui/` — shadcn/ui + logo, animated-counter, fade-in
+
+### Pages
+
+- `/` — Homepage (Hero + TrustBand + Services + Methodology + Projects + About + FAQ + Contact)
+- `/services` — Offres détaillées
+- `/projets` — Cas clients avec avant/après
+- `/cas-clients` — Études de cas détaillées (5 cas avec témoignages)
+- `/a-propos` — Histoire, valeurs, avantages, zone d'intervention
+- `/audit-ia` — Quiz interactif 12 questions
+- `/contact` — Formulaire + Calendly
+- `/interventions/[ville]` — 6 pages SEO localisées (SSG)
 
 ### API Routes
 
 - `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot, envoi Resend
 - `POST /api/audit` — Scoring quiz, email résultats, Google Sheets (optionnel)
 
-### Données
+### Tests E2E
 
-- `src/data/audit-questions.ts` — Questions quiz avec scoring pondéré
-- `src/data/project-recommendations.ts` — Recommandations par réponse
-- `src/lib/audit-scoring.ts` — Calcul score, niveau maturité, recommandations
+17 tests Playwright dans `e2e/` :
+- `navigation.spec.ts` — Pages principales, header, footer
+- `seo.spec.ts` — Meta tags, sitemap, robots, pages localisées, 404
+- `contact-form.spec.ts` — Validation, saisie, honeypot
 
 ## Code style
 
 - Prettier: semi, singleQuote, tabWidth 2, printWidth 100
 - ESLint: next/core-web-vitals + typescript + prettier
+- Tailwind: `slate-*` pour les gris, `[#1B4D3E]` / `[#40916C]` pour le brand
 - Apostrophes JSX : `&apos;` (texte français)
-- `no-console` warn (sauf warn/error)
-
-## Dettes connues
-
-- `phone: '06 XX XX XX XX'` placeholder dans constants.ts
-- `site-config.ts` et `constants.ts` à fusionner (duplication partielle)
-- Palette bleu résiduelle dans certaines sections (migration en cours)
-- Pas de tests (E2E ni unitaires)
 
 ## Environnement
 
