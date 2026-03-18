@@ -14,7 +14,7 @@ npm run build        # Build production
 npm run lint         # ESLint avec --fix
 npm run typecheck    # TypeScript check
 npm run format       # Prettier write
-npm run test:e2e     # Tests E2E Playwright (17 tests, chromium)
+npm run test:e2e     # Tests E2E Playwright (24 tests, chromium)
 npm run test:e2e:ui  # Tests E2E avec interface graphique
 ```
 
@@ -56,7 +56,13 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 
 ### Tests E2E
 
-17 tests Playwright dans `e2e/` couvrant : navigation sur toutes les pages, meta tags SEO, sitemap/robots, pages localisées + 404, formulaire de contact (validation, saisie, honeypot). Le serveur de dev est réutilisé si déjà lancé.
+24 tests Playwright dans `e2e/` :
+- `navigation.spec.ts` — 8 tests : pages principales, header, footer
+- `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
+- `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
+- `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
+
+Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`).
 
 ## Code style
 
