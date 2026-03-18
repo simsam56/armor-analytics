@@ -75,9 +75,9 @@ export function ContactForm({
   };
 
   return (
-    <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg border border-gray-100">
-      <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
-      <p className="mt-2 text-gray-600">{subtitle}</p>
+    <div className="rounded-2xl bg-white p-6 sm:p-8 shadow-lg border border-slate-100">
+      <h3 className="text-2xl font-bold text-slate-900">{title}</h3>
+      <p className="mt-2 text-slate-600">{subtitle}</p>
 
       <form onSubmit={handleSubmit} className="mt-6 space-y-5">
         {/* Honeypot anti-spam — hidden from real users */}
@@ -179,9 +179,9 @@ export function ContactForm({
             placeholder="Ex : On utilise Sage + Excel, 2 personnes passent 3h/jour à ressaisir les commandes, on aimerait automatiser et avoir un tableau de bord..."
           />
           {/* Aide contextuelle V2 */}
-          <div className="bg-gray-50 rounded-lg p-3 mt-2">
-            <p className="text-xs font-medium text-gray-700 mb-1.5">Pour nous aider à vous répondre :</p>
-            <ul className="text-xs text-gray-500 space-y-0.5">
+          <div className="bg-slate-50 rounded-lg p-3 mt-2">
+            <p className="text-xs font-medium text-slate-700 mb-1.5">Pour nous aider à vous répondre :</p>
+            <ul className="text-xs text-slate-500 space-y-0.5">
               <li>• Quels outils utilisez-vous ? (ERP, Excel, emails...)</li>
               <li>• Quel est votre irritant principal ?</li>
               <li>• Volume / fréquence concernés ?</li>
@@ -207,7 +207,7 @@ export function ContactForm({
 
         {/* Réassurance et RGPD V2 */}
         <div className="space-y-3 pt-2">
-          <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-slate-500">
             <span className="flex items-center gap-1">
               <Clock className="h-3.5 w-3.5" />
               Réponse sous 48h
@@ -217,7 +217,7 @@ export function ContactForm({
               NDA possible dès le 1er échange
             </span>
           </div>
-          <p className="text-xs text-gray-400 text-center">
+          <p className="text-xs text-slate-400 text-center">
             Vos données sont utilisées uniquement pour répondre à votre demande.
             Conformité RGPD. Pas de spam, pas de revente.
           </p>

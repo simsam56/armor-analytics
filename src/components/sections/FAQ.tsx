@@ -44,17 +44,18 @@ const faqJsonLd = {
 
 export function FAQ() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 sm:py-24 bg-slate-50">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">FAQ</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Questions fréquentes
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-slate-600">
             On répond clairement à vos questions sur notre fonctionnement, nos tarifs et nos
             engagements.
           </p>
@@ -67,7 +68,7 @@ export function FAQ() {
 
             return (
               <div key={category}>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-blue-600 mb-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-[#1B4D3E] mb-4">
                   {category}
                 </h3>
                 <Accordion type="single" collapsible className="w-full">
@@ -75,12 +76,12 @@ export function FAQ() {
                     <AccordionItem
                       key={index}
                       value={`${category}-${index}`}
-                      className="bg-white rounded-lg mb-2 px-4 border border-gray-200"
+                      className="bg-white rounded-xl mb-2 px-5 border border-slate-200"
                     >
-                      <AccordionTrigger className="text-left text-base font-medium text-gray-900 hover:text-blue-600 py-4">
+                      <AccordionTrigger className="text-left text-base font-medium text-slate-900 hover:text-[#1B4D3E] py-4">
                         {item.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-gray-600 pb-4">
+                      <AccordionContent className="text-slate-600 pb-4 leading-relaxed">
                         {item.answer}
                       </AccordionContent>
                     </AccordionItem>

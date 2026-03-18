@@ -15,24 +15,24 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <section className="py-32 bg-gradient-to-b from-blue-50 to-white">
+    <section className="py-32 bg-white">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
           <CheckCircle className="h-10 w-10 text-green-600" />
         </div>
 
-        <h1 className="mt-8 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        <h1 className="mt-8 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Merci pour votre message
         </h1>
 
-        <p className="mt-6 text-lg leading-8 text-gray-600">
+        <p className="mt-6 text-lg leading-8 text-slate-600">
           Votre demande a bien été envoyée. Nous analysons votre contexte et vous recontactons sous
           48h avec une première réponse.
         </p>
 
         <div className="mt-12 rounded-2xl bg-white p-8 shadow-lg">
-          <h2 className="text-xl font-bold text-gray-900">En attendant...</h2>
-          <p className="mt-4 text-gray-600">
+          <h2 className="text-xl font-bold text-slate-900">En attendant...</h2>
+          <p className="mt-4 text-slate-600">
             Vous pouvez aussi réserver directement un créneau de 30 minutes pour un premier échange.
           </p>
           <div className="mt-6">

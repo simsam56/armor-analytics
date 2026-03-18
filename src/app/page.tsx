@@ -1,6 +1,5 @@
 import {
   HeroV3,
-  StackGrid,
   Services,
   Methodology,
   Projects,
@@ -8,17 +7,16 @@ import {
   FAQ,
   ContactSection,
 } from '@/components/sections';
+import { TrustBand } from '@/components/sections/TrustBand';
 import { JsonLd } from '@/components/JsonLd';
-import { MetricsSection } from '@/components/sections/MetricsSection';
 
 export default function Home() {
   return (
     <>
       <JsonLd />
       <HeroV3 />
-      <StackGrid />
+      <TrustBand />
       <Services />
-      <MetricsSection />
       <Methodology />
       <Projects />
       <About />

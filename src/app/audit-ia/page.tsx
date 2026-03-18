@@ -3,7 +3,7 @@ import { AuditQuiz } from '@/components/audit';
 import { Lightbulb, Clock, Target, BarChart3, Cog, Users, TrendingUp, Shield, ChevronDown, CheckCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Audit IA Gratuit | Évaluez votre maturité data | BALISE Data',
+  title: 'Audit IA Gratuit | Évaluez votre maturité data | balise-ia',
   description: 'Quiz en 3 minutes pour évaluer la maturité data de votre PME industrielle. Score personnalisé, points forts identifiés et 3 projets IA recommandés avec estimation de ROI. Gratuit et sans engagement.',
   keywords: [
     'audit IA PME',
@@ -152,52 +152,42 @@ const FAQ_ITEMS = [
 export default function AuditPage() {
   return (
     <>
-      {/* Skip link */}
-      <a href="#main-content" className="skip-link">
-        Aller au contenu principal
-      </a>
+      {/* Hero */}
+      <section className="bg-[#0F2B23] py-12 sm:py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="inline-block px-4 py-1.5 bg-white/10 text-[#40916C] text-sm font-medium rounded-full mb-4">
+              Gratuit et sans engagement
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+              Évaluez la maturité data de votre entreprise
+            </h1>
+            <p className="mt-4 text-lg text-white/70">
+              12 questions · 3 minutes · Résultats immédiats
+            </p>
 
-      {/* Spacer for fixed header */}
-      <div className="h-[72px] sm:h-[104px]" />
-
-      <main id="main-content">
-        {/* Hero section - Compact */}
-        <section className="bg-gradient-to-b from-[#1B4D3E] to-[#143D31] py-8 md:py-12">
-          <div className="container-content">
-            <div className="text-center max-w-3xl mx-auto">
-              <span className="inline-block px-4 py-1.5 bg-white/10 text-[#74C69D] text-sm font-medium rounded-full mb-4">
-                Gratuit et sans engagement
-              </span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-                Évaluez la maturité data de votre entreprise
-              </h1>
-              <p className="text-lg text-white/80 mb-6">
-                12 questions • 3 minutes • Résultats immédiats
-              </p>
-
-              {/* Benefits - Inline */}
-              <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                {BENEFITS.map((benefit) => (
-                  <div key={benefit.title} className="flex items-center gap-2 text-white/90">
-                    <benefit.icon className="w-5 h-5 text-[#74C69D]" />
-                    <span className="text-sm font-medium">{benefit.title}</span>
-                  </div>
-                ))}
-              </div>
+            <div className="mt-6 flex flex-wrap justify-center gap-6">
+              {BENEFITS.map((benefit) => (
+                <div key={benefit.title} className="flex items-center gap-2 text-white/80">
+                  <benefit.icon className="w-4 h-4 text-[#40916C]" />
+                  <span className="text-sm font-medium">{benefit.title}</span>
+                </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Quiz section - PRIORITÉ : visible immédiatement */}
-        <section id="quiz" className="py-10 md:py-16 bg-white">
-          <div className="container-content">
-            <AuditQuiz />
-          </div>
-        </section>
+      {/* Quiz */}
+      <section id="quiz" className="py-12 sm:py-16 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <AuditQuiz />
+        </div>
+      </section>
 
         {/* Section pédagogique : Pourquoi évaluer sa maturité data ? */}
-        <section className="py-12 md:py-16 bg-[#F8FAF9] border-t border-[#E2E8E5]">
-          <div className="container-content">
+        <section className="py-16 sm:py-20 bg-slate-50 border-t border-[#E2E8E5]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] text-center mb-6">
                 Pourquoi évaluer sa <span className="text-[#1B4D3E]">maturité data</span> ?
@@ -225,8 +215,8 @@ export default function AuditPage() {
         </section>
 
         {/* Section : Les 5 dimensions évaluées */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container-content">
+        <section className="py-16 sm:py-20 bg-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] text-center mb-4">
                 Les 5 dimensions évaluées
@@ -257,8 +247,8 @@ export default function AuditPage() {
         </section>
 
         {/* Section : Exemples de projets par niveau */}
-        <section className="py-12 md:py-16 bg-[#F8FAF9]">
-          <div className="container-content">
+        <section className="py-16 sm:py-20 bg-slate-50">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] text-center mb-4">
                 Exemples de projets par niveau de maturité
@@ -294,8 +284,8 @@ export default function AuditPage() {
         </section>
 
         {/* FAQ section - 10 questions */}
-        <section className="py-12 md:py-16 bg-white">
-          <div className="container-content">
+        <section className="py-16 sm:py-20 bg-white">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] text-center mb-4">
                 Questions fréquentes
@@ -325,8 +315,8 @@ export default function AuditPage() {
         </section>
 
         {/* CTA final */}
-        <section className="py-12 md:py-16 bg-[#1B4D3E]">
-          <div className="container-content">
+        <section className="py-16 sm:py-20 bg-[#0F2B23]">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Prêt à découvrir votre score ?
@@ -345,7 +335,6 @@ export default function AuditPage() {
             </div>
           </div>
         </section>
-      </main>
     </>
   );
 }

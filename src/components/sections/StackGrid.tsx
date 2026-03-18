@@ -89,8 +89,8 @@ function StackCard({ category }: StackCardProps) {
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm ring-1 ring-slate-200/80 hover:shadow-md transition-shadow">
       <div className="flex items-center gap-3 mb-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100">
-          <Icon className="h-5 w-5 text-blue-600" />
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
+          <Icon className="h-5 w-5 text-[#1B4D3E]" />
         </div>
         <h3 className="font-semibold text-slate-900">{category.title}</h3>
       </div>

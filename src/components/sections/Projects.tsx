@@ -21,13 +21,16 @@ interface ProjectsProps {
 
 export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+            Réalisations
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Cas clients réels, anonymisés
           </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-slate-600">
             Ces projets ont été réalisés pour des PME industrielles bretonnes. Les noms sont
             anonymisés, les résultats sont réels.
           </p>
@@ -37,24 +40,24 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
           {PROJECTS.map((project) => (
             <Card
               key={project.id}
-              className="overflow-hidden transition-shadow hover:shadow-lg border border-gray-200"
+              className="overflow-hidden transition-shadow hover:shadow-lg border border-slate-200"
             >
-              <CardHeader className="bg-gray-50 border-b border-gray-200">
-                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-3">
+              <CardHeader className="bg-slate-50 border-b border-slate-200">
+                <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mb-3">
                   <span className="flex items-center gap-1.5">
-                    <Factory className="h-4 w-4 text-blue-600" />
+                    <Factory className="h-4 w-4 text-[#1B4D3E]" />
                     {project.sector}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4 text-blue-600" />
+                    <MapPin className="h-4 w-4 text-[#1B4D3E]" />
                     {project.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Users className="h-4 w-4 text-blue-600" />
+                    <Users className="h-4 w-4 text-[#1B4D3E]" />
                     {project.companySize}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Wrench className="h-4 w-4 text-blue-600" />
+                    <Wrench className="h-4 w-4 text-[#1B4D3E]" />
                     {project.existingTools}
                   </span>
                 </div>
@@ -68,8 +71,8 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                     <div className="space-y-6">
                       {/* Contexte */}
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Le contexte</h4>
-                        <p className="text-gray-600">{project.context}</p>
+                        <h4 className="font-semibold text-slate-900 mb-2">Le contexte</h4>
+                        <p className="text-slate-600">{project.context}</p>
                         <div className="mt-3 bg-red-50 border border-red-100 rounded-lg p-3">
                           <p className="text-sm text-red-800 font-medium">
                             Problème : {project.pain}
@@ -79,11 +82,11 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
 
                       {/* Approche */}
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Notre approche</h4>
+                        <h4 className="font-semibold text-slate-900 mb-2">Notre approche</h4>
                         <ul className="space-y-2">
                           {project.approach.map((item, idx) => (
-                            <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
-                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100 text-blue-600 text-xs font-medium shrink-0">
+                            <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
+                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1B4D3E]/10 text-[#1B4D3E] text-xs font-medium shrink-0">
                                 {idx + 1}
                               </span>
                               {item}
@@ -94,10 +97,10 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
 
                       {/* Livrables */}
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Livrables</h4>
+                        <h4 className="font-semibold text-slate-900 mb-2">Livrables</h4>
                         <ul className="space-y-1">
                           {project.deliverables.map((deliverable, idx) => (
-                            <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
+                            <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
                               <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                               {deliverable}
                             </li>
@@ -106,7 +109,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                       </div>
 
                       {/* Durée */}
-                      <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <div className="flex items-center gap-2 text-sm text-slate-600">
                         <Clock className="h-4 w-4" />
                         <span>Durée du projet : {project.duration}</span>
                       </div>
@@ -124,7 +127,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                             <ul className="space-y-2">
                               {project.beforeAfter.before.map((item, idx) => (
                                 <li key={idx} className="text-sm">
-                                  <span className="text-gray-600">{item.metric}</span>
+                                  <span className="text-slate-600">{item.metric}</span>
                                   <span className="block font-medium text-red-700">{item.value}</span>
                                 </li>
                               ))}
@@ -137,7 +140,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                             <ul className="space-y-2">
                               {project.beforeAfter.after.map((item, idx) => (
                                 <li key={idx} className="text-sm">
-                                  <span className="text-gray-600">{item.metric}</span>
+                                  <span className="text-slate-600">{item.metric}</span>
                                   <span className="block font-medium text-green-700">{item.value}</span>
                                 </li>
                               ))}
@@ -154,10 +157,10 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
 
                       {/* Résultats secondaires */}
                       <div>
-                        <h4 className="font-semibold text-gray-900 mb-2">Autres bénéfices</h4>
+                        <h4 className="font-semibold text-slate-900 mb-2">Autres bénéfices</h4>
                         <ul className="space-y-2">
                           {project.results.secondary.map((result, idx) => (
-                            <li key={idx} className="text-sm text-gray-600 flex items-start gap-2">
+                            <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
                               <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 shrink-0" />
                               {result}
                             </li>
@@ -167,22 +170,22 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
 
                       {/* Note technique V2 */}
                       {project.techNote && (
-                        <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-                          <p className="text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">
+                        <div className="bg-slate-50 border border-slate-200 rounded-lg p-3">
+                          <p className="text-xs font-medium text-slate-500 uppercase tracking-wider mb-1">
                             Précision technique
                           </p>
-                          <p className="text-sm text-gray-600">{project.techNote}</p>
+                          <p className="text-sm text-slate-600">{project.techNote}</p>
                         </div>
                       )}
 
                       {/* Témoignage */}
                       {project.testimonial && (
-                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-6">
-                          <Quote className="h-6 w-6 text-blue-300 mb-2" />
-                          <p className="text-gray-700 italic mb-3">
+                        <div className="bg-[#1B4D3E]/5 border border-[#1B4D3E]/10 rounded-xl p-6">
+                          <Quote className="h-6 w-6 text-[#40916C] mb-2" />
+                          <p className="text-slate-700 italic mb-3">
                             &ldquo;{project.testimonial.quote}&rdquo;
                           </p>
-                          <p className="text-sm font-medium text-blue-700">
+                          <p className="text-sm font-medium text-[#1B4D3E]">
                             — {project.testimonial.author}
                           </p>
                         </div>
@@ -193,7 +196,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700"
+                            className="inline-flex items-center rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
                           >
                             {tag}
                           </span>
@@ -201,8 +204,8 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                       </div>
 
                       {/* CTA */}
-                      <div className="pt-4 border-t border-gray-100">
-                        <p className="text-sm text-gray-600 mb-3">
+                      <div className="pt-4 border-t border-slate-100">
+                        <p className="text-sm text-slate-600 mb-3">
                           Vous avez une problématique similaire ?
                         </p>
                         <Button asChild size="sm">
@@ -221,7 +224,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    <p className="text-gray-600 text-sm">{project.context}</p>
+                    <p className="text-slate-600 text-sm">{project.context}</p>
 
                     {/* Résultat principal */}
                     <div className="bg-green-50 border border-green-100 rounded-lg p-4">
@@ -233,7 +236,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700"
+                          className="inline-flex items-center rounded-full bg-[#1B4D3E]/5 px-2.5 py-0.5 text-xs font-medium text-[#1B4D3E]"
                         >
                           {tag}
                         </span>

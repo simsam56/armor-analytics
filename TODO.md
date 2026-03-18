@@ -1,79 +1,61 @@
-# TODO - Armor Analytics
+# TODO — balise-ia
 
-## MVP (Minimum Viable Product) ✅
+## Phase 0 — Fondations (fait)
 
-- [x] Structure projet Next.js + TypeScript + Tailwind
-- [x] Configuration ESLint + Prettier
-- [x] Installation shadcn/ui
-- [x] Composants réutilisables (Header, Footer, Hero, etc.)
-- [x] Page d'accueil avec toutes les sections
-- [x] Page Services détaillée
-- [x] Page Projets avec cas d'usage
-- [x] Page Contact avec formulaire et Calendly
-- [x] Page Merci (confirmation)
-- [x] Page Mentions légales
-- [x] SEO (metadata, sitemap, robots, JSON-LD)
-- [x] API route contact avec Resend
-- [x] Documentation (README, .env.example)
+- [x] Structure Next.js 16 + TypeScript + Tailwind v4
+- [x] ESLint + Prettier configurés
+- [x] shadcn/ui installé (New York)
+- [x] API contact (Resend + rate limiting + honeypot + Zod)
+- [x] API audit (email + Google Sheets)
+- [x] SEO de base (metadata, sitemap, robots, JSON-LD)
+- [x] Logo phare Clean Silhouette V3 intégré
+- [x] Branding unifié sur balise-ia
+- [x] .env.example créé
+- [x] CLAUDE.md, README.md, TODO.md remis à jour
 
-## Post-MVP
+## Phase 1 — Cohérence de marque
 
-### Contenu & Design
+- [ ] Migrer toute la palette bleu → vert brand (#1B4D3E / #40916C)
+- [ ] Mettre à jour les CSS custom properties (globals.css)
+- [ ] Unifier Hero.tsx et HeroV3.tsx
+- [ ] Supprimer ContactFormV7.tsx (orphelin)
+- [ ] Fusionner site-config.ts et constants.ts en une source de vérité
 
-- [ ] Ajouter de vraies images/illustrations (hero, projets)
-- [ ] Créer un logo vectoriel
-- [ ] Ajouter des témoignages clients
-- [ ] Page "À propos" avec présentation de l'équipe/collectif
-- [ ] Blog/Ressources pour SEO et thought leadership
+## Phase 2 — Homepage premium
 
-### Fonctionnalités
+- [ ] Refonte hero : premium, sobre, orienté conversion
+- [ ] Bande de réassurance (trust signals visuels)
+- [ ] Section services plus lisible (cards propres, pas de bleu SaaS)
+- [ ] Section méthode en 3 étapes (design épuré)
+- [ ] Preuves / résultats concrets (avant/après)
+- [ ] CTA forts vers diagnostic + contact
+- [ ] Ancrage Lorient / Bretagne subtil
 
-- [ ] Intégrer réellement Calendly (remplacer CALENDLY_URL)
-- [ ] Ajouter analytics (Plausible, Umami ou Vercel Analytics)
-- [ ] Ajouter tracking conversions (pixels si nécessaire)
-- [ ] Formulaire multi-étapes pour qualification leads
-- [ ] Chatbot simple pour qualification
+## Phase 3 — Pages secondaires
 
-### SEO & Performance
+- [ ] Page services : cohérence visuelle avec homepage
+- [ ] Page cas clients : mise en forme premium
+- [ ] Page à propos : crédibilité, équipe, valeurs
+- [ ] Page audit IA : quiz fonctionnel et soigné
+- [ ] Page contact : formulaire + Calendly intégrés
 
-- [ ] Ajouter images OpenGraph personnalisées par page
-- [ ] Optimiser images avec next/image
-- [ ] Auditer Lighthouse et corriger les points faibles
-- [ ] Ajouter FAQ structurée (schema.org) sur chaque page service
-- [ ] Créer des pages de contenu localisé (Lorient, Vannes, Quimper, etc.)
+## Phase 4 — Crédibilité & preuves
 
-### Technique
+- [ ] Vrais témoignages clients (quand disponibles)
+- [ ] Logos clients réels (quand autorisés)
+- [ ] Métriques réelles vérifiées
+- [ ] Photos équipe / terrain (quand disponibles)
 
-- [ ] Tests E2E (Playwright ou Cypress)
-- [ ] Tests unitaires pour l'API contact
-- [ ] Monitoring erreurs (Sentry)
-- [ ] Rate limiting sur l'API contact
-- [ ] Honeypot anti-spam sur le formulaire
-- [ ] Validation Zod côté serveur
+## Phase 5 — SEO local & performance
 
-### Infrastructure
+- [ ] Images OpenGraph personnalisées par page
+- [ ] Pages localisées (Lorient, Vannes, Quimper, Rennes)
+- [ ] Audit Lighthouse et optimisations
+- [ ] next/image pour toutes les images
 
-- [ ] Configurer domaine personnalisé
-- [ ] Mettre en place backup des données
-- [ ] Configurer alertes (uptime, erreurs)
+## Phase 6 — Qualité & monitoring
 
-## Notes
-
-### Calendly
-
-Remplacer `CALENDLY_URL` dans `src/lib/constants.ts` par votre vrai slug Calendly.
-
-### Resend
-
-1. Créer un compte sur https://resend.com
-2. Vérifier votre domaine
-3. Récupérer la clé API
-4. Configurer les variables d'environnement
-
-### Images
-
-Les images par défaut sont absentes. Pour un site de production :
-
-- Hero : illustration data/IA sobre
-- Projets : screenshots ou illustrations métier
-- Logo : à créer et placer dans /public
+- [ ] Tests E2E (Playwright)
+- [ ] Tests unitaires API
+- [ ] Sentry pour le monitoring erreurs
+- [ ] Domaine personnalisé configuré

@@ -1,24 +1,39 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NAV_LINKS } from '@/lib/constants';
-import { getCalendlyUrl } from '@/lib/site-config';
+import { getCalendlyUrl } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { LogoWithIcon } from '@/components/ui/logo';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
+    <header
+      className={cn(
+        'sticky top-0 z-50 w-full transition-all duration-300',
+        scrolled
+          ? 'bg-white/95 backdrop-blur border-b border-slate-200/80 shadow-sm'
+          : 'bg-transparent border-b border-transparent'
+      )}
+    >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <LogoWithIcon size="sm" />
+            <LogoWithIcon size="sm" variant={scrolled ? 'default' : 'white'} />
           </Link>
 
           {/* Desktop navigation */}
@@ -27,7 +42,12 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-[#1B4D3E]"
+                className={cn(
+                  'text-sm font-medium transition-colors',
+                  scrolled
+                    ? 'text-slate-600 hover:text-[#1B4D3E]'
+                    : 'text-white/80 hover:text-white'
+                )}
               >
                 {link.label}
               </Link>
@@ -39,7 +59,10 @@ export function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-700"
+            className={cn(
+              '-m-2.5 inline-flex items-center justify-center rounded-md p-2.5',
+              scrolled ? 'text-slate-700' : 'text-white'
+            )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Ouvrir le menu</span>
@@ -53,10 +76,26 @@ export function Header() {
 
         {/* Desktop CTAs */}
         <div className="hidden lg:flex lg:items-center lg:gap-x-3">
-          <Button variant="ghost" asChild size="sm">
+          <Button
+            variant="ghost"
+            asChild
+            size="sm"
+            className={cn(
+              scrolled ? '' : 'text-white/80 hover:text-white hover:bg-white/10'
+            )}
+          >
             <Link href="/contact">Nous contacter</Link>
           </Button>
-          <Button asChild size="sm" className="gap-2">
+          <Button
+            asChild
+            size="sm"
+            className={cn(
+              'gap-2',
+              scrolled
+                ? ''
+                : 'bg-white text-[#1B4D3E] hover:bg-white/90'
+            )}
+          >
             <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
               <Calendar className="h-4 w-4" />
               Diagnostic gratuit
@@ -67,7 +106,7 @@ export function Header() {
 
       {/* Mobile menu */}
       <div className={cn('lg:hidden', mobileMenuOpen ? 'block' : 'hidden')}>
-        <div className="space-y-1 px-4 pb-4">
+        <div className="space-y-1 px-4 pb-4 bg-white rounded-b-xl shadow-lg">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}

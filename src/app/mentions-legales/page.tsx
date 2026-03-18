@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-white">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900">Mentions légales</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-slate-900">Mentions légales</h1>
 
-        <div className="mt-12 prose prose-gray max-w-none">
+        <div className="mt-12 prose prose-slate max-w-none">
           <h2>Éditeur du site</h2>
           <p>
             <strong>{SITE_CONFIG.name}</strong>

@@ -1,7 +1,7 @@
 import { Target, BarChart3, Users, ArrowRight, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { getBrandName, siteConfig } from '@/lib/site-config';
+import { getBrandName, SITE_CONFIG } from '@/lib/constants';
 
 const PILLARS = [
   {
@@ -61,9 +61,9 @@ export function About({ className = '' }: AboutProps) {
 
             {/* Location */}
             <div className="mt-6 flex items-center gap-2 text-slate-600">
-              <MapPin className="h-5 w-5 text-blue-600" />
+              <MapPin className="h-5 w-5 text-[#1B4D3E]" />
               <span>
-                Basés à {siteConfig.location.city} – Interventions en {siteConfig.location.region}
+                Basés à {SITE_CONFIG.location.city} – Interventions en {SITE_CONFIG.location.region}
               </span>
             </div>
 
@@ -111,8 +111,8 @@ function PillarCard({ pillar }: PillarCardProps) {
 
   return (
     <div className="flex gap-4 p-4 rounded-xl bg-slate-50 ring-1 ring-slate-200/50">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-100">
-        <Icon className="h-6 w-6 text-blue-600" />
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
+        <Icon className="h-6 w-6 text-[#1B4D3E]" />
       </div>
       <div>
         <h4 className="font-semibold text-slate-900">{pillar.title}</h4>
@@ -130,7 +130,7 @@ interface StatBlockProps {
 function StatBlock({ value, label }: StatBlockProps) {
   return (
     <div className="text-center p-4 rounded-xl bg-slate-50">
-      <p className="text-2xl font-bold text-blue-600">{value}</p>
+      <p className="text-2xl font-bold text-[#1B4D3E]">{value}</p>
       <p className="text-sm text-slate-600 mt-1">{label}</p>
     </div>
   );

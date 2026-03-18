@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Linkedin, Mail, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
-import { siteConfig, getCalendlyUrl, getContactEmail } from '@/lib/site-config';
+import { SITE_CONFIG, getCalendlyUrl, getContactEmail } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { LogoWithIcon } from '@/components/ui/logo';
 
@@ -49,7 +49,7 @@ export function Footer() {
             <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
               <MapPin className="h-4 w-4 text-[#1B4D3E]" />
               <span>
-                Basés à {siteConfig.location.city} – Interventions en {siteConfig.location.region}
+                Basés à {SITE_CONFIG.location.city} – Interventions en {SITE_CONFIG.location.region}
               </span>
             </div>
           </div>
@@ -84,10 +84,10 @@ export function Footer() {
                   {getContactEmail()}
                 </a>
               </li>
-              {siteConfig.social.linkedin && (
+              {SITE_CONFIG.social.linkedin && (
                 <li>
                   <a
-                    href={siteConfig.social.linkedin}
+                    href={SITE_CONFIG.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
@@ -105,7 +105,7 @@ export function Footer() {
         <div className="mt-12 border-t border-slate-200 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-slate-500">
-              © {currentYear} {siteConfig.name}. Tous droits réservés.
+              © {currentYear} {SITE_CONFIG.name}. Tous droits réservés.
             </p>
             <div className="flex gap-6">
               <Link
@@ -115,7 +115,7 @@ export function Footer() {
                 Mentions légales
               </Link>
               <span className="text-sm text-slate-400">
-                {siteConfig.location.city}, {siteConfig.location.region}
+                {SITE_CONFIG.location.city}, {SITE_CONFIG.location.region}
               </span>
             </div>
           </div>

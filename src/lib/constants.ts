@@ -527,3 +527,16 @@ export const TRUST_SIGNALS = [
     description: 'Basés à Lorient, on se déplace en Bretagne',
   },
 ];
+
+// Helper functions (ex site-config.ts)
+export function getCalendlyUrl(): string {
+  return `https://calendly.com/${SITE_CONFIG.calendly}`;
+}
+
+export function getContactEmail(): string {
+  return SITE_CONFIG.email;
+}
+
+export function getBrandName(): string {
+  return SITE_CONFIG.name;
+}

@@ -3,20 +3,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Quote, TrendingUp, Clock, CheckCircle, AlertTriangle, Wrench, Users, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Hero } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Cas clients IA & automatisation PME Bretagne — BALISE Data',
+  title: 'Cas clients IA & automatisation PME Bretagne — balise-ia',
   description:
     'Résultats concrets de nos missions IA et automatisation : PME agroalimentaires, métallurgie, logistique en Bretagne. Gains de temps, fiabilité des données, tableaux de bord temps réel.',
   keywords: 'cas clients IA PME Bretagne, résultats automatisation industrie Bretagne, témoignages IA PME Lorient, success stories data Morbihan',
   openGraph: {
-    title: 'Cas clients IA & automatisation PME Bretagne — BALISE Data',
+    title: 'Cas clients IA & automatisation PME Bretagne — balise-ia',
     description: 'Des résultats concrets et mesurables chez nos clients PME industriels en Bretagne.',
     type: 'website',
     locale: 'fr_FR',
   },
   alternates: {
-    canonical: 'https://balisedata.fr/cas-clients',
+    canonical: 'https://balise-ia.fr/cas-clients',
   },
 };
 
@@ -251,50 +252,28 @@ const STATS = [
 export default function CasClientsPage() {
   return (
     <>
-      {/* Skip link */}
-      <a href="#main-content" className="skip-link">
-        Aller au contenu principal
-      </a>
+      <Hero
+        title={"Des résultats concrets\net mesurables"}
+        subtitle="Découvrez comment nous avons aidé des PME bretonnes à automatiser leurs flux de données et améliorer leur pilotage."
+      />
 
-      {/* Spacer for fixed header */}
-      <div className="h-[72px] sm:h-[104px]" />
-
-      <main id="main-content">
-        {/* Hero */}
-        <section className="section-padding bg-gradient-to-br from-[#F8FAF9] to-[#E2E8E5]" aria-labelledby="cases-title">
-          <div className="container-content">
-            <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
-              <h1
-                id="cases-title"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E2922] leading-tight"
-              >
-                Des résultats{' '}
-                <span className="text-[#1B4D3E]">concrets et mesurables</span>
-              </h1>
-              <p className="mt-6 text-lg text-[#64756C]">
-                Découvrez comment nous avons aidé des PME bretonnes à automatiser
-                leurs flux de données et améliorer leur pilotage.
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="mt-12 flex flex-wrap justify-center gap-8 lg:gap-16">
-              {STATS.map((stat, index) => (
-                <div key={stat.label} className={`text-center animate-fade-in-up delay-${(index + 1) * 100}`}>
-                  <p className="text-4xl font-bold text-[#1B4D3E] stat-number">{stat.value}</p>
-                  <p className="mt-2 text-sm text-[#64756C]">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+      {/* Stats */}
+      <section className="border-b border-slate-200 bg-slate-50/50 py-10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-4xl font-bold text-[#1B4D3E]">{stat.value}</p>
+                <p className="mt-2 text-sm text-slate-500">{stat.label}</p>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Case Studies - Format AVANT / APRÈS détaillé */}
-        <section className="section-padding bg-white" aria-labelledby="all-cases-title">
-          <div className="container-content">
-            <h2 id="all-cases-title" className="sr-only">
-              Tous nos cas clients
-            </h2>
+      {/* Case Studies */}
+      <section className="py-20 sm:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
             <div className="space-y-20">
               {CASE_STUDIES.map((caseStudy, index) => (
@@ -457,47 +436,42 @@ export default function CasClientsPage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="section-padding bg-[#1B4D3E]" aria-labelledby="cta-title">
-          <div className="container-content">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 id="cta-title" className="text-2xl sm:text-3xl font-bold text-white">
-                Votre situation ressemble à l&apos;une de ces problématiques ?
-              </h2>
-              <p className="mt-4 text-lg text-white/80">
-                Faites le point sur votre maturité data en 3 minutes et découvrez les projets adaptés à votre contexte.
-              </p>
+      {/* CTA */}
+      <section className="py-20 sm:py-24 bg-[#0F2B23]">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-white sm:text-4xl">
+            Votre situation ressemble à l&apos;une de ces problématiques ?
+          </h2>
+          <p className="mt-4 text-lg text-white/60">
+            Faites le point sur votre maturité data en 3 minutes et découvrez les projets adaptés à votre contexte.
+          </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-white text-[#1B4D3E] hover:bg-[#F1F5F3] text-base px-8 py-6 rounded-md shadow-lg hover-lift"
-                >
-                  <Link href="/audit-ia">
-                    Faire mon audit IA
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 text-base px-8 py-6 rounded-md bg-transparent"
-                >
-                  <Link href="/contact">
-                    Échanger avec nous
-                  </Link>
-                </Button>
-              </div>
-
-              <p className="mt-6 text-sm text-white/60">
-                balisedata@gmail.com — Lorient, Bretagne
-              </p>
-            </div>
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-[#1B4D3E] hover:bg-white/90 h-13 px-8 text-base font-semibold"
+            >
+              <Link href="/audit-ia" className="gap-2">
+                Faire mon audit IA
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/10 h-13 px-8 text-base"
+            >
+              <Link href="/contact">Échanger avec nous</Link>
+            </Button>
           </div>
-        </section>
-      </main>
+
+          <p className="mt-6 text-sm text-white/50">
+            contact@balise-ia.fr — Lorient, Bretagne
+          </p>
+        </div>
+      </section>
     </>
   );
 }
