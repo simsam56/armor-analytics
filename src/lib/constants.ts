@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
     'Collectif data & automatisation basé à Lorient. Nous aidons les PME industrielles bretonnes à gagner du temps, fiabiliser leurs données et piloter leur activité. Interventions sur site en Bretagne.',
   url: 'https://balise-ia.fr',
   email: 'contact@balise-ia.fr',
-  phone: '06 XX XX XX XX', // À remplacer
+  // phone: à ajouter quand disponible
   location: {
     region: 'Bretagne',
     city: 'Lorient',

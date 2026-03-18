@@ -35,7 +35,7 @@ export function Footer() {
 
       {/* Main footer content */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center">
@@ -65,6 +65,23 @@ export function Footer() {
                     className="text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
                   >
                     {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Interventions */}
+          <div>
+            <h3 className="text-sm font-semibold text-slate-900">Interventions</h3>
+            <ul className="mt-4 space-y-2.5">
+              {['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'].map((city) => (
+                <li key={city}>
+                  <Link
+                    href={`/interventions/${city}`}
+                    className="text-sm text-slate-600 transition-colors hover:text-[#1B4D3E] capitalize"
+                  >
+                    {city === 'saint-brieuc' ? 'Saint-Brieuc' : city.charAt(0).toUpperCase() + city.slice(1)}
                   </Link>
                 </li>
               ))}
