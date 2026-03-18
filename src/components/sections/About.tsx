@@ -1,4 +1,4 @@
-import { Target, BarChart3, Users, ArrowRight, MapPin, Building2 } from 'lucide-react';
+import { Target, BarChart3, Users, ArrowRight, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { getBrandName, siteConfig } from '@/lib/site-config';
@@ -47,11 +47,11 @@ export function About({ className = '' }: AboutProps) {
             <div className="mt-6 space-y-4 text-slate-600 leading-relaxed">
               <p>
                 Un collectif de consultants data et automatisation, spécialisé PME industrielles.
-                On a tous travaillé en production, en logistique, ou en finance dans l'industrie.
+                On a tous travaillé en production, en logistique, ou en finance dans l&apos;industrie.
               </p>
               <p>
                 On connaît les contraintes : ERP vieillissants, Excel partout, ressaisies
-                manuelles, et des équipes qui n'ont pas le temps de faire autrement.
+                manuelles, et des équipes qui n&apos;ont pas le temps de faire autrement.
               </p>
               <p className="font-medium text-slate-900">
                 Notre mission : vous faire gagner du temps concret, mesurable, sans révolutionner

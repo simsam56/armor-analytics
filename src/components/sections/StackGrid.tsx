@@ -1,4 +1,4 @@
-import { Database, BarChart3, Zap, Building2, FileSpreadsheet, Bot } from 'lucide-react';
+import { BarChart3, Zap, Building2 } from 'lucide-react';
 
 interface StackCategory {
   id: string;
@@ -59,7 +59,7 @@ export function StackGrid({ className = '' }: StackGridProps) {
         {/* Sectors */}
         <div className="mt-12 text-center">
           <p className="text-sm font-medium text-slate-700 mb-3">
-            Secteurs d'expertise
+            Secteurs d&apos;expertise
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {['Agroalimentaire', 'Métallurgie', 'Plasturgie', 'Logistique', 'Mécanique'].map(
