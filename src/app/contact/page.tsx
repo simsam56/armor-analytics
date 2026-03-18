@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     description:
       'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
   },
+  alternates: {
+    canonical: 'https://balise-ia.fr/contact',
+  },
 };
 
 export default function ContactPage() {

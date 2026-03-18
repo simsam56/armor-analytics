@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     description:
       "Accompagnement data pour PME industrielles bretonnes. Tarifs transparents, résultats mesurables.",
   },
+  alternates: {
+    canonical: 'https://balise-ia.fr/services',
+  },
 };
 
 const REASSURANCES = [
@@ -48,7 +51,7 @@ export default function ServicesPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {REASSURANCES.map((item) => (
               <div key={item.title} className="flex gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/8">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
                   <item.icon className="h-5 w-5 text-[#1B4D3E]" />
                 </div>
                 <div>

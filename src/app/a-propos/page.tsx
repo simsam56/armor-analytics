@@ -145,7 +145,7 @@ export default function AboutPage() {
             <div className="space-y-4">
               {GUARANTEES.map((guarantee) => (
                 <div key={guarantee.title} className="flex gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/8">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
                     <guarantee.icon className="h-5 w-5 text-[#1B4D3E]" />
                   </div>
                   <div>
@@ -199,7 +199,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {VALUES.map((value) => (
               <div key={value.title} className="p-8 rounded-2xl bg-slate-50 border border-slate-200">
-                <div className="h-12 w-12 rounded-xl bg-[#1B4D3E]/8 flex items-center justify-center mb-6">
+                <div className="h-12 w-12 rounded-xl bg-[#1B4D3E]/10 flex items-center justify-center mb-6">
                   <value.icon className="h-6 w-6 text-[#1B4D3E]" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">{value.title}</h3>

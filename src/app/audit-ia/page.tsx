@@ -21,6 +21,9 @@ export const metadata: Metadata = {
       'Quiz gratuit pour PME industrielles. Score personnalisé et 3 projets recommandés.',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://balise-ia.fr/audit-ia',
+  },
 };
 
 const BENEFITS = [

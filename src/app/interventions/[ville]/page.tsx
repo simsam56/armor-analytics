@@ -180,7 +180,7 @@ export default async function CityPage({
                 {city.industries.map((industry) => (
                   <span
                     key={industry}
-                    className="rounded-full bg-[#1B4D3E]/8 px-4 py-2 text-sm font-medium text-[#1B4D3E]"
+                    className="rounded-full bg-[#1B4D3E]/10 px-4 py-2 text-sm font-medium text-[#1B4D3E]"
                   >
                     {industry}
                   </span>

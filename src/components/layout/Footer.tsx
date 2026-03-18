@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Linkedin, Mail, MapPin, Calendar, ArrowRight } from 'lucide-react';
-import { NAV_LINKS } from '@/lib/constants';
-import { SITE_CONFIG, getCalendlyUrl, getContactEmail } from '@/lib/constants';
+import { NAV_LINKS, SITE_CONFIG, getCalendlyUrl, getContactEmail } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { LogoWithIcon } from '@/components/ui/logo';
 

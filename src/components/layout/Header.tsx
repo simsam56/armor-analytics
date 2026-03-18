@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { NAV_LINKS } from '@/lib/constants';
-import { getCalendlyUrl } from '@/lib/constants';
+import { NAV_LINKS, getCalendlyUrl } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { LogoWithIcon } from '@/components/ui/logo';
 

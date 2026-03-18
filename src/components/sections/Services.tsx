@@ -45,7 +45,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
               >
                 {/* Step number */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1B4D3E]/8">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1B4D3E]/10">
                     <Icon className="h-6 w-6 text-[#1B4D3E]" />
                   </div>
                   <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
