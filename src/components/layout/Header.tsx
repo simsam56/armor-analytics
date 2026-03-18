@@ -2,33 +2,23 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Calendar, Compass, Anchor } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NAV_LINKS } from '@/lib/constants';
-import { siteConfig, getCalendlyUrl } from '@/lib/site-config';
+import { getCalendlyUrl } from '@/lib/site-config';
 import { cn } from '@/lib/utils';
+import { LogoWithIcon } from '@/components/ui/logo';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const LogoIcon = siteConfig.logo.icon === 'compass' ? Compass : Anchor;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
-              <LogoIcon className="h-5 w-5 text-white" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-slate-900 leading-tight">
-                {siteConfig.logo.text}
-              </span>
-              <span className="text-[10px] text-slate-500 leading-tight hidden sm:block">
-                {siteConfig.tagline}
-              </span>
-            </div>
+          <Link href="/" className="flex items-center">
+            <LogoWithIcon size="sm" />
           </Link>
 
           {/* Desktop navigation */}
@@ -37,7 +27,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-blue-600"
+                className="text-sm font-medium text-slate-600 transition-colors hover:text-[#1B4D3E]"
               >
                 {link.label}
               </Link>
@@ -82,7 +72,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="block rounded-lg px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600"
+              className="block rounded-lg px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-[#1B4D3E]"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}

@@ -1,24 +1,24 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin, Calendar, Compass, Anchor, ArrowRight } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 import { siteConfig, getCalendlyUrl, getContactEmail } from '@/lib/site-config';
 import { Button } from '@/components/ui/button';
+import { LogoWithIcon } from '@/components/ui/logo';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const LogoIcon = siteConfig.logo.icon === 'compass' ? Compass : Anchor;
 
   return (
     <footer className="border-t border-slate-200 bg-slate-50">
       {/* CTA Banner */}
-      <div className="bg-blue-600">
+      <div className="bg-[#1B4D3E]">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
               <h3 className="text-lg font-semibold text-white">
                 Prêt à supprimer vos ressaisies ?
               </h3>
-              <p className="text-blue-100 text-sm">
+              <p className="text-white/70 text-sm">
                 Diagnostic gratuit de 30 minutes, sans engagement.
               </p>
             </div>
@@ -38,16 +38,8 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600">
-                <LogoIcon className="h-5 w-5 text-white" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold text-slate-900 leading-tight">
-                  {siteConfig.logo.text}
-                </span>
-                <span className="text-xs text-slate-500 leading-tight">{siteConfig.tagline}</span>
-              </div>
+            <Link href="/" className="flex items-center">
+              <LogoWithIcon size="sm" />
             </Link>
             <p className="mt-4 max-w-md text-sm text-slate-600 leading-relaxed">
               Collectif data & automatisation spécialisé PME industrielles. On supprime vos
@@ -55,7 +47,7 @@ export function Footer() {
               piloter votre activité.
             </p>
             <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
-              <MapPin className="h-4 w-4 text-blue-600" />
+              <MapPin className="h-4 w-4 text-[#1B4D3E]" />
               <span>
                 Basés à {siteConfig.location.city} – Interventions en {siteConfig.location.region}
               </span>
@@ -70,7 +62,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
                   >
                     {link.label}
                   </Link>
@@ -86,7 +78,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${getContactEmail()}`}
-                  className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-blue-600"
+                  className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
                 >
                   <Mail className="h-4 w-4" />
                   {getContactEmail()}
@@ -98,7 +90,7 @@ export function Footer() {
                     href={siteConfig.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-blue-600"
+                    className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
                   >
                     <Linkedin className="h-4 w-4" />
                     LinkedIn
@@ -118,7 +110,7 @@ export function Footer() {
             <div className="flex gap-6">
               <Link
                 href="/mentions-legales"
-                className="text-sm text-slate-500 transition-colors hover:text-blue-600"
+                className="text-sm text-slate-500 transition-colors hover:text-[#1B4D3E]"
               >
                 Mentions légales
               </Link>
