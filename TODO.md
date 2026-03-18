@@ -54,17 +54,30 @@
 - [x] 17 tests E2E (navigation, SEO, formulaire)
 - [x] Scripts test:e2e et test:e2e:ui ajoutés
 
-## Phase 6 — Crédibilité & preuves (à faire — nécessite contenu réel)
+## Phase 6 — Conversion et acquisition (fait)
+
+- [x] Audit du parcours de conversion
+- [x] Page audit-ia refondue (promesse concrète, quiz en focus)
+- [x] EmailCapture amélioré (ton sobre, moins de friction)
+- [x] AuditResult avec CTA Calendly direct
+- [x] ContactForm amélioré
+
+## Phase 7 — Finitions techniques (fait)
+
+- [x] Metadata OG enrichies (keywords ciblés)
+- [x] JSON-LD enrichi (ProfessionalService, horaires, prix, villes)
+- [x] Tests API (7 tests : validation, honeypot, email, body incomplet)
+- [x] Total : 24 tests E2E
+
+## Phase 8 — Crédibilité & preuves (à faire — nécessite contenu réel)
 
 - [ ] Vrais témoignages clients (quand disponibles)
 - [ ] Logos clients réels (quand autorisés)
 - [ ] Métriques réelles vérifiées
 - [ ] Photos équipe / terrain (quand disponibles)
 
-## Phase 7 — Finitions (à faire)
+## Phase 9 — Finitions restantes
 
 - [ ] Images OpenGraph personnalisées par page
-- [ ] Audit Lighthouse complet et optimisations
 - [ ] Sentry pour le monitoring erreurs
 - [ ] Domaine personnalisé configuré
-- [ ] Tests unitaires API contact + audit
