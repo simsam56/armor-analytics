@@ -9,7 +9,7 @@ import {
 } from '@/components/sections';
 import { TrustBand } from '@/components/sections/TrustBand';
 import { JsonLd } from '@/components/JsonLd';
-import { FadeIn } from '@/components/ui/fade-in';
+import { AnimatedSection } from '@/components/ui/animated-section';
 
 export default function Home() {
   return (
@@ -17,24 +17,24 @@ export default function Home() {
       <JsonLd />
       <HeroV3 />
       <TrustBand />
-      <FadeIn>
+      <AnimatedSection>
         <Services />
-      </FadeIn>
-      <FadeIn>
+      </AnimatedSection>
+      <AnimatedSection>
         <Methodology />
-      </FadeIn>
-      <FadeIn>
+      </AnimatedSection>
+      <AnimatedSection>
         <Projects />
-      </FadeIn>
-      <FadeIn>
+      </AnimatedSection>
+      <AnimatedSection>
         <About />
-      </FadeIn>
-      <FadeIn>
+      </AnimatedSection>
+      <AnimatedSection>
         <FAQ />
-      </FadeIn>
-      <FadeIn>
+      </AnimatedSection>
+      <AnimatedSection>
         <ContactSection />
-      </FadeIn>
+      </AnimatedSection>
     </>
   );
 }
