@@ -468,7 +468,7 @@ export default function CasClientsPage() {
           </div>
 
           <p className="mt-6 text-sm text-white/50">
-            hello@balise-ia.fr — Lorient, Bretagne
+            contact@balise-ia.fr — Lorient, Bretagne
           </p>
         </div>
       </section>

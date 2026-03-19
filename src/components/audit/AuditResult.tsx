@@ -175,7 +175,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
           </Button>
         </div>
         <p className="mt-4 text-xs text-white/40">
-          hello@balise-ia.fr · Réponse sous 48h
+          contact@balise-ia.fr · Réponse sous 48h
         </p>
       </div>
     </div>
