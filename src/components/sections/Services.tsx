@@ -3,15 +3,27 @@
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Search, Zap, Brain, ArrowRight, CheckCircle } from 'lucide-react';
+import {
+  Search,
+  Database,
+  BarChart3,
+  RefreshCw,
+  Brain,
+  ArrowRight,
+  CheckCircle,
+  Zap,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SERVICES } from '@/lib/constants';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Search,
-  Zap,
+  Database,
+  BarChart3,
+  RefreshCw,
   Brain,
+  Zap,
 };
 
 interface ServicesProps {
@@ -23,6 +35,9 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
+  const numberedServices = SERVICES.filter((s) => !s.isTransversal);
+  const transversalService = SERVICES.find((s) => s.isTransversal);
+
   return (
     <section id="offres" className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,22 +46,23 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
             Notre approche
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Un parcours en 3 étapes
+            Un parcours en 4 étapes
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            On comprend, on améliore, on optimise. Chaque étape apporte de la valeur. Vous avancez à
-            votre rythme.
+            On comprend, on structure, on visualise, on pilote. Chaque étape apporte de la valeur.
+            Vous avancez à votre rythme.
           </p>
         </div>
 
+        {/* 4 offres numérotées */}
         <motion.div
           ref={ref}
-          className="mt-16 grid gap-6 lg:grid-cols-3"
+          className={`mt-16 grid gap-6 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-4'}`}
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
         >
-          {SERVICES.map((service) => {
+          {numberedServices.map((service) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             return (
               <motion.div
@@ -62,11 +78,13 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                 {/* Step number */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
-                    <Icon className="h-6 w-6 text-breton-emerald" />
+                    {Icon && <Icon className="h-6 w-6 text-breton-emerald" />}
                   </div>
-                  <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
-                    Étape {service.step}
-                  </span>
+                  {service.step && (
+                    <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+                      Étape {service.step}
+                    </span>
+                  )}
                 </div>
 
                 {/* Entry point badge */}
@@ -78,7 +96,9 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
 
                 <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
                 <p className="mt-1 text-sm font-medium text-breton-moss">{service.tagline}</p>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">{service.description}</p>
+                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                  {service.description}
+                </p>
 
                 {detailed ? (
                   <DetailedContent service={service} />
@@ -89,6 +109,11 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
             );
           })}
         </motion.div>
+
+        {/* Module IA transversal */}
+        {transversalService && (
+          <TransversalIASection service={transversalService} detailed={detailed} />
+        )}
 
         {showLink && (
           <div className="mt-12 text-center">
@@ -102,6 +127,110 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
         )}
       </div>
     </section>
+  );
+}
+
+function TransversalIASection({
+  service,
+  detailed,
+}: {
+  service: (typeof SERVICES)[0];
+  detailed: boolean;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+
+  const useCases = 'useCases' in service ? (service.useCases as Array<{ stage: string; example: string; icon: string }>) : [];
+
+  return (
+    <motion.div
+      ref={ref}
+      className="mt-12 rounded-2xl border border-breton-accent/20 bg-breton-accent/[0.03] p-8 sm:p-10"
+      variants={fadeInUp}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+    >
+      <div className="flex items-start gap-4 mb-6">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-accent/10">
+          <Brain className="h-6 w-6 text-breton-accent" />
+        </div>
+        <div>
+          <div className="flex items-center gap-3">
+            <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
+            <span className="inline-flex items-center rounded-full bg-breton-accent/10 px-3 py-1 text-xs font-medium text-breton-accent">
+              Transversal
+            </span>
+          </div>
+          <p className="mt-1 text-sm font-medium text-breton-accent">{service.tagline}</p>
+        </div>
+      </div>
+
+      <p className="text-sm text-slate-600 leading-relaxed max-w-3xl">{service.description}</p>
+
+      {/* Use cases par étape */}
+      {useCases.length > 0 && (
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {useCases.map((useCase) => {
+            const Icon = iconMap[useCase.icon as keyof typeof iconMap];
+            return (
+              <div
+                key={useCase.stage}
+                className="rounded-xl bg-white border border-slate-200 p-4"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  {Icon && <Icon className="h-4 w-4 text-breton-accent" />}
+                  <span className="text-xs font-semibold uppercase tracking-wider text-breton-accent">
+                    {useCase.stage}
+                  </span>
+                </div>
+                <p className="text-sm text-slate-600">{useCase.example}</p>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {detailed ? (
+        <div className="mt-6 space-y-5">
+          {/* Bénéfices */}
+          <div>
+            <h4 className="text-sm font-semibold text-slate-900 mb-2">
+              Cas d&apos;usage concrets
+            </h4>
+            <ul className="space-y-1.5">
+              {service.benefits.map((benefit, idx) => (
+                <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
+                  <CheckCircle className="h-4 w-4 text-breton-accent mt-0.5 shrink-0" />
+                  {benefit}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Prix et note */}
+          <div className="pt-4 border-t border-breton-accent/10 space-y-2">
+            <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
+            {service.note && (
+              <p className="text-xs text-slate-500 italic">{service.note}</p>
+            )}
+          </div>
+        </div>
+      ) : (
+        <div className="mt-6">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {service.benefits.slice(0, 4).map((benefit, idx) => (
+              <li key={idx} className="text-sm text-slate-600 flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-breton-accent shrink-0" />
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          {service.note && (
+            <p className="mt-4 text-xs text-slate-500 italic">{service.note}</p>
+          )}
+        </div>
+      )}
+    </motion.div>
   );
 }
 
@@ -170,6 +299,7 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
           Durée : <span className="font-medium text-slate-900">{service.duration}</span>
         </p>
         <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
+        {service.note && <p className="text-xs text-slate-500 italic mt-1">{service.note}</p>}
       </div>
 
       {/* CTA */}

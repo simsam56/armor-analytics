@@ -3,13 +3,13 @@ import { Hero, Projects } from '@/components/sections';
 import { CtaContact } from '@/components/sections/CtaContact';
 
 export const metadata: Metadata = {
-  title: "Projets - Cas d'usage data et IA pour PME industrielles",
+  title: "Projets - Cas d'usage data pour PME et réseaux bretons",
   description:
-    "Découvrez des projets concrets réalisés pour des PME industrielles bretonnes : automatisation, centralisation des données, optimisation par l'IA. Contexte, approche et résultats.",
+    "Découvrez des projets concrets réalisés pour des PME et réseaux bretons : data platform, dashboards, automatisation, IA. Contexte, approche et résultats.",
   openGraph: {
-    title: "Projets - Cas d'usage data et IA | balise-ia",
+    title: "Projets - Cas d'usage data | balise-ia",
     description:
-      "Découvrez des projets concrets réalisés pour des PME industrielles bretonnes.",
+      "Découvrez des projets concrets réalisés pour des PME et réseaux bretons.",
   },
   alternates: {
     canonical: 'https://balise-ia.fr/projets',

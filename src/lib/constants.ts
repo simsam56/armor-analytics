@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: 'balise-ia',
-  tagline: 'Data & automatisation pour PME industrielles',
+  tagline: 'Votre équipe data externalisée',
   description:
-    'Collectif data & automatisation basé à Lorient. Nous aidons les PME industrielles bretonnes à gagner du temps, fiabiliser leurs données et piloter leur activité. Interventions sur site en Bretagne.',
+    'Collectif data basé à Lorient. Nous accompagnons les PME et réseaux bretons sur toute la chaîne data : ingestion, transformation, visualisation et pilotage continu. Interventions sur site en Bretagne.',
   url: 'https://balise-ia.fr',
   email: 'contact@balise-ia.fr',
   // phone: à ajouter quand disponible
@@ -31,8 +31,8 @@ export const KEY_METRICS = {
 
 // Stack et outils maîtrisés
 export const TECH_STACK = {
-  erp: ['Sage', 'Cegid', 'EBP', 'Divalto', 'SAP Business One'],
-  data: ['Excel', 'Google Sheets', 'CSV', 'bases SQL'],
+  erp: ['Sage', 'Cegid', 'EBP', 'Divalto', 'SAP Business One', 'Dynamics 365 Business Central'],
+  data: ['Excel', 'Google Sheets', 'CSV', 'bases SQL', 'Microsoft Fabric', 'DuckDB', 'dbt'],
   bi: ['Power BI', 'Metabase', 'Looker Studio'],
   automation: ['Python', 'Make (Integromat)', 'n8n', 'Power Automate'],
   cloud: ['Azure', 'AWS', 'OVH', 'Scaleway'],
@@ -44,7 +44,8 @@ export const SECTORS = [
   { name: 'Métallurgie', icon: 'Cog' },
   { name: 'Plasturgie', icon: 'Package' },
   { name: 'Logistique', icon: 'Truck' },
-  { name: 'Distribution', icon: 'Store' },
+  { name: 'Réseaux & Franchises', icon: 'Store' },
+  { name: 'Retail & Commerce', icon: 'ShoppingBag' },
 ];
 
 // Méthode de calcul des gains
@@ -83,12 +84,22 @@ export const PRICE_FACTORS = {
     'Complexité organisationnelle',
     `Besoin d'entretiens sur plusieurs sites`,
   ],
-  automatisation: [
-    'Nombre et complexité des sources (ERP, Excel, API)',
-    'Volume de données à traiter',
-    'Nombre de tableaux de bord / KPI',
+  dataplatform: [
+    'Nombre et diversité des sources (ERP, caisses, API, fichiers)',
+    'Volume de données à centraliser',
+    'Complexité des transformations',
     'Contraintes sécurité / hébergement',
+  ],
+  dashboards: [
+    'Nombre de tableaux de bord / KPI',
+    'Complexité des analyses métier',
     'Niveau de formation requis',
+    'Fréquence de reporting automatisé',
+  ],
+  pilotage: [
+    'Nombre de jours/mois (1 à 4)',
+    'Périmètre technique (pipelines, dashboards, analyses)',
+    'Niveau de réactivité attendu',
   ],
   ia: [
     'Type de modèle (OCR, prévision, classification)',
@@ -99,24 +110,23 @@ export const PRICE_FACTORS = {
   ],
 };
 
-// Les 3 offres business restructurées
+// Les 4 offres business + module IA transversal
 export const SERVICES = [
   {
     id: 'diagnostic',
-    step: 1,
+    step: 1 as number | null,
     title: 'Diagnostic & Priorisation',
     shortTitle: 'Diagnostic',
     tagline: `Comprendre où vous perdez du temps et de l'argent`,
     description:
       'On analyse vos process métier et vos flux de données pour identifier les points de friction. Vous repartez avec une vision claire des chantiers prioritaires et des gains potentiels.',
-    forWho: `Pour les dirigeants qui veulent y voir clair avant d'investir.`,
+    forWho: `Pour les dirigeants de PME ou responsables de réseaux qui veulent y voir clair avant d'investir.`,
     benefits: [
       'Vision claire de vos flux de données actuels',
       'Identification des tâches manuelles évitables',
       'Estimation chiffrée des gains potentiels',
       'Feuille de route priorisée (quick wins + projets structurants)',
     ],
-    // V2 : livrables concrets
     concreteDeliverables: [
       { item: 'Schéma des flux de données', format: 'PDF/Miro' },
       { item: 'Liste des irritants priorisés', format: 'Tableur' },
@@ -129,7 +139,6 @@ export const SERVICES = [
       'Recommandations concrètes avec estimation ROI',
       'Présentation de restitution',
     ],
-    // V2 : variateurs de prix
     priceFactors: [
       'Nombre de process à analyser (1 à 5+)',
       'Nombre de sources de données',
@@ -145,71 +154,165 @@ export const SERVICES = [
     icon: 'Search',
     cta: 'Demander un diagnostic',
     isEntryPoint: true,
+    isTransversal: false,
   },
   {
-    id: 'projet-data',
-    step: 2,
-    title: 'Projet Data & Automatisation',
-    shortTitle: 'Automatisation',
-    tagline: 'Supprimer le travail manuel, fiabiliser vos données',
+    id: 'data-platform',
+    step: 2 as number | null,
+    title: 'Data Platform',
+    shortTitle: 'Infrastructure',
+    tagline: 'Centraliser vos données dans un socle fiable et évolutif',
     description:
-      'On met en place les automatisations et tableaux de bord qui vous font gagner du temps au quotidien. Pas de gadgets : des outils concrets, documentés, que vos équipes savent utiliser.',
-    forWho: `Pour les PME prêtes à passer à l'action après un diagnostic.`,
+      'On connecte vos sources (ERP, logiciels de caisse, API, fichiers), on transforme et on structure vos données dans une plateforme centralisée. Architecture Medallion (Bronze → Silver → Gold) adaptée à votre volumétrie.',
+    forWho: 'Pour les entreprises multi-sources ou multi-sites qui veulent une vision unifiée de leurs données.',
     benefits: [
-      'Fin des ressaisies et copier-coller entre outils',
-      'Données fiables, à jour, accessibles',
-      `Tableaux de bord pour piloter l'activité`,
-      'Équipes formées et autonomes',
+      'Toutes vos données dans un seul endroit',
+      'Connexion automatique à vos sources (ERP, caisses, API, Excel)',
+      `Données nettoyées, fiables, prêtes à l'analyse`,
+      'Architecture documentée et évolutive',
     ],
-    // V2 : livrables concrets
     concreteDeliverables: [
-      { item: 'Pipeline de données automatisé', format: 'Code versionné (Git)' },
-      { item: 'Connecteurs ERP/Excel/API', format: 'Scripts documentés' },
-      { item: 'Tableaux de bord', format: 'Power BI / Metabase' },
-      { item: 'Dictionnaire de données', format: 'Documentation technique' },
-      { item: 'Formation utilisateurs', format: 'Session 2h + support vidéo' },
+      { item: 'Architecture data centralisée', format: 'Microsoft Fabric / PostgreSQL / DuckDB' },
+      { item: 'Connecteurs sources automatisés', format: 'API, ERP (Dynamics 365, Sage, Cegid), fichiers' },
+      { item: 'Pipelines de transformation', format: 'Python / SQL / dbt (versionnés Git)' },
+      { item: 'Dictionnaire de données', format: 'Documentation technique complète' },
+      { item: 'Tests de qualité des données', format: 'Suite de validations automatisées' },
     ],
     deliverables: [
-      'Pipelines de données automatisés',
-      'Connecteurs ERP / Excel / outils métiers',
-      'Tableaux de bord opérationnels',
-      'Documentation + formation des équipes',
+      'Architecture data centralisée',
+      'Connecteurs sources automatisés',
+      'Pipelines de transformation versionnés',
+      'Documentation technique complète',
     ],
-    // V2 : variateurs de prix
     priceFactors: [
-      'Nombre et complexité des sources (ERP, Excel, API)',
-      'Volume de données à traiter',
-      'Nombre de tableaux de bord / KPI',
+      'Nombre et diversité des sources (ERP, caisses, API, fichiers)',
+      'Volume de données à centraliser',
+      'Complexité des transformations',
       'Contraintes sécurité / hébergement',
+    ],
+    duration: '4 à 10 semaines',
+    priceRange: '10 000 € – 30 000 € HT',
+    prerequisites: [
+      'Diagnostic préalable réalisé',
+      'Accès aux sources de données identifiées',
+      'Sponsor interne identifié',
+    ],
+    icon: 'Database',
+    cta: 'Discuter de mon infrastructure data',
+    isEntryPoint: false,
+    isTransversal: false,
+  },
+  {
+    id: 'dashboards-analyse',
+    step: 3 as number | null,
+    title: 'Dashboards & Analyse',
+    shortTitle: 'Dashboards',
+    tagline: 'Des tableaux de bord pour piloter, pas pour décorer',
+    description:
+      'Sur vos données (structurées par nos soins ou déjà existantes), on construit les tableaux de bord et analyses métier dont vous avez besoin : suivi commercial, pilotage production, analyse clients, reporting financier.',
+    forWho: 'Pour les PME qui ont des données mais aucune visibilité pour piloter.',
+    benefits: [
+      'Tableaux de bord opérationnels (Power BI / Metabase)',
+      'Analyses métier sur mesure (segmentation clients, suivi CA, stocks)',
+      'Reporting automatisé (fini les exports Excel du vendredi)',
+      'Équipes formées et autonomes sur les outils',
+    ],
+    concreteDeliverables: [
+      { item: 'Tableaux de bord métier', format: 'Power BI / Metabase' },
+      { item: 'Analyses et segmentations', format: 'Rapports interactifs' },
+      { item: 'Reporting automatisé', format: 'Envoi planifié (email / Teams)' },
+      { item: 'Formation utilisateurs', format: 'Session 2h + guide utilisateur' },
+    ],
+    deliverables: [
+      'Tableaux de bord métier opérationnels',
+      'Analyses et segmentations sur mesure',
+      'Reporting automatisé',
+      'Formation utilisateurs',
+    ],
+    priceFactors: [
+      'Nombre de tableaux de bord / KPI',
+      'Complexité des analyses métier',
       'Niveau de formation requis',
+      'Fréquence de reporting automatisé',
     ],
     duration: '3 à 8 semaines',
     priceRange: '8 000 € – 25 000 € HT',
     prerequisites: [
-      'Diagnostic préalable réalisé',
+      'Données accessibles (structurées ou via Data Platform)',
       'Sponsor interne identifié',
       'Disponibilité pour les points de suivi',
     ],
-    icon: 'Zap',
-    cta: 'Discuter de mon projet',
+    icon: 'BarChart3',
+    cta: 'Discuter de mes dashboards',
     isEntryPoint: false,
+    isTransversal: false,
   },
   {
-    id: 'solution-ia',
-    step: 3,
-    title: 'Solution IA Ciblée',
-    shortTitle: 'IA Métier',
-    tagline: `L'IA uniquement là où elle apporte un gain mesurable`,
+    id: 'pilotage-continu',
+    step: 4 as number | null,
+    title: 'Pilotage Data Continu',
+    shortTitle: 'Pilotage',
+    tagline: 'Votre équipe data, sans recruter',
     description:
-      `On déploie une solution IA sur un cas d'usage précis : OCR intelligent, prévision statistique, classification. Pas de promesses vagues : un périmètre clair, des résultats mesurables.`,
-    forWho: `Pour les PME avec des données structurées et un cas d'usage identifié.`,
+      `On reste à vos côtés après la mise en place : évolution des dashboards, nouvelles analyses, maintenance des pipelines, réponse aux demandes métier. Un forfait mensuel, un interlocuteur dédié, zéro recrutement.`,
+    forWho: `Pour les entreprises qui veulent une équipe data disponible sans embaucher un data analyst en CDI.`,
     benefits: [
-      'Traitement automatique de documents (OCR)',
-      'Prévisions fiables (volumes, charge, stocks)',
-      'Aide à la décision basée sur vos données',
-      'Solution industrialisable, pas un POC jetable',
+      'Évolution continue de vos dashboards et analyses',
+      'Maintenance et monitoring de vos pipelines data',
+      'Réponse aux demandes métier ad hoc',
+      `Coût maîtrisé vs. un recrutement (40-50k€/an pour un CDI)`,
     ],
-    // V2 : livrables concrets avec précision technique
+    concreteDeliverables: [
+      { item: 'Interventions récurrentes', format: '1 à 4 jours/mois selon forfait' },
+      { item: 'Évolutions dashboards', format: 'Nouvelles vues, KPI, analyses' },
+      { item: 'Monitoring données', format: 'Alertes qualité + maintenance pipeline' },
+      { item: 'Bilan mensuel', format: `Rapport d'activité et recommandations` },
+    ],
+    deliverables: [
+      'Interventions récurrentes planifiées',
+      'Évolutions continues des dashboards',
+      'Monitoring et maintenance data',
+      'Bilans mensuels avec recommandations',
+    ],
+    priceFactors: [
+      'Nombre de jours/mois (1 à 4)',
+      'Périmètre technique (pipelines, dashboards, analyses)',
+      'Niveau de réactivité attendu',
+    ],
+    duration: 'Engagement 3 mois minimum',
+    priceRange: '800 € – 3 200 € HT / mois',
+    prerequisites: [
+      'Projet Data Platform ou Dashboards réalisé',
+      'Périmètre technique défini',
+    ],
+    icon: 'RefreshCw',
+    cta: `Discuter d'un accompagnement`,
+    isEntryPoint: false,
+    isTransversal: false,
+    note: 'Disponible après un projet Data Platform ou Dashboards.',
+  },
+  {
+    id: 'module-ia',
+    step: null as number | null,
+    title: 'Module IA',
+    shortTitle: 'IA',
+    tagline: `L'IA là où elle fait gagner du temps, intégrée à chaque étape`,
+    isTransversal: true,
+    description:
+      `L'IA n'est pas une fin en soi. On l'active uniquement quand elle apporte un gain mesurable : OCR pour accélérer la saisie, prévision statistique pour anticiper, classification pour trier automatiquement. Elle s'intègre à n'importe quelle étape de votre projet data.`,
+    forWho: `Pour les entreprises avec un cas d'usage identifié où l'IA apporte un gain mesurable.`,
+    useCases: [
+      { stage: 'Diagnostic', example: 'Analyse automatique de vos documents pour cartographier vos flux', icon: 'Search' },
+      { stage: 'Data Platform', example: 'OCR intelligent pour extraire les données de documents papier/PDF', icon: 'Database' },
+      { stage: 'Dashboards', example: 'Prévisions statistiques intégrées aux tableaux de bord (stocks, CA, charge)', icon: 'BarChart3' },
+      { stage: 'Pilotage continu', example: `Détection d'anomalies automatique, alertes prédictives`, icon: 'RefreshCw' },
+    ],
+    benefits: [
+      'OCR : extraction automatique de documents (factures, commandes, BL)',
+      'Prévision : anticiper les volumes, stocks, charge de travail',
+      'Classification : trier automatiquement documents, emails, tickets',
+      `Détection d'anomalies : alertes sur les dérives avant qu'elles n'explosent`,
+    ],
     concreteDeliverables: [
       { item: 'Modèle entraîné sur vos données', format: 'Python / API REST' },
       { item: 'Interface utilisateur métier', format: 'Application web dédiée' },
@@ -223,7 +326,6 @@ export const SERVICES = [
       'Mesure des performances et ROI',
       'Documentation + maintenance',
     ],
-    // V2 : variateurs de prix
     priceFactors: [
       'Type de modèle (OCR, prévision statistique, classification)',
       `Volume de données d'entraînement`,
@@ -231,23 +333,16 @@ export const SERVICES = [
       'Intégration avec les outils existants',
       'Maintenance et réentraînement inclus',
     ],
-    // V2 : précisions techniques sur l'IA
-    techDetails: {
-      ocr: 'Extraction de texte structuré (factures, bons de commande)',
-      prediction: 'Modèles statistiques (régression, séries temporelles)',
-      classification: 'Catégorisation automatique de documents ou données',
-    },
-    duration: '4 à 10 semaines',
-    priceRange: '15 000 € – 40 000 € HT',
+    duration: 'Variable selon le projet',
+    priceRange: '+5 000 € – 20 000 € HT (en complément)',
     prerequisites: [
-      'Données structurées et accessibles',
-      `Cas d'usage validé lors du diagnostic`,
-      `Volume de données suffisant pour l'entraînement`,
+      `Cas d'usage identifié lors du diagnostic`,
+      'Données accessibles et en volume suffisant',
     ],
     icon: 'Brain',
-    cta: 'Explorer les possibilités',
+    cta: 'Explorer les possibilités IA',
     isEntryPoint: false,
-    note: `Cette offre n'est proposée qu'après un diagnostic ou un projet data, jamais en standalone.`,
+    note: `Le module IA n'est jamais vendu seul. Il s'intègre à un projet Diagnostic, Data Platform, Dashboards ou Pilotage continu.`,
   },
 ];
 
@@ -260,15 +355,21 @@ export const PROCESS_STEPS = [
   },
   {
     step: 2,
-    title: 'On améliore',
-    subtitle: 'Automatisation',
-    description: 'On supprime le travail manuel et on fiabilise vos données.',
+    title: 'On structure',
+    subtitle: 'Data Platform',
+    description: 'On centralise vos données dans un socle fiable et évolutif.',
   },
   {
     step: 3,
-    title: 'On optimise',
-    subtitle: 'IA (si pertinent)',
-    description: `On déploie l'IA uniquement là où elle apporte un gain réel.`,
+    title: 'On visualise',
+    subtitle: 'Dashboards & Analyse',
+    description: 'On construit les tableaux de bord pour piloter votre activité.',
+  },
+  {
+    step: 4,
+    title: 'On pilote',
+    subtitle: 'Accompagnement continu',
+    description: 'On reste à vos côtés pour faire évoluer vos outils data.',
   },
 ];
 
@@ -431,6 +532,59 @@ export const PROJECTS = [
       author: 'Responsable QHSE',
     },
   },
+  {
+    id: 'pilotage-reseau-franchises',
+    title: 'Data Platform et pilotage commercial pour un réseau de franchises',
+    sector: 'Réseau de franchises',
+    location: 'Loire-Atlantique',
+    companySize: '150 points de vente',
+    existingTools: 'ERP Dynamics 365, logiciels de caisse (2 éditeurs), Excel',
+    context:
+      `Ce réseau national de franchises spécialisé dans le commerce de détail avait ses données éclatées entre deux logiciels de caisse différents, un ERP central et des fichiers Excel par magasin. Aucune vision consolidée du CA, des marges ou des comportements clients.`,
+    pain: 'Données éclatées entre 3 systèmes, zéro vision client, reporting manuel à J+7',
+    beforeAfter: {
+      before: [
+        { metric: 'Temps de reporting', value: 'J+7 (manuel)' },
+        { metric: 'Vision client', value: 'Inexistante' },
+        { metric: 'Couverture données', value: '60% des magasins' },
+      ],
+      after: [
+        { metric: 'Temps de reporting', value: 'Temps réel' },
+        { metric: 'Vision client', value: 'Segmentation RFM complète' },
+        { metric: 'Couverture données', value: '100% des magasins' },
+      ],
+    },
+    approach: [
+      'Diagnostic des flux entre ERP, caisses et fichiers (2 semaines)',
+      `Construction d'une data platform centralisée (Microsoft Fabric, architecture Medallion)`,
+      'Dashboards Power BI : pilotage commercial B2B et B2C, analyse clients',
+      `Mini CRM analytique avec segmentation RFM pour l'équipe marketing`,
+    ],
+    deliverables: [
+      'Data platform centralisée (Bronze → Silver → Gold)',
+      'Connecteurs automatisés ERP + 2 logiciels de caisse',
+      '3 dashboards Power BI (commercial B2B, B2C, clients)',
+      'Segmentation client RFM avec scoring',
+      'Documentation et formation équipes siège',
+    ],
+    techNote:
+      `Data platform Microsoft Fabric avec architecture Medallion. Ingestion via API GraphQL (caisse principale) + connecteur ERP Dynamics 365. Vues SQL Gold alimentant Power BI. Pas d'IA sur ce projet, uniquement de la structuration et de la visualisation.`,
+    results: {
+      main: 'Vision temps réel sur 150 points de vente',
+      secondary: [
+        `Première segmentation client de l'histoire du réseau`,
+        'Reporting automatisé pour la direction commerciale',
+        'Identification des magasins sous-performants en 2 clics',
+      ],
+    },
+    duration: '10 semaines + pilotage continu',
+    tags: ['Data Platform', 'Power BI', 'Réseau franchises', 'Microsoft Fabric'],
+    testimonial: {
+      quote:
+        'Pour la première fois, on voit nos 150 magasins dans un seul écran. Et on sait enfin qui sont nos clients.',
+      author: 'Directeur commercial',
+    },
+  },
 ];
 
 // FAQ complète et transparente
@@ -494,6 +648,24 @@ export const FAQ_ITEMS = [
     question: `Comment mesurez-vous le succès d'un projet ?`,
     answer:
       `On définit ensemble des indicateurs concrets avant de démarrer : heures gagnées, erreurs évitées, délais réduits, coûts supprimés. Chaque projet fait l'objet d'un bilan chiffré. Pas de "ça va mieux" subjectif : des résultats mesurables.`,
+  },
+  {
+    category: 'Tarifs',
+    question: 'Combien coûte le pilotage continu ?',
+    answer:
+      `Entre 800 € et 3 200 € HT/mois selon le forfait (1 à 4 jours/mois). À titre de comparaison, un data analyst en CDI coûte 40 à 50 k€/an charges comprises. Le pilotage continu vous donne accès à 3 profils complémentaires (data engineer, analyste, data scientist) pour une fraction de ce coût.`,
+  },
+  {
+    category: 'Fonctionnement',
+    question: 'Vous travaillez aussi avec des réseaux de franchises ?',
+    answer:
+      `Oui. Les réseaux multi-sites ont exactement les mêmes problématiques que les industriels : données éclatées entre plusieurs systèmes, aucune vision consolidée, reporting manuel. On a l'expérience des architectures data multi-sources (ERP, caisses, API) et des dashboards de pilotage réseau.`,
+  },
+  {
+    category: 'Fonctionnement',
+    question: `L'IA est-elle toujours nécessaire ?`,
+    answer:
+      `Non, et c'est un point important. La majorité de nos projets n'utilisent pas d'IA. On la propose uniquement quand elle apporte un gain mesurable : OCR pour accélérer la saisie, prévision pour anticiper les stocks, classification pour trier automatiquement. Si votre problème se résout avec de la bonne plomberie data, on ne vous vendra pas de l'IA.`,
   },
 ];
 

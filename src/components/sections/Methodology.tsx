@@ -26,10 +26,10 @@ export function Methodology() {
           </p>
         </div>
 
-        {/* 3 steps */}
+        {/* 4 steps */}
         <motion.div
           ref={stepsRef}
-          className="mt-16 grid gap-8 lg:grid-cols-3"
+          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
           variants={staggerContainer}
           initial="hidden"
           animate={stepsInView ? 'visible' : 'hidden'}
@@ -51,6 +51,19 @@ export function Methodology() {
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* IA transversal mention */}
+        <motion.div
+          className="mt-8 flex items-center gap-3 rounded-xl bg-breton-accent/5 border border-breton-accent/20 px-6 py-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={stepsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+        >
+          <span className="text-breton-accent text-lg shrink-0">🧠</span>
+          <p className="text-sm text-breton-slate">
+            L&apos;IA s&apos;intègre à chaque étape, uniquement là où elle apporte un gain réel.
+          </p>
         </motion.div>
 
         {/* Metrics — fond navy différencié */}

@@ -48,12 +48,14 @@ export function JsonLd() {
     ],
     sameAs: [SITE_CONFIG.social.linkedin],
     serviceType: [
-      'Automatisation des données',
-      'Tableaux de bord industriels',
-      'Data Engineering',
+      'Diagnostic data',
+      'Data Platform',
+      'Tableaux de bord',
+      'Pilotage Data Continu',
       'Intelligence Artificielle',
+      'Data Engineering',
     ],
-    priceRange: '2000€ - 40000€ HT',
+    priceRange: '800€ - 30000€ HT',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

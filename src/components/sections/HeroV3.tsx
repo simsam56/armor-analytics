@@ -73,7 +73,7 @@ export function HeroV3() {
               variants={v ?? fadeInUp}
               className="mt-6 text-lg text-white/70 leading-relaxed max-w-2xl sm:text-xl"
             >
-              On automatise vos ressaisies, on fiabilise vos données, on vous donne les tableaux de bord pour piloter. Collectif data spécialisé PME industrielles bretonnes.
+              On automatise vos ressaisies, on fiabilise vos données, on vous donne les tableaux de bord pour piloter. Collectif data spécialisé PME et réseaux bretons.
             </motion.p>
 
             {/* Key gains — stagger gauche à droite */}

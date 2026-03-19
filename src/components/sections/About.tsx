@@ -46,7 +46,7 @@ export function About({ className = '' }: AboutProps) {
 
             <div className="mt-6 space-y-4 text-slate-600 leading-relaxed">
               <p>
-                Un collectif de consultants data et automatisation, spécialisé PME industrielles.
+                Un collectif de consultants data, spécialisé PME et réseaux bretons.
                 On a tous travaillé en production, en logistique, ou en finance dans l&apos;industrie.
               </p>
               <p>

@@ -22,13 +22,15 @@ test.describe('Navigation et pages principales', () => {
     await expect(page.locator('footer')).toContainText('balise-ia');
   });
 
-  test('/services se charge avec les 3 offres', async ({ page }) => {
+  test('/services se charge avec les offres', async ({ page }) => {
     await page.goto('/services');
     await expect(page).toHaveTitle(/Offres/);
     await expect(page.locator('h1')).toContainText('progressive');
-    await expect(page.getByText('Diagnostic & Priorisation')).toBeVisible();
-    await expect(page.getByText('Projet Data & Automatisation')).toBeVisible();
-    await expect(page.getByText('Solution IA Ciblée')).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Diagnostic & Priorisation' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Data Platform' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Dashboards & Analyse' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Pilotage Data Continu' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Module IA' }).first()).toBeVisible();
   });
 
   test('/projets se charge avec les cas clients', async ({ page }) => {
