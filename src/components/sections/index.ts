@@ -10,3 +10,4 @@ export { StackGrid } from './StackGrid';
 export { About } from './About';
 export { LogoCarousel } from './LogoCarousel';
 export { TrustBand } from './TrustBand';
+export { TeamSection } from './TeamSection';

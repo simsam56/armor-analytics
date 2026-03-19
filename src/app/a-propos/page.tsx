@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
+import { TeamSection } from '@/components/sections/TeamSection';
 import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -209,6 +210,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Équipe */}
+      <TeamSection />
 
       {/* Comparaison ESN */}
       <section className="py-20 sm:py-24 bg-breton-navy">
