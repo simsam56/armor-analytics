@@ -47,7 +47,7 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 
 ### Pages et routing
 
-22 pages au total. Les pages `/interventions/[ville]` utilisent `generateStaticParams` pour pré-rendre 6 villes bretonnes (Lorient, Vannes, Quimper, Rennes, Brest, Saint-Brieuc). La homepage compose : HeroV3 → TrustBand → Services → Methodology → Projects → About → FAQ → ContactSection.
+22 pages au total. Les pages `/interventions/[ville]` utilisent `generateStaticParams` pour pré-rendre 6 villes bretonnes (Lorient, Vannes, Quimper, Rennes, Brest, Saint-Brieuc). La homepage compose : HeroV3 → TrustBand → Services → Methodology → Projects → About → FAQ → ContactSection, chaque section wrappée dans `<FadeIn>` pour une apparition au scroll. 7 pages ont un canonical explicite.
 
 ### API Routes
 
