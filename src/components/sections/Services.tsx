@@ -1,7 +1,12 @@
+'use client';
+
 import Link from 'next/link';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Search, Zap, Brain, ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SERVICES } from '@/lib/constants';
+import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Search,
@@ -15,6 +20,9 @@ interface ServicesProps {
 }
 
 export function Services({ showLink = true, detailed = false }: ServicesProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.15 });
+
   return (
     <section className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,12 +39,19 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <motion.div
+          ref={ref}
+          className="mt-16 grid gap-6 lg:grid-cols-3"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+        >
           {SERVICES.map((service) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             return (
-              <div
+              <motion.div
                 key={service.id}
+                variants={fadeInUp}
                 className={`group relative rounded-2xl border p-8 transition-all hover:shadow-lg ${
                   service.isEntryPoint
                     ? 'border-[#1B4D3E]/20 bg-[#1B4D3E]/[0.02] ring-1 ring-[#1B4D3E]/10'
@@ -69,10 +84,10 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                 ) : (
                   <CompactContent service={service} />
                 )}
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {showLink && (
           <div className="mt-12 text-center">

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   Calendar,
@@ -9,6 +10,7 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
+import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 export function HeroV3() {
   return (
@@ -17,26 +19,43 @@ export function HeroV3() {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=')] opacity-60" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-28 lg:py-32">
-        <div className="max-w-3xl">
+        <motion.div
+          className="max-w-3xl"
+          variants={staggerContainer}
+          initial="hidden"
+          animate="visible"
+        >
           {/* Location badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white/80 backdrop-blur-sm ring-1 ring-white/10">
+          <motion.div
+            variants={fadeInUp}
+            className="mb-8 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white/80 backdrop-blur-sm ring-1 ring-white/10"
+          >
             <MapPin className="h-3.5 w-3.5 text-[#40916C]" />
             <span>Lorient, Bretagne — Interventions sur site</span>
-          </div>
+          </motion.div>
 
           {/* Main headline */}
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]">
+          <motion.h1
+            variants={fadeInUp}
+            className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
+          >
             Vos données travaillent.{' '}
             <span className="text-[#40916C]">Pas vos équipes.</span>
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p className="mt-6 text-lg text-white/70 leading-relaxed max-w-2xl sm:text-xl">
+          <motion.p
+            variants={fadeInUp}
+            className="mt-6 text-lg text-white/70 leading-relaxed max-w-2xl sm:text-xl"
+          >
             On automatise vos ressaisies, on fiabilise vos données, on vous donne les tableaux de bord pour piloter. Collectif data spécialisé PME industrielles bretonnes.
-          </p>
+          </motion.p>
 
           {/* Key gains - horizontal */}
-          <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/60">
+          <motion.div
+            variants={fadeInUp}
+            className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/60"
+          >
             <span className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#40916C]" />
               Saisie commande : 8 min → 30 sec
@@ -49,10 +68,13 @@ export function HeroV3() {
               <span className="h-1.5 w-1.5 rounded-full bg-[#40916C]" />
               ROI démontrable, chiffré
             </span>
-          </div>
+          </motion.div>
 
           {/* CTAs */}
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <motion.div
+            variants={fadeInUp}
+            className="mt-10 flex flex-col gap-4 sm:flex-row"
+          >
             <Button
               size="lg"
               asChild
@@ -79,10 +101,13 @@ export function HeroV3() {
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-          </div>
+          </motion.div>
 
           {/* Trust signals */}
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/50">
+          <motion.div
+            variants={fadeInUp}
+            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/50"
+          >
             <span className="flex items-center gap-1.5">
               <CheckCircle className="h-3.5 w-3.5" />
               Sans engagement
@@ -95,8 +120,8 @@ export function HeroV3() {
               <CheckCircle className="h-3.5 w-3.5" />
               NDA possible
             </span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Bottom fade */}

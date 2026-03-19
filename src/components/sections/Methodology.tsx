@@ -1,6 +1,16 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { PROCESS_STEPS } from '@/lib/constants';
+import { fadeInUp, scaleIn, staggerContainer } from '@/lib/animations';
 
 export function Methodology() {
+  const stepsRef = useRef<HTMLDivElement>(null);
+  const metricsRef = useRef<HTMLDivElement>(null);
+  const stepsInView = useInView(stepsRef, { once: true, amount: 0.2 });
+  const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 });
+
   return (
     <section className="py-20 sm:py-24 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -17,16 +27,20 @@ export function Methodology() {
         </div>
 
         {/* 3 steps */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <motion.div
+          ref={stepsRef}
+          className="mt-16 grid gap-8 lg:grid-cols-3"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={stepsInView ? 'visible' : 'hidden'}
+        >
           {PROCESS_STEPS.map((step, idx) => (
-            <div key={step.step} className="relative">
-              {/* Connector line */}
+            <motion.div key={step.step} variants={scaleIn} className="relative">
               {idx < PROCESS_STEPS.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-full w-full h-px bg-slate-200 -translate-x-1/2 z-0" />
               )}
 
               <div className="relative bg-white rounded-2xl border border-slate-200 p-8 text-center">
-                {/* Step number */}
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#1B4D3E] text-white text-lg font-bold">
                   {step.step}
                 </div>
@@ -35,20 +49,27 @@ export function Methodology() {
                 <p className="mt-1 text-sm font-medium text-[#40916C]">{step.subtitle}</p>
                 <p className="mt-3 text-sm text-slate-600 leading-relaxed">{step.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Metrics examples */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div
+          ref={metricsRef}
+          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={metricsInView ? 'visible' : 'hidden'}
+        >
           {[
             { label: 'Saisie commande', before: '8 min', after: '30 sec' },
             { label: 'Taux d\u2019erreur', before: '5%', after: '0.2%' },
             { label: 'Reporting', before: 'J+5', after: 'Temps réel' },
             { label: 'Économie annuelle', before: '', after: '8 280 €' },
           ].map((metric) => (
-            <div
+            <motion.div
               key={metric.label}
+              variants={fadeInUp}
               className="rounded-xl bg-white border border-slate-200 p-5"
             >
               <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">
@@ -63,9 +84,9 @@ export function Methodology() {
                 )}
                 <span className="text-lg font-bold text-[#1B4D3E]">{metric.after}</span>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <p className="mt-8 text-center text-sm text-slate-500">
           Chaque projet fait l&apos;objet d&apos;un bilan chiffré avant/après.{' '}
