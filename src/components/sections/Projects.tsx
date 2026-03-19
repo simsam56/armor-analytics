@@ -31,8 +31,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
             Cas clients réels, anonymisés
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Ces projets ont été réalisés pour des PME industrielles bretonnes. Les noms sont
-            anonymisés, les résultats sont réels.
+            Noms anonymisés, résultats réels. PME et réseaux bretons.
           </p>
         </div>
 

@@ -23,15 +23,15 @@ const PILLARS = [
   },
 ];
 
-const MARQUEE_WORDS = [
-  'DATA',
-  'DASHBOARDS',
-  'IA',
-  'PILOTAGE',
-  'DATA PLATFORM',
-  'REPORTING',
-  'OCR',
-  'PRÉVISION',
+const MARQUEE_ITEMS = [
+  { text: 'DATA PLATFORM', icon: '◆' },
+  { text: 'DASHBOARDS', icon: '◆' },
+  { text: 'INTELLIGENCE ARTIFICIELLE', icon: '◆' },
+  { text: 'OCR', icon: '◆' },
+  { text: 'PRÉVISION', icon: '◆' },
+  { text: 'REPORTING', icon: '◆' },
+  { text: 'AUTOMATISATION', icon: '◆' },
+  { text: 'PILOTAGE', icon: '◆' },
 ];
 
 export function Pillars() {
@@ -39,11 +39,27 @@ export function Pillars() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-white">
+      {/* Marquee band — large format */}
+      <div className="border-y border-slate-100 py-6 overflow-hidden bg-slate-50/50">
+        <div className="flex animate-marquee whitespace-nowrap">
+          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => (
+            <span
+              key={idx}
+              className="mx-6 sm:mx-10 text-lg sm:text-2xl font-bold uppercase tracking-[0.15em] text-breton-granite/30 flex items-center gap-4"
+            >
+              <span className="text-breton-accent/30 text-xs">{item.icon}</span>
+              {item.text}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* 3 Pillar cards */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <motion.div
           ref={ref}
-          className="grid gap-6 sm:grid-cols-3"
+          className="grid gap-6 md:grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
@@ -52,32 +68,17 @@ export function Pillars() {
             <motion.div
               key={pillar.title}
               variants={fadeInUp}
-              className="flex items-center gap-4 rounded-xl bg-slate-50 p-5"
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="group rounded-2xl border border-slate-200 bg-white p-8 text-center transition-shadow duration-300 hover:shadow-xl hover:border-breton-accent/30"
             >
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-breton-accent/10">
-                <pillar.icon className="h-5 w-5 text-breton-accent" />
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-breton-accent/10 group-hover:bg-breton-accent/15 transition-colors">
+                <pillar.icon className="h-7 w-7 text-breton-accent" />
               </div>
-              <div>
-                <h3 className="text-sm font-bold text-breton-navy">{pillar.title}</h3>
-                <p className="text-sm text-breton-slate">{pillar.description}</p>
-              </div>
+              <h3 className="mt-5 text-lg font-bold text-breton-navy">{pillar.title}</h3>
+              <p className="mt-2 text-sm text-breton-slate">{pillar.description}</p>
             </motion.div>
           ))}
         </motion.div>
-      </div>
-
-      {/* Marquee défilant */}
-      <div className="mt-8 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...MARQUEE_WORDS, ...MARQUEE_WORDS, ...MARQUEE_WORDS].map((word, idx) => (
-            <span
-              key={idx}
-              className="mx-6 text-xs font-semibold uppercase tracking-[0.2em] text-breton-granite/40"
-            >
-              {word}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +9,6 @@ import {
 } from '@/components/ui/accordion';
 import { FAQ_ITEMS } from '@/lib/constants';
 
-// Group FAQ items by category
 const groupedFAQ = FAQ_ITEMS.reduce(
   (acc, item) => {
     const category = item.category || 'Autres';
@@ -19,7 +21,8 @@ const groupedFAQ = FAQ_ITEMS.reduce(
   {} as Record<string, typeof FAQ_ITEMS>
 );
 
-const categoryOrder = [
+const CATEGORIES = [
+  'Tout',
   'Fonctionnement',
   'Tarifs',
   'Prérequis',
@@ -28,7 +31,6 @@ const categoryOrder = [
   'Résultats',
 ];
 
-// Generate FAQ schema.org structured data
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -42,7 +44,20 @@ const faqJsonLd = {
   })),
 };
 
+const INITIAL_VISIBLE = 5;
+
 export function FAQ() {
+  const [activeTab, setActiveTab] = useState('Tout');
+  const [showAll, setShowAll] = useState(false);
+
+  const filteredItems =
+    activeTab === 'Tout'
+      ? FAQ_ITEMS
+      : FAQ_ITEMS.filter((item) => item.category === activeTab);
+
+  const visibleItems = showAll ? filteredItems : filteredItems.slice(0, INITIAL_VISIBLE);
+  const hasMore = filteredItems.length > INITIAL_VISIBLE;
+
   return (
     <section className="py-20 sm:py-24 bg-slate-50">
       <script
@@ -55,42 +70,61 @@ export function FAQ() {
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Questions fréquentes
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            On répond clairement à vos questions sur notre fonctionnement, nos tarifs et nos
-            engagements.
-          </p>
         </div>
 
-        <div className="mt-12 space-y-8">
-          {categoryOrder.map((category) => {
-            const items = groupedFAQ[category];
-            if (!items || items.length === 0) return null;
-
-            return (
-              <div key={category}>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-breton-emerald mb-4">
-                  {category}
-                </h3>
-                <Accordion type="single" collapsible className="w-full">
-                  {items.map((item, index) => (
-                    <AccordionItem
-                      key={index}
-                      value={`${category}-${index}`}
-                      className="bg-white rounded-xl mb-2 px-5 border border-slate-200"
-                    >
-                      <AccordionTrigger className="text-left text-base font-medium text-slate-900 hover:text-breton-emerald py-4">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-slate-600 pb-4 leading-relaxed">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            );
-          })}
+        {/* Category tabs */}
+        <div className="mt-8 flex flex-wrap justify-center gap-2">
+          {CATEGORIES.filter(
+            (cat) => cat === 'Tout' || (groupedFAQ[cat] && groupedFAQ[cat].length > 0)
+          ).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => {
+                setActiveTab(cat);
+                setShowAll(false);
+              }}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                activeTab === cat
+                  ? 'bg-breton-emerald text-white'
+                  : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
         </div>
+
+        {/* Accordion */}
+        <div className="mt-8">
+          <Accordion type="single" collapsible className="w-full space-y-2">
+            {visibleItems.map((item, index) => (
+              <AccordionItem
+                key={`${item.category}-${index}`}
+                value={`${item.category}-${index}`}
+                className="bg-white rounded-xl px-5 border border-slate-200"
+              >
+                <AccordionTrigger className="text-left text-base font-medium text-slate-900 hover:text-breton-emerald py-4">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-slate-600 pb-4 leading-relaxed">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+
+        {/* Show more */}
+        {hasMore && !showAll && (
+          <div className="mt-6 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="text-sm font-medium text-breton-emerald hover:text-breton-moss transition-colors"
+            >
+              Voir {filteredItems.length - INITIAL_VISIBLE} questions de plus →
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

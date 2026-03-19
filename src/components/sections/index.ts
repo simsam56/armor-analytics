@@ -13,3 +13,4 @@ export { TrustBand } from './TrustBand';
 export { TeamSection } from './TeamSection';
 export { CtaContact } from './CtaContact';
 export { Pillars } from './Pillars';
+export { AnimatedCounters } from './AnimatedCounters';

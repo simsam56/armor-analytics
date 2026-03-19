@@ -33,7 +33,7 @@ interface ServicesProps {
 
 export function Services({ showLink = true, detailed = false }: ServicesProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.15 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const numberedServices = SERVICES.filter((s) => !s.isTransversal);
   const transversalService = SERVICES.find((s) => s.isTransversal);
@@ -46,68 +46,98 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
             Notre approche
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Un parcours en 4 étapes
+            4 étapes, des résultats à chaque palier
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            On comprend, on structure, on visualise, on pilote. Chaque étape apporte de la valeur.
-            Vous avancez à votre rythme.
+            Vous avancez à votre rythme. Chaque étape apporte de la valeur.
           </p>
         </div>
 
-        {/* 4 offres numérotées */}
+        {/* Timeline stepper */}
         <motion.div
           ref={ref}
-          className={`mt-16 grid gap-6 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-4'}`}
+          className="mt-16"
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
         >
-          {numberedServices.map((service) => {
-            const Icon = iconMap[service.icon as keyof typeof iconMap];
-            return (
-              <motion.div
-                key={service.id}
-                variants={fadeInUp}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`group relative rounded-2xl border p-8 transition-shadow duration-300 hover:shadow-xl hover:border-breton-emerald/40 ${
-                  service.isEntryPoint
-                    ? 'border-breton-emerald/20 bg-breton-emerald/[0.02] ring-1 ring-breton-emerald/10'
-                    : 'border-slate-200 bg-white'
-                }`}
-              >
-                {/* Step number */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
-                    {Icon && <Icon className="h-6 w-6 text-breton-emerald" />}
-                  </div>
-                  {service.step && (
-                    <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
+          {/* Progress bar — desktop only */}
+          <div className="hidden lg:block relative mb-12">
+            <div className="absolute top-5 left-[8%] right-[8%] h-0.5 bg-slate-200" />
+            <motion.div
+              className="absolute top-5 left-[8%] h-0.5 bg-breton-accent"
+              initial={{ width: 0 }}
+              animate={isInView ? { width: '84%' } : { width: 0 }}
+              transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
+            />
+            <div className="relative flex justify-between px-[4%]">
+              {numberedServices.map((service, idx) => {
+                return (
+                  <motion.div
+                    key={service.id}
+                    className="flex flex-col items-center w-1/4"
+                    variants={fadeInUp}
+                  >
+                    <motion.div
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-breton-accent text-white text-sm font-bold ring-4 ring-white z-10"
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : { scale: 0 }}
+                      transition={{ delay: 0.3 + idx * 0.2, type: 'spring', stiffness: 200 }}
+                    >
+                      {service.step}
+                    </motion.div>
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-breton-accent">
+                      {service.shortTitle}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Service cards */}
+          <div className={`grid gap-6 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-4'}`}>
+            {numberedServices.map((service) => {
+              const Icon = iconMap[service.icon as keyof typeof iconMap];
+              return (
+                <motion.div
+                  key={service.id}
+                  variants={fadeInUp}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                  className={`group relative rounded-2xl border p-6 sm:p-8 transition-shadow duration-300 hover:shadow-xl hover:border-breton-emerald/40 ${
+                    service.isEntryPoint
+                      ? 'border-breton-emerald/20 bg-breton-emerald/[0.02] ring-1 ring-breton-emerald/10'
+                      : 'border-slate-200 bg-white'
+                  }`}
+                >
+                  {/* Mobile step + icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-breton-emerald/10">
+                      {Icon && <Icon className="h-5 w-5 text-breton-emerald" />}
+                    </div>
+                    <span className="lg:hidden text-xs font-medium text-slate-400 uppercase tracking-wider">
                       Étape {service.step}
                     </span>
-                  )}
-                </div>
-
-                {/* Entry point badge */}
-                {service.isEntryPoint && (
-                  <div className="mb-4 inline-flex items-center rounded-full bg-breton-emerald px-3 py-1 text-xs font-medium text-white">
-                    Point d&apos;entrée recommandé
                   </div>
-                )}
 
-                <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                <p className="mt-1 text-sm font-medium text-breton-moss">{service.tagline}</p>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
-                  {service.description}
-                </p>
+                  {service.isEntryPoint && (
+                    <div className="mb-3 inline-flex items-center rounded-full bg-breton-emerald px-3 py-1 text-xs font-medium text-white">
+                      Point d&apos;entrée recommandé
+                    </div>
+                  )}
 
-                {detailed ? (
-                  <DetailedContent service={service} />
-                ) : (
-                  <CompactContent service={service} />
-                )}
-              </motion.div>
-            );
-          })}
+                  <h3 className="text-lg font-bold text-slate-900">{service.title}</h3>
+                  <p className="mt-1 text-sm font-medium text-breton-moss">{service.tagline}</p>
+
+                  {detailed ? (
+                    <DetailedContent service={service} />
+                  ) : (
+                    <CompactContent service={service} />
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
         </motion.div>
 
         {/* Module IA transversal */}
@@ -192,9 +222,7 @@ function TransversalIASection({
       </div>
 
       {detailed ? (
-        /* Detailed: left/right layout */
         <div className="grid gap-8 lg:grid-cols-2">
-          {/* Left: description + benefits + price */}
           <div className="space-y-5">
             <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
             <div>
@@ -217,8 +245,6 @@ function TransversalIASection({
               )}
             </div>
           </div>
-
-          {/* Right: use cases cards */}
           <div className="grid gap-3 sm:grid-cols-2">
             {useCases.map((useCase) => {
               const Icon = iconMap[useCase.icon as keyof typeof iconMap];
@@ -240,7 +266,6 @@ function TransversalIASection({
           </div>
         </div>
       ) : (
-        /* Compact: description + benefits inline */
         <div>
           <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mb-4">
             {service.description}
@@ -264,16 +289,16 @@ function TransversalIASection({
 
 function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
   return (
-    <div className="mt-6 space-y-4">
-      <ul className="space-y-2">
+    <div className="mt-4 space-y-3">
+      <ul className="space-y-1.5">
         {service.benefits.slice(0, 3).map((benefit, idx) => (
           <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
-            <CheckCircle className="h-4 w-4 text-breton-moss mt-0.5 shrink-0" />
+            <CheckCircle className="h-3.5 w-3.5 text-breton-moss mt-0.5 shrink-0" />
             {benefit}
           </li>
         ))}
       </ul>
-      <div className="pt-4 border-t border-slate-100">
+      <div className="pt-3 border-t border-slate-100">
         <p className="text-sm text-slate-500">
           <span className="font-medium text-slate-700">{service.duration}</span>
           <span className="mx-2 text-slate-300">·</span>
@@ -286,13 +311,10 @@ function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
 
 function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
   return (
-    <div className="mt-6 space-y-5">
-      {/* Pour qui */}
+    <div className="mt-5 space-y-4">
       <div className="rounded-lg bg-slate-50 p-3">
         <p className="text-sm text-slate-600 italic">{service.forWho}</p>
       </div>
-
-      {/* Bénéfices */}
       <div>
         <h4 className="text-sm font-semibold text-slate-900 mb-2">Ce que vous gagnez</h4>
         <ul className="space-y-1.5">
@@ -304,8 +326,6 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
           ))}
         </ul>
       </div>
-
-      {/* Livrables */}
       <div>
         <h4 className="text-sm font-semibold text-slate-900 mb-2">Ce que vous recevez</h4>
         <ul className="space-y-1.5">
@@ -320,17 +340,13 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
           ))}
         </ul>
       </div>
-
-      {/* Durée et prix */}
-      <div className="pt-4 border-t border-slate-100 space-y-1">
+      <div className="pt-3 border-t border-slate-100 space-y-1">
         <p className="text-sm text-slate-600">
           Durée : <span className="font-medium text-slate-900">{service.duration}</span>
         </p>
         <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
         {service.note && <p className="text-xs text-slate-500 italic mt-1">{service.note}</p>}
       </div>
-
-      {/* CTA */}
       <Button
         asChild
         className="w-full"
