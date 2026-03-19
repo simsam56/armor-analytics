@@ -23,7 +23,7 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 ## Marque — Règles strictes
 
 - **Nom** : `balise-ia` (minuscules). Jamais "Armor Analytics", "BALISE Data", "balisedata".
-- **Email** : `contact@balise-ia.fr`. Jamais `balisedata@gmail.com`.
+- **Email** : `hello@balise-ia.fr`. Jamais `balisedata@gmail.com`.
 - **URL** : `https://balise-ia.fr`. Jamais `balisedata.fr`, `armor-analytics.fr`.
 - **Palette** : vert breton `#1B4D3E` (primary), `#40916C` (accent), `slate-*` (gris). Jamais `blue-*` ni `gray-*` dans les classes Tailwind.
 - **Logo** : phare "Clean Silhouette" V3 — SVG inline dans `src/components/ui/logo.tsx`

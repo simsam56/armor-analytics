@@ -73,7 +73,7 @@ export async function POST(request: Request) {
 
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL || 'contact@balise-ia.fr',
+      to: process.env.CONTACT_EMAIL || 'hello@balise-ia.fr',
       replyTo: email,
       subject: `🎯 Nouveau lead Audit IA - ${company} (Score: ${result.score}/100)`,
       html: `

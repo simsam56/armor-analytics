@@ -289,7 +289,7 @@ export default function AboutPage() {
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-slate-500">contact@balise-ia.fr</p>
+          <p className="mt-6 text-sm text-slate-500">hello@balise-ia.fr</p>
         </div>
       </section>
     </>
