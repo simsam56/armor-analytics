@@ -377,7 +377,7 @@ export const PROCESS_STEPS = [
 export const PROJECTS = [
   {
     id: 'commandes-agroalimentaire',
-    title: 'Automatisation du traitement des commandes',
+    title: `Comment une PME agroalimentaire a éliminé 80% de ses ressaisies`,
     sector: 'Agroalimentaire',
     location: 'Morbihan',
     companySize: '35 salariés',
@@ -430,7 +430,7 @@ export const PROJECTS = [
   },
   {
     id: 'pilotage-metallurgie',
-    title: 'Centralisation et pilotage de la production',
+    title: 'Comment un métallurgiste pilote sa production en temps réel',
     sector: 'Métallurgie',
     location: 'Finistère',
     companySize: '45 salariés',
@@ -482,7 +482,7 @@ export const PROJECTS = [
   },
   {
     id: 'dechets-plasturgie',
-    title: 'Optimisation de la gestion des déchets',
+    title: `Comment un plasturgiste a réduit ses coûts déchets de 25%`,
     sector: 'Plasturgie',
     location: `Côtes-d'Armor`,
     companySize: '28 salariés',
@@ -534,7 +534,7 @@ export const PROJECTS = [
   },
   {
     id: 'pilotage-reseau-franchises',
-    title: 'Data Platform et pilotage commercial pour un réseau de franchises',
+    title: 'Comment un réseau de 150 franchises a unifié ses données en un seul écran',
     sector: 'Réseau de franchises',
     location: 'Loire-Atlantique',
     companySize: '150 points de vente',

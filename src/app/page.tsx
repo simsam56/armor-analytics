@@ -1,5 +1,6 @@
 import {
   HeroV3,
+  Pillars,
   Services,
   Methodology,
   Projects,
@@ -18,6 +19,7 @@ export default function Home() {
       <JsonLd />
       <HeroV3 />
       <TrustBand />
+      <Pillars />
       <AnimatedSection>
         <Services />
       </AnimatedSection>

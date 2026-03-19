@@ -140,16 +140,20 @@ function TransversalIASection({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  const useCases = 'useCases' in service ? (service.useCases as Array<{ stage: string; example: string; icon: string }>) : [];
+  const useCases =
+    'useCases' in service
+      ? (service.useCases as Array<{ stage: string; example: string; icon: string }>)
+      : [];
 
   return (
     <motion.div
       ref={ref}
-      className="mt-12 rounded-2xl border border-breton-accent/20 bg-breton-accent/[0.03] p-8 sm:p-10"
+      className="mt-12 rounded-2xl border border-breton-accent/20 bg-gradient-to-br from-breton-accent/[0.04] to-breton-accent/[0.01] p-8 sm:p-10"
       variants={fadeInUp}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
     >
+      {/* Header */}
       <div className="flex items-start gap-4 mb-6">
         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-accent/10">
           <Brain className="h-6 w-6 text-breton-accent" />
@@ -165,58 +169,82 @@ function TransversalIASection({
         </div>
       </div>
 
-      <p className="text-sm text-slate-600 leading-relaxed max-w-3xl">{service.description}</p>
-
-      {/* Use cases par étape */}
-      {useCases.length > 0 && (
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {useCases.map((useCase) => {
-            const Icon = iconMap[useCase.icon as keyof typeof iconMap];
-            return (
-              <div
-                key={useCase.stage}
-                className="rounded-xl bg-white border border-slate-200 p-4"
-              >
-                <div className="flex items-center gap-2 mb-2">
+      {/* Connected steps pipeline */}
+      <div className="mb-8 flex items-center justify-center gap-0 overflow-x-auto py-2">
+        {useCases.map((useCase, idx) => {
+          const Icon = iconMap[useCase.icon as keyof typeof iconMap];
+          return (
+            <div key={useCase.stage} className="flex items-center shrink-0">
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-breton-accent/10 ring-2 ring-breton-accent/20">
                   {Icon && <Icon className="h-4 w-4 text-breton-accent" />}
-                  <span className="text-xs font-semibold uppercase tracking-wider text-breton-accent">
-                    {useCase.stage}
-                  </span>
                 </div>
-                <p className="text-sm text-slate-600">{useCase.example}</p>
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-breton-accent whitespace-nowrap">
+                  {useCase.stage}
+                </span>
               </div>
-            );
-          })}
-        </div>
-      )}
+              {idx < useCases.length - 1 && (
+                <div className="w-8 sm:w-14 h-px bg-breton-accent/30 mx-1 sm:mx-2 -mt-4" />
+              )}
+            </div>
+          );
+        })}
+      </div>
 
       {detailed ? (
-        <div className="mt-6 space-y-5">
-          {/* Bénéfices */}
-          <div>
-            <h4 className="text-sm font-semibold text-slate-900 mb-2">
-              Cas d&apos;usage concrets
-            </h4>
-            <ul className="space-y-1.5">
-              {service.benefits.map((benefit, idx) => (
-                <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
-                  <CheckCircle className="h-4 w-4 text-breton-accent mt-0.5 shrink-0" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
+        /* Detailed: left/right layout */
+        <div className="grid gap-8 lg:grid-cols-2">
+          {/* Left: description + benefits + price */}
+          <div className="space-y-5">
+            <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
+            <div>
+              <h4 className="text-sm font-semibold text-slate-900 mb-2">
+                Cas d&apos;usage concrets
+              </h4>
+              <ul className="space-y-1.5">
+                {service.benefits.map((benefit, idx) => (
+                  <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-breton-accent mt-0.5 shrink-0" />
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="pt-4 border-t border-breton-accent/10 space-y-2">
+              <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
+              {service.note && (
+                <p className="text-xs text-slate-500 italic">{service.note}</p>
+              )}
+            </div>
           </div>
 
-          {/* Prix et note */}
-          <div className="pt-4 border-t border-breton-accent/10 space-y-2">
-            <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
-            {service.note && (
-              <p className="text-xs text-slate-500 italic">{service.note}</p>
-            )}
+          {/* Right: use cases cards */}
+          <div className="grid gap-3 sm:grid-cols-2">
+            {useCases.map((useCase) => {
+              const Icon = iconMap[useCase.icon as keyof typeof iconMap];
+              return (
+                <div
+                  key={useCase.stage}
+                  className="rounded-xl bg-white border border-slate-200 p-4"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    {Icon && <Icon className="h-4 w-4 text-breton-accent" />}
+                    <span className="text-xs font-semibold uppercase tracking-wider text-breton-accent">
+                      {useCase.stage}
+                    </span>
+                  </div>
+                  <p className="text-sm text-slate-600">{useCase.example}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       ) : (
-        <div className="mt-6">
+        /* Compact: description + benefits inline */
+        <div>
+          <p className="text-sm text-slate-600 leading-relaxed max-w-3xl mb-4">
+            {service.description}
+          </p>
           <ul className="flex flex-wrap gap-x-6 gap-y-2">
             {service.benefits.slice(0, 4).map((benefit, idx) => (
               <li key={idx} className="text-sm text-slate-600 flex items-center gap-2">

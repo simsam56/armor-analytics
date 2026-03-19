@@ -136,3 +136,13 @@
 .city-pulse {
   animation: cityPulse 2s ease-in-out infinite;
 }
+
+/* Marquee défilant horizontal */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}

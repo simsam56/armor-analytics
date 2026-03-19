@@ -105,8 +105,8 @@ export function Footer() {
               <LogoWithIcon size="sm" variant="white" />
             </Link>
             <p className="mt-4 max-w-sm text-sm text-white/60 leading-relaxed">
-              Collectif data & automatisation spécialisé PME industrielles bretonnes.
-              On supprime vos ressaisies, on fiabilise vos données, on vous aide à piloter.
+              Votre équipe data externalisée. On accompagne les PME et réseaux bretons
+              sur toute la chaîne : ingestion, transformation, visualisation et pilotage continu.
             </p>
 
             {/* Badges confiance */}
