@@ -69,15 +69,33 @@
 - [x] Tests API (7 tests : validation, honeypot, email, body incomplet)
 - [x] Total : 24 tests E2E
 
-## Phase 8 — Crédibilité & preuves (à faire — nécessite contenu réel)
+## Phase 8 — Finitions visuelles (fait)
+
+- [x] FadeIn au scroll sur les sections homepage
+- [x] focus-visible custom vert brand
+- [x] text-wrap: balance/pretty
+- [x] Opacités Tailwind corrigées (/8 → /10)
+- [x] Canonicals ajoutés sur toutes les pages principales
+
+## Phase 9 — Déploiement (fait)
+
+- [x] Code poussé sur GitHub (simsam56/armor-analytics)
+- [x] Projet Vercel créé et déployé
+- [x] DNS Infomaniak configuré (A @ + CNAME www → Vercel)
+- [x] Domaine balise-ia.fr en ligne (HTTPS actif)
+- [x] Variables Vercel configurées (RESEND_API_KEY, RESEND_FROM_EMAIL, CONTACT_EMAIL)
+- [x] Resend domaine vérifié + SPF/DKIM/DMARC en place
+- [x] Email split : contact@ (expédition) / hello@ (réception Infomaniak)
+
+## Phase 10 — Crédibilité & preuves (à faire — nécessite contenu réel)
 
 - [ ] Vrais témoignages clients (quand disponibles)
 - [ ] Logos clients réels (quand autorisés)
 - [ ] Métriques réelles vérifiées
-- [ ] Photos équipe / terrain (quand disponibles)
+- [ ] Photos équipe / terrain (à intégrer — fichiers déjà dans /public)
 
-## Phase 9 — Finitions restantes
+## Phase 11 — Améliorations futures
 
 - [ ] Images OpenGraph personnalisées par page
 - [ ] Sentry pour le monitoring erreurs
-- [ ] Domaine personnalisé configuré
+- [ ] Audit Lighthouse mobile post-déploiement
