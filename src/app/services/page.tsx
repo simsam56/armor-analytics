@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { CheckCircle, Lock, Wrench, BookOpen, Calendar } from 'lucide-react';
-import { Hero, Services, ContactSection } from '@/components/sections';
+import { Hero, Services } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
 
@@ -129,7 +129,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <ContactSection />
     </>
   );
 }

@@ -12,7 +12,7 @@ export function Methodology() {
   const metricsInView = useInView(metricsRef, { once: true, amount: 0.3 });
 
   return (
-    <section className="py-20 sm:py-24 bg-slate-50">
+    <section id="methode" className="py-20 sm:py-24 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">

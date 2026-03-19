@@ -21,7 +21,7 @@ interface ProjectsProps {
 
 export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
   return (
-    <section className="py-20 sm:py-24 bg-white">
+    <section id="realisations" className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
@@ -224,12 +224,13 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    <p className="text-slate-600 text-sm">{project.context}</p>
-
-                    {/* Résultat principal */}
-                    <div className="bg-green-50 border border-green-100 rounded-lg p-4">
-                      <p className="text-lg font-bold text-green-700">{project.results.main}</p>
+                    {/* Résultat principal — EN PREMIER */}
+                    <div className="bg-breton-emerald/10 border border-breton-emerald/20 rounded-lg p-4">
+                      <p className="text-xs font-medium text-breton-moss uppercase tracking-wider mb-1">Résultat</p>
+                      <p className="text-lg font-bold text-breton-emerald">{project.results.main}</p>
                     </div>
+
+                    <p className="text-slate-600 text-sm">{project.context}</p>
 
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2">

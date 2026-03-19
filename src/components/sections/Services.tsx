@@ -24,7 +24,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
   const isInView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
-    <section className="py-20 sm:py-24 bg-white">
+    <section id="offres" className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">

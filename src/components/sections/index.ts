@@ -11,3 +11,4 @@ export { About } from './About';
 export { LogoCarousel } from './LogoCarousel';
 export { TrustBand } from './TrustBand';
 export { TeamSection } from './TeamSection';
+export { CtaContact } from './CtaContact';
