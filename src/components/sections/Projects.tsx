@@ -40,7 +40,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
           {PROJECTS.map((project) => (
             <Card
               key={project.id}
-              className="overflow-hidden transition-shadow hover:shadow-lg border border-slate-200"
+              className="overflow-hidden border border-slate-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group"
             >
               <CardHeader className="bg-slate-50 border-b border-slate-200">
                 <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mb-3">

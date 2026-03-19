@@ -52,7 +52,8 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
               <motion.div
                 key={service.id}
                 variants={fadeInUp}
-                className={`group relative rounded-2xl border p-8 transition-all hover:shadow-lg ${
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className={`group relative rounded-2xl border p-8 transition-shadow duration-300 hover:shadow-xl hover:border-breton-emerald/40 ${
                   service.isEntryPoint
                     ? 'border-breton-emerald/20 bg-breton-emerald/[0.02] ring-1 ring-breton-emerald/10'
                     : 'border-slate-200 bg-white'

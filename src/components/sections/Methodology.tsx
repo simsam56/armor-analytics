@@ -53,45 +53,46 @@ export function Methodology() {
           ))}
         </motion.div>
 
-        {/* Metrics examples */}
+        {/* Metrics — fond navy différencié */}
         <motion.div
           ref={metricsRef}
-          className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          className="mt-16 rounded-2xl bg-breton-navy p-8 sm:p-10"
           variants={staggerContainer}
           initial="hidden"
           animate={metricsInView ? 'visible' : 'hidden'}
         >
-          {[
-            { label: 'Saisie commande', before: '8 min', after: '30 sec' },
-            { label: 'Taux d\u2019erreur', before: '5%', after: '0.2%' },
-            { label: 'Reporting', before: 'J+5', after: 'Temps réel' },
-            { label: 'Économie annuelle', before: '', after: '8 280 €' },
-          ].map((metric) => (
-            <motion.div
-              key={metric.label}
-              variants={fadeInUp}
-              className="rounded-xl bg-white border border-slate-200 p-5"
-            >
-              <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">
-                {metric.label}
-              </p>
-              <div className="mt-2 flex items-baseline gap-2">
-                {metric.before && (
-                  <>
-                    <span className="text-sm text-slate-400 line-through">{metric.before}</span>
-                    <span className="text-slate-300">→</span>
-                  </>
-                )}
-                <span className="text-lg font-bold text-breton-emerald">{metric.after}</span>
-              </div>
-            </motion.div>
-          ))}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: 'Saisie commande', before: '8 min', after: '30 sec' },
+              { label: 'Taux d\u2019erreur', before: '5%', after: '0.2%' },
+              { label: 'Reporting', before: 'J+5', after: 'Temps réel' },
+              { label: 'Économie annuelle', before: '', after: '8 280 €' },
+            ].map((metric) => (
+              <motion.div
+                key={metric.label}
+                variants={fadeInUp}
+                className="text-center"
+              >
+                <p className="text-xs font-medium text-white/40 uppercase tracking-wider">
+                  {metric.label}
+                </p>
+                <div className="mt-2 flex items-baseline justify-center gap-2">
+                  {metric.before && (
+                    <>
+                      <span className="text-sm text-white/30 line-through">{metric.before}</span>
+                      <span className="text-white/20">→</span>
+                    </>
+                  )}
+                  <span className="text-xl font-bold text-breton-accent">{metric.after}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-xs text-white/40">
+            Chaque projet fait l&apos;objet d&apos;un bilan chiffré avant/après.{' '}
+            <span className="text-white/60">NDA possible dès le premier échange.</span>
+          </p>
         </motion.div>
-
-        <p className="mt-8 text-center text-sm text-slate-500">
-          Chaque projet fait l&apos;objet d&apos;un bilan chiffré avant/après.{' '}
-          <span className="font-medium text-slate-700">NDA possible dès le premier échange.</span>
-        </p>
       </div>
     </section>
   );

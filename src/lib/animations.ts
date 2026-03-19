@@ -53,3 +53,24 @@ export const staggerContainer: Variants = {
     },
   },
 };
+
+// Stagger plus lent pour le hero (séquentiel)
+export const heroStagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+// Stagger rapide pour les bullet points
+export const fastStagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
