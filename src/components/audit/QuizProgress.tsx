@@ -17,7 +17,7 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
       <div className="relative">
         <div className="h-2 bg-[#E2E8E5] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[#1B4D3E] rounded-full transition-all duration-500 ease-out"
+            className="h-full bg-breton-emerald rounded-full transition-all duration-500 ease-out"
             style={{ width: `${progressPercentage}%` }}
           />
         </div>
@@ -25,7 +25,7 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
 
       {/* Step indicators */}
       <div className="flex justify-between mt-4">
-        <span className="text-sm font-medium text-[#1B4D3E]">
+        <span className="text-sm font-medium text-breton-emerald">
           Question {currentStep} sur {totalSteps}
         </span>
         <span className="text-sm text-[#64756C]">
@@ -46,9 +46,9 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
                 flex items-center justify-center w-8 h-8 rounded-full text-xs font-medium
                 transition-all duration-300
                 ${isCompleted
-                  ? 'bg-[#1B4D3E] text-white'
+                  ? 'bg-breton-emerald text-white'
                   : isCurrent
-                    ? 'bg-[#1B4D3E]/10 text-[#1B4D3E] ring-2 ring-[#1B4D3E]'
+                    ? 'bg-breton-emerald/10 text-breton-emerald ring-2 ring-breton-emerald'
                     : 'bg-[#F1F5F3] text-[#64756C]'
                 }
               `}

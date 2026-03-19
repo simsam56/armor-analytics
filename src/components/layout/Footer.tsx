@@ -1,27 +1,91 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Calendar, ArrowRight, Shield, Flag } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG, getCalendlyUrl, getContactEmail } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { LogoWithIcon } from '@/components/ui/logo';
+
+// Contours simplifiés de la Bretagne avec villes marquées
+function BretagneMap() {
+  const cities = [
+    { name: 'Lorient', x: 115, y: 145, main: true },
+    { name: 'Vannes', x: 148, y: 155 },
+    { name: 'Quimper', x: 68, y: 130 },
+    { name: 'Brest', x: 38, y: 85 },
+    { name: 'Rennes', x: 225, y: 115 },
+    { name: 'Saint-Brieuc', x: 155, y: 78 },
+  ];
+
+  return (
+    <div className="relative">
+      <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-xs mx-auto opacity-80">
+        {/* Contour Bretagne simplifié */}
+        <path
+          d="M30 95 C25 85 20 75 28 65 C35 55 50 50 65 48 C80 46 95 42 110 40 C125 38 140 35 160 38 C175 40 190 42 205 50 C220 58 235 68 245 80 C250 86 252 95 248 105 C244 115 238 120 230 125 C222 130 212 135 205 142 C198 148 192 155 182 158 C172 161 160 162 148 160 C136 158 125 155 115 155 C105 155 95 158 85 155 C75 152 65 145 55 138 C45 131 35 125 30 115 C28 108 28 100 30 95 Z"
+          stroke="white"
+          strokeWidth="1.5"
+          strokeOpacity="0.3"
+          fill="white"
+          fillOpacity="0.05"
+        />
+
+        {/* Points villes */}
+        {cities.map((city) => (
+          <g key={city.name}>
+            {/* Halo */}
+            <circle
+              cx={city.x}
+              cy={city.y}
+              r={city.main ? 8 : 5}
+              fill="#00B4D8"
+              fillOpacity="0.2"
+              className="city-pulse"
+            />
+            {/* Point */}
+            <circle
+              cx={city.x}
+              cy={city.y}
+              r={city.main ? 4 : 2.5}
+              fill={city.main ? '#00B4D8' : 'white'}
+              fillOpacity={city.main ? 1 : 0.7}
+            />
+            {/* Label */}
+            <text
+              x={city.x}
+              y={city.y - (city.main ? 12 : 8)}
+              textAnchor="middle"
+              fill="white"
+              fillOpacity={city.main ? 0.9 : 0.5}
+              fontSize={city.main ? 10 : 8}
+              fontFamily="var(--font-geist-sans), sans-serif"
+              fontWeight={city.main ? 600 : 400}
+            >
+              {city.name}
+            </text>
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-200 bg-slate-50">
+    <footer className="bg-breton-navy">
       {/* CTA Banner */}
-      <div className="bg-[#1B4D3E]">
+      <div className="border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
               <h3 className="text-lg font-semibold text-white">
                 Prêt à supprimer vos ressaisies ?
               </h3>
-              <p className="text-white/70 text-sm">
+              <p className="text-white/60 text-sm">
                 Diagnostic gratuit de 30 minutes, sans engagement.
               </p>
             </div>
-            <Button asChild variant="secondary" className="gap-2 shrink-0">
+            <Button asChild className="gap-2 shrink-0 bg-white text-breton-navy hover:bg-breton-sand">
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-4 w-4" />
                 Réserver un créneau
@@ -32,105 +96,122 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Main footer content */}
+      {/* Main footer */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
-          {/* Brand */}
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+          {/* Brand + carte */}
+          <div className="lg:col-span-5">
             <Link href="/" className="flex items-center">
-              <LogoWithIcon size="sm" />
+              <LogoWithIcon size="sm" variant="white" />
             </Link>
-            <p className="mt-4 max-w-md text-sm text-slate-600 leading-relaxed">
-              Collectif data & automatisation spécialisé PME industrielles. On supprime vos
-              ressaisies, on fiabilise vos données, et on vous donne les tableaux de bord pour
-              piloter votre activité.
+            <p className="mt-4 max-w-sm text-sm text-white/60 leading-relaxed">
+              Collectif data & automatisation spécialisé PME industrielles bretonnes.
+              On supprime vos ressaisies, on fiabilise vos données, on vous aide à piloter.
             </p>
-            <div className="mt-4 flex items-center gap-2 text-sm text-slate-500">
-              <MapPin className="h-4 w-4 text-[#1B4D3E]" />
-              <span>
-                Basés à {SITE_CONFIG.location.city} – Interventions en {SITE_CONFIG.location.region}
+
+            {/* Badges confiance */}
+            <div className="mt-5 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs text-white/70">
+                <Flag className="h-3 w-3" />
+                Données hébergées en France
               </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs text-white/70">
+                <MapPin className="h-3 w-3" />
+                Basés à Lorient
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs text-white/70">
+                <Shield className="h-3 w-3" />
+                NDA systématique
+              </span>
+            </div>
+
+            {/* Carte Bretagne */}
+            <div className="mt-8 hidden sm:block">
+              <BretagneMap />
             </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Navigation</h3>
-            <ul className="mt-4 space-y-2.5">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Liens */}
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            {/* Navigation */}
+            <div>
+              <h3 className="text-sm font-semibold text-white/90">Navigation</h3>
+              <ul className="mt-4 space-y-2.5">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/50 transition-colors hover:text-breton-accent"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Interventions */}
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Interventions</h3>
-            <ul className="mt-4 space-y-2.5">
-              {['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'].map((city) => (
-                <li key={city}>
-                  <Link
-                    href={`/interventions/${city}`}
-                    className="text-sm text-slate-600 transition-colors hover:text-[#1B4D3E] capitalize"
-                  >
-                    {city === 'saint-brieuc' ? 'Saint-Brieuc' : city.charAt(0).toUpperCase() + city.slice(1)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            {/* Interventions */}
+            <div>
+              <h3 className="text-sm font-semibold text-white/90">Interventions</h3>
+              <ul className="mt-4 space-y-2.5">
+                {['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'].map((city) => (
+                  <li key={city}>
+                    <Link
+                      href={`/interventions/${city}`}
+                      className="text-sm text-white/50 transition-colors hover:text-breton-accent"
+                    >
+                      {city === 'saint-brieuc' ? 'Saint-Brieuc' : city.charAt(0).toUpperCase() + city.slice(1)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-sm font-semibold text-slate-900">Contact</h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <a
-                  href={`mailto:${getContactEmail()}`}
-                  className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
-                >
-                  <Mail className="h-4 w-4" />
-                  {getContactEmail()}
-                </a>
-              </li>
-              {SITE_CONFIG.social.linkedin && (
+            {/* Contact */}
+            <div>
+              <h3 className="text-sm font-semibold text-white/90">Contact</h3>
+              <ul className="mt-4 space-y-3">
                 <li>
                   <a
-                    href={SITE_CONFIG.social.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-[#1B4D3E]"
+                    href={`mailto:${getContactEmail()}`}
+                    className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-accent"
                   >
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
+                    <Mail className="h-4 w-4" />
+                    {getContactEmail()}
                   </a>
                 </li>
-              )}
-            </ul>
+                {SITE_CONFIG.social.linkedin && (
+                  <li>
+                    <a
+                      href={SITE_CONFIG.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-accent"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-slate-200 pt-8">
+        <div className="mt-12 border-t border-white/10 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-white/40">
               © {currentYear} {SITE_CONFIG.name}. Tous droits réservés.
             </p>
             <div className="flex gap-6">
               <Link
                 href="/mentions-legales"
-                className="text-sm text-slate-500 transition-colors hover:text-[#1B4D3E]"
+                className="text-sm text-white/40 transition-colors hover:text-breton-accent"
               >
                 Mentions légales
               </Link>
-              <span className="text-sm text-slate-400">
+              <span className="text-sm text-white/30">
                 {SITE_CONFIG.location.city}, {SITE_CONFIG.location.region}
               </span>
             </div>

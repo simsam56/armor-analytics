@@ -6,8 +6,8 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-const BRAND_GREEN = '#1B4D3E';
-const ACCENT_GREEN = '#40916C';
+const BRAND_NAVY = '#0C1F3F';
+const ACCENT_CYAN = '#00B4D8';
 
 /**
  * Icône phare "Clean Silhouette" — V3
@@ -20,9 +20,9 @@ function PhareIcon({
   size: number;
   variant?: 'default' | 'white';
 }) {
-  const mainColor = variant === 'white' ? '#ffffff' : BRAND_GREEN;
-  const accentColor = variant === 'white' ? '#B7E4C7' : ACCENT_GREEN;
-  const windowColor = variant === 'white' ? '#1B4D3E' : 'white';
+  const mainColor = variant === 'white' ? '#ffffff' : BRAND_NAVY;
+  const accentColor = ACCENT_CYAN;
+  const windowColor = variant === 'white' ? BRAND_NAVY : 'white';
   const windowOpacity = variant === 'white' ? 0.4 : 0.5;
 
   return (
@@ -66,8 +66,8 @@ export function Logo({ className, variant = 'default', size = 'md' }: LogoProps)
   };
 
   const { balise, ia } = sizes[size];
-  const mainColor = variant === 'white' ? 'text-white' : 'text-[#1B4D3E]';
-  const accentColor = variant === 'white' ? 'text-white/50' : 'text-[#40916C]';
+  const mainColor = variant === 'white' ? 'text-white' : 'text-breton-navy';
+  const accentColor = 'text-breton-accent';
 
   return (
     <div className={cn('flex items-baseline gap-1.5', className)}>
@@ -89,8 +89,8 @@ export function LogoWithIcon({ className, variant = 'default', size = 'md' }: Lo
   };
 
   const { icon, balise, ia } = sizes[size];
-  const mainColor = variant === 'white' ? 'text-white' : 'text-[#1B4D3E]';
-  const accentColor = variant === 'white' ? 'text-white/50' : 'text-[#40916C]';
+  const mainColor = variant === 'white' ? 'text-white' : 'text-breton-navy';
+  const accentColor = 'text-breton-accent';
 
   return (
     <div className={cn('flex items-center gap-2.5', className)}>
@@ -117,14 +117,14 @@ export function LogoIcon({ className, size = 32 }: { className?: string; size?: 
       className={className}
       aria-hidden="true"
     >
-      <rect width="56" height="56" rx="12" fill={BRAND_GREEN} />
+      <rect width="56" height="56" rx="12" fill={BRAND_NAVY} />
       <path
         d="M28 8 L25 14 L23 14 L23 20 L21.5 20 L23.5 44 L32.5 44 L35 20 L33 20 L33 14 L31 14 Z"
         fill="white"
       />
-      <rect x="25" y="15" width="6" height="4" rx="1" fill={ACCENT_GREEN} opacity="0.7" />
+      <rect x="25" y="15" width="6" height="4" rx="1" fill={ACCENT_CYAN} opacity="0.7" />
       <rect x="10" y="44" width="36" height="4" rx="1.5" fill="white" />
-      <path d="M33 16 L46 10 L46 14 L33 18 Z" fill={ACCENT_GREEN} opacity="0.35" />
+      <path d="M33 16 L46 10 L46 14 L33 18 Z" fill={ACCENT_CYAN} opacity="0.35" />
     </svg>
   );
 }
@@ -133,8 +133,8 @@ export function LogoIcon({ className, size = 32 }: { className?: string; size?: 
  * Logo compact pour mobile
  */
 export function LogoCompact({ className, variant = 'default' }: Omit<LogoProps, 'size'>) {
-  const mainColor = variant === 'white' ? 'text-white' : 'text-[#1B4D3E]';
-  const accentColor = variant === 'white' ? 'text-white/50' : 'text-[#40916C]';
+  const mainColor = variant === 'white' ? 'text-white' : 'text-breton-navy';
+  const accentColor = 'text-breton-accent';
 
   return (
     <div className={cn('flex items-center gap-2', className)}>

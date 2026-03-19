@@ -130,7 +130,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-2 items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">Ce qu&apos;on fait</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Ce qu&apos;on fait</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 On automatise ce qui vous fait perdre du temps
               </h2>
@@ -145,8 +145,8 @@ export default function AboutPage() {
             <div className="space-y-4">
               {GUARANTEES.map((guarantee) => (
                 <div key={guarantee.title} className="flex gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
-                    <guarantee.icon className="h-5 w-5 text-[#1B4D3E]" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
+                    <guarantee.icon className="h-5 w-5 text-breton-emerald" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900">{guarantee.title}</h3>
@@ -163,7 +163,7 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 bg-slate-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">Notre histoire</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Notre histoire</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pourquoi balise-ia existe
             </h2>
@@ -175,7 +175,7 @@ export default function AboutPage() {
                 key={chapter.title}
                 className="relative pl-8 border-l-2 border-slate-200"
               >
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-[#1B4D3E] flex items-center justify-center">
+                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
                   <span className="text-xs font-bold text-white">{index + 1}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">{chapter.title}</h3>
@@ -190,7 +190,7 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">Nos principes</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Nos principes</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Ce sur quoi on ne transige pas
             </h2>
@@ -199,8 +199,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {VALUES.map((value) => (
               <div key={value.title} className="p-8 rounded-2xl bg-slate-50 border border-slate-200">
-                <div className="h-12 w-12 rounded-xl bg-[#1B4D3E]/10 flex items-center justify-center mb-6">
-                  <value.icon className="h-6 w-6 text-[#1B4D3E]" />
+                <div className="h-12 w-12 rounded-xl bg-breton-emerald/10 flex items-center justify-center mb-6">
+                  <value.icon className="h-6 w-6 text-breton-emerald" />
                 </div>
                 <h3 className="text-xl font-semibold text-slate-900 mb-3">{value.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{value.description}</p>
@@ -211,7 +211,7 @@ export default function AboutPage() {
       </section>
 
       {/* Comparaison ESN */}
-      <section className="py-20 sm:py-24 bg-[#0F2B23]">
+      <section className="py-20 sm:py-24 bg-breton-navy">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
@@ -226,7 +226,7 @@ export default function AboutPage() {
             {DIFFERENTIATORS.map((diff) => (
               <div key={diff.us} className="grid grid-cols-2 gap-3">
                 <div className="flex items-center gap-3 rounded-xl bg-white/10 px-5 py-4">
-                  <CheckCircle className="h-4 w-4 text-[#40916C] shrink-0" />
+                  <CheckCircle className="h-4 w-4 text-breton-moss shrink-0" />
                   <span className="text-sm text-white font-medium">{diff.us}</span>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl bg-white/5 px-5 py-4">
@@ -243,7 +243,7 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">Zone d&apos;intervention</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Zone d&apos;intervention</p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Basés à Lorient, on intervient en Bretagne
             </h2>
@@ -257,9 +257,9 @@ export default function AboutPage() {
               <Link
                 key={city}
                 href={`/interventions/${city.toLowerCase().replace("'", '').replace(' ', '-')}`}
-                className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 border border-slate-200 hover:border-[#1B4D3E]/30 transition-colors"
+                className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 border border-slate-200 hover:border-breton-emerald/30 transition-colors"
               >
-                <MapPin className="inline h-3.5 w-3.5 mr-1.5 text-[#1B4D3E]" />
+                <MapPin className="inline h-3.5 w-3.5 mr-1.5 text-breton-emerald" />
                 {city}
               </Link>
             ))}

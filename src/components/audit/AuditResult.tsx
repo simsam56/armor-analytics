@@ -14,13 +14,13 @@ interface AuditResultProps {
 export function AuditResult({ result, company }: AuditResultProps) {
   const getScoreColor = (score: number) => {
     if (score <= 40) return 'text-orange-600';
-    if (score <= 70) return 'text-[#1B4D3E]';
+    if (score <= 70) return 'text-breton-emerald';
     return 'text-emerald-600';
   };
 
   const getScoreBg = (score: number) => {
     if (score <= 40) return 'bg-orange-50 border-orange-200';
-    if (score <= 70) return 'bg-[#1B4D3E]/5 border-[#1B4D3E]/20';
+    if (score <= 70) return 'bg-breton-emerald/5 border-breton-emerald/20';
     return 'bg-emerald-50 border-emerald-200';
   };
 
@@ -88,7 +88,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
       {/* Recommandations */}
       <div className="mb-10">
         <h3 className="flex items-center gap-2 text-xl font-bold text-slate-900 mb-5">
-          <Target className="w-5 h-5 text-[#1B4D3E]" />
+          <Target className="w-5 h-5 text-breton-emerald" />
           3 projets recommandés pour {company}
         </h3>
 
@@ -99,7 +99,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
               className="rounded-xl border border-slate-200 p-5 hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-9 h-9 bg-[#1B4D3E] text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="flex-shrink-0 w-9 h-9 bg-breton-emerald text-white rounded-full flex items-center justify-center font-bold text-sm">
                   {index + 1}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -109,7 +109,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
                   <ul className="space-y-1 mb-3">
                     {rec.benefits.map((b, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-slate-700">
-                        <CheckCircle className="w-3.5 h-3.5 text-[#40916C] flex-shrink-0" />
+                        <CheckCircle className="w-3.5 h-3.5 text-breton-moss flex-shrink-0" />
                         {b}
                       </li>
                     ))}
@@ -117,11 +117,11 @@ export function AuditResult({ result, company }: AuditResultProps) {
 
                   <div className="flex flex-wrap gap-3 text-xs text-slate-500">
                     <span className="flex items-center gap-1">
-                      <TrendingUp className="w-3.5 h-3.5 text-[#1B4D3E]" />
+                      <TrendingUp className="w-3.5 h-3.5 text-breton-emerald" />
                       ROI : <strong className="text-slate-700">{rec.roiEstimate}</strong>
                     </span>
                     <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-[#1B4D3E]" />
+                      <Clock className="w-3.5 h-3.5 text-breton-emerald" />
                       <strong className="text-slate-700">{rec.duration}</strong>
                     </span>
                     <span
@@ -144,7 +144,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
       </div>
 
       {/* CTA — double option : Calendly (primaire) + Contact (secondaire) */}
-      <div className="rounded-2xl bg-[#0F2B23] p-8 text-center text-white">
+      <div className="rounded-2xl bg-breton-navy p-8 text-center text-white">
         <h3 className="text-2xl font-bold mb-2">
           On en discute ?
         </h3>
@@ -155,7 +155,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
           <Button
             asChild
             size="lg"
-            className="bg-white text-[#1B4D3E] hover:bg-white/90 h-13 px-8 text-base font-semibold gap-2"
+            className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold gap-2"
           >
             <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
               <Calendar className="h-5 w-5" />

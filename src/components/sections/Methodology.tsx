@@ -15,7 +15,7 @@ export function Methodology() {
     <section className="py-20 sm:py-24 bg-slate-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Méthode
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -41,12 +41,12 @@ export function Methodology() {
               )}
 
               <div className="relative bg-white rounded-2xl border border-slate-200 p-8 text-center">
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#1B4D3E] text-white text-lg font-bold">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-breton-emerald text-white text-lg font-bold">
                   {step.step}
                 </div>
 
                 <h3 className="mt-5 text-xl font-bold text-slate-900">{step.title}</h3>
-                <p className="mt-1 text-sm font-medium text-[#40916C]">{step.subtitle}</p>
+                <p className="mt-1 text-sm font-medium text-breton-moss">{step.subtitle}</p>
                 <p className="mt-3 text-sm text-slate-600 leading-relaxed">{step.description}</p>
               </div>
             </motion.div>
@@ -82,7 +82,7 @@ export function Methodology() {
                     <span className="text-slate-300">→</span>
                   </>
                 )}
-                <span className="text-lg font-bold text-[#1B4D3E]">{metric.after}</span>
+                <span className="text-lg font-bold text-breton-emerald">{metric.after}</span>
               </div>
             </motion.div>
           ))}

@@ -24,7 +24,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
     <section className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Réalisations
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -45,19 +45,19 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
               <CardHeader className="bg-slate-50 border-b border-slate-200">
                 <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 mb-3">
                   <span className="flex items-center gap-1.5">
-                    <Factory className="h-4 w-4 text-[#1B4D3E]" />
+                    <Factory className="h-4 w-4 text-breton-emerald" />
                     {project.sector}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4 text-[#1B4D3E]" />
+                    <MapPin className="h-4 w-4 text-breton-emerald" />
                     {project.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Users className="h-4 w-4 text-[#1B4D3E]" />
+                    <Users className="h-4 w-4 text-breton-emerald" />
                     {project.companySize}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Wrench className="h-4 w-4 text-[#1B4D3E]" />
+                    <Wrench className="h-4 w-4 text-breton-emerald" />
                     {project.existingTools}
                   </span>
                 </div>
@@ -86,7 +86,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                         <ul className="space-y-2">
                           {project.approach.map((item, idx) => (
                             <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
-                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#1B4D3E]/10 text-[#1B4D3E] text-xs font-medium shrink-0">
+                              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-breton-emerald/10 text-breton-emerald text-xs font-medium shrink-0">
                                 {idx + 1}
                               </span>
                               {item}
@@ -180,12 +180,12 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
 
                       {/* Témoignage */}
                       {project.testimonial && (
-                        <div className="bg-[#1B4D3E]/5 border border-[#1B4D3E]/10 rounded-xl p-6">
-                          <Quote className="h-6 w-6 text-[#40916C] mb-2" />
+                        <div className="bg-breton-emerald/5 border border-breton-emerald/10 rounded-xl p-6">
+                          <Quote className="h-6 w-6 text-breton-moss mb-2" />
                           <p className="text-slate-700 italic mb-3">
                             &ldquo;{project.testimonial.quote}&rdquo;
                           </p>
-                          <p className="text-sm font-medium text-[#1B4D3E]">
+                          <p className="text-sm font-medium text-breton-emerald">
                             — {project.testimonial.author}
                           </p>
                         </div>
@@ -236,7 +236,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center rounded-full bg-[#1B4D3E]/5 px-2.5 py-0.5 text-xs font-medium text-[#1B4D3E]"
+                          className="inline-flex items-center rounded-full bg-breton-emerald/5 px-2.5 py-0.5 text-xs font-medium text-breton-emerald"
                         >
                           {tag}
                         </span>

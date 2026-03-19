@@ -6,6 +6,19 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
+
+  /* Palette bretonne */
+  --color-breton-navy: #0C1F3F;
+  --color-breton-slate: #2E4057;
+  --color-breton-emerald: #1A6B4A;
+  --color-breton-moss: #2D7A4F;
+  --color-breton-sand: #E8E0D5;
+  --color-breton-granite: #8B9AAB;
+  --color-breton-foam: #F4F8F5;
+  --color-breton-accent: #00B4D8;
+
+  /* shadcn tokens */
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -39,23 +52,23 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.15 0.01 240);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.15 0.01 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.35 0.06 165);
+  --popover-foreground: oklch(0.15 0.01 240);
+  --primary: oklch(0.25 0.05 240);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.97 0.005 165);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0.01 165);
+  --muted-foreground: oklch(0.5 0.01 240);
+  --accent: oklch(0.97 0.01 200);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.35 0.06 165);
+  --border: oklch(0.91 0.005 240);
+  --input: oklch(0.91 0.005 240);
+  --ring: oklch(0.25 0.05 240);
   --chart-1: oklch(0.55 0.1 160);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -74,13 +87,17 @@
     scroll-behavior: smooth;
   }
 
-  /* Focus visible — accessibilité premium */
+  /* Focus visible */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-[#1B4D3E];
+    @apply outline-2 outline-offset-2 outline-breton-navy;
   }
 
-  /* Typographie fine */
-  h1, h2, h3, h4 {
+  /* Typographie */
+  h1 {
+    font-family: var(--font-serif), Georgia, serif;
+    text-wrap: balance;
+  }
+  h2, h3, h4 {
     text-wrap: balance;
   }
   p {
@@ -88,29 +105,34 @@
   }
 }
 
-/* Fade-in au scroll */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Texture grain subtile pour le hero */
+.hero-grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.fade-in-section {
-  animation: fadeInUp 0.6s ease-out both;
+/* Animation vagues */
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-/* Intersection Observer — état initial avant animation */
-.fade-in-ready {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.wave-animation {
+  animation: waveFloat 6s ease-in-out infinite;
 }
-.fade-in-ready.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+
+/* Pulse pour les points sur la carte */
+@keyframes cityPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.5); }
+}
+
+.city-pulse {
+  animation: cityPulse 2s ease-in-out infinite;
 }

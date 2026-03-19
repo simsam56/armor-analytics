@@ -36,20 +36,20 @@ export function QuizQuestion({ question, selectedValue, onSelect }: QuizQuestion
               onClick={() => onSelect(option.value)}
               className={`
                 w-full text-left p-5 rounded-xl border-2 transition-all duration-200
-                hover:border-[#1B4D3E] hover:bg-[#1B4D3E]/5
-                focus:outline-none focus:ring-2 focus:ring-[#1B4D3E] focus:ring-offset-2
+                hover:border-breton-emerald hover:bg-breton-emerald/5
+                focus:outline-none focus:ring-2 focus:ring-breton-emerald focus:ring-offset-2
                 ${isSelected
-                  ? 'border-[#1B4D3E] bg-[#1B4D3E]/10'
+                  ? 'border-breton-emerald bg-breton-emerald/10'
                   : 'border-[#E2E8E5] bg-white'
                 }
               `}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-lg ${isSelected ? 'text-[#1B4D3E] font-medium' : 'text-[#1E2922]'}`}>
+                <span className={`text-lg ${isSelected ? 'text-breton-emerald font-medium' : 'text-[#1E2922]'}`}>
                   {option.label}
                 </span>
                 {isSelected && (
-                  <CheckCircle className="w-6 h-6 text-[#1B4D3E] flex-shrink-0" />
+                  <CheckCircle className="w-6 h-6 text-breton-emerald flex-shrink-0" />
                 )}
               </div>
             </button>

@@ -27,7 +27,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
     <section className="py-20 sm:py-24 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Notre approche
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -54,14 +54,14 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                 variants={fadeInUp}
                 className={`group relative rounded-2xl border p-8 transition-all hover:shadow-lg ${
                   service.isEntryPoint
-                    ? 'border-[#1B4D3E]/20 bg-[#1B4D3E]/[0.02] ring-1 ring-[#1B4D3E]/10'
+                    ? 'border-breton-emerald/20 bg-breton-emerald/[0.02] ring-1 ring-breton-emerald/10'
                     : 'border-slate-200 bg-white'
                 }`}
               >
                 {/* Step number */}
                 <div className="flex items-center justify-between mb-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#1B4D3E]/10">
-                    <Icon className="h-6 w-6 text-[#1B4D3E]" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
+                    <Icon className="h-6 w-6 text-breton-emerald" />
                   </div>
                   <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">
                     Étape {service.step}
@@ -70,13 +70,13 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
 
                 {/* Entry point badge */}
                 {service.isEntryPoint && (
-                  <div className="mb-4 inline-flex items-center rounded-full bg-[#1B4D3E] px-3 py-1 text-xs font-medium text-white">
+                  <div className="mb-4 inline-flex items-center rounded-full bg-breton-emerald px-3 py-1 text-xs font-medium text-white">
                     Point d&apos;entrée recommandé
                   </div>
                 )}
 
                 <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                <p className="mt-1 text-sm font-medium text-[#40916C]">{service.tagline}</p>
+                <p className="mt-1 text-sm font-medium text-breton-moss">{service.tagline}</p>
                 <p className="mt-3 text-sm text-slate-600 leading-relaxed">{service.description}</p>
 
                 {detailed ? (
@@ -110,7 +110,7 @@ function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
       <ul className="space-y-2">
         {service.benefits.slice(0, 3).map((benefit, idx) => (
           <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
-            <CheckCircle className="h-4 w-4 text-[#40916C] mt-0.5 shrink-0" />
+            <CheckCircle className="h-4 w-4 text-breton-moss mt-0.5 shrink-0" />
             {benefit}
           </li>
         ))}
@@ -140,7 +140,7 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
         <ul className="space-y-1.5">
           {service.benefits.map((benefit, idx) => (
             <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
-              <CheckCircle className="h-4 w-4 text-[#40916C] mt-0.5 shrink-0" />
+              <CheckCircle className="h-4 w-4 text-breton-moss mt-0.5 shrink-0" />
               {benefit}
             </li>
           ))}
@@ -153,7 +153,7 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
         <ul className="space-y-1.5">
           {(service.concreteDeliverables || []).map((deliverable, idx) => (
             <li key={idx} className="text-sm flex items-start gap-2">
-              <span className="text-[#40916C] mt-0.5 shrink-0">→</span>
+              <span className="text-breton-moss mt-0.5 shrink-0">→</span>
               <span>
                 <span className="text-slate-700">{deliverable.item}</span>
                 <span className="text-slate-400 ml-1">({deliverable.format})</span>

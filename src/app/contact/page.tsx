@@ -40,15 +40,15 @@ export default function ContactPage() {
                 {/* Réassurance inline */}
                 <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500">
                   <span className="flex items-center gap-1.5">
-                    <CheckCircle className="h-3.5 w-3.5 text-[#40916C]" />
+                    <CheckCircle className="h-3.5 w-3.5 text-breton-moss" />
                     Sans engagement
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Shield className="h-3.5 w-3.5 text-[#40916C]" />
+                    <Shield className="h-3.5 w-3.5 text-breton-moss" />
                     NDA possible
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-[#40916C]" />
+                    <Clock className="h-3.5 w-3.5 text-breton-moss" />
                     Réponse sous 48h
                   </span>
                 </div>
@@ -72,9 +72,9 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <a
                     href={`mailto:${SITE_CONFIG.email}`}
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-[#1B4D3E]/30 hover:bg-slate-50"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-breton-emerald/30 hover:bg-slate-50"
                   >
-                    <Mail className="h-5 w-5 text-[#1B4D3E]" />
+                    <Mail className="h-5 w-5 text-breton-emerald" />
                     <div>
                       <p className="text-xs text-slate-500">Email</p>
                       <p className="font-medium text-slate-900">{SITE_CONFIG.email}</p>
@@ -84,16 +84,16 @@ export default function ContactPage() {
                     href={SITE_CONFIG.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-[#1B4D3E]/30 hover:bg-slate-50"
+                    className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-breton-emerald/30 hover:bg-slate-50"
                   >
-                    <Linkedin className="h-5 w-5 text-[#1B4D3E]" />
+                    <Linkedin className="h-5 w-5 text-breton-emerald" />
                     <div>
                       <p className="text-xs text-slate-500">LinkedIn</p>
                       <p className="font-medium text-slate-900">balise-ia</p>
                     </div>
                   </a>
                   <div className="flex items-center gap-3 rounded-xl border border-slate-200 p-4">
-                    <MapPin className="h-5 w-5 text-[#1B4D3E]" />
+                    <MapPin className="h-5 w-5 text-breton-emerald" />
                     <div>
                       <p className="text-xs text-slate-500">Localisation</p>
                       <p className="font-medium text-slate-900">Lorient, Bretagne</p>

@@ -5,7 +5,7 @@ interface HeroProps {
 
 export function Hero({ title, subtitle }: HeroProps) {
   return (
-    <section className="bg-[#0F2B23] py-16 sm:py-20">
+    <section className="bg-breton-navy py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight whitespace-pre-line">

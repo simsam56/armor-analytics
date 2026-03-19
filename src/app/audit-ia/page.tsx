@@ -48,10 +48,10 @@ export default function AuditPage() {
   return (
     <>
       {/* Hero — promesse concrète */}
-      <section className="bg-[#0F2B23] py-12 sm:py-16">
+      <section className="bg-breton-navy py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-1.5 bg-white/10 text-[#40916C] text-sm font-medium rounded-full mb-4">
+            <span className="inline-block px-4 py-1.5 bg-white/10 text-breton-moss text-sm font-medium rounded-full mb-4">
               Gratuit · Sans engagement · 3 minutes
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
@@ -64,7 +64,7 @@ export default function AuditPage() {
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               {BENEFITS.map((benefit) => (
                 <div key={benefit.title} className="text-center">
-                  <benefit.icon className="w-5 h-5 text-[#40916C] mx-auto mb-1.5" />
+                  <benefit.icon className="w-5 h-5 text-breton-moss mx-auto mb-1.5" />
                   <p className="text-sm font-medium text-white">{benefit.title}</p>
                   <p className="text-xs text-white/50">{benefit.description}</p>
                 </div>
@@ -73,7 +73,7 @@ export default function AuditPage() {
 
             <a
               href="#quiz"
-              className="mt-8 inline-flex items-center gap-2 bg-white text-[#1B4D3E] font-semibold px-8 py-3.5 rounded-lg hover:bg-white/90 transition-colors text-base"
+              className="mt-8 inline-flex items-center gap-2 bg-white text-breton-emerald font-semibold px-8 py-3.5 rounded-lg hover:bg-white/90 transition-colors text-base"
             >
               Commencer le quiz
               <ChevronDown className="w-4 h-4" />
@@ -100,7 +100,7 @@ export default function AuditPage() {
               { value: '0', label: 'Spam' },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-2xl font-bold text-[#1B4D3E]">{stat.value}</p>
+                <p className="text-2xl font-bold text-breton-emerald">{stat.value}</p>
                 <p className="text-xs text-slate-500 mt-1">{stat.label}</p>
               </div>
             ))}
@@ -112,7 +112,7 @@ export default function AuditPage() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
               Résultats immédiats
             </p>
             <h2 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -139,7 +139,7 @@ export default function AuditPage() {
               },
             ].map((item) => (
               <div key={item.step} className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
-                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#1B4D3E] text-white font-bold text-sm mb-4">
+                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-breton-emerald text-white font-bold text-sm mb-4">
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-slate-900 mb-2">{item.title}</h3>
@@ -163,7 +163,7 @@ export default function AuditPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#quiz"
-              className="inline-flex items-center justify-center gap-2 bg-[#1B4D3E] text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-[#143D31] transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 bg-breton-emerald text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-[#143D31] transition-colors text-base"
             >
               Commencer le quiz
               <ChevronDown className="w-4 h-4" />

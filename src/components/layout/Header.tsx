@@ -24,18 +24,16 @@ export function Header() {
       className={cn(
         'sticky top-0 z-50 w-full transition-all duration-300',
         scrolled
-          ? 'bg-white/95 backdrop-blur border-b border-slate-200/80 shadow-sm'
+          ? 'bg-white/90 backdrop-blur-md border-b border-breton-navy/10 shadow-sm'
           : 'bg-transparent border-b border-transparent'
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <LogoWithIcon size="sm" variant={scrolled ? 'default' : 'white'} />
           </Link>
 
-          {/* Desktop navigation */}
           <div className="hidden lg:flex lg:gap-x-6">
             {NAV_LINKS.map((link) => (
               <Link
@@ -44,7 +42,7 @@ export function Header() {
                 className={cn(
                   'text-sm font-medium transition-colors',
                   scrolled
-                    ? 'text-slate-600 hover:text-[#1B4D3E]'
+                    ? 'text-breton-slate hover:text-breton-navy'
                     : 'text-white/80 hover:text-white'
                 )}
               >
@@ -54,13 +52,12 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile menu button */}
         <div className="flex lg:hidden">
           <button
             type="button"
             className={cn(
               '-m-2.5 inline-flex items-center justify-center rounded-md p-2.5',
-              scrolled ? 'text-slate-700' : 'text-white'
+              scrolled ? 'text-breton-navy' : 'text-white'
             )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -73,14 +70,15 @@ export function Header() {
           </button>
         </div>
 
-        {/* Desktop CTAs */}
         <div className="hidden lg:flex lg:items-center lg:gap-x-3">
           <Button
             variant="ghost"
             asChild
             size="sm"
             className={cn(
-              scrolled ? '' : 'text-white/80 hover:text-white hover:bg-white/10'
+              scrolled
+                ? 'text-breton-slate hover:text-breton-navy'
+                : 'text-white/80 hover:text-white hover:bg-white/10'
             )}
           >
             <Link href="/contact">Nous contacter</Link>
@@ -91,8 +89,8 @@ export function Header() {
             className={cn(
               'gap-2',
               scrolled
-                ? ''
-                : 'bg-white text-[#1B4D3E] hover:bg-white/90'
+                ? 'bg-breton-navy text-white hover:bg-breton-slate'
+                : 'bg-white text-breton-navy hover:bg-breton-sand'
             )}
           >
             <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
@@ -103,14 +101,13 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div className={cn('lg:hidden', mobileMenuOpen ? 'block' : 'hidden')}>
         <div className="space-y-1 px-4 pb-4 bg-white rounded-b-xl shadow-lg">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="block rounded-lg px-3 py-2.5 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-[#1B4D3E]"
+              className="block rounded-lg px-3 py-2.5 text-base font-medium text-breton-slate hover:bg-breton-foam hover:text-breton-navy"
               onClick={() => setMobileMenuOpen(false)}
             >
               {link.label}
@@ -122,7 +119,7 @@ export function Header() {
                 Nous contacter
               </Link>
             </Button>
-            <Button asChild className="w-full gap-2">
+            <Button asChild className="w-full gap-2 bg-breton-navy hover:bg-breton-slate">
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-4 w-4" />
                 Diagnostic gratuit – 30 min

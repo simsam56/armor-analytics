@@ -46,8 +46,8 @@ export function TrustBand() {
             const Icon = signal.icon;
             return (
               <motion.div key={signal.title} variants={fadeInUp} className="flex items-start gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
-                  <Icon className="h-5 w-5 text-[#1B4D3E]" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
+                  <Icon className="h-5 w-5 text-breton-emerald" />
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-900">{signal.title}</p>

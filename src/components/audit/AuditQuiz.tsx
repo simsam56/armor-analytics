@@ -155,7 +155,7 @@ export function AuditQuiz() {
               type="button"
               onClick={handleNext}
               disabled={!currentAnswer}
-              className="bg-[#1B4D3E] hover:bg-[#143D31] text-white"
+              className="bg-breton-emerald hover:bg-[#143D31] text-white"
             >
               {currentStep === TOTAL_QUESTIONS ? 'Voir mes résultats' : 'Suivant'}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -192,7 +192,7 @@ export function AuditQuiz() {
             <button
               type="button"
               onClick={handleRestart}
-              className="text-sm text-[#64756C] hover:text-[#1B4D3E] underline"
+              className="text-sm text-[#64756C] hover:text-breton-emerald underline"
             >
               Refaire le quiz
             </button>

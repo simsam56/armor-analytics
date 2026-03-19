@@ -51,8 +51,8 @@ export default function ServicesPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {REASSURANCES.map((item) => (
               <div key={item.title} className="flex gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#1B4D3E]/10">
-                  <item.icon className="h-5 w-5 text-[#1B4D3E]" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
+                  <item.icon className="h-5 w-5 text-breton-emerald" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-slate-900">{item.title}</h3>
@@ -69,7 +69,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
                 Notre modèle
               </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
@@ -96,7 +96,7 @@ export default function ServicesPage() {
                 'NDA systématique, données hébergées en France',
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-[#40916C] shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-breton-moss shrink-0 mt-0.5" />
                   <span className="text-slate-700">{item}</span>
                 </div>
               ))}
@@ -106,7 +106,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Calendly */}
-      <section className="py-16 sm:py-20 bg-[#0F2B23]">
+      <section className="py-16 sm:py-20 bg-breton-navy">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
             Vous hésitez entre diagnostic et projet ?
@@ -118,7 +118,7 @@ export default function ServicesPage() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#1B4D3E] hover:bg-white/90 h-13 px-8 text-base font-semibold gap-2"
+              className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold gap-2"
             >
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-5 w-5" />

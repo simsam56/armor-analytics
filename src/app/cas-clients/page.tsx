@@ -263,7 +263,7 @@ export default function CasClientsPage() {
           <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
             {STATS.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-4xl font-bold text-[#1B4D3E]">{stat.value}</p>
+                <p className="text-4xl font-bold text-breton-emerald">{stat.value}</p>
                 <p className="mt-2 text-sm text-slate-500">{stat.label}</p>
               </div>
             ))}
@@ -294,7 +294,7 @@ export default function CasClientsPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-4 left-4 right-4">
-                        <span className="px-3 py-1 bg-[#1B4D3E] text-white rounded-full text-sm font-medium">
+                        <span className="px-3 py-1 bg-breton-emerald text-white rounded-full text-sm font-medium">
                           {caseStudy.sector}
                         </span>
                       </div>
@@ -325,9 +325,9 @@ export default function CasClientsPage() {
                         {caseStudy.metrics.map((metric) => (
                           <div
                             key={metric.label}
-                            className={`px-4 py-3 rounded-lg ${metric.highlight ? 'bg-[#1B4D3E] text-white' : 'bg-[#F8FAF9] border border-[#E2E8E5]'}`}
+                            className={`px-4 py-3 rounded-lg ${metric.highlight ? 'bg-breton-emerald text-white' : 'bg-[#F8FAF9] border border-[#E2E8E5]'}`}
                           >
-                            <p className={`text-2xl font-bold ${metric.highlight ? 'text-[#74C69D]' : 'text-[#1B4D3E]'}`}>
+                            <p className={`text-2xl font-bold ${metric.highlight ? 'text-[#74C69D]' : 'text-breton-emerald'}`}>
                               {metric.value}
                             </p>
                             <p className={`text-xs ${metric.highlight ? 'text-white/70' : 'text-[#64756C]'}`}>
@@ -360,7 +360,7 @@ export default function CasClientsPage() {
 
                     {/* INTERVENTION */}
                     <div className="bg-[#F8FAF9] rounded-xl p-6 border border-[#E2E8E5]">
-                      <h4 className="flex items-center gap-2 text-sm font-bold text-[#1B4D3E] uppercase tracking-wide mb-4">
+                      <h4 className="flex items-center gap-2 text-sm font-bold text-breton-emerald uppercase tracking-wide mb-4">
                         <Wrench className="h-4 w-4" />
                         Notre intervention
                       </h4>
@@ -368,7 +368,7 @@ export default function CasClientsPage() {
                       <ul className="space-y-2 mb-4">
                         {caseStudy.intervention.actions.map((action, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-[#334139]">
-                            <CheckCircle className="h-4 w-4 text-[#1B4D3E] shrink-0 mt-0.5" />
+                            <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0 mt-0.5" />
                             {action}
                           </li>
                         ))}
@@ -377,7 +377,7 @@ export default function CasClientsPage() {
                         {caseStudy.intervention.tools.map((tool) => (
                           <span
                             key={tool}
-                            className="px-2 py-0.5 bg-[#1B4D3E]/10 text-[#1B4D3E] text-xs font-medium rounded"
+                            className="px-2 py-0.5 bg-breton-emerald/10 text-breton-emerald text-xs font-medium rounded"
                           >
                             {tool}
                           </span>
@@ -404,7 +404,7 @@ export default function CasClientsPage() {
                   </div>
 
                   {/* Témoignage */}
-                  <div className="mt-8 bg-[#1B4D3E] rounded-xl p-6 lg:p-8">
+                  <div className="mt-8 bg-breton-emerald rounded-xl p-6 lg:p-8">
                     <div className="flex items-start gap-4">
                       <Quote className="h-8 w-8 text-[#74C69D]/30 shrink-0" />
                       <div>
@@ -437,7 +437,7 @@ export default function CasClientsPage() {
         </section>
 
       {/* CTA */}
-      <section className="py-20 sm:py-24 bg-[#0F2B23]">
+      <section className="py-20 sm:py-24 bg-breton-navy">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             Votre situation ressemble à l&apos;une de ces problématiques ?
@@ -450,7 +450,7 @@ export default function CasClientsPage() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#1B4D3E] hover:bg-white/90 h-13 px-8 text-base font-semibold"
+              className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold"
             >
               <Link href="/audit-ia" className="gap-2">
                 Faire mon audit IA

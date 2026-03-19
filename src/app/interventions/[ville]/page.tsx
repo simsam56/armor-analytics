@@ -170,7 +170,7 @@ export default async function CityPage({
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
                 Secteurs à {city.name}
               </p>
               <h2 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -180,7 +180,7 @@ export default async function CityPage({
                 {city.industries.map((industry) => (
                   <span
                     key={industry}
-                    className="rounded-full bg-[#1B4D3E]/10 px-4 py-2 text-sm font-medium text-[#1B4D3E]"
+                    className="rounded-full bg-breton-emerald/10 px-4 py-2 text-sm font-medium text-breton-emerald"
                   >
                     {industry}
                   </span>
@@ -188,13 +188,13 @@ export default async function CityPage({
               </div>
 
               <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
-                <MapPin className="h-4 w-4 text-[#1B4D3E]" />
+                <MapPin className="h-4 w-4 text-breton-emerald" />
                 <span>{city.distance} — Intervention sur site</span>
               </div>
             </div>
 
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-[#40916C]">
+              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
                 Problématiques terrain
               </p>
               <h2 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -203,7 +203,7 @@ export default async function CityPage({
               <ul className="mt-6 space-y-3">
                 {city.challenges.map((challenge) => (
                   <li key={challenge} className="flex items-start gap-3 text-slate-600">
-                    <CheckCircle className="h-5 w-5 text-[#40916C] shrink-0 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-breton-moss shrink-0 mt-0.5" />
                     {challenge}
                   </li>
                 ))}
@@ -252,7 +252,7 @@ export default async function CityPage({
                 key={offer.step}
                 className="rounded-2xl bg-white border border-slate-200 p-8 text-center"
               >
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#1B4D3E] text-white font-bold">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-breton-emerald text-white font-bold">
                   {offer.step}
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-slate-900">{offer.title}</h3>
@@ -265,7 +265,7 @@ export default async function CityPage({
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-[#0F2B23]">
+      <section className="py-16 sm:py-20 bg-breton-navy">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
             PME à {city.name} ?{'\n'}On se déplace chez vous.
@@ -277,7 +277,7 @@ export default async function CityPage({
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#1B4D3E] hover:bg-white/90 h-13 px-8 text-base font-semibold"
+              className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold"
             >
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer" className="gap-2.5">
                 <Calendar className="h-5 w-5" />
