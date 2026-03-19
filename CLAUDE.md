@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Identité
 
-**balise-ia** — Site vitrine B2B pour un collectif data & automatisation ciblant les PME industrielles bretonnes (Lorient). Le nom du repo (`armor-analytics`) est un vestige historique ; le produit s'appelle **balise-ia**. Tout le contenu est en français.
+**balise-ia** — Site vitrine B2B pour un collectif data ciblant les PME et réseaux bretons (Lorient). Le nom du repo (`armor-analytics`) est un vestige historique ; le produit s'appelle **balise-ia**. Tagline : "Votre équipe data externalisée". Tout le contenu est en français.
 
 ## Commandes
 
@@ -34,7 +34,7 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 
 ### Configuration unique
 
-`src/lib/constants.ts` est la seule source de vérité. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES`, `PROJECTS`, `FAQ_ITEMS`, `NAV_LINKS`, `PROCESS_STEPS`, `TRUST_SIGNALS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`. Il n'y a pas de `site-config.ts` (supprimé et fusionné).
+`src/lib/constants.ts` est la seule source de vérité. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (5 : 4 offres numérotées + 1 module IA transversal avec `isTransversal: true`), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (13), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`. Il n'y a pas de `site-config.ts` (supprimé et fusionné).
 
 ### Design system
 
@@ -49,7 +49,18 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 
 ### Pages et routing
 
-22 pages au total. Les pages `/interventions/[ville]` utilisent `generateStaticParams` pour pré-rendre 6 villes bretonnes. La homepage compose : HeroV3 (avec DashboardMockup) → TrustBand → Services → CtaInline → Methodology → CtaInline → Projects → About → FAQ → CtaContact, chaque section wrappée dans `<AnimatedSection>` (Framer Motion). Le formulaire de contact complet est uniquement sur `/contact` — les autres pages utilisent `CtaContact` ou `CtaInline` (CTA léger). Un `StickyCta` mobile fixe apparaît après scroll du hero (lg:hidden, dismiss possible). Hero, TrustBand, Services et Methodology ont des animations stagger internes. Les variants réutilisables sont dans `src/lib/animations.ts` (fadeInUp, fadeInLeft, fadeInRight, scaleIn, staggerContainer). 7 pages ont un canonical explicite.
+22 pages au total. Les pages `/interventions/[ville]` utilisent `generateStaticParams` pour pré-rendre 6 villes bretonnes. La homepage compose : HeroV3 (avec DashboardMockup) → TrustBand → Services (4 offres en grid + module IA transversal en bandeau) → CtaInline → Methodology (4 étapes + bandeau IA) → CtaInline → Projects (4 cas clients) → About → FAQ → CtaContact, chaque section wrappée dans `<AnimatedSection>` (Framer Motion). Le formulaire de contact complet est uniquement sur `/contact` — les autres pages utilisent `CtaContact` ou `CtaInline` (CTA léger). Un `StickyCta` mobile fixe apparaît après scroll du hero (lg:hidden, dismiss possible). Hero, TrustBand, Services et Methodology ont des animations stagger internes. Les variants réutilisables sont dans `src/lib/animations.ts` (fadeInUp, fadeInLeft, fadeInRight, scaleIn, staggerContainer). 7 pages ont un canonical explicite.
+
+### Offres (SERVICES)
+
+5 entrées dans `SERVICES` :
+1. **Diagnostic & Priorisation** (step 1, `isEntryPoint: true`) — 2 000–5 000 € HT
+2. **Data Platform** (step 2) — 10 000–30 000 € HT
+3. **Dashboards & Analyse** (step 3) — 8 000–25 000 € HT
+4. **Pilotage Data Continu** (step 4) — 800–3 200 € HT/mois
+5. **Module IA** (`isTransversal: true`, step null) — +5 000–20 000 € HT en complément
+
+Le module IA a un champ `useCases` (exemples par étape) et n'est jamais vendu seul. Les 4 premières offres ont `isTransversal: false`.
 
 ### API Routes
 
@@ -60,7 +71,7 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 ### Tests E2E
 
 24 tests Playwright dans `e2e/` :
-- `navigation.spec.ts` — 8 tests : pages principales, header, footer
+- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (5 titres vérifiés)
 - `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
 - `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
