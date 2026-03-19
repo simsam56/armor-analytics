@@ -25,8 +25,9 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 - **Nom** : `balise-ia` (minuscules). Jamais "Armor Analytics", "BALISE Data", "balisedata".
 - **Email** : `contact@balise-ia.fr`. Jamais `balisedata@gmail.com`.
 - **URL** : `https://balise-ia.fr`. Jamais `balisedata.fr`, `armor-analytics.fr`.
-- **Palette** : vert breton `#1B4D3E` (primary), `#40916C` (accent), `slate-*` (gris). Jamais `blue-*` ni `gray-*` dans les classes Tailwind.
-- **Logo** : phare "Clean Silhouette" V3 — SVG inline dans `src/components/ui/logo.tsx`
+- **Palette bretonne** (tokens Tailwind `breton-*`) : `navy` (#0C1F3F), `slate` (#2E4057), `emerald` (#1A6B4A), `moss` (#2D7A4F), `sand` (#E8E0D5), `granite` (#8B9AAB), `foam` (#F4F8F5), `accent` (#00B4D8 cyan). Utiliser les classes `breton-*` partout, jamais de hex bruts ni `blue-*`/`gray-*`.
+- **Typo** : Instrument Serif pour les H1, Geist Sans pour le body
+- **Logo** : phare "Clean Silhouette" V3 en navy + accent cyan — SVG inline dans `src/components/ui/logo.tsx`
 - **Ton** : concret, terrain, sobre, orienté ROI. Pas de jargon startup.
 
 ## Architecture
@@ -37,13 +38,14 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 
 ### Design system
 
-- **Hero homepage** (`HeroV3`) : fond `#0F2B23`, CTA blanc inversé
-- **Hero pages intérieures** (`Hero`) : fond `#0F2B23`, API simplifiée `title` + `subtitle`
+- **Hero homepage** (`HeroV3`) : gradient `breton-navy` → `breton-slate`, texture grain, vagues SVG animées, H1 en serif
+- **Hero pages intérieures** (`Hero`) : fond `breton-navy`, API simplifiée `title` + `subtitle`
 - **Header** : transparent sur fond sombre → solide blanc au scroll (`scrolled` state). Logo bascule entre variant `white` et `default`.
 - **Sections** : alternance `bg-white` / `bg-slate-50`, padding `py-20 sm:py-24`
 - **Labels section** : `text-sm font-semibold uppercase tracking-wider text-[#40916C]`
 - **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
-- **CTA sombres** : fond `#0F2B23`, bouton blanc inversé `bg-white text-[#1B4D3E]`
+- **CTA sombres** : fond `breton-navy`, bouton blanc inversé `bg-white text-breton-navy`
+- **Footer** : fond `breton-navy`, carte SVG Bretagne avec 6 villes animées, badges confiance
 
 ### Pages et routing
 
@@ -68,7 +70,7 @@ Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`)
 
 - Prettier: semi, singleQuote, tabWidth 2, printWidth 100
 - ESLint: next/core-web-vitals + typescript + prettier, `no-console` warn sauf warn/error
-- Tailwind: `slate-*` pour les gris, `[#1B4D3E]` / `[#40916C]` pour le brand
+- Tailwind: `slate-*` pour les gris, `breton-*` pour la palette brand (jamais de hex bruts)
 - Apostrophes en JSX : utiliser `&apos;` (texte français avec beaucoup de `d'`, `l'`, `n'`)
 
 ## Environnement
