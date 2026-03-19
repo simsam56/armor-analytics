@@ -42,7 +42,7 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 - **Hero pages intérieures** (`Hero`) : fond `breton-navy`, API simplifiée `title` + `subtitle`
 - **Header** : transparent sur fond sombre → solide blanc au scroll (`scrolled` state). Logo bascule entre variant `white` et `default`.
 - **Sections** : alternance `bg-white` / `bg-slate-50`, padding `py-20 sm:py-24`
-- **Labels section** : `text-sm font-semibold uppercase tracking-wider text-[#40916C]`
+- **Labels section** : `text-sm font-semibold uppercase tracking-wider text-breton-moss`
 - **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
 - **CTA sombres** : fond `breton-navy`, bouton blanc inversé `bg-white text-breton-navy`
 - **Footer** : fond `breton-navy`, carte SVG Bretagne avec 6 villes animées, badges confiance
