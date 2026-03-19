@@ -114,6 +114,42 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Ce qui se passe ensuite */}
+      <section className="py-16 bg-breton-foam">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-breton-navy text-center mb-10">
+            Ce qui se passe ensuite
+          </h2>
+          <div className="grid sm:grid-cols-3 gap-8">
+            {[
+              {
+                step: '1',
+                title: 'On lit votre message',
+                description: 'Votre demande est analysée par un expert data, pas par un commercial.',
+              },
+              {
+                step: '2',
+                title: 'Analyse gratuite sous 48h',
+                description: 'On identifie vos irritants et on évalue les opportunités d\u2019automatisation.',
+              },
+              {
+                step: '3',
+                title: 'Proposition adaptée',
+                description: 'Un diagnostic sur site ou un premier quick win — on s\u2019adapte à votre budget.',
+              },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-breton-navy text-white font-bold text-sm mb-4">
+                  {item.step}
+                </div>
+                <h3 className="font-semibold text-breton-navy mb-2">{item.title}</h3>
+                <p className="text-sm text-breton-slate/70 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

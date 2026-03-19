@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { Header, Footer } from '@/components/layout';
+import { StickyCta } from '@/components/ui/sticky-cta';
 import { SITE_CONFIG } from '@/lib/constants';
 import './globals.css';
 
@@ -50,11 +51,20 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
     description: SITE_CONFIG.description,
+    images: [
+      {
+        url: `${SITE_CONFIG.url}/api/og`,
+        width: 1200,
+        height: 630,
+        alt: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${SITE_CONFIG.name} | ${SITE_CONFIG.tagline}`,
     description: SITE_CONFIG.description,
+    images: [`${SITE_CONFIG.url}/api/og`],
   },
   robots: {
     index: true,
@@ -83,6 +93,7 @@ export default function RootLayout({
         <Header />
         <main id="main-content" className="min-h-screen">{children}</main>
         <Footer />
+        <StickyCta />
         <Analytics />
       </body>
     </html>

@@ -82,7 +82,7 @@ export function Logo({ className, variant = 'default', size = 'md' }: LogoProps)
  */
 export function LogoWithIcon({ className, variant = 'default', size = 'md' }: LogoProps) {
   const sizes = {
-    sm: { icon: 28, balise: 'text-lg', ia: 'text-sm' },
+    sm: { icon: 32, balise: 'text-xl', ia: 'text-sm' },
     md: { icon: 34, balise: 'text-xl', ia: 'text-base' },
     lg: { icon: 42, balise: 'text-2xl', ia: 'text-lg' },
     xl: { icon: 50, balise: 'text-3xl', ia: 'text-xl' },
