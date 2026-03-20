@@ -20,6 +20,8 @@ npm run test:e2e:ui  # Tests E2E avec interface graphique
 
 Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.ts`
 
+Déploiement : chaque push sur `master` déclenche un déploiement automatique sur Vercel.
+
 ## Marque — Règles strictes
 
 - **Nom** : `balise-ia` (minuscules). Jamais "Armor Analytics", "BALISE Data", "balisedata".
@@ -32,24 +34,33 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 
 ## Architecture
 
+**Stack** : Next.js 16 (App Router) + React 19 + TypeScript strict + Tailwind CSS v4 + shadcn/ui (New York) + Framer Motion + Resend + Vercel.
+
 ### Configuration unique
 
-`src/lib/constants.ts` est la seule source de vérité. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (5 : 4 offres numérotées + 1 module IA transversal avec `isTransversal: true`), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (13), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`. Il n'y a pas de `site-config.ts` (supprimé et fusionné).
+`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (5 : 4 offres numérotées + 1 module IA transversal), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (13), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
 
 ### Design system
 
-- **Hero homepage** (`HeroV3`) : gradient `breton-navy` → `breton-slate`, texture grain, vagues SVG animées, H1 en serif
+- **Hero homepage** (`HeroV3`) : gradient `breton-navy` → `breton-slate`, particle background animé (CSS-only), typing animation word-by-word, metric badges
 - **Hero pages intérieures** (`Hero`) : fond `breton-navy`, API simplifiée `title` + `subtitle`
 - **Header** : transparent sur fond sombre → solide blanc au scroll (`scrolled` state). Logo bascule entre variant `white` et `default`.
 - **Sections** : alternance `bg-white` / `bg-slate-50`, padding `py-20 sm:py-24`
 - **Labels section** : `text-sm font-semibold uppercase tracking-wider text-breton-moss`
-- **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
+- **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows + lift (`whileHover={{ y: -4 }}`)
 - **CTA sombres** : fond `breton-navy`, bouton blanc inversé `bg-white text-breton-navy`
 - **Footer** : fond `breton-navy`, carte SVG Bretagne avec 6 villes animées, badges confiance
+- **Animations** : variants réutilisables dans `src/lib/animations.ts` (fadeInUp, fadeInDown, fadeInLeft, fadeInRight, scaleIn, staggerContainer, heroStagger, fastStagger). Tous les composants animés respectent `useReducedMotion`.
 
-### Pages et routing
+### Homepage — ordre des sections
 
-22 pages au total. Les pages `/interventions/[ville]` utilisent `generateStaticParams` pour pré-rendre 6 villes bretonnes. La homepage compose : HeroV3 (avec DashboardMockup) → TrustBand → Services (4 offres en grid + module IA transversal en bandeau) → CtaInline → Methodology (4 étapes + bandeau IA) → CtaInline → Projects (4 cas clients) → About → FAQ → CtaContact, chaque section wrappée dans `<AnimatedSection>` (Framer Motion). Le formulaire de contact complet est uniquement sur `/contact` — les autres pages utilisent `CtaContact` ou `CtaInline` (CTA léger). Un `StickyCta` mobile fixe apparaît après scroll du hero (lg:hidden, dismiss possible). Hero, TrustBand, Services et Methodology ont des animations stagger internes. Les variants réutilisables sont dans `src/lib/animations.ts` (fadeInUp, fadeInLeft, fadeInRight, scaleIn, staggerContainer). 7 pages ont un canonical explicite.
+```
+HeroV3 (particle bg, typing) → Pillars (marquee + 3 piliers) → TrustBand (4 trust signals) →
+Services (timeline stepper + 4 offres + module IA transversal) → AnimatedCounters (4 compteurs) →
+CtaInline → Projects (4 cas clients) → CtaInline → About → FAQ (onglets + show more) → CtaContact
+```
+
+Chaque section majeure est wrappée dans `<AnimatedSection>` (Framer Motion). Le `StickyCta` mobile fixe apparaît après scroll du hero (lg:hidden, dismiss possible). 7 pages ont un canonical explicite.
 
 ### Offres (SERVICES)
 
@@ -60,7 +71,7 @@ Pour lancer un seul fichier de test : `npx playwright test e2e/navigation.spec.t
 4. **Pilotage Data Continu** (step 4) — 800–3 200 € HT/mois
 5. **Module IA** (`isTransversal: true`, step null) — +5 000–20 000 € HT en complément
 
-Le module IA a un champ `useCases` (exemples par étape) et n'est jamais vendu seul. Les 4 premières offres ont `isTransversal: false`.
+Le module IA a un champ `useCases` (exemples par étape) et n'est jamais vendu seul. Dans les composants, filtrer avec `SERVICES.filter(s => !s.isTransversal)` pour les 4 offres et `SERVICES.find(s => s.isTransversal)` pour le module IA.
 
 ### API Routes
 
@@ -71,12 +82,12 @@ Le module IA a un champ `useCases` (exemples par étape) et n'est jamais vendu s
 ### Tests E2E
 
 24 tests Playwright dans `e2e/` :
-- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (5 titres vérifiés)
+- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (5 titres vérifiés par `getByRole('heading')`)
 - `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
 - `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
 
-Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`).
+Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`). Les tests API contact peuvent déclencher le rate limiter (429) si relancés trop rapidement — tuer le serveur dev (`pkill -f "next dev"`) pour reset le rate limiter in-memory.
 
 ## Code style
 
@@ -84,6 +95,7 @@ Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`)
 - ESLint: next/core-web-vitals + typescript + prettier, `no-console` warn sauf warn/error
 - Tailwind: `slate-*` pour les gris, `breton-*` pour la palette brand (jamais de hex bruts)
 - Apostrophes en JSX : utiliser `&apos;` (texte français avec beaucoup de `d'`, `l'`, `n'`)
+- Commits : Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`)
 
 ## Environnement
 

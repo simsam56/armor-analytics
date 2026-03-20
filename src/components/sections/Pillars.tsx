@@ -8,18 +8,18 @@ import { fadeInUp, staggerContainer } from '@/lib/animations';
 const PILLARS = [
   {
     icon: Database,
-    title: 'Infrastructure Data',
-    description: 'On centralise et structure vos données',
-  },
-  {
-    icon: BarChart3,
-    title: 'Analyse & Dashboards',
-    description: 'On vous donne les outils pour piloter',
+    title: 'Data & Dataviz',
+    description: 'On centralise vos données et on les rend lisibles',
   },
   {
     icon: Brain,
-    title: 'Intelligence Artificielle',
-    description: `On active l'IA là où elle fait gagner du temps`,
+    title: 'IA & Automatisation',
+    description: 'On supprime les tâches manuelles qui vous coûtent cher',
+  },
+  {
+    icon: BarChart3,
+    title: 'Audit & Formation',
+    description: 'On vous aide à prioriser et on rend vos équipes autonomes',
   },
 ];
 

@@ -26,11 +26,10 @@ test.describe('Navigation et pages principales', () => {
     await page.goto('/services');
     await expect(page).toHaveTitle(/Offres/);
     await expect(page.locator('h1')).toContainText('progressive');
-    await expect(page.getByRole('heading', { name: 'Diagnostic & Priorisation' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Data Platform' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Dashboards & Analyse' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Pilotage Data Continu' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Module IA' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Audit & Diagnostic' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Data' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'IA' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Formation & Accompagnement' }).first()).toBeVisible();
   });
 
   test('/projets se charge avec les cas clients', async ({ page }) => {

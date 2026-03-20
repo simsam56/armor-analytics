@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Offres - Data Platform, Dashboards, IA & Pilotage continu',
+  title: 'Offres - Audit, Data, IA & Formation',
   description:
-    "Nos offres d'accompagnement data pour PME et réseaux bretons : diagnostic, data platform, dashboards, pilotage continu et module IA. Tarifs transparents, résultats mesurables.",
+    "Nos expertises data pour PME et réseaux bretons : audit & diagnostic, socle data & dataviz, intégration IA, formation & accompagnement local. Tarifs transparents.",
   openGraph: {
-    title: 'Offres - Data Platform, Dashboards, IA & Pilotage continu | balise-ia',
+    title: 'Offres - Audit, Data, IA & Formation | balise-ia',
     description:
-      "Accompagnement data pour PME et réseaux bretons. Tarifs transparents, résultats mesurables.",
+      "Accompagnement data pour PME et réseaux bretons. 4 expertises modulables, résultats mesurables.",
   },
   alternates: {
     canonical: 'https://balise-ia.fr/services',

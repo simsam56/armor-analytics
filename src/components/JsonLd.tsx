@@ -48,12 +48,12 @@ export function JsonLd() {
     ],
     sameAs: [SITE_CONFIG.social.linkedin],
     serviceType: [
-      'Diagnostic data',
-      'Data Platform',
-      'Tableaux de bord',
-      'Pilotage Data Continu',
-      'Intelligence Artificielle',
+      'Audit data',
       'Data Engineering',
+      'Tableaux de bord',
+      'Intelligence Artificielle',
+      'Formation data',
+      'Accompagnement PME',
     ],
     priceRange: '800€ - 30000€ HT',
     openingHoursSpecification: {
