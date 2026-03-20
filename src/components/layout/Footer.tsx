@@ -83,9 +83,9 @@ export function Footer() {
         <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div className="text-center sm:text-left">
-              <h3 className="text-lg font-semibold text-white">
+              <p className="text-lg font-semibold text-white">
                 Prêt à supprimer vos ressaisies ?
-              </h3>
+              </p>
               <p className="text-white/60 text-sm">
                 Diagnostic gratuit de 30 minutes, sans engagement.
               </p>
@@ -113,8 +113,8 @@ export function Footer() {
               <LogoWithIcon size="sm" variant="white" />
             </Link>
             <p className="mt-4 max-w-sm text-sm text-white/60 leading-relaxed">
-              Votre équipe data externalisée. On accompagne les PME et réseaux bretons sur toute la
-              chaîne : ingestion, transformation, visualisation et pilotage continu.
+              Data, automatisation et IA pour les PME bretonnes. On accompagne les PME et réseaux
+              bretons du diagnostic à la mise en production.
             </p>
 
             {/* Badges confiance */}
@@ -143,7 +143,7 @@ export function Footer() {
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
             {/* Navigation */}
             <div>
-              <h3 className="text-sm font-semibold text-white/90">Navigation</h3>
+              <p className="text-sm font-semibold text-white/90">Navigation</p>
               <ul className="mt-4 space-y-2.5">
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
@@ -160,7 +160,7 @@ export function Footer() {
 
             {/* Interventions */}
             <div>
-              <h3 className="text-sm font-semibold text-white/90">Interventions</h3>
+              <p className="text-sm font-semibold text-white/90">Interventions</p>
               <ul className="mt-4 space-y-2.5">
                 {['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'].map((city) => (
                   <li key={city}>
@@ -179,7 +179,7 @@ export function Footer() {
 
             {/* Contact */}
             <div>
-              <h3 className="text-sm font-semibold text-white/90">Contact</h3>
+              <p className="text-sm font-semibold text-white/90">Contact</p>
               <ul className="mt-4 space-y-3">
                 <li>
                   <a
@@ -211,17 +211,17 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 border-t border-white/10 pt-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-white/40">
+            <p className="text-sm text-white/60">
               © {currentYear} {SITE_CONFIG.name}. Tous droits réservés.
             </p>
             <div className="flex gap-6">
               <Link
                 href="/mentions-legales"
-                className="text-sm text-white/40 transition-colors hover:text-breton-accent"
+                className="text-sm text-white/60 transition-colors hover:text-breton-accent"
               >
                 Mentions légales
               </Link>
-              <span className="text-sm text-white/30">
+              <span className="text-sm text-white/50">
                 {SITE_CONFIG.location.city}, {SITE_CONFIG.location.region}
               </span>
             </div>

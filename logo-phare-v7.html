@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>balise-ia — Redesign phare V7 (research-backed)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --navy: #0C1F3F; --accent: #00B4D8; --granite: #8B9AAB; --foam: #F4F8F5; }
+    body { font-family: 'Inter', sans-serif; background: #f5f6f8; color: var(--navy); padding: 40px 20px; }
+
+    /* Header */
+    .page-header { max-width: 1300px; margin: 0 auto 20px; }
+    h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.5px; }
+    .subtitle { color: var(--granite); margin-top: 4px; font-size: 0.95rem; }
+
+    /* Principes */
+    .principles {
+      max-width: 1300px; margin: 0 auto 40px;
+      background: linear-gradient(135deg, var(--navy), #162d52);
+      border-radius: 16px; padding: 28px 32px; color: white;
+    }
+    .principles h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-bottom: 16px; }
+    .princ-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .princ { background: rgba(255,255,255,0.06); border-radius: 10px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+    .princ strong { font-size: 0.85rem; display: block; margin-bottom: 4px; }
+    .princ p { font-size: 0.78rem; opacity: 0.75; line-height: 1.45; }
+
+    /* Grid logos */
+    .grid { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .card-head { padding: 20px 24px 14px; border-bottom: 1px solid #f0f0f0; }
+    .card-num { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+    .card-title { font-size: 1.2rem; font-weight: 700; margin-top: 2px; }
+    .card-desc { font-size: 0.82rem; color: var(--granite); margin-top: 4px; line-height: 1.5; }
+    .card-tags { display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap; }
+    .tag { font-size: 0.65rem; background: var(--foam); color: var(--navy); padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+
+    .previews { display: flex; }
+    .prev { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px 32px; gap: 24px; }
+    .prev.light { background: white; }
+    .prev.dark { background: var(--navy); }
+    .prev-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.4; }
+    .prev.dark .prev-label { color: white; }
+
+    .sizes { display: flex; align-items: center; justify-content: space-around; padding: 18px 24px; background: #fafafa; border-top: 1px solid #f0f0f0; }
+    .sz { display: flex; flex-direction: column; align-items: center; }
+    .sz-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--granite); margin-top: 6px; }
+
+    /* Améliorations */
+    .improvements { max-width: 1300px; margin: 48px auto 0; background: white; border-radius: 16px; padding: 28px 32px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .improvements h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 16px; }
+    .imp-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+    .imp { padding: 14px 18px; border-radius: 10px; background: #f8f9fb; border-left: 3px solid var(--accent); }
+    .imp strong { font-size: 0.85rem; }
+    .imp p { font-size: 0.78rem; color: var(--granite); margin-top: 3px; line-height: 1.45; }
+
+    @media (max-width: 1000px) { .princ-grid { grid-template-columns: 1fr 1fr; } .imp-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px) { .grid, .princ-grid, .imp-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Redesign du phare &mdash; balise-ia</h1>
+  <p class="subtitle">6 propositions bas&eacute;es sur la recherche de tendances et bonnes pratiques 2025-2026</p>
+</div>
+
+<!-- Principes appliqués -->
+<div class="principles">
+  <h2>Principes appliqu&eacute;s (issus de la recherche)</h2>
+  <div class="princ-grid">
+    <div class="princ">
+      <strong>Glance-ability</strong>
+      <p>Reconnaissable en &lt;100ms. Test&eacute; en 16px, 32px, et grand format. Pas de d&eacute;tails superflus.</p>
+    </div>
+    <div class="princ">
+      <strong>Negative Space</strong>
+      <p>Tendance 2026 : utiliser l'espace n&eacute;gatif pour cacher un second sens. Cr&eacute;e un lien cognitif m&eacute;morable.</p>
+    </div>
+    <div class="princ">
+      <strong>Mono + Couleur</strong>
+      <p>Le logo doit fonctionner en monochrome. La couleur (cyan) est un bonus, pas une d&eacute;pendance.</p>
+    </div>
+    <div class="princ">
+      <strong>Adaptivit&eacute;</strong>
+      <p>Morph-marks : version d&eacute;taill&eacute;e en grand, simplifi&eacute;e en petit. Syst&egrave;me et non marque fig&eacute;e.</p>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- ========== 1. Negative Space ========== -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">Phare 1</div>
+      <div class="card-title">Negative Space</div>
+      <div class="card-desc">La silhouette du phare appara&icirc;t en espace n&eacute;gatif dans une forme pleine. Le faisceau est cr&eacute;&eacute; par le vide, pas par un ajout. Effet &laquo;double lecture&raquo; tr&egrave;s tendance 2026.</div>
+      <div class="card-tags"><span class="tag">M&eacute;morable</span><span class="tag">Storytelling</span><span class="tag">Tendance 2026</span></div>
+    </div>
+    <div class="previews">
+      <div class="prev light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Forme conteneur arrondie -->
+          <rect x="0" y="2" width="30" height="52" rx="6" fill="#0C1F3F"/>
+          <!-- Phare en négatif -->
+          <path d="M17.5 10 L14 10 L11 44 L20.5 44 Z" fill="white"/>
+          <!-- Lanterne négatif = la forme cyan DANS le navy -->
+          <rect x="12.5" y="6" width="6" height="4.5" rx="1" fill="#00B4D8"/>
+          <!-- Pointe phare -->
+          <path d="M15.5 3 L12.5 6 L18.5 6 Z" fill="white"/>
+          <!-- Faisceau en négatif : bande blanche qui coupe le navy -->
+          <path d="M18.5 8 L30 4 L30 8 L18.5 10.5 Z" fill="white"/>
+          <!-- Base -->
+          <rect x="7" y="44" width="17" height="2.5" rx="1" fill="white"/>
+          <!-- Texte -->
+          <text x="40" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="#0C1F3F" letter-spacing="-0.5">balise</text>
+          <text x="132" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond clair</span>
+      </div>
+      <div class="prev dark">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="2" width="30" height="52" rx="6" fill="white"/>
+          <path d="M17.5 10 L14 10 L11 44 L20.5 44 Z" fill="#0C1F3F"/>
+          <rect x="12.5" y="6" width="6" height="4.5" rx="1" fill="#00B4D8"/>
+          <path d="M15.5 3 L12.5 6 L18.5 6 Z" fill="#0C1F3F"/>
+          <path d="M18.5 8 L30 4 L30 8 L18.5 10.5 Z" fill="#0C1F3F"/>
+          <rect x="7" y="44" width="17" height="2.5" rx="1" fill="#0C1F3F"/>
+          <text x="40" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="white" letter-spacing="-0.5">balise</text>
+          <text x="132" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond sombre</span>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="sz">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="7" fill="#0C1F3F"/>
+          <path d="M18.5 7 L14.5 7 L12 25 L21 25 Z" fill="white"/>
+          <rect x="13.5" y="4" width="5" height="3.5" rx="0.75" fill="#00B4D8"/>
+          <path d="M18 5.5 L26 3 L26 6 L18 7.5 Z" fill="white"/>
+          <rect x="9" y="25" width="14" height="2" rx="0.75" fill="white"/>
+        </svg>
+        <div class="sz-label">32px</div>
+      </div>
+      <div class="sz">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="4.5" fill="#0C1F3F"/>
+          <path d="M12 5 L9 5 L7.5 16 L13.5 16 Z" fill="white"/>
+          <rect x="8.5" y="3" width="3.5" height="2.2" rx="0.5" fill="#00B4D8"/>
+          <rect x="6" y="16" width="8.5" height="1.3" rx="0.5" fill="white"/>
+        </svg>
+        <div class="sz-label">16px</div>
+      </div>
+      <div class="sz">
+        <svg width="130" height="30" viewBox="0 0 130 30" fill="none">
+          <rect x="0" y="1" width="18" height="28" rx="4" fill="#0C1F3F"/>
+          <path d="M11 6 L8.5 6 L7 24 L13 24 Z" fill="white"/>
+          <rect x="7.5" y="3.5" width="4" height="2.5" rx="0.5" fill="#00B4D8"/>
+          <path d="M11.5 5 L18 3 L18 5 L11.5 6.5 Z" fill="white"/>
+          <rect x="4.5" y="24" width="10" height="1.3" rx="0.5" fill="white"/>
+          <text x="24" y="19" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="#0C1F3F" letter-spacing="-0.3">balise</text>
+          <text x="79" y="19" font-family="Inter,sans-serif" font-weight="300" font-size="10" fill="#00B4D8" letter-spacing="2">ia</text>
+        </svg>
+        <div class="sz-label">Header</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 2. Geometric Minimal ========== -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">Phare 2</div>
+      <div class="card-title">Geometric Minimal</div>
+      <div class="card-desc">3 formes maximum : triangle (toit), trap&egrave;ze (tour), rectangle (base). Lanterne = simple barre cyan. Z&eacute;ro fen&ecirc;tre, z&eacute;ro d&eacute;tail. Passe le test des 100ms.</div>
+      <div class="card-tags"><span class="tag">Scalable</span><span class="tag">Glance-ability</span><span class="tag">Ultra-clean</span></div>
+    </div>
+    <div class="previews">
+      <div class="prev light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Toit triangle -->
+          <path d="M15 2 L10.5 9 L19.5 9 Z" fill="#0C1F3F"/>
+          <!-- Lanterne = barre cyan -->
+          <rect x="10" y="9" width="10" height="4" rx="0.5" fill="#00B4D8"/>
+          <!-- Tour trapèze -->
+          <path d="M18.5 13 L11.5 13 L8.5 48 L21.5 48 Z" fill="#0C1F3F"/>
+          <!-- Base -->
+          <rect x="5" y="48" width="20" height="3.5" rx="1" fill="#0C1F3F"/>
+          <!-- Texte -->
+          <text x="34" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="#0C1F3F" letter-spacing="-0.5">balise</text>
+          <text x="126" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond clair</span>
+      </div>
+      <div class="prev dark">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 2 L10.5 9 L19.5 9 Z" fill="white"/>
+          <rect x="10" y="9" width="10" height="4" rx="0.5" fill="#00B4D8"/>
+          <path d="M18.5 13 L11.5 13 L8.5 48 L21.5 48 Z" fill="white"/>
+          <rect x="5" y="48" width="20" height="3.5" rx="1" fill="white"/>
+          <text x="34" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="white" letter-spacing="-0.5">balise</text>
+          <text x="126" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond sombre</span>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="sz">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="7" fill="#0C1F3F"/>
+          <path d="M16 4 L12.5 8.5 L19.5 8.5 Z" fill="white"/>
+          <rect x="12" y="8.5" width="8" height="3" rx="0.5" fill="#00B4D8"/>
+          <path d="M19 11.5 L13 11.5 L11 26 L21 26 Z" fill="white"/>
+          <rect x="8.5" y="26" width="15" height="2.5" rx="0.75" fill="white"/>
+        </svg>
+        <div class="sz-label">32px</div>
+      </div>
+      <div class="sz">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="4.5" fill="#0C1F3F"/>
+          <path d="M10 3 L7.5 6 L12.5 6 Z" fill="white"/>
+          <rect x="7" y="6" width="6" height="2" rx="0.3" fill="#00B4D8"/>
+          <path d="M12.5 8 L7.5 8 L6.5 16 L13.5 16 Z" fill="white"/>
+          <rect x="5" y="16" width="10" height="1.5" rx="0.5" fill="white"/>
+        </svg>
+        <div class="sz-label">16px</div>
+      </div>
+      <div class="sz">
+        <svg width="130" height="30" viewBox="0 0 130 30" fill="none">
+          <path d="M9 2 L6.5 6 L11.5 6 Z" fill="#0C1F3F"/>
+          <rect x="6" y="6" width="6" height="2.5" rx="0.3" fill="#00B4D8"/>
+          <path d="M11.5 8.5 L6.5 8.5 L5 26 L13 26 Z" fill="#0C1F3F"/>
+          <rect x="3" y="26" width="12" height="2" rx="0.5" fill="#0C1F3F"/>
+          <text x="22" y="19" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="#0C1F3F" letter-spacing="-0.3">balise</text>
+          <text x="77" y="19" font-family="Inter,sans-serif" font-weight="300" font-size="10" fill="#00B4D8" letter-spacing="2">ia</text>
+        </svg>
+        <div class="sz-label">Header</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 3. Line Art ========== -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">Phare 3</div>
+      <div class="card-title">Line Art &eacute;pais</div>
+      <div class="card-desc">Contour unique d'&eacute;paisseur constante (2px). Lanterne remplie cyan. Approche &laquo;single stroke&raquo;. L&eacute;ger et a&eacute;rien mais plus affirm&eacute; qu'un thin line.</div>
+      <div class="card-tags"><span class="tag">A&eacute;rien</span><span class="tag">Mono-compatible</span><span class="tag">Line art</span></div>
+    </div>
+    <div class="previews">
+      <div class="prev light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Contour phare unique -->
+          <path d="M15 3 L11 9 L11 13 L9 13 L9 48 L7 48 L7 51 L23 51 L23 48 L21 48 L21 13 L19 13 L19 9 Z"
+                stroke="#0C1F3F" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Lanterne remplie -->
+          <rect x="11" y="9" width="8" height="4" rx="0.5" fill="#00B4D8"/>
+          <!-- Rayons simples -->
+          <line x1="20" y1="10" x2="30" y2="7" stroke="#00B4D8" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+          <line x1="20" y1="12" x2="28" y2="12" stroke="#00B4D8" stroke-width="1" stroke-linecap="round" opacity="0.25"/>
+          <!-- Texte -->
+          <text x="38" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="#0C1F3F" letter-spacing="-0.5">balise</text>
+          <text x="130" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond clair</span>
+      </div>
+      <div class="prev dark">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 3 L11 9 L11 13 L9 13 L9 48 L7 48 L7 51 L23 51 L23 48 L21 48 L21 13 L19 13 L19 9 Z"
+                stroke="white" stroke-width="2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+          <rect x="11" y="9" width="8" height="4" rx="0.5" fill="#00B4D8"/>
+          <line x1="20" y1="10" x2="30" y2="7" stroke="#00B4D8" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+          <line x1="20" y1="12" x2="28" y2="12" stroke="#00B4D8" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+          <text x="38" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="white" letter-spacing="-0.5">balise</text>
+          <text x="130" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond sombre</span>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="sz">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="7" fill="#0C1F3F"/>
+          <path d="M16 5 L13 9 L13 12 L11.5 12 L11.5 25 L10 25 L10 27 L22 27 L22 25 L20.5 25 L20.5 12 L19 12 L19 9 Z"
+                stroke="white" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+          <rect x="13" y="9" width="6" height="3" rx="0.5" fill="#00B4D8"/>
+        </svg>
+        <div class="sz-label">32px</div>
+      </div>
+      <div class="sz">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="4.5" fill="#0C1F3F"/>
+          <path d="M10 3.5 L8 6 L8 8 L7 8 L7 16 L6 16 L6 17.5 L14 17.5 L14 16 L13 16 L13 8 L12 8 L12 6 Z"
+                stroke="white" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+          <rect x="8" y="6" width="4" height="2" rx="0.3" fill="#00B4D8"/>
+        </svg>
+        <div class="sz-label">16px</div>
+      </div>
+      <div class="sz">
+        <svg width="130" height="30" viewBox="0 0 130 30" fill="none">
+          <path d="M9 3 L6.5 7 L6.5 9.5 L5.5 9.5 L5.5 25 L4.5 25 L4.5 27 L13.5 27 L13.5 25 L12.5 25 L12.5 9.5 L11.5 9.5 L11.5 7 Z"
+                stroke="#0C1F3F" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+          <rect x="6.5" y="7" width="5" height="2.5" rx="0.3" fill="#00B4D8"/>
+          <text x="20" y="19" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="#0C1F3F" letter-spacing="-0.3">balise</text>
+          <text x="75" y="19" font-family="Inter,sans-serif" font-weight="300" font-size="10" fill="#00B4D8" letter-spacing="2">ia</text>
+        </svg>
+        <div class="sz-label">Header</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 4. Archival / Seal ========== -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">Phare 4</div>
+      <div class="card-title">Seal / Tampon</div>
+      <div class="card-desc">Phare inscrit dans un cercle avec le nom de la marque. Style &laquo;Authenticity Seal&raquo; tendance 2026, signal de confiance et autorit&eacute; pour le B2B.</div>
+      <div class="card-tags"><span class="tag">Confiance B2B</span><span class="tag">Tendance 2026</span><span class="tag">R&eacute;seaux sociaux</span></div>
+    </div>
+    <div class="previews">
+      <div class="prev light">
+        <svg width="200" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cercle extérieur -->
+          <circle cx="28" cy="28" r="26" stroke="#0C1F3F" stroke-width="2" fill="none"/>
+          <circle cx="28" cy="28" r="23" stroke="#0C1F3F" stroke-width="0.5" fill="none" opacity="0.3"/>
+          <!-- Phare central -->
+          <path d="M30 14 L26.5 14 L24 40 L33 40 Z" fill="#0C1F3F"/>
+          <rect x="25" y="9" width="7" height="5" rx="1" fill="#00B4D8"/>
+          <path d="M28.5 6 L25 9 L32 9 Z" fill="#0C1F3F"/>
+          <rect x="20" y="40" width="17" height="2.5" rx="1" fill="#0C1F3F"/>
+          <!-- Faisceau -->
+          <path d="M32 12 L44 8 L44 11 L32 14 Z" fill="#00B4D8" opacity="0.3"/>
+          <!-- Texte courbe en haut -->
+          <path id="topArc" d="M8 28 A20 20 0 0 1 48 28" fill="none"/>
+          <text font-family="Inter,sans-serif" font-weight="700" font-size="5.5" fill="#0C1F3F" letter-spacing="3">
+            <textPath href="#topArc" startOffset="50%" text-anchor="middle">BALISE</textPath>
+          </text>
+          <!-- Texte courbe en bas -->
+          <path id="botArc" d="M48 32 A20 20 0 0 1 8 32" fill="none"/>
+          <text font-family="Inter,sans-serif" font-weight="300" font-size="5" fill="#00B4D8" letter-spacing="4">
+            <textPath href="#botArc" startOffset="50%" text-anchor="middle">IA</textPath>
+          </text>
+          <!-- Points séparateurs -->
+          <circle cx="7" cy="28" r="1.2" fill="#0C1F3F"/>
+          <circle cx="49" cy="28" r="1.2" fill="#0C1F3F"/>
+        </svg>
+        <span class="prev-label">fond clair</span>
+      </div>
+      <div class="prev dark">
+        <svg width="200" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="26" stroke="white" stroke-width="2" fill="none"/>
+          <circle cx="28" cy="28" r="23" stroke="white" stroke-width="0.5" fill="none" opacity="0.3"/>
+          <path d="M30 14 L26.5 14 L24 40 L33 40 Z" fill="white"/>
+          <rect x="25" y="9" width="7" height="5" rx="1" fill="#00B4D8"/>
+          <path d="M28.5 6 L25 9 L32 9 Z" fill="white"/>
+          <rect x="20" y="40" width="17" height="2.5" rx="1" fill="white"/>
+          <path d="M32 12 L44 8 L44 11 L32 14 Z" fill="#00B4D8" opacity="0.4"/>
+          <path id="topArcW" d="M8 28 A20 20 0 0 1 48 28" fill="none"/>
+          <text font-family="Inter,sans-serif" font-weight="700" font-size="5.5" fill="white" letter-spacing="3">
+            <textPath href="#topArcW" startOffset="50%" text-anchor="middle">BALISE</textPath>
+          </text>
+          <path id="botArcW" d="M48 32 A20 20 0 0 1 8 32" fill="none"/>
+          <text font-family="Inter,sans-serif" font-weight="300" font-size="5" fill="#00B4D8" letter-spacing="4">
+            <textPath href="#botArcW" startOffset="50%" text-anchor="middle">IA</textPath>
+          </text>
+          <circle cx="7" cy="28" r="1.2" fill="white"/>
+          <circle cx="49" cy="28" r="1.2" fill="white"/>
+        </svg>
+        <span class="prev-label">fond sombre</span>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="sz">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="15" stroke="#0C1F3F" stroke-width="1.5" fill="none"/>
+          <path d="M18 8 L15 8 L13.5 24 L19.5 24 Z" fill="#0C1F3F"/>
+          <rect x="14" y="5.5" width="5" height="3" rx="0.5" fill="#00B4D8"/>
+          <rect x="11" y="24" width="11" height="1.5" rx="0.5" fill="#0C1F3F"/>
+        </svg>
+        <div class="sz-label">32px</div>
+      </div>
+      <div class="sz">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="9" stroke="#0C1F3F" stroke-width="1.2" fill="none"/>
+          <path d="M11.5 5 L9 5 L8 15.5 L12.5 15.5 Z" fill="#0C1F3F"/>
+          <rect x="8.5" y="3.5" width="3.5" height="2" rx="0.3" fill="#00B4D8"/>
+          <rect x="6.5" y="15.5" width="7.5" height="1" rx="0.3" fill="#0C1F3F"/>
+        </svg>
+        <div class="sz-label">16px</div>
+      </div>
+      <div class="sz">
+        <svg width="56" height="30" viewBox="0 0 56 30" fill="none">
+          <circle cx="15" cy="15" r="13" stroke="#0C1F3F" stroke-width="1.2" fill="none"/>
+          <path d="M17 7 L14 7 L12.5 23 L18.5 23 Z" fill="#0C1F3F"/>
+          <rect x="13" y="4.5" width="5" height="2.5" rx="0.5" fill="#00B4D8"/>
+          <rect x="10.5" y="23" width="10" height="1.5" rx="0.5" fill="#0C1F3F"/>
+          <text x="32" y="13" font-family="Inter,sans-serif" font-weight="700" font-size="10" fill="#0C1F3F" letter-spacing="-0.2">balise</text>
+          <text x="32" y="23" font-family="Inter,sans-serif" font-weight="300" font-size="8" fill="#00B4D8" letter-spacing="2">ia</text>
+        </svg>
+        <div class="sz-label">Avec texte</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 5. Asymmetric / Dynamic ========== -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">Phare 5</div>
+      <div class="card-title">Asym&eacute;trique dynamique</div>
+      <div class="card-desc">Le faisceau lumineux d&eacute;borde et d&eacute;s&eacute;quilibre la composition vers la droite. Casse la sym&eacute;trie pour cr&eacute;er du mouvement et de l'&eacute;nergie. Tendance &laquo;Kinetic Motion&raquo;.</div>
+      <div class="card-tags"><span class="tag">Dynamique</span><span class="tag">Kinetic Motion</span><span class="tag">Moderne</span></div>
+    </div>
+    <div class="previews">
+      <div class="prev light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Faisceau large qui déborde -->
+          <path d="M19 8 L48 0 L48 16 L19 12 Z" fill="#00B4D8" opacity="0.12"/>
+          <path d="M19 8 L36 3 L36 13 L19 10 Z" fill="#00B4D8" opacity="0.18"/>
+          <!-- Tour -->
+          <path d="M17 10 L13 10 L10 48 L20 48 Z" fill="#0C1F3F"/>
+          <!-- Lanterne proéminente -->
+          <rect x="11.5" y="5" width="7" height="5.5" rx="1.5" fill="#00B4D8"/>
+          <!-- Pointe -->
+          <path d="M15 1 L11.5 5 L18.5 5 Z" fill="#0C1F3F"/>
+          <!-- Une seule fenêtre -->
+          <rect x="12.5" y="24" width="5" height="3" rx="0.75" fill="white" opacity="0.35"/>
+          <!-- Base -->
+          <rect x="6" y="48" width="18" height="3" rx="1.5" fill="#0C1F3F"/>
+          <!-- Texte -->
+          <text x="52" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="#0C1F3F" letter-spacing="-0.5">balise</text>
+          <text x="144" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond clair</span>
+      </div>
+      <div class="prev dark">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 8 L48 0 L48 16 L19 12 Z" fill="#00B4D8" opacity="0.15"/>
+          <path d="M19 8 L36 3 L36 13 L19 10 Z" fill="#00B4D8" opacity="0.22"/>
+          <path d="M17 10 L13 10 L10 48 L20 48 Z" fill="white"/>
+          <rect x="11.5" y="5" width="7" height="5.5" rx="1.5" fill="#00B4D8"/>
+          <path d="M15 1 L11.5 5 L18.5 5 Z" fill="white"/>
+          <rect x="12.5" y="24" width="5" height="3" rx="0.75" fill="#0C1F3F" opacity="0.3"/>
+          <rect x="6" y="48" width="18" height="3" rx="1.5" fill="white"/>
+          <text x="52" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="white" letter-spacing="-0.5">balise</text>
+          <text x="144" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond sombre</span>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="sz">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="7" fill="#0C1F3F"/>
+          <path d="M16 6 L26 2 L26 10 L16 8 Z" fill="#00B4D8" opacity="0.25"/>
+          <path d="M16 8 L12.5 8 L10.5 26 L18 26 Z" fill="white"/>
+          <rect x="11.5" y="4" width="5.5" height="4" rx="1" fill="#00B4D8"/>
+          <path d="M14.5 2 L11.5 4 L17 4 Z" fill="white"/>
+          <rect x="8" y="26" width="14" height="2" rx="0.75" fill="white"/>
+        </svg>
+        <div class="sz-label">32px</div>
+      </div>
+      <div class="sz">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="4.5" fill="#0C1F3F"/>
+          <path d="M11 5 L8.5 5 L7 16 L12.5 16 Z" fill="white"/>
+          <rect x="8" y="3" width="3.5" height="2.5" rx="0.5" fill="#00B4D8"/>
+          <rect x="5.5" y="16" width="9" height="1.3" rx="0.4" fill="white"/>
+        </svg>
+        <div class="sz-label">16px</div>
+      </div>
+      <div class="sz">
+        <svg width="140" height="30" viewBox="0 0 140 30" fill="none">
+          <path d="M12 5 L25 1 L25 9 L12 7 Z" fill="#00B4D8" opacity="0.15"/>
+          <path d="M10.5 7 L7.5 7 L6 25 L12 25 Z" fill="#0C1F3F"/>
+          <rect x="7" y="3.5" width="4.5" height="3.5" rx="0.75" fill="#00B4D8"/>
+          <rect x="3.5" y="25" width="11" height="1.5" rx="0.5" fill="#0C1F3F"/>
+          <text x="28" y="19" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="#0C1F3F" letter-spacing="-0.3">balise</text>
+          <text x="83" y="19" font-family="Inter,sans-serif" font-weight="300" font-size="10" fill="#00B4D8" letter-spacing="2">ia</text>
+        </svg>
+        <div class="sz-label">Header</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 6. Soft Gradient ========== -->
+  <div class="card">
+    <div class="card-head">
+      <div class="card-num">Phare 6</div>
+      <div class="card-title">Soft Gradient</div>
+      <div class="card-desc">Phare avec un gradient subtil navy&rarr;slate sur le corps. La lanterne irradie un halo cyan doux. Tendance &laquo;Atmospheric Gradient&raquo;, optimis&eacute; dark mode.</div>
+      <div class="card-tags"><span class="tag">Dark mode</span><span class="tag">Atmospheric</span><span class="tag">Premium</span></div>
+    </div>
+    <div class="previews">
+      <div class="prev light">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyGrad" x1="15" y1="10" x2="15" y2="48">
+              <stop offset="0%" stop-color="#0C1F3F"/>
+              <stop offset="100%" stop-color="#2E4057"/>
+            </linearGradient>
+            <radialGradient id="haloL" cx="15" cy="8" r="12" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#00B4D8" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- Halo -->
+          <circle cx="15" cy="8" r="12" fill="url(#haloL)"/>
+          <!-- Tour gradient -->
+          <path d="M17 10 L13 10 L10 48 L20 48 Z" fill="url(#bodyGrad)"/>
+          <!-- Lanterne -->
+          <rect x="11.5" y="5" width="7" height="5.5" rx="1.5" fill="#00B4D8"/>
+          <!-- Pointe -->
+          <path d="M15 1.5 L11.5 5 L18.5 5 Z" fill="#0C1F3F"/>
+          <!-- Fenêtre subtle -->
+          <rect x="12.5" y="24" width="5" height="3" rx="0.75" fill="white" opacity="0.3"/>
+          <!-- Base -->
+          <rect x="6" y="48" width="18" height="3" rx="1.5" fill="#0C1F3F"/>
+          <!-- Texte -->
+          <text x="34" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="#0C1F3F" letter-spacing="-0.5">balise</text>
+          <text x="126" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond clair</span>
+      </div>
+      <div class="prev dark">
+        <svg width="200" height="56" viewBox="0 0 200 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bodyGradD" x1="15" y1="10" x2="15" y2="48">
+              <stop offset="0%" stop-color="white"/>
+              <stop offset="100%" stop-color="#C8D5E0"/>
+            </linearGradient>
+            <radialGradient id="haloD" cx="15" cy="8" r="14" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#00B4D8" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="15" cy="8" r="14" fill="url(#haloD)"/>
+          <path d="M17 10 L13 10 L10 48 L20 48 Z" fill="url(#bodyGradD)"/>
+          <rect x="11.5" y="5" width="7" height="5.5" rx="1.5" fill="#00B4D8"/>
+          <path d="M15 1.5 L11.5 5 L18.5 5 Z" fill="white"/>
+          <rect x="12.5" y="24" width="5" height="3" rx="0.75" fill="#0C1F3F" opacity="0.25"/>
+          <rect x="6" y="48" width="18" height="3" rx="1.5" fill="white"/>
+          <text x="34" y="32" font-family="Inter,sans-serif" font-weight="700" font-size="21" fill="white" letter-spacing="-0.5">balise</text>
+          <text x="126" y="32" font-family="Inter,sans-serif" font-weight="300" font-size="16" fill="#00B4D8" letter-spacing="3">ia</text>
+        </svg>
+        <span class="prev-label">fond sombre</span>
+      </div>
+    </div>
+    <div class="sizes">
+      <div class="sz">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <defs>
+            <radialGradient id="haloF" cx="16" cy="8" r="10" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#00B4D8" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="32" height="32" rx="7" fill="#0C1F3F"/>
+          <circle cx="16" cy="8" r="10" fill="url(#haloF)"/>
+          <path d="M17.5 8 L13 8 L11 26 L19.5 26 Z" fill="white"/>
+          <rect x="12" y="4" width="6" height="4" rx="1" fill="#00B4D8"/>
+          <path d="M15 2 L12 4 L18 4 Z" fill="white"/>
+          <rect x="8" y="26" width="15" height="2" rx="0.75" fill="white"/>
+        </svg>
+        <div class="sz-label">32px</div>
+      </div>
+      <div class="sz">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <rect width="20" height="20" rx="4.5" fill="#0C1F3F"/>
+          <path d="M11.5 5.5 L8.5 5.5 L7 16 L13 16 Z" fill="white"/>
+          <rect x="8" y="3" width="4" height="2.5" rx="0.5" fill="#00B4D8"/>
+          <rect x="5.5" y="16" width="9" height="1.3" rx="0.4" fill="white"/>
+        </svg>
+        <div class="sz-label">16px</div>
+      </div>
+      <div class="sz">
+        <svg width="130" height="30" viewBox="0 0 130 30" fill="none">
+          <defs>
+            <linearGradient id="bodyGradH" x1="9" y1="7" x2="9" y2="26">
+              <stop offset="0%" stop-color="#0C1F3F"/>
+              <stop offset="100%" stop-color="#2E4057"/>
+            </linearGradient>
+          </defs>
+          <path d="M10.5 7 L7.5 7 L6 25 L12 25 Z" fill="url(#bodyGradH)"/>
+          <rect x="7" y="3.5" width="4.5" height="3.5" rx="0.75" fill="#00B4D8"/>
+          <path d="M9.25 1.5 L7 3.5 L11.5 3.5 Z" fill="#0C1F3F"/>
+          <rect x="3.5" y="25" width="11" height="1.5" rx="0.5" fill="#0C1F3F"/>
+          <text x="22" y="19" font-family="Inter,sans-serif" font-weight="700" font-size="13" fill="#0C1F3F" letter-spacing="-0.3">balise</text>
+          <text x="77" y="19" font-family="Inter,sans-serif" font-weight="300" font-size="10" fill="#00B4D8" letter-spacing="2">ia</text>
+        </svg>
+        <div class="sz-label">Header</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Améliorations -->
+<div class="improvements">
+  <h2>Recommandations issues de la recherche</h2>
+  <div class="imp-grid">
+    <div class="imp">
+      <strong>Test 100ms (Glance-ability)</strong>
+      <p>Un logo efficace doit &ecirc;tre reconnaissable en moins de 100 millisecondes. Les propositions 2 et 4 passent le mieux ce test gr&acirc;ce &agrave; leur nombre r&eacute;duit de formes.</p>
+    </div>
+    <div class="imp">
+      <strong>Fonctionne en monochrome</strong>
+      <p>Bonne pratique fondamentale : le logo doit &ecirc;tre lisible en noir pur, sans le cyan. Toutes les propositions sont con&ccedil;ues pour fonctionner sans couleur.</p>
+    </div>
+    <div class="imp">
+      <strong>Negative space = m&eacute;morabilit&eacute;</strong>
+      <p>Tendance forte 2026 : cr&eacute;er une &laquo;double lecture&raquo; via l'espace n&eacute;gatif. Le phare 1 utilise cette technique.</p>
+    </div>
+    <div class="imp">
+      <strong>Authenticity Seal pour le B2B</strong>
+      <p>Le format tampon/sceau est en hausse pour les marques B2B. Le phare 4 s'en inspire et fonctionne parfaitement en avatar r&eacute;seaux sociaux.</p>
+    </div>
+    <div class="imp">
+      <strong>Atmospheric Gradient</strong>
+      <p>Les gradients subtils et cin&eacute;matiques optimis&eacute;s dark mode remplacent les applats plats. Le phare 6 explore cette piste sans sacrifier la simplicit&eacute;.</p>
+    </div>
+    <div class="imp">
+      <strong>Morph-marks (adaptatifs)</strong>
+      <p>Un bon logo 2026 n'est plus fig&eacute; : il se simplifie en petit (favicon) et s'enrichit en grand. Chaque proposition montre ses d&eacute;clinaisons 16px / 32px / header.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

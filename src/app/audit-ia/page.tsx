@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Audit gratuit | Identifiez vos quick wins data en 3 min | balise-ia',
+  title: 'Audit gratuit | Identifiez vos quick wins data en 3 min',
   description:
     'Quiz en 3 minutes pour identifier les automatisations à fort impact dans votre PME industrielle. Score personnalisé, irritants identifiés et 3 projets recommandés. Gratuit et sans engagement.',
   keywords: [
@@ -48,7 +48,7 @@ export default function AuditPage() {
   return (
     <>
       {/* Hero — promesse concrète */}
-      <section className="bg-breton-navy py-12 sm:py-16">
+      <section className="bg-breton-navy -mt-16 pt-28 sm:pt-32 pb-12 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 bg-white/10 text-breton-moss text-sm font-medium rounded-full mb-4">

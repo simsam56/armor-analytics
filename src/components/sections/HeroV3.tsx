@@ -85,7 +85,7 @@ export function HeroV3() {
               asChild
               className="border-white/20 text-white hover:bg-white/10 h-13 px-8 text-base"
             >
-              <Link href="/projets" className="gap-2.5">
+              <Link href="/cas-clients" className="gap-2.5">
                 Voir nos réalisations
                 <ArrowRight className="h-4 w-4" />
               </Link>

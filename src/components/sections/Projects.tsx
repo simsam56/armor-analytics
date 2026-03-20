@@ -79,7 +79,7 @@ export function Projects({ showLink = true, detailed = false }: ProjectsProps) {
         {showLink && (
           <div className="mt-12 text-center">
             <Button variant="outline" size="lg" asChild>
-              <Link href="/projets" className="gap-2">
+              <Link href="/cas-clients" className="gap-2">
                 Voir le détail des réalisations
                 <ArrowRight className="h-5 w-5" />
               </Link>

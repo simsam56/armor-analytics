@@ -1,62 +1,202 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Balise IA — Logos Phare V3</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'DM Sans','Inter',sans-serif;background:#fafbfa;color:#1a1a1a;min-height:100vh}
-  .hdr{max-width:800px;margin:0 auto;padding:64px 24px 12px}
-  .hdr h1{font-size:1.6rem;font-weight:700;color:#1B4D3E;margin-bottom:8px}
-  .hdr p{font-size:.92rem;line-height:1.7;color:#64756C}
-  .hdr p strong{color:#1B4D3E;font-weight:600}
-  .grid{max-width:1100px;margin:0 auto;padding:36px 20px 100px;display:flex;flex-direction:column;gap:48px}
-  .card{background:#fff;border-radius:14px;border:1px solid #e8ece9;overflow:hidden}
-  .card-head{padding:18px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid #f0f3f1}
-  .num{width:26px;height:26px;background:#1B4D3E;color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;flex-shrink:0}
-  .ttl{font-size:1.05rem;font-weight:600;color:#1B4D3E}
-  .sub{font-size:.8rem;color:#94A39B;margin-top:1px}
-  .row{display:grid;grid-template-columns:repeat(4,1fr)}
-  .c{display:flex;align-items:center;justify-content:center;padding:44px 16px;min-height:200px;position:relative}
-  .c::after{content:attr(data-l);position:absolute;bottom:8px;right:10px;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;opacity:.3}
-  .w{background:#fff}.w::after{color:#1B4D3E}
-  .d{background:#0c1a15}.d::after{color:#fff}
-  .b{background:#1B4D3E}.b::after{color:#fff}
-  .s{background:#f3f6f4}.s::after{color:#1B4D3E}
-  .foot{padding:14px 24px;border-top:1px solid #f0f3f1;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
-  .t{display:inline-block;padding:2px 8px;background:#f3f6f4;border-radius:4px;font-size:.7rem;color:#475550;margin-right:3px}
-  .desc{font-size:.82rem;color:#64756C;line-height:1.5;flex:1;min-width:200px}
-</style>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balise IA — Logos Phare V3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'DM Sans', 'Inter', sans-serif;
+        background: #fafbfa;
+        color: #1a1a1a;
+        min-height: 100vh;
+      }
+      .hdr {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 64px 24px 12px;
+      }
+      .hdr h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #1b4d3e;
+        margin-bottom: 8px;
+      }
+      .hdr p {
+        font-size: 0.92rem;
+        line-height: 1.7;
+        color: #64756c;
+      }
+      .hdr p strong {
+        color: #1b4d3e;
+        font-weight: 600;
+      }
+      .grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 36px 20px 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 14px;
+        border: 1px solid #e8ece9;
+        overflow: hidden;
+      }
+      .card-head {
+        padding: 18px 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 1px solid #f0f3f1;
+      }
+      .num {
+        width: 26px;
+        height: 26px;
+        background: #1b4d3e;
+        color: #fff;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        flex-shrink: 0;
+      }
+      .ttl {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #1b4d3e;
+      }
+      .sub {
+        font-size: 0.8rem;
+        color: #94a39b;
+        margin-top: 1px;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .c {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 44px 16px;
+        min-height: 200px;
+        position: relative;
+      }
+      .c::after {
+        content: attr(data-l);
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 0.6rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.3;
+      }
+      .w {
+        background: #fff;
+      }
+      .w::after {
+        color: #1b4d3e;
+      }
+      .d {
+        background: #0c1a15;
+      }
+      .d::after {
+        color: #fff;
+      }
+      .b {
+        background: #1b4d3e;
+      }
+      .b::after {
+        color: #fff;
+      }
+      .s {
+        background: #f3f6f4;
+      }
+      .s::after {
+        color: #1b4d3e;
+      }
+      .foot {
+        padding: 14px 24px;
+        border-top: 1px solid #f0f3f1;
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .t {
+        display: inline-block;
+        padding: 2px 8px;
+        background: #f3f6f4;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        color: #475550;
+        margin-right: 3px;
+      }
+      .desc {
+        font-size: 0.82rem;
+        color: #64756c;
+        line-height: 1.5;
+        flex: 1;
+        min-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hdr">
+      <h1>Balise IA — V3 : Le Phare</h1>
+      <p>
+        6 façons d'abstraire un phare breton en logo professionnel. Du plus figuratif au plus
+        abstrait.<br />
+        Chaque version fonctionne en <strong>4 contextes</strong> : fond blanc, fond sombre, fond
+        brand, favicon.
+      </p>
+    </div>
 
-<div class="hdr">
-  <h1>Balise IA — V3 : Le Phare</h1>
-  <p>6 façons d'abstraire un phare breton en logo professionnel. Du plus figuratif au plus abstrait.<br>
-  Chaque version fonctionne en <strong>4 contextes</strong> : fond blanc, fond sombre, fond brand, favicon.</p>
-</div>
-
-<div class="grid">
-
-<!-- ================================================================ -->
-<!-- 1. CLEAN SILHOUETTE — Le phare en une seule forme                -->
-<!-- ================================================================ -->
-<div class="card">
-  <div class="card-head">
-    <div class="num">1</div>
-    <div><div class="ttl">Clean Silhouette</div><div class="sub">Le phare réduit à sa silhouette la plus pure — une seule forme reconnaissable</div></div>
-  </div>
-  <div class="row">
-    <div class="c w" data-l="blanc">
-      <svg width="220" height="68" viewBox="0 0 220 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(0,2)">
-          <!-- Phare silhouette — forme unique fluide -->
-          <!-- Toit pointu → lanterne → corps trapézoïdal → base -->
-          <path d="
+    <div class="grid">
+      <!-- ================================================================ -->
+      <!-- 1. CLEAN SILHOUETTE — Le phare en une seule forme                -->
+      <!-- ================================================================ -->
+      <div class="card">
+        <div class="card-head">
+          <div class="num">1</div>
+          <div>
+            <div class="ttl">Clean Silhouette</div>
+            <div class="sub">
+              Le phare réduit à sa silhouette la plus pure — une seule forme reconnaissable
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="c w" data-l="blanc">
+            <svg
+              width="220"
+              height="68"
+              viewBox="0 0 220 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(0,2)">
+                <!-- Phare silhouette — forme unique fluide -->
+                <!-- Toit pointu → lanterne → corps trapézoïdal → base -->
+                <path
+                  d="
             M20 4
             L16 10
             L24 10
@@ -71,454 +211,1241 @@
             L14 16
             L16 10
             L20 4 Z
-          " fill="#1B4D3E"/>
-          <!-- Simplifié : forme propre -->
-        </g>
-        <!-- Reprenons avec une forme plus propre -->
-        <g transform="translate(0, 0)">
-          <!-- Phare propre en paths clean -->
-          <path d="M20 2 L16 10 L14 10 L14 18 L12 18 L15.5 56 L24.5 56 L28 18 L26 18 L26 10 L24 10 Z" fill="#1B4D3E"/>
-          <!-- Fenêtre lanterne -->
-          <rect x="16" y="11" width="8" height="5" rx="1" fill="#40916C" opacity="0.6"/>
-          <!-- Fenêtres corps -->
-          <rect x="17" y="26" width="6" height="4" rx="1" fill="white" opacity="0.5"/>
-          <rect x="16.5" y="36" width="7" height="4" rx="1" fill="white" opacity="0.4"/>
-          <!-- Base élargie -->
-          <rect x="10" y="56" width="20" height="5" rx="1.5" fill="#1B4D3E"/>
-          <!-- Faisceau lumineux (un seul rayon élégant) -->
-          <path d="M26 12 L52 2 L52 6 L26 14 Z" fill="#40916C" opacity="0.25"/>
-          <path d="M26 14 L48 14 L52 18 L26 16 Z" fill="#40916C" opacity="0.15"/>
-        </g>
-        <!-- Texte -->
-        <text x="62" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#1B4D3E" letter-spacing="-0.5">balise</text>
-        <text x="62" y="54" font-family="'DM Sans',sans-serif" font-size="18" font-weight="300" fill="#40916C" letter-spacing="4">ia</text>
-      </svg>
-    </div>
-    <div class="c d" data-l="sombre">
-      <svg width="220" height="68" viewBox="0 0 220 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g>
-          <path d="M20 2 L16 10 L14 10 L14 18 L12 18 L15.5 56 L24.5 56 L28 18 L26 18 L26 10 L24 10 Z" fill="#ffffff"/>
-          <rect x="16" y="11" width="8" height="5" rx="1" fill="#40916C" opacity="0.7"/>
-          <rect x="17" y="26" width="6" height="4" rx="1" fill="#0c1a15" opacity="0.4"/>
-          <rect x="16.5" y="36" width="7" height="4" rx="1" fill="#0c1a15" opacity="0.3"/>
-          <rect x="10" y="56" width="20" height="5" rx="1.5" fill="#ffffff"/>
-          <path d="M26 12 L52 2 L52 6 L26 14 Z" fill="#40916C" opacity="0.3"/>
-          <path d="M26 14 L48 14 L52 18 L26 16 Z" fill="#40916C" opacity="0.15"/>
-        </g>
-        <text x="62" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-0.5">balise</text>
-        <text x="62" y="54" font-family="'DM Sans',sans-serif" font-size="18" font-weight="300" fill="#40916C" letter-spacing="4">ia</text>
-      </svg>
-    </div>
-    <div class="c b" data-l="brand">
-      <svg width="220" height="68" viewBox="0 0 220 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g>
-          <path d="M20 2 L16 10 L14 10 L14 18 L12 18 L15.5 56 L24.5 56 L28 18 L26 18 L26 10 L24 10 Z" fill="#ffffff"/>
-          <rect x="16" y="11" width="8" height="5" rx="1" fill="#B7E4C7" opacity="0.7"/>
-          <rect x="17" y="26" width="6" height="4" rx="1" fill="#1B4D3E" opacity="0.4"/>
-          <rect x="16.5" y="36" width="7" height="4" rx="1" fill="#1B4D3E" opacity="0.3"/>
-          <rect x="10" y="56" width="20" height="5" rx="1.5" fill="#ffffff"/>
-          <path d="M26 12 L52 2 L52 6 L26 14 Z" fill="#B7E4C7" opacity="0.25"/>
-        </g>
-        <text x="62" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-0.5">balise</text>
-        <text x="62" y="54" font-family="'DM Sans',sans-serif" font-size="18" font-weight="300" fill="rgba(255,255,255,.5)" letter-spacing="4">ia</text>
-      </svg>
-    </div>
-    <div class="c s" data-l="favicon">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="56" height="56" rx="12" fill="#1B4D3E"/>
-        <path d="M28 8 L25 14 L23 14 L23 20 L21 20 L23.5 44 L32.5 44 L35 20 L33 20 L33 14 L31 14 Z" fill="white"/>
-        <rect x="25" y="15" width="6" height="4" rx="1" fill="#40916C" opacity="0.7"/>
-        <rect x="10" y="44" width="36" height="4" rx="1.5" fill="white"/>
-        <path d="M33 16 L46 10 L46 14 L33 18 Z" fill="#40916C" opacity="0.35"/>
-      </svg>
-    </div>
-  </div>
-  <div class="foot">
-    <div><span class="t">Figuratif</span><span class="t">Silhouette</span><span class="t">Classique</span></div>
-    <div class="desc">Le phare le plus lisible : silhouette épurée avec un seul faisceau diagonal. Reconnaissable instantanément, même en 16px. Le faisceau en vert accent crée la connexion avec le signal/IA.</div>
-  </div>
-</div>
+          "
+                  fill="#1B4D3E"
+                />
+                <!-- Simplifié : forme propre -->
+              </g>
+              <!-- Reprenons avec une forme plus propre -->
+              <g transform="translate(0, 0)">
+                <!-- Phare propre en paths clean -->
+                <path
+                  d="M20 2 L16 10 L14 10 L14 18 L12 18 L15.5 56 L24.5 56 L28 18 L26 18 L26 10 L24 10 Z"
+                  fill="#1B4D3E"
+                />
+                <!-- Fenêtre lanterne -->
+                <rect x="16" y="11" width="8" height="5" rx="1" fill="#40916C" opacity="0.6" />
+                <!-- Fenêtres corps -->
+                <rect x="17" y="26" width="6" height="4" rx="1" fill="white" opacity="0.5" />
+                <rect x="16.5" y="36" width="7" height="4" rx="1" fill="white" opacity="0.4" />
+                <!-- Base élargie -->
+                <rect x="10" y="56" width="20" height="5" rx="1.5" fill="#1B4D3E" />
+                <!-- Faisceau lumineux (un seul rayon élégant) -->
+                <path d="M26 12 L52 2 L52 6 L26 14 Z" fill="#40916C" opacity="0.25" />
+                <path d="M26 14 L48 14 L52 18 L26 16 Z" fill="#40916C" opacity="0.15" />
+              </g>
+              <!-- Texte -->
+              <text
+                x="62"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#1B4D3E"
+                letter-spacing="-0.5"
+              >
+                balise
+              </text>
+              <text
+                x="62"
+                y="54"
+                font-family="'DM Sans',sans-serif"
+                font-size="18"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="4"
+              >
+                ia
+              </text>
+            </svg>
+          </div>
+          <div class="c d" data-l="sombre">
+            <svg
+              width="220"
+              height="68"
+              viewBox="0 0 220 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M20 2 L16 10 L14 10 L14 18 L12 18 L15.5 56 L24.5 56 L28 18 L26 18 L26 10 L24 10 Z"
+                  fill="#ffffff"
+                />
+                <rect x="16" y="11" width="8" height="5" rx="1" fill="#40916C" opacity="0.7" />
+                <rect x="17" y="26" width="6" height="4" rx="1" fill="#0c1a15" opacity="0.4" />
+                <rect x="16.5" y="36" width="7" height="4" rx="1" fill="#0c1a15" opacity="0.3" />
+                <rect x="10" y="56" width="20" height="5" rx="1.5" fill="#ffffff" />
+                <path d="M26 12 L52 2 L52 6 L26 14 Z" fill="#40916C" opacity="0.3" />
+                <path d="M26 14 L48 14 L52 18 L26 16 Z" fill="#40916C" opacity="0.15" />
+              </g>
+              <text
+                x="62"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-0.5"
+              >
+                balise
+              </text>
+              <text
+                x="62"
+                y="54"
+                font-family="'DM Sans',sans-serif"
+                font-size="18"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="4"
+              >
+                ia
+              </text>
+            </svg>
+          </div>
+          <div class="c b" data-l="brand">
+            <svg
+              width="220"
+              height="68"
+              viewBox="0 0 220 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g>
+                <path
+                  d="M20 2 L16 10 L14 10 L14 18 L12 18 L15.5 56 L24.5 56 L28 18 L26 18 L26 10 L24 10 Z"
+                  fill="#ffffff"
+                />
+                <rect x="16" y="11" width="8" height="5" rx="1" fill="#B7E4C7" opacity="0.7" />
+                <rect x="17" y="26" width="6" height="4" rx="1" fill="#1B4D3E" opacity="0.4" />
+                <rect x="16.5" y="36" width="7" height="4" rx="1" fill="#1B4D3E" opacity="0.3" />
+                <rect x="10" y="56" width="20" height="5" rx="1.5" fill="#ffffff" />
+                <path d="M26 12 L52 2 L52 6 L26 14 Z" fill="#B7E4C7" opacity="0.25" />
+              </g>
+              <text
+                x="62"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-0.5"
+              >
+                balise
+              </text>
+              <text
+                x="62"
+                y="54"
+                font-family="'DM Sans',sans-serif"
+                font-size="18"
+                font-weight="300"
+                fill="rgba(255,255,255,.5)"
+                letter-spacing="4"
+              >
+                ia
+              </text>
+            </svg>
+          </div>
+          <div class="c s" data-l="favicon">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="56" height="56" rx="12" fill="#1B4D3E" />
+              <path
+                d="M28 8 L25 14 L23 14 L23 20 L21 20 L23.5 44 L32.5 44 L35 20 L33 20 L33 14 L31 14 Z"
+                fill="white"
+              />
+              <rect x="25" y="15" width="6" height="4" rx="1" fill="#40916C" opacity="0.7" />
+              <rect x="10" y="44" width="36" height="4" rx="1.5" fill="white" />
+              <path d="M33 16 L46 10 L46 14 L33 18 Z" fill="#40916C" opacity="0.35" />
+            </svg>
+          </div>
+        </div>
+        <div class="foot">
+          <div>
+            <span class="t">Figuratif</span><span class="t">Silhouette</span
+            ><span class="t">Classique</span>
+          </div>
+          <div class="desc">
+            Le phare le plus lisible : silhouette épurée avec un seul faisceau diagonal.
+            Reconnaissable instantanément, même en 16px. Le faisceau en vert accent crée la
+            connexion avec le signal/IA.
+          </div>
+        </div>
+      </div>
 
-<!-- ================================================================ -->
-<!-- 2. LINE ART — Trait fin élégant                                   -->
-<!-- ================================================================ -->
-<div class="card">
-  <div class="card-head">
-    <div class="num">2</div>
-    <div><div class="ttl">Line Art</div><div class="sub">Le phare en un seul trait continu — élégance et précision</div></div>
-  </div>
-  <div class="row">
-    <div class="c w" data-l="blanc">
-      <svg width="240" height="68" viewBox="0 0 240 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(2,2)">
-          <!-- Phare en stroke uniquement -->
-          <path d="M20 4 L16 10 L14 10 L14 18 L12 18 L15 54 L25 54 L28 18 L26 18 L26 10 L24 10 Z"
-                stroke="#1B4D3E" stroke-width="2" fill="none" stroke-linejoin="round"/>
-          <!-- Base -->
-          <line x1="10" y1="54" x2="30" y2="54" stroke="#1B4D3E" stroke-width="2" stroke-linecap="round"/>
-          <!-- Fenêtre lanterne — remplie -->
-          <rect x="16.5" y="11.5" width="7" height="5" rx="1" fill="#40916C" opacity="0.5"/>
-          <!-- Rayons — arcs élégants depuis la lanterne -->
-          <path d="M28 11 C32 9 36 9 40 11" stroke="#1B4D3E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-          <path d="M30 8 C36 4 44 4 50 8" stroke="#1B4D3E" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.35"/>
-          <path d="M32 5 C40 -1 52 -1 60 5" stroke="#1B4D3E" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.15"/>
-        </g>
-        <text x="72" y="28" font-family="'DM Sans',sans-serif" font-size="28" font-weight="600" fill="#1B4D3E" letter-spacing="-0.3">Balise</text>
-        <text x="72" y="52" font-family="'DM Sans',sans-serif" font-size="20" font-weight="300" fill="#40916C" letter-spacing="3">IA</text>
-      </svg>
-    </div>
-    <div class="c d" data-l="sombre">
-      <svg width="240" height="68" viewBox="0 0 240 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(2,2)">
-          <path d="M20 4 L16 10 L14 10 L14 18 L12 18 L15 54 L25 54 L28 18 L26 18 L26 10 L24 10 Z"
-                stroke="#ffffff" stroke-width="2" fill="none" stroke-linejoin="round"/>
-          <line x1="10" y1="54" x2="30" y2="54" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-          <rect x="16.5" y="11.5" width="7" height="5" rx="1" fill="#40916C" opacity="0.6"/>
-          <path d="M28 11 C32 9 36 9 40 11" stroke="#40916C" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
-          <path d="M30 8 C36 4 44 4 50 8" stroke="#40916C" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.4"/>
-          <path d="M32 5 C40 -1 52 -1 60 5" stroke="#40916C" stroke-width="0.8" fill="none" stroke-linecap="round" opacity="0.2"/>
-        </g>
-        <text x="72" y="28" font-family="'DM Sans',sans-serif" font-size="28" font-weight="600" fill="#ffffff" letter-spacing="-0.3">Balise</text>
-        <text x="72" y="52" font-family="'DM Sans',sans-serif" font-size="20" font-weight="300" fill="#40916C" letter-spacing="3">IA</text>
-      </svg>
-    </div>
-    <div class="c b" data-l="brand">
-      <svg width="240" height="68" viewBox="0 0 240 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(2,2)">
-          <path d="M20 4 L16 10 L14 10 L14 18 L12 18 L15 54 L25 54 L28 18 L26 18 L26 10 L24 10 Z"
-                stroke="#ffffff" stroke-width="2" fill="none" stroke-linejoin="round"/>
-          <line x1="10" y1="54" x2="30" y2="54" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-          <rect x="16.5" y="11.5" width="7" height="5" rx="1" fill="#B7E4C7" opacity="0.6"/>
-          <path d="M28 11 C32 9 36 9 40 11" stroke="#B7E4C7" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
-          <path d="M30 8 C36 4 44 4 50 8" stroke="#B7E4C7" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.3"/>
-        </g>
-        <text x="72" y="28" font-family="'DM Sans',sans-serif" font-size="28" font-weight="600" fill="#ffffff" letter-spacing="-0.3">Balise</text>
-        <text x="72" y="52" font-family="'DM Sans',sans-serif" font-size="20" font-weight="300" fill="rgba(255,255,255,.5)" letter-spacing="3">IA</text>
-      </svg>
-    </div>
-    <div class="c s" data-l="favicon">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="56" height="56" rx="12" fill="#1B4D3E"/>
-        <path d="M28 10 L24.5 15 L23 15 L23 21 L21.5 21 L24 44 L32 44 L34.5 21 L33 21 L33 15 L31.5 15 Z"
-              stroke="white" stroke-width="2" fill="none" stroke-linejoin="round"/>
-        <line x1="19" y1="44" x2="37" y2="44" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        <rect x="25" y="16.5" width="6" height="4" rx="1" fill="#40916C"/>
-        <path d="M35 16 C38 14 42 14 45 16" stroke="#40916C" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
-  </div>
-  <div class="foot">
-    <div><span class="t">Line Art</span><span class="t">Élégant</span><span class="t">Premium</span></div>
-    <div class="desc">Contour fin et précis, pas de remplissage. Les arcs concentriques à droite = le signal qui se propage. Sensation légère, aérée, haut de gamme. Parfait pour du consulting premium.</div>
-  </div>
-</div>
+      <!-- ================================================================ -->
+      <!-- 2. LINE ART — Trait fin élégant                                   -->
+      <!-- ================================================================ -->
+      <div class="card">
+        <div class="card-head">
+          <div class="num">2</div>
+          <div>
+            <div class="ttl">Line Art</div>
+            <div class="sub">Le phare en un seul trait continu — élégance et précision</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="c w" data-l="blanc">
+            <svg
+              width="240"
+              height="68"
+              viewBox="0 0 240 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(2,2)">
+                <!-- Phare en stroke uniquement -->
+                <path
+                  d="M20 4 L16 10 L14 10 L14 18 L12 18 L15 54 L25 54 L28 18 L26 18 L26 10 L24 10 Z"
+                  stroke="#1B4D3E"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linejoin="round"
+                />
+                <!-- Base -->
+                <line
+                  x1="10"
+                  y1="54"
+                  x2="30"
+                  y2="54"
+                  stroke="#1B4D3E"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <!-- Fenêtre lanterne — remplie -->
+                <rect x="16.5" y="11.5" width="7" height="5" rx="1" fill="#40916C" opacity="0.5" />
+                <!-- Rayons — arcs élégants depuis la lanterne -->
+                <path
+                  d="M28 11 C32 9 36 9 40 11"
+                  stroke="#1B4D3E"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.6"
+                />
+                <path
+                  d="M30 8 C36 4 44 4 50 8"
+                  stroke="#1B4D3E"
+                  stroke-width="1.2"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.35"
+                />
+                <path
+                  d="M32 5 C40 -1 52 -1 60 5"
+                  stroke="#1B4D3E"
+                  stroke-width="0.8"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.15"
+                />
+              </g>
+              <text
+                x="72"
+                y="28"
+                font-family="'DM Sans',sans-serif"
+                font-size="28"
+                font-weight="600"
+                fill="#1B4D3E"
+                letter-spacing="-0.3"
+              >
+                Balise
+              </text>
+              <text
+                x="72"
+                y="52"
+                font-family="'DM Sans',sans-serif"
+                font-size="20"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="3"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c d" data-l="sombre">
+            <svg
+              width="240"
+              height="68"
+              viewBox="0 0 240 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(2,2)">
+                <path
+                  d="M20 4 L16 10 L14 10 L14 18 L12 18 L15 54 L25 54 L28 18 L26 18 L26 10 L24 10 Z"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="10"
+                  y1="54"
+                  x2="30"
+                  y2="54"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <rect x="16.5" y="11.5" width="7" height="5" rx="1" fill="#40916C" opacity="0.6" />
+                <path
+                  d="M28 11 C32 9 36 9 40 11"
+                  stroke="#40916C"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.7"
+                />
+                <path
+                  d="M30 8 C36 4 44 4 50 8"
+                  stroke="#40916C"
+                  stroke-width="1.2"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.4"
+                />
+                <path
+                  d="M32 5 C40 -1 52 -1 60 5"
+                  stroke="#40916C"
+                  stroke-width="0.8"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.2"
+                />
+              </g>
+              <text
+                x="72"
+                y="28"
+                font-family="'DM Sans',sans-serif"
+                font-size="28"
+                font-weight="600"
+                fill="#ffffff"
+                letter-spacing="-0.3"
+              >
+                Balise
+              </text>
+              <text
+                x="72"
+                y="52"
+                font-family="'DM Sans',sans-serif"
+                font-size="20"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="3"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c b" data-l="brand">
+            <svg
+              width="240"
+              height="68"
+              viewBox="0 0 240 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(2,2)">
+                <path
+                  d="M20 4 L16 10 L14 10 L14 18 L12 18 L15 54 L25 54 L28 18 L26 18 L26 10 L24 10 Z"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  fill="none"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="10"
+                  y1="54"
+                  x2="30"
+                  y2="54"
+                  stroke="#ffffff"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <rect x="16.5" y="11.5" width="7" height="5" rx="1" fill="#B7E4C7" opacity="0.6" />
+                <path
+                  d="M28 11 C32 9 36 9 40 11"
+                  stroke="#B7E4C7"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.6"
+                />
+                <path
+                  d="M30 8 C36 4 44 4 50 8"
+                  stroke="#B7E4C7"
+                  stroke-width="1.2"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.3"
+                />
+              </g>
+              <text
+                x="72"
+                y="28"
+                font-family="'DM Sans',sans-serif"
+                font-size="28"
+                font-weight="600"
+                fill="#ffffff"
+                letter-spacing="-0.3"
+              >
+                Balise
+              </text>
+              <text
+                x="72"
+                y="52"
+                font-family="'DM Sans',sans-serif"
+                font-size="20"
+                font-weight="300"
+                fill="rgba(255,255,255,.5)"
+                letter-spacing="3"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c s" data-l="favicon">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="56" height="56" rx="12" fill="#1B4D3E" />
+              <path
+                d="M28 10 L24.5 15 L23 15 L23 21 L21.5 21 L24 44 L32 44 L34.5 21 L33 21 L33 15 L31.5 15 Z"
+                stroke="white"
+                stroke-width="2"
+                fill="none"
+                stroke-linejoin="round"
+              />
+              <line
+                x1="19"
+                y1="44"
+                x2="37"
+                y2="44"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <rect x="25" y="16.5" width="6" height="4" rx="1" fill="#40916C" />
+              <path
+                d="M35 16 C38 14 42 14 45 16"
+                stroke="#40916C"
+                stroke-width="1.5"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="foot">
+          <div>
+            <span class="t">Line Art</span><span class="t">Élégant</span
+            ><span class="t">Premium</span>
+          </div>
+          <div class="desc">
+            Contour fin et précis, pas de remplissage. Les arcs concentriques à droite = le signal
+            qui se propage. Sensation légère, aérée, haut de gamme. Parfait pour du consulting
+            premium.
+          </div>
+        </div>
+      </div>
 
-<!-- ================================================================ -->
-<!-- 3. GEOMETRIC STACK — Formes empilées                              -->
-<!-- ================================================================ -->
-<div class="card">
-  <div class="card-head">
-    <div class="num">3</div>
-    <div><div class="ttl">Geometric Stack</div><div class="sub">Le phare construit par empilement de formes géométriques simples</div></div>
-  </div>
-  <div class="row">
-    <div class="c w" data-l="blanc">
-      <svg width="240" height="68" viewBox="0 0 240 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(2,0)">
-          <!-- Triangle toit -->
-          <polygon points="20,2 12,14 28,14" fill="#1B4D3E"/>
-          <!-- Rectangle lanterne -->
-          <rect x="12" y="14" width="16" height="8" rx="2" fill="#40916C"/>
-          <!-- Trapèze corps (rectangle effilé via path) -->
-          <path d="M10 22 L30 22 L27 56 L13 56 Z" fill="#1B4D3E"/>
-          <!-- Rectangle base -->
-          <rect x="7" y="56" width="26" height="6" rx="2" fill="#1B4D3E"/>
-          <!-- Petite fenêtre ronde -->
-          <circle cx="20" cy="34" r="4" fill="white" opacity="0.4"/>
-          <circle cx="20" cy="46" r="3.5" fill="white" opacity="0.3"/>
-        </g>
-        <!-- Dot lumineux -->
-        <circle cx="38" cy="14" r="3" fill="#40916C"/>
-        <circle cx="38" cy="14" r="6" stroke="#40916C" stroke-width="1" fill="none" opacity="0.2"/>
-        <!-- Texte -->
-        <text x="52" y="30" font-family="'DM Sans',sans-serif" font-size="32" font-weight="800" fill="#1B4D3E" letter-spacing="-1">BALISE</text>
-        <text x="52" y="54" font-family="'DM Sans',sans-serif" font-size="22" font-weight="300" fill="#40916C" letter-spacing="6">IA</text>
-      </svg>
-    </div>
-    <div class="c d" data-l="sombre">
-      <svg width="240" height="68" viewBox="0 0 240 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(2,0)">
-          <polygon points="20,2 12,14 28,14" fill="#ffffff"/>
-          <rect x="12" y="14" width="16" height="8" rx="2" fill="#40916C"/>
-          <path d="M10 22 L30 22 L27 56 L13 56 Z" fill="#ffffff"/>
-          <rect x="7" y="56" width="26" height="6" rx="2" fill="#ffffff"/>
-          <circle cx="20" cy="34" r="4" fill="#0c1a15" opacity="0.3"/>
-          <circle cx="20" cy="46" r="3.5" fill="#0c1a15" opacity="0.2"/>
-        </g>
-        <circle cx="38" cy="14" r="3" fill="#40916C"/>
-        <circle cx="38" cy="14" r="6" stroke="#40916C" stroke-width="1" fill="none" opacity="0.3"/>
-        <text x="52" y="30" font-family="'DM Sans',sans-serif" font-size="32" font-weight="800" fill="#ffffff" letter-spacing="-1">BALISE</text>
-        <text x="52" y="54" font-family="'DM Sans',sans-serif" font-size="22" font-weight="300" fill="#40916C" letter-spacing="6">IA</text>
-      </svg>
-    </div>
-    <div class="c b" data-l="brand">
-      <svg width="240" height="68" viewBox="0 0 240 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(2,0)">
-          <polygon points="20,2 12,14 28,14" fill="#ffffff"/>
-          <rect x="12" y="14" width="16" height="8" rx="2" fill="#B7E4C7"/>
-          <path d="M10 22 L30 22 L27 56 L13 56 Z" fill="#ffffff"/>
-          <rect x="7" y="56" width="26" height="6" rx="2" fill="#ffffff"/>
-          <circle cx="20" cy="34" r="4" fill="#1B4D3E" opacity="0.3"/>
-          <circle cx="20" cy="46" r="3.5" fill="#1B4D3E" opacity="0.2"/>
-        </g>
-        <circle cx="38" cy="14" r="3" fill="#B7E4C7"/>
-        <text x="52" y="30" font-family="'DM Sans',sans-serif" font-size="32" font-weight="800" fill="#ffffff" letter-spacing="-1">BALISE</text>
-        <text x="52" y="54" font-family="'DM Sans',sans-serif" font-size="22" font-weight="300" fill="rgba(255,255,255,.5)" letter-spacing="6">IA</text>
-      </svg>
-    </div>
-    <div class="c s" data-l="favicon">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="56" height="56" rx="12" fill="#1B4D3E"/>
-        <polygon points="28,6 21,16 35,16" fill="white"/>
-        <rect x="21" y="16" width="14" height="6" rx="2" fill="#40916C"/>
-        <path d="M19 22 L37 22 L34 44 L22 44 Z" fill="white"/>
-        <rect x="16" y="44" width="24" height="5" rx="2" fill="white"/>
-        <circle cx="28" cy="30" r="3" fill="#1B4D3E" opacity="0.3"/>
-        <circle cx="28" cy="38" r="2.5" fill="#1B4D3E" opacity="0.2"/>
-        <circle cx="40" cy="16" r="3" fill="#40916C"/>
-      </svg>
-    </div>
-  </div>
-  <div class="foot">
-    <div><span class="t">Géométrique</span><span class="t">Bauhaus</span><span class="t">Bold</span></div>
-    <div class="desc">Triangle + rectangle + trapèze + rectangle = phare. Construction modulaire, esprit Bauhaus. La lanterne en vert accent distingue la "tête pensante" du phare. Le dot signal flotte à côté. Typo Extra Bold pour affirmer.</div>
-  </div>
-</div>
+      <!-- ================================================================ -->
+      <!-- 3. GEOMETRIC STACK — Formes empilées                              -->
+      <!-- ================================================================ -->
+      <div class="card">
+        <div class="card-head">
+          <div class="num">3</div>
+          <div>
+            <div class="ttl">Geometric Stack</div>
+            <div class="sub">Le phare construit par empilement de formes géométriques simples</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="c w" data-l="blanc">
+            <svg
+              width="240"
+              height="68"
+              viewBox="0 0 240 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(2,0)">
+                <!-- Triangle toit -->
+                <polygon points="20,2 12,14 28,14" fill="#1B4D3E" />
+                <!-- Rectangle lanterne -->
+                <rect x="12" y="14" width="16" height="8" rx="2" fill="#40916C" />
+                <!-- Trapèze corps (rectangle effilé via path) -->
+                <path d="M10 22 L30 22 L27 56 L13 56 Z" fill="#1B4D3E" />
+                <!-- Rectangle base -->
+                <rect x="7" y="56" width="26" height="6" rx="2" fill="#1B4D3E" />
+                <!-- Petite fenêtre ronde -->
+                <circle cx="20" cy="34" r="4" fill="white" opacity="0.4" />
+                <circle cx="20" cy="46" r="3.5" fill="white" opacity="0.3" />
+              </g>
+              <!-- Dot lumineux -->
+              <circle cx="38" cy="14" r="3" fill="#40916C" />
+              <circle
+                cx="38"
+                cy="14"
+                r="6"
+                stroke="#40916C"
+                stroke-width="1"
+                fill="none"
+                opacity="0.2"
+              />
+              <!-- Texte -->
+              <text
+                x="52"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="32"
+                font-weight="800"
+                fill="#1B4D3E"
+                letter-spacing="-1"
+              >
+                BALISE
+              </text>
+              <text
+                x="52"
+                y="54"
+                font-family="'DM Sans',sans-serif"
+                font-size="22"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="6"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c d" data-l="sombre">
+            <svg
+              width="240"
+              height="68"
+              viewBox="0 0 240 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(2,0)">
+                <polygon points="20,2 12,14 28,14" fill="#ffffff" />
+                <rect x="12" y="14" width="16" height="8" rx="2" fill="#40916C" />
+                <path d="M10 22 L30 22 L27 56 L13 56 Z" fill="#ffffff" />
+                <rect x="7" y="56" width="26" height="6" rx="2" fill="#ffffff" />
+                <circle cx="20" cy="34" r="4" fill="#0c1a15" opacity="0.3" />
+                <circle cx="20" cy="46" r="3.5" fill="#0c1a15" opacity="0.2" />
+              </g>
+              <circle cx="38" cy="14" r="3" fill="#40916C" />
+              <circle
+                cx="38"
+                cy="14"
+                r="6"
+                stroke="#40916C"
+                stroke-width="1"
+                fill="none"
+                opacity="0.3"
+              />
+              <text
+                x="52"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="32"
+                font-weight="800"
+                fill="#ffffff"
+                letter-spacing="-1"
+              >
+                BALISE
+              </text>
+              <text
+                x="52"
+                y="54"
+                font-family="'DM Sans',sans-serif"
+                font-size="22"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="6"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c b" data-l="brand">
+            <svg
+              width="240"
+              height="68"
+              viewBox="0 0 240 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(2,0)">
+                <polygon points="20,2 12,14 28,14" fill="#ffffff" />
+                <rect x="12" y="14" width="16" height="8" rx="2" fill="#B7E4C7" />
+                <path d="M10 22 L30 22 L27 56 L13 56 Z" fill="#ffffff" />
+                <rect x="7" y="56" width="26" height="6" rx="2" fill="#ffffff" />
+                <circle cx="20" cy="34" r="4" fill="#1B4D3E" opacity="0.3" />
+                <circle cx="20" cy="46" r="3.5" fill="#1B4D3E" opacity="0.2" />
+              </g>
+              <circle cx="38" cy="14" r="3" fill="#B7E4C7" />
+              <text
+                x="52"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="32"
+                font-weight="800"
+                fill="#ffffff"
+                letter-spacing="-1"
+              >
+                BALISE
+              </text>
+              <text
+                x="52"
+                y="54"
+                font-family="'DM Sans',sans-serif"
+                font-size="22"
+                font-weight="300"
+                fill="rgba(255,255,255,.5)"
+                letter-spacing="6"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c s" data-l="favicon">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="56" height="56" rx="12" fill="#1B4D3E" />
+              <polygon points="28,6 21,16 35,16" fill="white" />
+              <rect x="21" y="16" width="14" height="6" rx="2" fill="#40916C" />
+              <path d="M19 22 L37 22 L34 44 L22 44 Z" fill="white" />
+              <rect x="16" y="44" width="24" height="5" rx="2" fill="white" />
+              <circle cx="28" cy="30" r="3" fill="#1B4D3E" opacity="0.3" />
+              <circle cx="28" cy="38" r="2.5" fill="#1B4D3E" opacity="0.2" />
+              <circle cx="40" cy="16" r="3" fill="#40916C" />
+            </svg>
+          </div>
+        </div>
+        <div class="foot">
+          <div>
+            <span class="t">Géométrique</span><span class="t">Bauhaus</span
+            ><span class="t">Bold</span>
+          </div>
+          <div class="desc">
+            Triangle + rectangle + trapèze + rectangle = phare. Construction modulaire, esprit
+            Bauhaus. La lanterne en vert accent distingue la "tête pensante" du phare. Le dot signal
+            flotte à côté. Typo Extra Bold pour affirmer.
+          </div>
+        </div>
+      </div>
 
-<!-- ================================================================ -->
-<!-- 4. BEAM & TOWER — Faisceau dominant                               -->
-<!-- ================================================================ -->
-<div class="card">
-  <div class="card-head">
-    <div class="num">4</div>
-    <div><div class="ttl">Beam & Tower</div><div class="sub">Le faisceau lumineux est aussi important que le phare — équilibre signal/source</div></div>
-  </div>
-  <div class="row">
-    <div class="c w" data-l="blanc">
-      <svg width="260" height="68" viewBox="0 0 260 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(0,2)">
-          <!-- Le faisceau large en triangle -->
-          <path d="M28 18 L64 4 L64 36 Z" fill="#40916C" opacity="0.12"/>
-          <path d="M28 18 L64 8 L64 30 Z" fill="#40916C" opacity="0.1"/>
-          <!-- Le phare compact -->
-          <path d="M18 6 L15 12 L13 12 L13 18 L11 18 L13.5 52 L22.5 52 L25 18 L23 18 L23 12 L21 12 Z" fill="#1B4D3E"/>
-          <!-- Lanterne lumineuse -->
-          <rect x="14.5" y="13" width="7" height="4" rx="1" fill="#40916C"/>
-          <!-- Base -->
-          <rect x="9" y="52" width="18" height="4" rx="1.5" fill="#1B4D3E"/>
-          <!-- Point de lumière vive -->
-          <circle cx="27" cy="16" r="2.5" fill="#40916C"/>
-        </g>
-        <text x="72" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#1B4D3E" letter-spacing="-0.5">balise</text>
-        <text x="168" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="300" fill="#2D6A4F">ia</text>
-        <!-- Tagline -->
-        <text x="72" y="52" font-family="'DM Sans',sans-serif" font-size="10" font-weight="400" fill="#94A39B" letter-spacing="2.5">GUIDE VOS DONNÉES</text>
-      </svg>
-    </div>
-    <div class="c d" data-l="sombre">
-      <svg width="260" height="68" viewBox="0 0 260 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(0,2)">
-          <path d="M28 18 L64 4 L64 36 Z" fill="#40916C" opacity="0.15"/>
-          <path d="M28 18 L64 8 L64 30 Z" fill="#40916C" opacity="0.1"/>
-          <path d="M18 6 L15 12 L13 12 L13 18 L11 18 L13.5 52 L22.5 52 L25 18 L23 18 L23 12 L21 12 Z" fill="#ffffff"/>
-          <rect x="14.5" y="13" width="7" height="4" rx="1" fill="#40916C"/>
-          <rect x="9" y="52" width="18" height="4" rx="1.5" fill="#ffffff"/>
-          <circle cx="27" cy="16" r="2.5" fill="#40916C"/>
-        </g>
-        <text x="72" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-0.5">balise</text>
-        <text x="168" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="300" fill="#40916C">ia</text>
-        <text x="72" y="52" font-family="'DM Sans',sans-serif" font-size="10" font-weight="400" fill="#64756C" letter-spacing="2.5">GUIDE VOS DONNÉES</text>
-      </svg>
-    </div>
-    <div class="c b" data-l="brand">
-      <svg width="260" height="68" viewBox="0 0 260 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(0,2)">
-          <path d="M28 18 L64 4 L64 36 Z" fill="#B7E4C7" opacity="0.1"/>
-          <path d="M18 6 L15 12 L13 12 L13 18 L11 18 L13.5 52 L22.5 52 L25 18 L23 18 L23 12 L21 12 Z" fill="#ffffff"/>
-          <rect x="14.5" y="13" width="7" height="4" rx="1" fill="#B7E4C7"/>
-          <rect x="9" y="52" width="18" height="4" rx="1.5" fill="#ffffff"/>
-          <circle cx="27" cy="16" r="2.5" fill="#B7E4C7"/>
-        </g>
-        <text x="72" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-0.5">balise</text>
-        <text x="168" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="300" fill="rgba(255,255,255,.6)">ia</text>
-        <text x="72" y="52" font-family="'DM Sans',sans-serif" font-size="10" font-weight="400" fill="rgba(255,255,255,.35)" letter-spacing="2.5">GUIDE VOS DONNÉES</text>
-      </svg>
-    </div>
-    <div class="c s" data-l="favicon">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="56" height="56" rx="12" fill="#1B4D3E"/>
-        <!-- Faisceau -->
-        <path d="M30 22 L52 12 L52 36 Z" fill="#40916C" opacity="0.2"/>
-        <!-- Phare -->
-        <path d="M22 10 L19.5 15 L18 15 L18 20 L16 20 L18 44 L26 44 L28 20 L26 20 L26 15 L24.5 15 Z" fill="white"/>
-        <rect x="19.5" y="16" width="5" height="3" rx="1" fill="#40916C"/>
-        <rect x="14" y="44" width="16" height="3.5" rx="1.5" fill="white"/>
-        <circle cx="29" cy="19" r="2.5" fill="#40916C"/>
-      </svg>
-    </div>
-  </div>
-  <div class="foot">
-    <div><span class="t">Faisceau</span><span class="t">Narratif</span><span class="t">Dynamique</span></div>
-    <div class="desc">Le faisceau triangulaire donne de la direction et du mouvement — le phare éclaire activement. Tagline "Guide vos données" renforce le message. Le triangle de lumière = métaphore visuelle de la guidance IA.</div>
-  </div>
-</div>
+      <!-- ================================================================ -->
+      <!-- 4. BEAM & TOWER — Faisceau dominant                               -->
+      <!-- ================================================================ -->
+      <div class="card">
+        <div class="card-head">
+          <div class="num">4</div>
+          <div>
+            <div class="ttl">Beam & Tower</div>
+            <div class="sub">
+              Le faisceau lumineux est aussi important que le phare — équilibre signal/source
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="c w" data-l="blanc">
+            <svg
+              width="260"
+              height="68"
+              viewBox="0 0 260 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(0,2)">
+                <!-- Le faisceau large en triangle -->
+                <path d="M28 18 L64 4 L64 36 Z" fill="#40916C" opacity="0.12" />
+                <path d="M28 18 L64 8 L64 30 Z" fill="#40916C" opacity="0.1" />
+                <!-- Le phare compact -->
+                <path
+                  d="M18 6 L15 12 L13 12 L13 18 L11 18 L13.5 52 L22.5 52 L25 18 L23 18 L23 12 L21 12 Z"
+                  fill="#1B4D3E"
+                />
+                <!-- Lanterne lumineuse -->
+                <rect x="14.5" y="13" width="7" height="4" rx="1" fill="#40916C" />
+                <!-- Base -->
+                <rect x="9" y="52" width="18" height="4" rx="1.5" fill="#1B4D3E" />
+                <!-- Point de lumière vive -->
+                <circle cx="27" cy="16" r="2.5" fill="#40916C" />
+              </g>
+              <text
+                x="72"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#1B4D3E"
+                letter-spacing="-0.5"
+              >
+                balise
+              </text>
+              <text
+                x="168"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="300"
+                fill="#2D6A4F"
+              >
+                ia
+              </text>
+              <!-- Tagline -->
+              <text
+                x="72"
+                y="52"
+                font-family="'DM Sans',sans-serif"
+                font-size="10"
+                font-weight="400"
+                fill="#94A39B"
+                letter-spacing="2.5"
+              >
+                GUIDE VOS DONNÉES
+              </text>
+            </svg>
+          </div>
+          <div class="c d" data-l="sombre">
+            <svg
+              width="260"
+              height="68"
+              viewBox="0 0 260 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(0,2)">
+                <path d="M28 18 L64 4 L64 36 Z" fill="#40916C" opacity="0.15" />
+                <path d="M28 18 L64 8 L64 30 Z" fill="#40916C" opacity="0.1" />
+                <path
+                  d="M18 6 L15 12 L13 12 L13 18 L11 18 L13.5 52 L22.5 52 L25 18 L23 18 L23 12 L21 12 Z"
+                  fill="#ffffff"
+                />
+                <rect x="14.5" y="13" width="7" height="4" rx="1" fill="#40916C" />
+                <rect x="9" y="52" width="18" height="4" rx="1.5" fill="#ffffff" />
+                <circle cx="27" cy="16" r="2.5" fill="#40916C" />
+              </g>
+              <text
+                x="72"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-0.5"
+              >
+                balise
+              </text>
+              <text
+                x="168"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="300"
+                fill="#40916C"
+              >
+                ia
+              </text>
+              <text
+                x="72"
+                y="52"
+                font-family="'DM Sans',sans-serif"
+                font-size="10"
+                font-weight="400"
+                fill="#64756C"
+                letter-spacing="2.5"
+              >
+                GUIDE VOS DONNÉES
+              </text>
+            </svg>
+          </div>
+          <div class="c b" data-l="brand">
+            <svg
+              width="260"
+              height="68"
+              viewBox="0 0 260 68"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(0,2)">
+                <path d="M28 18 L64 4 L64 36 Z" fill="#B7E4C7" opacity="0.1" />
+                <path
+                  d="M18 6 L15 12 L13 12 L13 18 L11 18 L13.5 52 L22.5 52 L25 18 L23 18 L23 12 L21 12 Z"
+                  fill="#ffffff"
+                />
+                <rect x="14.5" y="13" width="7" height="4" rx="1" fill="#B7E4C7" />
+                <rect x="9" y="52" width="18" height="4" rx="1.5" fill="#ffffff" />
+                <circle cx="27" cy="16" r="2.5" fill="#B7E4C7" />
+              </g>
+              <text
+                x="72"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-0.5"
+              >
+                balise
+              </text>
+              <text
+                x="168"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="300"
+                fill="rgba(255,255,255,.6)"
+              >
+                ia
+              </text>
+              <text
+                x="72"
+                y="52"
+                font-family="'DM Sans',sans-serif"
+                font-size="10"
+                font-weight="400"
+                fill="rgba(255,255,255,.35)"
+                letter-spacing="2.5"
+              >
+                GUIDE VOS DONNÉES
+              </text>
+            </svg>
+          </div>
+          <div class="c s" data-l="favicon">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="56" height="56" rx="12" fill="#1B4D3E" />
+              <!-- Faisceau -->
+              <path d="M30 22 L52 12 L52 36 Z" fill="#40916C" opacity="0.2" />
+              <!-- Phare -->
+              <path
+                d="M22 10 L19.5 15 L18 15 L18 20 L16 20 L18 44 L26 44 L28 20 L26 20 L26 15 L24.5 15 Z"
+                fill="white"
+              />
+              <rect x="19.5" y="16" width="5" height="3" rx="1" fill="#40916C" />
+              <rect x="14" y="44" width="16" height="3.5" rx="1.5" fill="white" />
+              <circle cx="29" cy="19" r="2.5" fill="#40916C" />
+            </svg>
+          </div>
+        </div>
+        <div class="foot">
+          <div>
+            <span class="t">Faisceau</span><span class="t">Narratif</span
+            ><span class="t">Dynamique</span>
+          </div>
+          <div class="desc">
+            Le faisceau triangulaire donne de la direction et du mouvement — le phare éclaire
+            activement. Tagline "Guide vos données" renforce le message. Le triangle de lumière =
+            métaphore visuelle de la guidance IA.
+          </div>
+        </div>
+      </div>
 
-<!-- ================================================================ -->
-<!-- 5. ABSTRACT GLOW — Le plus abstrait                               -->
-<!-- ================================================================ -->
-<div class="card">
-  <div class="card-head">
-    <div class="num">5</div>
-    <div><div class="ttl">Abstract Glow</div><div class="sub">Juste l'essentiel : une verticale et une lumière au sommet — le phare en 2 éléments</div></div>
-  </div>
-  <div class="row">
-    <div class="c w" data-l="blanc">
-      <svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(6,0)">
-          <!-- Verticale = le phare réduit à un trait -->
-          <rect x="8" y="14" width="5" height="44" rx="2.5" fill="#1B4D3E"/>
-          <!-- Glow = cercle lumineux en haut -->
-          <circle cx="10.5" cy="10" r="10" fill="#40916C" opacity="0.12"/>
-          <circle cx="10.5" cy="10" r="6" fill="#40916C" opacity="0.25"/>
-          <circle cx="10.5" cy="10" r="3" fill="#40916C"/>
-          <!-- Base -->
-          <rect x="2" y="56" width="17" height="3" rx="1.5" fill="#1B4D3E"/>
-        </g>
-        <text x="36" y="34" font-family="'DM Sans',sans-serif" font-size="36" font-weight="700" fill="#1B4D3E" letter-spacing="-1">balise</text>
-        <text x="36" y="58" font-family="'DM Sans',sans-serif" font-size="14" font-weight="400" fill="#40916C" letter-spacing="5">IA</text>
-      </svg>
-    </div>
-    <div class="c d" data-l="sombre">
-      <svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(6,0)">
-          <rect x="8" y="14" width="5" height="44" rx="2.5" fill="#ffffff"/>
-          <circle cx="10.5" cy="10" r="10" fill="#40916C" opacity="0.15"/>
-          <circle cx="10.5" cy="10" r="6" fill="#40916C" opacity="0.3"/>
-          <circle cx="10.5" cy="10" r="3" fill="#40916C"/>
-          <rect x="2" y="56" width="17" height="3" rx="1.5" fill="#ffffff"/>
-        </g>
-        <text x="36" y="34" font-family="'DM Sans',sans-serif" font-size="36" font-weight="700" fill="#ffffff" letter-spacing="-1">balise</text>
-        <text x="36" y="58" font-family="'DM Sans',sans-serif" font-size="14" font-weight="400" fill="#40916C" letter-spacing="5">IA</text>
-      </svg>
-    </div>
-    <div class="c b" data-l="brand">
-      <svg width="240" height="64" viewBox="0 0 240 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(6,0)">
-          <rect x="8" y="14" width="5" height="44" rx="2.5" fill="#ffffff"/>
-          <circle cx="10.5" cy="10" r="10" fill="#B7E4C7" opacity="0.12"/>
-          <circle cx="10.5" cy="10" r="6" fill="#B7E4C7" opacity="0.25"/>
-          <circle cx="10.5" cy="10" r="3" fill="#B7E4C7"/>
-          <rect x="2" y="56" width="17" height="3" rx="1.5" fill="#ffffff"/>
-        </g>
-        <text x="36" y="34" font-family="'DM Sans',sans-serif" font-size="36" font-weight="700" fill="#ffffff" letter-spacing="-1">balise</text>
-        <text x="36" y="58" font-family="'DM Sans',sans-serif" font-size="14" font-weight="400" fill="rgba(255,255,255,.5)" letter-spacing="5">IA</text>
-      </svg>
-    </div>
-    <div class="c s" data-l="favicon">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="56" height="56" rx="12" fill="#1B4D3E"/>
-        <rect x="24" y="18" width="8" height="30" rx="4" fill="white"/>
-        <circle cx="28" cy="14" r="10" fill="#40916C" opacity="0.15"/>
-        <circle cx="28" cy="14" r="6" fill="#40916C" opacity="0.3"/>
-        <circle cx="28" cy="14" r="3.5" fill="#40916C"/>
-        <rect x="18" y="46" width="20" height="4" rx="2" fill="white"/>
-      </svg>
-    </div>
-  </div>
-  <div class="foot">
-    <div><span class="t">Abstrait</span><span class="t">Minimal</span><span class="t">Glow</span></div>
-    <div class="desc">Le phare réduit au strict minimum : une verticale (la tour) + un halo lumineux (le signal). Trois cercles concentriques = propagation de la lumière/intelligence. Ultra-moderne, presque une icône d'app.</div>
-  </div>
-</div>
+      <!-- ================================================================ -->
+      <!-- 5. ABSTRACT GLOW — Le plus abstrait                               -->
+      <!-- ================================================================ -->
+      <div class="card">
+        <div class="card-head">
+          <div class="num">5</div>
+          <div>
+            <div class="ttl">Abstract Glow</div>
+            <div class="sub">
+              Juste l'essentiel : une verticale et une lumière au sommet — le phare en 2 éléments
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="c w" data-l="blanc">
+            <svg
+              width="240"
+              height="64"
+              viewBox="0 0 240 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(6,0)">
+                <!-- Verticale = le phare réduit à un trait -->
+                <rect x="8" y="14" width="5" height="44" rx="2.5" fill="#1B4D3E" />
+                <!-- Glow = cercle lumineux en haut -->
+                <circle cx="10.5" cy="10" r="10" fill="#40916C" opacity="0.12" />
+                <circle cx="10.5" cy="10" r="6" fill="#40916C" opacity="0.25" />
+                <circle cx="10.5" cy="10" r="3" fill="#40916C" />
+                <!-- Base -->
+                <rect x="2" y="56" width="17" height="3" rx="1.5" fill="#1B4D3E" />
+              </g>
+              <text
+                x="36"
+                y="34"
+                font-family="'DM Sans',sans-serif"
+                font-size="36"
+                font-weight="700"
+                fill="#1B4D3E"
+                letter-spacing="-1"
+              >
+                balise
+              </text>
+              <text
+                x="36"
+                y="58"
+                font-family="'DM Sans',sans-serif"
+                font-size="14"
+                font-weight="400"
+                fill="#40916C"
+                letter-spacing="5"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c d" data-l="sombre">
+            <svg
+              width="240"
+              height="64"
+              viewBox="0 0 240 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(6,0)">
+                <rect x="8" y="14" width="5" height="44" rx="2.5" fill="#ffffff" />
+                <circle cx="10.5" cy="10" r="10" fill="#40916C" opacity="0.15" />
+                <circle cx="10.5" cy="10" r="6" fill="#40916C" opacity="0.3" />
+                <circle cx="10.5" cy="10" r="3" fill="#40916C" />
+                <rect x="2" y="56" width="17" height="3" rx="1.5" fill="#ffffff" />
+              </g>
+              <text
+                x="36"
+                y="34"
+                font-family="'DM Sans',sans-serif"
+                font-size="36"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-1"
+              >
+                balise
+              </text>
+              <text
+                x="36"
+                y="58"
+                font-family="'DM Sans',sans-serif"
+                font-size="14"
+                font-weight="400"
+                fill="#40916C"
+                letter-spacing="5"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c b" data-l="brand">
+            <svg
+              width="240"
+              height="64"
+              viewBox="0 0 240 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(6,0)">
+                <rect x="8" y="14" width="5" height="44" rx="2.5" fill="#ffffff" />
+                <circle cx="10.5" cy="10" r="10" fill="#B7E4C7" opacity="0.12" />
+                <circle cx="10.5" cy="10" r="6" fill="#B7E4C7" opacity="0.25" />
+                <circle cx="10.5" cy="10" r="3" fill="#B7E4C7" />
+                <rect x="2" y="56" width="17" height="3" rx="1.5" fill="#ffffff" />
+              </g>
+              <text
+                x="36"
+                y="34"
+                font-family="'DM Sans',sans-serif"
+                font-size="36"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-1"
+              >
+                balise
+              </text>
+              <text
+                x="36"
+                y="58"
+                font-family="'DM Sans',sans-serif"
+                font-size="14"
+                font-weight="400"
+                fill="rgba(255,255,255,.5)"
+                letter-spacing="5"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c s" data-l="favicon">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="56" height="56" rx="12" fill="#1B4D3E" />
+              <rect x="24" y="18" width="8" height="30" rx="4" fill="white" />
+              <circle cx="28" cy="14" r="10" fill="#40916C" opacity="0.15" />
+              <circle cx="28" cy="14" r="6" fill="#40916C" opacity="0.3" />
+              <circle cx="28" cy="14" r="3.5" fill="#40916C" />
+              <rect x="18" y="46" width="20" height="4" rx="2" fill="white" />
+            </svg>
+          </div>
+        </div>
+        <div class="foot">
+          <div>
+            <span class="t">Abstrait</span><span class="t">Minimal</span><span class="t">Glow</span>
+          </div>
+          <div class="desc">
+            Le phare réduit au strict minimum : une verticale (la tour) + un halo lumineux (le
+            signal). Trois cercles concentriques = propagation de la lumière/intelligence.
+            Ultra-moderne, presque une icône d'app.
+          </div>
+        </div>
+      </div>
 
-<!-- ================================================================ -->
-<!-- 6. CIRCLE BADGE — Le phare dans un badge circulaire               -->
-<!-- ================================================================ -->
-<div class="card">
-  <div class="card-head">
-    <div class="num">6</div>
-    <div><div class="ttl">Circle Badge</div><div class="sub">Phare stylisé dans un cercle — le sceau professionnel</div></div>
-  </div>
-  <div class="row">
-    <div class="c w" data-l="blanc">
-      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4,4)">
-          <!-- Cercle -->
-          <circle cx="32" cy="32" r="30" stroke="#1B4D3E" stroke-width="2.5" fill="none"/>
-          <!-- Phare simplifié à l'intérieur -->
-          <path d="M32 10 L29 15 L27.5 15 L27.5 20 L26 20 L28 48 L36 48 L38 20 L36.5 20 L36.5 15 L35 15 Z" fill="#1B4D3E"/>
-          <!-- Lanterne -->
-          <rect x="29" y="16" width="6" height="3.5" rx="1" fill="#40916C"/>
-          <!-- Base -->
-          <rect x="24" y="48" width="16" height="3.5" rx="1.2" fill="#1B4D3E"/>
-          <!-- Vague simple -->
-          <path d="M14 56 Q23 52 32 56 Q41 60 50 56" stroke="#1B4D3E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35"/>
-          <!-- Rayon discret -->
-          <circle cx="40" cy="17" r="2" fill="#40916C" opacity="0.5"/>
-          <line x1="38" y1="17" x2="48" y2="14" stroke="#40916C" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
-        </g>
-        <!-- Texte -->
-        <text x="76" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#1B4D3E" letter-spacing="-0.3">BALISE</text>
-        <text x="76" y="56" font-family="'DM Sans',sans-serif" font-size="22" font-weight="300" fill="#2D6A4F" letter-spacing="4">IA</text>
-      </svg>
+      <!-- ================================================================ -->
+      <!-- 6. CIRCLE BADGE — Le phare dans un badge circulaire               -->
+      <!-- ================================================================ -->
+      <div class="card">
+        <div class="card-head">
+          <div class="num">6</div>
+          <div>
+            <div class="ttl">Circle Badge</div>
+            <div class="sub">Phare stylisé dans un cercle — le sceau professionnel</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="c w" data-l="blanc">
+            <svg
+              width="280"
+              height="72"
+              viewBox="0 0 280 72"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(4,4)">
+                <!-- Cercle -->
+                <circle cx="32" cy="32" r="30" stroke="#1B4D3E" stroke-width="2.5" fill="none" />
+                <!-- Phare simplifié à l'intérieur -->
+                <path
+                  d="M32 10 L29 15 L27.5 15 L27.5 20 L26 20 L28 48 L36 48 L38 20 L36.5 20 L36.5 15 L35 15 Z"
+                  fill="#1B4D3E"
+                />
+                <!-- Lanterne -->
+                <rect x="29" y="16" width="6" height="3.5" rx="1" fill="#40916C" />
+                <!-- Base -->
+                <rect x="24" y="48" width="16" height="3.5" rx="1.2" fill="#1B4D3E" />
+                <!-- Vague simple -->
+                <path
+                  d="M14 56 Q23 52 32 56 Q41 60 50 56"
+                  stroke="#1B4D3E"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.35"
+                />
+                <!-- Rayon discret -->
+                <circle cx="40" cy="17" r="2" fill="#40916C" opacity="0.5" />
+                <line
+                  x1="38"
+                  y1="17"
+                  x2="48"
+                  y2="14"
+                  stroke="#40916C"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  opacity="0.3"
+                />
+              </g>
+              <!-- Texte -->
+              <text
+                x="76"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#1B4D3E"
+                letter-spacing="-0.3"
+              >
+                BALISE
+              </text>
+              <text
+                x="76"
+                y="56"
+                font-family="'DM Sans',sans-serif"
+                font-size="22"
+                font-weight="300"
+                fill="#2D6A4F"
+                letter-spacing="4"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c d" data-l="sombre">
+            <svg
+              width="280"
+              height="72"
+              viewBox="0 0 280 72"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(4,4)">
+                <circle cx="32" cy="32" r="30" stroke="#ffffff" stroke-width="2.5" fill="none" />
+                <path
+                  d="M32 10 L29 15 L27.5 15 L27.5 20 L26 20 L28 48 L36 48 L38 20 L36.5 20 L36.5 15 L35 15 Z"
+                  fill="#ffffff"
+                />
+                <rect x="29" y="16" width="6" height="3.5" rx="1" fill="#40916C" />
+                <rect x="24" y="48" width="16" height="3.5" rx="1.2" fill="#ffffff" />
+                <path
+                  d="M14 56 Q23 52 32 56 Q41 60 50 56"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.25"
+                />
+                <circle cx="40" cy="17" r="2" fill="#40916C" opacity="0.6" />
+              </g>
+              <text
+                x="76"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-0.3"
+              >
+                BALISE
+              </text>
+              <text
+                x="76"
+                y="56"
+                font-family="'DM Sans',sans-serif"
+                font-size="22"
+                font-weight="300"
+                fill="#40916C"
+                letter-spacing="4"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c b" data-l="brand">
+            <svg
+              width="280"
+              height="72"
+              viewBox="0 0 280 72"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g transform="translate(4,4)">
+                <circle cx="32" cy="32" r="30" stroke="#ffffff" stroke-width="2.5" fill="none" />
+                <path
+                  d="M32 10 L29 15 L27.5 15 L27.5 20 L26 20 L28 48 L36 48 L38 20 L36.5 20 L36.5 15 L35 15 Z"
+                  fill="#ffffff"
+                />
+                <rect x="29" y="16" width="6" height="3.5" rx="1" fill="#B7E4C7" />
+                <rect x="24" y="48" width="16" height="3.5" rx="1.2" fill="#ffffff" />
+                <path
+                  d="M14 56 Q23 52 32 56 Q41 60 50 56"
+                  stroke="#ffffff"
+                  stroke-width="1.5"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.2"
+                />
+                <circle cx="40" cy="17" r="2" fill="#B7E4C7" opacity="0.6" />
+              </g>
+              <text
+                x="76"
+                y="30"
+                font-family="'DM Sans',sans-serif"
+                font-size="30"
+                font-weight="700"
+                fill="#ffffff"
+                letter-spacing="-0.3"
+              >
+                BALISE
+              </text>
+              <text
+                x="76"
+                y="56"
+                font-family="'DM Sans',sans-serif"
+                font-size="22"
+                font-weight="300"
+                fill="rgba(255,255,255,.5)"
+                letter-spacing="4"
+              >
+                IA
+              </text>
+            </svg>
+          </div>
+          <div class="c s" data-label="favicon">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="56" height="56" rx="12" fill="#1B4D3E" />
+              <circle cx="28" cy="28" r="22" stroke="white" stroke-width="2" fill="none" />
+              <path
+                d="M28 10 L25.5 14 L24 14 L24 18.5 L23 18.5 L24.5 40 L31.5 40 L33 18.5 L32 18.5 L32 14 L30.5 14 Z"
+                fill="white"
+              />
+              <rect x="26" y="15" width="4" height="2.5" rx="0.8" fill="#40916C" />
+              <rect x="22" y="40" width="12" height="3" rx="1" fill="white" />
+              <path
+                d="M14 46 Q21 43 28 46 Q35 49 42 46"
+                stroke="white"
+                stroke-width="1.2"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle cx="35" cy="16" r="2" fill="#40916C" />
+            </svg>
+          </div>
+        </div>
+        <div class="foot">
+          <div>
+            <span class="t">Badge</span><span class="t">Sceau</span
+            ><span class="t">Institutionnel</span>
+          </div>
+          <div class="desc">
+            Le classique indémodable : phare dans un cercle, vague en bas. Évoque la confiance,
+            l'ancrage, le sérieux. La lanterne verte accent et le petit point lumineux ajoutent la
+            touche tech/IA. Version uppercase pour plus d'autorité.
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="c d" data-l="sombre">
-      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4,4)">
-          <circle cx="32" cy="32" r="30" stroke="#ffffff" stroke-width="2.5" fill="none"/>
-          <path d="M32 10 L29 15 L27.5 15 L27.5 20 L26 20 L28 48 L36 48 L38 20 L36.5 20 L36.5 15 L35 15 Z" fill="#ffffff"/>
-          <rect x="29" y="16" width="6" height="3.5" rx="1" fill="#40916C"/>
-          <rect x="24" y="48" width="16" height="3.5" rx="1.2" fill="#ffffff"/>
-          <path d="M14 56 Q23 52 32 56 Q41 60 50 56" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.25"/>
-          <circle cx="40" cy="17" r="2" fill="#40916C" opacity="0.6"/>
-        </g>
-        <text x="76" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-0.3">BALISE</text>
-        <text x="76" y="56" font-family="'DM Sans',sans-serif" font-size="22" font-weight="300" fill="#40916C" letter-spacing="4">IA</text>
-      </svg>
-    </div>
-    <div class="c b" data-l="brand">
-      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g transform="translate(4,4)">
-          <circle cx="32" cy="32" r="30" stroke="#ffffff" stroke-width="2.5" fill="none"/>
-          <path d="M32 10 L29 15 L27.5 15 L27.5 20 L26 20 L28 48 L36 48 L38 20 L36.5 20 L36.5 15 L35 15 Z" fill="#ffffff"/>
-          <rect x="29" y="16" width="6" height="3.5" rx="1" fill="#B7E4C7"/>
-          <rect x="24" y="48" width="16" height="3.5" rx="1.2" fill="#ffffff"/>
-          <path d="M14 56 Q23 52 32 56 Q41 60 50 56" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.2"/>
-          <circle cx="40" cy="17" r="2" fill="#B7E4C7" opacity="0.6"/>
-        </g>
-        <text x="76" y="30" font-family="'DM Sans',sans-serif" font-size="30" font-weight="700" fill="#ffffff" letter-spacing="-0.3">BALISE</text>
-        <text x="76" y="56" font-family="'DM Sans',sans-serif" font-size="22" font-weight="300" fill="rgba(255,255,255,.5)" letter-spacing="4">IA</text>
-      </svg>
-    </div>
-    <div class="c s" data-label="favicon">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="56" height="56" rx="12" fill="#1B4D3E"/>
-        <circle cx="28" cy="28" r="22" stroke="white" stroke-width="2" fill="none"/>
-        <path d="M28 10 L25.5 14 L24 14 L24 18.5 L23 18.5 L24.5 40 L31.5 40 L33 18.5 L32 18.5 L32 14 L30.5 14 Z" fill="white"/>
-        <rect x="26" y="15" width="4" height="2.5" rx="0.8" fill="#40916C"/>
-        <rect x="22" y="40" width="12" height="3" rx="1" fill="white"/>
-        <path d="M14 46 Q21 43 28 46 Q35 49 42 46" stroke="white" stroke-width="1.2" fill="none" opacity="0.3"/>
-        <circle cx="35" cy="16" r="2" fill="#40916C"/>
-      </svg>
-    </div>
-  </div>
-  <div class="foot">
-    <div><span class="t">Badge</span><span class="t">Sceau</span><span class="t">Institutionnel</span></div>
-    <div class="desc">Le classique indémodable : phare dans un cercle, vague en bas. Évoque la confiance, l'ancrage, le sérieux. La lanterne verte accent et le petit point lumineux ajoutent la touche tech/IA. Version uppercase pour plus d'autorité.</div>
-  </div>
-</div>
-
-</div>
-
-</body>
+  </body>
 </html>

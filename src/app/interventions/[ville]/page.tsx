@@ -136,7 +136,7 @@ export function generateMetadata({
     if (!city) return { title: 'Page non trouvée' };
 
     return {
-      title: `Data & automatisation PME ${city.name} (${city.departmentCode}) — balise-ia`,
+      title: `Data & automatisation PME ${city.name} (${city.departmentCode})`,
       description: `Automatisation des données et tableaux de bord pour PME industrielles à ${city.name}, ${city.department}. Intervention sur site. Diagnostic gratuit.`,
       openGraph: {
         title: `Data & automatisation PME à ${city.name} — balise-ia`,

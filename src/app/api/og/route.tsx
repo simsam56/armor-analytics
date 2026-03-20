@@ -44,10 +44,10 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
 
-      {/* Logo text */}
-      <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', marginBottom: '24px' }}>
+      {/* Logo text — V9 kerning serré */}
+      <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: '24px' }}>
         <span style={{ fontSize: '36px', fontWeight: 700, color: 'white' }}>balise</span>
-        <span style={{ fontSize: '28px', fontWeight: 300, color: '#00B4D8', letterSpacing: '3px' }}>
+        <span style={{ fontSize: '36px', fontWeight: 500, color: '#00B4D8', marginLeft: '6px' }}>
           ia
         </span>
       </div>

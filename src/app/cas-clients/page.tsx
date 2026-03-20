@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Cas clients IA & automatisation PME Bretagne — balise-ia',
+  title: 'Cas clients IA & automatisation PME Bretagne',
   description:
     'Résultats concrets de nos missions IA et automatisation : PME agroalimentaires, métallurgie, logistique en Bretagne. Gains de temps, fiabilité des données, tableaux de bord temps réel.',
   keywords:

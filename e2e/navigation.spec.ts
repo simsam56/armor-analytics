@@ -34,10 +34,10 @@ test.describe('Navigation et pages principales', () => {
     ).toBeVisible();
   });
 
-  test('/projets se charge avec les cas clients', async ({ page }) => {
+  test('/projets redirige vers /cas-clients', async ({ page }) => {
     await page.goto('/projets');
-    await expect(page).toHaveTitle(/Projets/);
-    await expect(page.locator('h1')).toContainText('bretonnes');
+    await expect(page).toHaveTitle(/Cas clients/);
+    await expect(page.locator('h1')).toBeVisible();
   });
 
   test('/contact se charge avec le formulaire', async ({ page }) => {

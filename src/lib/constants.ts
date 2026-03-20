@@ -582,7 +582,7 @@ export const FAQ_ITEMS = [
 
 export const NAV_LINKS = [
   { href: '/services', label: 'Expertises' },
-  { href: '/projets', label: 'Réalisations' },
+  { href: '/cas-clients', label: 'Réalisations' },
   { href: '/#methode', label: 'Méthode' },
   { href: '/a-propos', label: 'À propos' },
 ];

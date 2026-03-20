@@ -28,7 +28,7 @@ export function CtaContact() {
           En 30 minutes, nous identifions ensemble un irritant concret, ce qu&apos;il coûte
           aujourd&apos;hui, et la meilleure façon de le traiter.
         </p>
-        <p className="mt-2 text-sm text-white/40">
+        <p className="mt-2 text-sm text-white/60">
           Visio ou échange sur site en Bretagne selon votre contexte.
         </p>
         <div className="mt-10">
@@ -43,7 +43,7 @@ export function CtaContact() {
             </a>
           </Button>
         </div>
-        <p className="mt-8 text-sm text-white/30">{getContactEmail()} · Réponse sous 48h</p>
+        <p className="mt-8 text-sm text-white/50">{getContactEmail()} · Réponse sous 48h</p>
       </motion.div>
     </section>
   );

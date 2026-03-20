@@ -4,6 +4,7 @@ import { Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { Header, Footer } from '@/components/layout';
 import { StickyCta } from '@/components/ui/sticky-cta';
+import { GoogleAnalytics, GoogleTagManager } from '@/components/Analytics';
 import { SITE_CONFIG } from '@/lib/constants';
 import './globals.css';
 
@@ -33,6 +34,9 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.description,
+  alternates: {
+    canonical: SITE_CONFIG.url,
+  },
   keywords: [
     'agence IA Bretagne',
     'automatisation PME Bretagne',
@@ -89,6 +93,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
@@ -105,6 +113,8 @@ export default function RootLayout({
         <Footer />
         <StickyCta />
         <Analytics />
+        <GoogleAnalytics />
+        <GoogleTagManager />
       </body>
     </html>
   );

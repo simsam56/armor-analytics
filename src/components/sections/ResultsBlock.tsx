@@ -43,13 +43,13 @@ export function ResultsBlock() {
           {RESULTS.map((item) => (
             <motion.div key={item.metric} variants={fadeInUp} className="text-center">
               <p className="text-lg font-semibold text-breton-accent">{item.metric}</p>
-              <p className="mt-2 text-sm text-white/40">{item.detail}</p>
+              <p className="mt-2 text-sm text-white/60">{item.detail}</p>
             </motion.div>
           ))}
         </motion.div>
 
         <motion.p
-          className="mt-16 text-center text-sm text-white/30"
+          className="mt-16 text-center text-sm text-white/50"
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}

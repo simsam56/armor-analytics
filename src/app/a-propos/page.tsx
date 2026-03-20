@@ -17,7 +17,7 @@ import { TeamSection } from '@/components/sections/TeamSection';
 import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'À propos | Collectif data & automatisation PME industrielles — balise-ia',
+  title: 'À propos | Collectif data & automatisation PME industrielles',
   description:
     "Collectif de spécialistes data et automatisation pour PME industrielles. Basés à Lorient, nous intervenons sur site en Bretagne. Pas de juniors, pas d'intermédiaires, des résultats mesurables.",
   openGraph: {
