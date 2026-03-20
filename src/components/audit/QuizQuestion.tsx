@@ -14,14 +14,8 @@ export function QuizQuestion({ question, selectedValue, onSelect }: QuizQuestion
     <div className="animate-fade-in-up">
       {/* Question */}
       <div className="mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] mb-3">
-          {question.question}
-        </h2>
-        {question.description && (
-          <p className="text-[#64756C] text-lg">
-            {question.description}
-          </p>
-        )}
+        <h2 className="text-2xl md:text-3xl font-bold text-[#1E2922] mb-3">{question.question}</h2>
+        {question.description && <p className="text-[#64756C] text-lg">{question.description}</p>}
       </div>
 
       {/* Options */}
@@ -38,14 +32,17 @@ export function QuizQuestion({ question, selectedValue, onSelect }: QuizQuestion
                 w-full text-left p-5 rounded-xl border-2 transition-all duration-200
                 hover:border-breton-emerald hover:bg-breton-emerald/5
                 focus:outline-none focus:ring-2 focus:ring-breton-emerald focus:ring-offset-2
-                ${isSelected
-                  ? 'border-breton-emerald bg-breton-emerald/10'
-                  : 'border-[#E2E8E5] bg-white'
+                ${
+                  isSelected
+                    ? 'border-breton-emerald bg-breton-emerald/10'
+                    : 'border-[#E2E8E5] bg-white'
                 }
               `}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-lg ${isSelected ? 'text-breton-emerald font-medium' : 'text-[#1E2922]'}`}>
+                <span
+                  className={`text-lg ${isSelected ? 'text-breton-emerald font-medium' : 'text-[#1E2922]'}`}
+                >
                   {option.label}
                 </span>
                 {isSelected && (

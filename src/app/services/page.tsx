@@ -7,11 +7,11 @@ import { getCalendlyUrl } from '@/lib/constants';
 export const metadata: Metadata = {
   title: 'Offres - Audit, Data, IA & Formation',
   description:
-    "Nos expertises data pour PME et réseaux bretons : audit & diagnostic, socle data & dataviz, intégration IA, formation & accompagnement local. Tarifs transparents.",
+    'Nos expertises data pour PME et réseaux bretons : audit & diagnostic, socle data & dataviz, intégration IA, formation & accompagnement local. Tarifs transparents.',
   openGraph: {
     title: 'Offres - Audit, Data, IA & Formation | balise-ia',
     description:
-      "Accompagnement data pour PME et réseaux bretons. 4 expertises modulables, résultats mesurables.",
+      'Accompagnement data pour PME et réseaux bretons. 4 expertises modulables, résultats mesurables.',
   },
   alternates: {
     canonical: 'https://balise-ia.fr/services',
@@ -22,17 +22,20 @@ const REASSURANCES = [
   {
     icon: Wrench,
     title: 'On travaille avec vos outils',
-    description: 'Sage, Cegid, EBP, Excel, Metabase, Power BI — on se branche sur votre existant. Pas de migration forcée.',
+    description:
+      'Sage, Cegid, EBP, Excel, Metabase, Power BI — on se branche sur votre existant. Pas de migration forcée.',
   },
   {
     icon: Lock,
     title: 'Confidentialité contractuelle',
-    description: 'NDA signé avant tout accès aux données. Hébergement en France. Suppression des données de test après livraison.',
+    description:
+      'NDA signé avant tout accès aux données. Hébergement en France. Suppression des données de test après livraison.',
   },
   {
     icon: BookOpen,
     title: 'Vous restez autonomes',
-    description: 'Documentation complète, formation de vos équipes, support post-livraison inclus. On construit pour que ça dure sans nous.',
+    description:
+      'Documentation complète, formation de vos équipes, support post-livraison inclus. On construit pour que ça dure sans nous.',
   },
 ];
 
@@ -81,9 +84,9 @@ export default function ServicesPage() {
                 nécessaires selon votre projet.
               </p>
               <p className="mt-4 text-slate-600 leading-relaxed">
-                Pas de commerciaux qui vendent sans comprendre. Pas de juniors envoyés sur le terrain.
-                Pas de marges pyramidales. Vous travaillez directement avec les experts qui réalisent
-                le projet.
+                Pas de commerciaux qui vendent sans comprendre. Pas de juniors envoyés sur le
+                terrain. Pas de marges pyramidales. Vous travaillez directement avec les experts qui
+                réalisent le projet.
               </p>
             </div>
 
@@ -112,7 +115,8 @@ export default function ServicesPage() {
             Vous hésitez entre diagnostic et projet ?
           </h2>
           <p className="mt-4 text-white/60">
-            Un appel de 30 minutes suffit pour identifier le bon point de départ. Gratuit, sans engagement.
+            Un appel de 30 minutes suffit pour identifier le bon point de départ. Gratuit, sans
+            engagement.
           </p>
           <div className="mt-8">
             <Button
@@ -128,7 +132,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Quote, TrendingUp, Clock, CheckCircle, AlertTriangle, Wrench, Users, Calendar } from 'lucide-react';
+import {
+  ArrowRight,
+  Quote,
+  TrendingUp,
+  Clock,
+  CheckCircle,
+  AlertTriangle,
+  Wrench,
+  Users,
+  Calendar,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
 
@@ -9,10 +19,12 @@ export const metadata: Metadata = {
   title: 'Cas clients IA & automatisation PME Bretagne — balise-ia',
   description:
     'Résultats concrets de nos missions IA et automatisation : PME agroalimentaires, métallurgie, logistique en Bretagne. Gains de temps, fiabilité des données, tableaux de bord temps réel.',
-  keywords: 'cas clients IA PME Bretagne, résultats automatisation industrie Bretagne, témoignages IA PME Lorient, success stories data Morbihan',
+  keywords:
+    'cas clients IA PME Bretagne, résultats automatisation industrie Bretagne, témoignages IA PME Lorient, success stories data Morbihan',
   openGraph: {
     title: 'Cas clients IA & automatisation PME Bretagne — balise-ia',
-    description: 'Des résultats concrets et mesurables chez nos clients PME industriels en Bretagne.',
+    description:
+      'Des résultats concrets et mesurables chez nos clients PME industriels en Bretagne.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -29,7 +41,8 @@ const CASE_STUDIES = [
     duration: '6 semaines',
     // AVANT
     beforeState: {
-      description: 'L\'équipe ADV recevait les commandes par email (PDF, Excel) et les ressaisissait manuellement dans l\'ERP. Processus lent, source d\'erreurs, et impossible de prioriser les urgences.',
+      description:
+        "L'équipe ADV recevait les commandes par email (PDF, Excel) et les ressaisissait manuellement dans l'ERP. Processus lent, source d'erreurs, et impossible de prioriser les urgences.",
       painPoints: [
         '2h de ressaisie par jour pour 3 personnes',
         '5-10 erreurs de saisie par semaine',
@@ -43,14 +56,15 @@ const CASE_STUDIES = [
       actions: [
         'Extraction automatique des données des PDF et Excel reçus par email',
         'Validation et enrichissement automatique (codes articles, conditions)',
-        'Injection directe dans l\'ERP sans ressaisie',
-        'Système d\'alertes sur les commandes urgentes ou hors seuils',
+        "Injection directe dans l'ERP sans ressaisie",
+        "Système d'alertes sur les commandes urgentes ou hors seuils",
       ],
       tools: ['Python', 'API ERP', 'Email automation'],
     },
     // APRÈS
     afterState: {
-      description: 'Les commandes sont traitées automatiquement en quelques minutes. L\'équipe ADV peut se concentrer sur la relation client et les cas complexes.',
+      description:
+        "Les commandes sont traitées automatiquement en quelques minutes. L'équipe ADV peut se concentrer sur la relation client et les cas complexes.",
       results: [
         '80% du temps de traitement éliminé',
         'Zéro erreur de saisie depuis 6 mois',
@@ -59,7 +73,8 @@ const CASE_STUDIES = [
       ],
     },
     // TÉMOIGNAGE
-    testimonial: 'On a récupéré 2 heures par jour. L\'équipe peut enfin se concentrer sur la relation client plutôt que sur la saisie. Et surtout, on n\'a plus d\'erreurs qui créaient des litiges avec les clients.',
+    testimonial:
+      "On a récupéré 2 heures par jour. L'équipe peut enfin se concentrer sur la relation client plutôt que sur la saisie. Et surtout, on n'a plus d'erreurs qui créaient des litiges avec les clients.",
     author: 'Marie Lebreton',
     role: 'Responsable ADV',
     metrics: [
@@ -75,7 +90,8 @@ const CASE_STUDIES = [
     employees: '80 salariés',
     duration: '8 semaines',
     beforeState: {
-      description: 'Le responsable production passait son vendredi après-midi à compiler des données de différentes sources pour produire un reporting hebdomadaire. Les problèmes de production étaient découverts avec 5 jours de retard.',
+      description:
+        'Le responsable production passait son vendredi après-midi à compiler des données de différentes sources pour produire un reporting hebdomadaire. Les problèmes de production étaient découverts avec 5 jours de retard.',
       painPoints: [
         '4h de compilation manuelle chaque semaine',
         'Données souvent incohérentes entre sources',
@@ -84,7 +100,7 @@ const CASE_STUDIES = [
       ],
     },
     intervention: {
-      description: 'Mise en place d\'un tableau de bord production connecté en temps réel.',
+      description: "Mise en place d'un tableau de bord production connecté en temps réel.",
       actions: [
         'Connexion aux données machines (automates, capteurs)',
         'Intégration ERP pour les ordres de fabrication',
@@ -94,7 +110,8 @@ const CASE_STUDIES = [
       tools: ['API machines', 'Python', 'Metabase', 'Alerting'],
     },
     afterState: {
-      description: 'La production est pilotée en temps réel. Les problèmes sont détectés immédiatement et corrigés avant qu\'ils ne deviennent critiques.',
+      description:
+        "La production est pilotée en temps réel. Les problèmes sont détectés immédiatement et corrigés avant qu'ils ne deviennent critiques.",
       results: [
         '4h/semaine de reporting économisées',
         'Problèmes détectés en temps réel',
@@ -102,7 +119,8 @@ const CASE_STUDIES = [
         '2 arrêts de ligne évités le premier mois',
       ],
     },
-    testimonial: 'Maintenant on voit les problèmes en temps réel au lieu de les découvrir en fin de semaine. On a pu éviter plusieurs arrêts de ligne qui nous auraient coûté très cher.',
+    testimonial:
+      'Maintenant on voit les problèmes en temps réel au lieu de les découvrir en fin de semaine. On a pu éviter plusieurs arrêts de ligne qui nous auraient coûté très cher.',
     author: 'Jean-Pierre Morin',
     role: 'Directeur de production',
     metrics: [
@@ -114,11 +132,12 @@ const CASE_STUDIES = [
   },
   {
     sector: 'Transport & Logistique',
-    location: 'Côtes-d\'Armor (22)',
+    location: "Côtes-d'Armor (22)",
     employees: '120 salariés',
     duration: '10 semaines',
     beforeState: {
-      description: 'Chaque CODIR commençait par une discussion sur la fiabilité des chiffres. Le DAF passait son début de semaine à consolider des données provenant du TMS, de la compta et des RH.',
+      description:
+        'Chaque CODIR commençait par une discussion sur la fiabilité des chiffres. Le DAF passait son début de semaine à consolider des données provenant du TMS, de la compta et des RH.',
       painPoints: [
         'Reporting disponible à J+5 au mieux',
         'Sources non connectées entre elles',
@@ -127,17 +146,18 @@ const CASE_STUDIES = [
       ],
     },
     intervention: {
-      description: 'Création d\'un data warehouse unifié et d\'un dashboard direction automatisé.',
+      description: "Création d'un data warehouse unifié et d'un dashboard direction automatisé.",
       actions: [
         'Consolidation automatique des sources (TMS, compta, RH)',
-        'Construction d\'un référentiel de données unique',
+        "Construction d'un référentiel de données unique",
         'Dashboard direction avec KPIs métier',
         'Envoi automatique du rapport hebdomadaire',
       ],
       tools: ['dbt', 'Airbyte', 'PowerBI', 'Scheduling'],
     },
     afterState: {
-      description: 'Le CODIR dispose de chiffres fiables dès le lundi matin. Plus de débat sur la donnée, place aux décisions.',
+      description:
+        'Le CODIR dispose de chiffres fiables dès le lundi matin. Plus de débat sur la donnée, place aux décisions.',
       results: [
         'Reporting disponible en J+0',
         'Fiabilité des données garantie à 100%',
@@ -145,7 +165,8 @@ const CASE_STUDIES = [
         'Décisions plus rapides et plus éclairées',
       ],
     },
-    testimonial: 'Le CODIR a enfin des chiffres fiables dès le lundi matin. On peut prendre des décisions sur des données fraîches, plus sur des approximations.',
+    testimonial:
+      'Le CODIR a enfin des chiffres fiables dès le lundi matin. On peut prendre des décisions sur des données fraîches, plus sur des approximations.',
     author: 'Sophie Duval',
     role: 'DAF',
     metrics: [
@@ -161,7 +182,8 @@ const CASE_STUDIES = [
     employees: '60 salariés',
     duration: '5 semaines',
     beforeState: {
-      description: 'Le suivi qualité se faisait sur des fichiers Excel partagés. Lors des audits ISO, retrouver l\'historique d\'un lot était un cauchemar qui mobilisait plusieurs personnes pendant des heures.',
+      description:
+        "Le suivi qualité se faisait sur des fichiers Excel partagés. Lors des audits ISO, retrouver l'historique d'un lot était un cauchemar qui mobilisait plusieurs personnes pendant des heures.",
       painPoints: [
         'Fichiers Excel non versionnés, risque de perte',
         'Traçabilité incomplète et difficile à prouver',
@@ -180,15 +202,17 @@ const CASE_STUDIES = [
       tools: ['Application web', 'Base de données', 'Export PDF'],
     },
     afterState: {
-      description: 'La traçabilité est complète et instantanément accessible. Les audits se passent sereinement.',
+      description:
+        'La traçabilité est complète et instantanément accessible. Les audits se passent sereinement.',
       results: [
         'Temps de recherche divisé par 10',
         'Dernier audit ISO : 0 non-conformité',
-        'Préparation d\'audit : 30 minutes',
+        "Préparation d'audit : 30 minutes",
         'Confiance renforcée des clients grands comptes',
       ],
     },
-    testimonial: 'Lors du dernier audit ISO, on a pu sortir toutes les données en 5 minutes. Avant c\'était des heures de recherche dans les classeurs et les fichiers.',
+    testimonial:
+      "Lors du dernier audit ISO, on a pu sortir toutes les données en 5 minutes. Avant c'était des heures de recherche dans les classeurs et les fichiers.",
     author: 'Nicolas Kermarrec',
     role: 'Responsable Qualité',
     metrics: [
@@ -204,7 +228,8 @@ const CASE_STUDIES = [
     employees: '35 salariés',
     duration: '7 semaines',
     beforeState: {
-      description: 'Les commerciaux vendaient sans vraiment connaître la rentabilité de leurs affaires. Le dirigeant suspectait que certains clients coûtaient de l\'argent, mais impossible de le prouver.',
+      description:
+        "Les commerciaux vendaient sans vraiment connaître la rentabilité de leurs affaires. Le dirigeant suspectait que certains clients coûtaient de l'argent, mais impossible de le prouver.",
       painPoints: [
         'Aucune visibilité sur les marges par client',
         'Décisions commerciales au feeling',
@@ -213,9 +238,9 @@ const CASE_STUDIES = [
       ],
     },
     intervention: {
-      description: 'Construction d\'un outil d\'analyse de rentabilité client et produit.',
+      description: "Construction d'un outil d'analyse de rentabilité client et produit.",
       actions: [
-        'Connexion à l\'ERP pour récupérer les données ventes',
+        "Connexion à l'ERP pour récupérer les données ventes",
         'Calcul des coûts complets par client et produit',
         'Dashboard marge par client, famille, commercial',
         'Alertes sur les marges qui passent sous un seuil',
@@ -223,7 +248,8 @@ const CASE_STUDIES = [
       tools: ['API ERP', 'Python', 'Metabase', 'Alerting'],
     },
     afterState: {
-      description: 'La rentabilité est transparente. Les commerciaux peuvent prioriser les bons clients et renégocier ou arrêter les contrats perdants.',
+      description:
+        'La rentabilité est transparente. Les commerciaux peuvent prioriser les bons clients et renégocier ou arrêter les contrats perdants.',
       results: [
         '+3 points de marge moyenne identifiés',
         '20% des clients étaient en réalité non rentables',
@@ -231,7 +257,8 @@ const CASE_STUDIES = [
         'Effort commercial réalloué sur les meilleurs clients',
       ],
     },
-    testimonial: 'On a découvert que 20% de nos clients nous coûtaient de l\'argent. On a pu renégocier ou arrêter certains contrats. La marge globale a augmenté de 3 points.',
+    testimonial:
+      "On a découvert que 20% de nos clients nous coûtaient de l'argent. On a pu renégocier ou arrêter certains contrats. La marge globale a augmenté de 3 points.",
     author: 'Franck Le Bras',
     role: 'Directeur Commercial',
     metrics: [
@@ -253,7 +280,7 @@ export default function CasClientsPage() {
   return (
     <>
       <Hero
-        title={"Des résultats concrets\net mesurables"}
+        title={'Des résultats concrets\net mesurables'}
         subtitle="Découvrez comment nous avons aidé des PME bretonnes à automatiser leurs flux de données et améliorer leur pilotage."
       />
 
@@ -274,167 +301,180 @@ export default function CasClientsPage() {
       {/* Case Studies */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div className="space-y-20">
-              {CASE_STUDIES.map((caseStudy, index) => (
-                <article
-                  key={index}
-                  className="relative"
-                >
-                  {/* Header avec image */}
-                  <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
-                    {/* Image */}
-                    <div className={`relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                      <Image
-                        src={caseStudy.image}
-                        alt={`Cas client ${caseStudy.sector}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <span className="px-3 py-1 bg-breton-emerald text-white rounded-full text-sm font-medium">
-                          {caseStudy.sector}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Infos générales */}
-                    <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-[#1E2922] mb-4">
+          <div className="space-y-20">
+            {CASE_STUDIES.map((caseStudy, index) => (
+              <article key={index} className="relative">
+                {/* Header avec image */}
+                <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
+                  {/* Image */}
+                  <div
+                    className={`relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg ${index % 2 === 1 ? 'lg:order-2' : ''}`}
+                  >
+                    <Image
+                      src={caseStudy.image}
+                      alt={`Cas client ${caseStudy.sector}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <span className="px-3 py-1 bg-breton-emerald text-white rounded-full text-sm font-medium">
                         {caseStudy.sector}
-                      </h3>
-                      <div className="flex flex-wrap gap-4 text-sm text-[#64756C]">
-                        <span className="flex items-center gap-1.5">
-                          <Users className="h-4 w-4" />
-                          {caseStudy.employees}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="h-4 w-4" />
-                          {caseStudy.location}
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <Calendar className="h-4 w-4" />
-                          Projet : {caseStudy.duration}
-                        </span>
-                      </div>
-
-                      {/* Métriques clés */}
-                      <div className="mt-6 flex flex-wrap gap-4">
-                        {caseStudy.metrics.map((metric) => (
-                          <div
-                            key={metric.label}
-                            className={`px-4 py-3 rounded-lg ${metric.highlight ? 'bg-breton-emerald text-white' : 'bg-[#F8FAF9] border border-[#E2E8E5]'}`}
-                          >
-                            <p className={`text-2xl font-bold ${metric.highlight ? 'text-[#74C69D]' : 'text-breton-emerald'}`}>
-                              {metric.value}
-                            </p>
-                            <p className={`text-xs ${metric.highlight ? 'text-white/70' : 'text-[#64756C]'}`}>
-                              {metric.label}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
+                      </span>
                     </div>
                   </div>
 
-                  {/* Contenu AVANT / INTERVENTION / APRÈS */}
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {/* AVANT */}
-                    <div className="bg-red-50 rounded-xl p-6 border border-red-200">
-                      <h4 className="flex items-center gap-2 text-sm font-bold text-red-700 uppercase tracking-wide mb-4">
-                        <AlertTriangle className="h-4 w-4" />
-                        Avant
-                      </h4>
-                      <p className="text-[#334139] text-sm mb-4">{caseStudy.beforeState.description}</p>
-                      <ul className="space-y-2">
-                        {caseStudy.beforeState.painPoints.map((point, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-red-800">
-                            <span className="text-red-400 mt-1">✗</span>
-                            {point}
-                          </li>
-                        ))}
-                      </ul>
+                  {/* Infos générales */}
+                  <div
+                    className={`flex flex-col justify-center ${index % 2 === 1 ? 'lg:order-1' : ''}`}
+                  >
+                    <h3 className="text-2xl lg:text-3xl font-bold text-[#1E2922] mb-4">
+                      {caseStudy.sector}
+                    </h3>
+                    <div className="flex flex-wrap gap-4 text-sm text-[#64756C]">
+                      <span className="flex items-center gap-1.5">
+                        <Users className="h-4 w-4" />
+                        {caseStudy.employees}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Clock className="h-4 w-4" />
+                        {caseStudy.location}
+                      </span>
+                      <span className="flex items-center gap-1.5">
+                        <Calendar className="h-4 w-4" />
+                        Projet : {caseStudy.duration}
+                      </span>
                     </div>
 
-                    {/* INTERVENTION */}
-                    <div className="bg-[#F8FAF9] rounded-xl p-6 border border-[#E2E8E5]">
-                      <h4 className="flex items-center gap-2 text-sm font-bold text-breton-emerald uppercase tracking-wide mb-4">
-                        <Wrench className="h-4 w-4" />
-                        Notre intervention
-                      </h4>
-                      <p className="text-[#334139] text-sm mb-4">{caseStudy.intervention.description}</p>
-                      <ul className="space-y-2 mb-4">
-                        {caseStudy.intervention.actions.map((action, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-[#334139]">
-                            <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0 mt-0.5" />
-                            {action}
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="flex flex-wrap gap-1.5">
-                        {caseStudy.intervention.tools.map((tool) => (
-                          <span
-                            key={tool}
-                            className="px-2 py-0.5 bg-breton-emerald/10 text-breton-emerald text-xs font-medium rounded"
+                    {/* Métriques clés */}
+                    <div className="mt-6 flex flex-wrap gap-4">
+                      {caseStudy.metrics.map((metric) => (
+                        <div
+                          key={metric.label}
+                          className={`px-4 py-3 rounded-lg ${metric.highlight ? 'bg-breton-emerald text-white' : 'bg-[#F8FAF9] border border-[#E2E8E5]'}`}
+                        >
+                          <p
+                            className={`text-2xl font-bold ${metric.highlight ? 'text-[#74C69D]' : 'text-breton-emerald'}`}
                           >
-                            {tool}
+                            {metric.value}
+                          </p>
+                          <p
+                            className={`text-xs ${metric.highlight ? 'text-white/70' : 'text-[#64756C]'}`}
+                          >
+                            {metric.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Contenu AVANT / INTERVENTION / APRÈS */}
+                <div className="grid md:grid-cols-3 gap-6">
+                  {/* AVANT */}
+                  <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                    <h4 className="flex items-center gap-2 text-sm font-bold text-red-700 uppercase tracking-wide mb-4">
+                      <AlertTriangle className="h-4 w-4" />
+                      Avant
+                    </h4>
+                    <p className="text-[#334139] text-sm mb-4">
+                      {caseStudy.beforeState.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {caseStudy.beforeState.painPoints.map((point, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-red-800">
+                          <span className="text-red-400 mt-1">✗</span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* INTERVENTION */}
+                  <div className="bg-[#F8FAF9] rounded-xl p-6 border border-[#E2E8E5]">
+                    <h4 className="flex items-center gap-2 text-sm font-bold text-breton-emerald uppercase tracking-wide mb-4">
+                      <Wrench className="h-4 w-4" />
+                      Notre intervention
+                    </h4>
+                    <p className="text-[#334139] text-sm mb-4">
+                      {caseStudy.intervention.description}
+                    </p>
+                    <ul className="space-y-2 mb-4">
+                      {caseStudy.intervention.actions.map((action, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-[#334139]">
+                          <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0 mt-0.5" />
+                          {action}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-1.5">
+                      {caseStudy.intervention.tools.map((tool) => (
+                        <span
+                          key={tool}
+                          className="px-2 py-0.5 bg-breton-emerald/10 text-breton-emerald text-xs font-medium rounded"
+                        >
+                          {tool}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* APRÈS */}
+                  <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
+                    <h4 className="flex items-center gap-2 text-sm font-bold text-emerald-700 uppercase tracking-wide mb-4">
+                      <TrendingUp className="h-4 w-4" />
+                      Après
+                    </h4>
+                    <p className="text-[#334139] text-sm mb-4">
+                      {caseStudy.afterState.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {caseStudy.afterState.results.map((result, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-emerald-800">
+                          <span className="text-emerald-500 mt-1">✓</span>
+                          {result}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Témoignage */}
+                <div className="mt-8 bg-breton-emerald rounded-xl p-6 lg:p-8">
+                  <div className="flex items-start gap-4">
+                    <Quote className="h-8 w-8 text-[#74C69D]/30 shrink-0" />
+                    <div>
+                      <blockquote className="text-white text-lg leading-relaxed mb-4">
+                        &ldquo;{caseStudy.testimonial}&rdquo;
+                      </blockquote>
+                      <div className="flex items-center gap-3">
+                        <div className="h-10 w-10 rounded-full bg-[#74C69D]/20 flex items-center justify-center">
+                          <span className="text-[#74C69D] font-bold">
+                            {caseStudy.author
+                              .split(' ')
+                              .map((n) => n[0])
+                              .join('')}
                           </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* APRÈS */}
-                    <div className="bg-emerald-50 rounded-xl p-6 border border-emerald-200">
-                      <h4 className="flex items-center gap-2 text-sm font-bold text-emerald-700 uppercase tracking-wide mb-4">
-                        <TrendingUp className="h-4 w-4" />
-                        Après
-                      </h4>
-                      <p className="text-[#334139] text-sm mb-4">{caseStudy.afterState.description}</p>
-                      <ul className="space-y-2">
-                        {caseStudy.afterState.results.map((result, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-emerald-800">
-                            <span className="text-emerald-500 mt-1">✓</span>
-                            {result}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-
-                  {/* Témoignage */}
-                  <div className="mt-8 bg-breton-emerald rounded-xl p-6 lg:p-8">
-                    <div className="flex items-start gap-4">
-                      <Quote className="h-8 w-8 text-[#74C69D]/30 shrink-0" />
-                      <div>
-                        <blockquote className="text-white text-lg leading-relaxed mb-4">
-                          &ldquo;{caseStudy.testimonial}&rdquo;
-                        </blockquote>
-                        <div className="flex items-center gap-3">
-                          <div className="h-10 w-10 rounded-full bg-[#74C69D]/20 flex items-center justify-center">
-                            <span className="text-[#74C69D] font-bold">
-                              {caseStudy.author.split(' ').map(n => n[0]).join('')}
-                            </span>
-                          </div>
-                          <div>
-                            <p className="font-semibold text-white">{caseStudy.author}</p>
-                            <p className="text-sm text-white/60">{caseStudy.role}</p>
-                          </div>
+                        </div>
+                        <div>
+                          <p className="font-semibold text-white">{caseStudy.author}</p>
+                          <p className="text-sm text-white/60">{caseStudy.role}</p>
                         </div>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* Séparateur */}
-                  {index < CASE_STUDIES.length - 1 && (
-                    <div className="mt-16 border-b border-[#E2E8E5]" />
-                  )}
-                </article>
-              ))}
-            </div>
+                {/* Séparateur */}
+                {index < CASE_STUDIES.length - 1 && (
+                  <div className="mt-16 border-b border-[#E2E8E5]" />
+                )}
+              </article>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-20 sm:py-24 bg-breton-navy">
@@ -443,7 +483,8 @@ export default function CasClientsPage() {
             Votre situation ressemble à l&apos;une de ces problématiques ?
           </h2>
           <p className="mt-4 text-lg text-white/60">
-            Faites le point sur votre maturité data en 3 minutes et découvrez les projets adaptés à votre contexte.
+            Faites le point sur votre maturité data en 3 minutes et découvrez les projets adaptés à
+            votre contexte.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -467,9 +508,7 @@ export default function CasClientsPage() {
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-white/50">
-            contact@balise-ia.fr — Lorient, Bretagne
-          </p>
+          <p className="mt-6 text-sm text-white/50">contact@balise-ia.fr — Lorient, Bretagne</p>
         </div>
       </section>
     </>

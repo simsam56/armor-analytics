@@ -9,14 +9,14 @@
   --font-serif: var(--font-serif);
 
   /* Palette bretonne */
-  --color-breton-navy: #0C1F3F;
-  --color-breton-slate: #2E4057;
-  --color-breton-emerald: #1A6B4A;
-  --color-breton-moss: #2D7A4F;
-  --color-breton-sand: #E8E0D5;
-  --color-breton-granite: #8B9AAB;
-  --color-breton-foam: #F4F8F5;
-  --color-breton-accent: #00B4D8;
+  --color-breton-navy: #0c1f3f;
+  --color-breton-slate: #2e4057;
+  --color-breton-emerald: #1a6b4a;
+  --color-breton-moss: #2d7a4f;
+  --color-breton-sand: #e8e0d5;
+  --color-breton-granite: #8b9aab;
+  --color-breton-foam: #f4f8f5;
+  --color-breton-accent: #00b4d8;
 
   /* shadcn tokens */
   --color-chart-5: var(--chart-5);
@@ -97,7 +97,9 @@
     font-family: var(--font-serif), Georgia, serif;
     text-wrap: balance;
   }
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     text-wrap: balance;
   }
   p {
@@ -119,8 +121,13 @@
 
 /* Animation vagues */
 @keyframes waveFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .wave-animation {
@@ -129,8 +136,15 @@
 
 /* Pulse pour les points sur la carte */
 @keyframes cityPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(1.5); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.5);
+  }
 }
 
 .city-pulse {
@@ -139,8 +153,12 @@
 
 /* Marquee défilant horizontal */
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.33%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
 }
 
 .animate-marquee {

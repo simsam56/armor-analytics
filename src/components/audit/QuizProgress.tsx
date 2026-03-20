@@ -28,9 +28,7 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
         <span className="text-sm font-medium text-breton-emerald">
           Question {currentStep} sur {totalSteps}
         </span>
-        <span className="text-sm text-[#64756C]">
-          {Math.round(progressPercentage)}% complété
-        </span>
+        <span className="text-sm text-[#64756C]">{Math.round(progressPercentage)}% complété</span>
       </div>
 
       {/* Step dots for desktop */}
@@ -45,19 +43,16 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
               className={`
                 flex items-center justify-center w-8 h-8 rounded-full text-xs font-medium
                 transition-all duration-300
-                ${isCompleted
-                  ? 'bg-breton-emerald text-white'
-                  : isCurrent
-                    ? 'bg-breton-emerald/10 text-breton-emerald ring-2 ring-breton-emerald'
-                    : 'bg-[#F1F5F3] text-[#64756C]'
+                ${
+                  isCompleted
+                    ? 'bg-breton-emerald text-white'
+                    : isCurrent
+                      ? 'bg-breton-emerald/10 text-breton-emerald ring-2 ring-breton-emerald'
+                      : 'bg-[#F1F5F3] text-[#64756C]'
                 }
               `}
             >
-              {isCompleted ? (
-                <CheckCircle className="w-4 h-4" />
-              ) : (
-                step
-              )}
+              {isCompleted ? <CheckCircle className="w-4 h-4" /> : step}
             </div>
           );
         })}

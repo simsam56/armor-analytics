@@ -1,11 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getCalendlyUrl } from '@/lib/constants';
+import { getCalendlyUrl, getContactEmail } from '@/lib/constants';
 import { fadeInUp } from '@/lib/animations';
 
 export function CtaContact() {
@@ -14,7 +13,7 @@ export function CtaContact() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="py-20 sm:py-24 bg-breton-navy" id="cta-contact">
+    <section className="py-24 sm:py-32 bg-breton-navy" id="cta-contact">
       <motion.div
         ref={ref}
         className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center"
@@ -23,12 +22,16 @@ export function CtaContact() {
         animate={isInView ? 'visible' : 'hidden'}
       >
         <h2 className="text-3xl font-bold text-white sm:text-4xl">
-          Prêt à supprimer vos ressaisies ?
+          Vous avez probablement déjà un premier chantier rentable
         </h2>
-        <p className="mt-4 text-lg text-white/60">
-          Diagnostic gratuit de 30 minutes, sans engagement. On parle concret, pas jargon.
+        <p className="mt-6 text-lg text-white/60 leading-relaxed">
+          En 30 minutes, nous identifions ensemble un irritant concret, ce qu&apos;il coûte
+          aujourd&apos;hui, et la meilleure façon de le traiter.
         </p>
-        <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <p className="mt-2 text-sm text-white/40">
+          Visio ou échange sur site en Bretagne selon votre contexte.
+        </p>
+        <div className="mt-10">
           <Button
             asChild
             size="lg"
@@ -36,24 +39,11 @@ export function CtaContact() {
           >
             <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
               <Calendar className="h-5 w-5" />
-              Diagnostic gratuit — 30 min
+              Demander un diagnostic
             </a>
           </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-white/20 text-white hover:bg-white/10 h-13 px-8 text-base gap-2"
-          >
-            <Link href="/contact">
-              Nous contacter
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </Button>
         </div>
-        <p className="mt-6 text-sm text-white/40">
-          hello@balise-ia.fr · Réponse sous 48h
-        </p>
+        <p className="mt-8 text-sm text-white/30">{getContactEmail()} · Réponse sous 48h</p>
       </motion.div>
     </section>
   );

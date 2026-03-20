@@ -29,8 +29,12 @@ function loadSavedState(): QuizState | null {
 export function AuditQuiz() {
   const [phase, setPhase] = useState<QuizPhase>('questions');
   const [currentStep, setCurrentStep] = useState(() => loadSavedState()?.currentStep ?? 1);
-  const [answers, setAnswers] = useState<Record<string, string>>(() => loadSavedState()?.answers ?? {});
-  const [completedSteps, setCompletedSteps] = useState<number[]>(() => loadSavedState()?.completedSteps ?? []);
+  const [answers, setAnswers] = useState<Record<string, string>>(
+    () => loadSavedState()?.answers ?? {}
+  );
+  const [completedSteps, setCompletedSteps] = useState<number[]>(
+    () => loadSavedState()?.completedSteps ?? []
+  );
   const [company, setCompany] = useState('');
   const [result, setResult] = useState<AuditResultType | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,17 +58,17 @@ export function AuditQuiz() {
   const currentAnswer = answers[currentQuestion?.id];
 
   const handleSelect = (value: string) => {
-    setAnswers(prev => ({ ...prev, [currentQuestion.id]: value }));
+    setAnswers((prev) => ({ ...prev, [currentQuestion.id]: value }));
 
     // Marquer comme complété si pas déjà fait
     if (!completedSteps.includes(currentStep)) {
-      setCompletedSteps(prev => [...prev, currentStep]);
+      setCompletedSteps((prev) => [...prev, currentStep]);
     }
   };
 
   const handleNext = () => {
     if (currentStep < TOTAL_QUESTIONS) {
-      setCurrentStep(prev => prev + 1);
+      setCurrentStep((prev) => prev + 1);
     } else {
       // Toutes les questions répondues, passer à l'email
       setPhase('email');
@@ -73,7 +77,7 @@ export function AuditQuiz() {
 
   const handlePrevious = () => {
     if (currentStep > 1) {
-      setCurrentStep(prev => prev - 1);
+      setCurrentStep((prev) => prev - 1);
     }
   };
 
@@ -98,7 +102,7 @@ export function AuditQuiz() {
         }),
       });
     } catch (error) {
-      console.error('Erreur lors de l\'envoi:', error);
+      console.error("Erreur lors de l'envoi:", error);
       // On continue quand même pour afficher les résultats
     }
 

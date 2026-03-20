@@ -86,7 +86,12 @@ interface StaggerProps {
   className?: string;
 }
 
-export function Stagger({ children, staggerDelay = 100, direction = 'up', className = '' }: StaggerProps) {
+export function Stagger({
+  children,
+  staggerDelay = 100,
+  direction = 'up',
+  className = '',
+}: StaggerProps) {
   return (
     <div className={className}>
       {children.map((child, index) => (

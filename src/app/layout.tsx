@@ -34,14 +34,16 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: [
-    'data platform PME Bretagne',
-    'équipe data externalisée',
-    'tableau de bord PME',
-    'pilotage data continu',
-    'automatisation données Lorient',
-    'reporting automatisé PME',
-    'consultant data Bretagne',
-    'réseaux franchises data',
+    'agence IA Bretagne',
+    'automatisation PME Bretagne',
+    'audit IA PME',
+    'Power BI Bretagne',
+    'automatisation industrielle PME',
+    'consultant IA Bretagne',
+    'data visualisation PME',
+    'pilotage data PME',
+    'consultant data Lorient',
+    'tableau de bord PME Bretagne',
   ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
@@ -87,12 +89,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-breton-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-breton-navy focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm"
+        >
           Aller au contenu principal
         </a>
         <Header />
-        <main id="main-content" className="min-h-screen">{children}</main>
+        <main id="main-content" className="min-h-screen">
+          {children}
+        </main>
         <Footer />
         <StickyCta />
         <Analytics />

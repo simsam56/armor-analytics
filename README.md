@@ -21,28 +21,28 @@ npm run dev                   # http://localhost:3000
 
 ## Scripts
 
-| Commande | Description |
-|---|---|
-| `npm run dev` | Dev server (Turbopack, port 3000) |
-| `npm run build` | Build production |
-| `npm start` | Serveur production |
-| `npm run lint` | ESLint avec auto-fix |
-| `npm run typecheck` | Vérification TypeScript |
-| `npm run format` | Prettier write |
-| `npm run format:check` | Prettier check |
+| Commande               | Description                       |
+| ---------------------- | --------------------------------- |
+| `npm run dev`          | Dev server (Turbopack, port 3000) |
+| `npm run build`        | Build production                  |
+| `npm start`            | Serveur production                |
+| `npm run lint`         | ESLint avec auto-fix              |
+| `npm run typecheck`    | Vérification TypeScript           |
+| `npm run format`       | Prettier write                    |
+| `npm run format:check` | Prettier check                    |
 
 ## Variables d'environnement
 
 Voir [.env.example](.env.example) pour la liste complète.
 
-| Variable | Requis | Description |
-|---|---|---|
-| `RESEND_API_KEY` | Oui | Clé API Resend |
-| `RESEND_FROM_EMAIL` | Oui | Email expéditeur vérifié |
-| `CONTACT_EMAIL` | Oui | Email destinataire formulaires |
-| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Non | Google Sheets (lead capture) |
-| `GOOGLE_PRIVATE_KEY` | Non | Google Sheets |
-| `GOOGLE_SHEET_ID` | Non | Google Sheets |
+| Variable                       | Requis | Description                    |
+| ------------------------------ | ------ | ------------------------------ |
+| `RESEND_API_KEY`               | Oui    | Clé API Resend                 |
+| `RESEND_FROM_EMAIL`            | Oui    | Email expéditeur vérifié       |
+| `CONTACT_EMAIL`                | Oui    | Email destinataire formulaires |
+| `GOOGLE_SERVICE_ACCOUNT_EMAIL` | Non    | Google Sheets (lead capture)   |
+| `GOOGLE_PRIVATE_KEY`           | Non    | Google Sheets                  |
+| `GOOGLE_SHEET_ID`              | Non    | Google Sheets                  |
 
 ## Déploiement
 

@@ -17,14 +17,14 @@ export interface QuizQuestion {
 }
 
 export type QuizCategory =
-  | 'company'      // Taille, secteur
-  | 'tools'        // Outils actuels
-  | 'maturity'     // Maturité digitale
-  | 'skills'       // Compétences équipe
-  | 'challenges'   // Défis prioritaires
-  | 'objectives'   // Objectifs
-  | 'budget'       // Budget et timeline
-  | 'decision';    // Processus décision
+  | 'company' // Taille, secteur
+  | 'tools' // Outils actuels
+  | 'maturity' // Maturité digitale
+  | 'skills' // Compétences équipe
+  | 'challenges' // Défis prioritaires
+  | 'objectives' // Objectifs
+  | 'budget' // Budget et timeline
+  | 'decision'; // Processus décision
 
 export interface QuizState {
   currentStep: number;
@@ -71,14 +71,17 @@ export interface AuditSubmission {
 export const MATURITY_LABELS: Record<MaturityLevel, { label: string; description: string }> = {
   debutant: {
     label: 'Premiers pas',
-    description: 'Votre entreprise a un fort potentiel d\'automatisation. Des quick wins sont possibles rapidement.'
+    description:
+      "Votre entreprise a un fort potentiel d'automatisation. Des quick wins sont possibles rapidement.",
   },
   intermediaire: {
     label: 'Base solide',
-    description: 'Vous avez déjà des fondations. L\'IA peut vous aider à passer au niveau supérieur.'
+    description:
+      "Vous avez déjà des fondations. L'IA peut vous aider à passer au niveau supérieur.",
   },
   avance: {
-    label: 'Prêt pour l\'IA',
-    description: 'Votre maturité digitale permet d\'envisager des projets IA ambitieux avec ROI rapide.'
-  }
+    label: "Prêt pour l'IA",
+    description:
+      "Votre maturité digitale permet d'envisager des projets IA ambitieux avec ROI rapide.",
+  },
 };

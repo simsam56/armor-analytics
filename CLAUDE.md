@@ -65,6 +65,7 @@ Chaque section majeure est wrappée dans `<AnimatedSection>` (Framer Motion). Le
 ### Offres (SERVICES)
 
 4 expertises modulables (pas de parcours séquentiel, le prospect choisit son point d'entrée) :
+
 1. **Audit & Diagnostic** (`isEntryPoint: true`) — 2 000–5 000 € HT
 2. **Data** — pipeline + dataviz à la carte — sur devis (pas de prix affiché)
 3. **IA** — OCR, prévision, classification — 5 000–20 000 € HT
@@ -81,6 +82,7 @@ Toutes les offres ont `step: null` et `isTransversal: false`. Plus de module IA 
 ### Tests E2E
 
 24 tests Playwright dans `e2e/` :
+
 - `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (4 titres vérifiés par `getByRole('heading')`)
 - `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot

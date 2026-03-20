@@ -10,8 +10,7 @@ export const metadata: Metadata = {
     'Demandez un diagnostic ou réservez un appel découverte gratuit. Premier échange sans engagement pour comprendre vos enjeux et identifier les opportunités.',
   openGraph: {
     title: 'Contact - Demander un diagnostic | balise-ia',
-    description:
-      'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
+    description: 'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
   },
   alternates: {
     canonical: 'https://balise-ia.fr/contact',
@@ -34,7 +33,8 @@ export default function ContactPage() {
               <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
                 <h2 className="text-2xl font-bold text-slate-900">Appel découverte gratuit</h2>
                 <p className="mt-2 text-slate-600">
-                  30 minutes pour comprendre votre contexte, identifier les irritants et évaluer les opportunités. On parle concret, pas jargon.
+                  30 minutes pour comprendre votre contexte, identifier les irritants et évaluer les
+                  opportunités. On parle concret, pas jargon.
                 </p>
 
                 {/* Réassurance inline */}
@@ -126,17 +126,20 @@ export default function ContactPage() {
               {
                 step: '1',
                 title: 'On lit votre message',
-                description: 'Votre demande est analysée par un expert data, pas par un commercial.',
+                description:
+                  'Votre demande est analysée par un expert data, pas par un commercial.',
               },
               {
                 step: '2',
                 title: 'Analyse gratuite sous 48h',
-                description: 'On identifie vos irritants et on évalue les opportunités d\u2019automatisation.',
+                description:
+                  'On identifie vos irritants et on évalue les opportunités d\u2019automatisation.',
               },
               {
                 step: '3',
                 title: 'Proposition adaptée',
-                description: 'Un diagnostic sur site ou un premier quick win — on s\u2019adapte à votre budget.',
+                description:
+                  'Un diagnostic sur site ou un premier quick win — on s\u2019adapte à votre budget.',
               },
             ].map((item) => (
               <div key={item.step} className="text-center">

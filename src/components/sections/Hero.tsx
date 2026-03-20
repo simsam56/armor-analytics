@@ -11,11 +11,7 @@ export function Hero({ title, subtitle }: HeroProps) {
           <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl leading-tight whitespace-pre-line">
             {title}
           </h1>
-          {subtitle && (
-            <p className="mt-6 text-lg text-white/70 leading-relaxed">
-              {subtitle}
-            </p>
-          )}
+          {subtitle && <p className="mt-6 text-lg text-white/70 leading-relaxed">{subtitle}</p>}
         </div>
       </div>
     </section>

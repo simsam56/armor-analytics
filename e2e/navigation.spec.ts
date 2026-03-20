@@ -29,7 +29,9 @@ test.describe('Navigation et pages principales', () => {
     await expect(page.getByRole('heading', { name: 'Audit & Diagnostic' }).first()).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Data' }).first()).toBeVisible();
     await expect(page.getByRole('heading', { name: 'IA' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Formation & Accompagnement' }).first()).toBeVisible();
+    await expect(
+      page.getByRole('heading', { name: 'Formation & Accompagnement' }).first()
+    ).toBeVisible();
   });
 
   test('/projets se charge avec les cas clients', async ({ page }) => {

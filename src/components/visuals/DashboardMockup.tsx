@@ -20,16 +20,8 @@ export function DashboardMockup() {
   return (
     <motion.div
       className="relative"
-      animate={
-        prefersReducedMotion
-          ? {}
-          : { y: [0, -6, 0] }
-      }
-      transition={
-        prefersReducedMotion
-          ? {}
-          : { duration: 4, repeat: Infinity, ease: 'easeInOut' }
-      }
+      animate={prefersReducedMotion ? {} : { y: [0, -6, 0] }}
+      transition={prefersReducedMotion ? {} : { duration: 4, repeat: Infinity, ease: 'easeInOut' }}
     >
       <div className="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-5 shadow-2xl shadow-black/20">
         {/* Title bar */}
@@ -64,15 +56,25 @@ export function DashboardMockup() {
             <div key={bar.label} className="space-y-1">
               <div className="flex justify-between text-[10px] text-white/50">
                 <span>{bar.label}</span>
-                <span>{bar.before}min → {bar.after}min</span>
+                <span>
+                  {bar.before}min → {bar.after}min
+                </span>
               </div>
               <div className="h-2 rounded-full bg-white/10 overflow-hidden">
                 <motion.div
                   className="h-full rounded-full"
                   style={{ backgroundColor: bar.color }}
-                  initial={prefersReducedMotion ? { width: `${100 - (bar.after / bar.before) * 100}%` } : { width: 0 }}
+                  initial={
+                    prefersReducedMotion
+                      ? { width: `${100 - (bar.after / bar.before) * 100}%` }
+                      : { width: 0 }
+                  }
                   animate={{ width: `${100 - (bar.after / bar.before) * 100}%` }}
-                  transition={{ delay: 1.2 + i * 0.2, duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{
+                    delay: 1.2 + i * 0.2,
+                    duration: 1.5,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
                 />
               </div>
             </div>

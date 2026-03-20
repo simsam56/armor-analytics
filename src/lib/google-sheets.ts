@@ -41,15 +41,15 @@ export async function appendAuditToSheet(submission: AuditSubmission): Promise<b
 
     // Préparer les données pour la ligne
     const row = [
-      submission.submittedAt,                          // Date
-      submission.email,                                 // Email
-      submission.company,                               // Entreprise
-      submission.answers['sector'] || '',               // Secteur
-      submission.answers['company_size'] || '',         // Taille
-      submission.result.score.toString(),               // Score
-      submission.result.maturityLevel,                  // Niveau maturité
-      submission.result.recommendations.map(r => r.title).join(', '), // Recommandations
-      JSON.stringify(submission.answers),               // Réponses complètes (JSON)
+      submission.submittedAt, // Date
+      submission.email, // Email
+      submission.company, // Entreprise
+      submission.answers['sector'] || '', // Secteur
+      submission.answers['company_size'] || '', // Taille
+      submission.result.score.toString(), // Score
+      submission.result.maturityLevel, // Niveau maturité
+      submission.result.recommendations.map((r) => r.title).join(', '), // Recommandations
+      JSON.stringify(submission.answers), // Réponses complètes (JSON)
     ];
 
     await sheets.spreadsheets.values.append({

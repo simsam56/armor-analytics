@@ -14,7 +14,7 @@ export function calculateScore(answers: Record<string, string>): number {
     const answer = answers[question.id];
     if (!answer) continue;
 
-    const selectedOption = question.options.find(opt => opt.value === answer);
+    const selectedOption = question.options.find((opt) => opt.value === answer);
     if (selectedOption) {
       weightedScore += selectedOption.score * question.weight;
       totalWeight += question.weight;
@@ -48,7 +48,7 @@ export function collectAnswerTags(answers: Record<string, string>): string[] {
     const answer = answers[question.id];
     if (!answer) continue;
 
-    const selectedOption = question.options.find(opt => opt.value === answer);
+    const selectedOption = question.options.find((opt) => opt.value === answer);
     if (selectedOption?.tags) {
       tags.push(...selectedOption.tags);
     }
@@ -68,7 +68,7 @@ export function getRecommendations(
   const maturityLevel = getMaturityLevel(score);
 
   // Calculer un score de pertinence pour chaque recommandation
-  const scoredRecommendations = PROJECT_RECOMMENDATIONS.map(rec => {
+  const scoredRecommendations = PROJECT_RECOMMENDATIONS.map((rec) => {
     let relevanceScore = 0;
 
     // Points pour chaque tag qui matche
@@ -97,7 +97,7 @@ export function getRecommendations(
   return scoredRecommendations
     .sort((a, b) => b.relevanceScore - a.relevanceScore)
     .slice(0, 3)
-    .map(item => item.recommendation);
+    .map((item) => item.recommendation);
 }
 
 /**

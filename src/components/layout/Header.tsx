@@ -72,18 +72,6 @@ export function Header() {
 
         <div className="hidden lg:flex lg:items-center lg:gap-x-3">
           <Button
-            variant="ghost"
-            asChild
-            size="sm"
-            className={cn(
-              scrolled
-                ? 'text-breton-slate hover:text-breton-navy'
-                : 'text-white/80 hover:text-white hover:bg-white/10'
-            )}
-          >
-            <Link href="/contact">Nous contacter</Link>
-          </Button>
-          <Button
             asChild
             size="sm"
             className={cn(
@@ -95,7 +83,7 @@ export function Header() {
           >
             <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
               <Calendar className="h-4 w-4" />
-              Diagnostic gratuit
+              Demander un diagnostic
             </a>
           </Button>
         </div>
@@ -114,15 +102,10 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 pt-4 border-t border-slate-200">
-            <Button variant="outline" asChild className="w-full">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                Nous contacter
-              </Link>
-            </Button>
             <Button asChild className="w-full gap-2 bg-breton-navy hover:bg-breton-slate">
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-4 w-4" />
-                Diagnostic gratuit – 30 min
+                Demander un diagnostic
               </a>
             </Button>
           </div>

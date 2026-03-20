@@ -17,7 +17,7 @@
 
 - [x] Palette bleu → vert brand (#1B4D3E / #40916C)
 - [x] CSS custom properties (globals.css) alignées
-- [x] gray-* → slate-* partout
+- [x] gray-_ → slate-_ partout
 - [x] ContactFormV7.tsx supprimé
 - [x] site-config.ts fusionné dans constants.ts
 - [x] Header premium : transparent → solide au scroll

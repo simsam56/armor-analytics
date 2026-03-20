@@ -5,9 +5,10 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'automatisation-saisie',
     title: 'Automatisation des saisies',
-    description: 'Éliminer les doubles saisies entre vos outils (Excel → ERP, emails → base de données). Gain de temps immédiat et réduction des erreurs.',
+    description:
+      'Éliminer les doubles saisies entre vos outils (Excel → ERP, emails → base de données). Gain de temps immédiat et réduction des erreurs.',
     benefits: [
-      'Jusqu\'à 80% de temps gagné sur la saisie',
+      "Jusqu'à 80% de temps gagné sur la saisie",
       'Zéro erreur de retranscription',
       'Données à jour en temps réel',
     ],
@@ -20,7 +21,8 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'dashboard-kpi',
     title: 'Tableau de bord KPI',
-    description: 'Centraliser vos indicateurs clés dans un dashboard unique et actualisé automatiquement. Fini les reportings Excel hebdomadaires.',
+    description:
+      'Centraliser vos indicateurs clés dans un dashboard unique et actualisé automatiquement. Fini les reportings Excel hebdomadaires.',
     benefits: [
       'Vision temps réel de votre activité',
       'Reporting automatique',
@@ -35,7 +37,8 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'centralisation-donnees',
     title: 'Centralisation des données',
-    description: 'Connecter vos différentes sources de données (ERP, Excel, logiciels métier) dans une base unifiée. La fondation pour tout projet data.',
+    description:
+      'Connecter vos différentes sources de données (ERP, Excel, logiciels métier) dans une base unifiée. La fondation pour tout projet data.',
     benefits: [
       'Source de vérité unique',
       'Fin des silos de données',
@@ -51,8 +54,9 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   // Projets moyens
   {
     id: 'alertes-intelligentes',
-    title: 'Système d\'alertes intelligentes',
-    description: 'Être prévenu automatiquement des anomalies, ruptures de stock, retards, ou dépassements de seuils. Passez d\'un mode réactif à proactif.',
+    title: "Système d'alertes intelligentes",
+    description:
+      "Être prévenu automatiquement des anomalies, ruptures de stock, retards, ou dépassements de seuils. Passez d'un mode réactif à proactif.",
     benefits: [
       'Détection précoce des problèmes',
       'Réduction des urgences',
@@ -67,7 +71,8 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'suivi-production',
     title: 'Suivi de production digitalisé',
-    description: 'Remplacer les fiches papier par une saisie terrain simple (tablette/mobile). Traçabilité complète et données exploitables.',
+    description:
+      'Remplacer les fiches papier par une saisie terrain simple (tablette/mobile). Traçabilité complète et données exploitables.',
     benefits: [
       'Traçabilité temps réel',
       'Données exploitables immédiatement',
@@ -82,12 +87,9 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'automatisation-reporting',
     title: 'Reporting automatisé',
-    description: 'Générer automatiquement vos rapports hebdo/mensuels et les envoyer aux bonnes personnes. Plus jamais de vendredi après-midi passé sur Excel.',
-    benefits: [
-      'Rapports générés sans effort',
-      'Format standardisé',
-      'Distribution automatique',
-    ],
+    description:
+      'Générer automatiquement vos rapports hebdo/mensuels et les envoyer aux bonnes personnes. Plus jamais de vendredi après-midi passé sur Excel.',
+    benefits: ['Rapports générés sans effort', 'Format standardisé', 'Distribution automatique'],
     roiEstimate: '2 à 4 mois',
     duration: '2 à 4 semaines',
     complexity: 'simple',
@@ -99,7 +101,8 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'prediction-stocks',
     title: 'Prévision des stocks',
-    description: 'Utiliser l\'historique pour anticiper les besoins en stock. Réduire les ruptures et le surstockage grâce au machine learning.',
+    description:
+      "Utiliser l'historique pour anticiper les besoins en stock. Réduire les ruptures et le surstockage grâce au machine learning.",
     benefits: [
       'Réduction des ruptures de 30-50%',
       'Optimisation du BFR',
@@ -114,7 +117,8 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'maintenance-predictive',
     title: 'Maintenance prédictive',
-    description: 'Anticiper les pannes machines grâce à l\'analyse des données capteurs et historiques. Passer d\'une maintenance curative à prédictive.',
+    description:
+      "Anticiper les pannes machines grâce à l'analyse des données capteurs et historiques. Passer d'une maintenance curative à prédictive.",
     benefits: [
       'Réduction des arrêts non planifiés',
       'Optimisation des interventions',
@@ -129,9 +133,10 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'optimisation-planning',
     title: 'Optimisation du planning',
-    description: 'Améliorer l\'ordonnancement de production ou la planification des tournées grâce à des algorithmes d\'optimisation.',
+    description:
+      "Améliorer l'ordonnancement de production ou la planification des tournées grâce à des algorithmes d'optimisation.",
     benefits: [
-      'Meilleur taux d\'utilisation ressources',
+      "Meilleur taux d'utilisation ressources",
       'Réduction des temps morts',
       'Respect des délais amélioré',
     ],
@@ -146,7 +151,8 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'formation-equipe',
     title: 'Formation data pour vos équipes',
-    description: 'Monter en compétence vos collaborateurs sur Excel avancé, Power BI ou les fondamentaux de la data. Autonomie durable.',
+    description:
+      'Monter en compétence vos collaborateurs sur Excel avancé, Power BI ou les fondamentaux de la data. Autonomie durable.',
     benefits: [
       'Équipe autonome sur les outils',
       'Meilleure adoption des solutions',
@@ -161,12 +167,9 @@ export const PROJECT_RECOMMENDATIONS: ProjectRecommendation[] = [
   {
     id: 'audit-data',
     title: 'Audit complet de vos données',
-    description: 'Cartographier vos flux de données, identifier les points de friction et définir une roadmap data claire sur 12-24 mois.',
-    benefits: [
-      'Vision claire de l\'existant',
-      'Priorisation des chantiers',
-      'Roadmap actionnable',
-    ],
+    description:
+      'Cartographier vos flux de données, identifier les points de friction et définir une roadmap data claire sur 12-24 mois.',
+    benefits: ["Vision claire de l'existant", 'Priorisation des chantiers', 'Roadmap actionnable'],
     roiEstimate: 'Immédiat (clarté)',
     duration: '1 à 2 semaines',
     complexity: 'simple',

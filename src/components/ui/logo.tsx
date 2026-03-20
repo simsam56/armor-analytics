@@ -13,13 +13,7 @@ const ACCENT_CYAN = '#00B4D8';
  * Icône phare "Clean Silhouette" — V3
  * Silhouette épurée avec faisceau diagonal et fenêtre lanterne verte
  */
-function PhareIcon({
-  size,
-  variant = 'default',
-}: {
-  size: number;
-  variant?: 'default' | 'white';
-}) {
+function PhareIcon({ size, variant = 'default' }: { size: number; variant?: 'default' | 'white' }) {
   const mainColor = variant === 'white' ? '#ffffff' : BRAND_NAVY;
   const accentColor = ACCENT_CYAN;
   const windowColor = variant === 'white' ? BRAND_NAVY : 'white';
@@ -44,7 +38,15 @@ function PhareIcon({
       <rect x="16" y="11" width="8" height="5" rx="1" fill={accentColor} opacity="0.6" />
       {/* Fenêtres corps */}
       <rect x="17" y="26" width="6" height="4" rx="1" fill={windowColor} opacity={windowOpacity} />
-      <rect x="16.5" y="36" width="7" height="4" rx="1" fill={windowColor} opacity={windowOpacity * 0.8} />
+      <rect
+        x="16.5"
+        y="36"
+        width="7"
+        height="4"
+        rx="1"
+        fill={windowColor}
+        opacity={windowOpacity * 0.8}
+      />
       {/* Base élargie */}
       <rect x="10" y="56" width="20" height="5" rx="1.5" fill={mainColor} />
       {/* Faisceau lumineux */}

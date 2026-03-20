@@ -75,9 +75,7 @@ function RealtimeCounter({ inView }: { inView: boolean }) {
       animate={inView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 1, delay: 0.4 }}
     >
-      <p className="text-5xl sm:text-6xl font-bold text-breton-accent">
-        J+5 → Temps réel
-      </p>
+      <p className="text-5xl sm:text-6xl font-bold text-breton-accent">J+5 → Temps réel</p>
       <p className="mt-3 text-sm text-white/60">délai de reporting</p>
     </motion.div>
   );
@@ -116,9 +114,7 @@ export function AnimatedCounters() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Résultats
           </p>
-          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">
-            Des résultats concrets
-          </h2>
+          <h2 className="mt-3 text-3xl font-bold text-white sm:text-4xl">Des résultats concrets</h2>
         </motion.div>
 
         {/* Counters grid */}

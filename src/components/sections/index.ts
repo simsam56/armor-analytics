@@ -14,3 +14,6 @@ export { TeamSection } from './TeamSection';
 export { CtaContact } from './CtaContact';
 export { Pillars } from './Pillars';
 export { AnimatedCounters } from './AnimatedCounters';
+export { ProofBlock } from './ProofBlock';
+export { ExpertisesBlock } from './ExpertisesBlock';
+export { ResultsBlock } from './ResultsBlock';

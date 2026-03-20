@@ -46,9 +46,7 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
   return (
     <div>
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-          Vos résultats sont prêts
-        </h2>
+        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Vos résultats sont prêts</h2>
         <p className="mt-2 text-slate-600">
           Indiquez votre entreprise et votre email pour recevoir votre analyse personnalisée.
         </p>
@@ -56,7 +54,10 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
 
       <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
         <div className="space-y-1.5">
-          <Label htmlFor="audit-company" className="text-slate-900 font-medium flex items-center gap-2">
+          <Label
+            htmlFor="audit-company"
+            className="text-slate-900 font-medium flex items-center gap-2"
+          >
             <Building2 className="w-4 h-4 text-slate-400" />
             Entreprise
           </Label>
@@ -75,7 +76,10 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
         </div>
 
         <div className="space-y-1.5">
-          <Label htmlFor="audit-email" className="text-slate-900 font-medium flex items-center gap-2">
+          <Label
+            htmlFor="audit-email"
+            className="text-slate-900 font-medium flex items-center gap-2"
+          >
             <Mail className="w-4 h-4 text-slate-400" />
             Email professionnel
           </Label>
@@ -93,12 +97,7 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
           {errors.email && <p className="text-xs text-red-600">{errors.email}</p>}
         </div>
 
-        <Button
-          type="submit"
-          size="lg"
-          disabled={isLoading}
-          className="w-full h-13 text-base"
-        >
+        <Button type="submit" size="lg" disabled={isLoading} className="w-full h-13 text-base">
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-5 w-5 animate-spin" />

@@ -51,7 +51,9 @@ export function TrustBand() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-slate-900">{signal.title}</p>
-                  <p className="mt-0.5 text-xs text-slate-500 leading-relaxed">{signal.description}</p>
+                  <p className="mt-0.5 text-xs text-slate-500 leading-relaxed">
+                    {signal.description}
+                  </p>
                 </div>
               </motion.div>
             );

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'À propos — balise-ia',
     description:
-      "Collectif data spécialisé PME industrielles bretonnes. Basés à Lorient, on intervient sur site.",
+      'Collectif data spécialisé PME industrielles bretonnes. Basés à Lorient, on intervient sur site.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -57,17 +57,20 @@ const GUARANTEES = [
   {
     icon: Lock,
     title: 'Confidentialité',
-    description: 'NDA systématique avant tout accès à vos données. Hébergement en France. Suppression des données de test après livraison.',
+    description:
+      'NDA systématique avant tout accès à vos données. Hébergement en France. Suppression des données de test après livraison.',
   },
   {
     icon: Wrench,
     title: 'Vos outils, pas les nôtres',
-    description: 'On se branche sur votre ERP, votre Excel, vos process existants. Pas de grand remplacement, pas de migration forcée.',
+    description:
+      'On se branche sur votre ERP, votre Excel, vos process existants. Pas de grand remplacement, pas de migration forcée.',
   },
   {
     icon: BookOpen,
     title: 'Autonomie garantie',
-    description: 'Documentation complète, formation des équipes, support post-livraison. L\u2019objectif : que vous n\u2019ayez plus besoin de nous au quotidien.',
+    description:
+      'Documentation complète, formation des équipes, support post-livraison. L\u2019objectif : que vous n\u2019ayez plus besoin de nous au quotidien.',
   },
 ];
 
@@ -122,7 +125,7 @@ export default function AboutPage() {
   return (
     <>
       <Hero
-        title={"Un collectif terrain,\nspécialisé PME industrielles"}
+        title={'Un collectif terrain,\nspécialisé PME industrielles'}
         subtitle="On connaît vos ERP, vos contraintes de production, vos enjeux de fiabilité. Parce qu'on a travaillé dans l'industrie avant de faire du conseil."
       />
 
@@ -131,27 +134,38 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-2 items-start">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Ce qu&apos;on fait</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
+                Ce qu&apos;on fait
+              </p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                 On automatise ce qui vous fait perdre du temps
               </h2>
               <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                Ressaisies entre outils, reporting manuel, données dispersées, fichiers Excel qui circulent par email — on élimine tout ça. On met en place des flux automatisés, des tableaux de bord utiles, et on forme vos équipes pour qu&apos;elles soient autonomes.
+                Ressaisies entre outils, reporting manuel, données dispersées, fichiers Excel qui
+                circulent par email — on élimine tout ça. On met en place des flux automatisés, des
+                tableaux de bord utiles, et on forme vos équipes pour qu&apos;elles soient
+                autonomes.
               </p>
               <p className="mt-4 text-slate-600 leading-relaxed">
-                On ne vend pas de la technologie. On vend du temps gagné, des erreurs évitées et de la visibilité sur votre activité.
+                On ne vend pas de la technologie. On vend du temps gagné, des erreurs évitées et de
+                la visibilité sur votre activité.
               </p>
             </div>
 
             <div className="space-y-4">
               {GUARANTEES.map((guarantee) => (
-                <div key={guarantee.title} className="flex gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div
+                  key={guarantee.title}
+                  className="flex gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200"
+                >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
                     <guarantee.icon className="h-5 w-5 text-breton-emerald" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900">{guarantee.title}</h3>
-                    <p className="mt-1 text-sm text-slate-600 leading-relaxed">{guarantee.description}</p>
+                    <p className="mt-1 text-sm text-slate-600 leading-relaxed">
+                      {guarantee.description}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -164,7 +178,9 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 bg-slate-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Notre histoire</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
+              Notre histoire
+            </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Pourquoi balise-ia existe
             </h2>
@@ -172,10 +188,7 @@ export default function AboutPage() {
 
           <div className="space-y-8">
             {STORY_CHAPTERS.map((chapter, index) => (
-              <div
-                key={chapter.title}
-                className="relative pl-8 border-l-2 border-slate-200"
-              >
+              <div key={chapter.title} className="relative pl-8 border-l-2 border-slate-200">
                 <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
                   <span className="text-xs font-bold text-white">{index + 1}</span>
                 </div>
@@ -191,7 +204,9 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Nos principes</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
+              Nos principes
+            </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Ce sur quoi on ne transige pas
             </h2>
@@ -199,7 +214,10 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {VALUES.map((value) => (
-              <div key={value.title} className="p-8 rounded-2xl bg-slate-50 border border-slate-200">
+              <div
+                key={value.title}
+                className="p-8 rounded-2xl bg-slate-50 border border-slate-200"
+              >
                 <div className="h-12 w-12 rounded-xl bg-breton-emerald/10 flex items-center justify-center mb-6">
                   <value.icon className="h-6 w-6 text-breton-emerald" />
                 </div>
@@ -222,7 +240,8 @@ export default function AboutPage() {
               Ce qui nous différencie
             </h2>
             <p className="mt-4 text-lg text-white/60">
-              Concrètement, voici ce que ça change de travailler avec un collectif terrain plutôt qu&apos;une ESN ou un grand cabinet.
+              Concrètement, voici ce que ça change de travailler avec un collectif terrain plutôt
+              qu&apos;une ESN ou un grand cabinet.
             </p>
           </div>
 
@@ -247,12 +266,15 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">Zone d&apos;intervention</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
+              Zone d&apos;intervention
+            </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
               Basés à Lorient, on intervient en Bretagne
             </h2>
             <p className="mt-4 text-slate-600">
-              Les phases clés se font sur site. Le développement et le suivi courant peuvent se faire à distance pour optimiser vos coûts.
+              Les phases clés se font sur site. Le développement et le suivi courant peuvent se
+              faire à distance pour optimiser vos coûts.
             </p>
           </div>
 
@@ -278,7 +300,8 @@ export default function AboutPage() {
             Un premier échange ?
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            30 minutes pour comprendre votre contexte. Sans engagement, sans jargon, on parle concret.
+            30 minutes pour comprendre votre contexte. Sans engagement, sans jargon, on parle
+            concret.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -288,7 +311,12 @@ export default function AboutPage() {
                 Diagnostic gratuit — 30 min
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="h-13 px-8 text-base border-slate-300">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-13 px-8 text-base border-slate-300"
+            >
               <Link href="/contact">Nous contacter</Link>
             </Button>
           </div>

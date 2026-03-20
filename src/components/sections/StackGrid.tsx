@@ -41,9 +41,7 @@ export function StackGrid({ className = '' }: StackGridProps) {
     <section className={`py-16 bg-slate-50 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            On maîtrise vos outils
-          </h2>
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">On maîtrise vos outils</h2>
           <p className="mt-3 text-slate-600">
             Pas besoin de tout changer. On se branche sur votre existant et on automatise ce qui
             vous fait perdre du temps.
@@ -58,9 +56,7 @@ export function StackGrid({ className = '' }: StackGridProps) {
 
         {/* Sectors */}
         <div className="mt-12 text-center">
-          <p className="text-sm font-medium text-slate-700 mb-3">
-            Secteurs d&apos;expertise
-          </p>
+          <p className="text-sm font-medium text-slate-700 mb-3">Secteurs d&apos;expertise</p>
           <div className="flex flex-wrap justify-center gap-3">
             {['Agroalimentaire', 'Métallurgie', 'Plasturgie', 'Logistique', 'Mécanique'].map(
               (sector) => (

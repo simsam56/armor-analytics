@@ -17,7 +17,12 @@ function BretagneMap() {
 
   return (
     <div className="relative">
-      <svg viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-xs mx-auto opacity-80">
+      <svg
+        viewBox="0 0 280 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full max-w-xs mx-auto opacity-80"
+      >
         {/* Contour Bretagne simplifié */}
         <path
           d="M30 95 C25 85 20 75 28 65 C35 55 50 50 65 48 C80 46 95 42 110 40 C125 38 140 35 160 38 C175 40 190 42 205 50 C220 58 235 68 245 80 C250 86 252 95 248 105 C244 115 238 120 230 125 C222 130 212 135 205 142 C198 148 192 155 182 158 C172 161 160 162 148 160 C136 158 125 155 115 155 C105 155 95 158 85 155 C75 152 65 145 55 138 C45 131 35 125 30 115 C28 108 28 100 30 95 Z"
@@ -85,7 +90,10 @@ export function Footer() {
                 Diagnostic gratuit de 30 minutes, sans engagement.
               </p>
             </div>
-            <Button asChild className="gap-2 shrink-0 bg-white text-breton-navy hover:bg-breton-sand">
+            <Button
+              asChild
+              className="gap-2 shrink-0 bg-white text-breton-navy hover:bg-breton-sand"
+            >
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-4 w-4" />
                 Réserver un créneau
@@ -105,8 +113,8 @@ export function Footer() {
               <LogoWithIcon size="sm" variant="white" />
             </Link>
             <p className="mt-4 max-w-sm text-sm text-white/60 leading-relaxed">
-              Votre équipe data externalisée. On accompagne les PME et réseaux bretons
-              sur toute la chaîne : ingestion, transformation, visualisation et pilotage continu.
+              Votre équipe data externalisée. On accompagne les PME et réseaux bretons sur toute la
+              chaîne : ingestion, transformation, visualisation et pilotage continu.
             </p>
 
             {/* Badges confiance */}
@@ -160,7 +168,9 @@ export function Footer() {
                       href={`/interventions/${city}`}
                       className="text-sm text-white/50 transition-colors hover:text-breton-accent"
                     >
-                      {city === 'saint-brieuc' ? 'Saint-Brieuc' : city.charAt(0).toUpperCase() + city.slice(1)}
+                      {city === 'saint-brieuc'
+                        ? 'Saint-Brieuc'
+                        : city.charAt(0).toUpperCase() + city.slice(1)}
                     </Link>
                   </li>
                 ))}

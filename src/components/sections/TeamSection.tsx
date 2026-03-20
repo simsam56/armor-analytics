@@ -82,7 +82,8 @@ export function TeamSection() {
             Les experts derrière balise-ia
           </h2>
           <p className="mt-4 text-slate-600">
-            Pas de commerciaux, pas de juniors. Vous travaillez directement avec les profils seniors qui réalisent le projet.
+            Pas de commerciaux, pas de juniors. Vous travaillez directement avec les profils seniors
+            qui réalisent le projet.
           </p>
         </div>
 

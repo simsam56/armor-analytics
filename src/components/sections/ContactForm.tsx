@@ -180,7 +180,9 @@ export function ContactForm({
           />
           {/* Aide contextuelle V2 */}
           <div className="bg-slate-50 rounded-lg p-3 mt-2">
-            <p className="text-xs font-medium text-slate-700 mb-1.5">Pour nous aider à vous répondre :</p>
+            <p className="text-xs font-medium text-slate-700 mb-1.5">
+              Pour nous aider à vous répondre :
+            </p>
             <ul className="text-xs text-slate-500 space-y-0.5">
               <li>• Quels outils utilisez-vous ? (ERP, Excel, emails...)</li>
               <li>• Quel est votre irritant principal ?</li>
@@ -218,8 +220,8 @@ export function ContactForm({
             </span>
           </div>
           <p className="text-xs text-slate-400 text-center">
-            Vos données sont utilisées uniquement pour répondre à votre demande.
-            Conformité RGPD. Pas de spam, pas de revente.
+            Vos données sont utilisées uniquement pour répondre à votre demande. Conformité RGPD.
+            Pas de spam, pas de revente.
           </p>
         </div>
       </form>

@@ -25,7 +25,12 @@ const CITIES: CityData[] = [
     departmentCode: '56',
     description:
       'Basés à Lorient, nous accompagnons les PME industrielles du Morbihan dans leur transformation data. Automatisation des flux, tableaux de bord, fiabilisation des données — on intervient directement sur site.',
-    industries: ['Agroalimentaire', 'Naval & défense', 'Pêche industrielle', 'Logistique portuaire'],
+    industries: [
+      'Agroalimentaire',
+      'Naval & défense',
+      'Pêche industrielle',
+      'Logistique portuaire',
+    ],
     challenges: [
       'Ressaisies entre ERP et fichiers Excel',
       'Reporting manuel hebdomadaire chronophage',
@@ -146,11 +151,7 @@ export function generateMetadata({
   });
 }
 
-export default async function CityPage({
-  params,
-}: {
-  params: Promise<{ ville: string }>;
-}) {
+export default async function CityPage({ params }: { params: Promise<{ ville: string }> }) {
   const { ville } = await params;
   const city = CITIES.find((c) => c.slug === ville);
 
@@ -160,10 +161,7 @@ export default async function CityPage({
 
   return (
     <>
-      <Hero
-        title={`Data & automatisation\nà ${city.name}`}
-        subtitle={city.description}
-      />
+      <Hero title={`Data & automatisation\nà ${city.name}`} subtitle={city.description} />
 
       {/* Secteurs locaux */}
       <section className="py-16 sm:py-20 bg-white">
@@ -221,7 +219,8 @@ export default async function CityPage({
               Comment on intervient à {city.name}
             </h2>
             <p className="mt-4 text-slate-600">
-              On part de vos vrais problèmes. Un diagnostic sur site, puis des solutions concrètes avec des résultats mesurables.
+              On part de vos vrais problèmes. Un diagnostic sur site, puis des solutions concrètes
+              avec des résultats mesurables.
             </p>
           </div>
 
@@ -244,7 +243,7 @@ export default async function CityPage({
                 step: '3',
                 title: 'IA ciblée',
                 description:
-                  'Si pertinent, on déploie une solution IA sur un cas d\'usage précis. OCR, prévision, classification.',
+                  "Si pertinent, on déploie une solution IA sur un cas d'usage précis. OCR, prévision, classification.",
                 price: '15 000 – 40 000 € HT',
               },
             ].map((offer) => (
@@ -279,7 +278,12 @@ export default async function CityPage({
               size="lg"
               className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold"
             >
-              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer" className="gap-2.5">
+              <a
+                href={getCalendlyUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gap-2.5"
+              >
                 <Calendar className="h-5 w-5" />
                 Diagnostic gratuit — 30 min
               </a>

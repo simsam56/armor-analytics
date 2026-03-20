@@ -1,15 +1,8 @@
-import {
-  HeroV3,
-  Pillars,
-  Services,
-  Projects,
-  About,
-  FAQ,
-  AnimatedCounters,
-} from '@/components/sections';
-import { TrustBand } from '@/components/sections/TrustBand';
+import { HeroV3, Services, Projects, About, FAQ, Methodology } from '@/components/sections';
+import { ProofBlock } from '@/components/sections/ProofBlock';
+import { ExpertisesBlock } from '@/components/sections/ExpertisesBlock';
+import { ResultsBlock } from '@/components/sections/ResultsBlock';
 import { CtaContact } from '@/components/sections/CtaContact';
-import { CtaInline } from '@/components/sections/CtaInline';
 import { JsonLd } from '@/components/JsonLd';
 import { AnimatedSection } from '@/components/ui/animated-section';
 
@@ -17,39 +10,33 @@ export default function Home() {
   return (
     <>
       <JsonLd />
-      {/* Section 1 — Hero plein écran */}
+      {/* Hero — titre + sous-titre + CTAs */}
       <HeroV3 />
-      {/* Section 2 — Marquee + Section 4 — 3 piliers */}
-      <Pillars />
-      {/* Section 3 — Proposition de valeur (trust signals) */}
-      <TrustBand />
-      {/* Section 5 — 4 étapes (timeline stepper) */}
+      {/* Preuve rapide — 3 piliers concrets */}
+      <ProofBlock />
+      {/* Expertises — ce qu'on améliore */}
+      <ExpertisesBlock />
+      {/* Offres — 4 façons de travailler */}
       <AnimatedSection>
         <Services />
       </AnimatedSection>
-      {/* Section 6 — Résultats chiffrés (compteurs animés) */}
-      <AnimatedCounters />
-      {/* CTA intermédiaire */}
-      <CtaInline
-        title="Ces résultats vous parlent ?"
-        subtitle="30 minutes pour en discuter. Gratuit, sans engagement."
-      />
-      {/* Section 7 — Cas clients */}
+      {/* Résultats — gains qualitatifs */}
+      <ResultsBlock />
+      {/* Cas clients — réalisations PME */}
       <AnimatedSection>
         <Projects />
       </AnimatedSection>
-      {/* CTA intermédiaire */}
-      <CtaInline
-        title="Problématique similaire ?"
-        subtitle="On a probablement déjà résolu un cas comme le vôtre."
-      />
-      {/* Section 8 — Qui sommes-nous */}
+      {/* Méthode — 4 étapes */}
+      <AnimatedSection>
+        <Methodology />
+      </AnimatedSection>
+      {/* Incarnation — qui sommes-nous */}
       <AnimatedSection>
         <About />
       </AnimatedSection>
-      {/* Section 9 — FAQ compact */}
+      {/* FAQ — 6 questions */}
       <FAQ />
-      {/* Section 10 — CTA final */}
+      {/* CTA final */}
       <CtaContact />
     </>
   );

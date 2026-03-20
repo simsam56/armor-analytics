@@ -12,9 +12,9 @@ interface AuditRequestBody {
 
 // Fonction pour obtenir le label d'une réponse
 function getAnswerLabel(questionId: string, answerValue: string): string {
-  const question = AUDIT_QUESTIONS.find(q => q.id === questionId);
+  const question = AUDIT_QUESTIONS.find((q) => q.id === questionId);
   if (!question) return answerValue;
-  const option = question.options.find(o => o.value === answerValue);
+  const option = question.options.find((o) => o.value === answerValue);
   return option?.label || answerValue;
 }
 
@@ -24,19 +24,13 @@ export async function POST(request: Request) {
 
     // Validation basique
     if (!body.email || !body.company || !body.answers || !body.result) {
-      return NextResponse.json(
-        { error: 'Missing required fields' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
     // Valider l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(body.email)) {
-      return NextResponse.json(
-        { error: 'Invalid email format' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
     }
 
     // Préparer les données
@@ -47,16 +41,21 @@ export async function POST(request: Request) {
     });
 
     // Construire la liste des réponses formatées
-    const answersFormatted = AUDIT_QUESTIONS.map(q => {
+    const answersFormatted = AUDIT_QUESTIONS.map((q) => {
       const answer = answers[q.id];
       if (!answer) return null;
       return `• ${q.question}\n  → ${getAnswerLabel(q.id, answer)}`;
-    }).filter(Boolean).join('\n\n');
+    })
+      .filter(Boolean)
+      .join('\n\n');
 
     // Construire les recommandations
-    const recommendationsFormatted = result.recommendations.map((rec, i) =>
-      `${i + 1}. ${rec.title}\n   ROI: ${rec.roiEstimate} | Durée: ${rec.duration}\n   ${rec.description}`
-    ).join('\n\n');
+    const recommendationsFormatted = result.recommendations
+      .map(
+        (rec, i) =>
+          `${i + 1}. ${rec.title}\n   ROI: ${rec.roiEstimate} | Durée: ${rec.duration}\n   ${rec.description}`
+      )
+      .join('\n\n');
 
     // Envoyer l'email via Resend
     const apiKey = process.env.RESEND_API_KEY;
@@ -103,27 +102,37 @@ export async function POST(request: Request) {
             </div>
           </div>
 
-          ${result.strengths.length > 0 ? `
+          ${
+            result.strengths.length > 0
+              ? `
           <div style="background: #ecfdf5; padding: 20px; border: 1px solid #d1fae5; border-top: none;">
             <h3 style="color: #065f46; margin-top: 0;">✓ Points forts</h3>
             <ul style="margin: 0; padding-left: 20px; color: #047857;">
-              ${result.strengths.map(s => `<li>${s}</li>`).join('')}
+              ${result.strengths.map((s) => `<li>${s}</li>`).join('')}
             </ul>
           </div>
-          ` : ''}
+          `
+              : ''
+          }
 
-          ${result.improvements.length > 0 ? `
+          ${
+            result.improvements.length > 0
+              ? `
           <div style="background: #fffbeb; padding: 20px; border: 1px solid #fef3c7; border-top: none;">
             <h3 style="color: #92400e; margin-top: 0;">💡 Axes d'amélioration</h3>
             <ul style="margin: 0; padding-left: 20px; color: #b45309;">
-              ${result.improvements.map(i => `<li>${i}</li>`).join('')}
+              ${result.improvements.map((i) => `<li>${i}</li>`).join('')}
             </ul>
           </div>
-          ` : ''}
+          `
+              : ''
+          }
 
           <div style="background: white; padding: 20px; border: 1px solid #e2e8e5; border-top: none;">
             <h2 style="color: #1B4D3E; margin-top: 0;">📋 3 Recommandations</h2>
-            ${result.recommendations.map((rec, i) => `
+            ${result.recommendations
+              .map(
+                (rec, i) => `
               <div style="background: #f8faf9; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
                 <h4 style="margin: 0 0 5px; color: #1B4D3E;">${i + 1}. ${rec.title}</h4>
                 <p style="margin: 0 0 10px; color: #64756c; font-size: 14px;">${rec.description}</p>
@@ -132,7 +141,9 @@ export async function POST(request: Request) {
                   <span style="margin-left: 10px; color: #64756c;">Durée: ${rec.duration}</span>
                 </p>
               </div>
-            `).join('')}
+            `
+              )
+              .join('')}
           </div>
 
           <div style="background: #f8faf9; padding: 20px; border: 1px solid #e2e8e5; border-top: none; border-radius: 0 0 8px 8px;">
@@ -162,15 +173,23 @@ Score: ${result.score}/100
 Niveau: ${result.maturityLabel}
 ${result.maturityDescription}
 
-${result.strengths.length > 0 ? `
+${
+  result.strengths.length > 0
+    ? `
 ✓ Points forts:
-${result.strengths.map(s => `  • ${s}`).join('\n')}
-` : ''}
+${result.strengths.map((s) => `  • ${s}`).join('\n')}
+`
+    : ''
+}
 
-${result.improvements.length > 0 ? `
+${
+  result.improvements.length > 0
+    ? `
 💡 Axes d'amélioration:
-${result.improvements.map(i => `  • ${i}`).join('\n')}
-` : ''}
+${result.improvements.map((i) => `  • ${i}`).join('\n')}
+`
+    : ''
+}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
 3 RECOMMANDATIONS
@@ -204,9 +223,6 @@ ${answersFormatted}
     });
   } catch (error) {
     console.error('Error processing audit submission:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

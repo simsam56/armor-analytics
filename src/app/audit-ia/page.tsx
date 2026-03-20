@@ -58,7 +58,8 @@ export default function AuditPage() {
               Où perdez-vous du temps sur vos données ?
             </h1>
             <p className="mt-4 text-lg text-white/70">
-              12 questions pour identifier vos irritants, évaluer votre potentiel d&apos;automatisation et recevoir 3 projets concrets adaptés à votre PME.
+              12 questions pour identifier vos irritants, évaluer votre potentiel
+              d&apos;automatisation et recevoir 3 projets concrets adaptés à votre PME.
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
@@ -125,20 +126,26 @@ export default function AuditPage() {
               {
                 step: '1',
                 title: 'Votre score',
-                description: 'Un score sur 100 qui positionne votre PME par rapport aux entreprises similaires.',
+                description:
+                  'Un score sur 100 qui positionne votre PME par rapport aux entreprises similaires.',
               },
               {
                 step: '2',
                 title: 'Vos irritants',
-                description: 'Les points précis où vous perdez du temps : ressaisies, reporting, données dispersées.',
+                description:
+                  'Les points précis où vous perdez du temps : ressaisies, reporting, données dispersées.',
               },
               {
                 step: '3',
                 title: '3 projets recommandés',
-                description: 'Des projets concrets avec estimation de ROI, durée et complexité. Pas de promesses vagues.',
+                description:
+                  'Des projets concrets avec estimation de ROI, durée et complexité. Pas de promesses vagues.',
               },
             ].map((item) => (
-              <div key={item.step} className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <div
+                key={item.step}
+                className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200"
+              >
                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-breton-emerald text-white font-bold text-sm mb-4">
                   {item.step}
                 </div>
@@ -153,11 +160,11 @@ export default function AuditPage() {
       {/* Et après ? — lien clair vers diagnostic */}
       <section className="py-16 sm:py-20 bg-slate-50">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
-            Et après le quiz ?
-          </h2>
+          <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Et après le quiz ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
-            Si vos résultats vous parlent, on peut en discuter en 30 minutes. On analyse vos réponses ensemble, on affine le diagnostic, et on définit un premier projet concret. Gratuit, sans engagement.
+            Si vos résultats vous parlent, on peut en discuter en 30 minutes. On analyse vos
+            réponses ensemble, on affine le diagnostic, et on définit un premier projet concret.
+            Gratuit, sans engagement.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
@@ -168,7 +175,12 @@ export default function AuditPage() {
               Commencer le quiz
               <ChevronDown className="w-4 h-4" />
             </a>
-            <Button asChild variant="outline" size="lg" className="border-slate-300 h-12 px-8 text-base gap-2">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-slate-300 h-12 px-8 text-base gap-2"
+            >
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-4 w-4" />
                 Ou réserver directement un appel

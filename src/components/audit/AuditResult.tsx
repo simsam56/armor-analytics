@@ -1,7 +1,15 @@
 'use client';
 
 import type { AuditResult as AuditResultType } from '@/types/audit';
-import { CheckCircle, TrendingUp, Clock, Lightbulb, Target, Calendar, ArrowRight } from 'lucide-react';
+import {
+  CheckCircle,
+  TrendingUp,
+  Clock,
+  Lightbulb,
+  Target,
+  Calendar,
+  ArrowRight,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { getCalendlyUrl } from '@/lib/constants';
@@ -31,7 +39,9 @@ export function AuditResult({ result, company }: AuditResultProps) {
         <p className="text-sm text-slate-500 mb-1">Résultats pour</p>
         <h2 className="text-2xl font-bold text-slate-900 mb-6">{company}</h2>
 
-        <div className={`inline-flex flex-col items-center justify-center w-36 h-36 rounded-full border-4 ${getScoreBg(result.score)}`}>
+        <div
+          className={`inline-flex flex-col items-center justify-center w-36 h-36 rounded-full border-4 ${getScoreBg(result.score)}`}
+        >
           <span className={`text-5xl font-bold ${getScoreColor(result.score)}`}>
             {result.score}
           </span>
@@ -39,7 +49,9 @@ export function AuditResult({ result, company }: AuditResultProps) {
         </div>
 
         <div className="mt-5">
-          <span className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium ${getScoreBg(result.score)} ${getScoreColor(result.score)}`}>
+          <span
+            className={`inline-block px-4 py-1.5 rounded-full text-sm font-medium ${getScoreBg(result.score)} ${getScoreColor(result.score)}`}
+          >
             {result.maturityLabel}
           </span>
           <p className="mt-3 text-slate-600 max-w-lg mx-auto text-sm leading-relaxed">
@@ -70,8 +82,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
         {result.improvements.length > 0 && (
           <div className="rounded-xl bg-amber-50 p-5 border border-amber-100">
             <h3 className="flex items-center gap-2 font-semibold text-amber-800 mb-3">
-              <Lightbulb className="w-4 h-4" />
-              À améliorer
+              <Lightbulb className="w-4 h-4" />À améliorer
             </h3>
             <ul className="space-y-1.5">
               {result.improvements.map((imp, i) => (
@@ -88,8 +99,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
       {/* Recommandations */}
       <div className="mb-10">
         <h3 className="flex items-center gap-2 text-xl font-bold text-slate-900 mb-5">
-          <Target className="w-5 h-5 text-breton-emerald" />
-          3 projets recommandés pour {company}
+          <Target className="w-5 h-5 text-breton-emerald" />3 projets recommandés pour {company}
         </h3>
 
         <div className="space-y-4">
@@ -145,11 +155,10 @@ export function AuditResult({ result, company }: AuditResultProps) {
 
       {/* CTA — double option : Calendly (primaire) + Contact (secondaire) */}
       <div className="rounded-2xl bg-breton-navy p-8 text-center text-white">
-        <h3 className="text-2xl font-bold mb-2">
-          On en discute ?
-        </h3>
+        <h3 className="text-2xl font-bold mb-2">On en discute ?</h3>
         <p className="text-white/70 mb-6 max-w-md mx-auto text-sm">
-          30 minutes pour analyser vos résultats ensemble et définir un premier projet concret. Gratuit, sans engagement.
+          30 minutes pour analyser vos résultats ensemble et définir un premier projet concret.
+          Gratuit, sans engagement.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Button
@@ -174,9 +183,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
             </Link>
           </Button>
         </div>
-        <p className="mt-4 text-xs text-white/40">
-          contact@balise-ia.fr · Réponse sous 48h
-        </p>
+        <p className="mt-4 text-xs text-white/40">contact@balise-ia.fr · Réponse sous 48h</p>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { SERVICES } from '@/lib/constants';
+import { SERVICES, getCalendlyUrl } from '@/lib/constants';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -38,25 +38,21 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <section id="offres" className="py-20 sm:py-24 bg-white">
+    <section id="offres" className="py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto">
-          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
-            Nos expertises
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Chaque problème data a sa solution
+        <div className="max-w-2xl">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Quatre façons de travailler avec balise-ia
           </h2>
           <p className="mt-4 text-lg text-slate-600">
-            Quatre expertises modulables. Vous choisissez ce dont vous avez besoin, on
-            s&apos;occupe du reste.
+            Vous pouvez démarrer par un audit, ou avancer directement sur un chantier prioritaire.
           </p>
         </div>
 
         {/* Grille 2×2 */}
         <motion.div
           ref={ref}
-          className={`mt-16 grid gap-6 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2'}`}
+          className={`mt-16 grid gap-8 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2'}`}
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
@@ -67,19 +63,18 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
               <motion.div
                 key={service.id}
                 variants={fadeInUp}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className={`group relative rounded-2xl border p-6 sm:p-8 transition-shadow duration-300 hover:shadow-xl hover:border-breton-emerald/40 ${
+                className={`group relative rounded-2xl border p-8 transition-shadow duration-300 hover:shadow-lg ${
                   service.isEntryPoint
-                    ? 'border-breton-emerald/20 bg-breton-emerald/[0.02] ring-1 ring-breton-emerald/10'
+                    ? 'border-breton-emerald/30 bg-breton-emerald/[0.02]'
                     : 'border-slate-200 bg-white'
                 }`}
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-5">
                   <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-breton-emerald/10">
                     {Icon && <Icon className="h-5 w-5 text-breton-emerald" />}
                   </div>
                   {service.isEntryPoint && (
-                    <span className="inline-flex items-center rounded-full bg-breton-emerald px-3 py-1 text-xs font-medium text-white">
+                    <span className="inline-flex items-center rounded-full bg-breton-emerald/10 px-3 py-1 text-xs font-medium text-breton-emerald">
                       Point d&apos;entrée recommandé
                     </span>
                   )}
@@ -98,13 +93,8 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
           })}
         </motion.div>
 
-        {/* Message modulable */}
-        <p className="mt-10 text-center text-sm text-slate-500">
-          Chaque prestation est autonome. On combine selon votre contexte.
-        </p>
-
         {showLink && (
-          <div className="mt-8 text-center">
+          <div className="mt-12 text-center">
             <Button variant="outline" size="lg" asChild className="border-slate-300">
               <Link href="/services" className="gap-2">
                 Voir le détail des offres
@@ -120,23 +110,32 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
 
 function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
   return (
-    <div className="mt-4 space-y-3">
-      <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
-      <ul className="space-y-1.5">
-        {service.benefits.map((benefit, idx) => (
-          <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
-            <CheckCircle className="h-3.5 w-3.5 text-breton-moss mt-0.5 shrink-0" />
-            {benefit}
-          </li>
-        ))}
-      </ul>
-      <div className="pt-3 border-t border-slate-100">
+    <div className="mt-5 space-y-5">
+      <p className="text-slate-600 leading-relaxed">{service.description}</p>
+
+      <div>
+        <p className="text-sm font-semibold text-slate-900 mb-3">Livrables</p>
+        <ul className="space-y-2">
+          {service.deliverables.map((deliverable, idx) => (
+            <li key={idx} className="text-sm text-slate-600 flex items-start gap-2">
+              <span className="text-breton-emerald mt-0.5 shrink-0">→</span>
+              {deliverable}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="flex items-center justify-between pt-5 border-t border-slate-100">
         <p className="text-sm text-slate-500">
-          <span className="font-medium text-slate-700">{service.duration}</span>
-          <span className="mx-2 text-slate-300">·</span>
-          {service.priceRange}
+          Délai indicatif : <span className="font-medium text-slate-700">{service.duration}</span>
         </p>
       </div>
+
+      <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
+        <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
+          {service.cta}
+        </a>
+      </Button>
     </div>
   );
 }
@@ -184,11 +183,7 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
         <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
       </div>
 
-      <Button
-        asChild
-        className="w-full"
-        variant={service.isEntryPoint ? 'default' : 'outline'}
-      >
+      <Button asChild className="w-full" variant={service.isEntryPoint ? 'default' : 'outline'}>
         <a
           href="https://calendly.com/balise-ia/diagnostic"
           target="_blank"
