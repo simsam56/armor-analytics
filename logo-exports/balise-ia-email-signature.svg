@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="50" viewBox="0 0 280 50" fill="none">
+  <g transform="translate(2, 1) scale(0.62)">
+    <circle cx="36" cy="38" r="34" stroke="#0C1F3F" stroke-width="1.8" fill="none"/>
+    <path d="M44 19 Q56 17 74 16 Q74 19.5 66 22 Q54 22 44 24 Z" fill="#00B4D8" opacity=".08"/>
+    <circle cx="36" cy="7.5" r="2.3" fill="#0C1F3F"/>
+    <path d="M30 15 Q30 10, 36 10 Q42 10, 42 15 Z" fill="#0C1F3F"/>
+    <rect x="29.2" y="15" width="13.6" height="9.5" rx="5.2" fill="#00B4D8"/>
+    <rect x="32" y="16.8" width="2.1" height="6.5" rx="1" fill="white" opacity=".3"/>
+    <rect x="35.6" y="16.8" width="2.1" height="6.5" rx="1" fill="white" opacity=".2"/>
+    <rect x="27.2" y="24.5" width="17.6" height="2.4" rx="1.2" fill="#0C1F3F"/>
+    <path d="M30 26.9 L29.2 35 L42.8 35 L42 26.9 Z" fill="#0C1F3F"/>
+    <path d="M29.2 35 L28.1 44 L43.9 44 L42.8 35 Z" fill="#00B4D8" opacity=".3" stroke="#00B4D8" stroke-width=".7"/>
+    <path d="M28.1 44 L27 53 L45 53 L43.9 44 Z" fill="#0C1F3F"/>
+    <path d="M27 53 L26.7 56 L45.3 56 L45 53 Z" fill="none" stroke="#0C1F3F" stroke-width=".7"/>
+    <path d="M24.5 56 L47.5 56 L49.5 59 L22.5 59 Z" fill="#0C1F3F"/>
+    <rect x="20" y="59" width="32" height="4.5" rx="1.7" fill="#0C1F3F"/>
+  </g>
+  <text font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" y="33" x="58">
+    <tspan font-size="22" font-weight="700" fill="#0C1F3F">balise</tspan><tspan font-size="22" font-weight="700" fill="#00B4D8">-</tspan><tspan font-size="22" font-weight="600" fill="#00B4D8">ia</tspan>
+  </text>
+</svg>

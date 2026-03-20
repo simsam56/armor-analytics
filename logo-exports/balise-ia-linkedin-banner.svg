@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396" fill="none">
+  <rect width="1584" height="396" fill="#0C1F3F"/>
+  <!-- Logo centré -->
+  <g transform="translate(490, 80)">
+    <!-- Icône -->
+    <g transform="translate(0, 10) scale(3.2)">
+      <circle cx="36" cy="38" r="34" stroke="white" stroke-width="1.8" fill="none"/>
+      <path d="M44 19 Q56 17 74 16 Q74 19.5 66 22 Q54 22 44 24 Z" fill="#00B4D8" opacity=".13"/>
+      <circle cx="36" cy="7.5" r="2.3" fill="white"/>
+      <path d="M30 15 Q30 10, 36 10 Q42 10, 42 15 Z" fill="white"/>
+      <rect x="29.2" y="15" width="13.6" height="9.5" rx="5.2" fill="#00B4D8"/>
+      <rect x="32" y="16.8" width="2.1" height="6.5" rx="1" fill="white" opacity=".35"/>
+      <rect x="35.6" y="16.8" width="2.1" height="6.5" rx="1" fill="white" opacity=".22"/>
+      <rect x="27.2" y="24.5" width="17.6" height="2.4" rx="1.2" fill="white"/>
+      <path d="M30 26.9 L29.2 35 L42.8 35 L42 26.9 Z" fill="white"/>
+      <path d="M29.2 35 L28.1 44 L43.9 44 L42.8 35 Z" fill="#00B4D8" opacity=".35" stroke="#00B4D8" stroke-width=".7"/>
+      <path d="M28.1 44 L27 53 L45 53 L43.9 44 Z" fill="white"/>
+      <path d="M27 53 L26.7 56 L45.3 56 L45 53 Z" fill="#0C1F3F" stroke="white" stroke-width=".7"/>
+      <path d="M24.5 56 L47.5 56 L49.5 59 L22.5 59 Z" fill="white"/>
+      <rect x="20" y="59" width="32" height="4.5" rx="1.7" fill="white"/>
+    </g>
+    <!-- Texte -->
+    <text font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" y="160" x="260">
+      <tspan font-size="64" font-weight="700" fill="white">balise</tspan><tspan font-size="64" font-weight="700" fill="#00B4D8">-</tspan><tspan font-size="64" font-weight="600" fill="#00B4D8">ia</tspan>
+    </text>
+    <!-- Tagline -->
+    <text font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-size="22" font-weight="400" fill="white" opacity=".6" y="200" x="264">
+      Data, automatisation et IA pour les PME bretonnes
+    </text>
+  </g>
+</svg>

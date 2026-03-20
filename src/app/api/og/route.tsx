@@ -44,12 +44,11 @@ export async function GET(request: NextRequest) {
         </div>
       </div>
 
-      {/* Logo text — V9 kerning serré */}
+      {/* Logo text — V18 tiret cyan */}
       <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: '24px' }}>
         <span style={{ fontSize: '36px', fontWeight: 700, color: 'white' }}>balise</span>
-        <span style={{ fontSize: '36px', fontWeight: 500, color: '#00B4D8', marginLeft: '6px' }}>
-          ia
-        </span>
+        <span style={{ fontSize: '36px', fontWeight: 700, color: '#00B4D8' }}>-</span>
+        <span style={{ fontSize: '36px', fontWeight: 600, color: '#00B4D8' }}>ia</span>
       </div>
 
       {/* Title */}

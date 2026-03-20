@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="80" viewBox="0 0 360 80" fill="none">
+  <!-- Icône phare dans cercle -->
+  <g transform="translate(6, 4)">
+    <circle cx="36" cy="38" r="34" stroke="#ffffff" stroke-width="1.8" fill="none"/>
+    <!-- Faisceau horizontal breakout -->
+    <path d="M44 19 Q56 17 74 16 Q74 19.5 66 22 Q54 22 44 24 Z" fill="#00B4D8" opacity="0.13"/>
+    <!-- Boule -->
+    <circle cx="36" cy="7.5" r="2.3" fill="#ffffff"/>
+    <!-- Dôme -->
+    <path d="M30 15 Q30 10, 36 10 Q42 10, 42 15 Z" fill="#ffffff"/>
+    <!-- Lanterne -->
+    <rect x="29.2" y="15" width="13.6" height="9.5" rx="5.2" fill="#00B4D8"/>
+    <rect x="32" y="16.8" width="2.1" height="6.5" rx="1" fill="white" opacity=".3"/>
+    <rect x="35.6" y="16.8" width="2.1" height="6.5" rx="1" fill="white" opacity=".2"/>
+    <!-- Galerie -->
+    <rect x="27.2" y="24.5" width="17.6" height="2.4" rx="1.2" fill="#ffffff"/>
+    <!-- Bande navy -->
+    <path d="M30 26.9 L29.2 35 L42.8 35 L42 26.9 Z" fill="#ffffff"/>
+    <!-- Bande CYAN -->
+    <path d="M29.2 35 L28.1 44 L43.9 44 L42.8 35 Z" fill="#00B4D8" opacity="0.35" stroke="#00B4D8" stroke-width=".7"/>
+    <!-- Bande navy -->
+    <path d="M28.1 44 L27 53 L45 53 L43.9 44 Z" fill="#ffffff"/>
+    <!-- Bande blanche -->
+    <path d="M27 53 L26.7 56 L45.3 56 L45 53 Z" fill="none" stroke="#ffffff" stroke-width=".7"/>
+    <!-- Base -->
+    <path d="M24.5 56 L47.5 56 L49.5 59 L22.5 59 Z" fill="#ffffff"/>
+    <rect x="20" y="59" width="32" height="4.5" rx="1.7" fill="#ffffff"/>
+  </g>
+  <!-- Texte balise-ia -->
+  <text font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" y="52" x="96">
+    <tspan font-size="36" font-weight="700" fill="#ffffff">balise</tspan><tspan font-size="36" font-weight="700" fill="#00B4D8">-</tspan><tspan font-size="36" font-weight="600" fill="#00B4D8">ia</tspan>
+  </text>
+</svg>
