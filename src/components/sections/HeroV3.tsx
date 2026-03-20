@@ -14,10 +14,10 @@ export function HeroV3() {
   const v = prefersReducedMotion ? noMotion : undefined;
 
   return (
-    <section className="relative bg-breton-navy">
-      {/* Barre haute locale */}
-      <div className="border-b border-white/10">
-        <p className="py-2.5 text-center text-sm text-white/50">
+    <section className="relative bg-breton-navy -mt-16">
+      {/* Barre haute locale — pt-20 compense le header qui chevauche */}
+      <div className="border-b border-white/10 pt-20">
+        <p className="pb-2.5 text-center text-sm text-white/50">
           Basés à Lorient, nous accompagnons les PME bretonnes sur site et à distance.
         </p>
       </div>
