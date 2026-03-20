@@ -56,7 +56,7 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 
 ```
 HeroV3 (particle bg, typing) → Pillars (marquee + 3 piliers) → TrustBand (4 trust signals) →
-Services (timeline stepper + 4 offres + module IA transversal) → AnimatedCounters (4 compteurs) →
+Services (grille 2×2 des 4 expertises) → AnimatedCounters (4 compteurs) →
 CtaInline → Projects (4 cas clients) → CtaInline → About → FAQ (onglets + show more) → CtaContact
 ```
 
@@ -64,14 +64,13 @@ Chaque section majeure est wrappée dans `<AnimatedSection>` (Framer Motion). Le
 
 ### Offres (SERVICES)
 
-5 entrées dans `SERVICES` :
-1. **Diagnostic & Priorisation** (step 1, `isEntryPoint: true`) — 2 000–5 000 € HT
-2. **Data Platform** (step 2) — 10 000–30 000 € HT
-3. **Dashboards & Analyse** (step 3) — 8 000–25 000 € HT
-4. **Pilotage Data Continu** (step 4) — 800–3 200 € HT/mois
-5. **Module IA** (`isTransversal: true`, step null) — +5 000–20 000 € HT en complément
+4 expertises modulables (pas de parcours séquentiel, le prospect choisit son point d'entrée) :
+1. **Audit & Diagnostic** (`isEntryPoint: true`) — 2 000–5 000 € HT
+2. **Data** — pipeline + dataviz à la carte — sur devis (pas de prix affiché)
+3. **IA** — OCR, prévision, classification — 5 000–20 000 € HT
+4. **Formation & Accompagnement** — forfait mensuel — 800–3 200 € HT/mois
 
-Le module IA a un champ `useCases` (exemples par étape) et n'est jamais vendu seul. Dans les composants, filtrer avec `SERVICES.filter(s => !s.isTransversal)` pour les 4 offres et `SERVICES.find(s => s.isTransversal)` pour le module IA.
+Toutes les offres ont `step: null` et `isTransversal: false`. Plus de module IA transversal. L'icône de Formation est `GraduationCap` (Lucide).
 
 ### API Routes
 
@@ -82,7 +81,7 @@ Le module IA a un champ `useCases` (exemples par étape) et n'est jamais vendu s
 ### Tests E2E
 
 24 tests Playwright dans `e2e/` :
-- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (5 titres vérifiés par `getByRole('heading')`)
+- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (4 titres vérifiés par `getByRole('heading')`)
 - `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
 - `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
