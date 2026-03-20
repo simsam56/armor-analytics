@@ -1,101 +1,89 @@
 # TODO — balise-ia
 
-## Phase 0 — Fondations (fait)
+## Phase 0–9 — Fondations → Déploiement (terminé)
 
-- [x] Structure Next.js 16 + TypeScript + Tailwind v4
-- [x] ESLint + Prettier configurés
-- [x] shadcn/ui installé (New York)
-- [x] API contact (Resend + rate limiting + honeypot + Zod)
-- [x] API audit (email + Google Sheets)
-- [x] SEO de base (metadata, sitemap, robots, JSON-LD)
-- [x] Logo phare Clean Silhouette V3 intégré
-- [x] Branding unifié sur balise-ia
-- [x] .env.example créé
-- [x] CLAUDE.md, README.md, TODO.md remis à jour
+Tout le socle technique, le design, les pages, les tests et le déploiement sont en place.
+Voir historique git pour le détail.
 
-## Phase 1 — Cohérence de marque (fait)
+## Phase 10 — Refonte homepage premium (terminé — 2026-03-20)
 
-- [x] Palette bleu → vert brand (#1B4D3E / #40916C)
-- [x] CSS custom properties (globals.css) alignées
-- [x] gray-_ → slate-_ partout
-- [x] ContactFormV7.tsx supprimé
-- [x] site-config.ts fusionné dans constants.ts
-- [x] Header premium : transparent → solide au scroll
+- [x] Hero simplifié : suppression particles/vagues/badges, local bar intégrée
+- [x] Nouvelles sections : ProofBlock, ExpertisesBlock, ResultsBlock
+- [x] Offres restructurées (4 cartes avec livrables, délais, CTA)
+- [x] Cas clients compact redessinés
+- [x] Méthode 4 étapes épurées (Comprendre, Prioriser, Déployer, Transmettre)
+- [x] Incarnation : partenaire de proximité + 3 piliers
+- [x] FAQ simplifiée (6 questions, sans onglets)
+- [x] CTA final rewrité
+- [x] Nav Header simplifiée (1 seul CTA)
+- [x] SEO mots-clés optimisés
 
-## Phase 2 — Homepage premium (fait)
+## Phase 11 — Audit SEO/UX/a11y (terminé — 2026-03-20)
 
-- [x] Hero refondu : fond vert profond, CTA blanc inversé
-- [x] TrustBand (4 signaux de réassurance)
-- [x] Section Services redesignée (cards premium)
-- [x] Section Methodology refondée (3 étapes + métriques)
-- [x] Labels de section uniformisés
+- [x] Fix title tags doublonnés (5 pages)
+- [x] Footer H3 → p sémantiques
+- [x] Canonical URL homepage
+- [x] Preconnect Calendly
+- [x] Footer tagline mis à jour
+- [x] Quiz /audit-ia promu en homepage (CTA micro-conversion)
+- [x] Contrastes WCAG (text-white/40 → /60)
+- [x] GA4 + GTM infrastructure (activable via env vars)
+- [x] Redirect 301 /projets → /cas-clients
+- [x] Sitemap nettoyé
+- [x] Hero /audit-ia : overlap header fixé
+- [x] CLAUDE.md et TODO.md mis à jour
 
-## Phase 3 — Pages secondaires (fait)
+## Phase 12 — Acquisition SEO (à faire — priorité haute)
 
-- [x] Hero pages intérieures unifié (fond #0F2B23)
-- [x] /services refondue
-- [x] /projets refondue
-- [x] /cas-clients refondue
-- [x] /a-propos refondue (histoire, valeurs, avantages, zone intervention)
-- [x] /audit-ia harmonisée
-- [x] /contact refondue
-- [x] /merci et /mentions-légales harmonisées
+### Prérequis immédiats (Simon, hors code)
+- [ ] Créer Google Search Console + soumettre sitemap
+- [ ] Créer Google Business Profile Lorient (photos, services, horaires)
+- [ ] Configurer GA4 (créer propriété, mettre NEXT_PUBLIC_GA_ID sur Vercel)
+- [ ] Inscription Sortlist, Malt, annuaires bretons
 
-## Phase 4 — SEO local & performance (fait)
+### Blog / contenu éditorial
+- [ ] Créer route /blog avec listing articles
+- [ ] Rédiger 5 premiers articles ciblés :
+  - "Power BI pour PME industrielle : par où commencer"
+  - "Comment automatiser la saisie de commandes dans votre ERP"
+  - "Tableau de bord production : les 5 KPI essentiels"
+  - "Consultant data Bretagne : quand et pourquoi faire appel à un expert"
+  - "ERP + Excel : comment en sortir sans tout casser"
+- [ ] Rédiger 5 articles supplémentaires (longue traîne)
+- [ ] Créer des landing pages SEO dédiées :
+  - /power-bi-bretagne
+  - /automatisation-commandes-pme
+  - /consultant-data-lorient
 
-- [x] 6 pages localisées /interventions/{ville} (SSG)
-- [x] Sitemap enrichi (13 URLs)
-- [x] next.config.ts remotePatterns pour images
-- [x] Liens villes dans le footer
+### Backlinks
+- [ ] CCI Morbihan — demander inscription annuaire partenaires
+- [ ] BDI Bretagne — annuaire acteurs numériques
+- [ ] Technopôle Lorient — partenariat
+- [ ] Presse locale (Télégramme, Ouest-France) — article/interview
+- [ ] Guest posts sur blogs PME/industrie
 
-## Phase 5 — Tests (fait)
+## Phase 13 — Crédibilité & preuves sociales (à faire — priorité haute)
 
-- [x] Playwright installé et configuré
-- [x] 17 tests E2E (navigation, SEO, formulaire)
-- [x] Scripts test:e2e et test:e2e:ui ajoutés
+- [ ] Obtenir 3-5 autorisations clients pour logos + citations nommées
+- [ ] Photos réelles équipe + terrain (remplacer stock/placeholders)
+- [ ] Vidéo témoignage client (même courte, smartphone)
+- [ ] Métriques vérifiées et sourcées (remplacer "10+ ans", "20+ projets")
+- [ ] Avis Google Business Profile (viser 5+ avis)
 
-## Phase 6 — Conversion et acquisition (fait)
+## Phase 14 — Conversion / CRO (à faire — priorité moyenne)
 
-- [x] Audit du parcours de conversion
-- [x] Page audit-ia refondue (promesse concrète, quiz en focus)
-- [x] EmailCapture amélioré (ton sobre, moins de friction)
-- [x] AuditResult avec CTA Calendly direct
-- [x] ContactForm amélioré
+- [ ] Email capture quiz : demander l'email AVANT de montrer les résultats
+- [ ] Formulaire contact rapide (email + 1 question) comme alternative Calendly
+- [ ] Email nurturing post-quiz (séquence 3-5 emails via Resend)
+- [ ] A/B test CTA homepage quand trafic suffisant
+- [ ] Page /ressources ou /guides avec PDF téléchargeables (lead magnets)
 
-## Phase 7 — Finitions techniques (fait)
+## Phase 15 — Technique (à faire — priorité moyenne)
 
-- [x] Metadata OG enrichies (keywords ciblés)
-- [x] JSON-LD enrichi (ProfessionalService, horaires, prix, villes)
-- [x] Tests API (7 tests : validation, honeypot, email, body incomplet)
-- [x] Total : 24 tests E2E
-
-## Phase 8 — Finitions visuelles (fait)
-
-- [x] FadeIn au scroll sur les sections homepage
-- [x] focus-visible custom vert brand
-- [x] text-wrap: balance/pretty
-- [x] Opacités Tailwind corrigées (/8 → /10)
-- [x] Canonicals ajoutés sur toutes les pages principales
-
-## Phase 9 — Déploiement (fait)
-
-- [x] Code poussé sur GitHub (simsam56/armor-analytics)
-- [x] Projet Vercel créé et déployé
-- [x] DNS Infomaniak configuré (A @ + CNAME www → Vercel)
-- [x] Domaine balise-ia.fr en ligne (HTTPS actif)
-- [x] Variables Vercel configurées (RESEND_API_KEY, RESEND_FROM_EMAIL, CONTACT_EMAIL)
-- [x] Resend domaine vérifié + SPF/DKIM/DMARC en place
-- [x] Email split : contact@ (expédition) / hello@ (réception Infomaniak)
-
-## Phase 10 — Crédibilité & preuves (à faire — nécessite contenu réel)
-
-- [ ] Vrais témoignages clients (quand disponibles)
-- [ ] Logos clients réels (quand autorisés)
-- [ ] Métriques réelles vérifiées
-- [ ] Photos équipe / terrain (à intégrer — fichiers déjà dans /public)
-
-## Phase 11 — Améliorations futures
-
-- [ ] Images OpenGraph personnalisées par page
-- [ ] Sentry pour le monitoring erreurs
+- [ ] Security headers (CSP, X-Frame-Options, etc.) via next.config.ts
+- [ ] Cookie banner RGPD (si GA4 activé)
+- [ ] Microsoft Clarity (heatmaps gratuites)
+- [ ] LinkedIn Insight Tag (retargeting B2B)
+- [ ] Sentry monitoring erreurs
 - [ ] Audit Lighthouse mobile post-déploiement
+- [ ] Enrichir pages villes OU consolider en 1 page (anti-doorway)

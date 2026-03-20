@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Identité
 
-**balise-ia** — Site vitrine B2B pour un collectif data ciblant les PME et réseaux bretons (Lorient). Le nom du repo (`armor-analytics`) est un vestige historique ; le produit s'appelle **balise-ia**. Tagline : "Votre équipe data externalisée". Tout le contenu est en français.
+**balise-ia** — Site vitrine B2B pour un collectif data ciblant les PME et réseaux bretons (Lorient). Le nom du repo (`armor-analytics`) est un vestige historique ; le produit s'appelle **balise-ia**. Tagline : "Data, automatisation et IA pour les PME bretonnes". Tout le contenu est en français.
 
 ## Commandes
 
@@ -38,57 +38,65 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 
 ### Configuration unique
 
-`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (4 expertises modulables : Audit, Data, IA, Formation), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (13), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
+`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (4 expertises modulables), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (6 questions), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
 
 ### Design system
 
-- **Hero homepage** (`HeroV3`) : gradient `breton-navy` → `breton-slate`, particle background animé (CSS-only), typing animation word-by-word, metric badges
-- **Hero pages intérieures** (`Hero`) : fond `breton-navy`, API simplifiée `title` + `subtitle`
-- **Header** : transparent sur fond sombre → solide blanc au scroll (`scrolled` state). Logo bascule entre variant `white` et `default`.
-- **Sections** : alternance `bg-white` / `bg-slate-50`, padding `py-20 sm:py-24`
-- **Labels section** : `text-sm font-semibold uppercase tracking-wider text-breton-moss`
-- **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows + lift (`whileHover={{ y: -4 }}`)
+- **Hero homepage** (`HeroV3`) : fond `breton-navy` plein, barre locale intégrée ("Basés à Lorient..."), titre + sous-titre + micro-preuves texte + 2 CTAs. Pas de particles, pas de wave SVG. `-mt-16` pour chevaucher le header.
+- **Hero pages intérieures** (`Hero`) : fond `breton-navy`, API simplifiée `title` + `subtitle`, `-mt-16 pt-32` pour chevaucher le header.
+- **Header** : sticky top-0 z-50, transparent sur fond sombre → solide blanc au scroll. Logo bascule entre variant `white` et `default`. Un seul CTA "Demander un diagnostic" (Calendly).
+- **Sections** : alternance `bg-white` / `bg-slate-50` / `bg-breton-navy`, padding `py-24 sm:py-32`
+- **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
 - **CTA sombres** : fond `breton-navy`, bouton blanc inversé `bg-white text-breton-navy`
-- **Footer** : fond `breton-navy`, carte SVG Bretagne avec 6 villes animées, badges confiance
-- **Animations** : variants réutilisables dans `src/lib/animations.ts` (fadeInUp, fadeInDown, fadeInLeft, fadeInRight, scaleIn, staggerContainer, heroStagger, fastStagger). Tous les composants animés respectent `useReducedMotion`.
+- **Footer** : fond `breton-navy`, carte SVG Bretagne, badges confiance. Labels de colonnes = `<p>` (pas `<h3>`).
+- **Animations** : variants réutilisables dans `src/lib/animations.ts`. Tous les composants Framer Motion respectent `useReducedMotion`.
+- **Contrastes** : minimum `text-white/50` sur fond navy (WCAG AA). Jamais `text-white/30` ou `text-white/40`.
 
 ### Homepage — ordre des sections
 
 ```
-HeroV3 (particle bg, typing) → Pillars (marquee + 3 piliers) → TrustBand (4 trust signals) →
-Services (grille 2×2 des 4 expertises) → AnimatedCounters (4 compteurs) →
-CtaInline → Projects (4 cas clients) → CtaInline → About → FAQ (onglets + show more) → CtaContact
+HeroV3 (local bar + titre) → ProofBlock (3 piliers) → ExpertisesBlock (3 compétences) →
+CTA Quiz (micro-conversion audit-ia) → Services (grille 2×2, 4 offres) → ResultsBlock (qualitatif) →
+Projects (4 cas clients compact) → Methodology (4 étapes) → About (incarnation + 3 piliers) →
+FAQ (6 questions, accordéon simple) → CtaContact (CTA final)
 ```
 
-Chaque section majeure est wrappée dans `<AnimatedSection>` (Framer Motion). Le `StickyCta` mobile fixe apparaît après scroll du hero (lg:hidden, dismiss possible). 7 pages ont un canonical explicite.
+Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll du hero.
 
 ### Offres (SERVICES)
 
-4 expertises modulables (pas de parcours séquentiel, le prospect choisit son point d'entrée) :
+4 expertises modulables :
+1. **Audit & Diagnostic** (`isEntryPoint: true`) — 2 000–5 000 € HT — 1 à 2 semaines
+2. **Pilotage data** — pipeline + dataviz — sur devis — 4 à 10 semaines
+3. **Automatisations & IA utiles** — OCR, prévision, classification — 5 000–20 000 € HT — 4 à 10 semaines
+4. **Formation & Accompagnement** — forfait mensuel — 800–3 200 € HT/mois — selon besoin
 
-1. **Audit & Diagnostic** (`isEntryPoint: true`) — 2 000–5 000 € HT
-2. **Data** — pipeline + dataviz à la carte — sur devis (pas de prix affiché)
-3. **IA** — OCR, prévision, classification — 5 000–20 000 € HT
-4. **Formation & Accompagnement** — forfait mensuel — 800–3 200 € HT/mois
+### Redirections
 
-Toutes les offres ont `step: null` et `isTransversal: false`. Plus de module IA transversal. L'icône de Formation est `GraduationCap` (Lucide).
+- `/projets` → 301 → `/cas-clients` (anti-cannibalisation SEO, configuré dans `next.config.ts`)
+
+### Analytics
+
+- **Vercel Analytics** : toujours actif
+- **GA4** : activable via `NEXT_PUBLIC_GA_ID` (env var Vercel)
+- **GTM** : activable via `NEXT_PUBLIC_GTM_ID` (env var Vercel)
+- Composant `src/components/Analytics.tsx` — rendu conditionnel si env var définie.
 
 ### API Routes
 
-- `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot (`name="website"` off-screen), envoi Resend
+- `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot, envoi Resend
 - `POST /api/audit` — Scoring quiz, email résultats, sauvegarde Google Sheets (optionnel)
-- `GET /api/og` — Génère dynamiquement une image OpenGraph 1200x630 (edge runtime, @vercel/og). Accepte `?title=` et `?subtitle=`.
+- `GET /api/og` — Image OpenGraph dynamique 1200×630 (edge runtime, @vercel/og)
 
 ### Tests E2E
 
 24 tests Playwright dans `e2e/` :
-
-- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres (4 titres vérifiés par `getByRole('heading')`)
+- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres, redirect /projets→/cas-clients
 - `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
 - `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
 
-Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`). Les tests API contact peuvent déclencher le rate limiter (429) si relancés trop rapidement — tuer le serveur dev (`pkill -f "next dev"`) pour reset le rate limiter in-memory.
+Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`).
 
 ## Code style
 
@@ -97,7 +105,8 @@ Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`)
 - Tailwind: `slate-*` pour les gris, `breton-*` pour la palette brand (jamais de hex bruts)
 - Apostrophes en JSX : utiliser `&apos;` (texte français avec beaucoup de `d'`, `l'`, `n'`)
 - Commits : Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`)
+- **Title tags** : ne PAS inclure `balise-ia` dans les titles de page — le template layout.tsx l'ajoute automatiquement via `template: '%s | balise-ia'`
 
 ## Environnement
 
-Voir `.env.example` pour toutes les variables. Les 3 variables Resend sont requises, les 3 Google Sheets sont optionnelles.
+Voir `.env.example` pour toutes les variables. Les 3 variables Resend sont requises, les 3 Google Sheets et les 2 Analytics sont optionnelles.
