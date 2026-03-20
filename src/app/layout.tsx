@@ -93,10 +93,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <head>
-        <link rel="preconnect" href="https://calendly.com" />
-        <link rel="dns-prefetch" href="https://calendly.com" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >
