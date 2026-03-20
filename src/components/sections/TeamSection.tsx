@@ -11,15 +11,19 @@ interface TeamMember {
   role: string;
   bio: string;
   photo: string;
+  actionPhoto?: string;
+  actionAlt?: string;
   linkedin?: string;
 }
 
 const TEAM: TeamMember[] = [
   {
     name: 'Simon Hingant',
-    role: 'Data Scientist',
+    role: 'Data Scientist — Fondateur',
     bio: 'Ingénieur génie des systèmes industriels. 7 ans en industrie. Architecture des solutions et stratégie data.',
     photo: '/simon.png',
+    actionPhoto: '/simon-ordinateur.jpg',
+    actionAlt: 'Simon Hingant présentant un tableau de bord data à un client',
     linkedin: 'https://www.linkedin.com/in/simonhingant/',
   },
   {
@@ -27,12 +31,16 @@ const TEAM: TeamMember[] = [
     role: 'Data Engineer',
     bio: 'Conception des pipelines de données et des connecteurs entre vos outils. Architectures robustes et maintenables.',
     photo: '/remy.png',
+    actionPhoto: '/remy-atelier.jpg',
+    actionAlt: 'Rémy avec une tablette dans un atelier de production industrielle',
   },
   {
     name: 'Camille',
     role: 'Cybersécurité & Infrastructure',
     bio: 'Sécurisation des flux de données, hébergement en France, conformité RGPD. NDA et confidentialité.',
     photo: '/camille.png',
+    actionPhoto: '/camille-atelier.jpg',
+    actionAlt: 'Camille échangeant avec un responsable de production en atelier',
   },
 ];
 
@@ -87,16 +95,21 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* Photo d'équipe */}
-        <div className="mb-16 rounded-2xl overflow-hidden shadow-lg max-w-4xl mx-auto">
-          <Image
-            src="/equipe.png"
-            alt="L'équipe balise-ia"
-            width={1200}
-            height={600}
-            className="w-full h-auto object-cover"
-            priority
-          />
+        {/* Photos terrain — l'équipe en action */}
+        <div className="mb-16 grid grid-cols-3 gap-3 max-w-4xl mx-auto">
+          {TEAM.map((member) =>
+            member.actionPhoto ? (
+              <div key={member.name} className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                <Image
+                  src={member.actionPhoto}
+                  alt={member.actionAlt || `${member.name} en intervention`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 33vw, 300px"
+                />
+              </div>
+            ) : null
+          )}
         </div>
 
         {/* Cartes membres */}

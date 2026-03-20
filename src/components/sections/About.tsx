@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Target, BarChart3, Users } from 'lucide-react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
@@ -70,8 +71,17 @@ export function About({ className = '' }: AboutProps) {
             </div>
           </motion.div>
 
-          {/* Colonne droite — piliers */}
+          {/* Colonne droite — photo terrain + piliers */}
           <motion.div variants={fadeInUp} className="space-y-5">
+            <div className="relative aspect-[16/10] rounded-xl overflow-hidden mb-3">
+              <Image
+                src="/remy-atelier.jpg"
+                alt="Intervention terrain dans un atelier de production en Bretagne"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
             {PILLARS.map((pillar) => {
               const Icon = pillar.icon;
               return (

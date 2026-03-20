@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { HeroV3, Services, Projects, About, FAQ, Methodology } from '@/components/sections';
+import { LogoCarousel } from '@/components/sections/LogoCarousel';
 import { ProofBlock } from '@/components/sections/ProofBlock';
 import { ExpertisesBlock } from '@/components/sections/ExpertisesBlock';
 import { ResultsBlock } from '@/components/sections/ResultsBlock';
@@ -14,6 +15,8 @@ export default function Home() {
       <JsonLd />
       {/* Hero — titre + sous-titre + CTAs */}
       <HeroV3 />
+      {/* Logos clients — preuve sociale */}
+      <LogoCarousel />
       {/* Preuve rapide — 3 piliers concrets */}
       <ProofBlock />
       {/* Expertises — ce qu'on améliore */}
