@@ -38,7 +38,7 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 
 ### Configuration unique
 
-`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (5 : 4 offres numérotées + 1 module IA transversal), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (13), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
+`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (4 expertises modulables : Audit, Data, IA, Formation), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (13), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
 
 ### Design system
 
