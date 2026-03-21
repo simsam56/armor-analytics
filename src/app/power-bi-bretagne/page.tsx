@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/power-bi-bretagne',
+    canonical: 'https://www.balise-ia.fr/power-bi-bretagne',
   },
 };
 

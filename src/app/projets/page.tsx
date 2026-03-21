@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Découvrez des projets concrets réalisés pour des PME et réseaux bretons.',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/projets',
+    canonical: 'https://www.balise-ia.fr/projets',
   },
 };
 

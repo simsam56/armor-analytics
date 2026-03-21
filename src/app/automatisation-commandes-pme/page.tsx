@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/automatisation-commandes-pme',
+    canonical: 'https://www.balise-ia.fr/automatisation-commandes-pme',
   },
 };
 

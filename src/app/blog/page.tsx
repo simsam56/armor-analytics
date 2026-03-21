@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       'Conseils pratiques pour exploiter vos données, automatiser vos processus et piloter votre activité.',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/blog',
+    canonical: 'https://www.balise-ia.fr/blog',
   },
 };
 

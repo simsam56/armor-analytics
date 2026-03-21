@@ -14,7 +14,7 @@ export const metadata: Metadata = {
       'Accompagnement data pour PME et réseaux bretons. 4 expertises modulables, résultats mesurables.',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/services',
+    canonical: 'https://www.balise-ia.fr/services',
   },
 };
 

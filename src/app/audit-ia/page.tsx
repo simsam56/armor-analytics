@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/audit-ia',
+    canonical: 'https://www.balise-ia.fr/audit-ia',
   },
 };
 

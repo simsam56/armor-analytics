@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/a-propos',
+    canonical: 'https://www.balise-ia.fr/a-propos',
   },
 };
 

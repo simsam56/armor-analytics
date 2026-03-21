@@ -145,7 +145,7 @@ export function generateMetadata({
         locale: 'fr_FR',
       },
       alternates: {
-        canonical: `https://balise-ia.fr/interventions/${city.slug}`,
+        canonical: `https://www.balise-ia.fr/interventions/${city.slug}`,
       },
     };
   });

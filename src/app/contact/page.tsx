@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: 'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/contact',
+    canonical: 'https://www.balise-ia.fr/contact',
   },
 };
 

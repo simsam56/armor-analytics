@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
   },
   alternates: {
-    canonical: 'https://balise-ia.fr/cas-clients',
+    canonical: 'https://www.balise-ia.fr/cas-clients',
   },
 };
 
