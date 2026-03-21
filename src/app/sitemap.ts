@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/constants';
+import { BLOG_ARTICLES } from '@/data/blog-articles';
 
 const CITY_SLUGS = ['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'];
 
@@ -45,6 +46,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const landingPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/power-bi-bretagne`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/automatisation-commandes-pme`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/consultant-data-lorient`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+  ];
+
   const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
     url: `${baseUrl}/interventions/${slug}`,
     lastModified: new Date(),
@@ -52,5 +74,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...mainPages, ...cityPages];
+  const blogPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    ...BLOG_ARTICLES.map((article) => ({
+      url: `${baseUrl}/blog/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
+  ];
+
+  return [...mainPages, ...landingPages, ...cityPages, ...blogPages];
 }

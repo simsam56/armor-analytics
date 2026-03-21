@@ -1,0 +1,397 @@
+export interface BlogArticle {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+  tags: string[];
+  content: string;
+}
+
+export const BLOG_ARTICLES: BlogArticle[] = [
+  {
+    slug: 'power-bi-pme-industrielle',
+    title: 'Power BI pour PME industrielle : par où commencer',
+    description:
+      'Guide pratique pour déployer Power BI dans une PME industrielle en Bretagne. Quels indicateurs suivre en priorité, quelles sources connecter, quelles erreurs éviter.',
+    date: '2026-03-15',
+    readTime: '8 min',
+    tags: ['Power BI', 'PME industrielle', 'Tableau de bord', 'Bretagne'],
+    content: `
+<h2>Pourquoi Power BI est pertinent pour une PME industrielle</h2>
+
+<p>Beaucoup de PME industrielles bretonnes pilotent encore leur activité avec des fichiers Excel partagés sur un serveur. Le directeur de production compile ses chiffres le vendredi après-midi, le DAF consolide les données le lundi matin, et le CODIR prend ses décisions sur des informations qui ont déjà cinq jours de retard. Power BI permet de changer cette dynamique en connectant directement vos sources de données — ERP, fichiers de suivi, capteurs — à des tableaux de bord actualisés en temps réel ou quasi temps réel.</p>
+
+<p>L&apos;intérêt principal n&apos;est pas la beauté des graphiques. C&apos;est la capacité à voir les problèmes dès qu&apos;ils apparaissent, au lieu de les découvrir en fin de semaine. Une machine qui dévie de ses paramètres habituels, un taux de rebut qui augmente, un fournisseur dont les délais se dégradent : ces signaux faibles peuvent être détectés et traités rapidement si vos données sont centralisées et visualisées correctement.</p>
+
+<h2>Les trois premiers indicateurs à suivre</h2>
+
+<h3>1. Le suivi de production en temps réel</h3>
+
+<p>Commencez par connecter votre ERP (Sage, Cegid, Divalto ou autre) à Power BI pour visualiser les ordres de fabrication en cours, les quantités produites et les écarts par rapport aux objectifs. Ce premier tableau de bord remplace immédiatement le tableau Excel que quelqu&apos;un met à jour manuellement. L&apos;information est toujours à jour et accessible à tous ceux qui en ont besoin, sans dépendre de la disponibilité d&apos;une personne.</p>
+
+<h3>2. Le taux de rebut et la qualité</h3>
+
+<p>Le taux de rebut est un indicateur critique dans l&apos;industrie : chaque pièce non conforme coûte de la matière première, du temps machine et du temps humain. En visualisant le taux de rebut par machine, par opérateur ou par lot de matière, vous identifiez rapidement les sources de non-qualité. Un responsable qualité d&apos;une PME en métallurgie dans le Finistère nous a confié qu&apos;il avait identifié un problème de réglage machine en moins de deux heures grâce à son tableau de bord, alors que ce type de dérive passait inaperçu pendant des semaines auparavant.</p>
+
+<h3>3. Les délais de livraison et le taux de service</h3>
+
+<p>Vos clients attendent leurs commandes dans les temps. Le taux de service — pourcentage de commandes livrées dans les délais — est un indicateur commercial autant qu&apos;opérationnel. En croisant les données de production et de logistique, vous pouvez anticiper les retards et agir avant que le client ne s&apos;en plaigne. C&apos;est un avantage concurrentiel réel, surtout dans un contexte où les donneurs d&apos;ordres deviennent de plus en plus exigeants sur les délais.</p>
+
+<h2>Par où commencer concrètement</h2>
+
+<h3>Identifier vos sources de données</h3>
+
+<p>Avant de lancer quoi que ce soit, faites l&apos;inventaire de vos sources de données. Votre ERP est probablement la source principale, mais n&apos;oubliez pas les fichiers Excel de suivi (planning, contrôle qualité), les données machines si vous avez des automates connectés, et éventuellement les données de votre CRM ou de votre logiciel de GMAO. L&apos;objectif n&apos;est pas de tout connecter d&apos;un coup, mais de savoir ce qui existe et ce qui est exploitable.</p>
+
+<h3>Commencer par un seul dashboard</h3>
+
+<p>L&apos;erreur la plus courante est de vouloir tout faire en même temps. Commencez par un seul tableau de bord qui répond à un besoin concret et urgent. Si votre CODIR passe 30 minutes à chaque réunion à se mettre d&apos;accord sur les chiffres de production, c&apos;est par là qu&apos;il faut commencer. Si c&apos;est le suivi commercial qui pose problème, commencez par les ventes. Le premier tableau de bord doit être opérationnel en deux à quatre semaines et apporter une valeur visible immédiatement.</p>
+
+<h3>Impliquer les utilisateurs finaux</h3>
+
+<p>Un tableau de bord que personne ne regarde est un investissement perdu. Impliquez les futurs utilisateurs dès la conception : le responsable de production, le directeur commercial, le DAF. Demandez-leur ce qu&apos;ils veulent voir en premier quand ils ouvrent le dashboard le matin. Les indicateurs doivent correspondre à leurs décisions quotidiennes, pas à ce qu&apos;on trouve dans un manuel théorique de business intelligence.</p>
+
+<h2>Power BI ou Metabase : comment choisir</h2>
+
+<p>Power BI n&apos;est pas la seule option. Metabase est une alternative open source solide, particulièrement adaptée aux PME qui n&apos;ont pas d&apos;environnement Microsoft 365. Les deux outils permettent de se connecter aux mêmes sources de données et de créer des tableaux de bord interactifs. La différence principale est l&apos;écosystème : si vous utilisez déjà Microsoft 365 et Teams, Power BI s&apos;intègre nativement. Si vous êtes sur Google Workspace ou que vous préférez une solution auto-hébergée, Metabase est un choix pertinent.</p>
+
+<p>Chez balise-ia, nous déployons les deux en fonction du contexte client. Le choix de l&apos;outil est secondaire par rapport à la qualité des données en entrée et la pertinence des indicateurs affichés. Un Power BI mal configuré avec des données incohérentes sera toujours moins utile qu&apos;un simple fichier Excel bien tenu.</p>
+
+<h2>Les erreurs à éviter</h2>
+
+<ul>
+<li><strong>Trop d&apos;indicateurs sur un seul écran.</strong> Un bon tableau de bord contient 5 à 8 indicateurs clés, pas 40. Si vous avez besoin de faire défiler la page pour voir tous vos KPIs, c&apos;est qu&apos;il y en a trop.</li>
+<li><strong>Des données non fiables.</strong> Si vos équipes ne font pas confiance aux chiffres affichés, elles retourneront à leurs fichiers Excel. Investissez du temps dans la qualité des données avant de soigner les visualisations.</li>
+<li><strong>Pas de responsable identifié.</strong> Quelqu&apos;un doit être en charge de la maintenance du tableau de bord : ajouter un nouvel indicateur, corriger une source qui a changé de format, former un nouveau collaborateur. Sans cette responsabilité définie, le projet s&apos;essouffle en quelques mois.</li>
+<li><strong>Ignorer la formation.</strong> Power BI est un outil puissant mais qui demande un minimum de formation pour être utilisé efficacement. Prévoyez au moins une demi-journée de formation pour chaque profil utilisateur.</li>
+</ul>
+
+<h2>Quand faire appel à un expert</h2>
+
+<p>Si vous avez un profil technique en interne qui maîtrise SQL et qui a du temps disponible, vous pouvez démarrer seul. Mais dans la plupart des PME industrielles, ce profil n&apos;existe pas ou est déjà surchargé. Faire appel à un consultant data permet d&apos;aller plus vite — un premier tableau de bord opérationnel en deux à trois semaines — et surtout d&apos;éviter les erreurs de conception qui sont coûteuses à corriger ensuite.</p>
+
+<p>Le rôle d&apos;un accompagnement externe n&apos;est pas de créer une dépendance, mais de mettre en place les fondations et de former vos équipes pour qu&apos;elles soient autonomes ensuite. Chez balise-ia, nous livrons systématiquement une documentation technique et fonctionnelle, et nous formons les utilisateurs finaux avant de considérer un projet comme terminé.</p>
+`,
+  },
+  {
+    slug: 'automatiser-saisie-commandes-erp',
+    title: 'Comment automatiser la saisie de commandes dans votre ERP',
+    description:
+      'Réduisez les erreurs et gagnez du temps en automatisant la saisie de commandes dans votre ERP. OCR, intégration Sage/Cegid, calcul de ROI et étapes de mise en place.',
+    date: '2026-03-08',
+    readTime: '9 min',
+    tags: ['Automatisation', 'ERP', 'OCR', 'PME'],
+    content: `
+<h2>Le problème de la saisie manuelle des commandes</h2>
+
+<p>Dans la plupart des PME industrielles et commerciales, les commandes arrivent par email sous forme de PDF, de fichiers Excel ou parfois même de fax scannés. L&apos;équipe administration des ventes (ADV) ouvre chaque document, lit les informations — références produits, quantités, conditions de livraison — et les ressaisit manuellement dans l&apos;ERP. C&apos;est un processus lent, répétitif et source d&apos;erreurs.</p>
+
+<p>Les chiffres parlent d&apos;eux-mêmes : une saisie manuelle prend en moyenne 5 à 15 minutes par commande, avec un taux d&apos;erreur de 2 à 5%. Sur un volume de 30 commandes par jour, cela représente entre 2h30 et 7h30 de travail quotidien de saisie pure, et entre 1 et 2 erreurs par jour qui génèrent des litiges, des retours et de l&apos;insatisfaction client. Sans compter le stress des personnes qui font ce travail répétitif et qui savent qu&apos;une erreur peut avoir des conséquences importantes.</p>
+
+<h2>Ce que l&apos;automatisation change concrètement</h2>
+
+<p>L&apos;automatisation de la saisie de commandes consiste à utiliser des technologies d&apos;extraction de données (OCR et IA) pour lire automatiquement les documents reçus, identifier les informations pertinentes et les injecter dans l&apos;ERP sans intervention humaine. Le processus complet — de la réception de l&apos;email à l&apos;enregistrement dans l&apos;ERP — prend quelques minutes au lieu de plusieurs heures.</p>
+
+<p>Concrètement, voici ce qui se passe : l&apos;email arrive dans une boîte dédiée, le système détecte la pièce jointe (PDF ou Excel), extrait les données structurées (client, références, quantités, prix), les vérifie par rapport à votre base articles et vos conditions commerciales, et crée la commande dans l&apos;ERP. Si une anomalie est détectée — référence inconnue, quantité inhabituelle, prix incohérent — le système alerte un opérateur humain qui traite uniquement les cas problématiques.</p>
+
+<h2>Les technologies utilisées</h2>
+
+<h3>OCR et extraction intelligente</h3>
+
+<p>L&apos;OCR (Optical Character Recognition) est la brique de base : elle transforme un document scanné ou un PDF en texte exploitable. Mais l&apos;OCR seule ne suffit pas. Les commandes clients n&apos;ont pas toutes le même format : chaque client utilise son propre modèle de bon de commande. C&apos;est là qu&apos;intervient l&apos;extraction intelligente, basée sur des modèles d&apos;IA capables de comprendre la structure d&apos;un document et d&apos;identifier les champs pertinents même si leur position varie d&apos;un format à l&apos;autre.</p>
+
+<h3>Intégration ERP : Sage, Cegid, Dynamics et autres</h3>
+
+<p>La partie extraction n&apos;a de valeur que si les données atterrissent au bon endroit dans votre ERP. La connexion se fait via les API fournies par votre éditeur ERP (Sage, Cegid, Dynamics 365, Divalto, EBP) ou, quand l&apos;API n&apos;est pas disponible, par injection directe en base de données ou par fichier d&apos;échange. L&apos;intégration doit respecter les règles métier de votre ERP : conditions de paiement, codes articles, gestion des remises, etc. C&apos;est la partie qui demande le plus de travail de configuration, mais c&apos;est aussi celle qui garantit la fiabilité du résultat.</p>
+
+<h3>Validation et contrôle</h3>
+
+<p>Un bon système d&apos;automatisation n&apos;est pas un système aveugle. Il intègre des contrôles : vérification que la référence article existe, que le prix correspond aux conditions négociées, que la quantité est cohérente avec l&apos;historique de commande du client. Ces contrôles permettent de détecter les erreurs dans les documents sources (erreur du client) autant que les erreurs d&apos;extraction, et d&apos;alerter un opérateur uniquement quand une intervention humaine est nécessaire.</p>
+
+<h2>Calcul du ROI : est-ce rentable pour votre volume ?</h2>
+
+<p>L&apos;automatisation de la saisie de commandes est rentable dès que vous traitez plus de 10 commandes par jour de manière régulière. Voici un calcul simplifié pour une PME agroalimentaire traitant 30 commandes par jour.</p>
+
+<ul>
+<li><strong>Temps de saisie actuel :</strong> 30 commandes x 10 minutes = 5 heures/jour = 1 100 heures/an</li>
+<li><strong>Coût de la saisie manuelle :</strong> 1 100 heures x 25 €/h chargé = 27 500 €/an</li>
+<li><strong>Coût des erreurs :</strong> 1 erreur/jour x 220 jours x 50 € de coût moyen (litige, retour, correction) = 11 000 €/an</li>
+<li><strong>Coût total du processus manuel :</strong> environ 38 500 €/an</li>
+<li><strong>Coût de la solution automatisée :</strong> entre 8 000 et 15 000 € de mise en place + 200 à 500 €/mois de maintenance</li>
+</ul>
+
+<p>Le retour sur investissement est atteint en 4 à 8 mois selon la complexité de vos flux. C&apos;est d&apos;ailleurs ce que nous avons constaté chez un client agroalimentaire dans le Morbihan, qui a éliminé 80% de ses saisies manuelles et réduit à zéro les erreurs de saisie en six semaines de mise en place.</p>
+
+<h2>Les étapes de mise en place</h2>
+
+<h3>Phase 1 : Audit des flux (1 semaine)</h3>
+
+<p>On commence par analyser vos flux de commandes entrants : combien de commandes par jour, combien de formats différents, quels clients représentent quel volume. Cette phase permet d&apos;identifier les « quick wins » — les formats de commandes les plus courants qui représentent le plus gros volume — et de définir le périmètre de la première itération.</p>
+
+<h3>Phase 2 : Développement et configuration (3-4 semaines)</h3>
+
+<p>On configure l&apos;extraction OCR pour vos formats de commandes les plus courants, on met en place les règles de validation métier, et on développe le connecteur vers votre ERP. Cette phase inclut des tests sur des commandes réelles pour valider la fiabilité de l&apos;extraction.</p>
+
+<h3>Phase 3 : Test en parallèle (1-2 semaines)</h3>
+
+<p>Le système fonctionne en parallèle de la saisie manuelle : il traite les commandes automatiquement, et un opérateur vérifie que le résultat correspond à ce qu&apos;il aurait saisi manuellement. Cette phase permet de corriger les derniers cas particuliers et de construire la confiance de l&apos;équipe dans le système.</p>
+
+<h3>Phase 4 : Mise en production et formation (1 semaine)</h3>
+
+<p>Le système passe en production. L&apos;équipe ADV est formée sur le nouveau processus : comment superviser le traitement automatique, comment traiter les cas rejetés, comment ajouter un nouveau format de commande. La saisie manuelle est progressivement abandonnée.</p>
+
+<h2>Ce que l&apos;automatisation ne fait pas</h2>
+
+<p>Soyons clairs sur les limites. L&apos;automatisation ne remplace pas l&apos;intelligence humaine pour les cas complexes : une commande avec des conditions spéciales, un nouveau client dont les références ne sont pas encore dans votre base, une demande atypique. Le rôle de l&apos;équipe ADV évolue : au lieu de passer son temps sur de la saisie répétitive, elle se concentre sur la relation client, le traitement des cas complexes et le suivi commercial. C&apos;est un gain de valeur pour les personnes autant que pour l&apos;entreprise.</p>
+`,
+  },
+  {
+    slug: 'tableau-de-bord-production-kpi',
+    title: 'Tableau de bord production : les 5 KPI essentiels pour une PME industrielle',
+    description:
+      'Les 5 indicateurs de production incontournables pour piloter votre PME industrielle : TRS, taux de rebut, délai, coût et taux de service. Méthode et outils.',
+    date: '2026-02-25',
+    readTime: '10 min',
+    tags: ['KPI', 'Production', 'PME industrielle', 'Tableau de bord'],
+    content: `
+<h2>Pourquoi un tableau de bord production est devenu indispensable</h2>
+
+<p>Dans une PME industrielle, la production est le coeur de la valeur ajoutée. Pourtant, beaucoup de dirigeants et responsables de production pilotent encore leur atelier avec des informations fragmentées : un fichier Excel ici, un rapport papier là, des chiffres compilés manuellement en fin de semaine. Le résultat est prévisible : les problèmes sont découverts trop tard, les décisions sont prises sur des intuitions plutôt que sur des faits, et les améliorations sont difficiles à mesurer.</p>
+
+<p>Un tableau de bord production bien construit change la donne. Il donne une vision en temps réel de ce qui se passe dans l&apos;atelier, permet de détecter les dérives dès qu&apos;elles apparaissent et fournit une base factuelle pour les décisions d&apos;amélioration continue. Mais attention : l&apos;erreur la plus fréquente est de vouloir tout mesurer. Un bon tableau de bord de production contient 5 à 7 indicateurs clés, pas 30. Voici les cinq indicateurs que nous recommandons systématiquement aux PME industrielles que nous accompagnons.</p>
+
+<h2>KPI n°1 : Le TRS (Taux de Rendement Synthétique)</h2>
+
+<p>Le TRS est l&apos;indicateur roi de la performance industrielle. Il mesure le rapport entre le temps de production effectif et le temps théorique maximal, en intégrant trois dimensions : la disponibilité (arrêts planifiés et non planifiés), la performance (ralentissements et micro-arrêts) et la qualité (pièces conformes vs pièces produites).</p>
+
+<p>Un TRS de 85% est considéré comme excellent dans l&apos;industrie (c&apos;est le benchmark « World Class Manufacturing »). En pratique, beaucoup de PME sont entre 50% et 70%, ce qui signifie qu&apos;il y a une marge de progression significative. L&apos;intérêt du TRS n&apos;est pas d&apos;avoir un chiffre global, mais de pouvoir le décomposer : si votre TRS est bas parce que la disponibilité est mauvaise (beaucoup de pannes), la réponse est différente que s&apos;il est bas parce que la qualité est insuffisante (beaucoup de rebuts).</p>
+
+<h3>Comment le mesurer</h3>
+
+<p>Dans l&apos;idéal, le TRS est calculé automatiquement à partir des données machines (temps de cycle, arrêts, compteurs de pièces). Si vos machines ne sont pas connectées, vous pouvez commencer par une saisie manuelle sur tablette en atelier, avec un relevé des arrêts et de leurs causes. C&apos;est moins précis mais c&apos;est un bon point de départ. L&apos;important est d&apos;avoir une mesure régulière et fiable, même imparfaite, plutôt que pas de mesure du tout.</p>
+
+<h2>KPI n°2 : Le taux de rebut</h2>
+
+<p>Le taux de rebut mesure le pourcentage de pièces non conformes par rapport au total produit. C&apos;est un indicateur direct de la qualité de votre processus de production et du coût de la non-qualité. Chaque pièce rebutée représente de la matière première gaspillée, du temps machine perdu et du temps humain consommé pour rien.</p>
+
+<p>Le suivi du taux de rebut devient réellement utile quand il est détaillé par machine, par produit et par période. Un taux de rebut global de 3% masque peut-être une machine à 8% et trois machines à 1%. C&apos;est la granularité de l&apos;analyse qui permet d&apos;identifier les causes racines et de cibler les actions d&apos;amélioration.</p>
+
+<h3>Les bonnes pratiques</h3>
+
+<p>Affichez le taux de rebut en temps réel dans l&apos;atelier, pas seulement dans le bureau du responsable qualité. Les opérateurs doivent voir l&apos;impact de leur travail. Mettez en place des alertes quand le taux dépasse un seuil défini — par exemple, si le taux de rebut d&apos;une machine dépasse 5% sur les deux dernières heures, une alerte est envoyée au régleur. Cette réactivité permet d&apos;intervenir avant qu&apos;un problème ponctuel ne devienne une série entière de pièces non conformes.</p>
+
+<h2>KPI n°3 : Le délai de livraison (lead time)</h2>
+
+<p>Le délai de livraison mesure le temps écoulé entre la réception de la commande et la livraison au client. C&apos;est un indicateur crucial pour la satisfaction client et pour votre compétitivité commerciale. Dans un marché où les clients attendent des délais de plus en plus courts, maîtriser son lead time est un avantage concurrentiel réel.</p>
+
+<p>Le lead time global se décompose en plusieurs sous-délais : délai d&apos;approvisionnement matière, délai de planification, délai de production effectif, délai d&apos;expédition. Visualiser chaque étape permet d&apos;identifier les goulets d&apos;étranglement. Souvent, le délai le plus long n&apos;est pas la production elle-même mais l&apos;attente entre les étapes : attente de matière, attente de disponibilité machine, attente de contrôle qualité.</p>
+
+<h3>Mesurer et visualiser</h3>
+
+<p>Connectez votre ERP à votre tableau de bord pour suivre automatiquement les dates clés de chaque commande : date de réception, date de lancement en production, date de fin de production, date d&apos;expédition. Affichez un indicateur de type « commandes en retard » et « commandes à risque » (celles dont le délai restant est inférieur au temps de production estimé). Un dirigeant industriel qui voit ses commandes en retard augmenter peut réagir avant que la situation ne devienne critique.</p>
+
+<h2>KPI n°4 : Le coût de production unitaire</h2>
+
+<p>Le coût de production unitaire est la somme de tous les coûts engagés pour produire une unité : matière première, temps machine, main-d&apos;oeuvre directe, énergie, consommables. C&apos;est l&apos;indicateur qui fait le lien entre la production et la rentabilité. Sans cette visibilité, vous ne savez pas si un produit est réellement rentable au prix auquel vous le vendez.</p>
+
+<p>Le calcul du coût de production unitaire nécessite de croiser des données provenant de plusieurs sources : l&apos;ERP pour les coûts matière et les temps gamme, la production pour les temps réels et les quantités, la comptabilité pour les coûts indirects. C&apos;est un indicateur plus complexe à mettre en place que le TRS ou le taux de rebut, mais sa valeur est considérable pour les décisions de pricing, de make-or-buy et d&apos;investissement.</p>
+
+<h3>Commencer simplement</h3>
+
+<p>Si vous n&apos;avez pas encore de suivi du coût de production, commencez par les coûts directs : matière et main-d&apos;oeuvre. C&apos;est déjà une information précieuse. Vous pourrez affiner en intégrant les coûts indirects (énergie, amortissement machines, maintenance) dans un second temps. L&apos;important est d&apos;avoir une première estimation fiable plutôt qu&apos;un calcul théorique complexe que personne ne comprend.</p>
+
+<h2>KPI n°5 : Le taux de service client</h2>
+
+<p>Le taux de service mesure le pourcentage de commandes livrées complètes et dans les délais par rapport au total des commandes. C&apos;est l&apos;indicateur que vos clients utilisent pour vous évaluer, explicitement ou non. Un taux de service de 95% signifie que sur 100 commandes, 5 n&apos;arrivent pas dans les conditions prévues. Pour un client qui commande chaque semaine, cela fait une déception par mois.</p>
+
+<p>Le taux de service est un indicateur de résultat : il reflète la performance globale de votre chaîne, de l&apos;approvisionnement à l&apos;expédition. Quand il se dégrade, il faut investiguer en utilisant les autres KPIs pour comprendre d&apos;où vient le problème : la production est-elle en retard ? Les stocks de matière sont-ils insuffisants ? Le contrôle qualité bloque-t-il des lots entiers ?</p>
+
+<h2>Quel outil utiliser</h2>
+
+<p>Pour une PME industrielle, deux options se détachent. Power BI est le choix naturel si vous êtes dans un environnement Microsoft (Microsoft 365, Dynamics). Il offre des capacités de visualisation avancées et une bonne intégration avec les outils que vos équipes utilisent déjà. Metabase est une alternative open source solide, auto-hébergeable, avec une interface plus simple qui convient bien aux équipes moins techniques.</p>
+
+<p>Dans les deux cas, la clé du succès n&apos;est pas l&apos;outil mais la qualité des données en entrée et la pertinence des indicateurs choisis. Un tableau de bord avec cinq indicateurs bien calculés sur des données fiables sera toujours plus utile qu&apos;un outil sophistiqué branché sur des données incohérentes.</p>
+
+<h2>Les erreurs classiques à éviter</h2>
+
+<ul>
+<li><strong>Mesurer sans agir.</strong> Un KPI qui n&apos;est pas suivi d&apos;actions concrètes est inutile. Pour chaque indicateur, définissez des seuils d&apos;alerte et des actions associées.</li>
+<li><strong>Multiplier les indicateurs.</strong> Cinq KPIs bien suivis valent mieux que vingt indicateurs que personne ne regarde. Résistez à la tentation d&apos;ajouter un indicateur à chaque demande.</li>
+<li><strong>Négliger la fiabilité des données.</strong> Si les opérateurs ne saisissent pas correctement les arrêts machine ou les rebuts, vos KPIs seront faux et personne ne leur fera confiance.</li>
+<li><strong>Garder le tableau de bord dans le bureau de la direction.</strong> Les KPIs de production doivent être visibles dans l&apos;atelier. C&apos;est la transparence qui crée l&apos;engagement des équipes.</li>
+</ul>
+
+<p>Chez balise-ia, nous accompagnons les PME industrielles bretonnes dans la mise en place de leurs tableaux de bord production, de la définition des KPIs à la formation des équipes. L&apos;objectif est que vous soyez autonomes au quotidien et que le tableau de bord devienne un outil de pilotage utilisé chaque jour, pas un gadget abandonné après quelques semaines.</p>
+`,
+  },
+  {
+    slug: 'consultant-data-bretagne',
+    title: 'Consultant data en Bretagne : quand et pourquoi faire appel à un expert',
+    description:
+      'Quand faire appel à un consultant data en Bretagne ? Signaux d&apos;alerte, différences ESN/freelance/collectif, fourchettes de coûts et critères pour choisir le bon prestataire.',
+    date: '2026-02-18',
+    readTime: '9 min',
+    tags: ['Consultant data', 'Bretagne', 'PME', 'Conseil'],
+    content: `
+<h2>Les signaux qui indiquent que vous avez besoin d&apos;un consultant data</h2>
+
+<p>Vous n&apos;avez pas besoin d&apos;un consultant data pour chaque problème lié aux données. Mais certains signaux doivent vous alerter. Si votre CODIR passe plus de temps à discuter de la fiabilité des chiffres qu&apos;à prendre des décisions, si vos équipes passent des heures à compiler des données manuellement chaque semaine, si vous sentez que vos données contiennent de la valeur mais que vous ne savez pas comment l&apos;exploiter — alors il est probablement temps de faire appel à un expert.</p>
+
+<p>Voici les situations les plus courantes que nous rencontrons chez les PME bretonnes : un ERP sous-utilisé dont on n&apos;exploite que 20% des fonctionnalités, des fichiers Excel qui se multiplient pour pallier les limites de l&apos;ERP, un besoin de tableaux de bord fiables pour le pilotage, une volonté d&apos;automatiser des processus répétitifs (saisie de commandes, reporting, contrôle qualité), ou encore un projet de conformité ou de traçabilité qui nécessite une refonte de la gestion des données.</p>
+
+<h2>Ce que fait réellement un consultant data (et ce qu&apos;il ne fait pas)</h2>
+
+<h3>Ce qu&apos;il fait</h3>
+
+<p>Un consultant data analyse votre situation existante, identifie les opportunités d&apos;amélioration concrètes et met en place les solutions techniques adaptées. Son travail couvre généralement plusieurs dimensions : audit de vos flux de données et de vos outils, conception et mise en place de tableaux de bord, développement de scripts d&apos;automatisation, formation de vos équipes aux outils déployés. Il apporte un regard extérieur et une expertise technique que vous n&apos;avez pas en interne.</p>
+
+<p>Un bon consultant data commence toujours par comprendre votre métier et vos enjeux business avant de parler technologie. Si quelqu&apos;un vous propose un projet Power BI sans avoir compris vos processus de décision, c&apos;est un signal d&apos;alarme. La technologie est un moyen, pas une fin. L&apos;objectif est de résoudre un problème concret et mesurable : réduire le temps de reporting, éliminer les erreurs de saisie, donner une visibilité sur la rentabilité par client.</p>
+
+<h3>Ce qu&apos;il ne fait pas</h3>
+
+<p>Un consultant data n&apos;est pas un informaticien généraliste. Il ne remplace pas votre prestataire informatique pour la gestion de votre réseau, de vos postes de travail ou de votre ERP. Il n&apos;est pas non plus un développeur web ou un expert cybersécurité. Son domaine, c&apos;est la donnée : comment la collecter, la structurer, la fiabiliser, la visualiser et l&apos;exploiter pour prendre de meilleures décisions. Si votre besoin sort de ce périmètre, un bon consultant vous le dira et vous orientera vers le bon interlocuteur.</p>
+
+<h2>ESN, freelance ou collectif : comment choisir</h2>
+
+<h3>Les ESN (Entreprises de Services du Numérique)</h3>
+
+<p>Les grandes ESN (Capgemini, Sopra Steria, Accenture) ont des pôles data et IA bien structurés. Leur force est la capacité à mobiliser des équipes importantes sur des projets de grande envergure. Leur limite pour les PME : les tarifs sont élevés (800 à 1 500 €/jour), les équipes sont souvent composées de profils juniors supervisés par un senior, et la proximité terrain est faible. Les PME bretonnes de 30 à 200 salariés sont rarement la cible prioritaire de ces structures.</p>
+
+<h3>Les freelances</h3>
+
+<p>Les consultants data indépendants offrent souplesse et tarifs compétitifs (400 à 800 €/jour). L&apos;avantage est le contact direct avec la personne qui fait le travail. Les limites sont la dépendance à une seule personne (risque en cas d&apos;indisponibilité), le périmètre de compétences plus restreint (un freelance est rarement expert en data engineering ET en IA ET en dataviz), et parfois un manque de recul sur les enjeux business.</p>
+
+<h3>Les collectifs spécialisés</h3>
+
+<p>Un collectif comme balise-ia combine les avantages des deux modèles : des profils seniors qui interviennent directement (pas de juniors envoyés sur le terrain), un interlocuteur unique pour le pilotage du projet, et la capacité à mobiliser des compétences complémentaires selon les besoins. Les tarifs sont intermédiaires (500 à 900 €/jour) et la proximité géographique permet des interventions sur site régulières — un facteur important quand on travaille avec des équipes terrain dans l&apos;industrie.</p>
+
+<h2>Les fourchettes de coûts à connaître</h2>
+
+<p>Voici les ordres de grandeur pour les projets data les plus courants en PME.</p>
+
+<ul>
+<li><strong>Audit et diagnostic data :</strong> 2 000 à 5 000 € HT. Durée : 1 à 2 semaines. Livrable : cartographie de vos données, identification des opportunités, recommandations priorisées.</li>
+<li><strong>Tableau de bord / dataviz :</strong> 5 000 à 15 000 € HT selon la complexité et le nombre de sources. Durée : 2 à 6 semaines. Livrable : dashboard opérationnel, documentation, formation.</li>
+<li><strong>Automatisation de processus :</strong> 5 000 à 20 000 € HT selon la complexité. Durée : 3 à 8 semaines. Livrable : solution en production, documentation technique, formation.</li>
+<li><strong>Accompagnement mensuel :</strong> 800 à 3 200 € HT/mois. Pour un suivi régulier, de la maintenance évolutive et du support.</li>
+</ul>
+
+<p>Méfiez-vous des devis trop bas qui cachent des coûts supplémentaires en cours de projet, et des devis trop élevés qui ne sont pas proportionnés à la taille de votre structure. Un bon prestataire vous propose une première phase courte (audit ou prototype) qui permet de valider l&apos;approche avant de s&apos;engager sur un projet plus important.</p>
+
+<h2>Comment évaluer la qualité d&apos;un consultant data</h2>
+
+<h3>Les questions à poser</h3>
+
+<ul>
+<li><strong>Avez-vous des références dans mon secteur ?</strong> Un consultant qui a déjà travaillé avec des PME industrielles comprendra vos enjeux plus vite qu&apos;un spécialiste du e-commerce.</li>
+<li><strong>Qui va réellement travailler sur mon projet ?</strong> Assurez-vous que c&apos;est la personne que vous avez rencontrée en avant-vente, pas un junior que vous découvrirez le jour J.</li>
+<li><strong>Comment gérez-vous la formation et l&apos;autonomie ?</strong> Un bon prestataire vous rend autonome. Si la documentation et la formation ne font pas partie du livrable, c&apos;est un signal d&apos;alarme.</li>
+<li><strong>Quel est votre mode de facturation ?</strong> Au forfait, au temps passé, ou mixte ? Chaque modèle a ses avantages selon le type de projet.</li>
+</ul>
+
+<h3>Les signaux d&apos;alarme</h3>
+
+<p>Méfiez-vous d&apos;un consultant qui parle beaucoup de technologie et peu de votre métier, qui propose une solution avant d&apos;avoir compris votre problème, qui ne prévoit pas de phase de validation ou de test, ou qui ne mentionne jamais la formation de vos équipes. Un projet data réussi est un projet où l&apos;entreprise est autonome après le départ du consultant, pas un projet qui crée une dépendance technique.</p>
+
+<h2>Pourquoi la proximité géographique compte</h2>
+
+<p>Dans le monde du consulting data, beaucoup de missions se font à distance. Et c&apos;est vrai qu&apos;une grande partie du travail technique — développement, configuration, tests — peut se faire sans être sur place. Mais pour une PME industrielle, la proximité géographique apporte une valeur réelle.</p>
+
+<p>D&apos;abord, pour comprendre le terrain. Un consultant qui visite votre atelier, qui voit comment vos opérateurs travaillent, qui comprend la réalité de vos processus, fera un meilleur travail qu&apos;un intervenant qui travaille uniquement sur les données sans connaître le contexte physique. Ensuite, pour la formation : former des opérateurs sur un nouveau tableau de bord est beaucoup plus efficace en présentiel qu&apos;en visio. Enfin, pour la confiance : dans les PME, la relation humaine est un facteur clé de réussite des projets.</p>
+
+<p>C&apos;est pour cette raison que chez balise-ia, basés à Lorient, nous intervenons systématiquement sur site pour les phases clés : audit initial, ateliers de conception, formation des équipes. Les phases de développement technique se font à distance, mais la relation reste ancrée dans la proximité. Nos interventions couvrent toute la Bretagne, de Brest à Rennes en passant par Vannes, Quimper et Saint-Brieuc.</p>
+`,
+  },
+  {
+    slug: 'erp-excel-comment-en-sortir',
+    title: 'ERP + Excel : comment en sortir sans tout casser',
+    description:
+      'Votre ERP cohabite avec des dizaines de fichiers Excel ? Approche pragmatique pour réduire la dépendance à Excel, centraliser vos données et fiabiliser votre pilotage.',
+    date: '2026-02-10',
+    readTime: '8 min',
+    tags: ['ERP', 'Excel', 'Centralisation', 'PME'],
+    content: `
+<h2>Pourquoi Excel persiste à côté de l&apos;ERP</h2>
+
+<p>Votre entreprise a investi des dizaines de milliers d&apos;euros dans un ERP — Sage, Cegid, Divalto, EBP ou un autre — et pourtant, vos équipes continuent de travailler avec des fichiers Excel pour piloter leur activité au quotidien. Ce n&apos;est pas un échec de l&apos;ERP ni un manque de discipline de vos collaborateurs. C&apos;est la conséquence naturelle d&apos;un décalage entre ce que l&apos;ERP offre et ce dont les métiers ont besoin.</p>
+
+<p>Les raisons sont presque toujours les mêmes. L&apos;ERP a été configuré pour la comptabilité et la facturation, mais pas pour le pilotage opérationnel. Les reporting natifs de l&apos;ERP sont rigides et ne répondent pas aux questions que se posent les responsables. Certains processus métier n&apos;ont tout simplement pas été intégrés dans l&apos;ERP lors du déploiement initial. Et Excel est un outil que tout le monde maîtrise, flexible, immédiatement disponible, qui ne nécessite aucune demande à l&apos;informatique pour être modifié.</p>
+
+<h2>Les vrais risques de la situation actuelle</h2>
+
+<p>Le problème n&apos;est pas qu&apos;Excel existe à côté de l&apos;ERP. Le problème survient quand Excel devient le système de référence pour des données critiques, quand des décisions importantes sont prises sur la base de fichiers dont personne ne peut garantir la fiabilité.</p>
+
+<h3>Le risque de données contradictoires</h3>
+
+<p>Quand les mêmes données existent dans l&apos;ERP et dans un fichier Excel, elles finissent toujours par diverger. Le stock dans l&apos;ERP ne correspond plus au fichier de suivi du magasinier. Le chiffre d&apos;affaires par client dans le fichier du directeur commercial ne correspond plus à celui de la comptabilité. Et le CODIR passe son temps à débattre de quel chiffre est le bon au lieu de prendre des décisions.</p>
+
+<h3>Le risque de perte de données</h3>
+
+<p>Un fichier Excel sur un poste de travail ou sur un serveur partagé n&apos;a pas de traçabilité, pas de sauvegarde systématique, pas de contrôle de version. Un fichier supprimé par erreur, un format corrompu, un collaborateur qui quitte l&apos;entreprise en emportant ses fichiers sur sa clé USB : autant de scénarios courants qui peuvent avoir des conséquences sérieuses.</p>
+
+<h3>Le risque de dépendance aux personnes</h3>
+
+<p>Derrière chaque fichier Excel critique, il y a une personne qui sait comment il fonctionne. Les formules complexes, les macros VBA, les liens entre fichiers : cette connaissance est rarement documentée. Quand cette personne part en vacances, en arrêt maladie ou quitte l&apos;entreprise, le fichier devient une boîte noire que personne n&apos;ose toucher.</p>
+
+<h2>L&apos;approche pragmatique : ne pas tout remplacer d&apos;un coup</h2>
+
+<p>La tentation naturelle quand on constate cette situation est de vouloir tout centraliser dans l&apos;ERP. C&apos;est rarement la bonne approche. Re-paramétrer l&apos;ERP pour couvrir tous les besoins métier est un projet long, coûteux et risqué. Et même après ce travail, l&apos;ERP ne sera jamais aussi flexible qu&apos;Excel pour les analyses ponctuelles.</p>
+
+<p>L&apos;approche que nous recommandons chez balise-ia est progressive et pragmatique. Elle consiste à identifier les fichiers Excel critiques, à comprendre pourquoi ils existent, et à mettre en place des solutions ciblées pour chacun — sans nécessairement remplacer l&apos;ERP.</p>
+
+<h3>Étape 1 : Cartographier les fichiers Excel critiques</h3>
+
+<p>Faites l&apos;inventaire des fichiers Excel qui sont utilisés régulièrement pour des décisions ou des processus importants. Pour chaque fichier, notez : qui l&apos;utilise, à quelle fréquence, quelles données il contient, d&apos;où viennent ces données, et pourquoi ces données ne sont pas dans l&apos;ERP. Cette cartographie prend généralement une à deux journées et donne une vision claire de la situation.</p>
+
+<h3>Étape 2 : Classer par niveau de risque</h3>
+
+<p>Tous les fichiers Excel ne présentent pas le même niveau de risque. Un fichier de suivi de projet utilisé par une seule personne est moins critique qu&apos;un fichier de calcul de prix de revient qui sert à établir les devis. Classez vos fichiers en trois catégories : risque élevé (données financières, données client, données de production), risque moyen (reporting, planification) et risque faible (analyses ponctuelles, documents de travail).</p>
+
+<h3>Étape 3 : Traiter les fichiers à haut risque en priorité</h3>
+
+<p>Pour chaque fichier à haut risque, trois options s&apos;offrent à vous.</p>
+
+<ul>
+<li><strong>Intégrer dans l&apos;ERP :</strong> si le besoin correspond à une fonctionnalité standard de l&apos;ERP qui n&apos;a pas été activée. C&apos;est le cas typique du suivi de production ou de la gestion des stocks avancée.</li>
+<li><strong>Automatiser l&apos;alimentation :</strong> si le fichier Excel compile des données provenant de l&apos;ERP et d&apos;autres sources. Dans ce cas, on automatise l&apos;extraction et la consolidation des données, et on remplace le fichier par un tableau de bord connecté (Power BI, Metabase).</li>
+<li><strong>Créer une application dédiée :</strong> si le besoin est trop spécifique pour l&apos;ERP. Une application simple de saisie et de suivi, connectée à l&apos;ERP, peut remplacer un fichier Excel complexe tout en apportant traçabilité, contrôle d&apos;accès et sauvegarde.</li>
+</ul>
+
+<h2>Les quick wins : ce que vous pouvez faire en une semaine</h2>
+
+<h3>Automatiser les exports ERP</h3>
+
+<p>La majorité des ERP permettent de planifier des exports automatiques de données. Au lieu que vos collaborateurs exportent manuellement les données de l&apos;ERP vers Excel chaque semaine, configurez un export automatique qui dépose les fichiers dans un dossier partagé ou qui alimente directement un outil de dataviz. Ce simple changement élimine le travail de copier-coller et garantit que les données sont toujours à jour.</p>
+
+<h3>Protéger les fichiers critiques</h3>
+
+<p>En attendant de remplacer les fichiers Excel critiques, sécurisez-les : activez la protection des cellules qui contiennent des formules, mettez en place un système de versioning (SharePoint, OneDrive ou simple copie datée), et documentez les formules clés et les sources de données. Ce n&apos;est pas une solution définitive, mais cela réduit significativement le risque à court terme.</p>
+
+<h3>Créer un premier tableau de bord connecté</h3>
+
+<p>Identifiez le fichier Excel le plus consulté en CODIR et remplacez-le par un tableau de bord Power BI ou Metabase connecté directement aux sources de données. Ce premier tableau de bord sert de preuve de concept : il montre à vos équipes ce que l&apos;automatisation permet et crée l&apos;appétit pour aller plus loin.</p>
+
+<h2>Ce qu&apos;il ne faut pas faire</h2>
+
+<ul>
+<li><strong>Interdire Excel du jour au lendemain.</strong> C&apos;est la meilleure façon de braquer vos équipes et de créer des contournements encore pires. L&apos;objectif est de rendre Excel inutile pour les usages critiques, pas de l&apos;interdire.</li>
+<li><strong>Lancer un projet de « refonte ERP » massif.</strong> Ces projets durent des mois, coûtent cher et ne résolvent pas toujours le problème de fond. Préférez une approche incrémentale avec des résultats visibles à chaque étape.</li>
+<li><strong>Sous-estimer l&apos;accompagnement humain.</strong> Les fichiers Excel sont le reflet des habitudes de travail de vos équipes. Changer ces habitudes demande de la formation, de l&apos;écoute et de la patience. La dimension humaine est au moins aussi importante que la dimension technique.</li>
+<li><strong>Négliger la formation.</strong> Un nouvel outil que personne ne sait utiliser sera abandonné en quelques semaines au profit du bon vieux fichier Excel. Prévoyez du temps de formation et un accompagnement post-déploiement.</li>
+</ul>
+
+<h2>Un plan d&apos;action réaliste</h2>
+
+<p>Si vous voulez réduire votre dépendance à Excel sans bouleverser votre organisation, voici un plan sur 3 mois qui fonctionne pour la plupart des PME.</p>
+
+<ul>
+<li><strong>Mois 1 :</strong> Cartographie des fichiers Excel critiques + diagnostic des sources de données + choix du premier cas d&apos;usage à traiter.</li>
+<li><strong>Mois 2 :</strong> Mise en place du premier tableau de bord automatisé qui remplace le fichier Excel le plus critique + automatisation des exports ERP.</li>
+<li><strong>Mois 3 :</strong> Formation des équipes + traitement du deuxième cas d&apos;usage + mise en place du suivi de la démarche.</li>
+</ul>
+
+<p>Ce plan est volontairement modeste. L&apos;objectif n&apos;est pas de résoudre tous les problèmes en trois mois, mais de créer une dynamique vertueuse : chaque amélioration apporte de la valeur visible et crée l&apos;envie d&apos;aller plus loin. Chez balise-ia, nous accompagnons les PME bretonnes dans cette démarche progressive, avec un interlocuteur unique et des interventions sur site pour les phases clés.</p>
+`,
+  },
+];

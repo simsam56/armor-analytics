@@ -4,6 +4,7 @@ import { Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { Header, Footer } from '@/components/layout';
 import { StickyCta } from '@/components/ui/sticky-cta';
+import { CookieBanner } from '@/components/ui/cookie-banner';
 import { GoogleAnalytics, GoogleTagManager } from '@/components/Analytics';
 import { SITE_CONFIG } from '@/lib/constants';
 import './globals.css';
@@ -108,6 +109,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <StickyCta />
+        <CookieBanner />
         <Analytics />
         <GoogleAnalytics />
         <GoogleTagManager />

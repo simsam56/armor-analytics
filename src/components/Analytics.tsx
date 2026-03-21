@@ -22,11 +22,20 @@ export function GoogleAnalytics() {
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+          });
           gtag('js', new Date());
           gtag('config', '${GA_ID}', {
             page_title: document.title,
             send_page_view: true,
           });
+          // Auto-grant if user already accepted
+          try {
+            if (localStorage.getItem('balise-ia-cookie-consent') === 'accepted') {
+              gtag('consent', 'update', { analytics_storage: 'granted' });
+            }
+          } catch(e) {}
         `}
       </Script>
     </>

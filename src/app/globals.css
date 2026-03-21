@@ -164,3 +164,40 @@
 .animate-marquee {
   animation: marquee 20s linear infinite;
 }
+
+/* Blog article prose styles */
+.article-prose h2 {
+  @apply text-2xl font-bold text-slate-900 mt-12 mb-4 leading-tight;
+}
+
+.article-prose h3 {
+  @apply text-xl font-semibold text-slate-900 mt-8 mb-3 leading-tight;
+}
+
+.article-prose p {
+  @apply text-base text-slate-700 leading-relaxed mb-5;
+}
+
+.article-prose ul {
+  @apply my-6 space-y-2 pl-6 list-disc;
+}
+
+.article-prose li {
+  @apply text-base text-slate-700 leading-relaxed;
+}
+
+.article-prose strong {
+  @apply font-semibold text-slate-900;
+}
+
+.article-prose em {
+  @apply italic;
+}
+
+.article-prose a {
+  @apply text-breton-emerald font-medium hover:underline;
+}
+
+.article-prose > *:first-child {
+  margin-top: 0;
+}
