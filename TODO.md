@@ -38,19 +38,19 @@ Voir historique git pour le détail.
 ### Prérequis immédiats (Simon, hors code)
 - [ ] Créer Google Search Console + soumettre sitemap
 - [ ] Créer Google Business Profile Lorient (photos, services, horaires)
-- [ ] Configurer GA4 (créer propriété, mettre NEXT_PUBLIC_GA_ID sur Vercel)
+- [x] Configurer GA4 — G-FEZEF30YF9 actif en production
 - [ ] Inscription Sortlist, Malt, annuaires bretons
 
 ### Blog / contenu éditorial
-- [ ] Créer route /blog avec listing articles
-- [ ] Rédiger 5 premiers articles ciblés :
-  - "Power BI pour PME industrielle : par où commencer"
-  - "Comment automatiser la saisie de commandes dans votre ERP"
-  - "Tableau de bord production : les 5 KPI essentiels"
-  - "Consultant data Bretagne : quand et pourquoi faire appel à un expert"
-  - "ERP + Excel : comment en sortir sans tout casser"
+- [x] Route /blog avec listing articles
+- [x] 5 premiers articles SEO rédigés et publiés :
+  - /blog/power-bi-pme-industrielle
+  - /blog/automatiser-saisie-commandes-erp
+  - /blog/tableau-de-bord-production-kpi
+  - /blog/consultant-data-bretagne
+  - /blog/erp-excel-comment-en-sortir
 - [ ] Rédiger 5 articles supplémentaires (longue traîne)
-- [ ] Créer des landing pages SEO dédiées :
+- [x] Landing pages SEO dédiées :
   - /power-bi-bretagne
   - /automatisation-commandes-pme
   - /consultant-data-lorient
@@ -65,7 +65,7 @@ Voir historique git pour le détail.
 ## Phase 13 — Crédibilité & preuves sociales (à faire — priorité haute)
 
 - [ ] Obtenir 3-5 autorisations clients pour logos + citations nommées
-- [ ] Photos réelles équipe + terrain (remplacer stock/placeholders)
+- [x] Photos réelles équipe + terrain intégrées (simon, rémy, camille — portraits + action)
 - [ ] Vidéo témoignage client (même courte, smartphone)
 - [ ] Métriques vérifiées et sourcées (remplacer "10+ ans", "20+ projets")
 - [ ] Avis Google Business Profile (viser 5+ avis)
@@ -81,7 +81,7 @@ Voir historique git pour le détail.
 ## Phase 15 — Technique (à faire — priorité moyenne)
 
 - [ ] Security headers (CSP, X-Frame-Options, etc.) via next.config.ts
-- [ ] Cookie banner RGPD (si GA4 activé)
+- [x] Cookie banner RGPD — consent mode v2, denied par défaut
 - [ ] Microsoft Clarity (heatmaps gratuites)
 - [ ] LinkedIn Insight Tag (retargeting B2B)
 - [ ] Sentry monitoring erreurs
