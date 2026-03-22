@@ -36,7 +36,7 @@ Voir historique git pour le détail.
 ## Phase 12 — Acquisition SEO (à faire — priorité haute)
 
 ### Prérequis immédiats (Simon, hors code)
-- [ ] Créer Google Search Console + soumettre sitemap
+- [x] Créer Google Search Console + soumettre sitemap (fait, indexation en cours)
 - [ ] Créer Google Business Profile Lorient (photos, services, horaires)
 - [x] Configurer GA4 — G-FEZEF30YF9 actif en production
 - [ ] Inscription Sortlist, Malt, annuaires bretons

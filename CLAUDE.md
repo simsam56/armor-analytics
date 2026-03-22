@@ -29,7 +29,7 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 - **URL** : `https://balise-ia.fr`. Jamais `balisedata.fr`, `armor-analytics.fr`.
 - **Palette bretonne** (tokens Tailwind `breton-*`) : `navy` (#0C1F3F), `slate` (#2E4057), `emerald` (#1A6B4A), `moss` (#2D7A4F), `sand` (#E8E0D5), `granite` (#8B9AAB), `foam` (#F4F8F5), `accent` (#00B4D8 cyan). Utiliser les classes `breton-*` partout, jamais de hex bruts ni `blue-*`/`gray-*`.
 - **Typo** : Instrument Serif pour les H1, Geist Sans pour le body
-- **Logo** : phare "Clean Silhouette" V3 en navy + accent cyan — SVG inline dans `src/components/ui/logo.tsx`
+- **Logo** : phare V18 — cercle centré + faisceau horizontal breakout + bande cyan bold. SVG inline dans `src/components/ui/logo.tsx`. Texte : `balise` (navy/white) + `-ia` (accent cyan), font-weight 800.
 - **Ton** : concret, terrain, sobre, orienté ROI. Pas de jargon startup.
 
 ## Architecture
@@ -55,9 +55,10 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 ### Homepage — ordre des sections
 
 ```
-HeroV3 (local bar + titre) → ProofBlock (3 piliers) → ExpertisesBlock (3 compétences) →
-CTA Quiz (micro-conversion audit-ia) → Services (grille 2×2, 4 offres) → ResultsBlock (qualitatif) →
-Projects (4 cas clients compact) → Methodology (4 étapes) → About (incarnation + 3 piliers) →
+HeroV3 (local bar + titre) → LogoCarousel (11 logos clients) → ProofBlock (3 piliers) →
+ExpertisesBlock (3 compétences) → CTA Quiz (micro-conversion audit-ia) →
+Services (grille 2×2, 4 offres) → ResultsBlock (qualitatif) →
+Projects (4 cas clients compact) → Methodology (4 étapes) → About (incarnation + photo terrain) →
 FAQ (6 questions, accordéon simple) → CtaContact (CTA final)
 ```
 
@@ -74,13 +75,28 @@ Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll
 ### Redirections
 
 - `/projets` → 301 → `/cas-clients` (anti-cannibalisation SEO, configuré dans `next.config.ts`)
+- `balise-ia.fr` → 308 → `www.balise-ia.fr` (configuré dans Vercel Domains + `vercel.json`)
+
+### Blog
+
+- Route `/blog` avec listing + `/blog/[slug]` (SSG via `generateStaticParams`)
+- Articles stockés dans `src/data/blog-articles.ts` (metadata + contenu HTML)
+- JSON-LD Article schema par article
+- Prose styling via `.article-prose` dans `globals.css`
+
+### Landing pages SEO
+
+- `/power-bi-bretagne` — Power BI pour PME en Bretagne
+- `/automatisation-commandes-pme` — Automatisation commandes ERP
+- `/consultant-data-lorient` — Consultant data local
 
 ### Analytics
 
 - **Vercel Analytics** : toujours actif
-- **GA4** : activable via `NEXT_PUBLIC_GA_ID` (env var Vercel)
+- **GA4** : actif — `G-FEZEF30YF9` — consent mode v2 (denied par défaut)
 - **GTM** : activable via `NEXT_PUBLIC_GTM_ID` (env var Vercel)
-- Composant `src/components/Analytics.tsx` — rendu conditionnel si env var définie.
+- Composant `src/components/Analytics.tsx` — rendu conditionnel si env var définie
+- **Cookie banner RGPD** : `src/components/ui/cookie-banner.tsx` — accepter/refuser, localStorage
 
 ### API Routes
 
