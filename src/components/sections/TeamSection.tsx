@@ -52,19 +52,19 @@ function TeamCard({ member }: { member: TeamMember }) {
           src={member.photo}
           alt={member.name}
           fill
-          className="object-cover rounded-2xl ring-2 ring-breton-navy/10 group-hover:ring-breton-accent/30 transition-all duration-300"
+          className="object-cover rounded-2xl ring-2 ring-breton-navy/10 group-hover:ring-breton-copper/30 transition-all duration-300"
           sizes="(max-width: 640px) 144px, 176px"
         />
       </div>
       <h3 className="text-lg font-bold text-slate-900">{member.name}</h3>
-      <p className="text-sm font-medium text-breton-accent">{member.role}</p>
+      <p className="text-sm font-medium text-breton-copper">{member.role}</p>
       <p className="mt-2 text-sm text-slate-600 leading-relaxed max-w-xs mx-auto">{member.bio}</p>
       {member.linkedin && (
         <a
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 mt-3 text-xs text-slate-400 hover:text-breton-accent transition-colors"
+          className="inline-flex items-center gap-1.5 mt-3 text-xs text-slate-400 hover:text-breton-copper transition-colors"
         >
           <Linkedin className="h-3.5 w-3.5" />
           LinkedIn

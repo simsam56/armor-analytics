@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
 const BARS = [
-  { label: 'Saisie', before: 85, after: 15, color: '#00B4D8' },
+  { label: 'Saisie', before: 85, after: 15, color: '#9A5F3A' },
   { label: 'Erreurs', before: 60, after: 8, color: '#2D7A4F' },
   { label: 'Reporting', before: 70, after: 5, color: '#1A6B4A' },
 ];
@@ -44,7 +44,7 @@ export function DashboardMockup() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8 + i * 0.15, duration: 0.5 }}
             >
-              <p className="text-lg font-bold text-breton-accent">{kpi.value}</p>
+              <p className="text-lg font-bold text-breton-copper">{kpi.value}</p>
               <p className="text-[10px] text-white/50">{kpi.sub}</p>
             </motion.div>
           ))}
@@ -87,7 +87,7 @@ export function DashboardMockup() {
           <svg viewBox="0 0 200 40" className="w-full h-8" fill="none">
             <motion.path
               d="M0 35 C20 32 40 28 60 25 C80 22 100 20 120 15 C140 10 160 8 180 5 L200 3"
-              stroke="#00B4D8"
+              stroke="#9A5F3A"
               strokeWidth="2"
               strokeLinecap="round"
               initial={prefersReducedMotion ? {} : { pathLength: 0 }}
@@ -101,8 +101,8 @@ export function DashboardMockup() {
             />
             <defs>
               <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#00B4D8" />
-                <stop offset="100%" stopColor="#00B4D8" stopOpacity="0" />
+                <stop offset="0%" stopColor="#9A5F3A" />
+                <stop offset="100%" stopColor="#9A5F3A" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
