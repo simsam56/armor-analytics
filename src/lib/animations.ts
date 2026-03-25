@@ -74,3 +74,46 @@ export const fastStagger: Variants = {
     },
   },
 };
+
+// Apple-style scale-in (hero, cards)
+export const scaleInApple: Variants = {
+  hidden: { scale: 0.94, opacity: 0, y: 30 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+  },
+};
+
+// Stagger for section eyebrow → title → subtitle
+export const sectionStagger: Variants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0,
+    },
+  },
+};
+
+// Fast reveal for section children
+export const sectionChild: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: 'easeOut' },
+  },
+};
+
+// Card reveal with scale
+export const cardReveal: Variants = {
+  hidden: { scale: 0.95, opacity: 0, y: 20 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+  },
+};
