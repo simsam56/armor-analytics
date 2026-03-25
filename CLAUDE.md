@@ -26,8 +26,8 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 
 - **Nom** : `balise-ia` (minuscules). Jamais "Armor Analytics", "BALISE Data", "balisedata".
 - **Email** : `contact@balise-ia.fr`. Jamais `balisedata@gmail.com`.
-- **URL** : `https://balise-ia.fr`. Jamais `balisedata.fr`, `armor-analytics.fr`.
-- **Palette bretonne** (tokens Tailwind `breton-*`) : `navy` (#0C1F3F), `slate` (#2E4057), `emerald` (#1A6B4A), `moss` (#2D7A4F), `sand` (#E8E0D5), `granite` (#8B9AAB), `foam` (#F4F8F5), `accent` (#00B4D8 cyan). Utiliser les classes `breton-*` partout, jamais de hex bruts ni `blue-*`/`gray-*`.
+- **URL** : `https://www.balise-ia.fr` (avec `www`, canonique). Jamais `balisedata.fr`, `armor-analytics.fr`.
+- **Palette bretonne** (tokens Tailwind `breton-*`) : `navy` (#0C1F3F), `slate` (#2E4057), `emerald` (#1A6B4A), `moss` (#2D7A4F), `sand` (#E8E0D5), `granite` (#8B9AAB), `foam` (#F4F8F5), `copper` (#9A5F3A) — accent principal text, `copper-light` (#C17F59) — accent décoratif SVG. Utiliser les classes `breton-*` partout, jamais de hex bruts ni `blue-*`/`gray-*`. Utiliser `breton-copper` pour le texte, `breton-copper-light` pour les éléments décoratifs SVG uniquement.
 - **Typo** : Instrument Serif pour les H1, Geist Sans pour le body
 - **Logo** : phare V18 — cercle centré + faisceau horizontal breakout + bande cyan bold. SVG inline dans `src/components/ui/logo.tsx`. Texte : `balise` (navy/white) + `-ia` (accent cyan), font-weight 800.
 - **Ton** : concret, terrain, sobre, orienté ROI. Pas de jargon startup.
@@ -42,12 +42,12 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 
 ### Design system
 
-- **Hero homepage** (`HeroV3`) : fond `breton-navy` plein, barre locale intégrée ("Basés à Lorient..."), titre + sous-titre + micro-preuves texte + 2 CTAs. Pas de particles, pas de wave SVG. `-mt-16` pour chevaucher le header.
-- **Hero pages intérieures** (`Hero`) : fond `breton-navy`, API simplifiée `title` + `subtitle`, `-mt-16 pt-32` pour chevaucher le header.
-- **Header** : sticky top-0 z-50, transparent sur fond sombre → solide blanc au scroll. Logo bascule entre variant `white` et `default`. Un seul CTA "Demander un diagnostic" (Calendly).
-- **Sections** : alternance `bg-white` / `bg-slate-50` / `bg-breton-navy`, padding `py-24 sm:py-32`
-- **Cards** : `rounded-2xl`, borders `slate-200`, hover shadows
-- **CTA sombres** : fond `breton-navy`, bouton blanc inversé `bg-white text-breton-navy`
+- **Hero homepage** (`HeroV3`) : fond gradient `breton-foam` → `breton-sand`, badge local centré avec dot emerald pulsant, titre Instrument Serif centré + sous-titre + 2 CTAs + micro-preuves. `min-h-screen`, centré `text-center`.
+- **Hero pages intérieures** (`Hero`) : fond gradient `breton-foam` → `breton-sand`, API simplifiée `title` + `subtitle`, `-mt-16 pt-32` pour chevaucher le header.
+- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). Un seul CTA "Demander un diagnostic" (Calendly).
+- **Sections** : alternance `bg-white` / `bg-breton-foam` / bande `bg-breton-sand`. Le navy n'apparaît qu'au CTA final et au footer. Padding `py-[110px]` desktop, `py-16` mobile
+- **Cards** : `rounded-2xl`, borders `breton-sand`, hover shadows
+- **CTA sombres** : fond `breton-navy`, bouton sable inversé `bg-breton-sand text-breton-navy`
 - **Footer** : fond `breton-navy`, carte SVG Bretagne, badges confiance. Labels de colonnes = `<p>` (pas `<h3>`).
 - **Animations** : variants réutilisables dans `src/lib/animations.ts`. Tous les composants Framer Motion respectent `useReducedMotion`.
 - **Contrastes** : minimum `text-white/50` sur fond navy (WCAG AA). Jamais `text-white/30` ou `text-white/40`.
@@ -55,11 +55,10 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 ### Homepage — ordre des sections
 
 ```
-HeroV3 (local bar + titre) → LogoCarousel (11 logos clients) → ProofBlock (3 piliers) →
-ExpertisesBlock (3 compétences) → CTA Quiz (micro-conversion audit-ia) →
-Services (grille 2×2, 4 offres) → ResultsBlock (qualitatif) →
-Projects (4 cas clients compact) → Methodology (4 étapes) → About (incarnation + photo terrain) →
-FAQ (6 questions, accordéon simple) → CtaContact (CTA final)
+HeroV3 (badge local + titre centré) → MetricsBand (bande sable, 4 métriques) →
+LogoCarousel (logos clients marquee) → PillarsSection (3 piliers foam) →
+Services (grille 2×2, 4 offres) → Projects (3 cas clients compact) →
+IncarnationSection (photo + citation + badges) → CtaContact (CTA final navy)
 ```
 
 Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll du hero.
@@ -107,18 +106,20 @@ Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll
 ### Tests E2E
 
 24 tests Playwright dans `e2e/` :
-- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres, redirect /projets→/cas-clients
+- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres, redirect /projets→/cas-clients, /mentions-legales
 - `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
 - `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
 
 Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`).
 
+**Note :** `.npmrc` contient `force=true` pour contourner le conflit `lightningcss` arm64/x64 entre le Mac Apple Silicon et Vercel (linux x64).
+
 ## Code style
 
 - Prettier: semi, singleQuote, tabWidth 2, printWidth 100
 - ESLint: next/core-web-vitals + typescript + prettier, `no-console` warn sauf warn/error
-- Tailwind: `slate-*` pour les gris, `breton-*` pour la palette brand (jamais de hex bruts)
+- Tailwind: `slate-*` pour les gris, `breton-*` pour la palette brand (jamais de hex bruts), `breton-copper` et `breton-copper-light` pour l'accent (jamais `breton-accent` qui est supprimé)
 - Apostrophes en JSX : utiliser `&apos;` (texte français avec beaucoup de `d'`, `l'`, `n'`)
 - Commits : Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`)
 - **Title tags** : ne PAS inclure `balise-ia` dans les titles de page — le template layout.tsx l'ajoute automatiquement via `template: '%s | balise-ia'`
