@@ -88,7 +88,7 @@ export function PillarsSection() {
                 'hover:shadow-[0_24px_64px_rgba(12,31,63,0.1)]',
                 'hover:border-transparent',
                 'before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px]',
-                'before:bg-gradient-to-r before:from-breton-emerald before:to-breton-accent',
+                'before:bg-gradient-to-r before:from-breton-emerald before:to-breton-copper-light',
                 'before:opacity-0 hover:before:opacity-100',
                 'before:transition-opacity before:duration-[450ms]',
               ].join(' ')}
