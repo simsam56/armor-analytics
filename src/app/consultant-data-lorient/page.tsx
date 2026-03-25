@@ -317,7 +317,7 @@ export default function ConsultantDataLorientPage() {
               >
                 <div className="flex items-center gap-2">
                   <MapPin
-                    className={`h-4 w-4 ${city.name === 'Lorient' ? 'text-breton-emerald' : 'text-breton-accent'}`}
+                    className={`h-4 w-4 ${city.name === 'Lorient' ? 'text-breton-emerald' : 'text-breton-copper'}`}
                   />
                   <h3 className="font-semibold text-slate-900">{city.name}</h3>
                 </div>
