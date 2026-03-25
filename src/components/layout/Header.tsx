@@ -22,16 +22,16 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 w-full transition-all duration-300',
+        'sticky top-0 z-50 w-full transition-all duration-400',
         scrolled
-          ? 'bg-white/90 backdrop-blur-md border-b border-breton-navy/10 shadow-sm'
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-white/85 backdrop-blur-[24px] saturate-[1.8] border-b border-breton-sand/50 shadow-sm'
+          : 'bg-breton-foam/70 backdrop-blur-[24px] saturate-[1.8] border-b border-transparent'
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center">
-            <LogoWithIcon size="sm" variant={scrolled ? 'default' : 'white'} />
+            <LogoWithIcon size="sm" variant="default" />
           </Link>
 
           <div className="hidden lg:flex lg:gap-x-6">
@@ -39,12 +39,7 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={cn(
-                  'text-sm font-medium transition-colors',
-                  scrolled
-                    ? 'text-breton-slate hover:text-breton-navy'
-                    : 'text-white/80 hover:text-white'
-                )}
+                className="text-sm font-medium transition-colors text-breton-slate hover:text-breton-navy"
               >
                 {link.label}
               </Link>
@@ -55,10 +50,7 @@ export function Header() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className={cn(
-              '-m-2.5 inline-flex items-center justify-center rounded-md p-2.5',
-              scrolled ? 'text-breton-navy' : 'text-white'
-            )}
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-breton-navy"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className="sr-only">Ouvrir le menu</span>
@@ -74,12 +66,7 @@ export function Header() {
           <Button
             asChild
             size="sm"
-            className={cn(
-              'gap-2',
-              scrolled
-                ? 'bg-breton-navy text-white hover:bg-breton-slate'
-                : 'bg-white text-breton-navy hover:bg-breton-sand'
-            )}
+            className="gap-2 bg-breton-navy text-white hover:bg-breton-slate"
           >
             <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
               <Calendar className="h-4 w-4" />
