@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { Flag, Lock, MapPin } from 'lucide-react';
 import { sectionStagger, sectionChild, cardReveal } from '@/lib/animations';
@@ -63,9 +64,15 @@ export function IncarnationSection() {
           >
             <motion.div
               style={{ y: parallaxY }}
-              className="bg-gradient-to-br from-breton-sand to-[#D4C4A8] rounded-[28px] h-[300px] lg:h-[440px] flex items-center justify-center hover:scale-[1.02] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden"
+              className="rounded-[28px] h-[300px] lg:h-[440px] hover:scale-[1.02] transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden relative"
             >
-              <p className="text-sm text-breton-slate select-none">[Photo Simon / terrain]</p>
+              <Image
+                src="/simon-ordinateur.jpg"
+                alt="Simon Hingant présentant un tableau de bord data à un client"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
             </motion.div>
           </motion.div>
 

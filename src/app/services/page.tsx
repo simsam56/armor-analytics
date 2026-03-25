@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { CheckCircle, Lock, Wrench, BookOpen, Calendar } from 'lucide-react';
 import { Hero, Services, FAQ } from '@/components/sections';
 import { Button } from '@/components/ui/button';
@@ -88,21 +89,30 @@ export default function ServicesPage() {
                 terrain. Pas de marges pyramidales. Vous travaillez directement avec les experts qui
                 réalisent le projet.
               </p>
+              <div className="space-y-3 mt-8">
+                {[
+                  'Interlocuteur unique du Repérage à la livraison',
+                  'Seuls des profils seniors interviennent sur votre projet',
+                  'On se déplace sur site en Bretagne pour les phases clés',
+                  'Support post-livraison inclus dans chaque offre',
+                  'NDA systématique, données hébergées en France',
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle className="h-5 w-5 text-breton-moss shrink-0 mt-0.5" />
+                    <span className="text-slate-700">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-4">
-              {[
-                'Interlocuteur unique du Repérage à la livraison',
-                'Seuls des profils seniors interviennent sur votre projet',
-                'On se déplace sur site en Bretagne pour les phases clés',
-                'Support post-livraison inclus dans chaque offre',
-                'NDA systématique, données hébergées en France',
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-breton-moss shrink-0 mt-0.5" />
-                  <span className="text-slate-700">{item}</span>
-                </div>
-              ))}
+            <div className="relative rounded-[28px] overflow-hidden h-[350px] lg:h-[480px]">
+              <Image
+                src="/camille-atelier.jpg"
+                alt="Camille en atelier, échange avec un responsable de production"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
