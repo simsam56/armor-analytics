@@ -94,7 +94,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
       <article className="py-16 sm:py-20 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           {/* Meta info */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-8 pb-8 border-b border-slate-200">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 mb-8 pb-8 border-b border-breton-sand">
             <span className="flex items-center gap-1.5">
               <User className="h-4 w-4" />
               {SITE_CONFIG.name}
@@ -128,7 +128,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
           />
 
           {/* Back link */}
-          <div className="mt-16 pt-8 border-t border-slate-200">
+          <div className="mt-16 pt-8 border-t border-breton-sand">
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 text-sm font-medium text-breton-emerald hover:text-breton-moss transition-colors"

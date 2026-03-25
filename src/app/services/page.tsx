@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { CheckCircle, Lock, Wrench, BookOpen, Calendar } from 'lucide-react';
-import { Hero, Services } from '@/components/sections';
+import { Hero, Services, FAQ } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
 
@@ -49,7 +49,7 @@ export default function ServicesPage() {
       <Services showLink={false} detailed />
 
       {/* Réassurance */}
-      <section className="py-16 bg-slate-50 border-y border-slate-200">
+      <section className="py-16 bg-breton-foam border-y border-breton-sand">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-3">
             {REASSURANCES.map((item) => (
@@ -107,6 +107,8 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <FAQ />
 
       {/* CTA Calendly */}
       <section className="py-16 sm:py-20 bg-breton-navy">
