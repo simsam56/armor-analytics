@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import {
   Search,
@@ -16,7 +16,12 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SERVICES, getCalendlyUrl } from '@/lib/constants';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
+import {
+  sectionStagger,
+  sectionChild,
+  staggerContainer,
+  cardReveal,
+} from '@/lib/animations';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Search,
@@ -34,54 +39,80 @@ interface ServicesProps {
 }
 
 export function Services({ showLink = true, detailed = false }: ServicesProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const headerInView = useInView(headerRef, { once: true, amount: 0.1 });
+  const gridInView = useInView(gridRef, { once: true, amount: 0.1 });
+  const shouldReduce = useReducedMotion();
 
   return (
     <section id="offres" className="py-24 sm:py-32 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Quatre façons de travailler avec balise-ia
-          </h2>
-          <p className="mt-4 text-lg text-slate-600">
+        <motion.div
+          ref={headerRef}
+          className="max-w-2xl"
+          variants={shouldReduce ? undefined : sectionStagger}
+          initial="hidden"
+          animate={headerInView ? 'visible' : 'hidden'}
+        >
+          <motion.p
+            variants={shouldReduce ? undefined : sectionChild}
+            className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-4"
+          >
+            Nos offres
+          </motion.p>
+          <motion.h2
+            variants={shouldReduce ? undefined : sectionChild}
+            className="font-serif text-[32px] sm:text-[50px] leading-[1.08] font-normal text-breton-navy tracking-[-0.025em]"
+          >
+            Quatre façons de travailler avec nous.
+          </motion.h2>
+          <motion.p
+            variants={shouldReduce ? undefined : sectionChild}
+            className="text-[17px] text-breton-slate leading-relaxed mt-4"
+          >
             Vous pouvez démarrer par un audit, ou avancer directement sur un chantier prioritaire.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Grille 2×2 */}
         <motion.div
-          ref={ref}
+          ref={gridRef}
           className={`mt-16 grid gap-8 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2'}`}
-          variants={staggerContainer}
+          variants={shouldReduce ? undefined : staggerContainer}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={gridInView ? 'visible' : 'hidden'}
         >
           {SERVICES.map((service) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             return (
               <motion.div
                 key={service.id}
-                variants={fadeInUp}
-                className={`group relative rounded-2xl border p-8 transition-shadow duration-300 hover:shadow-lg ${
-                  service.isEntryPoint
-                    ? 'border-breton-emerald/30 bg-breton-emerald/[0.02]'
-                    : 'border-slate-200 bg-white'
-                }`}
+                variants={shouldReduce ? undefined : cardReveal}
+                className={`group relative cursor-pointer rounded-[22px] border p-8 sm:p-10
+                  transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+                  hover:-translate-y-[6px] hover:shadow-[0_24px_64px_rgba(12,31,63,0.1)] hover:border-breton-emerald/20
+                  ${
+                    service.isEntryPoint
+                      ? 'border-[1.5px] border-breton-emerald bg-breton-emerald/[0.01]'
+                      : 'border-breton-sand bg-white'
+                  }`}
               >
                 <div className="flex items-center justify-between mb-5">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-breton-emerald/10">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-breton-foam">
                     {Icon && <Icon className="h-5 w-5 text-breton-emerald" />}
                   </div>
                   {service.isEntryPoint && (
-                    <span className="inline-flex items-center rounded-full bg-breton-emerald/10 px-3 py-1 text-xs font-medium text-breton-emerald">
+                    <span className="inline-flex items-center rounded-full bg-breton-emerald/8 px-3 py-1 text-xs font-medium text-breton-emerald">
                       Point d&apos;entrée recommandé
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-                <p className="mt-1 text-sm font-medium text-breton-moss">{service.tagline}</p>
+                <h3 className="font-serif text-[23px] font-normal text-breton-navy">
+                  {service.title}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-breton-emerald">{service.tagline}</p>
 
                 {detailed ? (
                   <DetailedContent service={service} />
@@ -125,7 +156,7 @@ function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
         </ul>
       </div>
 
-      <div className="flex items-center justify-between pt-5 border-t border-slate-100">
+      <div className="flex items-center justify-between pt-5 border-t border-breton-sand">
         <p className="text-sm text-slate-500">
           Délai indicatif : <span className="font-medium text-slate-700">{service.duration}</span>
         </p>
@@ -133,7 +164,10 @@ function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
 
       <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
         <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-          {service.cta}
+          <span>{service.cta.replace('→', '').trim()}</span>
+          <span className="ml-1 group-hover:translate-x-1.5 transition-transform duration-300 inline-block">
+            →
+          </span>
         </a>
       </Button>
     </div>
@@ -176,7 +210,7 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
         </ul>
       </div>
 
-      <div className="pt-3 border-t border-slate-100 space-y-1">
+      <div className="pt-3 border-t border-breton-sand space-y-1">
         <p className="text-sm text-slate-600">
           Durée : <span className="font-medium text-slate-900">{service.duration}</span>
         </p>
@@ -189,7 +223,10 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {service.cta}
+          <span>{service.cta.replace('→', '').trim()}</span>
+          <span className="ml-1 group-hover:translate-x-1.5 transition-transform duration-300 inline-block">
+            →
+          </span>
         </a>
       </Button>
     </div>
