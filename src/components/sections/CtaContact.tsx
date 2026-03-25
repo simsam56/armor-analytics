@@ -3,9 +3,9 @@
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import { Calendar } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { getCalendlyUrl, getContactEmail } from '@/lib/constants';
-import { fadeInUp } from '@/lib/animations';
+import Link from 'next/link';
+import { getCalendlyUrl } from '@/lib/constants';
+import { sectionStagger, sectionChild } from '@/lib/animations';
 
 export function CtaContact() {
   const ref = useRef<HTMLDivElement>(null);
@@ -13,37 +13,64 @@ export function CtaContact() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="py-24 sm:py-32 bg-breton-navy" id="cta-contact">
+    <section className="relative bg-breton-navy grain-texture py-24 sm:py-[120px]" id="cta-contact">
+      {/* Copper orb glow */}
+      <div
+        className="absolute w-[500px] h-[500px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+          bg-[radial-gradient(circle,rgba(193,127,89,0.08)_0%,transparent_70%)]
+          pointer-events-none animate-pulse-glow"
+        aria-hidden="true"
+      />
+
       <motion.div
         ref={ref}
-        className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center"
-        variants={prefersReducedMotion ? {} : fadeInUp}
+        className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center"
+        variants={prefersReducedMotion ? {} : sectionStagger}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
       >
-        <h2 className="text-3xl font-bold text-white sm:text-4xl">
-          Vous avez probablement déjà un premier chantier rentable
-        </h2>
-        <p className="mt-6 text-lg text-white/60 leading-relaxed">
-          En 30 minutes, nous identifions ensemble un irritant concret, ce qu&apos;il coûte
-          aujourd&apos;hui, et la meilleure façon de le traiter.
-        </p>
-        <p className="mt-2 text-sm text-white/60">
-          Visio ou échange sur site en Bretagne selon votre contexte.
-        </p>
-        <div className="mt-10">
-          <Button
-            asChild
-            size="lg"
-            className="bg-white text-breton-navy hover:bg-breton-sand h-13 px-8 text-base font-semibold gap-2"
+        <motion.h2
+          variants={prefersReducedMotion ? {} : sectionChild}
+          className="font-serif text-[32px] sm:text-[52px] leading-[1.1] text-white tracking-[-0.025em]"
+        >
+          Prêt à passer de la donnée brute à <br />
+          <span className="text-breton-copper-light">l&apos;action ?</span>
+        </motion.h2>
+
+        <motion.p
+          variants={prefersReducedMotion ? {} : sectionChild}
+          className="text-[17px] text-white/45 mt-4"
+        >
+          Diagnostic gratuit de 30 minutes, sans engagement.
+        </motion.p>
+
+        <motion.div
+          variants={prefersReducedMotion ? {} : sectionChild}
+          className="flex flex-col sm:flex-row gap-4 justify-center mt-11"
+        >
+          <a
+            href={getCalendlyUrl()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-[14px] px-8 py-4 font-semibold
+              bg-breton-sand text-breton-navy
+              hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)] hover:-translate-y-[3px]
+              transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
           >
-            <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-              <Calendar className="h-5 w-5" />
-              Demander un diagnostic
-            </a>
-          </Button>
-        </div>
-        <p className="mt-8 text-sm text-white/50">{getContactEmail()} · Réponse sous 48h</p>
+            <Calendar className="h-5 w-5" />
+            Réserver un créneau
+          </a>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 rounded-[14px] px-8 py-4
+              border border-white/15 text-white
+              hover:border-white/35 hover:-translate-y-[3px]
+              transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+          >
+            Nous écrire →
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
   );
