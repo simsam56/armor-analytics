@@ -176,7 +176,7 @@ export default function PowerBiBretagnePage() {
                 className="rounded-2xl border border-slate-200 bg-white p-8"
               >
                 <div className="flex items-center gap-3">
-                  <BarChart3 className="h-5 w-5 text-breton-accent" />
+                  <BarChart3 className="h-5 w-5 text-breton-copper" />
                   <h3 className="text-lg font-semibold text-slate-900">{deliverable.title}</h3>
                 </div>
                 <p className="mt-3 text-slate-600 leading-relaxed">{deliverable.description}</p>
@@ -394,7 +394,7 @@ export default function PowerBiBretagnePage() {
               },
             ].map((item) => (
               <div key={item.step} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <span className="text-3xl font-bold text-breton-accent/30">{item.step}</span>
+                <span className="text-3xl font-bold text-breton-copper/30">{item.step}</span>
                 <h3 className="mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
                 <p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-breton-moss">

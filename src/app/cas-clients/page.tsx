@@ -285,7 +285,7 @@ export default function CasClientsPage() {
       />
 
       {/* Stats */}
-      <section className="border-b border-slate-200 bg-slate-50/50 py-10">
+      <section className="border-b border-breton-sand bg-breton-foam/50 py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
             {STATS.map((stat) => (

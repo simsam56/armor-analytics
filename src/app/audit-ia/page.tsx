@@ -91,7 +91,7 @@ export default function AuditPage() {
       </section>
 
       {/* Réassurance légère sous le quiz */}
-      <section className="py-12 bg-slate-50 border-y border-slate-200">
+      <section className="py-12 bg-breton-foam border-y border-breton-sand">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
@@ -144,7 +144,7 @@ export default function AuditPage() {
             ].map((item) => (
               <div
                 key={item.step}
-                className="text-center p-6 rounded-2xl bg-slate-50 border border-slate-200"
+                className="text-center p-6 rounded-2xl bg-breton-foam border border-breton-sand"
               >
                 <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-breton-emerald text-white font-bold text-sm mb-4">
                   {item.step}
@@ -158,7 +158,7 @@ export default function AuditPage() {
       </section>
 
       {/* Et après ? — lien clair vers diagnostic */}
-      <section className="py-16 sm:py-20 bg-slate-50">
+      <section className="py-16 sm:py-20 bg-breton-foam">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Et après le quiz ?</h2>
           <p className="mt-4 text-slate-600 leading-relaxed">
@@ -179,7 +179,7 @@ export default function AuditPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-slate-300 h-12 px-8 text-base gap-2"
+              className="border-breton-sand h-12 px-8 text-base gap-2"
             >
               <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
                 <Calendar className="h-4 w-4" />
@@ -221,9 +221,9 @@ export default function AuditPage() {
             ].map((item) => (
               <details
                 key={item.q}
-                className="group rounded-xl border border-slate-200 overflow-hidden"
+                className="group rounded-xl border border-breton-sand overflow-hidden"
               >
-                <summary className="flex items-center justify-between p-5 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+                <summary className="flex items-center justify-between p-5 cursor-pointer list-none hover:bg-breton-foam transition-colors">
                   <h3 className="font-medium text-slate-900 pr-4">{item.q}</h3>
                   <ChevronDown className="w-4 h-4 text-slate-400 shrink-0 group-open:rotate-180 transition-transform" />
                 </summary>

@@ -16,7 +16,8 @@
   --color-breton-sand: #e8e0d5;
   --color-breton-granite: #8b9aab;
   --color-breton-foam: #f4f8f5;
-  --color-breton-accent: #00b4d8;
+  --color-breton-copper: #9a5f3a;
+  --color-breton-copper-light: #c17f59;
 
   /* shadcn tokens */
   --color-chart-5: var(--chart-5);
@@ -107,14 +108,14 @@
   }
 }
 
-/* Texture grain subtile pour le hero */
-.hero-grain::after {
+/* Texture grain subtile — réutilisable */
+.grain-texture::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 256px 256px;
+  background-size: 512px 512px;
   pointer-events: none;
   z-index: 1;
 }
@@ -165,6 +166,40 @@
   animation: marquee 20s linear infinite;
 }
 
+/* Pulse dot — badge local hero */
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.5);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulseDot 2.5s ease-in-out infinite;
+}
+
+/* Radial glow pulse — hero background */
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
 /* Blog article prose styles */
 .article-prose h2 {
   @apply text-2xl font-bold text-slate-900 mt-12 mb-4 leading-tight;
@@ -195,7 +230,7 @@
 }
 
 .article-prose a {
-  @apply text-breton-emerald font-medium hover:underline;
+  @apply text-breton-copper font-medium hover:underline;
 }
 
 .article-prose > *:first-child {

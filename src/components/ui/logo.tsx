@@ -7,12 +7,13 @@ interface LogoProps {
 }
 
 const BRAND_NAVY = '#0C1F3F';
-const ACCENT_CYAN = '#00B4D8';
+// ACCENT_COPPER = '#9A5F3A' — used via Tailwind class `text-breton-copper` in text components
+const ACCENT_COPPER_LIGHT = '#C17F59';
 
 /**
- * Icône phare V18-E — "Faisceau Horizontal + Bande Cyan + Cercle Centré"
+ * Icône phare V18-E — "Faisceau Horizontal + Bande Copper + Cercle Centré"
  * Phare rayé centré dans un cercle, faisceau horizontal breakout,
- * bande cyan bold dans le corps. Typo Jakarta, tiret cyan séparé.
+ * bande copper bold dans le corps. Typo Jakarta, tiret copper séparé.
  */
 function PhareIcon({
   size,
@@ -22,7 +23,7 @@ function PhareIcon({
   variant?: 'default' | 'white';
 }) {
   const mainColor = variant === 'white' ? '#ffffff' : BRAND_NAVY;
-  const accentColor = ACCENT_CYAN;
+  const accentColor = ACCENT_COPPER_LIGHT;
   const beamOpacity = variant === 'white' ? 0.13 : 0.08;
   const beamOpacity2 = variant === 'white' ? 0.09 : 0.06;
   const cyanBandOpacity = variant === 'white' ? 0.35 : 0.3;
@@ -88,7 +89,7 @@ function PhareIcon({
 }
 
 /**
- * Logo texte seul — "balise-ia" (tiret cyan séparé, V18)
+ * Logo texte seul — "balise-ia" (tiret copper séparé, V18)
  */
 export function Logo({ className, variant = 'default', size = 'md' }: LogoProps) {
   const sizes = {
@@ -100,7 +101,7 @@ export function Logo({ className, variant = 'default', size = 'md' }: LogoProps)
 
   const textSize = sizes[size];
   const mainColor = variant === 'white' ? 'text-white' : 'text-breton-navy';
-  const accentColor = 'text-breton-accent';
+  const accentColor = 'text-breton-copper';
 
   return (
     <div className={cn('flex items-baseline', className)}>
@@ -124,7 +125,7 @@ export function LogoWithIcon({ className, variant = 'default', size = 'md' }: Lo
 
   const { icon, textSize } = sizes[size];
   const mainColor = variant === 'white' ? 'text-white' : 'text-breton-navy';
-  const accentColor = 'text-breton-accent';
+  const accentColor = 'text-breton-copper';
 
   return (
     <div className={cn('flex items-center gap-2', className)}>
@@ -156,19 +157,19 @@ export function LogoIcon({ className, size = 32 }: { className?: string; size?: 
       {/* Cercle centré */}
       <circle cx="22" cy="22" r="18" stroke="white" strokeWidth="1" fill="none" />
       {/* Faisceau horizontal breakout */}
-      <path d="M28 13 Q33 12 38 11.5 Q38 13 35 14.5 L28 15 Z" fill={ACCENT_CYAN} opacity=".18" />
+      <path d="M28 13 Q33 12 38 11.5 Q38 13 35 14.5 L28 15 Z" fill={ACCENT_COPPER_LIGHT} opacity=".18" />
       {/* Boule */}
       <circle cx="22" cy="6.5" r="1" fill="white" />
       {/* Dôme */}
       <path d="M19.5 10 Q19.5 8, 22 8 Q24.5 8, 24.5 10 Z" fill="white" />
       {/* Lanterne */}
-      <rect x="19" y="10" width="6" height="4.8" rx="2.5" fill={ACCENT_CYAN} />
+      <rect x="19" y="10" width="6" height="4.8" rx="2.5" fill={ACCENT_COPPER_LIGHT} />
       {/* Galerie */}
       <rect x="18" y="14.8" width="8" height="1.1" rx=".55" fill="white" />
       {/* Bande navy/blanche */}
       <path d="M19 15.9 L18.5 21 L25.5 21 L25 15.9 Z" fill="white" />
       {/* Bande cyan */}
-      <path d="M18.5 21 L17.8 27 L26.2 27 L25.5 21 Z" fill={ACCENT_CYAN} opacity=".3" />
+      <path d="M18.5 21 L17.8 27 L26.2 27 L25.5 21 Z" fill={ACCENT_COPPER_LIGHT} opacity=".3" />
       {/* Bande blanche */}
       <path d="M17.8 27 L17.1 32 L26.9 32 L26.2 27 Z" fill="white" />
       {/* Base */}
@@ -183,7 +184,7 @@ export function LogoIcon({ className, size = 32 }: { className?: string; size?: 
  */
 export function LogoCompact({ className, variant = 'default' }: Omit<LogoProps, 'size'>) {
   const mainColor = variant === 'white' ? 'text-white' : 'text-breton-navy';
-  const accentColor = 'text-breton-accent';
+  const accentColor = 'text-breton-copper';
 
   return (
     <div className={cn('flex items-center gap-1.5', className)}>

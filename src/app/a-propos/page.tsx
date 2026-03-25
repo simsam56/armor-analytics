@@ -156,7 +156,7 @@ export default function AboutPage() {
               {GUARANTEES.map((guarantee) => (
                 <div
                   key={guarantee.title}
-                  className="flex gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200"
+                  className="flex gap-4 p-5 rounded-xl bg-breton-foam border border-breton-sand"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
                     <guarantee.icon className="h-5 w-5 text-breton-emerald" />
@@ -175,7 +175,7 @@ export default function AboutPage() {
       </section>
 
       {/* Pourquoi balise-ia existe */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
@@ -188,7 +188,7 @@ export default function AboutPage() {
 
           <div className="space-y-8">
             {STORY_CHAPTERS.map((chapter, index) => (
-              <div key={chapter.title} className="relative pl-8 border-l-2 border-slate-200">
+              <div key={chapter.title} className="relative pl-8 border-l-2 border-breton-sand">
                 <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
                   <span className="text-xs font-bold text-white">{index + 1}</span>
                 </div>
@@ -216,7 +216,7 @@ export default function AboutPage() {
             {VALUES.map((value) => (
               <div
                 key={value.title}
-                className="p-8 rounded-2xl bg-slate-50 border border-slate-200"
+                className="p-8 rounded-2xl bg-breton-foam border border-breton-sand"
               >
                 <div className="h-12 w-12 rounded-xl bg-breton-emerald/10 flex items-center justify-center mb-6">
                   <value.icon className="h-6 w-6 text-breton-emerald" />
@@ -263,7 +263,7 @@ export default function AboutPage() {
       </section>
 
       {/* Zone d'intervention */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
@@ -283,7 +283,7 @@ export default function AboutPage() {
               <Link
                 key={city}
                 href={`/interventions/${city.toLowerCase().replace("'", '').replace(' ', '-')}`}
-                className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 border border-slate-200 hover:border-breton-emerald/30 transition-colors"
+                className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 border border-breton-sand hover:border-breton-emerald/30 transition-colors"
               >
                 <MapPin className="inline h-3.5 w-3.5 mr-1.5 text-breton-emerald" />
                 {city}

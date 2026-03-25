@@ -212,7 +212,7 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
       </section>
 
       {/* Nos offres */}
-      <section className="py-16 sm:py-20 bg-slate-50">
+      <section className="py-16 sm:py-20 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">
@@ -249,7 +249,7 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
             ].map((offer) => (
               <div
                 key={offer.step}
-                className="rounded-2xl bg-white border border-slate-200 p-8 text-center"
+                className="rounded-2xl bg-white border border-breton-sand p-8 text-center"
               >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-breton-emerald text-white font-bold">
                   {offer.step}

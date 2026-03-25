@@ -47,8 +47,8 @@ export async function GET(request: NextRequest) {
       {/* Logo text — V18 tiret cyan */}
       <div style={{ display: 'flex', alignItems: 'baseline', marginBottom: '24px' }}>
         <span style={{ fontSize: '36px', fontWeight: 700, color: 'white' }}>balise</span>
-        <span style={{ fontSize: '36px', fontWeight: 700, color: '#00B4D8' }}>-</span>
-        <span style={{ fontSize: '36px', fontWeight: 600, color: '#00B4D8' }}>ia</span>
+        <span style={{ fontSize: '36px', fontWeight: 700, color: '#9A5F3A' }}>-</span>
+        <span style={{ fontSize: '36px', fontWeight: 600, color: '#9A5F3A' }}>ia</span>
       </div>
 
       {/* Title */}

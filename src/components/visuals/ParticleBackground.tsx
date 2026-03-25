@@ -62,7 +62,7 @@ function generateLines(): ConnectionLine[] {
   }));
 }
 
-const CYAN = '#00B4D8';
+const CYAN = '#9A5F3A';
 
 const keyframesCSS = `
 @keyframes particle-float {

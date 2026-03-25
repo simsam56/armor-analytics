@@ -41,7 +41,7 @@ function BretagneMap() {
               cx={city.x}
               cy={city.y}
               r={city.main ? 8 : 5}
-              fill="#00B4D8"
+              fill="#C17F59"
               fillOpacity="0.2"
               className="city-pulse"
             />
@@ -50,7 +50,7 @@ function BretagneMap() {
               cx={city.x}
               cy={city.y}
               r={city.main ? 4 : 2.5}
-              fill={city.main ? '#00B4D8' : 'white'}
+              fill={city.main ? '#C17F59' : 'white'}
               fillOpacity={city.main ? 1 : 0.7}
             />
             {/* Label */}
@@ -149,7 +149,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-white/50 transition-colors hover:text-breton-accent"
+                      className="text-sm text-white/50 transition-colors hover:text-breton-copper"
                     >
                       {link.label}
                     </Link>
@@ -166,7 +166,7 @@ export function Footer() {
                   <li key={city}>
                     <Link
                       href={`/interventions/${city}`}
-                      className="text-sm text-white/50 transition-colors hover:text-breton-accent"
+                      className="text-sm text-white/50 transition-colors hover:text-breton-copper"
                     >
                       {city === 'saint-brieuc'
                         ? 'Saint-Brieuc'
@@ -184,7 +184,7 @@ export function Footer() {
                 <li>
                   <a
                     href={`mailto:${getContactEmail()}`}
-                    className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-accent"
+                    className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-copper"
                   >
                     <Mail className="h-4 w-4" />
                     {getContactEmail()}
@@ -196,7 +196,7 @@ export function Footer() {
                       href={SITE_CONFIG.social.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-accent"
+                      className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-copper"
                     >
                       <Linkedin className="h-4 w-4" />
                       LinkedIn
@@ -217,7 +217,7 @@ export function Footer() {
             <div className="flex gap-6">
               <Link
                 href="/mentions-legales"
-                className="text-sm text-white/60 transition-colors hover:text-breton-accent"
+                className="text-sm text-white/60 transition-colors hover:text-breton-copper"
               >
                 Mentions légales
               </Link>

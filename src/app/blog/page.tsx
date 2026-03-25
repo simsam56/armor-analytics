@@ -46,7 +46,7 @@ export default function BlogPage() {
               <Link
                 key={article.slug}
                 href={`/blog/${article.slug}`}
-                className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all hover:shadow-lg hover:-translate-y-1"
+                className="group flex flex-col rounded-2xl border border-breton-sand bg-white p-6 transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 <div className="flex flex-wrap gap-2 mb-4">
                   {article.tags.slice(0, 3).map((tag) => (
