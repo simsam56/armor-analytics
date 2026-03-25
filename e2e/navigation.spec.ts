@@ -25,12 +25,11 @@ test.describe('Navigation et pages principales', () => {
   test('/services se charge avec les offres', async ({ page }) => {
     await page.goto('/services');
     await expect(page).toHaveTitle(/Offres/);
-    await expect(page.locator('h1')).toContainText('progressive');
-    await expect(page.getByRole('heading', { name: 'Audit & Diagnostic' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Data' }).first()).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'IA' }).first()).toBeVisible();
+    await expect(page.locator('h1')).toContainText('IA');
+    await expect(page.getByRole('heading', { name: 'Le Repérage' }).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Le Cap' }).first()).toBeVisible();
     await expect(
-      page.getByRole('heading', { name: 'Formation & Accompagnement' }).first()
+      page.getByRole('heading', { name: /Équipage/ }).first()
     ).toBeVisible();
   });
 

@@ -5,13 +5,13 @@ import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Offres - Audit, Data, IA & Formation',
+  title: 'Offres - Le Rep\u00e9rage, Le Cap, L\u2019\u00c9quipage',
   description:
-    'Nos expertises data pour PME et réseaux bretons : audit & diagnostic, socle data & dataviz, intégration IA, formation & accompagnement local. Tarifs transparents.',
+    'Structurer votre entreprise pour que l\u2019IA serve vraiment. 3 offres progressives : diagnostic organisationnel, d\u00e9ploiement it\u00e9ratif, formation \u00e0 l\u2019autonomie. PME bretonnes.',
   openGraph: {
-    title: 'Offres - Audit, Data, IA & Formation | balise-ia',
+    title: 'Offres - Le Rep\u00e9rage, Le Cap, L\u2019\u00c9quipage | balise-ia',
     description:
-      'Accompagnement data pour PME et réseaux bretons. 4 expertises modulables, résultats mesurables.',
+      'Accompagnement IA pour PME bretonnes. 3 offres progressives : diagnostic, d\u00e9ploiement, formation.',
   },
   alternates: {
     canonical: 'https://www.balise-ia.fr/services',
@@ -43,8 +43,8 @@ export default function ServicesPage() {
   return (
     <>
       <Hero
-        title="Une approche progressive, des résultats mesurables"
-        subtitle="On avance étape par étape. Chaque phase apporte de la valeur. Vous décidez quand passer à la suivante. Tarifs clairs, pas de surprises."
+        title="L&apos;IA marche quand l&apos;entreprise se connaît"
+        subtitle="On ne vend pas de la techno. On vous aide à structurer votre organisation pour que l&apos;IA serve vraiment vos équipes et vos opérations."
       />
       <Services showLink={false} detailed />
 
@@ -92,7 +92,7 @@ export default function ServicesPage() {
 
             <div className="space-y-4">
               {[
-                'Interlocuteur unique du diagnostic à la livraison',
+                'Interlocuteur unique du Repérage à la livraison',
                 'Seuls des profils seniors interviennent sur votre projet',
                 'On se déplace sur site en Bretagne pour les phases clés',
                 'Support post-livraison inclus dans chaque offre',
@@ -114,7 +114,7 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 bg-breton-navy">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Vous hésitez entre diagnostic et projet ?
+            Prêt à faire le Repérage ?
           </h2>
           <p className="mt-4 text-white/60">
             Un appel de 30 minutes suffit pour identifier le bon point de départ. Gratuit, sans

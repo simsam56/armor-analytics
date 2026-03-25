@@ -13,6 +13,8 @@ import {
   CheckCircle,
   Zap,
   RefreshCw,
+  Compass,
+  Users,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SERVICES, getCalendlyUrl } from '@/lib/constants';
@@ -31,6 +33,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   GraduationCap,
   Zap,
   RefreshCw,
+  Compass,
+  Users,
 };
 
 interface ServicesProps {
@@ -65,20 +69,21 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
             variants={shouldReduce ? undefined : sectionChild}
             className="font-serif text-[32px] sm:text-[50px] leading-[1.08] font-normal text-breton-navy tracking-[-0.025em]"
           >
-            Quatre façons de travailler avec nous.
+            Le Repérage. Le Cap. L&apos;Équipage.
           </motion.h2>
           <motion.p
             variants={shouldReduce ? undefined : sectionChild}
             className="text-[17px] text-breton-slate leading-relaxed mt-4"
           >
-            Vous pouvez démarrer par un audit, ou avancer directement sur un chantier prioritaire.
+            Trois façons de travailler avec nous, une seule logique : que l&apos;IA serve vraiment
+            votre entreprise.
           </motion.p>
         </motion.div>
 
         {/* Grille 2×2 */}
         <motion.div
           ref={gridRef}
-          className={`mt-16 grid gap-8 ${detailed ? 'lg:grid-cols-2' : 'md:grid-cols-2'}`}
+          className={`mt-16 grid gap-8 ${detailed ? 'lg:grid-cols-3' : 'md:grid-cols-3'}`}
           variants={shouldReduce ? undefined : staggerContainer}
           initial="hidden"
           animate={gridInView ? 'visible' : 'hidden'}
@@ -210,11 +215,10 @@ function DetailedContent({ service }: { service: (typeof SERVICES)[0] }) {
         </ul>
       </div>
 
-      <div className="pt-3 border-t border-breton-sand space-y-1">
+      <div className="pt-3 border-t border-breton-sand">
         <p className="text-sm text-slate-600">
           Durée : <span className="font-medium text-slate-900">{service.duration}</span>
         </p>
-        <p className="text-sm font-medium text-slate-900">{service.priceRange}</p>
       </div>
 
       <Button asChild className="w-full" variant={service.isEntryPoint ? 'default' : 'outline'}>
