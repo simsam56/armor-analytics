@@ -30,7 +30,7 @@ export default function ContactPage() {
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Left side - Calendly + Info */}
             <div className="space-y-8">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50 p-8">
+              <div className="rounded-2xl border border-breton-sand bg-breton-foam p-8">
                 <h2 className="text-2xl font-bold text-slate-900">Appel découverte gratuit</h2>
                 <p className="mt-2 text-slate-600">
                   30 minutes pour comprendre votre contexte, identifier les irritants et évaluer les
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   <a
                     href={`mailto:${SITE_CONFIG.email}`}
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-breton-emerald/30 hover:bg-slate-50"
+                    className="flex items-center gap-3 rounded-xl border border-breton-sand p-4 transition-colors hover:border-breton-emerald/30 hover:bg-breton-foam"
                   >
                     <Mail className="h-5 w-5 text-breton-emerald" />
                     <div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                     href={SITE_CONFIG.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 rounded-xl border border-slate-200 p-4 transition-colors hover:border-breton-emerald/30 hover:bg-slate-50"
+                    className="flex items-center gap-3 rounded-xl border border-breton-sand p-4 transition-colors hover:border-breton-emerald/30 hover:bg-breton-foam"
                   >
                     <Linkedin className="h-5 w-5 text-breton-emerald" />
                     <div>
@@ -92,7 +92,7 @@ export default function ContactPage() {
                       <p className="font-medium text-slate-900">balise-ia</p>
                     </div>
                   </a>
-                  <div className="flex items-center gap-3 rounded-xl border border-slate-200 p-4">
+                  <div className="flex items-center gap-3 rounded-xl border border-breton-sand p-4">
                     <MapPin className="h-5 w-5 text-breton-emerald" />
                     <div>
                       <p className="text-xs text-slate-500">Localisation</p>
