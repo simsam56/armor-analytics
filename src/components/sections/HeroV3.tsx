@@ -70,8 +70,8 @@ export function HeroV3() {
             variants={child}
             className="mt-7 text-lg sm:text-xl text-breton-slate leading-relaxed max-w-[520px] mx-auto"
           >
-            Audit, automatisation et pilotage data pour les PME bretonnes. On simplifie vos
-            opérations sans complexifier le quotidien.
+            On structure votre entreprise pour que l&apos;IA serve vraiment. Diagnostic, déploiement
+            et formation pour les PME bretonnes.
           </motion.p>
 
           {/* 4. CTAs */}

@@ -2,7 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
-import { Search, BarChart3, Zap, type LucideIcon } from 'lucide-react';
+import { Search, Compass, Users, type LucideIcon } from 'lucide-react';
 import { sectionStagger, sectionChild, cardReveal, staggerContainer } from '@/lib/animations';
 
 interface PillarCard {
@@ -14,18 +14,21 @@ interface PillarCard {
 const PILLARS: PillarCard[] = [
   {
     icon: Search,
-    title: 'Audit ciblé',
-    description: "On identifie où vous perdez du temps et de l\u2019argent, et quoi traiter en priorité.",
+    title: 'Le Repérage',
+    description:
+      'On cartographie vos process réels, vos irritants et vos opportunités IA. Pas de devinette, du terrain.',
   },
   {
-    icon: BarChart3,
-    title: 'Pilotage fiable',
-    description: 'On centralise les données utiles pour que vos équipes décident plus vite, mieux.',
+    icon: Compass,
+    title: 'Le Cap',
+    description:
+      'On déploie les solutions qui marchent, on mesure les gains, on itère chaque mois avec vous.',
   },
   {
-    icon: Zap,
-    title: 'Automatisation utile',
-    description: 'On ne déploie que ce qui simplifie vraiment les opérations au quotidien.',
+    icon: Users,
+    title: `L\u2019Équipage`,
+    description:
+      `On forme vos équipes à l\u2019IA par la pratique. Pour que la dynamique continue sans nous.`,
   },
 ];
 
@@ -56,14 +59,14 @@ export function PillarsSection() {
             variants={prefersReducedMotion ? undefined : sectionChild}
             className="font-serif text-[32px] sm:text-[48px] leading-[1.08] font-normal text-breton-navy tracking-[-0.025em] max-w-[600px] mt-3"
           >
-            Des chantiers concrets, pas des promesses vagues.
+            L&apos;IA marche quand l&apos;entreprise se connaît.
           </motion.h2>
           <motion.p
             variants={prefersReducedMotion ? undefined : sectionChild}
             className="text-[17px] text-breton-slate leading-relaxed max-w-[480px] mt-4"
           >
-            On identifie où vous perdez du temps, on centralise les données utiles, on ne déploie
-            que ce qui simplifie vraiment.
+            Pas un projet technique. Un chantier organisationnel. On vous accompagne de la
+            cartographie à l&apos;autonomie.
           </motion.p>
         </motion.div>
 
