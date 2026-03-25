@@ -2,94 +2,126 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getCalendlyUrl } from '@/lib/constants';
-import { fadeInUp, heroStagger } from '@/lib/animations';
+import { scaleInApple, sectionStagger, sectionChild } from '@/lib/animations';
 
 const noMotion = { hidden: {}, visible: {} };
 
 export function HeroV3() {
   const prefersReducedMotion = useReducedMotion();
-  const v = prefersReducedMotion ? noMotion : undefined;
+  const stagger = prefersReducedMotion ? noMotion : sectionStagger;
+  const child = prefersReducedMotion ? noMotion : sectionChild;
+  const scale = prefersReducedMotion ? noMotion : scaleInApple;
 
   return (
-    <section className="relative bg-breton-navy -mt-16">
-      {/* Barre haute locale — pt-20 compense le header qui chevauche */}
-      <div className="border-b border-white/10 pt-20">
-        <p className="pb-2.5 text-center text-sm text-white/50">
-          Basés à Lorient, nous accompagnons les PME bretonnes sur site et à distance.
-        </p>
+    <section className="relative min-h-screen bg-gradient-to-b from-breton-foam to-breton-sand grain-texture flex items-center justify-center text-center overflow-hidden pt-28 pb-16 sm:py-0">
+      {/* Radial glow behind the title */}
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+        aria-hidden="true"
+      >
+        <div
+          className="h-[600px] w-[800px] animate-pulse-glow rounded-full"
+          style={{
+            background:
+              'radial-gradient(circle, rgba(26,107,74,0.06) 0%, transparent 70%)',
+          }}
+        />
       </div>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <motion.div
-          className="max-w-3xl"
-          variants={prefersReducedMotion ? noMotion : heroStagger}
+          className="flex flex-col items-center gap-0"
+          variants={stagger}
           initial="hidden"
           animate="visible"
         >
-          {/* H1 — Titre principal */}
+          {/* 1. Badge local */}
+          <motion.div variants={child}>
+            <span className="inline-flex items-center gap-2 bg-breton-navy/5 backdrop-blur-sm px-[18px] py-2 rounded-full text-sm text-breton-slate border border-breton-navy/5">
+              <span
+                className="w-2 h-2 rounded-full bg-breton-emerald shrink-0 animate-pulse-dot"
+                aria-hidden="true"
+              />
+              Basés à Lorient — interventions sur toute la Bretagne
+            </span>
+          </motion.div>
+
+          {/* 2. H1 */}
           <motion.h1
-            variants={v ?? fadeInUp}
-            className="text-4xl font-normal tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.1]"
+            variants={scale}
+            className="mt-8 font-serif text-[40px] sm:text-5xl lg:text-[76px] leading-[1.05] tracking-[-0.03em] text-breton-navy max-w-[820px] mx-auto"
           >
-            Vos données travaillent.
+            De la donnée brute à la
             <br />
-            <span className="text-breton-accent italic">Pas vos équipes.</span>
+            <span className="relative inline-block text-breton-emerald italic">
+              décision claire.
+              <span
+                className="absolute bottom-0.5 -inset-x-1 h-2 bg-breton-emerald/10 rounded"
+                aria-hidden="true"
+              />
+            </span>
           </motion.h1>
 
-          {/* Sous-titre */}
+          {/* 3. Sous-titre */}
           <motion.p
-            variants={v ?? fadeInUp}
-            className="mt-8 text-lg text-white/60 leading-relaxed max-w-2xl sm:text-xl"
+            variants={child}
+            className="mt-7 text-lg sm:text-xl text-breton-slate leading-relaxed max-w-[520px] mx-auto"
           >
-            Nous aidons les PME bretonnes à supprimer les ressaisies, fiabiliser leur pilotage et
-            déployer des automatisations utiles, sans complexifier le quotidien.
+            Audit, automatisation et pilotage data pour les PME bretonnes. On simplifie vos
+            opérations sans complexifier le quotidien.
           </motion.p>
 
-          {/* Micro-preuves */}
-          <motion.ul variants={v ?? fadeInUp} className="mt-10 space-y-3">
-            {[
-              'Moins de tâches manuelles',
-              'Plus de visibilité opérationnelle',
-              'Des solutions documentées et transférables',
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-3 text-sm text-white/45">
-                <span className="h-1.5 w-1.5 rounded-full bg-breton-accent shrink-0" />
-                {item}
-              </li>
-            ))}
-          </motion.ul>
-
-          {/* CTAs */}
-          <motion.div variants={v ?? fadeInUp} className="mt-12 flex flex-col gap-4 sm:flex-row">
+          {/* 4. CTAs */}
+          <motion.div
+            variants={child}
+            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <Button
-              size="lg"
               asChild
-              className="bg-white text-breton-navy hover:bg-breton-sand shadow-lg shadow-black/20 h-13 px-8 text-base font-semibold"
+              className="bg-breton-navy text-white hover:bg-breton-slate rounded-[14px] px-8 py-4 h-auto font-semibold transition-all duration-200 hover:-translate-y-[3px] hover:shadow-lg"
             >
               <a
                 href={getCalendlyUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="gap-2.5"
+                className="inline-flex items-center gap-2.5"
               >
-                <Calendar className="h-5 w-5" />
+                <Calendar className="h-5 w-5 shrink-0" />
                 Demander un diagnostic
               </a>
             </Button>
             <Button
-              size="lg"
-              variant="outline"
               asChild
-              className="border-white/20 text-white hover:bg-white/10 h-13 px-8 text-base"
+              variant="outline"
+              className="border border-breton-navy/15 text-breton-navy hover:border-breton-navy bg-transparent rounded-[14px] px-8 py-4 h-auto transition-all duration-200 hover:-translate-y-[3px] hover:shadow-md"
             >
-              <Link href="/cas-clients" className="gap-2.5">
+              <Link href="/cas-clients" className="inline-flex items-center gap-2.5">
                 Voir nos réalisations
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
             </Button>
+          </motion.div>
+
+          {/* 5. Micro-preuves */}
+          <motion.div
+            variants={child}
+            className="mt-14 flex flex-col sm:flex-row gap-4 sm:gap-9 justify-center"
+          >
+            {[
+              'Moins de tâches manuelles',
+              'Plus de visibilité opérationnelle',
+              'Des solutions documentées et transférables',
+            ].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-sm text-breton-slate">
+                <span className="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-breton-emerald/8 shrink-0">
+                  <Check className="w-3 h-3 stroke-breton-emerald" strokeWidth={2.5} />
+                </span>
+                {item}
+              </span>
+            ))}
           </motion.div>
         </motion.div>
       </div>
