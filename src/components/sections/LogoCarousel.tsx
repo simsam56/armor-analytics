@@ -20,8 +20,8 @@ export function LogoCarousel() {
   const duplicatedLogos = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
 
   return (
-    <section className="py-10 bg-white border-y border-slate-100 overflow-hidden">
-      <p className="text-center text-xs font-semibold uppercase tracking-wider text-slate-400 mb-8">
+    <section className="py-10 sm:py-12 bg-white overflow-hidden">
+      <p className="text-xs text-breton-granite uppercase tracking-[0.12em] text-center mb-6">
         Ils nous font confiance
       </p>
 
