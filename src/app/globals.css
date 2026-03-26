@@ -135,6 +135,16 @@
   animation: waveFloat 6s ease-in-out infinite;
 }
 
+/* Wave drift — horizontal wave section divider animation */
+@keyframes wave-drift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* Pulse pour les points sur la carte */
 @keyframes cityPulse {
   0%,
