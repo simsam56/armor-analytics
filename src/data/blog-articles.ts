@@ -5,10 +5,113 @@ export interface BlogArticle {
   date: string;
   readTime: string;
   tags: string[];
+  relatedSlugs?: string[];
   content: string;
 }
 
 export const BLOG_ARTICLES: BlogArticle[] = [
+  {
+    slug: 'automatisation-pme-bretagne-guide',
+    title: 'Automatisation des PME en Bretagne : par où commencer',
+    description:
+      'Guide complet pour automatiser les processus d&apos;une PME industrielle en Bretagne. Identifier les quick wins, choisir les bons outils, et mesurer le ROI. Avec des exemples concrets de PME bretonnes.',
+    date: '2026-03-25',
+    readTime: '12 min',
+    tags: ['Automatisation', 'PME', 'Bretagne', 'Guide', 'IA'],
+    relatedSlugs: ['automatiser-saisie-commandes-erp', 'power-bi-pme-industrielle'],
+    content: `
+<h2>Pourquoi l&apos;automatisation est devenue un sujet pour les PME bretonnes</h2>
+
+<p>Pendant longtemps, l&apos;automatisation était un sujet réservé aux grands groupes industriels. Les PME bretonnes — qu&apos;elles soient dans l&apos;agroalimentaire, la métallurgie, le nautisme ou la logistique — faisaient tourner leur activité avec des processus manuels, des fichiers Excel et un ERP utilisé à 20% de ses capacités. Et ça fonctionnait, tant que les volumes restaient stables et que les marges absorbaient les inefficiences.</p>
+
+<p>Ce qui a changé, c&apos;est la pression combinée de plusieurs facteurs : des marges qui se réduisent, des clients qui exigent plus de réactivité et de traçabilité, des difficultés de recrutement qui rendent chaque heure de travail plus précieuse, et une concurrence qui, elle, a commencé à automatiser. Les PME de 30 à 200 salariés dans le Morbihan, le Finistère ou les Côtes-d&apos;Armor se retrouvent face à un constat simple : les processus manuels qui suffisaient hier deviennent un frein aujourd&apos;hui.</p>
+
+<p>Le problème n&apos;est pas un manque de données. C&apos;est souvent l&apos;inverse : les données existent, dans l&apos;ERP, dans les fichiers de suivi, dans les emails, dans les bons de commande. Mais elles sont ressaisies plusieurs fois, copiées-collées d&apos;un système à l&apos;autre, compilées manuellement pour produire un reporting que le CODIR recevra avec cinq jours de retard. L&apos;automatisation consiste à éliminer ces frictions, pas à remplacer les équipes.</p>
+
+<h2>Les 5 signaux qui montrent que votre PME est prête</h2>
+
+<p>Toutes les PME n&apos;ont pas besoin d&apos;automatiser au même moment. Mais certains signaux indiquent clairement que le moment est venu d&apos;agir.</p>
+
+<ul>
+<li><strong>La saisie manuelle occupe une part significative du temps de vos équipes.</strong> Si votre équipe ADV passe deux heures par jour à ressaisir des bons de commande dans l&apos;ERP, ou si votre responsable qualité passe son vendredi après-midi à compiler des données pour le reporting hebdomadaire, c&apos;est du temps qui pourrait être consacré à des tâches à plus forte valeur ajoutée. Au-delà de 10 commandes par jour saisies manuellement, l&apos;automatisation est rentable.</li>
+<li><strong>Le reporting prend trop de temps et arrive trop tard.</strong> Quand il faut trois jours pour produire un tableau de bord mensuel, les décisions sont prises sur des données périmées. Un dirigeant industriel ne peut pas piloter efficacement avec un rétroviseur qui affiche la semaine dernière. Si vos indicateurs de production, de ventes ou de qualité arrivent systématiquement en retard, c&apos;est un signal fort.</li>
+<li><strong>Les erreurs de saisie génèrent des litiges récurrents.</strong> Chaque erreur dans une commande — mauvaise référence, mauvaise quantité, mauvaise adresse — coûte du temps, de l&apos;argent et de la crédibilité auprès de vos clients. Si vous constatez un taux d&apos;erreur supérieur à 2% sur vos saisies, l&apos;automatisation peut le réduire à quasi zéro.</li>
+<li><strong>Vos données sont en silos et personne n&apos;a la vision d&apos;ensemble.</strong> L&apos;ERP contient les données de production, le CRM les données commerciales, Excel le suivi de trésorerie, et un tableau blanc dans l&apos;atelier le planning de la semaine. Personne n&apos;a une vue unifiée de la performance. Cette fragmentation empêche les analyses transversales et ralentit la prise de décision.</li>
+<li><strong>La croissance est freinée par la capacité à traiter les volumes.</strong> Votre carnet de commandes se remplit, mais vos équipes sont au maximum de leur capacité de traitement administratif. Embaucher une personne supplémentaire pour faire de la saisie n&apos;est ni souhaitable ni toujours possible dans le contexte actuel du marché de l&apos;emploi en Bretagne. L&apos;automatisation permet d&apos;absorber la croissance sans multiplier les postes administratifs.</li>
+</ul>
+
+<h2>Par où commencer : les 3 quick wins les plus courants</h2>
+
+<p>L&apos;erreur la plus fréquente est de vouloir tout automatiser d&apos;un coup. Les projets trop ambitieux échouent parce qu&apos;ils sont trop longs, trop coûteux et trop perturbants pour l&apos;organisation. La bonne approche est de commencer par un quick win — un processus ciblé qui apporte un résultat visible en quelques semaines — puis d&apos;étendre progressivement.</p>
+
+<h3>Automatisation de la saisie de commandes</h3>
+
+<p>C&apos;est le quick win le plus courant et souvent le plus rentable. Les commandes arrivent par email sous forme de PDF ou d&apos;Excel, et votre équipe ADV les ressaisit dans l&apos;ERP. L&apos;automatisation utilise l&apos;OCR et l&apos;IA pour extraire les données du document, les vérifier par rapport à votre base articles et les injecter directement dans l&apos;ERP. Le taux d&apos;automatisation atteint 70 à 90% des commandes selon la régularité des formats. L&apos;équipe ADV ne traite manuellement que les exceptions. Nous avons documenté en détail cette approche : <a href="/automatisation-commandes-pme">découvrez notre solution d&apos;automatisation des commandes</a>.</p>
+
+<h3>Tableaux de bord automatisés</h3>
+
+<p>Si votre CODIR passe du temps à réconcilier des chiffres plutôt qu&apos;à décider, des tableaux de bord connectés directement à vos sources de données changent la donne. Power BI ou Metabase se connectent à votre ERP, à vos fichiers de suivi et à vos autres sources pour afficher des indicateurs actualisés en temps réel. Plus besoin de compiler manuellement les données chaque semaine : les tableaux de bord se mettent à jour tout seuls. Le premier dashboard est opérationnel en deux à quatre semaines. Pour en savoir plus, consultez notre page <a href="/power-bi-bretagne">Power BI pour les PME en Bretagne</a>.</p>
+
+<h3>Reporting qualité et traçabilité automatisés</h3>
+
+<p>Dans l&apos;agroalimentaire, la cosmétique ou la mécanique de précision, le suivi qualité et la traçabilité sont des obligations réglementaires autant que des enjeux business. Automatiser la collecte des données qualité — relevés de contrôle, résultats de tests, traçabilité des lots — permet de passer d&apos;un suivi papier ou Excel à un système fiable et auditable. Les alertes automatiques en cas de dérive qualité remplacent les contrôles périodiques et permettent de réagir en temps réel.</p>
+
+<h2>Les outils adaptés aux PME bretonnes</h2>
+
+<p>Le choix de l&apos;outil est la question que les dirigeants posent en premier, mais c&apos;est en réalité la dernière question à se poser. L&apos;outil est secondaire par rapport à la compréhension du processus à automatiser, à la qualité des données en entrée et à l&apos;adhésion des équipes. Un outil parfait mal configuré sur un processus mal compris ne produira rien de bon.</p>
+
+<p>Cela dit, voici les outils que nous déployons le plus souvent chez les PME bretonnes, en fonction des cas d&apos;usage.</p>
+
+<ul>
+<li><strong>n8n</strong> : plateforme d&apos;automatisation de workflows open source, idéale pour connecter des applications entre elles (email, ERP, Google Sheets, Slack) sans développement lourd. Son interface visuelle permet aux équipes non techniques de comprendre et de maintenir les flux. C&apos;est notre choix privilégié pour les automatisations légères à moyennes.</li>
+<li><strong>Power Automate</strong> : la solution Microsoft, bien adaptée aux PME déjà dans l&apos;écosystème Microsoft 365. Son intégration native avec Teams, SharePoint et Dynamics en fait un choix naturel pour les entreprises qui utilisent ces outils au quotidien.</li>
+<li><strong>Python</strong> : pour les automatisations plus complexes qui nécessitent du traitement de données avancé, de l&apos;IA ou des connexions spécifiques. Python est incontournable pour l&apos;OCR, la classification automatique de documents ou la prévision de la demande.</li>
+<li><strong>Outils OCR spécialisés</strong> : pour l&apos;extraction de données depuis des documents (bons de commande, factures, certificats qualité), des solutions comme Mindee ou les services Azure AI Document Intelligence offrent des taux de reconnaissance élevés sans développement sur mesure.</li>
+</ul>
+
+<p>L&apos;important n&apos;est pas de choisir l&apos;outil le plus puissant, mais celui qui est adapté à votre contexte : compétences internes, budget, écosystème existant et complexité du besoin. Un <a href="/consultant-data-lorient">consultant data local</a> peut vous aider à faire ce choix en connaissance de cause.</p>
+
+<h2>Combien ça coûte et quel ROI attendre</h2>
+
+<p>Parlons chiffres concrets. Les fourchettes ci-dessous correspondent à ce que nous observons chez les PME bretonnes de 30 à 200 salariés.</p>
+
+<ul>
+<li><strong>Audit et diagnostic</strong> : 2 000 à 5 000 euros HT, sur 1 à 2 semaines. C&apos;est la première étape indispensable pour cartographier vos processus, identifier les gisements d&apos;automatisation et prioriser les actions. Le diagnostic se paie pour lui-même : il évite d&apos;investir dans le mauvais projet.</li>
+<li><strong>Mise en place d&apos;une automatisation ciblée</strong> : 8 000 à 25 000 euros HT selon la complexité, sur 4 à 10 semaines. Cela couvre l&apos;analyse détaillée, le développement, les tests, la mise en production et la formation des utilisateurs.</li>
+<li><strong>Accompagnement mensuel</strong> : 800 à 3 200 euros HT par mois, pour le suivi, la maintenance évolutive et le support. Cet accompagnement est optionnel mais recommandé pendant les six premiers mois pour ajuster et optimiser les automatisations déployées.</li>
+</ul>
+
+<p>En termes de ROI, voici un exemple concret. Une PME agroalimentaire du Morbihan qui traitait 35 commandes par jour manuellement (7 heures de saisie quotidienne) a automatisé ce processus pour un investissement de 12 000 euros. L&apos;économie annuelle est de l&apos;ordre de 30 000 euros en temps de saisie et 8 000 euros en réduction des erreurs et litiges. Le retour sur investissement a été atteint en moins de quatre mois.</p>
+
+<p>De manière générale, le ROI des projets d&apos;automatisation dans les PME se situe entre 3 et 12 mois. Les projets les plus rentables sont ceux qui ciblent des processus à fort volume (nombre de commandes, nombre de documents traités) et à fort taux d&apos;erreur.</p>
+
+<h2>Comment on accompagne les PME en Bretagne</h2>
+
+<p>Chez balise-ia, nous avons structuré notre accompagnement en trois phases qui correspondent à la réalité des PME bretonnes.</p>
+
+<ul>
+<li><strong>Le Repérage</strong> : un audit terrain de 1 à 2 semaines pour comprendre vos processus, identifier les gisements d&apos;automatisation et prioriser les actions par impact et faisabilité. On ne parle pas d&apos;outils à ce stade, on parle de votre métier et de vos irritants concrets.</li>
+<li><strong>Le Cap</strong> : la phase de mise en oeuvre, de 4 à 10 semaines selon le périmètre. On développe, on teste avec vos équipes, on met en production et on forme les utilisateurs. Chaque livraison est opérationnelle et apporte de la valeur immédiate.</li>
+<li><strong>L&apos;Équipage</strong> : un accompagnement mensuel pour maintenir, optimiser et étendre les automatisations. L&apos;objectif est de rendre vos équipes autonomes, pas de créer une dépendance. On transfère les compétences progressivement.</li>
+</ul>
+
+<p>Notre ancrage en Bretagne — nous intervenons sur site à Lorient, Vannes, Quimper, Brest, Rennes et dans toute la région — permet une proximité terrain que les prestataires parisiens ne peuvent pas offrir. Quand il faut passer une journée dans l&apos;atelier pour comprendre un flux de production, on le fait. Pour découvrir l&apos;ensemble de nos offres, <a href="/services">consultez notre page services</a>.</p>
+
+<h2>Questions fréquentes</h2>
+
+<h3>Faut-il un profil technique en interne pour automatiser ?</h3>
+
+<p>Non, pas nécessairement. L&apos;objectif de l&apos;accompagnement est justement de mettre en place des solutions que vos équipes actuelles peuvent utiliser et superviser au quotidien sans compétences techniques spécifiques. En revanche, il est important d&apos;avoir un référent interne — souvent le responsable ADV, le responsable qualité ou le DAF — qui comprend le processus métier et qui sera l&apos;interlocuteur principal pendant le projet. C&apos;est la connaissance métier qui compte, pas la compétence technique.</p>
+
+<h3>Combien de temps faut-il pour voir les premiers résultats ?</h3>
+
+<p>Les premiers résultats sont visibles en 4 à 6 semaines après le lancement du projet, et le ROI complet est généralement atteint en 3 à 6 mois. La clé est de commencer par un périmètre restreint — un seul processus, un seul type de commande, un seul tableau de bord — et de livrer un premier résultat opérationnel rapidement. C&apos;est ce premier résultat tangible qui crée la dynamique et l&apos;adhésion des équipes pour aller plus loin.</p>
+
+<h3>Est-ce que l&apos;automatisation va remplacer des postes ?</h3>
+
+<p>Dans les PME que nous accompagnons, l&apos;automatisation n&apos;a jamais conduit à des suppressions de postes. Ce qu&apos;elle change, c&apos;est le contenu du travail : les tâches répétitives et sans valeur ajoutée (saisie, copier-coller, compilation de données) sont éliminées, et les personnes se concentrent sur ce qui demande de l&apos;intelligence humaine — la relation client, l&apos;analyse des cas complexes, l&apos;amélioration des processus. Dans un contexte de pénurie de main-d&apos;oeuvre en Bretagne, l&apos;automatisation permet surtout d&apos;absorber la croissance sans recruter sur des postes difficiles à pourvoir.</p>
+`,
+  },
   {
     slug: 'power-bi-pme-industrielle',
     title: 'Power BI pour PME industrielle : par où commencer',
@@ -17,6 +120,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-03-15',
     readTime: '8 min',
     tags: ['Power BI', 'PME industrielle', 'Tableau de bord', 'Bretagne'],
+    relatedSlugs: ['tableau-de-bord-production-kpi', 'automatiser-saisie-commandes-erp'],
     content: `
 <h2>Pourquoi Power BI est pertinent pour une PME industrielle</h2>
 
@@ -72,6 +176,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 <p>Si vous avez un profil technique en interne qui maîtrise SQL et qui a du temps disponible, vous pouvez démarrer seul. Mais dans la plupart des PME industrielles, ce profil n&apos;existe pas ou est déjà surchargé. Faire appel à un consultant data permet d&apos;aller plus vite — un premier tableau de bord opérationnel en deux à trois semaines — et surtout d&apos;éviter les erreurs de conception qui sont coûteuses à corriger ensuite.</p>
 
 <p>Le rôle d&apos;un accompagnement externe n&apos;est pas de créer une dépendance, mais de mettre en place les fondations et de former vos équipes pour qu&apos;elles soient autonomes ensuite. Chez balise-ia, nous livrons systématiquement une documentation technique et fonctionnelle, et nous formons les utilisateurs finaux avant de considérer un projet comme terminé.</p>
+
+<h2>Pour aller plus loin</h2>
+
+<p>Nous déployons des tableaux de bord Power BI pour les PME bretonnes : <a href="/power-bi-bretagne">découvrez notre offre Power BI en Bretagne</a>. Envie de voir l&apos;ensemble de nos services ? <a href="/services">Consultez nos offres</a>.</p>
 `,
   },
   {
@@ -82,6 +190,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-03-08',
     readTime: '9 min',
     tags: ['Automatisation', 'ERP', 'OCR', 'PME'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'erp-excel-comment-en-sortir'],
     content: `
 <h2>Le problème de la saisie manuelle des commandes</h2>
 
@@ -144,6 +253,10 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 <h2>Ce que l&apos;automatisation ne fait pas</h2>
 
 <p>Soyons clairs sur les limites. L&apos;automatisation ne remplace pas l&apos;intelligence humaine pour les cas complexes : une commande avec des conditions spéciales, un nouveau client dont les références ne sont pas encore dans votre base, une demande atypique. Le rôle de l&apos;équipe ADV évolue : au lieu de passer son temps sur de la saisie répétitive, elle se concentre sur la relation client, le traitement des cas complexes et le suivi commercial. C&apos;est un gain de valeur pour les personnes autant que pour l&apos;entreprise.</p>
+
+<h2>Pour aller plus loin</h2>
+
+<p>Découvrez notre <a href="/automatisation-commandes-pme">solution complète d&apos;automatisation des commandes pour PME</a>. Vous pouvez aussi <a href="/services">consulter l&apos;ensemble de nos offres</a> pour un accompagnement sur mesure.</p>
 `,
   },
   {
@@ -154,6 +267,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-25',
     readTime: '10 min',
     tags: ['KPI', 'Production', 'PME industrielle', 'Tableau de bord'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'erp-excel-comment-en-sortir'],
     content: `
 <h2>Pourquoi un tableau de bord production est devenu indispensable</h2>
 
@@ -233,6 +347,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-18',
     readTime: '9 min',
     tags: ['Consultant data', 'Bretagne', 'PME', 'Conseil'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'automatiser-saisie-commandes-erp'],
     content: `
 <h2>Les signaux qui indiquent que vous avez besoin d&apos;un consultant data</h2>
 
@@ -311,6 +426,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-10',
     readTime: '8 min',
     tags: ['ERP', 'Excel', 'Centralisation', 'PME'],
+    relatedSlugs: ['tableau-de-bord-production-kpi', 'automatiser-saisie-commandes-erp'],
     content: `
 <h2>Pourquoi Excel persiste à côté de l&apos;ERP</h2>
 

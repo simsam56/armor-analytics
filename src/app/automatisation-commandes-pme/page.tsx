@@ -390,6 +390,53 @@ export default function AutomatisationCommandesPage() {
         </div>
       </section>
 
+      {/* Nos autres expertises */}
+      <section className="py-20 sm:py-24 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
+            Aller plus loin
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Nos autres expertises
+          </h2>
+
+          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+            <Link
+              href="/power-bi-bretagne"
+              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Tableaux de bord Power BI
+              </h3>
+              <p className="mt-3 text-slate-600 leading-relaxed">
+                Suivez vos gains en temps réel avec un tableau de bord Power BI connecté à votre ERP.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-breton-copper group-hover:gap-3 transition-all">
+                Découvrir
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+
+            <Link
+              href="/consultant-data-lorient"
+              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Conseil data à Lorient
+              </h3>
+              <p className="mt-3 text-slate-600 leading-relaxed">
+                Besoin d&apos;un accompagnement data sur mesure ? Découvrez notre offre de conseil
+                basée à Lorient.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-breton-copper group-hover:gap-3 transition-all">
+                Découvrir
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CtaContact />
     </>
   );

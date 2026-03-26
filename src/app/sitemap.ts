@@ -6,41 +6,42 @@ const CITY_SLUGS = ['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-br
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
+  const lastUpdated = new Date('2026-03-26');
 
   const mainPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/cas-clients`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/a-propos`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/audit-ia`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'yearly',
       priority: 0.9,
     },
@@ -49,19 +50,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const landingPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/power-bi-bretagne`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/automatisation-commandes-pme`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/consultant-data-lorient`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/formation-ia-pme`,
+      lastModified: lastUpdated,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -69,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
     url: `${baseUrl}/interventions/${slug}`,
-    lastModified: new Date(),
+    lastModified: lastUpdated,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
@@ -77,7 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
+      lastModified: lastUpdated,
       changeFrequency: 'weekly',
       priority: 0.7,
     },

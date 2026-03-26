@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Calendar, Mail, MapPin, Linkedin, CheckCircle, Shield, Clock } from 'lucide-react';
+import { Calendar, Mail, MapPin, Linkedin, CheckCircle, Shield, Clock, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ContactForm, Hero } from '@/components/sections';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -78,6 +78,16 @@ export default function ContactPage() {
                     <div>
                       <p className="text-xs text-slate-500">Email</p>
                       <p className="font-medium text-slate-900">{SITE_CONFIG.email}</p>
+                    </div>
+                  </a>
+                  <a
+                    href={`tel:+33${SITE_CONFIG.phone.replace(/\s/g, '').slice(1)}`}
+                    className="flex items-center gap-3 rounded-xl border border-breton-sand p-4 transition-colors hover:border-breton-emerald/30 hover:bg-breton-foam"
+                  >
+                    <Phone className="h-5 w-5 text-breton-emerald" />
+                    <div>
+                      <p className="text-xs text-slate-500">Téléphone</p>
+                      <p className="font-medium text-slate-900">{SITE_CONFIG.phone}</p>
                     </div>
                   </a>
                   <a

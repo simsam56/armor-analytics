@@ -422,6 +422,72 @@ export default function ConsultantDataLorientPage() {
         </div>
       </section>
 
+      {/* Nos expertises — cross-links */}
+      <section className="py-20 sm:py-24 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
+            Nos expertises
+          </p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            Aller plus loin
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+            Découvrez en détail nos offres et nos pages spécialisées pour les PME bretonnes.
+          </p>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Link
+              href="/services"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Nos offres complètes
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Découvrez l&apos;ensemble de nos offres : Le Repérage, Le Cap et
+                L&apos;Équipage.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
+                Voir les offres
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            <Link
+              href="/power-bi-bretagne"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Power BI en Bretagne
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Pilotez votre activité avec des tableaux de bord Power BI connectés à vos ERP.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
+                En savoir plus
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            <Link
+              href="/automatisation-commandes-pme"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Automatisation des commandes
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Automatisez la saisie de vos commandes et éliminez les ressaisies manuelles.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
+                En savoir plus
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <CtaContact />
     </>
   );

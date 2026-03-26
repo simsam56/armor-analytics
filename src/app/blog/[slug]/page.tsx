@@ -4,6 +4,7 @@ import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/sections';
 import { CtaContact } from '@/components/sections/CtaContact';
+import { LeadMagnet } from '@/components/ui/lead-magnet';
 import { BLOG_ARTICLES } from '@/data/blog-articles';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -139,6 +140,57 @@ export default async function BlogArticlePage({ params }: PageProps) {
           </div>
         </div>
       </article>
+
+      {/* Articles connexes */}
+      {(() => {
+        const related = (article.relatedSlugs || [])
+          .map((s) => BLOG_ARTICLES.find((a) => a.slug === s))
+          .filter(Boolean)
+          .slice(0, 2);
+        if (related.length === 0) return null;
+        return (
+          <section className="py-16 sm:py-20 bg-breton-foam">
+            <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-2xl font-bold text-slate-900 mb-8">
+                À lire aussi
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {related.map((rel) => (
+                  <Link
+                    key={rel!.slug}
+                    href={`/blog/${rel!.slug}`}
+                    className="group rounded-2xl border border-breton-sand bg-white p-6 transition-all hover:shadow-lg hover:-translate-y-1"
+                  >
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      {rel!.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-breton-emerald/10 text-breton-emerald"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900 group-hover:text-breton-emerald transition-colors leading-snug">
+                      {rel!.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-2">
+                      {rel!.description}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+
+      {/* Lead magnet */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <LeadMagnet />
+        </div>
+      </section>
 
       <CtaContact />
     </>

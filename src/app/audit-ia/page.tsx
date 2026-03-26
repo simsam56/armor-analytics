@@ -44,9 +44,49 @@ const BENEFITS = [
   },
 ];
 
+const AUDIT_FAQ = [
+  {
+    q: 'Mes données sont-elles protégées ?',
+    a: 'Vos réponses servent uniquement à générer vos recommandations. On ne partage rien avec des tiers. Seul votre email (optionnel) nous permet de vous recontacter si vous le souhaitez.',
+  },
+  {
+    q: 'Combien coûte un projet typique ?',
+    a: 'Un diagnostic coûte 2 000 – 5 000 € HT. Un projet d\u2019automatisation 8 000 – 25 000 € HT. On propose toujours un premier quick win à moins de 10 000 € pour valider la valeur.',
+  },
+  {
+    q: 'Faut-il des compétences techniques en interne ?',
+    a: 'Non. On conçoit des solutions que vos équipes utilisent et maintiennent sans compétences techniques. Formation incluse.',
+  },
+  {
+    q: 'Vous travaillez avec quels outils ?',
+    a: 'Vos outils existants : Sage, Cegid, EBP, Excel, API. Pour les tableaux de bord : Metabase, Power BI. On ne remplace rien, on connecte.',
+  },
+  {
+    q: 'Comment démarrer concrètement ?',
+    a: 'Faites le quiz (3 min), découvrez vos recommandations. Si ça vous parle, on échange 30 min gratuitement pour affiner le diagnostic.',
+  },
+];
+
+const auditFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: AUDIT_FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.a,
+    },
+  })),
+};
+
 export default function AuditPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(auditFaqJsonLd) }}
+      />
       {/* Hero — promesse concrète */}
       <section className="bg-breton-navy -mt-16 pt-28 sm:pt-32 pb-12 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -197,28 +237,7 @@ export default function AuditPage() {
             Questions fréquentes
           </h2>
           <div className="space-y-4">
-            {[
-              {
-                q: 'Mes données sont-elles protégées ?',
-                a: 'Vos réponses servent uniquement à générer vos recommandations. On ne partage rien avec des tiers. Seul votre email (optionnel) nous permet de vous recontacter si vous le souhaitez.',
-              },
-              {
-                q: 'Combien coûte un projet typique ?',
-                a: 'Un diagnostic coûte 2 000 – 5 000 € HT. Un projet d\u2019automatisation 8 000 – 25 000 € HT. On propose toujours un premier quick win à moins de 10 000 € pour valider la valeur.',
-              },
-              {
-                q: 'Faut-il des compétences techniques en interne ?',
-                a: 'Non. On conçoit des solutions que vos équipes utilisent et maintiennent sans compétences techniques. Formation incluse.',
-              },
-              {
-                q: 'Vous travaillez avec quels outils ?',
-                a: 'Vos outils existants : Sage, Cegid, EBP, Excel, API. Pour les tableaux de bord : Metabase, Power BI. On ne remplace rien, on connecte.',
-              },
-              {
-                q: 'Comment démarrer concrètement ?',
-                a: 'Faites le quiz (3 min), découvrez vos recommandations. Si ça vous parle, on échange 30 min gratuitement pour affiner le diagnostic.',
-              },
-            ].map((item) => (
+            {AUDIT_FAQ.map((item) => (
               <details
                 key={item.q}
                 className="group rounded-xl border border-breton-sand overflow-hidden"

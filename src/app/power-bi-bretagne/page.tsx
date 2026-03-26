@@ -115,9 +115,45 @@ const TOOLS_COMPARISON = [
   },
 ];
 
+const POWER_BI_FAQ = [
+  {
+    question: 'Faut-il une licence Microsoft pour utiliser Power BI ?',
+    answer:
+      'Power BI Desktop est gratuit. Pour le partage en ligne, il faut une licence Power BI Pro (8,40 €/utilisateur/mois) ou une capacité Premium. Si vous avez déjà Microsoft 365 E5, la licence est incluse. On vous conseille la formule la plus adaptée à votre contexte.',
+  },
+  {
+    question:
+      "On n\u2019a pas de compétences techniques en interne, c\u2019est un problème ?",
+    answer:
+      "Non. Les tableaux de bord que nous livrons sont conçus pour être utilisés sans compétence technique. On forme vos équipes à la lecture et à l\u2019utilisation des dashboards. Si vous avez besoin de modifications ultérieures, notre offre Formation & Accompagnement couvre la maintenance.",
+  },
+  {
+    question: 'Combien de temps faut-il pour avoir un premier tableau de bord ?',
+    answer:
+      "Comptez 4 à 8 semaines entre le démarrage et la mise en production. Un premier prototype fonctionnel est généralement prêt après 2 semaines, ce qui permet d\u2019itérer rapidement avec vos équipes.",
+  },
+];
+
+const powerBiFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: POWER_BI_FAQ.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
+
 export default function PowerBiBretagnePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(powerBiFaqJsonLd) }}
+      />
       <Hero
         title="Power BI pour les PME en Bretagne"
         subtitle="Des tableaux de bord connectés à vos ERP, livrés clé en main. Vous pilotez votre activité en temps réel, sans dépendre d&apos;un fichier Excel."
@@ -414,28 +450,49 @@ export default function PowerBiBretagnePage() {
             Questions fréquentes
           </h2>
           <div className="mt-12 space-y-8">
-            {[
-              {
-                question: 'Faut-il une licence Microsoft pour utiliser Power BI ?',
-                answer:
-                  'Power BI Desktop est gratuit. Pour le partage en ligne, il faut une licence Power BI Pro (8,40 &euro;/utilisateur/mois) ou une capacit&eacute; Premium. Si vous avez d&eacute;j&agrave; Microsoft 365 E5, la licence est incluse. On vous conseille la formule la plus adapt&eacute;e &agrave; votre contexte.',
-              },
-              {
-                question: 'On n&apos;a pas de compétences techniques en interne, c&apos;est un problème ?',
-                answer:
-                  'Non. Les tableaux de bord que nous livrons sont con&ccedil;us pour &ecirc;tre utilis&eacute;s sans comp&eacute;tence technique. On forme vos &eacute;quipes &agrave; la lecture et &agrave; l&apos;utilisation des dashboards. Si vous avez besoin de modifications ult&eacute;rieures, notre offre Formation &amp; Accompagnement couvre la maintenance.',
-              },
-              {
-                question: 'Combien de temps faut-il pour avoir un premier tableau de bord ?',
-                answer:
-                  'Comptez 4 &agrave; 8 semaines entre le d&eacute;marrage et la mise en production. Un premier prototype fonctionnel est g&eacute;n&eacute;ralement pr&ecirc;t apr&egrave;s 2 semaines, ce qui permet d&apos;it&eacute;rer rapidement avec vos &eacute;quipes.',
-              },
-            ].map((faq) => (
+            {POWER_BI_FAQ.map((faq) => (
               <div key={faq.question}>
                 <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
                 <p className="mt-2 text-slate-600 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nos autres expertises */}
+      <section className="py-20 sm:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            Nos autres expertises
+          </h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <Link
+              href="/automatisation-commandes-pme"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
+            >
+              <p className="text-slate-600 leading-relaxed">
+                Vous cherchez aussi à automatiser vos saisies de commandes ? Découvrez notre solution
+                d&apos;automatisation des commandes pour PME.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-breton-emerald group-hover:gap-2.5 transition-all">
+                Automatisation des commandes
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              href="/consultant-data-lorient"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
+            >
+              <p className="text-slate-600 leading-relaxed">
+                Basés à Lorient, nous intervenons sur toute la Bretagne. En savoir plus sur notre
+                accompagnement data local.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-breton-emerald group-hover:gap-2.5 transition-all">
+                Consultant data à Lorient
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>

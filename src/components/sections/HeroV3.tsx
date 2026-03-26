@@ -54,7 +54,7 @@ export function HeroV3() {
             variants={scale}
             className="mt-8 font-serif text-[40px] sm:text-5xl lg:text-[76px] leading-[1.05] tracking-[-0.03em] text-breton-navy max-w-[820px] mx-auto"
           >
-            De la donnée brute à la
+            De la donnée brute à la{' '}
             <br />
             <span className="relative inline-block text-breton-emerald italic">
               décision claire.

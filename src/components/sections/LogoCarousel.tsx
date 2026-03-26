@@ -42,6 +42,7 @@ export function LogoCarousel() {
                 height={48}
                 className="object-contain max-h-10"
                 unoptimized={logo.src.endsWith('.svg')}
+                priority={index < 11}
               />
             </div>
           ))}

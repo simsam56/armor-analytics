@@ -3,8 +3,15 @@
 import Link from 'next/link';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
+import { Factory, BarChart3, Recycle } from 'lucide-react';
 import { PROJECTS } from '@/lib/constants';
 import { staggerContainer, cardReveal } from '@/lib/animations';
+
+const PROJECT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  'commandes-agroalimentaire': Factory,
+  'pilotage-metallurgie': BarChart3,
+  'dechets-plasturgie': Recycle,
+};
 
 // Metric highlights derived from PROJECTS results
 const PROJECT_METRICS: Record<string, { value: string; label: string }> = {
@@ -69,9 +76,15 @@ export function Projects({ showLink = true }: ProjectsProps) {
                            hover:-translate-y-[6px] hover:shadow-[0_24px_64px_rgba(12,31,63,0.1)]
                            transition-all duration-[450ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
               >
-                {/* Image placeholder */}
-                <div className="h-[190px] bg-gradient-to-br from-breton-sand to-[#D4C4A8] flex items-center justify-center">
-                  <span className="text-[13px] text-breton-granite font-medium">[Photo terrain]</span>
+                {/* Visual placeholder */}
+                <div className="h-[190px] bg-gradient-to-br from-breton-foam via-breton-sand to-breton-foam flex flex-col items-center justify-center gap-3">
+                  {PROJECT_ICONS[project.id] && (() => {
+                    const Icon = PROJECT_ICONS[project.id];
+                    return <Icon className="h-10 w-10 text-breton-emerald/40" />;
+                  })()}
+                  <span className="text-[11px] text-breton-granite/60 font-medium uppercase tracking-wider">
+                    {project.sector} · {project.location}
+                  </span>
                 </div>
 
                 {/* Body */}

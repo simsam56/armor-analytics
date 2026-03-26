@@ -5,7 +5,7 @@ test.describe('Navigation et pages principales', () => {
     await page.goto('/');
     await expect(page).toHaveTitle(/balise-ia/);
     await expect(page.locator('h1')).toBeVisible();
-    await expect(page.locator('h1')).toContainText('données');
+    await expect(page.locator('h1')).toContainText('donnée');
   });
 
   test('le header contient le logo et la navigation', async ({ page }) => {
@@ -17,9 +17,10 @@ test.describe('Navigation et pages principales', () => {
 
   test('le footer contient les liens et le CTA', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('footer')).toBeVisible();
-    await expect(page.locator('footer')).toContainText('Réserver un créneau');
-    await expect(page.locator('footer')).toContainText('balise-ia');
+    const siteFooter = page.locator('footer.bg-breton-navy');
+    await expect(siteFooter).toBeVisible();
+    await expect(siteFooter).toContainText('Réserver un créneau');
+    await expect(siteFooter).toContainText('balise-ia');
   });
 
   test('/services se charge avec les offres', async ({ page }) => {

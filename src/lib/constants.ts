@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
     'Consultant data et IA en Bretagne. Audit, pilotage data (Power BI, Metabase), automatisation et formation pour les PME industrielles et réseaux. Basés à Lorient, interventions sur site.',
   url: 'https://www.balise-ia.fr',
   email: 'contact@balise-ia.fr',
-  // phone: à ajouter quand disponible
+  phone: '06 63 85 77 39',
   location: {
     region: 'Bretagne',
     city: 'Lorient',
@@ -501,6 +501,7 @@ export const NAV_LINKS = [
   { href: '/cas-clients', label: 'Réalisations' },
   { href: '/#methode', label: 'Méthode' },
   { href: '/a-propos', label: 'À propos' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 // Éléments de réassurance

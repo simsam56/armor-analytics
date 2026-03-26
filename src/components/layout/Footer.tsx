@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin, Calendar, ArrowRight, Shield, Flag } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Calendar, ArrowRight, Shield, Flag, Phone } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG, getCalendlyUrl, getContactEmail } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { LogoWithIcon } from '@/components/ui/logo';
@@ -190,6 +190,17 @@ export function Footer() {
                     {getContactEmail()}
                   </a>
                 </li>
+                {SITE_CONFIG.phone && (
+                  <li>
+                    <a
+                      href={`tel:+33${SITE_CONFIG.phone.replace(/\s/g, '').slice(1)}`}
+                      className="flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-breton-copper"
+                    >
+                      <Phone className="h-4 w-4" />
+                      {SITE_CONFIG.phone}
+                    </a>
+                  </li>
+                )}
                 {SITE_CONFIG.social.linkedin && (
                   <li>
                     <a

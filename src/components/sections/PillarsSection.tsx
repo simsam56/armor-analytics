@@ -109,9 +109,9 @@ export function PillarsSection() {
               </div>
 
               {/* Text */}
-              <h3 className="font-serif text-[23px] font-normal text-breton-navy mb-2.5">
+              <p className="font-serif text-[23px] font-normal text-breton-navy mb-2.5">
                 {pillar.title}
-              </h3>
+              </p>
               <p className="text-sm text-breton-slate leading-relaxed">{pillar.description}</p>
             </motion.div>
           ))}

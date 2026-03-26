@@ -8,6 +8,7 @@ export function JsonLd() {
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     email: SITE_CONFIG.email,
+    telephone: '+33663857739',
     address: {
       '@type': 'PostalAddress',
       addressLocality: SITE_CONFIG.location.city,
