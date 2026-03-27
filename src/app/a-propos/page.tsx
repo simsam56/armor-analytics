@@ -14,6 +14,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
 import { TeamSection } from '@/components/sections/TeamSection';
+import { CoastalBand } from '@/components/sections/CoastalBand';
 import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -199,6 +200,9 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Bande vidéo côtière */}
+      <CoastalBand />
 
       {/* Valeurs */}
       <section className="py-20 sm:py-24 bg-white">

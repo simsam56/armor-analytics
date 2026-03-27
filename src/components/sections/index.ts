@@ -16,3 +16,4 @@ export { MetricsBand } from './MetricsBand';
 export { PillarsSection } from './PillarsSection';
 export { IncarnationSection } from './IncarnationSection';
 export { Testimonials } from './Testimonials';
+export { CoastalBand } from './CoastalBand';

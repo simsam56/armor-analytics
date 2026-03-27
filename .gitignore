@@ -40,3 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 test-results/
+
+# Raw media (drone footage, original photos)
+public/*.MOV
+public/*.jpeg
+/tmp/drone-previews/
