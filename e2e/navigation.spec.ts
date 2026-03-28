@@ -75,4 +75,11 @@ test.describe('Navigation et pages principales', () => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.getByRole('link', { name: /Faire le diagnostic/i }).first()).toBeVisible();
   });
+
+  test('/formation se charge avec les deux sous-sections', async ({ page }) => {
+    await page.goto('/formation');
+    await expect(page).toHaveTitle(/Formation/i);
+    await expect(page.getByText('Accompagnement sur site')).toBeVisible();
+    await expect(page.getByText('Ressources gratuites')).toBeVisible();
+  });
 });
