@@ -28,7 +28,7 @@ const CITIES: CityData[] = [
     department: 'Morbihan',
     departmentCode: '56',
     description:
-      'Basés à Lorient, nous accompagnons les PME industrielles du Morbihan dans leur transformation data. Automatisation des flux, tableaux de bord, fiabilisation des données — on intervient directement sur site.',
+      'Basés à Lorient, nous accompagnons les PME du Morbihan dans leur transformation data. Automatisation des flux, tableaux de bord, fiabilisation des données — on intervient directement sur site.',
     uniqueContent:
       "Lorient est le premier port de pêche de France et un pôle industriel majeur du sud Bretagne. La zone industrielle de Kerpont, le bassin naval avec Naval Group, les chantiers navals et le pôle course au large composent un écosystème économique dense et diversifié. Ces filières génèrent des volumes de données considérables, souvent sous-exploités.\n\nLes PME lorientaises ont des besoins data spécifiques liés à la logistique portuaire, la traçabilité maritime et la gestion de production en environnement naval. Entre le suivi des débarquements, la conformité des certifications et l'optimisation des flux entre ateliers et quais, les enjeux de structuration des données sont concrets et quotidiens.\n\nNotre implantation à Lorient nous permet d'intervenir directement sur site, de comprendre les contraintes terrain et de proposer des solutions adaptées aux rythmes et aux réalités de l'industrie portuaire et navale.",
     industries: [
@@ -54,7 +54,7 @@ const CITIES: CityData[] = [
     department: 'Morbihan',
     departmentCode: '56',
     description:
-      'Nous intervenons régulièrement à Vannes et dans le Morbihan. Les PME industrielles vannetaises ont les mêmes besoins data que les grands groupes — nous leur apportons les mêmes solutions, à leur échelle.',
+      'Nous intervenons régulièrement à Vannes et dans le Morbihan. Les PME vannetaises ont les mêmes besoins data que les grands groupes — nous leur apportons les mêmes solutions, à leur échelle.',
     uniqueContent:
       "Vannes, porte d'entrée du golfe du Morbihan, est un carrefour économique majeur du sud Bretagne. Son tissu économique, à la fois tertiaire et touristique, s'appuie sur le technopôle de Vannes et un réseau dense d'entreprises de services, de distribution et d'agroalimentaire. La ville attire chaque année de nouvelles PME en croissance.\n\nLes entreprises vannetaises font face à des défis data bien identifiés : consolidation des données commerciales multi-canaux, pilotage de la saisonnalité touristique, optimisation des stocks en distribution et suivi qualité en agroalimentaire. Ces problématiques nécessitent des outils de pilotage adaptés, pas des solutions surdimensionnées.\n\nÀ une heure de Lorient, nous intervenons régulièrement à Vannes et dans le Morbihan pour aider les PME à transformer leurs données en leviers de décision concrets et mesurables.",
     industries: ['Agroalimentaire', 'Métallurgie', 'Plasturgie', 'Distribution'],
@@ -75,9 +75,9 @@ const CITIES: CityData[] = [
     department: 'Finistère',
     departmentCode: '29',
     description:
-      'Nous accompagnons les PME industrielles du Finistère Sud depuis Lorient. Quimper et sa région concentrent un tissu industriel dense, notamment en agroalimentaire, que nous connaissons bien.',
+      'Nous accompagnons les PME du Finistère Sud depuis Lorient. Quimper et sa région concentrent un tissu industriel dense, notamment en agroalimentaire, que nous connaissons bien.',
     uniqueContent:
-      "Le Finistère Sud, autour de Quimper, concentre un tissu industriel parmi les plus denses de Bretagne. Les industries agroalimentaires — conserveries, produits de la mer, plats préparés — y côtoient la filière cosmétique bretonne et des PME industrielles implantées dans la zone de Creac'h Gwen et ses environs.\n\nCes entreprises, souvent familiales et ancrées dans leur territoire, manipulent des données de production, de traçabilité et de qualité qui restent trop souvent sur papier ou dans des tableurs isolés. Les audits ISO, les exigences de traçabilité alimentaire et la gestion multi-sites créent un besoin réel de structuration.\n\nDepuis Lorient, à une heure quinze de route, nous accompagnons les PME quimpéroises dans la mise en place de solutions data pragmatiques : tableaux de bord de production, automatisation du reporting qualité et connecteurs entre ERP et outils métiers.",
+      "Le Finistère Sud, autour de Quimper, concentre un tissu industriel parmi les plus denses de Bretagne. Les industries agroalimentaires — conserveries, produits de la mer, plats préparés — y côtoient la filière cosmétique bretonne et des PME implantées dans la zone de Creac'h Gwen et ses environs.\n\nCes entreprises, souvent familiales et ancrées dans leur territoire, manipulent des données de production, de traçabilité et de qualité qui restent trop souvent sur papier ou dans des tableurs isolés. Les audits ISO, les exigences de traçabilité alimentaire et la gestion multi-sites créent un besoin réel de structuration.\n\nDepuis Lorient, à une heure quinze de route, nous accompagnons les PME quimpéroises dans la mise en place de solutions data pragmatiques : tableaux de bord de production, automatisation du reporting qualité et connecteurs entre ERP et outils métiers.",
     industries: ['Agroalimentaire', 'Métallurgie', 'Cosmétique', 'Textile'],
     challenges: [
       'Traçabilité produit incomplète',
@@ -96,9 +96,9 @@ const CITIES: CityData[] = [
     department: 'Ille-et-Vilaine',
     departmentCode: '35',
     description:
-      'Nous intervenons à Rennes et en Ille-et-Vilaine pour les PME industrielles qui veulent structurer leurs données et automatiser leurs process. Une approche terrain, pas un cabinet parisien.',
+      'Nous intervenons à Rennes et en Ille-et-Vilaine pour les PME qui veulent structurer leurs données et automatiser leurs process. Une approche terrain, pas un cabinet parisien.',
     uniqueContent:
-      "Rennes est le moteur économique de la Bretagne, porté par le pôle numérique Rennes Atalante, la French Tech Rennes Saint-Malo et un écosystème tech en pleine expansion. Le tissu automobile hérité de l'ère PSA, les entreprises de services numériques et les startups en croissance composent un paysage économique dynamique et exigeant.\n\nLes PME rennaises en croissance ont besoin de structurer leur data pour passer à l'échelle. Consolidation des données commerciales, automatisation des reportings, mise en place de tableaux de bord direction : ces chantiers sont souvent repoussés faute de ressources internes dédiées.\n\nL'écosystème tech rennais favorise l'adoption d'outils modernes, mais les PME industrielles ont besoin d'un accompagnement terrain pour traduire cette maturité technologique en résultats concrets. C'est précisément notre approche : pragmatique, orientée ROI, sans jargon inutile.",
+      "Rennes est le moteur économique de la Bretagne, porté par le pôle numérique Rennes Atalante, la French Tech Rennes Saint-Malo et un écosystème tech en pleine expansion. Le tissu automobile hérité de l'ère PSA, les entreprises de services numériques et les startups en croissance composent un paysage économique dynamique et exigeant.\n\nLes PME rennaises en croissance ont besoin de structurer leur data pour passer à l'échelle. Consolidation des données commerciales, automatisation des reportings, mise en place de tableaux de bord direction : ces chantiers sont souvent repoussés faute de ressources internes dédiées.\n\nL'écosystème tech rennais favorise l'adoption d'outils modernes, mais les PME ont besoin d'un accompagnement terrain pour traduire cette maturité technologique en résultats concrets. C'est précisément notre approche : pragmatique, orientée ROI, sans jargon inutile.",
     industries: ['Automobile', 'Agroalimentaire', 'Logistique', 'Électronique'],
     challenges: [
       'Données commerciales non exploitées',
@@ -117,7 +117,7 @@ const CITIES: CityData[] = [
     department: 'Finistère',
     departmentCode: '29',
     description:
-      'Nous accompagnons les PME industrielles de Brest et du Finistère Nord. La région brestoise, avec son tissu naval et industriel, a des besoins data spécifiques que nous maîtrisons.',
+      'Nous accompagnons les PME de Brest et du Finistère Nord. La région brestoise, avec son tissu naval et industriel, a des besoins data spécifiques que nous maîtrisons.',
     uniqueContent:
       "Brest est un pôle industriel stratégique, structuré autour du pôle mer Bretagne Atlantique, du technopôle Brest-Iroise et d'un écosystème naval et de défense de premier plan. Les énergies marines renouvelables, en plein essor, ajoutent une dimension supplémentaire à ce tissu économique déjà dense et technique.\n\nLes entreprises brestoises évoluent dans des environnements exigeants : traçabilité stricte, gestion de projets complexes multi-partenaires, conformité réglementaire dans les secteurs naval et défense. Ces contraintes génèrent des volumes de données importants qui nécessitent des outils de pilotage fiables et sécurisés.\n\nNotre connaissance du milieu industriel breton et notre approche terrain nous permettent d'accompagner les PME brestoises dans la structuration de leurs données, du diagnostic initial à la mise en production d'outils adaptés à leurs contraintes métier spécifiques.",
     industries: ['Naval & défense', 'Agroalimentaire', 'Énergie', 'Mécanique'],
@@ -138,9 +138,9 @@ const CITIES: CityData[] = [
     department: "Côtes-d'Armor",
     departmentCode: '22',
     description:
-      "Nous intervenons à Saint-Brieuc et dans les Côtes-d'Armor. Les PME industrielles costarmoricaines bénéficient de notre approche pragmatique et de notre connaissance du terrain breton.",
+      "Nous intervenons à Saint-Brieuc et dans les Côtes-d'Armor. Les PME costarmoricaines bénéficient de notre approche pragmatique et de notre connaissance du terrain breton.",
     uniqueContent:
-      "Saint-Brieuc et les Côtes-d'Armor forment un territoire en pleine mutation économique. Le tissu agroalimentaire historique du département côtoie désormais le chantier du parc éolien offshore, l'un des plus grands projets industriels de la façade atlantique, et un secteur BTP en transformation.\n\nLes PME industrielles costarmoricaines cherchent à moderniser leurs outils de pilotage pour rester compétitives. Gestion de production, suivi des stocks, reporting environnemental : les données existent mais restent trop souvent dispersées entre tableurs, logiciels métiers et documents papier.\n\nÀ une heure trente de Lorient, nous accompagnons les entreprises de Saint-Brieuc et des Côtes-d'Armor dans la structuration de leurs données et la mise en place de tableaux de bord opérationnels. Notre approche pragmatique s'adapte aux réalités du terrain costarmoricain.",
+      "Saint-Brieuc et les Côtes-d'Armor forment un territoire en pleine mutation économique. Le tissu agroalimentaire historique du département côtoie désormais le chantier du parc éolien offshore, l'un des plus grands projets industriels de la façade atlantique, et un secteur BTP en transformation.\n\nLes PME costarmoricaines cherchent à moderniser leurs outils de pilotage pour rester compétitives. Gestion de production, suivi des stocks, reporting environnemental : les données existent mais restent trop souvent dispersées entre tableurs, logiciels métiers et documents papier.\n\nÀ une heure trente de Lorient, nous accompagnons les entreprises de Saint-Brieuc et des Côtes-d'Armor dans la structuration de leurs données et la mise en place de tableaux de bord opérationnels. Notre approche pragmatique s'adapte aux réalités du terrain costarmoricain.",
     industries: ['Agroalimentaire', 'Plasturgie', 'Logistique', 'BTP'],
     challenges: [
       'Gestion des déchets non optimisée',
@@ -171,10 +171,10 @@ export function generateMetadata({
 
     return {
       title: `Data & automatisation PME ${city.name} (${city.departmentCode})`,
-      description: `Automatisation des données et tableaux de bord pour PME industrielles à ${city.name}, ${city.department}. Intervention sur site. Diagnostic gratuit.`,
+      description: `Automatisation des données et tableaux de bord pour PME à ${city.name}, ${city.department}. Intervention sur site. Diagnostic gratuit.`,
       openGraph: {
         title: `Data & automatisation PME à ${city.name} — balise-ia`,
-        description: `Collectif data spécialisé PME industrielles. Basés à Lorient, on intervient à ${city.name} et en ${city.department}.`,
+        description: `Collectif data spécialisé PME. Basés à Lorient, on intervient à ${city.name} et en ${city.department}.`,
         type: 'website',
         locale: 'fr_FR',
       },
@@ -197,7 +197,7 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: `balise-ia \u2014 ${city.name}`,
-    description: `Automatisation des données et tableaux de bord pour PME industrielles à ${city.name}, ${city.department}.`,
+    description: `Automatisation des données et tableaux de bord pour PME à ${city.name}, ${city.department}.`,
     url: `https://www.balise-ia.fr/interventions/${city.slug}`,
     email: SITE_CONFIG.email,
     telephone: '+33663857739',

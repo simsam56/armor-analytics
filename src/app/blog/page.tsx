@@ -8,7 +8,7 @@ import { BLOG_ARTICLES } from '@/data/blog-articles';
 export const metadata: Metadata = {
   title: 'Blog — Conseils data, automatisation et IA pour PME',
   description:
-    'Conseils pratiques pour exploiter vos données, automatiser vos processus et piloter votre activité. Articles pour PME industrielles et réseaux bretons.',
+    'Conseils pratiques pour exploiter vos données, automatiser vos processus et piloter votre activité. Articles pour PME et réseaux bretons.',
   openGraph: {
     title: 'Blog — Conseils data, automatisation et IA pour PME | balise-ia',
     description:

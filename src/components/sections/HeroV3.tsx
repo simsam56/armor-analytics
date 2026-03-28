@@ -61,8 +61,8 @@ export function HeroV3() {
             variants={child}
             className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[520px] mx-auto"
           >
-            On intègre l&apos;IA dans les PME bretonnes et on forme vos équipes à la prendre en
-            main.
+            Automatisation, tableaux de bord et IA pour les PME bretonnes. On élimine ce qui
+            vous freine et on forme vos équipes.
           </motion.p>
 
           {/* 4. CTAs */}
@@ -75,7 +75,7 @@ export function HeroV3() {
               className="bg-breton-sand text-breton-navy hover:bg-white rounded-[14px] px-8 py-4 h-auto font-semibold transition-all duration-200 hover:-translate-y-[3px] hover:shadow-lg"
             >
               <Link href="/audit-ia" className="inline-flex items-center gap-2.5">
-                Faire le diagnostic →
+                Identifier mes quick wins →
               </Link>
             </Button>
             <Button
@@ -84,7 +84,7 @@ export function HeroV3() {
               className="border border-white/20 text-white hover:border-white/50 hover:bg-white/10 bg-transparent rounded-[14px] px-8 py-4 h-auto transition-all duration-200 hover:-translate-y-[3px] hover:shadow-md"
             >
               <Link href="/cas-clients" className="inline-flex items-center gap-2.5">
-                Voir nos réalisations
+                Voir les résultats clients
                 <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
             </Button>
@@ -96,9 +96,9 @@ export function HeroV3() {
             className="mt-14 flex flex-col sm:flex-row gap-4 sm:gap-9 justify-center"
           >
             {[
-              'Intégration IA sur mesure',
+              'Automatisation sur mesure',
+              'Dashboards temps réel',
               'Formation des équipes',
-              'Accompagnement terrain',
             ].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-white/70">
                 <span className="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-breton-emerald/20 shrink-0">

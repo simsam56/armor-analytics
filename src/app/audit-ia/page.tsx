@@ -5,20 +5,20 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Diagnostic IA & Data',
+  title: 'Diagnostic IA & Data gratuit — Quiz 5 min pour PME bretonnes',
   description:
-    'En 5 minutes, identifiez vos opportunités data & IA. Quiz gratuit pour PME bretonnes — résultats immédiats.',
+    'Identifiez vos quick wins IA et data en 5 minutes. Quiz gratuit, résultats immédiats, recommandations concrètes. Pour dirigeants de PME en Bretagne.',
   keywords: [
-    'audit automatisation PME',
-    'diagnostic data gratuit',
-    'automatisation PME industrielle',
-    'tableau de bord industriel',
+    'audit IA PME gratuit',
+    'diagnostic data PME',
+    'automatisation PME Bretagne',
+    'quiz IA entreprise',
     'reporting automatisé Bretagne',
   ],
   openGraph: {
-    title: 'Diagnostic IA & Data — Quiz gratuit pour PME bretonnes',
+    title: 'Diagnostic IA & Data gratuit — Quiz 5 min pour PME bretonnes',
     description:
-      'En 5 minutes, identifiez vos opportunités data & IA. Résultats immédiats, sans inscription.',
+      'Identifiez vos quick wins IA et data en 5 minutes. Résultats immédiats, sans inscription.',
     type: 'website',
   },
   alternates: {
@@ -47,23 +47,27 @@ const BENEFITS = [
 const AUDIT_FAQ = [
   {
     q: 'Mes données sont-elles protégées ?',
-    a: 'Vos réponses servent uniquement à générer vos recommandations. On ne partage rien avec des tiers. Seul votre email (optionnel) nous permet de vous recontacter si vous le souhaitez.',
+    a: 'Vos réponses servent uniquement à générer vos recommandations. On ne partage rien avec des tiers. NDA systématique, données hébergées en France.',
   },
   {
-    q: 'Combien coûte un projet typique ?',
-    a: 'Un diagnostic coûte 2 000 – 5 000 € HT. Un projet d\u2019automatisation 8 000 – 25 000 € HT. On propose toujours un premier quick win à moins de 10 000 € pour valider la valeur.',
+    q: 'Ce diagnostic est-il vraiment gratuit ?',
+    a: 'Oui. Le quiz en ligne est 100% gratuit, sans engagement. L\u2019appel découverte de 30 minutes aussi. Vous repartez avec des recommandations concrètes, que vous travailliez avec nous ou non.',
   },
   {
     q: 'Faut-il des compétences techniques en interne ?',
-    a: 'Non. On conçoit des solutions que vos équipes utilisent et maintiennent sans compétences techniques. Formation incluse.',
+    a: 'Non. On conçoit des solutions que vos équipes utilisent et maintiennent sans compétences techniques. Formation incluse dans chaque projet.',
   },
   {
     q: 'Vous travaillez avec quels outils ?',
-    a: 'Vos outils existants : Sage, Cegid, EBP, Excel, API. Pour les tableaux de bord : Metabase, Power BI. On ne remplace rien, on connecte.',
+    a: 'Vos outils existants : Sage, Cegid, EBP, Dynamics, Excel, API. Pour les tableaux de bord : Power BI, Metabase. On ne remplace rien, on connecte.',
   },
   {
-    q: 'Comment démarrer concrètement ?',
-    a: 'Faites le quiz (5 min), découvrez vos recommandations. Si ça vous parle, on échange 30 min gratuitement pour affiner le diagnostic.',
+    q: 'Comment ça se passe après le quiz ?',
+    a: 'Vous recevez vos résultats immédiatement. Si ça vous parle, on échange 30 min gratuitement pour affiner le diagnostic et identifier un premier projet concret.',
+  },
+  {
+    q: 'C\u2019est pour quel type d\u2019entreprise ?',
+    a: 'Toute PME bretonne qui a des données, des flux et des process à optimiser. Industrie, réseaux, services, distribution... Si vous perdez du temps sur des tâches manuelles ou que vous manquez de visibilité, ce quiz est fait pour vous.',
   },
 ];
 

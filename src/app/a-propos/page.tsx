@@ -16,13 +16,13 @@ import { TeamSection } from '@/components/sections/TeamSection';
 import { CoastalBand } from '@/components/sections/CoastalBand';
 
 export const metadata: Metadata = {
-  title: 'À propos | Collectif data & automatisation PME industrielles',
+  title: 'Collectif data et IA pour PME bretonnes — Lorient, Bretagne',
   description:
-    "Collectif de spécialistes data et automatisation pour PME industrielles. Basés à Lorient, nous intervenons sur site en Bretagne. Pas de juniors, pas d'intermédiaires, des résultats mesurables.",
+    'Experts seniors data, IA et automatisation. Basés à Lorient, on intervient sur site en Bretagne. Pas de juniors, pas d\u2019intermédiaires, des résultats mesurables.',
   openGraph: {
     title: 'À propos — balise-ia',
     description:
-      'Collectif data spécialisé PME industrielles bretonnes. Basés à Lorient, on intervient sur site.',
+      'Collectif data et IA pour PME bretonnes. Basés à Lorient, on intervient sur site.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -104,7 +104,7 @@ const STORY_CHAPTERS = [
   {
     title: 'Le constat',
     content:
-      'Dans les PME industrielles, le schéma est toujours le même : des équipes compétentes qui perdent du temps sur des tâches sans valeur. Des données dispersées entre ERP, Excel et fiches papier. Des décisions prises à l\u2019instinct faute de vision claire.',
+      'Dans les PME bretonnes, le schéma est toujours le même : des équipes compétentes qui perdent du temps sur des tâches sans valeur. Des données dispersées entre ERP, Excel et fiches papier. Des décisions prises à l\u2019instinct faute de vision claire.',
   },
   {
     title: 'Le problème',
@@ -124,7 +124,7 @@ export default function AboutPage() {
   return (
     <>
       <Hero
-        title={'Un collectif terrain,\nspécialisé PME industrielles'}
+        title={'Un collectif terrain,\nspécialisé PME bretonnes'}
         subtitle="On connaît vos ERP, vos contraintes de production, vos enjeux de fiabilité. Parce qu'on a travaillé dans l'industrie avant de faire du conseil."
       />
 

@@ -19,17 +19,21 @@ export function QuizCta() {
             Diagnostic gratuit
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
-            En 5 minutes, identifiez vos opportunités data &amp; IA
+            Quels sont vos quick wins IA &amp; data ?
           </h2>
           <p className="mt-4 text-lg text-breton-slate">
-            Le quiz analyse votre situation et vous oriente vers le pilier le plus adapté.
+            En 5 minutes, identifiez les 2-3 projets les plus rentables pour votre PME. Résultats
+            immédiats.
           </p>
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href="/audit-ia">Faire le diagnostic →</Link>
+              <Link href="/audit-ia">Lancer le diagnostic gratuit →</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-breton-sand">
+              <Link href="/contact">Ou nous contacter directement</Link>
             </Button>
           </div>
-          <p className="mt-4 text-sm text-breton-granite">Gratuit · Sans engagement · Résultats immédiats</p>
+          <p className="mt-4 text-sm text-breton-granite">5 min · Gratuit · Sans engagement</p>
         </motion.div>
       </div>
     </section>

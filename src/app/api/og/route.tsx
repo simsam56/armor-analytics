@@ -5,9 +5,9 @@ export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get('title') || 'Data & automatisation pour PME industrielles';
+  const title = searchParams.get('title') || 'Data & automatisation pour PME bretonnes';
   const subtitle =
-    searchParams.get('subtitle') || 'Collectif data spécialisé PME industrielles bretonnes';
+    searchParams.get('subtitle') || 'Collectif data et IA pour PME bretonnes';
 
   return new ImageResponse(
     <div
@@ -92,7 +92,7 @@ export async function GET(request: NextRequest) {
         <span>·</span>
         <span>Diagnostic gratuit</span>
         <span>·</span>
-        <span>PME industrielles bretonnes</span>
+        <span>PME bretonnes</span>
       </div>
     </div>,
     {

@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Consultant data et IA à Lorient',
   description:
-    'Consultant data et IA basé à Lorient, interventions sur site en Bretagne. Audit data, tableaux de bord, automatisation et formation pour PME industrielles et réseaux. Collectif senior, résultats mesurables.',
+    'Consultant data et IA basé à Lorient, interventions sur site en Bretagne. Audit data, tableaux de bord, automatisation et formation pour PME et réseaux bretons. Collectif senior, résultats mesurables.',
   keywords:
     'consultant data Lorient, consultant data Bretagne, consultant IA Lorient, consultant IA Bretagne, data scientist Lorient, expert data PME Morbihan, consultant Power BI Lorient',
   openGraph: {
@@ -161,7 +161,7 @@ export default function ConsultantDataLorientPage() {
     <>
       <Hero
         title="Votre consultant data à Lorient"
-        subtitle="Un collectif de spécialistes data et IA, basé à Lorient, qui intervient sur site dans toute la Bretagne. Audit, tableaux de bord, automatisation, formation — des solutions concrètes pour les PME industrielles."
+        subtitle="Un collectif de spécialistes data et IA, basé à Lorient, qui intervient sur site dans toute la Bretagne. Audit, tableaux de bord, automatisation, formation — des solutions concrètes pour les PME bretonnes."
       />
 
       {/* Ce qu'un consultant data fait concrètement */}
@@ -355,7 +355,7 @@ export default function ConsultantDataLorientPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Des PME industrielles et des réseaux bretons
+              Des PME et des réseaux bretons
             </h2>
             <p className="mt-4 text-lg text-slate-600 leading-relaxed">
               Nous travaillons principalement avec des PME de 20 à 200 salariés, dans des secteurs

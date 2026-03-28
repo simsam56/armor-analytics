@@ -41,7 +41,7 @@ test.describe('Navigation et pages principales', () => {
 
   test('/a-propos se charge', async ({ page }) => {
     await page.goto('/a-propos');
-    await expect(page).toHaveTitle(/propos/);
+    await expect(page).toHaveTitle(/Collectif/i);
     await expect(page.locator('h1')).toContainText('collectif');
   });
 
@@ -59,16 +59,16 @@ test.describe('Navigation et pages principales', () => {
 
   test('/ia se charge avec le contenu IA', async ({ page }) => {
     await page.goto('/ia');
-    await expect(page).toHaveTitle(/IA/i);
+    await expect(page).toHaveTitle(/Automatisation/i);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Faire le diagnostic/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /diagnostic/i }).first()).toBeVisible();
   });
 
   test('/data se charge avec le contenu Data', async ({ page }) => {
     await page.goto('/data');
-    await expect(page).toHaveTitle(/Data/i);
+    await expect(page).toHaveTitle(/Tableaux de bord|reporting/i);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Faire le diagnostic/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /diagnostic/i }).first()).toBeVisible();
   });
 
   test('/formation se charge avec les deux sous-sections', async ({ page }) => {

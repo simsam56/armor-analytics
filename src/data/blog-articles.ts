@@ -26,7 +26,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     content: `
 <h2>L'IA pour les PME : au-delà du buzz</h2>
 
-<p>Quand on parle d'intelligence artificielle aux dirigeants de PME bretonnes, la réaction est souvent la même : « C'est pour les grands groupes, pas pour nous. » Et pourtant, l'IA est déjà présente dans beaucoup de PME industrielles — souvent sans qu'on la nomme ainsi. Chaque fois qu'un système extrait automatiquement des données d'un bon de commande, qu'un algorithme prédit la demande pour optimiser les stocks, ou qu'un outil classe des documents sans intervention humaine, c'est de l'intelligence artificielle en action.</p>
+<p>Quand on parle d'intelligence artificielle aux dirigeants de PME bretonnes, la réaction est souvent la même : « C'est pour les grands groupes, pas pour nous. » Et pourtant, l'IA est déjà présente dans beaucoup de PME — souvent sans qu'on la nomme ainsi. Chaque fois qu'un système extrait automatiquement des données d'un bon de commande, qu'un algorithme prédit la demande pour optimiser les stocks, ou qu'un outil classe des documents sans intervention humaine, c'est de l'intelligence artificielle en action.</p>
 
 <p>L'IA pour une PME, ce n'est pas ChatGPT ni des robots autonomes. C'est un ensemble de techniques qui permettent d'automatiser des tâches cognitives répétitives — celles qui mobilisent du temps humain pour traiter de l'information, reconnaître des motifs dans des données ou prendre des décisions routinières. L'objectif est concret : libérer du temps pour les tâches à forte valeur ajoutée, réduire les erreurs et prendre de meilleures décisions grâce aux données existantes. Pour comprendre l'ensemble de nos interventions en IA, consultez notre <a href="/intelligence-artificielle-bretagne">page dédiée à l'intelligence artificielle en Bretagne</a>.</p>
 
@@ -64,7 +64,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <p><strong>Multi-secteur :</strong> plusieurs PME utilisent la classification automatique de documents (factures, bons de livraison, avoirs, relances) pour router automatiquement les pièces vers le bon service. Le tri qui prenait 2 heures par jour prend désormais 5 minutes. Pour découvrir plus d'exemples en détail, consultez notre article sur les <a href="/blog/exemples-ia-pme-industrielles-bretagne">5 exemples concrets d'IA dans les PME industrielles bretonnes</a>.</p>
 
-<p>Ces résultats sont accessibles à la plupart des PME industrielles. Ils ne nécessitent pas d'investissements massifs ni de compétences IA en interne. Ils nécessitent une approche structurée et un accompagnement adapté. Pour voir nos réalisations, rendez-vous sur notre page <a href="/cas-clients">cas clients</a>.</p>
+<p>Ces résultats sont accessibles à la plupart des PME. Ils ne nécessitent pas d'investissements massifs ni de compétences IA en interne. Ils nécessitent une approche structurée et un accompagnement adapté. Pour voir nos réalisations, rendez-vous sur notre page <a href="/cas-clients">cas clients</a>.</p>
 
 <h2>Combien ça coûte ? Le budget IA pour une PME</h2>
 
@@ -76,7 +76,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 <li><strong>Accompagnement mensuel :</strong> 800 à 3 200 € HT/mois. Pour le suivi, l'optimisation des modèles, le support et l'extension à de nouveaux cas d'usage. Cet accompagnement est recommandé pendant les 6 premiers mois, le temps que les solutions se stabilisent et que vos équipes montent en compétence.</li>
 </ul>
 
-<p>En termes de ROI, les projets d'IA dans les PME industrielles génèrent un retour sur investissement en 2 à 6 mois. Les projets les plus rentables sont ceux qui ciblent des processus à fort volume de traitement et à fort taux d'erreur. L'important est de commencer petit, de prouver le ROI sur un premier cas d'usage, puis d'étendre progressivement.</p>
+<p>En termes de ROI, les projets d'IA dans les PME génèrent un retour sur investissement en 2 à 6 mois. Les projets les plus rentables sont ceux qui ciblent des processus à fort volume de traitement et à fort taux d'erreur. L'important est de commencer petit, de prouver le ROI sur un premier cas d'usage, puis d'étendre progressivement.</p>
 
 <h2>Par où commencer : la méthode balise-ia</h2>
 
@@ -97,7 +97,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <p>Un consultant qui passe une journée dans votre atelier pour comprendre comment vos opérateurs travaillent fera un meilleur diagnostic qu'un prestataire qui travaille uniquement sur les données à distance. La formation en présentiel est plus efficace. Les ajustements post-déploiement sont plus rapides quand on peut être sur site en moins d'une heure.</p>
 
-<p>Chez balise-ia, basés à Lorient, nous intervenons sur tout le territoire breton — Vannes, Quimper, Brest, Rennes, Saint-Brieuc et au-delà. Cette proximité est un choix stratégique : les PME industrielles bretonnes méritent un accompagnement IA de qualité sans devoir faire appel à des prestataires parisiens déconnectés de leurs réalités terrain. Pour en savoir plus sur notre ancrage local, consultez notre page <a href="/consultant-data-lorient">consultant data à Lorient</a>.</p>
+<p>Chez balise-ia, basés à Lorient, nous intervenons sur tout le territoire breton — Vannes, Quimper, Brest, Rennes, Saint-Brieuc et au-delà. Cette proximité est un choix stratégique : les PME bretonnes méritent un accompagnement IA de qualité sans devoir faire appel à des prestataires parisiens déconnectés de leurs réalités terrain. Pour en savoir plus sur notre ancrage local, consultez notre page <a href="/consultant-data-lorient">consultant data à Lorient</a>.</p>
 
 <p><strong>Vous souhaitez évaluer le potentiel de l'IA pour votre PME ?</strong> <a href="/audit-ia">Demandez un diagnostic gratuit</a> — nous identifions les cas d'usage les plus pertinents et estimons le ROI en 1 à 2 semaines. Ou découvrez notre <a href="/intelligence-artificielle-bretagne">offre complète en intelligence artificielle pour les PME bretonnes</a>.</p>
 `,
@@ -199,7 +199,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'automatisation-pme-bretagne-guide',
     title: 'Automatisation des PME en Bretagne : par où commencer',
     description:
-      'Guide complet pour automatiser les processus d&apos;une PME industrielle en Bretagne. Identifier les quick wins, choisir les bons outils, et mesurer le ROI. Avec des exemples concrets de PME bretonnes.',
+      'Guide complet pour automatiser les processus d&apos;une PME en Bretagne. Identifier les quick wins, choisir les bons outils, et mesurer le ROI. Avec des exemples concrets de PME bretonnes.',
     date: '2026-03-25',
     readTime: '12 min',
     tags: ['Automatisation', 'PME', 'Bretagne', 'Guide', 'IA'],
@@ -596,7 +596,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <h2>Pourquoi la proximité géographique compte</h2>
 
-<p>Dans le monde du consulting data, beaucoup de missions se font à distance. Et c&apos;est vrai qu&apos;une grande partie du travail technique — développement, configuration, tests — peut se faire sans être sur place. Mais pour une PME industrielle, la proximité géographique apporte une valeur réelle.</p>
+<p>Dans le monde du consulting data, beaucoup de missions se font à distance. Et c&apos;est vrai qu&apos;une grande partie du travail technique — développement, configuration, tests — peut se faire sans être sur place. Mais pour une PME, la proximité géographique apporte une valeur réelle.</p>
 
 <p>D&apos;abord, pour comprendre le terrain. Un consultant qui visite votre atelier, qui voit comment vos opérateurs travaillent, qui comprend la réalité de vos processus, fera un meilleur travail qu&apos;un intervenant qui travaille uniquement sur les données sans connaître le contexte physique. Ensuite, pour la formation : former des opérateurs sur un nouveau tableau de bord est beaucoup plus efficace en présentiel qu&apos;en visio. Enfin, pour la confiance : dans les PME, la relation humaine est un facteur clé de réussite des projets.</p>
 

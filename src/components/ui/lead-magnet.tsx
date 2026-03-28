@@ -80,7 +80,7 @@ export function LeadMagnet({ variant = 'card' }: LeadMagnetProps) {
       )}
     >
       <p className="text-lg font-bold text-slate-900">
-        Checklist : 10 automatisations rapides pour PME industrielles
+        Checklist : 10 automatisations rapides pour PME bretonnes
       </p>
       <p className="mt-1 text-sm text-slate-600">
         Recevez gratuitement notre checklist par email.

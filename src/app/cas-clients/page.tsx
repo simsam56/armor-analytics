@@ -16,15 +16,15 @@ import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Cas clients IA & automatisation PME Bretagne',
+  title: 'Cas clients — Résultats concrets IA et data pour PME bretonnes',
   description:
-    'Résultats concrets de nos missions IA et automatisation : PME agroalimentaires, métallurgie, logistique en Bretagne. Gains de temps, fiabilité des données, tableaux de bord temps réel.',
+    '80% de ressaisies éliminées, 4h/semaine gagnées, reporting temps réel. Découvrez les résultats concrets de nos missions IA et data en Bretagne.',
   keywords:
-    'cas clients IA PME Bretagne, résultats automatisation industrie Bretagne, témoignages IA PME Lorient, success stories data Morbihan',
+    'cas clients IA PME Bretagne, résultats automatisation PME Bretagne, témoignages data PME Lorient, success stories IA Morbihan',
   openGraph: {
-    title: 'Cas clients IA & automatisation PME Bretagne — balise-ia',
+    title: 'Cas clients — Résultats concrets IA et data pour PME bretonnes',
     description:
-      'Des résultats concrets et mesurables chez nos clients PME industriels en Bretagne.',
+      'Des résultats concrets et mesurables chez nos clients PME en Bretagne.',
     type: 'website',
     locale: 'fr_FR',
   },

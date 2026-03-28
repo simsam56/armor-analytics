@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'balise-ia',
   tagline: 'Data, automatisation et IA pour les PME bretonnes',
   description:
-    'Intelligence artificielle, data et automatisation pour les PME bretonnes. Audit, pilotage data (Power BI, Metabase), déploiement IA et formation. Basés à Lorient, interventions sur site en Bretagne.',
+    'Automatisation, tableaux de bord et IA pour les PME bretonnes. Diagnostic gratuit, dashboards temps réel, élimination des tâches manuelles. Basés à Lorient, interventions sur site en Bretagne.',
   url: 'https://www.balise-ia.fr',
   email: 'contact@balise-ia.fr',
   phone: '06 63 85 77 39',
@@ -37,7 +37,59 @@ export const TECH_STACK = {
   cloud: ['Azure', 'AWS', 'OVH', 'Scaleway'],
 };
 
-// Secteurs servis
+// Problèmes que l'on résout — approche par irritants (pas par secteur)
+export const PAIN_POINTS = [
+  {
+    id: 'ressaisies',
+    title: 'Ressaisies et doubles saisies',
+    description: 'Vos équipes recopient des données d\u2019un outil à l\u2019autre. Ça prend du temps, ça génère des erreurs.',
+    pillar: 'ia' as const,
+  },
+  {
+    id: 'reporting',
+    title: 'Reporting manuel',
+    description: 'Votre reporting, c\u2019est un Excel que quelqu\u2019un met à jour le vendredi. Vous décidez sur des données périmées.',
+    pillar: 'data' as const,
+  },
+  {
+    id: 'donnees-dispersees',
+    title: 'Données dispersées',
+    description: 'ERP, Excel, emails, papier : vos données sont partout sauf au même endroit.',
+    pillar: 'data' as const,
+  },
+  {
+    id: 'pilotage',
+    title: 'Pilotage à l\u2019instinct',
+    description: 'Vous n\u2019avez pas les bons chiffres au bon moment. Les décisions se prennent au feeling.',
+    pillar: 'data' as const,
+  },
+  {
+    id: 'prevision',
+    title: 'Prévision de demande et stocks',
+    description: 'Vous commandez trop ou pas assez. Vos stocks sont un pari permanent.',
+    pillar: 'ia' as const,
+  },
+  {
+    id: 'qualite',
+    title: 'Suivi qualité réactif',
+    description: 'Vous détectez les problèmes après coup, jamais avant. Les alertes arrivent trop tard.',
+    pillar: 'data' as const,
+  },
+  {
+    id: 'documents',
+    title: 'Gestion documentaire chaotique',
+    description: 'Devis, BL, factures : un enfer à retrouver. Les documents sont classés dans la tête de quelqu\u2019un.',
+    pillar: 'ia' as const,
+  },
+  {
+    id: 'conformite',
+    title: 'Conformité et traçabilité',
+    description: 'L\u2019audit arrive, vous paniquez pour compiler les données. Le reporting réglementaire est un cauchemar.',
+    pillar: 'data' as const,
+  },
+];
+
+// Secteurs servis (conservé pour référence, approche par problème privilégiée)
 export const SECTORS = [
   { name: 'Agroalimentaire', icon: 'Factory' },
   { name: 'Métallurgie', icon: 'Cog' },
@@ -97,29 +149,64 @@ export const PRICE_FACTORS = {
   ],
 };
 
-// 2 piliers d'offre — IA & Automatisation, Data & Reporting
+// 3 piliers d'offre — reformulés par problème client
 export const SERVICES = [
   {
     id: 'ia',
-    title: 'IA & Automatisation',
-    tagline: 'Automatisez ce qui freine, déployez ce qui sert',
+    title: 'Éliminer les tâches manuelles',
+    navLabel: 'Automatisation',
+    tagline: 'Vos équipes méritent mieux que de la ressaisie',
     description:
-      'OCR, agents IA, workflows n8n, intégrations ERP. On déploie des solutions concrètes, mesurées avant et après.',
+      'OCR, agents IA, workflows automatisés, intégrations ERP. On élimine les tâches répétitives et on mesure les gains.',
     href: '/ia',
     icon: 'Bot',
-    tools: ['n8n', 'Make', 'Python', 'Claude'],
-    useCases: ['OCR & extraction de données', 'Agents IA métier', 'Automatisation de workflows', 'Intégration ERP'],
+    tools: ['n8n', 'Make', 'Python', 'Claude', 'LangChain'],
+    useCases: [
+      'OCR & extraction de données',
+      'Agents IA conversationnels',
+      'Automatisation de workflows',
+      'Génération de contenus métier',
+      'Vision & analyse d\u2019images',
+      'Prévision de demande & stocks',
+      'Intégration ERP',
+    ],
   },
   {
     id: 'data',
-    title: 'Data & Reporting',
-    tagline: 'Pilotez en temps réel, décidez avec des données fiables',
+    title: 'Piloter avec des données fiables',
+    navLabel: 'Data',
+    tagline: 'Décidez sur des faits, pas sur des impressions',
     description:
-      'Data engineering, dashboards Power BI / Metabase, pipelines ETL. Vos données centralisées et exploitables.',
+      'Dashboards temps réel, data engineering, centralisation des sources. Vos données enfin exploitables.',
     href: '/data',
     icon: 'BarChart3',
-    tools: ['Power BI', 'Metabase', 'Microsoft Fabric', 'DuckDB'],
-    useCases: ['Dashboards temps réel', 'Data engineering / ETL', 'Centralisation des sources', 'Reporting automatisé'],
+    tools: ['Power BI', 'Metabase', 'Microsoft Fabric', 'DuckDB', 'dbt'],
+    useCases: [
+      'Dashboards temps réel',
+      'Data warehouse & centralisation',
+      'Data quality & nettoyage',
+      'Suivi qualité & alertes',
+      'CRM analytique & segmentation',
+      'Conformité & reporting réglementaire',
+      'Reporting automatisé',
+    ],
+  },
+  {
+    id: 'formation',
+    title: 'Rendre vos équipes autonomes',
+    navLabel: 'Formation',
+    tagline: 'L\u2019IA et la data ne servent à rien si personne ne les utilise',
+    description:
+      'Formations sur site, accompagnement mensuel, transfert de compétences. Vos équipes prennent la main.',
+    href: '/formation',
+    icon: 'GraduationCap',
+    tools: ['Claude', 'Power BI', 'n8n', 'Prompting IA'],
+    useCases: [
+      'Formation IA & prompting',
+      'Formation Power BI & dashboards',
+      'Accompagnement mensuel',
+      'Transfert de compétences post-projet',
+    ],
   },
 ];
 
@@ -353,37 +440,47 @@ export const FAQ_ITEMS = [
   {
     category: 'Approche',
     question: `Par où commencer quand on n'a jamais fait de projet IA ou data ?`,
-    answer: `Parce que l'IA marche quand l'entreprise se connaît. Sans cartographie des process réels, des irritants et de la maturité data, on déploie des outils que personne n'utilise. Notre audit diagnostic évite de brûler du budget sur un POC déconnecté du terrain.`,
+    answer: `Par un diagnostic. En 5 minutes (quiz en ligne) ou 30 minutes (appel découverte), on identifie vos irritants concrets et les 2-3 projets les plus rentables. Pas besoin de stratégie data préalable — on part de votre réalité terrain.`,
   },
   {
     category: 'Fonctionnement',
-    question: 'Est-ce que vous travaillez uniquement avec des industriels ?',
-    answer: `Nous intervenons surtout là où les données, les flux et les opérations ont un impact fort sur le quotidien : industrie, réseau, services structurés, distribution ou activités multi-outils.`,
+    question: 'Avec quel type de PME travaillez-vous ?',
+    answer: `Toute PME bretonne qui a des données, des flux et des process à optimiser. Agroalimentaire, métallurgie, réseaux de franchises, logistique, services... Ce qui compte, c'est que vous ayez des irritants concrets à résoudre, pas votre secteur.`,
   },
   {
     category: 'Prérequis',
     question: 'Faut-il déjà avoir des outils modernes en place ?',
-    answer: `Non. On sait travailler avec des environnements hétérogènes : ERP anciens, fichiers Excel, exports manuels, outils déjà en production. L'audit diagnostic sert justement à comprendre ce qui existe avant de proposer quoi que ce soit.`,
+    answer: `Non. On travaille avec ce qui existe : ERP anciens, fichiers Excel, exports manuels, outils hétérogènes. Le diagnostic sert justement à comprendre votre environnement avant de proposer quoi que ce soit.`,
   },
   {
     category: 'Déroulement',
-    question: `Quelle différence entre un projet data et un projet IA ?`,
-    answer: `Un projet data, c'est nous qui déployons les solutions avec vous : pipelines, dashboards, intégrations. Un projet IA, c'est aller plus loin avec de l'automatisation intelligente — OCR, prévision, classification. Les deux peuvent se combiner ou se prendre séparément.`,
+    question: `Quelle différence entre automatisation et data ?`,
+    answer: `L'automatisation élimine vos tâches manuelles : ressaisies, classification, extraction de données. La data vous donne de la visibilité : dashboards, alertes, pilotage en temps réel. Les deux se combinent souvent — on commence par ce qui a le plus d'impact chez vous.`,
   },
   {
     category: 'Fonctionnement',
     question: 'Est-ce que vous intervenez sur site ?',
-    answer: `Oui, selon le contexte. L'ancrage local fait partie de notre manière de travailler, notamment pour les phases de cadrage, de déploiement ou de formation. On est basés à Lorient et on se déplace en Bretagne.`,
+    answer: `Oui. L'ancrage local fait partie de notre façon de travailler : cadrage, déploiement, formation. On est basés à Lorient et on se déplace dans toute la Bretagne.`,
   },
   {
     category: 'Résultats',
-    question: 'Combien de temps faut-il pour voir un résultat ?',
-    answer: `L'audit diagnostic livre une roadmap exploitable en 2 à 4 semaines. Ensuite, les premiers chantiers data ou IA produisent des gains mesurables dès le premier mois de déploiement.`,
+    question: 'Combien de temps pour voir un résultat ?',
+    answer: `Le diagnostic livre une feuille de route en 2 à 4 semaines. Les premiers gains sont mesurables dès le premier mois de déploiement. On mesure systématiquement l'avant et l'après.`,
+  },
+  {
+    category: 'Sécurité',
+    question: 'Mes données sont-elles en sécurité ?',
+    answer: `NDA systématique, données hébergées en France, conformité RGPD. On ne travaille qu'avec des solutions maîtrisées et traçables. Vos données restent les vôtres.`,
+  },
+  {
+    category: 'Engagement',
+    question: 'Et si le diagnostic ne débouche sur rien ?',
+    answer: `Vous repartez avec votre feuille de route, sans engagement. Le diagnostic a de la valeur en soi — il vous donne une vision claire de vos priorités, que vous travailliez avec nous ou non.`,
   },
 ];
 
 export const NAV_LINKS = [
-  { href: '/ia', label: 'IA' },
+  { href: '/ia', label: 'Automatisation' },
   { href: '/data', label: 'Data' },
   { href: '/formation', label: 'Formation' },
   { href: '/cas-clients', label: 'Réalisations' },

@@ -72,7 +72,7 @@ export function Header() {
             className="gap-2 bg-breton-navy text-white hover:bg-breton-slate"
           >
             <Link href="/audit-ia">
-              Faire le diagnostic →
+              Diagnostic gratuit →
             </Link>
           </Button>
         </div>
@@ -93,7 +93,7 @@ export function Header() {
           <div className="mt-4 flex flex-col gap-2 pt-4 border-t border-slate-200">
             <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
               <Link href="/audit-ia" onClick={() => setMobileMenuOpen(false)}>
-                Faire le diagnostic →
+                Diagnostic gratuit →
               </Link>
             </Button>
           </div>
