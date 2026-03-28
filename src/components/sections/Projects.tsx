@@ -41,10 +41,10 @@ export function Projects({ showLink = true }: ProjectsProps) {
             <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
               Réalisations
             </p>
-            <h2 className="font-serif text-[32px] sm:text-[50px] leading-[1.08] font-normal text-breton-navy tracking-[-0.025em]">
+            <h2 className="font-serif text-[36px] sm:text-[56px] leading-[1.06] font-normal text-breton-navy tracking-[-0.025em]">
               Cas clients
             </h2>
-            <p className="text-[17px] text-breton-slate leading-relaxed mt-4">
+            <p className="text-lg text-breton-slate leading-relaxed mt-4">
               Des résultats mesurés, pas des promesses.
             </p>
           </div>
@@ -92,10 +92,10 @@ export function Projects({ showLink = true }: ProjectsProps) {
                   <p className="text-[11px] text-breton-emerald font-semibold uppercase tracking-[0.08em] mb-2">
                     {project.sector}
                   </p>
-                  <h3 className="font-serif text-[19px] text-breton-navy font-normal mb-2">
+                  <h3 className="font-serif text-[22px] text-breton-navy font-normal mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-[13px] text-breton-slate leading-relaxed">
+                  <p className="text-[15px] text-breton-slate leading-relaxed">
                     {project.context}
                   </p>
 

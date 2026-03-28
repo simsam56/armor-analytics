@@ -96,7 +96,7 @@ export function IncarnationSection() {
                 className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-breton-emerald to-breton-copper-light rounded-full"
                 aria-hidden="true"
               />
-              <p className="font-serif text-[24px] lg:text-[30px] leading-[1.35] text-breton-navy italic">
+              <p className="font-serif text-[26px] lg:text-[34px] leading-[1.35] text-breton-navy italic">
                 On ne vend pas de la technologie. On simplifie le quotidien des équipes qui font
                 tourner les PME bretonnes.
               </p>

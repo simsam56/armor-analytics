@@ -32,13 +32,12 @@ function AnimatedCounter({ value, label }: MetricItem) {
 
   useEffect(() => {
     if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
+
     if (shouldReduceMotion) {
-      setDisplay(num);
-      hasAnimated.current = true;
+      requestAnimationFrame(() => setDisplay(num));
       return;
     }
-
-    hasAnimated.current = true;
     const duration = 800;
     const startTime = performance.now();
 
@@ -58,11 +57,11 @@ function AnimatedCounter({ value, label }: MetricItem) {
 
   return (
     <div ref={ref} className="flex flex-col items-center text-center">
-      <span className="font-serif text-[28px] sm:text-[40px] font-normal text-breton-navy tracking-tight">
+      <span className="font-serif text-[32px] sm:text-[48px] font-normal text-breton-navy tracking-tight">
         {display}
         {suffix}
       </span>
-      <span className="text-xs text-breton-slate/70 mt-1">{label}</span>
+      <span className="text-sm text-breton-slate/70 mt-1">{label}</span>
     </div>
   );
 }

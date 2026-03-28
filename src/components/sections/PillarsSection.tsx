@@ -57,13 +57,13 @@ export function PillarsSection() {
           </motion.p>
           <motion.h2
             variants={prefersReducedMotion ? undefined : sectionChild}
-            className="font-serif text-[32px] sm:text-[48px] leading-[1.08] font-normal text-breton-navy tracking-[-0.025em] max-w-[600px] mt-3"
+            className="font-serif text-[36px] sm:text-[56px] leading-[1.06] font-normal text-breton-navy tracking-[-0.025em] max-w-[600px] mt-3"
           >
             L&apos;IA marche quand l&apos;entreprise se connaît.
           </motion.h2>
           <motion.p
             variants={prefersReducedMotion ? undefined : sectionChild}
-            className="text-[17px] text-breton-slate leading-relaxed max-w-[480px] mt-4"
+            className="text-lg text-breton-slate leading-relaxed max-w-[480px] mt-4"
           >
             Pas un projet technique. Un chantier organisationnel. On vous accompagne de la
             cartographie à l&apos;autonomie.
@@ -109,10 +109,10 @@ export function PillarsSection() {
               </div>
 
               {/* Text */}
-              <p className="font-serif text-[23px] font-normal text-breton-navy mb-2.5">
+              <p className="font-serif text-[26px] font-normal text-breton-navy mb-2.5">
                 {pillar.title}
               </p>
-              <p className="text-sm text-breton-slate leading-relaxed">{pillar.description}</p>
+              <p className="text-[15px] text-breton-slate leading-relaxed">{pillar.description}</p>
             </motion.div>
           ))}
         </motion.div>

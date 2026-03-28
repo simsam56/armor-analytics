@@ -5,7 +5,16 @@ import { Button } from '@/components/ui/button';
 
 const CONSENT_KEY = 'balise-ia-cookie-consent';
 
-type ConsentValue = 'accepted' | 'refused';
+function enableAnalytics() {
+  if (typeof window !== 'undefined' && 'gtag' in window) {
+    const gtag = window as unknown as {
+      gtag: (...args: unknown[]) => void;
+    };
+    gtag.gtag('consent', 'update', {
+      analytics_storage: 'granted',
+    });
+  }
+}
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -22,17 +31,6 @@ export function CookieBanner() {
       enableAnalytics();
     }
   }, []);
-
-  function enableAnalytics() {
-    if (typeof window !== 'undefined' && 'gtag' in window) {
-      const gtag = window as unknown as {
-        gtag: (...args: unknown[]) => void;
-      };
-      gtag.gtag('consent', 'update', {
-        analytics_storage: 'granted',
-      });
-    }
-  }
 
   function handleAccept() {
     localStorage.setItem(CONSENT_KEY, 'accepted');

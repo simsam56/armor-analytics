@@ -1,5 +1,4 @@
 import { HeroV3 } from '@/components/sections/HeroV3';
-import { MetricsBand } from '@/components/sections/MetricsBand';
 import { LogoCarousel } from '@/components/sections/LogoCarousel';
 import { PillarsSection } from '@/components/sections/PillarsSection';
 import { Services } from '@/components/sections/Services';
@@ -14,7 +13,6 @@ export default function Home() {
     <>
       <JsonLd />
       <HeroV3 />
-      <MetricsBand />
       <LogoCarousel />
       <PillarsSection />
       <Services />

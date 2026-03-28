@@ -38,7 +38,7 @@ export function CtaContact() {
         >
           <motion.h2
             variants={prefersReducedMotion ? {} : sectionChild}
-            className="font-serif text-[32px] sm:text-[52px] leading-[1.1] text-white tracking-[-0.025em]"
+            className="font-serif text-[36px] sm:text-[60px] leading-[1.06] text-white tracking-[-0.025em]"
           >
             Prêt à passer de la donnée brute à <br />
             <span className="text-breton-copper-light">l&apos;action ?</span>
@@ -46,7 +46,7 @@ export function CtaContact() {
 
           <motion.p
             variants={prefersReducedMotion ? {} : sectionChild}
-            className="text-[17px] text-white/50 mt-4"
+            className="text-lg text-white/60 mt-4"
           >
             Diagnostic gratuit de 30 minutes, sans engagement.
           </motion.p>

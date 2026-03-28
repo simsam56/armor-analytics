@@ -67,13 +67,13 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
           </motion.p>
           <motion.h2
             variants={shouldReduce ? undefined : sectionChild}
-            className="font-serif text-[32px] sm:text-[50px] leading-[1.08] font-normal text-breton-navy tracking-[-0.025em]"
+            className="font-serif text-[36px] sm:text-[56px] leading-[1.06] font-normal text-breton-navy tracking-[-0.025em]"
           >
             Le Repérage. Le Cap. L&apos;Équipage.
           </motion.h2>
           <motion.p
             variants={shouldReduce ? undefined : sectionChild}
-            className="text-[17px] text-breton-slate leading-relaxed mt-4"
+            className="text-lg text-breton-slate leading-relaxed mt-4"
           >
             Trois façons de travailler avec nous, une seule logique : que l&apos;IA serve vraiment
             votre entreprise.
@@ -114,7 +114,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
                   )}
                 </div>
 
-                <h3 className="font-serif text-[23px] font-normal text-breton-navy">
+                <h3 className="font-serif text-[26px] font-normal text-breton-navy">
                   {service.title}
                 </h3>
                 <p className="mt-1 text-sm font-medium text-breton-emerald">{service.tagline}</p>
@@ -147,7 +147,7 @@ export function Services({ showLink = true, detailed = false }: ServicesProps) {
 function CompactContent({ service }: { service: (typeof SERVICES)[0] }) {
   return (
     <div className="mt-5 space-y-5">
-      <p className="text-slate-600 leading-relaxed">{service.description}</p>
+      <p className="text-[15px] text-slate-600 leading-relaxed">{service.description}</p>
 
       <div>
         <p className="text-sm font-semibold text-slate-900 mb-3">Livrables</p>

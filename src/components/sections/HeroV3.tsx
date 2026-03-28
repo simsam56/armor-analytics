@@ -62,8 +62,8 @@ export function HeroV3() {
             variants={child}
             className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[520px] mx-auto"
           >
-            On structure votre entreprise pour que l&apos;IA serve vraiment. Diagnostic, déploiement
-            et formation pour les PME bretonnes.
+            On intègre l&apos;IA dans les PME bretonnes et on forme vos équipes à la prendre en
+            main.
           </motion.p>
 
           {/* 4. CTAs */}
@@ -103,9 +103,9 @@ export function HeroV3() {
             className="mt-14 flex flex-col sm:flex-row gap-4 sm:gap-9 justify-center"
           >
             {[
-              'Moins de tâches manuelles',
-              'Plus de visibilité opérationnelle',
-              'Des solutions documentées et transférables',
+              'Intégration IA sur mesure',
+              'Formation des équipes',
+              'Accompagnement terrain',
             ].map((item) => (
               <span key={item} className="flex items-center gap-2 text-sm text-white/70">
                 <span className="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-breton-emerald/20 shrink-0">
