@@ -352,8 +352,8 @@ export const PROJECTS = [
 export const FAQ_ITEMS = [
   {
     category: 'Approche',
-    question: `Pourquoi commencer par un Repérage et pas directement par un projet IA ?`,
-    answer: `Parce que l'IA marche quand l'entreprise se connaît. Sans cartographie des process réels, des irritants et de la maturité data, on déploie des outils que personne n'utilise. Le Repérage évite de brûler du budget sur un POC déconnecté du terrain.`,
+    question: `Par où commencer quand on n'a jamais fait de projet IA ou data ?`,
+    answer: `Parce que l'IA marche quand l'entreprise se connaît. Sans cartographie des process réels, des irritants et de la maturité data, on déploie des outils que personne n'utilise. Notre audit diagnostic évite de brûler du budget sur un POC déconnecté du terrain.`,
   },
   {
     category: 'Fonctionnement',
@@ -363,12 +363,12 @@ export const FAQ_ITEMS = [
   {
     category: 'Prérequis',
     question: 'Faut-il déjà avoir des outils modernes en place ?',
-    answer: `Non. On sait travailler avec des environnements hétérogènes : ERP anciens, fichiers Excel, exports manuels, outils déjà en production. Le Repérage sert justement à comprendre ce qui existe avant de proposer quoi que ce soit.`,
+    answer: `Non. On sait travailler avec des environnements hétérogènes : ERP anciens, fichiers Excel, exports manuels, outils déjà en production. L'audit diagnostic sert justement à comprendre ce qui existe avant de proposer quoi que ce soit.`,
   },
   {
     category: 'Déroulement',
-    question: `Quelle est la différence entre Le Cap et L'Équipage ?`,
-    answer: `Le Cap, c'est nous qui déployons les solutions avec vous : dashboards, automatisations, intégrations. L'Équipage, c'est vos équipes qui apprennent à intégrer l'IA elles-mêmes. Les deux peuvent se combiner ou se prendre séparément.`,
+    question: `Quelle différence entre un projet data et un projet IA ?`,
+    answer: `Un projet data, c'est nous qui déployons les solutions avec vous : pipelines, dashboards, intégrations. Un projet IA, c'est aller plus loin avec de l'automatisation intelligente — OCR, prévision, classification. Les deux peuvent se combiner ou se prendre séparément.`,
   },
   {
     category: 'Fonctionnement',
@@ -378,7 +378,7 @@ export const FAQ_ITEMS = [
   {
     category: 'Résultats',
     question: 'Combien de temps faut-il pour voir un résultat ?',
-    answer: `Le Repérage livre une roadmap exploitable en 2 à 4 semaines. Ensuite, les premiers quick wins du Cap produisent des gains mesurables dès le premier mois de déploiement.`,
+    answer: `L'audit diagnostic livre une roadmap exploitable en 2 à 4 semaines. Ensuite, les premiers chantiers data ou IA produisent des gains mesurables dès le premier mois de déploiement.`,
   },
 ];
 
