@@ -210,7 +210,7 @@ export default function AuditPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#quiz"
-              className="inline-flex items-center justify-center gap-2 bg-breton-emerald text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-[#143D31] transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 bg-breton-emerald text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-breton-emerald/90 transition-colors text-base"
             >
               Commencer le quiz
               <ChevronDown className="w-4 h-4" />

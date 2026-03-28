@@ -151,7 +151,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
         </div>
       </div>
 
-      {/* CTA — double option : Calendly (primaire) + Contact (secondaire) */}
+      {/* CTA — Discutons de vos résultats → /contact */}
       <div className="rounded-2xl bg-breton-navy p-8 text-center text-white">
         <h3 className="text-2xl font-bold mb-2">On en discute ?</h3>
         <p className="text-white/70 mb-6 max-w-md mx-auto text-sm">
@@ -181,7 +181,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
             </Link>
           </Button>
         </div>
-        <p className="mt-4 text-xs text-white/40">contact@balise-ia.fr · Réponse sous 48h</p>
+        <p className="mt-4 text-xs text-white/50">contact@balise-ia.fr · Réponse sous 48h</p>
       </div>
     </div>
   );
