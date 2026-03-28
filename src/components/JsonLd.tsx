@@ -17,6 +17,7 @@ export function JsonLd() {
         name: SITE_CONFIG.name,
         description: SITE_CONFIG.description,
         url: SITE_CONFIG.url,
+        image: `${SITE_CONFIG.url}/api/og`,
         email: SITE_CONFIG.email,
         telephone: '+33663857739',
         address,
