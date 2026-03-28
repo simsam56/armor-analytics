@@ -12,14 +12,16 @@ test.describe('Navigation et pages principales', () => {
     await page.goto('/');
     await expect(page.locator('header')).toBeVisible();
     await expect(page.locator('header a[href="/"]').first()).toBeVisible();
-    await expect(page.locator('header nav a[href="/services"]')).toBeVisible();
+    await expect(page.locator('header nav a[href="/ia"]')).toBeVisible();
+    await expect(page.locator('header nav a[href="/data"]')).toBeVisible();
+    await expect(page.locator('header nav a[href="/formation"]')).toBeVisible();
   });
 
   test('le footer contient les liens et le CTA', async ({ page }) => {
     await page.goto('/');
     const siteFooter = page.locator('footer.bg-breton-navy');
     await expect(siteFooter).toBeVisible();
-    await expect(siteFooter).toContainText('Réserver un créneau');
+    await expect(siteFooter.locator('a[href="/audit-ia"]').first()).toBeVisible();
     await expect(siteFooter).toContainText('balise-ia');
   });
 

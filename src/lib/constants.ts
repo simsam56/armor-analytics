@@ -14,7 +14,6 @@ export const SITE_CONFIG = {
   social: {
     linkedin: 'https://www.linkedin.com/company/balise-ia',
   },
-  calendly: 'balise-ia/diagnostic',
 };
 
 // Chiffres clés pour la crédibilité
@@ -98,159 +97,46 @@ export const PRICE_FACTORS = {
   ],
 };
 
-// 3 offres — Le Repérage, Le Cap, L'Équipage
+// 2 piliers d'offre — IA & Automatisation, Data & Reporting
 export const SERVICES = [
   {
-    id: 'reperage',
-    step: null as number | null,
-    title: 'Le Repérage',
-    shortTitle: 'Repérage',
-    tagline: `Le diagnostic qui fait la lumière sur vos process et vos opportunités IA`,
-    description: `On cartographie vos process réels — pas ceux du manuel qualité, ceux que vos équipes suivent vraiment. On identifie les irritants, les pertes de temps, et on construit une roadmap priorisée avec les quick wins et les chantiers structurants.`,
-    forWho: `Pour les dirigeants qui veulent y voir clair avant d'investir dans l'IA ou l'automatisation.`,
-    benefits: [
-      'Cartographie des process réels et des irritants',
-      'Évaluation de votre maturité data et IA',
-      'Roadmap priorisée : quick wins → projets structurants',
-      `Draft de charte d'usage IA pour vos équipes`,
-    ],
-    concreteDeliverables: [
-      { item: 'Cartographie des process réels', format: 'Schéma visuel (Miro / PDF)' },
-      { item: 'Matrice des irritants priorisés', format: 'Impact / effort / faisabilité' },
-      { item: 'Évaluation maturité data & IA', format: 'Grille de scoring commentée' },
-      { item: 'Roadmap priorisée', format: 'Quick wins + chantiers structurants' },
-      { item: `Draft de charte d'usage IA`, format: 'Document pratique, prêt à adapter' },
-      { item: 'Restitution et recommandations', format: 'Présentation sur site (1h)' },
-    ],
-    deliverables: [
-      'Cartographie des process réels',
-      'Irritants priorisés',
-      'Roadmap quick wins → structurants',
-      `Charte d'usage IA (draft)`,
-    ],
-    priceFactors: [],
-    duration: '2 à 4 semaines',
-    priceRange: '',
-    prerequisites: [
-      'Accès aux outils existants (ERP, Excel, emails)',
-      '2 à 3 entretiens avec les équipes métier',
-      `Disponibilité d'un sponsor côté direction`,
-    ],
-    icon: 'Search',
-    cta: 'Démarrer un Repérage',
-    isEntryPoint: true,
-    isTransversal: false,
+    id: 'ia',
+    title: 'IA & Automatisation',
+    tagline: 'Automatisez ce qui freine, déployez ce qui sert',
+    description:
+      'OCR, agents IA, workflows n8n, intégrations ERP. On déploie des solutions concrètes, mesurées avant et après.',
+    href: '/ia',
+    icon: 'Bot',
+    tools: ['n8n', 'Make', 'Python', 'Claude'],
+    useCases: ['OCR & extraction de données', 'Agents IA métier', 'Automatisation de workflows', 'Intégration ERP'],
   },
   {
-    id: 'cap',
-    step: null as number | null,
-    title: 'Le Cap',
-    shortTitle: 'Cap',
-    tagline: `On déploie ce qui marche, on mesure, on itère`,
-    description: `On met en place les solutions identifiées dans le Repérage : dashboards, automatisations, portail IA, intégrations ERP. On documente les process, on anime l'équipe pilote interne, et on itère chaque mois pour ajuster le cap.`,
-    forWho: `Pour les entreprises qui ont identifié leurs chantiers et veulent passer à l'action avec un copilote.`,
-    benefits: [
-      'Solutions déployées et opérationnelles',
-      'Documentation vivante des process',
-      'Équipe pilote interne accompagnée',
-      'Itérations mensuelles : on mesure, on ajuste',
-    ],
-    concreteDeliverables: [
-      { item: 'Dashboards métier', format: 'Power BI / Metabase (production, commercial, stocks)' },
-      { item: 'Automatisations configurées', format: 'OCR, extraction, workflows n8n / Python' },
-      { item: 'Intégrations ERP', format: 'Connecteurs Sage, Cegid, Dynamics 365' },
-      { item: 'Documentation des process', format: 'Process réels documentés et versionnés' },
-      { item: 'Animation équipe pilote', format: 'Ateliers mensuels, suivi des usages' },
-      { item: 'Bilan mensuel', format: `Rapport d'avancement + métriques de gains` },
-    ],
-    deliverables: [
-      'Dashboards et automatisations',
-      'Intégrations ERP opérationnelles',
-      'Process documentés',
-      'Suivi des gains mensuels',
-    ],
-    priceFactors: [],
-    duration: '3 mois minimum, reconduction',
-    priceRange: '',
-    prerequisites: [
-      'Repérage réalisé (ou périmètre défini ensemble)',
-      'Un sponsor et une équipe pilote identifiés',
-      'Accès aux outils et données concernés',
-    ],
-    icon: 'Compass',
-    cta: 'Mettre le Cap',
-    isEntryPoint: false,
-    isTransversal: false,
-  },
-  {
-    id: 'equipage',
-    step: null as number | null,
-    title: `L'Équipage`,
-    shortTitle: 'Équipage',
-    tagline: `Devenez autonome : formations pratiques pour intégrer l'IA vous-même`,
-    description: `Pas de cours magistraux. Des ateliers pratiques, adaptés à chaque métier, pour que vos équipes sachent utiliser l'IA au quotidien. Claude Code, n8n, prompting métier, outils no-code — on forme sur ce qui vous sert vraiment.`,
-    forWho: `Pour les entreprises qui veulent que leurs équipes maîtrisent l'IA sans dépendre d'un prestataire.`,
-    benefits: [
-      'Formations IA par la pratique, pas la théorie',
-      'Modules adaptés à chaque métier',
-      `Montée en compétence de l'équipe pilote`,
-      'Autonomie progressive sur les outils IA',
-    ],
-    concreteDeliverables: [
-      { item: 'Ateliers IA pratiques', format: 'Sur site ou visio (2-3h, petits groupes)' },
-      { item: 'Module Claude Code', format: 'Prise en main, cas métier, bonnes pratiques' },
-      { item: 'Module n8n / automatisation', format: 'Workflows no-code, intégrations, triggers' },
-      { item: 'Module prompting métier', format: `Prompts sur mesure pour vos cas d'usage` },
-      { item: 'Guides et ressources', format: 'Documentation pas-à-pas, vidéos, templates' },
-      { item: 'Suivi de montée en compétence', format: 'Bilan par participant, recommandations' },
-    ],
-    deliverables: [
-      'Ateliers pratiques par métier',
-      'Guides et templates IA',
-      'Accompagnement équipe pilote',
-      'Autonomie sur les outils',
-    ],
-    priceFactors: [],
-    duration: 'Selon besoins',
-    priceRange: '',
-    prerequisites: [
-      `Volonté de la direction d'intégrer l'IA`,
-      'Équipe pilote identifiée (ou à constituer ensemble)',
-    ],
-    icon: 'Users',
-    cta: `Former l'Équipage`,
-    isEntryPoint: false,
-    isTransversal: false,
+    id: 'data',
+    title: 'Data & Reporting',
+    tagline: 'Pilotez en temps réel, décidez avec des données fiables',
+    description:
+      'Data engineering, dashboards Power BI / Metabase, pipelines ETL. Vos données centralisées et exploitables.',
+    href: '/data',
+    icon: 'BarChart3',
+    tools: ['Power BI', 'Metabase', 'Microsoft Fabric', 'DuckDB'],
+    useCases: ['Dashboards temps réel', 'Data engineering / ETL', 'Centralisation des sources', 'Reporting automatisé'],
   },
 ];
 
-export const PROCESS_STEPS = [
-  {
-    step: 1,
-    title: 'Repérer',
-    subtitle: 'Écoute terrain',
-    description:
-      'On observe vos process réels, on écoute les irritants de vos équipes, on cartographie ce qui freine.',
-  },
-  {
-    step: 2,
-    title: 'Tracer la route',
-    subtitle: 'Roadmap priorisée',
-    description: `On identifie les quick wins et les chantiers structurants, on construit une roadmap avec vous.`,
-  },
-  {
-    step: 3,
-    title: 'Mettre le cap',
-    subtitle: 'Déploiement itératif',
-    description: `On déploie les solutions, on mesure les gains, on ajuste chaque mois. Pas de tunnel de 6 mois.`,
-  },
-  {
-    step: 4,
-    title: `Former l'équipage`,
-    subtitle: 'Autonomie',
-    description: `On forme vos équipes à l'IA et aux outils, pour que la dynamique continue sans nous.`,
-  },
-];
+export type FreeResource = {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  category: 'ia' | 'data' | 'general';
+  format: 'pdf';
+  duration: string;
+  tags: string[];
+  pdfKey: string; // chemin Vercel Blob : formations/gratuit/{slug}.pdf
+};
+
+export const FREE_RESOURCES: FreeResource[] = [];
+// Les ressources PDF seront ajoutées ici quand le contenu sera prêt
 
 // Projets clients réels, anonymisés
 export const PROJECTS = [
@@ -497,10 +383,10 @@ export const FAQ_ITEMS = [
 ];
 
 export const NAV_LINKS = [
-  { href: '/services', label: 'Expertises' },
+  { href: '/ia', label: 'IA' },
+  { href: '/data', label: 'Data' },
+  { href: '/formation', label: 'Formation' },
   { href: '/cas-clients', label: 'Réalisations' },
-  { href: '/#methode', label: 'Méthode' },
-  { href: '/a-propos', label: 'À propos' },
   { href: '/blog', label: 'Blog' },
 ];
 
@@ -529,9 +415,7 @@ export const TRUST_SIGNALS = [
 ];
 
 // Helper functions (ex site-config.ts)
-export function getCalendlyUrl(): string {
-  return `https://calendly.com/${SITE_CONFIG.calendly}`;
-}
+// getCalendlyUrl() supprimé — remplacé par /audit-ia (quiz) et /contact
 
 export function getContactEmail(): string {
   return SITE_CONFIG.email;
