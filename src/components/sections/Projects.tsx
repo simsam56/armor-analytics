@@ -23,14 +23,25 @@ const PROJECT_METRICS: Record<string, { value: string; label: string }> = {
 interface ProjectsProps {
   showLink?: boolean;
   detailed?: boolean;
+  filter?: string;
+  limit?: number;
 }
 
-export function Projects({ showLink = true }: ProjectsProps) {
+export function Projects({ showLink = true, filter, limit }: ProjectsProps) {
   const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
-  const displayed = PROJECTS.slice(0, 3);
+  const filtered = filter
+    ? PROJECTS.filter(
+        (p) =>
+          p.tags.some((t) => t.toLowerCase().includes(filter.toLowerCase())) ||
+          p.sector.toLowerCase().includes(filter.toLowerCase())
+      )
+    : PROJECTS;
+
+  const pool = filtered.length > 0 ? filtered : PROJECTS;
+  const displayed = limit ? pool.slice(0, limit) : pool.slice(0, 3);
 
   return (
     <section id="realisations" className="bg-breton-foam py-[80px] sm:py-[110px]">

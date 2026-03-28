@@ -61,4 +61,11 @@ test.describe('Navigation et pages principales', () => {
     await expect(page).toHaveTitle(/Mentions/);
     await expect(page.locator('h1')).toContainText('Mentions légales');
   });
+
+  test('/ia se charge avec le contenu IA', async ({ page }) => {
+    await page.goto('/ia');
+    await expect(page).toHaveTitle(/IA/i);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Faire le diagnostic/i }).first()).toBeVisible();
+  });
 });
