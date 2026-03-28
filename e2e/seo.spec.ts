@@ -21,7 +21,9 @@ test.describe('SEO et metadata', () => {
     expect(response?.status()).toBe(200);
     const body = await page.content();
     expect(body).toContain('balise-ia.fr');
-    expect(body).toContain('/services');
+    expect(body).toContain('/ia');
+    expect(body).toContain('/data');
+    expect(body).toContain('/formation');
     expect(body).toContain('/interventions/lorient');
   });
 

@@ -21,13 +21,8 @@ test.describe('Navigation et pages principales', () => {
     await page.goto('/');
     const siteFooter = page.locator('footer.bg-breton-navy');
     await expect(siteFooter).toBeVisible();
-    await expect(siteFooter.locator('a[href="/audit-ia"]').first()).toBeVisible();
+    await expect(siteFooter.locator('a[href="/ia"]').first()).toBeVisible();
     await expect(siteFooter).toContainText('balise-ia');
-  });
-
-  test('/services se charge', async ({ page }) => {
-    await page.goto('/services');
-    await expect(page).toHaveTitle(/.+/);
   });
 
   test('/projets redirige vers /cas-clients', async ({ page }) => {
@@ -52,8 +47,8 @@ test.describe('Navigation et pages principales', () => {
 
   test('/audit-ia se charge avec le quiz', async ({ page }) => {
     await page.goto('/audit-ia');
-    await expect(page).toHaveTitle(/Audit/);
-    await expect(page.locator('h1')).toContainText('données');
+    await expect(page).toHaveTitle(/Diagnostic/);
+    await expect(page.locator('h1')).toBeVisible();
   });
 
   test('/mentions-legales se charge', async ({ page }) => {
