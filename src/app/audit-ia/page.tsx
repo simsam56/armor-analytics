@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Audit gratuit | Identifiez vos quick wins data en 3 min',
+  title: 'Diagnostic IA & Data',
   description:
-    'Quiz en 3 minutes pour identifier les automatisations à fort impact dans votre PME industrielle. Score personnalisé, irritants identifiés et 3 projets recommandés. Gratuit et sans engagement.',
+    'En 5 minutes, identifiez vos opportunités data & IA. Quiz gratuit pour PME bretonnes — résultats immédiats.',
   keywords: [
     'audit automatisation PME',
     'diagnostic data gratuit',
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     'reporting automatisé Bretagne',
   ],
   openGraph: {
-    title: 'Identifiez vos quick wins data en 3 minutes',
+    title: 'Diagnostic IA & Data — Quiz gratuit pour PME bretonnes',
     description:
-      'Quiz gratuit pour PME industrielles. Score personnalisé et 3 projets recommandés.',
+      'En 5 minutes, identifiez vos opportunités data & IA. Résultats immédiats, sans inscription.',
     type: 'website',
   },
   alternates: {
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const BENEFITS = [
   {
     icon: Clock,
-    title: '3 minutes',
+    title: '5 minutes',
     description: '12 questions concrètes',
   },
   {
@@ -63,7 +63,7 @@ const AUDIT_FAQ = [
   },
   {
     q: 'Comment démarrer concrètement ?',
-    a: 'Faites le quiz (3 min), découvrez vos recommandations. Si ça vous parle, on échange 30 min gratuitement pour affiner le diagnostic.',
+    a: 'Faites le quiz (5 min), découvrez vos recommandations. Si ça vous parle, on échange 30 min gratuitement pour affiner le diagnostic.',
   },
 ];
 
@@ -92,14 +92,14 @@ export default function AuditPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <span className="inline-block px-4 py-1.5 bg-white/10 text-breton-moss text-sm font-medium rounded-full mb-4">
-              Gratuit · Sans engagement · 3 minutes
+              Gratuit · Sans engagement · 5 minutes
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-              Où perdez-vous du temps sur vos données ?
+              Où en êtes-vous avec la data et l&apos;IA ?
             </h1>
             <p className="mt-4 text-lg text-white/70">
-              12 questions pour identifier vos irritants, évaluer votre potentiel
-              d&apos;automatisation et recevoir 3 projets concrets adaptés à votre PME.
+              5 minutes pour identifier vos opportunités concrètes. Résultats immédiats, sans
+              inscription.
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
@@ -135,7 +135,7 @@ export default function AuditPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
             {[
-              { value: '3 min', label: 'Temps moyen' },
+              { value: '5 min', label: 'Temps moyen' },
               { value: '12', label: 'Questions' },
               { value: '100%', label: 'Gratuit' },
               { value: '0', label: 'Spam' },
