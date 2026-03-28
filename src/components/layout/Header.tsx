@@ -6,7 +6,7 @@ import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
-import { LogoWithIcon } from '@/components/ui/logo';
+import { LogoBalise } from '@/components/animations';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,10 +29,8 @@ export function Header() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-8">
-          <Link href="/" className="flex items-center">
-            <LogoWithIcon size="sm" variant="default" />
-          </Link>
+        <div className="flex items-center gap-8 ml-1 sm:ml-2">
+          <LogoBalise size={42} textSize="text-[1.35rem]" href="/" />
 
           <div className="hidden lg:flex lg:gap-x-6">
             {NAV_LINKS.map((link) => (

@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { VideoBackground } from '@/components/ui/video-background';
+import { LocationBadge } from '@/components/animations';
 import { scaleInApple, sectionStagger, sectionChild } from '@/lib/animations';
 
 const noMotion = { hidden: {}, visible: {} };
@@ -29,15 +30,9 @@ export function HeroV3() {
           initial="hidden"
           animate="visible"
         >
-          {/* 1. Badge local */}
+          {/* 1. Badge local — sonar animé */}
           <motion.div variants={child}>
-            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-[18px] py-2 rounded-full text-sm text-white/90 border border-white/15">
-              <span
-                className="w-2 h-2 rounded-full bg-breton-emerald shrink-0 animate-pulse-dot"
-                aria-hidden="true"
-              />
-              Basés à Lorient — interventions sur toute la Bretagne
-            </span>
+            <LocationBadge variant="dark" />
           </motion.div>
 
           {/* 2. H1 */}

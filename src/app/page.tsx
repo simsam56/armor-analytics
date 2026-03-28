@@ -6,6 +6,7 @@ import { QuizCta } from '@/components/sections/QuizCta';
 import { FAQ } from '@/components/sections/FAQ';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { JsonLd } from '@/components/JsonLd';
+import { ScanDivider } from '@/components/animations';
 import Link from 'next/link';
 import { Bot, BarChart3, Users, ArrowRight } from 'lucide-react';
 
@@ -71,7 +72,7 @@ export default function Home() {
       {/* Section : 3 Piliers */}
       <section className="py-[110px] bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-bold tracking-tight text-breton-navy mb-4">
+          <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
             Trois leviers concrets pour votre PME
           </h2>
           <p className="text-center text-lg text-breton-slate mb-12 max-w-2xl mx-auto">
@@ -110,10 +111,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Séparateur scanné */}
+      <ScanDivider label="Notre approche" className="my-0" />
+
       {/* Section : Vous êtes... (personas) */}
       <section className="py-[110px] bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center text-3xl font-bold tracking-tight text-breton-navy mb-4">
+          <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
             Vous vous reconnaissez ?
           </h2>
           <p className="text-center text-lg text-breton-slate mb-12 max-w-2xl mx-auto">
@@ -151,7 +155,7 @@ export default function Home() {
       <QuizCta />
 
       {/* Section : Cas clients */}
-      <Projects limit={2} showLink />
+      <Projects limit={3} showLink />
 
       {/* Section : FAQ */}
       <FAQ />

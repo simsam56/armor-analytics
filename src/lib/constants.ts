@@ -433,6 +433,105 @@ export const PROJECTS = [
       author: 'Directeur commercial',
     },
   },
+  {
+    id: 'agent-ia-logistique',
+    title: 'Comment un transporteur a automatisé 90% de ses réponses clients',
+    sector: 'Logistique',
+    location: 'Morbihan',
+    companySize: '60 salariés',
+    existingTools: 'TMS maison, Outlook, téléphone',
+    context: `Ce transporteur breton recevait 80 à 120 appels et emails par jour pour des demandes de suivi de livraison. Deux personnes à temps plein étaient mobilisées pour répondre aux mêmes questions : "Où est mon colis ?", "Quand sera-t-il livré ?". Le TMS contenait toutes les réponses, mais personne ne pouvait y accéder directement.`,
+    pain: '2 ETP mobilisés sur des réponses répétitives, temps de réponse > 4h',
+    beforeAfter: {
+      before: [
+        { metric: 'Demandes traitées/jour', value: '80-120 (manuel)' },
+        { metric: 'Temps de réponse moyen', value: '4h' },
+        { metric: 'ETP mobilisés', value: '2' },
+      ],
+      after: [
+        { metric: 'Demandes traitées/jour', value: '90% automatisées' },
+        { metric: 'Temps de réponse moyen', value: '< 30 sec' },
+        { metric: 'ETP mobilisés', value: '0.3 (supervision)' },
+      ],
+    },
+    approach: [
+      'Analyse des flux email et téléphone (1 semaine)',
+      'Connexion au TMS via API pour récupérer les statuts en temps réel',
+      'Déploiement d\u2019un agent IA (email + formulaire web) entraîné sur les FAQ',
+      'Interface de supervision pour les cas complexes',
+    ],
+    deliverables: [
+      'Agent IA connecté au TMS (réponses automatiques par email)',
+      'Formulaire web de suivi en temps réel',
+      'Dashboard de supervision des demandes non résolues',
+      'Formation de l\u2019équipe ADV (2h)',
+    ],
+    techNote: 'Agent IA basé sur Claude avec RAG sur la base de connaissances interne + API TMS. Réponses en langage naturel, pas de chatbot scriptée.',
+    results: {
+      main: '90% des demandes de suivi traitées automatiquement',
+      secondary: [
+        'Temps de réponse passé de 4h à 30 secondes',
+        '1.7 ETP réaffectés au service commercial',
+        'Satisfaction client en hausse (NPS +12 points)',
+      ],
+    },
+    duration: '5 semaines',
+    tags: ['Agent IA', 'Automatisation', 'Service client'],
+    testimonial: {
+      quote: 'Nos clients ont la réponse avant même d\u2019avoir raccroché. Et mes équipes peuvent enfin se concentrer sur les vrais problèmes.',
+      author: 'Directeur logistique',
+    },
+  },
+  {
+    id: 'conformite-agroalimentaire',
+    title: 'Comment un IAA a automatisé son reporting réglementaire',
+    sector: 'Agroalimentaire',
+    location: 'Finistère',
+    companySize: '85 salariés',
+    existingTools: 'ERP Sage X3, LIMS, Excel, classeurs papier',
+    context: `Cette entreprise agroalimentaire passait chaque trimestre par une course contre la montre pour compiler ses données de traçabilité et de conformité. Trois personnes mobilisées pendant deux semaines pour rassembler les lots, les résultats d'analyses, les non-conformités, et les mettre en forme pour les audits.`,
+    pain: 'Compilation manuelle des données de traçabilité, stress des audits',
+    beforeAfter: {
+      before: [
+        { metric: 'Temps de préparation audit', value: '2 semaines (3 pers.)' },
+        { metric: 'Risque de non-conformité', value: 'Élevé (données manquantes)' },
+        { metric: 'Traçabilité lot', value: 'Manuelle (classeurs)' },
+      ],
+      after: [
+        { metric: 'Temps de préparation audit', value: '2 heures (1 pers.)' },
+        { metric: 'Risque de non-conformité', value: 'Quasi nul' },
+        { metric: 'Traçabilité lot', value: 'Automatisée (temps réel)' },
+      ],
+    },
+    approach: [
+      'Cartographie des flux de traçabilité (ERP, LIMS, fiches terrain)',
+      'Centralisation des données dans un entrepôt structuré',
+      'Génération automatique des rapports de conformité',
+      'Alertes en temps réel sur les écarts et non-conformités',
+    ],
+    deliverables: [
+      'Pipeline de centralisation ERP + LIMS',
+      'Rapports de conformité générés automatiquement',
+      'Dashboard traçabilité avec recherche par lot',
+      'Alertes sur non-conformités en temps réel',
+      'Formation QHSE (demi-journée)',
+    ],
+    techNote: 'ETL Python + PostgreSQL pour la centralisation. Rapports auto via Metabase avec export PDF programmé. Alertes Slack/email sur seuils critiques.',
+    results: {
+      main: 'Préparation d\u2019audit passée de 2 semaines à 2 heures',
+      secondary: [
+        'Traçabilité lot accessible en 3 clics',
+        'Zéro non-conformité détectée lors du dernier audit',
+        'Équipe QHSE libérée pour de la prévention',
+      ],
+    },
+    duration: '8 semaines',
+    tags: ['Conformité', 'Traçabilité', 'Data Engineering'],
+    testimonial: {
+      quote: 'L\u2019auditeur a été bluffé. Pour la première fois, on avait tout, structuré, à jour, en 2 clics.',
+      author: 'Responsable QHSE',
+    },
+  },
 ];
 
 // FAQ — questions fréquentes (homepage)
@@ -480,7 +579,7 @@ export const FAQ_ITEMS = [
 ];
 
 export const NAV_LINKS = [
-  { href: '/ia', label: 'Automatisation' },
+  { href: '/ia', label: 'Intelligence artificielle' },
   { href: '/data', label: 'Data' },
   { href: '/formation', label: 'Formation' },
   { href: '/cas-clients', label: 'Réalisations' },
