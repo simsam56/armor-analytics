@@ -48,3 +48,4 @@ test-results/
 public/*.MOV
 public/*.jpeg
 /tmp/drone-previews/
+.worktrees/
