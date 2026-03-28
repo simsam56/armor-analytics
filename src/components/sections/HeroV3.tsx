@@ -2,10 +2,9 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Calendar, Check } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { VideoBackground } from '@/components/ui/video-background';
-import { getCalendlyUrl } from '@/lib/constants';
 import { scaleInApple, sectionStagger, sectionChild } from '@/lib/animations';
 
 const noMotion = { hidden: {}, visible: {} };
@@ -75,15 +74,9 @@ export function HeroV3() {
               asChild
               className="bg-breton-sand text-breton-navy hover:bg-white rounded-[14px] px-8 py-4 h-auto font-semibold transition-all duration-200 hover:-translate-y-[3px] hover:shadow-lg"
             >
-              <a
-                href={getCalendlyUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5"
-              >
-                <Calendar className="h-5 w-5 shrink-0" />
-                Demander un diagnostic
-              </a>
+              <Link href="/audit-ia" className="inline-flex items-center gap-2.5">
+                Faire le diagnostic →
+              </Link>
             </Button>
             <Button
               asChild

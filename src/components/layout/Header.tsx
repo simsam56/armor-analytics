@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, Calendar } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { NAV_LINKS, getCalendlyUrl } from '@/lib/constants';
+import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { LogoWithIcon } from '@/components/ui/logo';
 
@@ -71,10 +71,9 @@ export function Header() {
             size="sm"
             className="gap-2 bg-breton-navy text-white hover:bg-breton-slate"
           >
-            <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-              <Calendar className="h-4 w-4" />
-              Demander un diagnostic
-            </a>
+            <Link href="/audit-ia">
+              Faire le diagnostic →
+            </Link>
           </Button>
         </div>
       </nav>
@@ -92,11 +91,10 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 pt-4 border-t border-slate-200">
-            <Button asChild className="w-full gap-2 bg-breton-navy hover:bg-breton-slate">
-              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-                <Calendar className="h-4 w-4" />
-                Demander un diagnostic
-              </a>
+            <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
+              <Link href="/audit-ia" onClick={() => setMobileMenuOpen(false)}>
+                Faire le diagnostic →
+              </Link>
             </Button>
           </div>
         </div>

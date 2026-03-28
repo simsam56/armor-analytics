@@ -89,7 +89,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 <li><strong>Formation et autonomie :</strong> on transfère les compétences à vos équipes pour qu'elles soient capables de superviser les solutions IA au quotidien. L'objectif n'est jamais de créer une dépendance technique — c'est de vous rendre autonomes.</li>
 </ul>
 
-<p>L'un des principes fondamentaux de notre méthode est de partir de l'existant. Vos outils actuels — ERP, Excel, messagerie — sont le point de départ. L'IA s'intègre dans votre environnement, elle ne le remplace pas. Pour en savoir plus, <a href="/audit-ia">demandez un diagnostic IA</a> ou <a href="/services">découvrez nos offres</a>.</p>
+<p>L'un des principes fondamentaux de notre méthode est de partir de l'existant. Vos outils actuels — ERP, Excel, messagerie — sont le point de départ. L'IA s'intègre dans votre environnement, elle ne le remplace pas. Pour en savoir plus, <a href="/audit-ia">demandez un diagnostic IA</a> ou <a href="/ia">découvrez nos offres</a>.</p>
 
 <h2>Pourquoi un accompagnement local en Bretagne</h2>
 
@@ -192,7 +192,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <p>Pour un guide complet sur la démarche, consultez notre article <a href="/blog/intelligence-artificielle-pme-bretagne-guide">Intelligence artificielle pour PME : guide pratique pour les entreprises bretonnes</a>.</p>
 
-<p><strong>Vous voulez identifier le cas d'usage IA le plus pertinent pour votre PME ?</strong> <a href="/audit-ia">Demandez un diagnostic</a> — en 1 à 2 semaines, nous cartographions vos processus, identifions les opportunités et estimons le ROI. Ou consultez notre <a href="/intelligence-artificielle-bretagne">offre en intelligence artificielle</a> et nos <a href="/services">services complets</a>.</p>
+<p><strong>Vous voulez identifier le cas d'usage IA le plus pertinent pour votre PME ?</strong> <a href="/audit-ia">Demandez un diagnostic</a> — en 1 à 2 semaines, nous cartographions vos processus, identifions les opportunités et estimons le ROI. Ou consultez notre <a href="/intelligence-artificielle-bretagne">offre en intelligence artificielle</a> et nos <a href="/ia">services complets</a>.</p>
 `,
   },
   {
@@ -280,7 +280,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 <li><strong>L&apos;Équipage</strong> : un accompagnement mensuel pour maintenir, optimiser et étendre les automatisations. L&apos;objectif est de rendre vos équipes autonomes, pas de créer une dépendance. On transfère les compétences progressivement.</li>
 </ul>
 
-<p>Notre ancrage en Bretagne — nous intervenons sur site à Lorient, Vannes, Quimper, Brest, Rennes et dans toute la région — permet une proximité terrain que les prestataires parisiens ne peuvent pas offrir. Quand il faut passer une journée dans l&apos;atelier pour comprendre un flux de production, on le fait. Pour découvrir l&apos;ensemble de nos offres, <a href="/services">consultez notre page services</a>.</p>
+<p>Notre ancrage en Bretagne — nous intervenons sur site à Lorient, Vannes, Quimper, Brest, Rennes et dans toute la région — permet une proximité terrain que les prestataires parisiens ne peuvent pas offrir. Quand il faut passer une journée dans l&apos;atelier pour comprendre un flux de production, on le fait. Pour découvrir l&apos;ensemble de nos offres, <a href="/data">consultez notre page services</a>.</p>
 
 <h2>Questions fréquentes</h2>
 
@@ -364,7 +364,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <h2>Pour aller plus loin</h2>
 
-<p>Nous déployons des tableaux de bord Power BI pour les PME bretonnes : <a href="/power-bi-bretagne">découvrez notre offre Power BI en Bretagne</a>. Envie de voir l&apos;ensemble de nos services ? <a href="/services">Consultez nos offres</a>.</p>
+<p>Nous déployons des tableaux de bord Power BI pour les PME bretonnes : <a href="/power-bi-bretagne">découvrez notre offre Power BI en Bretagne</a>. Envie de voir l&apos;ensemble de nos services ? <a href="/data">Consultez nos offres</a>.</p>
 `,
   },
   {
@@ -441,7 +441,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <h2>Pour aller plus loin</h2>
 
-<p>Découvrez notre <a href="/automatisation-commandes-pme">solution complète d&apos;automatisation des commandes pour PME</a>. Vous pouvez aussi <a href="/services">consulter l&apos;ensemble de nos offres</a> pour un accompagnement sur mesure.</p>
+<p>Découvrez notre <a href="/automatisation-commandes-pme">solution complète d&apos;automatisation des commandes pour PME</a>. Vous pouvez aussi <a href="/data">consulter l&apos;ensemble de nos offres</a> pour un accompagnement sur mesure.</p>
 `,
   },
   {

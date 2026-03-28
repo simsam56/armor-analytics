@@ -7,12 +7,10 @@ import {
   Clock,
   Lightbulb,
   Target,
-  Calendar,
   ArrowRight,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { getCalendlyUrl } from '@/lib/constants';
 
 interface AuditResultProps {
   result: AuditResultType;
@@ -153,7 +151,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
         </div>
       </div>
 
-      {/* CTA — double option : Calendly (primaire) + Contact (secondaire) */}
+      {/* CTA — Discutons de vos résultats → /contact */}
       <div className="rounded-2xl bg-breton-navy p-8 text-center text-white">
         <h3 className="text-2xl font-bold mb-2">On en discute ?</h3>
         <p className="text-white/70 mb-6 max-w-md mx-auto text-sm">
@@ -166,10 +164,10 @@ export function AuditResult({ result, company }: AuditResultProps) {
             size="lg"
             className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold gap-2"
           >
-            <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-              <Calendar className="h-5 w-5" />
-              Réserver un créneau
-            </a>
+            <Link href="/contact">
+              Nous contacter
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </Button>
           <Button
             asChild
@@ -183,7 +181,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
             </Link>
           </Button>
         </div>
-        <p className="mt-4 text-xs text-white/40">contact@balise-ia.fr · Réponse sous 48h</p>
+        <p className="mt-4 text-xs text-white/50">contact@balise-ia.fr · Réponse sous 48h</p>
       </div>
     </div>
   );
