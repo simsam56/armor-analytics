@@ -435,7 +435,7 @@ export default function ConsultantDataLorientPage() {
             Découvrez en détail nos offres et nos pages spécialisées pour les PME bretonnes.
           </p>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link
               href="/services"
               className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
@@ -478,6 +478,23 @@ export default function ConsultantDataLorientPage() {
               </h3>
               <p className="mt-2 text-sm text-slate-600 leading-relaxed">
                 Automatisez la saisie de vos commandes et éliminez les ressaisies manuelles.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
+                En savoir plus
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </Link>
+
+            <Link
+              href="/intelligence-artificielle-bretagne"
+              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Intelligence artificielle
+              </h3>
+              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                Vous envisagez un projet d&apos;IA ? Découvrez nos solutions d&apos;intelligence
+                artificielle pour PME bretonnes.
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
                 En savoir plus

@@ -140,7 +140,7 @@ export function Footer() {
           </div>
 
           {/* Liens */}
-          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {/* Navigation */}
             <div>
               <p className="text-sm font-semibold text-white/90">Navigation</p>
@@ -155,6 +155,53 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+              </ul>
+            </div>
+
+            {/* Expertises */}
+            <div>
+              <p className="text-sm font-semibold text-white/90">Expertises</p>
+              <ul className="mt-4 space-y-2.5">
+                <li>
+                  <Link
+                    href="/intelligence-artificielle-bretagne"
+                    className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                  >
+                    Intelligence artificielle
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/power-bi-bretagne"
+                    className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                  >
+                    Power BI
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/automatisation-commandes-pme"
+                    className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                  >
+                    Automatisation
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/formation-ia-pme"
+                    className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                  >
+                    Formation IA
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/consultant-data-lorient"
+                    className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                  >
+                    Consultant data
+                  </Link>
+                </li>
               </ul>
             </div>
 

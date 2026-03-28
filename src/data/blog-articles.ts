@@ -11,6 +11,191 @@ export interface BlogArticle {
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    slug: 'intelligence-artificielle-pme-bretagne-guide',
+    title: 'Intelligence artificielle pour PME : guide pratique pour les entreprises bretonnes',
+    description:
+      "L'intelligence artificielle n'est plus réservée aux grands groupes. Découvrez comment les PME bretonnes utilisent l'IA concrètement : cas d'usage, budget, ROI et méthode étape par étape.",
+    date: '2026-03-28',
+    readTime: '12 min',
+    tags: ['Intelligence artificielle', 'PME', 'Bretagne', 'Guide', 'IA'],
+    relatedSlugs: [
+      'exemples-ia-pme-industrielles-bretagne',
+      'automatisation-pme-bretagne-guide',
+      'consultant-data-bretagne',
+    ],
+    content: `
+<h2>L'IA pour les PME : au-delà du buzz</h2>
+
+<p>Quand on parle d'intelligence artificielle aux dirigeants de PME bretonnes, la réaction est souvent la même : « C'est pour les grands groupes, pas pour nous. » Et pourtant, l'IA est déjà présente dans beaucoup de PME industrielles — souvent sans qu'on la nomme ainsi. Chaque fois qu'un système extrait automatiquement des données d'un bon de commande, qu'un algorithme prédit la demande pour optimiser les stocks, ou qu'un outil classe des documents sans intervention humaine, c'est de l'intelligence artificielle en action.</p>
+
+<p>L'IA pour une PME, ce n'est pas ChatGPT ni des robots autonomes. C'est un ensemble de techniques qui permettent d'automatiser des tâches cognitives répétitives — celles qui mobilisent du temps humain pour traiter de l'information, reconnaître des motifs dans des données ou prendre des décisions routinières. L'objectif est concret : libérer du temps pour les tâches à forte valeur ajoutée, réduire les erreurs et prendre de meilleures décisions grâce aux données existantes. Pour comprendre l'ensemble de nos interventions en IA, consultez notre <a href="/intelligence-artificielle-bretagne">page dédiée à l'intelligence artificielle en Bretagne</a>.</p>
+
+<h2>Les 3 niveaux de maturité IA pour une PME</h2>
+
+<p>Toutes les PME ne partent pas du même point. Avant de se lancer dans un projet d'IA, il est essentiel d'évaluer son niveau de maturité data. Nous observons trois niveaux chez les PME bretonnes que nous accompagnons.</p>
+
+<h3>Niveau 1 — Données structurées (le prérequis)</h3>
+
+<p>C'est le socle indispensable. Sans données fiables et structurées, aucun projet d'IA ne peut aboutir. Ce premier niveau consiste à passer de fichiers Excel éparpillés et de données saisies en double à une base de données centralisée et des indicateurs de pilotage fiables. Concrètement, cela signifie exploiter correctement son ERP, connecter ses sources de données et mettre en place des tableaux de bord automatisés. C'est le travail que nous réalisons avec <a href="/power-bi-bretagne">Power BI pour les PME bretonnes</a> : centraliser, fiabiliser, visualiser.</p>
+
+<p>Si votre CODIR passe encore du temps à débattre de la fiabilité des chiffres plutôt qu'à prendre des décisions, vous êtes au niveau 1. Et c'est parfaitement normal — la majorité des PME y sont. L'important est de construire cette fondation avant de vouloir aller plus loin.</p>
+
+<h3>Niveau 2 — Automatisation intelligente</h3>
+
+<p>Une fois les données structurées, on peut commencer à automatiser les tâches répétitives qui consomment du temps humain. C'est le domaine de l'OCR (reconnaissance de caractères), de la classification automatique de documents, des règles métier couplées à du machine learning simple. Par exemple, un système qui lit automatiquement les bons de commande reçus par email, en extrait les données et les injecte dans l'ERP — comme nous le détaillons sur notre page <a href="/automatisation-commandes-pme">automatisation des commandes pour PME</a>.</p>
+
+<p>À ce niveau, l'IA ne « pense » pas : elle applique des règles et des modèles entraînés pour traiter de l'information plus vite et avec moins d'erreurs qu'un humain sur des tâches répétitives. Le gain est mesurable immédiatement : temps économisé, erreurs supprimées, capacité à absorber la croissance sans embaucher.</p>
+
+<h3>Niveau 3 — IA prédictive et générative</h3>
+
+<p>Le niveau le plus avancé utilise l'IA pour anticiper et créer. La prévision de la demande permet d'optimiser les stocks et la planification de production. Le contrôle qualité par vision IA détecte des défauts invisibles à l'oeil humain. L'IA générative peut aider à produire de la documentation technique, à répondre aux questions récurrentes des équipes ou à synthétiser des rapports complexes.</p>
+
+<p>Peu de PME bretonnes sont déjà à ce niveau, mais celles qui y arrivent créent un avantage concurrentiel significatif. La clé est d'y arriver progressivement, en s'appuyant sur les fondations des niveaux précédents. Pour préparer vos équipes, notre <a href="/formation-ia-pme">programme de formation IA pour PME</a> couvre ces trois niveaux.</p>
+
+<h2>Exemples concrets dans les PME industrielles bretonnes</h2>
+
+<p>L'IA n'est pas théorique. Voici ce que nous observons sur le terrain dans les PME bretonnes.</p>
+
+<p><strong>Agroalimentaire (Morbihan) :</strong> une conserverie de 80 salariés a automatisé la saisie de ses commandes clients — 45 commandes par jour, auparavant saisies manuellement dans l'ERP. L'OCR couplée à l'IA extrait les données des PDF et les injecte directement. Résultat : 6 heures de saisie quotidienne éliminées, taux d'erreur passé de 3% à moins de 0,5%.</p>
+
+<p><strong>Métallurgie (Côtes-d'Armor) :</strong> un sous-traitant mécanique de 45 salariés utilise un modèle de vision IA pour le contrôle qualité de pièces usinées. La caméra analyse chaque pièce en sortie de machine et détecte les défauts de surface. Le taux de rebuts non détectés a baissé de 60%, et le contrôle est désormais réalisé sur 100% des pièces au lieu d'un échantillonnage.</p>
+
+<p><strong>Logistique (Finistère) :</strong> un distributeur régional a déployé un modèle prédictif sur ses ventes pour optimiser ses niveaux de stock. En combinant l'historique des ventes, la saisonnalité et les données météo locales, le système anticipe la demande à 2 semaines. Résultat : ruptures de stock réduites de 30%, surstock diminué de 15%.</p>
+
+<p><strong>Multi-secteur :</strong> plusieurs PME utilisent la classification automatique de documents (factures, bons de livraison, avoirs, relances) pour router automatiquement les pièces vers le bon service. Le tri qui prenait 2 heures par jour prend désormais 5 minutes. Pour découvrir plus d'exemples en détail, consultez notre article sur les <a href="/blog/exemples-ia-pme-industrielles-bretagne">5 exemples concrets d'IA dans les PME industrielles bretonnes</a>.</p>
+
+<p>Ces résultats sont accessibles à la plupart des PME industrielles. Ils ne nécessitent pas d'investissements massifs ni de compétences IA en interne. Ils nécessitent une approche structurée et un accompagnement adapté. Pour voir nos réalisations, rendez-vous sur notre page <a href="/cas-clients">cas clients</a>.</p>
+
+<h2>Combien ça coûte ? Le budget IA pour une PME</h2>
+
+<p>La question du budget est légitime. Les fourchettes ci-dessous correspondent à ce que nous pratiquons chez les PME bretonnes de 20 à 200 salariés.</p>
+
+<ul>
+<li><strong>Audit et diagnostic IA :</strong> 2 000 à 5 000 € HT, sur 1 à 2 semaines. On cartographie vos données, vos processus et vos irritants. On identifie les cas d'usage IA les plus pertinents et on estime le ROI de chaque projet potentiel. C'est la première étape indispensable — elle évite d'investir dans le mauvais projet.</li>
+<li><strong>Premier projet IA :</strong> 5 000 à 20 000 € HT, sur 4 à 10 semaines. Cela couvre le développement du modèle ou de l'automatisation, les tests avec des données réelles, la mise en production et la formation des utilisateurs. L'objectif est de livrer un résultat opérationnel qui prouve la valeur de l'IA sur votre cas d'usage spécifique.</li>
+<li><strong>Accompagnement mensuel :</strong> 800 à 3 200 € HT/mois. Pour le suivi, l'optimisation des modèles, le support et l'extension à de nouveaux cas d'usage. Cet accompagnement est recommandé pendant les 6 premiers mois, le temps que les solutions se stabilisent et que vos équipes montent en compétence.</li>
+</ul>
+
+<p>En termes de ROI, les projets d'IA dans les PME industrielles génèrent un retour sur investissement en 2 à 6 mois. Les projets les plus rentables sont ceux qui ciblent des processus à fort volume de traitement et à fort taux d'erreur. L'important est de commencer petit, de prouver le ROI sur un premier cas d'usage, puis d'étendre progressivement.</p>
+
+<h2>Par où commencer : la méthode balise-ia</h2>
+
+<p>Notre approche est structurée en 4 étapes, conçues pour minimiser le risque et maximiser le retour sur investissement dès les premières semaines.</p>
+
+<ul>
+<li><strong>Diagnostic (1 à 2 semaines) :</strong> on vient sur site, on observe vos processus, on échange avec vos équipes. On identifie les cas d'usage IA les plus pertinents en fonction de votre maturité data, de vos volumes et de vos enjeux métier. Le livrable est un plan d'action chiffré avec un ROI estimé pour chaque projet.</li>
+<li><strong>Prototypage (2 à 4 semaines) :</strong> on développe une première version fonctionnelle sur un périmètre restreint — un type de commande, un poste de contrôle, un segment de produits. L'objectif est de valider la faisabilité technique et le gain réel avant d'investir davantage.</li>
+<li><strong>Déploiement (2 à 6 semaines) :</strong> le prototype validé est industrialisé. On gère l'intégration avec vos outils existants (ERP, messagerie, outils de production), on met en place le monitoring et on forme les utilisateurs.</li>
+<li><strong>Formation et autonomie :</strong> on transfère les compétences à vos équipes pour qu'elles soient capables de superviser les solutions IA au quotidien. L'objectif n'est jamais de créer une dépendance technique — c'est de vous rendre autonomes.</li>
+</ul>
+
+<p>L'un des principes fondamentaux de notre méthode est de partir de l'existant. Vos outils actuels — ERP, Excel, messagerie — sont le point de départ. L'IA s'intègre dans votre environnement, elle ne le remplace pas. Pour en savoir plus, <a href="/audit-ia">demandez un diagnostic IA</a> ou <a href="/services">découvrez nos offres</a>.</p>
+
+<h2>Pourquoi un accompagnement local en Bretagne</h2>
+
+<p>Un projet d'IA ne se résume pas à du code et des algorithmes. La réussite dépend de la compréhension fine du métier, des processus terrain et des contraintes humaines. C'est pourquoi la proximité géographique est un facteur déterminant.</p>
+
+<p>Un consultant qui passe une journée dans votre atelier pour comprendre comment vos opérateurs travaillent fera un meilleur diagnostic qu'un prestataire qui travaille uniquement sur les données à distance. La formation en présentiel est plus efficace. Les ajustements post-déploiement sont plus rapides quand on peut être sur site en moins d'une heure.</p>
+
+<p>Chez balise-ia, basés à Lorient, nous intervenons sur tout le territoire breton — Vannes, Quimper, Brest, Rennes, Saint-Brieuc et au-delà. Cette proximité est un choix stratégique : les PME industrielles bretonnes méritent un accompagnement IA de qualité sans devoir faire appel à des prestataires parisiens déconnectés de leurs réalités terrain. Pour en savoir plus sur notre ancrage local, consultez notre page <a href="/consultant-data-lorient">consultant data à Lorient</a>.</p>
+
+<p><strong>Vous souhaitez évaluer le potentiel de l'IA pour votre PME ?</strong> <a href="/audit-ia">Demandez un diagnostic gratuit</a> — nous identifions les cas d'usage les plus pertinents et estimons le ROI en 1 à 2 semaines. Ou découvrez notre <a href="/intelligence-artificielle-bretagne">offre complète en intelligence artificielle pour les PME bretonnes</a>.</p>
+`,
+  },
+  {
+    slug: 'exemples-ia-pme-industrielles-bretagne',
+    title: "5 exemples concrets d'IA dans les PME industrielles bretonnes",
+    description:
+      "OCR, prévision de demande, contrôle qualité, classification de documents, chatbot interne : 5 cas d'usage réels d'intelligence artificielle dans les PME industrielles en Bretagne.",
+    date: '2026-03-28',
+    readTime: '10 min',
+    tags: ['Intelligence artificielle', 'PME industrielle', 'Bretagne', 'Exemples', 'IA'],
+    relatedSlugs: [
+      'intelligence-artificielle-pme-bretagne-guide',
+      'automatiser-saisie-commandes-erp',
+      'automatisation-pme-bretagne-guide',
+    ],
+    content: `
+<h2>L'IA dans les PME : des résultats concrets, pas de la science-fiction</h2>
+
+<p>L'intelligence artificielle dans les PME industrielles bretonnes, ce n'est pas un concept futuriste — c'est une réalité opérationnelle. Des entreprises de 30 à 200 salariés dans l'agroalimentaire, la métallurgie, la logistique ou la plasturgie utilisent déjà l'IA pour automatiser des tâches répétitives, améliorer la qualité et prendre de meilleures décisions. Pas avec des budgets de multinationale, mais avec des projets ciblés, un ROI mesurable en quelques mois et des solutions intégrées à leurs outils existants.</p>
+
+<p>Voici 5 cas d'usage concrets que nous déployons chez les PME industrielles en Bretagne. Chaque exemple décrit le problème, la solution et les résultats obtenus. Pour une vue d'ensemble sur l'IA et les PME, consultez notre <a href="/intelligence-artificielle-bretagne">page intelligence artificielle en Bretagne</a>.</p>
+
+<h2>1. OCR et extraction automatique de commandes</h2>
+
+<p><strong>Secteur :</strong> Agroalimentaire — Morbihan<br/>
+<strong>Taille :</strong> 80 salariés — 45 commandes/jour</p>
+
+<p><strong>Le problème.</strong> Les commandes clients arrivent par email sous forme de PDF — parfois même des fax scannés. Chaque document a un format différent selon le client. L'équipe ADV (administration des ventes) ouvrait chaque document, lisait les références, les quantités et les conditions, puis ressaisissait manuellement tout dans l'ERP Sage. Ce processus mobilisait 3 personnes à temps partiel, soit environ 6 heures de saisie par jour. Le taux d'erreur était de 3% — soit 1 à 2 erreurs par jour, générant des litiges, des retours et de la frustration côté client.</p>
+
+<p><strong>La solution.</strong> Un système d'OCR (reconnaissance de caractères) couplé à un modèle d'IA d'extraction a été déployé. Le système détecte automatiquement les emails contenant des commandes, extrait la pièce jointe, identifie les champs pertinents (client, références, quantités, prix), vérifie la cohérence avec la base articles de l'ERP et crée la commande automatiquement. Les cas ambigus ou non conformes sont signalés à un opérateur qui ne traite que les exceptions.</p>
+
+<p><strong>Les résultats.</strong> 95% du temps de saisie éliminé — les 6 heures quotidiennes sont passées à moins de 20 minutes de supervision. Taux d'erreur réduit à moins de 0,5%. Les 3 collaborateurs qui faisaient de la saisie se concentrent désormais sur la relation client et le suivi commercial. ROI atteint en 3 mois. Pour en savoir plus sur cette approche, consultez notre page <a href="/automatisation-commandes-pme">automatisation des commandes PME</a>.</p>
+
+<h2>2. Prévision de la demande et optimisation des stocks</h2>
+
+<p><strong>Secteur :</strong> Distribution / Logistique — Finistère<br/>
+<strong>Taille :</strong> 60 salariés — 3 000 références produits</p>
+
+<p><strong>Le problème.</strong> Ce distributeur régional de produits alimentaires subissait deux problèmes symétriques : des ruptures de stock fréquentes sur les produits à forte rotation (7% de taux de rupture) et du surstock coûteux sur les produits saisonniers ou en fin de vie. La gestion des stocks reposait sur l'expérience des acheteurs et sur des fichiers Excel de suivi — une approche qui fonctionnait quand le catalogue comptait 500 références, mais plus avec 3 000.</p>
+
+<p><strong>La solution.</strong> Un modèle prédictif de machine learning a été entraîné sur 3 ans d'historique de ventes, enrichi avec des variables de saisonnalité, les jours fériés, les promotions planifiées et même les données météo locales (facteur significatif pour les produits alimentaires en Bretagne). Le modèle génère chaque semaine des recommandations de réapprovisionnement par référence, avec un niveau de confiance pour chaque prévision.</p>
+
+<p><strong>Les résultats.</strong> Le taux de rupture est passé de 7% à moins de 5% — soit 30% de réduction des ruptures. Le surstock a diminué de 15%, libérant de la trésorerie et de l'espace d'entreposage. Les acheteurs utilisent les recommandations du modèle comme base de travail et ajustent manuellement quand ils disposent d'informations que le modèle n'a pas (nouveau client, événement local). Le ROI a été atteint en 5 mois.</p>
+
+<h2>3. Classification automatique de documents</h2>
+
+<p><strong>Secteur :</strong> Multi-secteur (agroalimentaire, industrie, services)<br/>
+<strong>Taille :</strong> 40 à 150 salariés</p>
+
+<p><strong>Le problème.</strong> Chaque jour, les PME reçoivent des dizaines de documents par email : factures fournisseurs, bons de livraison, avoirs, relances, certificats qualité, contrats. Le tri est fait manuellement — souvent par l'assistante de direction ou le service comptable — avant d'être dispatché vers le bon service ou classé dans le bon dossier. Ce travail de tri prend en moyenne 1 à 2 heures par jour et est source d'erreurs de routage (un bon de livraison classé avec les factures, un avoir non transmis à la comptabilité).</p>
+
+<p><strong>La solution.</strong> Un modèle d'IA de classification documentaire analyse chaque document entrant (texte + mise en page) et l'identifie automatiquement : facture, bon de livraison, avoir, relance, certificat, autre. Le document est ensuite routé automatiquement vers le bon dossier ou le bon service, avec une notification. Le modèle est entraîné sur les documents réels de l'entreprise et s'améliore avec le temps.</p>
+
+<p><strong>Les résultats.</strong> Le temps de tri est passé de 2 heures à 5 minutes par jour — le temps de vérifier les quelques documents dont le modèle n'est pas certain. Zéro erreur de routage depuis la mise en production. Le service comptable traite les factures plus rapidement car elles arrivent déjà classées et vérifiées. Plusieurs de nos clients dans le Morbihan et le Finistère ont déployé cette solution avec un investissement de 5 000 à 8 000 € et un ROI en moins de 4 mois.</p>
+
+<h2>4. Contrôle qualité par vision IA</h2>
+
+<p><strong>Secteur :</strong> Métallurgie / Plasturgie — Côtes-d'Armor<br/>
+<strong>Taille :</strong> 45 salariés — production en série</p>
+
+<p><strong>Le problème.</strong> Le contrôle qualité des pièces usinées reposait sur un contrôle visuel humain. Un opérateur inspectait les pièces en sortie de machine, à la recherche de défauts de surface (rayures, bavures, déformations). Ce contrôle posait trois problèmes : il était lent (30 secondes par pièce), subjectif (l'appréciation variait selon l'opérateur et son état de fatigue) et incomplet (seul un échantillon était contrôlé, pas 100% de la production). Des pièces défectueuses passaient régulièrement entre les mailles du filet et étaient livrées au client.</p>
+
+<p><strong>La solution.</strong> Une caméra industrielle haute résolution a été installée en sortie de machine, couplée à un modèle de vision par ordinateur (deep learning) entraîné à détecter les défauts de surface. Le modèle a été entraîné sur plusieurs milliers d'images de pièces conformes et non conformes, annotées par les experts qualité de l'entreprise. Chaque pièce est photographiée et analysée en moins de 2 secondes. Les pièces détectées comme non conformes sont éjectées automatiquement.</p>
+
+<p><strong>Les résultats.</strong> 100% des pièces sont désormais contrôlées, contre 20% auparavant. Le taux de rebuts non détectés a baissé de 60%. Le temps de contrôle par pièce est passé de 30 secondes à 2 secondes. L'opérateur qualité se concentre sur l'analyse des causes de non-conformité plutôt que sur le contrôle visuel répétitif. Le retour client pour défaut qualité a chuté significativement, renforçant la confiance des donneurs d'ordres.</p>
+
+<h2>5. Chatbot interne pour documentation technique</h2>
+
+<p><strong>Secteur :</strong> Industrie — multi-sites Bretagne<br/>
+<strong>Taille :</strong> 120 salariés — 3 sites de production</p>
+
+<p><strong>Le problème.</strong> La documentation technique (fiches produit, procédures de maintenance, normes, plans) était répartie entre un serveur de fichiers, un intranet vieillissant et des classeurs physiques dans les ateliers. Quand un technicien avait une question technique, deux options s'offraient à lui : chercher lui-même dans la documentation (20 minutes en moyenne pour trouver la bonne information) ou appeler le bureau d'études qui répondait aux mêmes questions plusieurs fois par semaine. Le bureau d'études estimait passer 8 à 10 heures par semaine à répondre à des questions dont la réponse existait dans la documentation.</p>
+
+<p><strong>La solution.</strong> Un chatbot IA a été déployé, alimenté par l'ensemble de la documentation technique de l'entreprise. Le système utilise la génération augmentée par recherche (RAG) : quand un technicien pose une question en langage naturel, le chatbot recherche les passages pertinents dans la documentation, synthétise la réponse et cite ses sources. Le technicien peut vérifier la source et approfondir si nécessaire. Le chatbot est accessible sur tablette dans les ateliers et sur PC dans les bureaux.</p>
+
+<p><strong>Les résultats.</strong> Le temps de recherche d'information technique est passé de 20 minutes à 10 secondes en moyenne. Le bureau d'études a récupéré 8 heures par semaine, qu'il consacre désormais à l'ingénierie plutôt qu'au support. Les techniciens sont plus autonomes et montent en compétence plus vite, notamment les nouveaux arrivants qui utilisent le chatbot comme outil de formation. Le taux d'adoption a atteint 85% en 3 semaines — un signe que l'outil répond à un vrai besoin terrain.</p>
+
+<h2>Comment démarrer un projet IA dans votre PME</h2>
+
+<p>Ces 5 exemples ont un point commun : ils ont tous commencé par un diagnostic terrain, ciblé un seul cas d'usage et livré un résultat mesurable en quelques semaines. Aucun n'a nécessité de recrutement de data scientists en interne ni d'investissement à six chiffres.</p>
+
+<p>La démarche est toujours la même :</p>
+
+<ul>
+<li><strong>Identifier le bon cas d'usage :</strong> celui qui combine un volume de traitement élevé, un impact business mesurable et une faisabilité technique raisonnable. C'est le rôle du diagnostic initial.</li>
+<li><strong>Commencer petit :</strong> un seul type de commande, un seul poste de contrôle, un seul segment de produits. Prouver la valeur avant d'étendre.</li>
+<li><strong>S'appuyer sur l'existant :</strong> l'IA s'intègre dans vos outils (ERP, messagerie, serveur de fichiers), elle ne les remplace pas.</li>
+<li><strong>Former les équipes :</strong> une solution que les utilisateurs ne comprennent pas sera abandonnée en quelques semaines. La formation est partie intégrante de chaque projet.</li>
+</ul>
+
+<p>Pour un guide complet sur la démarche, consultez notre article <a href="/blog/intelligence-artificielle-pme-bretagne-guide">Intelligence artificielle pour PME : guide pratique pour les entreprises bretonnes</a>.</p>
+
+<p><strong>Vous voulez identifier le cas d'usage IA le plus pertinent pour votre PME ?</strong> <a href="/audit-ia">Demandez un diagnostic</a> — en 1 à 2 semaines, nous cartographions vos processus, identifions les opportunités et estimons le ROI. Ou consultez notre <a href="/intelligence-artificielle-bretagne">offre en intelligence artificielle</a> et nos <a href="/services">services complets</a>.</p>
+`,
+  },
+  {
     slug: 'automatisation-pme-bretagne-guide',
     title: 'Automatisation des PME en Bretagne : par où commencer',
     description:
@@ -18,7 +203,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-03-25',
     readTime: '12 min',
     tags: ['Automatisation', 'PME', 'Bretagne', 'Guide', 'IA'],
-    relatedSlugs: ['automatiser-saisie-commandes-erp', 'power-bi-pme-industrielle'],
+    relatedSlugs: ['automatiser-saisie-commandes-erp', 'power-bi-pme-industrielle', 'intelligence-artificielle-pme-bretagne-guide'],
     content: `
 <h2>Pourquoi l&apos;automatisation est devenue un sujet pour les PME bretonnes</h2>
 
@@ -190,7 +375,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-03-08',
     readTime: '9 min',
     tags: ['Automatisation', 'ERP', 'OCR', 'PME'],
-    relatedSlugs: ['power-bi-pme-industrielle', 'erp-excel-comment-en-sortir'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'erp-excel-comment-en-sortir', 'exemples-ia-pme-industrielles-bretagne'],
     content: `
 <h2>Le problème de la saisie manuelle des commandes</h2>
 
@@ -347,7 +532,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-18',
     readTime: '9 min',
     tags: ['Consultant data', 'Bretagne', 'PME', 'Conseil'],
-    relatedSlugs: ['power-bi-pme-industrielle', 'automatiser-saisie-commandes-erp'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'automatiser-saisie-commandes-erp', 'intelligence-artificielle-pme-bretagne-guide'],
     content: `
 <h2>Les signaux qui indiquent que vous avez besoin d&apos;un consultant data</h2>
 

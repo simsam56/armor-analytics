@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'balise-ia',
   tagline: 'Data, automatisation et IA pour les PME bretonnes',
   description:
-    'Consultant data et IA en Bretagne. Audit, pilotage data (Power BI, Metabase), automatisation et formation pour les PME industrielles et réseaux. Basés à Lorient, interventions sur site.',
+    'Intelligence artificielle, data et automatisation pour les PME bretonnes. Audit, pilotage data (Power BI, Metabase), déploiement IA et formation. Basés à Lorient, interventions sur site en Bretagne.',
   url: 'https://www.balise-ia.fr',
   email: 'contact@balise-ia.fr',
   phone: '06 63 85 77 39',

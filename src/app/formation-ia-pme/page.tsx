@@ -300,7 +300,7 @@ export default function FormationIaPmePage() {
           <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
             Nos autres expertises
           </h2>
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link
               href="/services"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
@@ -337,6 +337,19 @@ export default function FormationIaPmePage() {
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-breton-emerald group-hover:gap-2.5 transition-all">
                 Automatisation des commandes
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+            <Link
+              href="/intelligence-artificielle-bretagne"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
+            >
+              <p className="text-slate-600 leading-relaxed">
+                Vous envisagez un projet d&apos;IA ? D&eacute;couvrez nos solutions
+                d&apos;intelligence artificielle pour PME bretonnes.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-breton-emerald group-hover:gap-2.5 transition-all">
+                Intelligence artificielle
                 <ArrowRight className="h-4 w-4" />
               </span>
             </Link>

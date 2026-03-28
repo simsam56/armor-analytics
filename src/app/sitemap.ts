@@ -72,6 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/intelligence-artificielle-bretagne`,
+      lastModified: lastUpdated,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ];
 
   const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({

@@ -400,7 +400,7 @@ export default function AutomatisationCommandesPage() {
             Nos autres expertises
           </h2>
 
-          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/power-bi-bretagne"
               className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
@@ -427,6 +427,23 @@ export default function AutomatisationCommandesPage() {
               <p className="mt-3 text-slate-600 leading-relaxed">
                 Besoin d&apos;un accompagnement data sur mesure ? Découvrez notre offre de conseil
                 basée à Lorient.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-breton-copper group-hover:gap-3 transition-all">
+                Découvrir
+                <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
+
+            <Link
+              href="/intelligence-artificielle-bretagne"
+              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
+            >
+              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+                Intelligence artificielle en Bretagne
+              </h3>
+              <p className="mt-3 text-slate-600 leading-relaxed">
+                Vous envisagez un projet d&apos;intelligence artificielle ? Découvrez nos solutions IA
+                pour PME bretonnes.
               </p>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-breton-copper group-hover:gap-3 transition-all">
                 Découvrir
