@@ -1,5 +1,4 @@
-import { Calendar, Mail, MapPin, Linkedin } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Mail, MapPin, Linkedin } from 'lucide-react';
 import { ContactForm } from './ContactForm';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -17,25 +16,13 @@ export function ContactSection() {
         </div>
 
         <div className="grid gap-12 lg:grid-cols-2">
-          {/* Left side - Calendly + Info */}
+          {/* Left side - Info */}
           <div className="space-y-8">
             <div className="rounded-2xl bg-breton-emerald/5 p-8">
               <h3 className="text-2xl font-bold text-slate-900">Appel découverte gratuit</h3>
               <p className="mt-2 text-slate-600">
                 30 minutes pour comprendre votre contexte et identifier les opportunités.
               </p>
-              <div className="mt-6">
-                <Button size="lg" asChild className="w-full gap-2">
-                  <a
-                    href={`https://calendly.com/${SITE_CONFIG.calendly}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Calendar className="h-5 w-5" />
-                    Réserver un créneau
-                  </a>
-                </Button>
-              </div>
             </div>
 
             <div className="space-y-4">

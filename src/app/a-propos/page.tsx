@@ -9,13 +9,11 @@ import {
   Lock,
   Wrench,
   BookOpen,
-  Calendar,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
 import { TeamSection } from '@/components/sections/TeamSection';
 import { CoastalBand } from '@/components/sections/CoastalBand';
-import { getCalendlyUrl } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'À propos | Collectif data & automatisation PME industrielles',
@@ -310,10 +308,7 @@ export default function AboutPage() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="h-13 px-8 text-base gap-2">
-              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-                <Calendar className="h-5 w-5" />
-                Diagnostic gratuit — 30 min
-              </a>
+              <Link href="/audit-ia">Faire le diagnostic →</Link>
             </Button>
             <Button
               asChild

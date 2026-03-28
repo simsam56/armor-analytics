@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { Calendar, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getCalendlyUrl } from '@/lib/constants';
 
 interface CtaInlineProps {
   title?: string;
@@ -19,10 +18,9 @@ export function CtaInline({
         <p className="mt-1 text-sm text-breton-slate/70">{subtitle}</p>
         <div className="mt-5 flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild size="sm" className="bg-breton-navy hover:bg-breton-slate gap-2">
-            <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-              <Calendar className="h-4 w-4" />
-              Diagnostic gratuit
-            </a>
+            <Link href="/audit-ia">
+              Faire le diagnostic →
+            </Link>
           </Button>
           <Button asChild size="sm" variant="outline" className="border-breton-navy/20 gap-2">
             <Link href="/contact">

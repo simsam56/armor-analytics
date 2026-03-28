@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Calendar, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
-import { getCalendlyUrl } from '@/lib/constants';
+import Link from 'next/link';
 
 export function StickyCta() {
   const [visible, setVisible] = useState(false);
@@ -32,15 +32,12 @@ export function StickyCta() {
           transition={{ duration: 0.3 }}
         >
           <div className="bg-breton-navy/95 backdrop-blur-sm border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3">
-            <a
-              href={getCalendlyUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/audit-ia"
               className="flex-1 flex items-center justify-center gap-2 bg-white text-breton-navy font-semibold px-4 py-2.5 rounded-lg text-sm"
             >
-              <Calendar className="h-4 w-4" />
-              Diagnostic gratuit — 30 min
-            </a>
+              Faire le diagnostic →
+            </Link>
             <button
               onClick={() => setDismissed(true)}
               className="text-white/50 hover:text-white p-1.5"

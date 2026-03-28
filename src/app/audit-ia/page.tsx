@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { AuditQuiz } from '@/components/audit';
-import { Clock, Target, Lightbulb, ChevronDown, Calendar } from 'lucide-react';
+import { Clock, Target, Lightbulb, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getCalendlyUrl } from '@/lib/constants';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Audit gratuit | Identifiez vos quick wins data en 3 min',
@@ -221,10 +221,9 @@ export default function AuditPage() {
               size="lg"
               className="border-breton-sand h-12 px-8 text-base gap-2"
             >
-              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-                <Calendar className="h-4 w-4" />
-                Ou réserver directement un appel
-              </a>
+              <Link href="/contact">
+                Ou nous contacter directement
+              </Link>
             </Button>
           </div>
         </div>

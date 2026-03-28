@@ -2,9 +2,7 @@
 
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
-import { Calendar } from 'lucide-react';
 import Link from 'next/link';
-import { getCalendlyUrl } from '@/lib/constants';
 import { sectionStagger, sectionChild } from '@/lib/animations';
 import { VideoBackground } from '@/components/ui/video-background';
 
@@ -55,18 +53,15 @@ export function CtaContact() {
             variants={prefersReducedMotion ? {} : sectionChild}
             className="flex flex-col sm:flex-row gap-4 justify-center mt-11"
           >
-            <a
-              href={getCalendlyUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/audit-ia"
               className="inline-flex items-center justify-center gap-2 rounded-[14px] px-8 py-4 font-semibold
                 bg-breton-sand text-breton-navy
                 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)] hover:-translate-y-[3px]
                 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              <Calendar className="h-5 w-5" />
-              Réserver un créneau
-            </a>
+              Faire le diagnostic →
+            </Link>
 
             <Link
               href="/contact"

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin, Calendar, ArrowRight, Shield, Flag, Phone } from 'lucide-react';
-import { NAV_LINKS, SITE_CONFIG, getCalendlyUrl, getContactEmail } from '@/lib/constants';
+import { Linkedin, Mail, MapPin, ArrowRight, Shield, Flag, Phone } from 'lucide-react';
+import { NAV_LINKS, SITE_CONFIG, getContactEmail } from '@/lib/constants';
 import { Button } from '@/components/ui/button';
 import { LogoWithIcon } from '@/components/ui/logo';
 
@@ -94,11 +94,10 @@ export function Footer() {
               asChild
               className="gap-2 shrink-0 bg-white text-breton-navy hover:bg-breton-sand"
             >
-              <a href={getCalendlyUrl()} target="_blank" rel="noopener noreferrer">
-                <Calendar className="h-4 w-4" />
-                Réserver un créneau
+              <Link href="/contact">
+                Nous contacter
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </Button>
           </div>
         </div>

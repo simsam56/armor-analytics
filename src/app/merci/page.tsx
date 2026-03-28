@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle, Calendar, ArrowLeft } from 'lucide-react';
+import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Merci pour votre message',
@@ -33,18 +32,13 @@ export default function ThankYouPage() {
         <div className="mt-12 rounded-2xl bg-white p-8 shadow-lg">
           <h2 className="text-xl font-bold text-slate-900">En attendant...</h2>
           <p className="mt-4 text-slate-600">
-            Vous pouvez aussi réserver directement un créneau de 30 minutes pour un premier échange.
+            Découvrez nos cas clients pour voir ce qu&apos;on peut construire ensemble.
           </p>
           <div className="mt-6">
             <Button size="lg" asChild className="gap-2">
-              <a
-                href={`https://calendly.com/${SITE_CONFIG.calendly}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Calendar className="h-5 w-5" />
-                Prendre rendez-vous
-              </a>
+              <Link href="/cas-clients">
+                Voir nos réalisations →
+              </Link>
             </Button>
           </div>
         </div>

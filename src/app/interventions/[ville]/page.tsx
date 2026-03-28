@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRight, Calendar, CheckCircle, MapPin } from 'lucide-react';
+import { ArrowRight, CheckCircle, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
-import { SITE_CONFIG, getCalendlyUrl } from '@/lib/constants';
+import { SITE_CONFIG } from '@/lib/constants';
 
 interface CityData {
   slug: string;
@@ -363,15 +363,9 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
               size="lg"
               className="bg-white text-breton-emerald hover:bg-white/90 h-13 px-8 text-base font-semibold"
             >
-              <a
-                href={getCalendlyUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gap-2.5"
-              >
-                <Calendar className="h-5 w-5" />
-                Diagnostic gratuit — 30 min
-              </a>
+              <Link href="/audit-ia" className="gap-2.5">
+                Faire le diagnostic →
+              </Link>
             </Button>
             <Button
               asChild

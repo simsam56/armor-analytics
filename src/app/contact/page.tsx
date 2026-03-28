@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { Calendar, Mail, MapPin, Linkedin, CheckCircle, Shield, Clock, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Mail, MapPin, Linkedin, CheckCircle, Shield, Clock, Phone } from 'lucide-react';
 import { ContactForm, Hero } from '@/components/sections';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -53,18 +52,6 @@ export default function ContactPage() {
                   </span>
                 </div>
 
-                <div className="mt-6">
-                  <Button size="lg" asChild className="w-full gap-2">
-                    <a
-                      href={`https://calendly.com/${SITE_CONFIG.calendly}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Calendar className="h-5 w-5" />
-                      Réserver un créneau
-                    </a>
-                  </Button>
-                </div>
               </div>
 
               <div>
