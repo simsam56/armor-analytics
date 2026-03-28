@@ -1,8 +1,8 @@
 # Refonte proposition commerciale — balise-ia
 
 **Date :** 2026-03-28
-**Statut :** Validé par l'utilisateur
-**Scope :** Restructuration du site + e-commerce Formation (MVP)
+**Statut :** Validé par l'utilisateur (v3)
+**Scope :** Restructuration du site + Formation simplifée + Quiz mis en valeur
 
 ---
 
@@ -11,9 +11,10 @@
 Le site balise-ia souffre de trop de texte et d'une structure commerciale peu lisible pour un prospect qui découvre. Les offres nautiques (Le Repérage, Le Cap, L'Équipage) sont méconnues à froid. L'objectif est de :
 
 1. Restructurer autour de 3 piliers fonctionnels clairs : **IA · Data · Formation**
-2. Repositionner le Diagnostic comme CTA universel (point d'entrée, pas une offre)
-3. Ajouter un e-commerce Formation MVP (PDF gratuits + formations vidéo payantes Stripe)
-4. Alléger significativement le volume de texte sur toutes les pages
+2. **Promouvoir le quiz `/audit-ia`** comme point d'entrée principal (remplace le CTA Calendly)
+3. **Remplacer Calendly** par un formulaire de contact simple (`/contact` existant)
+4. Simplifier la section Formation : PDF gratuits comme lead magnets, formations payantes en v2
+5. Alléger significativement le volume de texte sur toutes les pages
 
 ---
 
@@ -21,224 +22,253 @@ Le site balise-ia souffre de trop de texte et d'une structure commerciale peu li
 
 ### Navigation principale
 ```
-balise-ia  |  IA  |  Data  |  Formation  |  Réalisations  |  Blog  |  [Demander un diagnostic →]
+balise-ia  |  IA  |  Data  |  Formation  |  Réalisations  |  Blog  |  [Faire le diagnostic →]
 ```
+
+Le CTA header pointe vers `/audit-ia` (quiz), pas vers Calendly ni `/contact`.
 
 ### Pages restructurées
 
 | URL | Statut | Notes |
 |-----|--------|-------|
 | `/` | Modifiée | Homepage — 6 sections, structure allégée |
-| `/ia` | Nouvelle | Remplace `/services` pour le pilier IA |
-| `/data` | Nouvelle | Remplace `/services` pour le pilier Data |
-| `/services` | Redirigée | 301 → `/ia` (cible définitive, configurée dans `next.config.ts`) |
+| `/ia` | Nouvelle | Pilier IA & Automatisation |
+| `/data` | Nouvelle | Pilier Data & Reporting |
+| `/audit-ia` | Valorisée | Quiz existant — promu comme CTA principal |
+| `/services` | Redirigée | 301 → `/ia` (configuré dans `next.config.ts`) |
 | `/cas-clients` | Inchangée | |
 | `/blog` | Inchangée | |
 | `/a-propos` | Inchangée | |
-| Landing pages SEO | Inchangées | `/power-bi-bretagne`, `/consultant-data-lorient`, etc. |
+| `/contact` | Inchangée | Formulaire email — CTA secondaire partout |
+| Landing pages SEO | Inchangées | Ajustements mineurs documentés en §6 |
 
-### Nouvelles pages Formation
+### Pages Formation (simplifiées)
 
 | URL | Rôle |
 |-----|------|
-| `/formation` | Catalogue — liste toutes les formations avec filtres |
-| `/formation/[slug]` | Page détail d'une formation |
-| `/formation/[slug]/acces` | Contenu protégé par token (vidéo) |
-| `/formation/merci?type=free` | Post-inscription gratuite — confirmation + upsell formations payantes |
-| `/formation/merci?type=paid` | Post-achat — confirmation + "vérifiez votre email pour accéder" |
+| `/formation` | Page pilier — présente les 2 types + PDFs gratuits |
+| `/formation/merci` | Post-téléchargement PDF — confirmation + upsell quiz |
+
+**Pas de** `/formation/[slug]`, `/formation/[slug]/acces`, Stripe, Redis, webhooks en v1.
 
 ---
 
-## 3. Homepage — nouvelle structure
+## 3. CTA — nouvelle hiérarchie
 
-### Avant → Après
+Calendly est **supprimé**. Les CTAs sont unifiés :
 
-| Avant (9 sections) | Après (6 sections) |
-|---|---|
-| HeroV3 — long, beaucoup de texte | **Hero** — titre court + 3 piliers badges + 2 CTAs |
-| MetricsBand | **Métriques + Logos** — fusionnés en 1 bande |
-| LogoCarousel | *(fusionné avec métriques)* |
-| PillarsSection — 3 piliers longs | **3 Piliers** — IA / Data / Formation, cards cliquables |
-| Services — 3 offres nautiques | *(remplacé par 3 Piliers)* |
-| Projects — 3 cas clients | **Cas clients** — 2 exemples chiffrés + lien |
-| Testimonials | *(supprimé — doublonne avec cas clients)* |
-| IncarnationSection | **Qui on est** — 2 lignes + photo (compact) |
-| CtaContact | **CTA Diagnostic** — navy, identique partout |
+| Position | CTA | Destination |
+|----------|-----|-------------|
+| Header (principal) | "Faire le diagnostic →" | `/audit-ia` |
+| Homepage hero (primaire) | "Faire le diagnostic →" | `/audit-ia` |
+| Homepage hero (secondaire) | "Voir les réalisations" | `/cas-clients` |
+| Fin de chaque page pilier | "Faire le diagnostic →" | `/audit-ia` |
+| Après quiz (résultats) | "Discutons de vos résultats" | `/contact` |
+| Footer | "Nous contacter" | `/contact` |
+
+**Suppression `getCalendlyUrl()` — 15 call sites dans 8 fichiers à traiter :**
+- `src/components/layout/Header.tsx` (×2)
+- `src/components/layout/Footer.tsx` (×1)
+- `src/components/sections/HeroV3.tsx` (×1)
+- `src/components/ui/sticky-cta.tsx` (×1)
+- `src/components/sections/CtaContact.tsx`, `CtaInline.tsx`, `Services.tsx`, `ContactSection.tsx`
+- `src/app/audit-ia/page.tsx`, `src/app/services/page.tsx`, `src/app/a-propos/page.tsx`, `src/app/contact/page.tsx`, `src/app/merci/page.tsx`, `src/app/interventions/[ville]/page.tsx`
+
+Remplacer chaque appel par `/contact` ou `/audit-ia` selon le contexte (voir §3). Supprimer ensuite `getCalendlyUrl()` de `constants.ts` et la variable `NEXT_PUBLIC_CALENDLY_URL`.
+
+---
+
+## 4. Quiz `/audit-ia` — mise en valeur
+
+Le quiz existant score la maturité data/IA et oriente vers un pilier. Il devient le point d'entrée commercial principal.
+
+### Changements sur le quiz
+- Page `/audit-ia` : hero renforcé, titre plus accrocheur, sous-titre orienté bénéfice
+- **Page de résultats** : doit recommander explicitement un pilier (IA / Data / Formation) avec un lien vers la page correspondante
+- CTA final des résultats : "Discutons de vos résultats" → `/contact` (remplace Calendly)
+- Le quiz est promu sur la homepage (section dédiée ou intégré dans le Hero)
+
+### Position sur la homepage
+Section distincte entre "3 Piliers" et "Cas clients" :
+```
+[Quiz] En 5 minutes, identifiez vos opportunités data & IA
+→ Bouton "Faire le diagnostic" → /audit-ia
+```
+
+---
+
+## 5. Homepage — nouvelle structure
+
+### Sections (6, au lieu de 9)
+
+| # | Section | Contenu | Remplace |
+|---|---------|---------|---------|
+| 1 | **Hero** | Titre court + sous-titre + CTA quiz + badges piliers | HeroV3 (allégé) |
+| 2 | **Métriques + Logos** | 3 chiffres clés + logo carousel | MetricsBand + LogoCarousel fusionnés |
+| 3 | **3 Piliers** | IA / Data / Formation — cards cliquables | PillarsSection + Services |
+| 4 | **Quiz** | Accroche + bouton "Faire le diagnostic" | — (nouveau) |
+| 5 | **Cas clients** | 2 exemples chiffrés + lien vers /cas-clients | Projects (réduit) |
+| 6 | **CTA Final** | "Discutons de vos résultats" / "Nous contacter" | CtaContact |
+
+**Supprimés :** Testimonials (doublonne), IncarnationSection (compactée dans le footer ou /a-propos).
 
 ### Visuels à conserver impérativement
-- Fond vidéo drone dans le Hero (composant `VideoBackground`)
+- Fond vidéo drone (`VideoBackground`) dans le Hero
 - Logo carousel animé (marquee)
-- Photos terrain bretonnes (IncarnationSection compactée)
+- Photos terrain bretonnes
 
-### Contenu Hero
-- Titre : court, max 8 mots — ex. *"Data, IA et Formation pour les PME bretonnes"*
+### Hero
+- Titre : max 8 mots — ex. *"Data, IA et Formation pour les PME bretonnes"*
 - Sous-titre : 1 phrase, max 15 mots
-- CTA primaire : "Demander un diagnostic →"
-- CTA secondaire : "Voir les réalisations"
-- Badges piliers : IA · Data · Formation (sous le hero)
+- CTA primaire : "Faire le diagnostic →" → `/audit-ia`
+- CTA secondaire : "Voir les réalisations" → `/cas-clients`
+- Badges : `IA` · `Data` · `Formation`
 
 ### Section 3 Piliers
-- 3 cards cliquables menant vers `/ia`, `/data`, `/formation`
-- Description courte : 2 lignes max par pilier
-- Tags technos visibles (Power BI, n8n, OCR…)
-- Formation : couleur cuivre (`breton-copper`) pour la distinguer
+- Cards cliquables → `/ia`, `/data`, `/formation`
+- Description 2 lignes max par pilier
+- Tags technos (Power BI, n8n, OCR…)
+- Formation en couleur cuivre (`breton-copper`)
 
 ---
 
-## 4. Pages piliers
+## 6. Pages piliers
 
 ### `/ia` — IA & Automatisation
-- Hero court : titre + 1 phrase + CTA diagnostic
-- Cas d'usage : OCR, agents IA, classification, workflows
+- Hero court : titre + 1 phrase + CTA "Faire le diagnostic →"
+- Cas d'usage : OCR, agents IA, classification, workflows n8n
 - Outils : n8n, Make, Python, Claude
 - 1-2 cas clients filtrés (secteur industriel)
-- CTA diagnostic navy en fin de page
+- CTA navy en fin : "Faire le diagnostic →"
 
 ### `/data` — Data & Reporting
-- Hero court : titre + 1 phrase + CTA diagnostic
-- Cas d'usage : dashboards, data engineering, ETL, reporting temps réel
+- Hero court : titre + 1 phrase + CTA "Faire le diagnostic →"
+- Cas d'usage : dashboards temps réel, data engineering, ETL, reporting
 - Outils : Power BI, Metabase, Microsoft Fabric, DuckDB, dbt
 - 1-2 cas clients filtrés (métallurgie, franchises)
-- CTA diagnostic navy en fin de page
+- CTA navy en fin : "Faire le diagnostic →"
+
+### `/formation` — Formation
+Deux sous-sections distinctes sur la même page :
+
+**1. Accompagnement sur site**
+- Description : on va chez le client, on forme les équipes pendant qu'elles mettent en place les outils
+- Format : ateliers pratiques, petits groupes, sur mesure
+- CTA : "Discutons de votre projet" → `/contact`
+
+**2. Ressources en ligne (gratuites)**
+- 1-2 PDFs téléchargeables en lead magnet (guide, checklist)
+- Capture email obligatoire → Resend envoie le PDF
+- Badge "Formations vidéo · Bientôt disponible" pour teaser la v2
 
 ---
 
-## 5. E-commerce Formation (MVP)
+## 7. Formation — flux PDF gratuit
 
-### Modèle
-- **Gratuit** : PDF téléchargeable — capture email obligatoire
-- **Payant** : formation vidéo — paiement one-time via Stripe Checkout
-- **Abonnement** : affiché "Bientôt disponible" — implémenté en v2 quand le catalogue existe
-- **Contenu au lancement** : aucun — l'infrastructure est construite, le contenu à venir
-
-### Flux gratuit (PDF)
 ```
 Bouton "Télécharger gratuitement"
   → Modale (Prénom + Email)
   → POST /api/formation/register
-      → Rate limiting : 3 req / 15 min / IP (même pattern que /api/contact)
+      → Rate limiting : 3 req / 15 min / IP
       → Validation Zod (email, prénom)
       → Honeypot anti-spam
-      → Resend : email avec PDF en pièce jointe (URL Blob signée)
-  → Redirect /formation/merci?type=free
+      → Resend : email avec PDF (URL Vercel Blob signée)
+  → Redirect /formation/merci
 ```
 
-### Flux payant (vidéo)
-```
-Bouton "Acheter · XX €"
-  → Stripe Checkout (session one-time, metadata: { slug, email })
-  → Webhook /api/webhooks/stripe
-      → Vérification signature (STRIPE_WEBHOOK_SECRET obligatoire)
-      → Générer token UUID v4, stocker dans Redis (TTL 30j)
-      → Resend : email avec lien /formation/[slug]/acces?token=...
-  → Page /formation/[slug]/acces : vérifie token Redis → embed vidéo
-```
+### Stockage PDF
+- Vercel Blob, chemin : `formations/gratuit/{slug}.pdf`
+- Upload manuel avant mise en prod
+- `pdfKey` dans la définition de la ressource → résolu en URL Blob dans la route API
 
-**Sécurité webhook :** la route `/api/webhooks/stripe` doit vérifier la signature `stripe-signature` via `stripe.webhooks.constructEvent()` avant tout traitement. Variable d'env requise : `STRIPE_WEBHOOK_SECRET`.
-
-**Attention App Router :** `stripe.webhooks.constructEvent()` requiert le body brut (non parsé). Dans Next.js App Router, utiliser `await req.text()` (pas `req.json()`) pour lire le body, puis passer la chaîne à `constructEvent`. Ne pas utiliser `bodyParser` ou `json()`.
-
-**Génération UUID :** utiliser `crypto.randomUUID()` (natif Node.js 19+, pas de dépendance npm).
-
-### Protection du contenu vidéo
-- Token = UUID v4 stocké dans Upstash Redis (TTL = 30 jours, suppression automatique)
-- Structure Redis : clé `token:{uuid}` → valeur `{ slug, email, purchasedAt }`
-- Vérification côté serveur à chaque accès (`GET /formation/[slug]/acces`)
-- Expiration : 30 jours après achat (TTL Redis natif)
-- Page d'expiration : si token absent ou expiré, afficher page avec CTA "Racheter la formation"
-- Pas de compte utilisateur requis (pas d'auth complète)
-
-### Stockage PDF (formations gratuites)
-- Upload manuel dans Vercel Blob avant mise en production
-- Convention de chemin : `formations/gratuit/{slug}.pdf`
-- Route `/api/formation/subscribe` résout `pdfKey` → URL Blob signée → joint au Resend
-
-### Structure données formation (constants.ts)
+### Type `FreeResource` (constants.ts)
 ```typescript
-export type Formation = {
+export type FreeResource = {
   id: string;
   slug: string;
   title: string;
   description: string;
-  category: 'ia' | 'data';
-  type: 'free' | 'paid';
-  format: 'pdf' | 'video';
-  duration: string;              // ex: "3h", "15 min"
-  price?: number;                // en centimes pour Stripe (ex: 19700)
-  priceDisplay?: string;         // ex: "197 €"
+  category: 'ia' | 'data' | 'general';
+  format: 'pdf';
+  duration: string;    // ex: "15 min"
   tags: string[];
-  videoUrl?: string;             // URL Vimeo ou YouTube unlisted (paid)
-  videoProvider?: 'youtube' | 'vimeo';  // détermine le pattern d'embed
-  pdfKey?: string;               // chemin Vercel Blob : formations/gratuit/{slug}.pdf
-  stripeProductId?: string;
-  stripePriceId?: string;
+  pdfKey: string;      // chemin Vercel Blob : formations/gratuit/{slug}.pdf
 }
 ```
 
-**Choix du provider vidéo :** à décider avant implémentation. Vimeo recommandé (meilleur contrôle de la confidentialité, pas d'annonces, embed propre). YouTube unlisted acceptable si budget contraint.
-
-### Catalogue /formation
-- Filtres : Toutes · Gratuites · IA · Data
-- Cards avec badge GRATUIT (vert) ou prix (cuivre)
-- Abonnement en card grisée "Bientôt disponible"
+### Page `/formation/merci`
+- Confirmation téléchargement
+- "Vérifiez votre email"
+- Upsell : "Et si on faisait le diagnostic ensemble ?" → CTA quiz `/audit-ia`
 
 ---
 
-## 6. Constantes et migrations `constants.ts`
+## 8. Constantes et migrations
 
-- `SERVICES` : restructuré — 2 entrées (ia, data) avec nouveau format, noms nautiques en commentaire historique uniquement
-- Nouvelle export `FORMATIONS` : tableau de `Formation[]`
+### `constants.ts`
+- `SERVICES` : restructuré — 2 entrées (ia, data), noms nautiques en commentaire uniquement
+- Nouvelle export `FREE_RESOURCES` : tableau de `FreeResource[]`
 - `NAV_LINKS` : mise à jour (`/ia`, `/data`, `/formation`)
-- `PROCESS_STEPS` : **supprimé** — les fichiers qui l'importent doivent être mis à jour :
-  - `src/components/sections/Methodology.tsx` → supprimer le composant ou le réécrire sans PROCESS_STEPS
-  - `src/app/intelligence-artificielle-bretagne/page.tsx` → retirer la section Methodology
-  - `src/app/consultant-data-lorient/page.tsx` → retirer la section Methodology
-  - `src/app/formation-ia-pme/page.tsx` → retirer la section Methodology
+- `PROCESS_STEPS` : **supprimé de `constants.ts`** — un seul fichier l'importe depuis constants :
+  - `src/components/sections/Methodology.tsx` → supprimer le composant
+  - **Note :** `intelligence-artificielle-bretagne/page.tsx`, `consultant-data-lorient/page.tsx` et `formation-ia-pme/page.tsx` définissent leur **propre** `const PROCESS_STEPS` locale — ils ne dépendent pas de constants, aucune modification requise
+- `getCalendlyUrl()` : **supprimer après traitement des 15 call sites** (voir §3)
 
 ### Liens internes `/services` à mettre à jour
-La redirection 301 `/services` → `/ia` gère les liens entrants externes, mais les **liens internes** doivent être mis à jour :
-- `src/app/consultant-data-lorient/page.tsx` (×2)
-- `src/app/formation-ia-pme/page.tsx`
-- `src/components/sections/Services.tsx`
-- `src/data/blog-articles.ts` (×3 occurrences)
-- `src/lib/constants.ts` (NAV_LINKS)
+- `src/app/consultant-data-lorient/page.tsx` (×2) → `/data`
+- `src/app/formation-ia-pme/page.tsx` → `/formation`
+- `src/components/sections/Services.tsx` → sera supprimé/remplacé
+- `src/data/blog-articles.ts` (×3) → `/ia` ou `/data` selon contexte
+- `src/lib/constants.ts` NAV_LINKS → déjà mis à jour
 
 ---
 
-## 7. Ce qui ne change pas (avec précisions)
+## 9. Ce qui ne change pas (avec précisions)
 
 - `/power-bi-bretagne`, `/automatisation-commandes-pme`, `/intelligence-artificielle-bretagne` — inchangées
-- `/consultant-data-lorient` — inchangée **sauf** : liens `/services` → `/data` + retrait Methodology
-- `/formation-ia-pme` — inchangée **sauf** : retrait Methodology + ajout lien vers `/formation` pour le catalogue. **Décision explicite** : cette page SEO reste distincte de `/formation` (angles différents : SEO local vs catalogue e-commerce)
-- `/cas-clients` et les 4 cas clients existants
-- `/blog` et tous les articles
-- `/a-propos`
-- `/audit-ia`
+- `/consultant-data-lorient` — inchangée **sauf** : liens → `/data` + retrait Methodology
+- `/formation-ia-pme` — inchangée **sauf** : retrait Methodology + lien vers `/formation`
+- `/cas-clients`, `/blog`, `/a-propos` — inchangées
 - Design system (palette bretonne, Instrument Serif, Geist Sans)
 - Composants visuels (vidéo drone, logo carousel, photos terrain)
 - API `/api/contact` et `/api/og`
 - Cookie banner RGPD, Analytics GA4/Vercel
-- `robots.ts` — **à mettre à jour** : ajouter `/formation/merci` aux routes disallowed (comme `/merci` existant)
+- `robots.ts` — **à mettre à jour** : ajouter `/formation/merci/` aux disallowed. Aligner aussi le pattern `/merci` → `/merci/` (avec slash) pour couvrir les sous-paths. Résultat : `disallow: ['/api/', '/merci/', '/formation/merci/']`
 
 ---
 
-## 8. Stack technique additions (Formation e-commerce)
+## 10. Nouvelles dépendances
 
 | Besoin | Solution |
 |--------|----------|
-| Paiement | Stripe Checkout (déjà sur marketplace Vercel) |
-| Email | Resend (déjà intégré) |
-| Stockage PDF | Vercel Blob |
-| Stockage tokens | Upstash Redis (TTL natif, MVP sans BDD relationnelle) |
-| Vidéo | YouTube unlisted ou Vimeo embed |
-| Webhook | Route handler `/api/webhooks/stripe` |
+| Email PDF | Resend (déjà intégré) |
+| Stockage PDF | Vercel Blob (`@vercel/blob` — à installer) |
+
+**Setup Vercel Blob :**
+1. Provisionner un Blob store dans le dashboard Vercel (Storage → Blob)
+2. `vercel env pull` pour récupérer `BLOB_READ_WRITE_TOKEN` en local
+3. `npm install @vercel/blob`
+
+Sans `BLOB_READ_WRITE_TOKEN`, la route `/api/formation/register` échouera silencieusement en production.
+
+Pas de Stripe, Redis, ni hébergement vidéo en v1.
+
+### Tests E2E à mettre à jour
+Les changements suivants cassent des tests existants — à corriger en même temps que l'implémentation :
+
+| Fichier | Test | Raison |
+|---------|------|--------|
+| `navigation.spec.ts` | `header nav a[href="/services"]` | Nav pointe maintenant vers `/ia` |
+| `navigation.spec.ts` | `test('/services se charge avec les offres')` | Page `/services` n'existe plus |
+| `navigation.spec.ts` | assertion `'Réserver un créneau'` | Texte Calendly supprimé |
+| `seo.spec.ts` | sitemap contient `/services` | Sitemap doit lister `/ia`, `/data`, `/formation` |
 
 ---
 
-## 9. Hors scope (v2)
+## 11. Hors scope (v2)
 
-- Abonnement Stripe (recurring)
+- Formations vidéo payantes (Stripe Checkout, webhooks, tokens Redis)
+- Abonnement Stripe
 - Espace membre / authentification
-- Contenu des formations (à créer séparément)
 - Certificats de complétion
-- Commentaires / forum sur les formations
+- Contenu des formations vidéo (à créer séparément)
