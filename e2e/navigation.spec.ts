@@ -68,4 +68,11 @@ test.describe('Navigation et pages principales', () => {
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.getByRole('link', { name: /Faire le diagnostic/i }).first()).toBeVisible();
   });
+
+  test('/data se charge avec le contenu Data', async ({ page }) => {
+    await page.goto('/data');
+    await expect(page).toHaveTitle(/Data/i);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Faire le diagnostic/i }).first()).toBeVisible();
+  });
 });
