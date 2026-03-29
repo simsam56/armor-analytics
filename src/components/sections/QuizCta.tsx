@@ -27,7 +27,7 @@ export function QuizCta() {
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href="/audit-ia">Lancer le diagnostic gratuit →</Link>
+              <Link href="/audit-ia">Identifier mes priorit&eacute;s IA &amp; data →</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-breton-sand">
               <Link href="/contact">Ou nous contacter directement</Link>

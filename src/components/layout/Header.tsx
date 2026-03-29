@@ -78,7 +78,7 @@ export function Header() {
             size="sm"
             className="gap-2 bg-breton-navy text-white hover:bg-breton-slate"
           >
-            <Link href="/audit-ia">Diagnostic &rarr;</Link>
+            <Link href="/audit-ia">Mes priorit&eacute;s IA &rarr;</Link>
           </Button>
         </div>
       </nav>
@@ -104,7 +104,7 @@ export function Header() {
             </Button>
             <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
               <Link href="/audit-ia" onClick={() => setMobileMenuOpen(false)}>
-                Diagnostic &rarr;
+                Mes priorit&eacute;s IA &rarr;
               </Link>
             </Button>
           </div>

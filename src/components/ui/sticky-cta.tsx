@@ -36,7 +36,7 @@ export function StickyCta() {
               href="/audit-ia"
               className="flex-1 flex items-center justify-center gap-2 bg-white text-breton-navy font-semibold px-4 py-2.5 rounded-lg text-sm"
             >
-              Diagnostic →
+              Mes priorités IA →
             </Link>
             <button
               onClick={() => setDismissed(true)}

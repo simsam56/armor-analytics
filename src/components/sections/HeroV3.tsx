@@ -56,8 +56,8 @@ export function HeroV3() {
             variants={child}
             className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[520px] mx-auto"
           >
-            Intégrateur d&apos;IA dans les entreprises bretonnes. Automatisation, pilotage
-            data, formation de vos équipes.
+            Automatisation, tableaux de bord et IA pour des projets terrain, avec
+            interventions sur site et accompagnement local en Bretagne.
           </motion.p>
 
           {/* 4. Trois piliers animés */}
@@ -77,7 +77,7 @@ export function HeroV3() {
                 hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
                 transition-all duration-200"
             >
-              Identifier mes quick wins →
+              Identifier mes priorités IA &amp; data →
             </Link>
             <Link
               href="/cas-clients"

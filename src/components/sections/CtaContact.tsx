@@ -61,7 +61,7 @@ export function CtaContact() {
                 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)] hover:-translate-y-[3px]
                 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              Identifier mes opportunités →
+              Identifier mes priorités IA &amp; data →
             </Link>
 
             <Link
