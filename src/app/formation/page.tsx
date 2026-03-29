@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { FREE_RESOURCES } from '@/lib/constants';
@@ -278,14 +279,20 @@ export default function FormationPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-20 bg-breton-navy">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* CTA avec vidéo drone */}
+      <VideoBackground
+        src="/videos/drone-sunset-voilier.mp4"
+        poster="/videos/poster-sunset.jpg"
+        startTime={3}
+        overlayClassName="bg-breton-navy/75"
+        className="py-20 sm:py-28"
+      >
+        <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Vos équipes sont prêtes à monter en compétences ?
+            Vos &eacute;quipes sont pr&ecirc;tes &agrave; monter en comp&eacute;tences ?
           </h2>
           <p className="mt-4 text-white/60">
-            On définit ensemble le programme le plus adapté à votre contexte.
+            On d&eacute;finit ensemble le programme le plus adapt&eacute; &agrave; votre contexte.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -305,7 +312,7 @@ export default function FormationPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </VideoBackground>
     </>
   );
 }

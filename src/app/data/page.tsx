@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
+import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import {
@@ -24,20 +25,20 @@ export const metadata: Metadata = {
 
 const DATA_FAQ = [
   {
-    q: 'On a déjà des fichiers Excel partout. C’est rattrapable ?',
-    a: 'C’est justement notre quotidien. On centralise vos sources (ERP, Excel, emails, API) dans un entrepôt de données propre. Vos Excel deviennent des dashboards automatisés.',
+    q: `On a d\u00e9j\u00e0 des fichiers Excel partout. C\u2019est rattrapable ?`,
+    a: `C\u2019est justement notre quotidien. On centralise vos sources (ERP, Excel, emails, API) dans un entrep\u00f4t de donn\u00e9es propre. Vos Excel deviennent des dashboards automatis\u00e9s.`,
   },
   {
     q: 'Power BI ou Metabase, lequel choisir ?',
-    a: 'Power BI si vous êtes dans l’écosystème Microsoft et que vous voulez des rapports riches. Metabase si vous cherchez un outil open source, rapide à déployer, sans licence. On vous oriente selon votre contexte.',
+    a: `Power BI si vous \u00eates dans l\u2019\u00e9cosyst\u00e8me Microsoft et que vous voulez des rapports riches. Metabase si vous cherchez un outil open source, rapide \u00e0 d\u00e9ployer, sans licence. On vous oriente selon votre contexte.`,
   },
   {
     q: 'Combien de temps pour avoir un premier dashboard ?',
-    a: 'Un premier tableau de bord est livrable en 2 à 4 semaines. Un projet complet (centralisation + dashboards + alertes) prend 4 à 10 semaines.',
+    a: `Un premier tableau de bord est livrable en 2 \u00e0 4 semaines. Un projet complet (centralisation + dashboards + alertes) prend 4 \u00e0 10 semaines.`,
   },
   {
     q: 'Faut-il un data engineer en interne ?',
-    a: 'Non. On conçoit des solutions que vos équipes utilisent sans compétences techniques. Formation incluse. Et si vous grandissez, on peut former quelqu’un en interne.',
+    a: `Non. On con\u00e7oit des solutions que vos \u00e9quipes utilisent sans comp\u00e9tences techniques. Formation incluse. Et si vous grandissez, on peut former quelqu\u2019un en interne.`,
   },
   {
     q: 'Mes données actuelles sont-elles exploitables ?',
@@ -60,11 +61,12 @@ const dataFaqJsonLd = {
 
 export default function DataPage() {
   const painPoints = [
-    'Votre reporting, c’est un Excel que quelqu’un met à jour le vendredi',
-    'Vos données sont éclatées entre 3 systèmes qui ne se parlent pas',
-    'Vous décidez au feeling, faute de chiffres à jour',
-    'Vous détectez les problèmes qualité après coup, jamais avant',
-    'L’audit arrive et vous paniquez pour compiler les données',
+    'Votre reporting, c\u2019est un Excel que quelqu\u2019un met \u00e0 jour le vendredi',
+    'Vos donn\u00e9es sont \u00e9clat\u00e9es entre 3 syst\u00e8mes qui ne se parlent pas',
+    'Vous d\u00e9cidez au feeling, faute de chiffres \u00e0 jour',
+    'Vous d\u00e9tectez les probl\u00e8mes qualit\u00e9 apr\u00e8s coup, jamais avant',
+    'L\u2019audit arrive et vous paniquez pour compiler les donn\u00e9es',
+    'Vous ne savez pas quels clients ou produits sont r\u00e9ellement rentables',
   ];
 
   const useCases = [
@@ -72,13 +74,13 @@ export default function DataPage() {
       icon: BarChart3,
       title: 'Dashboards temps réel',
       description:
-        'Vos KPIs disponibles en un coup d’œil. Connecté directement à votre ERP, votre CRM ou vos fichiers.',
+        'Vos KPIs disponibles en un coup d\u2019\u0153il. Connect\u00e9 directement \u00e0 votre ERP, votre CRM ou vos fichiers.',
     },
     {
       icon: Database,
       title: 'Data warehouse & centralisation',
       description:
-        'Centralisez vos sources dans un entrepôt de données propre. Microsoft Fabric, DuckDB, PostgreSQL selon vos besoins.',
+        'Centralisez vos sources dans un entrepôt de données propre. Microsoft Fabric, DuckDB, PostgreSQL selon vos besoins. Nous choisissons l\u2019outil adapt\u00e9, vous gardez le focus sur vos d\u00e9cisions.',
     },
     {
       icon: Layers,
@@ -96,7 +98,7 @@ export default function DataPage() {
       icon: AlertTriangle,
       title: 'Suivi qualité & alertes',
       description:
-        'Monitoring temps réel, alertes sur dérives. Détectez les problèmes avant qu’ils n’explosent.',
+        'Monitoring temps r\u00e9el, alertes sur d\u00e9rives. D\u00e9tectez les probl\u00e8mes avant qu\u2019ils n\u2019explosent.',
     },
     {
       icon: Users,
@@ -108,7 +110,7 @@ export default function DataPage() {
       icon: TrendingUp,
       title: 'Pilotage en temps réel',
       description:
-        'Décidez sur la base de données fraîches, pas d’exports d’hier. Seuils et alertes configurables.',
+        'D\u00e9cidez sur la base de donn\u00e9es fra\u00eeches, pas d\u2019exports d\u2019hier. Seuils et alertes configurables.',
     },
     {
       icon: ShieldCheck,
@@ -162,7 +164,7 @@ export default function DataPage() {
       <div className="bg-breton-sand py-6">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-3 justify-center">
           <Button asChild size="lg" className="bg-breton-navy text-white hover:bg-breton-slate">
-            <Link href="/audit-ia">Évaluer mes besoins data →</Link>
+            <Link href="/audit-ia">Identifier mes priorit&eacute;s data →</Link>
           </Button>
           <Button
             asChild
@@ -309,15 +311,21 @@ export default function DataPage() {
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="py-16 sm:py-20 bg-breton-navy">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* CTA final avec vidéo drone */}
+      <VideoBackground
+        src="/videos/drone-sunset-voilier.mp4"
+        poster="/videos/poster-sunset.jpg"
+        startTime={3}
+        overlayClassName="bg-breton-navy/75"
+        className="py-20 sm:py-28"
+      >
+        <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Votre reporting vous coûte combien d&apos;heures par semaine ?
+            Votre reporting vous co&ucirc;te combien d&apos;heures par semaine ?
           </h2>
           <p className="mt-4 text-white/60">
             Le diagnostic identifie les dashboards et automatisations les plus utiles pour votre
-            PME.
+            entreprise.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -325,7 +333,7 @@ export default function DataPage() {
               size="lg"
               className="bg-breton-sand text-breton-navy hover:bg-breton-sand/90"
             >
-              <Link href="/audit-ia">Lancer le diagnostic gratuit →</Link>
+              <Link href="/audit-ia">Identifier mes priorit&eacute;s data →</Link>
             </Button>
             <Button
               asChild
@@ -337,7 +345,7 @@ export default function DataPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </VideoBackground>
     </>
   );
 }

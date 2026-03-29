@@ -188,7 +188,7 @@ const CASE_STUDIES = [
       { label: 'Erreurs', value: '0' },
       { label: 'ROI', value: '4 mois' },
     ],
-    image: 'https://images.unsplash.com/photo-1581091012184-0f28d7c8e6fd?w=800&q=80',
+    image: '/agroalimentaire.jpg',
   },
   {
     sector: 'Métallurgie',
@@ -227,7 +227,7 @@ const CASE_STUDIES = [
       { label: 'Réactivité', value: 'x3' },
       { label: 'ROI', value: '3 mois' },
     ],
-    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebb6122?w=800&q=80',
+    image: '/metallurgie.jpg',
   },
 ];
 
