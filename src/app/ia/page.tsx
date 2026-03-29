@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
+import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import {
@@ -65,6 +66,7 @@ export default function IaPage() {
     'Vos collaborateurs passent du temps sur des tâches répétitives à faible valeur',
     'Vous répondez aux mêmes questions clients encore et encore',
     'Vos prévisions de stock ou de demande sont approximatives',
+    'Vos emails et demandes entrantes sont triés et routés à la main',
   ];
 
   const useCases = [
@@ -108,7 +110,7 @@ export default function IaPage() {
       icon: Bot,
       title: 'Intégration ERP',
       description:
-        'Synchronisation automatique entre vos outils métier. Finis les exports CSV et les doubles saisies.',
+        'Synchronisation automatique entre vos outils métier. Finis les exports CSV et les doubles saisies. Le tout sans changer d\u2019ERP ni bouleverser vos habitudes.',
     },
     {
       icon: BrainCircuit,
@@ -155,7 +157,7 @@ export default function IaPage() {
       />
       <Hero
         title="Éliminez ce qui freine vos équipes"
-        subtitle="OCR, agents IA, workflows automatisés. On déploie des solutions concrètes, mesurées avant et après."
+        subtitle="Automatisation et IA pour les entreprises bretonnes, directement sur vos outils existants. Des projets terrain, des interventions sur site, des résultats mesurés."
       />
 
       {/* CTA sous le hero */}
@@ -259,11 +261,14 @@ export default function IaPage() {
               </span>
             ))}
           </div>
+          <p className="mt-6 text-sm text-breton-slate">
+            Nous choisissons l&apos;outil, vous gardez le focus sur votre m&eacute;tier.
+          </p>
         </div>
       </section>
 
       {/* Cas clients */}
-      <Projects filter="ia" limit={2} />
+      <Projects filter="ia" limit={3} />
 
       {/* Maillage interne */}
       <section className="py-12 bg-white">
@@ -309,14 +314,21 @@ export default function IaPage() {
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="py-16 sm:py-20 bg-breton-navy">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* CTA final avec vidéo drone */}
+      <VideoBackground
+        src="/videos/drone-sunset-voilier.mp4"
+        poster="/videos/poster-sunset.jpg"
+        startTime={3}
+        overlayClassName="bg-breton-navy/75"
+        className="py-20 sm:py-28"
+      >
+        <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-white sm:text-3xl">
-            Vos process manuels vous coûtent combien ?
+            Vos process manuels vous co&ucirc;tent combien ?
           </h2>
           <p className="mt-4 text-white/60">
-            Le diagnostic identifie les 2-3 automatisations les plus rentables pour votre PME.
+            Le diagnostic identifie les 2-3 automatisations les plus rentables pour votre
+            entreprise.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -324,7 +336,7 @@ export default function IaPage() {
               size="lg"
               className="bg-breton-sand text-breton-navy hover:bg-breton-sand/90"
             >
-              <Link href="/audit-ia">Lancer le diagnostic gratuit →</Link>
+              <Link href="/audit-ia">Identifier mes priorit&eacute;s IA &amp; data →</Link>
             </Button>
             <Button
               asChild
@@ -336,7 +348,7 @@ export default function IaPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </VideoBackground>
     </>
   );
 }
