@@ -331,58 +331,6 @@ export const PROJECTS = [
     },
   },
   {
-    id: 'dechets-plasturgie',
-    title: `Comment un plasturgiste a réduit ses coûts déchets de 25%`,
-    sector: 'Plasturgie',
-    location: `Côtes-d'Armor`,
-    companySize: '28 salariés',
-    existingTools: 'ERP, Excel, prestataire déchets',
-    context:
-      'Les tournées de collecte des déchets étaient fixes, sans lien avec la production réelle. Résultat : des bennes parfois vides, parfois débordantes. Surcoûts et pénalités environnementales.',
-    pain: 'Coûts de collecte non maîtrisés, risque de non-conformité',
-    // V2 : métriques avant/après
-    beforeAfter: {
-      before: [
-        { metric: 'Coût collecte/mois', value: '2 400€' },
-        { metric: 'Pénalités/an', value: '~1 500€' },
-        { metric: 'Planification', value: 'Fixe (non optimisée)' },
-      ],
-      after: [
-        { metric: 'Coût collecte/mois', value: '1 800€ (-25%)' },
-        { metric: 'Pénalités/an', value: '0€' },
-        { metric: 'Planification', value: 'Dynamique (prévision)' },
-      ],
-    },
-    approach: [
-      'Analyse des données historiques de production de déchets',
-      'Modèle de prévision des volumes par type de déchet',
-      `Outil d'aide à la décision pour planifier les collectes`,
-      'Intégration avec le planning de production',
-    ],
-    deliverables: [
-      'Modèle prédictif des volumes de déchets',
-      'Interface de planification des tournées',
-      'Reporting environnemental automatisé (pour audit)',
-      'Formation du responsable QHSE',
-    ],
-    techNote:
-      'Prévision statistique : modèle de régression sur données historiques (18 mois). Pas de deep learning, mais des séries temporelles classiques avec saisonnalité.',
-    results: {
-      main: '25% de réduction des coûts de collecte',
-      secondary: [
-        'Fin des pénalités pour débordement',
-        'Meilleure valorisation des matières',
-        'Conformité réglementaire facilitée',
-      ],
-    },
-    duration: '8 semaines',
-    tags: ['Prévision statistique', 'Optimisation', 'Environnement'],
-    testimonial: {
-      quote: `On anticipe au lieu de subir. Et on a divisé notre budget déchets par quatre sur l'année.`,
-      author: 'Responsable QHSE',
-    },
-  },
-  {
     id: 'pilotage-reseau-franchises',
     title: 'Comment un réseau de 150 franchises a unifié ses données en un seul écran',
     sector: 'Réseau de franchises',
@@ -431,6 +379,57 @@ export const PROJECTS = [
       quote:
         'Pour la première fois, on voit nos 150 magasins dans un seul écran. Et on sait enfin qui sont nos clients.',
       author: 'Directeur commercial',
+    },
+  },
+  {
+    id: 'dechets-plasturgie',
+    title: `Comment un plasturgiste a réduit ses coûts déchets de 25%`,
+    sector: 'Plasturgie',
+    location: `Côtes-d'Armor`,
+    companySize: '28 salariés',
+    existingTools: 'ERP, Excel, prestataire déchets',
+    context:
+      'Les tournées de collecte des déchets étaient fixes, sans lien avec la production réelle. Résultat : des bennes parfois vides, parfois débordantes. Surcoûts et pénalités environnementales.',
+    pain: 'Coûts de collecte non maîtrisés, risque de non-conformité',
+    beforeAfter: {
+      before: [
+        { metric: 'Coût collecte/mois', value: '2 400€' },
+        { metric: 'Pénalités/an', value: '~1 500€' },
+        { metric: 'Planification', value: 'Fixe (non optimisée)' },
+      ],
+      after: [
+        { metric: 'Coût collecte/mois', value: '1 800€ (-25%)' },
+        { metric: 'Pénalités/an', value: '0€' },
+        { metric: 'Planification', value: 'Dynamique (prévision)' },
+      ],
+    },
+    approach: [
+      'Analyse des données historiques de production de déchets',
+      'Modèle de prévision des volumes par type de déchet',
+      `Outil d'aide à la décision pour planifier les collectes`,
+      'Intégration avec le planning de production',
+    ],
+    deliverables: [
+      'Modèle prédictif des volumes de déchets',
+      'Interface de planification des tournées',
+      'Reporting environnemental automatisé (pour audit)',
+      'Formation du responsable QHSE',
+    ],
+    techNote:
+      'Prévision statistique : modèle de régression sur données historiques (18 mois). Pas de deep learning, mais des séries temporelles classiques avec saisonnalité.',
+    results: {
+      main: '25% de réduction des coûts de collecte',
+      secondary: [
+        'Fin des pénalités pour débordement',
+        'Meilleure valorisation des matières',
+        'Conformité réglementaire facilitée',
+      ],
+    },
+    duration: '8 semaines',
+    tags: ['Prévision statistique', 'Optimisation', 'Environnement'],
+    testimonial: {
+      quote: `On anticipe au lieu de subir. Et on a divisé notre budget déchets par quatre sur l'année.`,
+      author: 'Responsable QHSE',
     },
   },
   {
@@ -579,9 +578,9 @@ export const FAQ_ITEMS = [
 ];
 
 export const NAV_LINKS = [
-  { href: '/ia', label: 'Intelligence artificielle' },
+  { href: '/ia', label: 'Intelligences artificielles' },
   { href: '/data', label: 'Data' },
-  { href: '/formation', label: 'Formation' },
+  { href: '/formation', label: 'Formations' },
   { href: '/cas-clients', label: 'Réalisations' },
   { href: '/blog', label: 'Blog' },
 ];

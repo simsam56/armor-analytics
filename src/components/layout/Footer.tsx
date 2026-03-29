@@ -132,10 +132,6 @@ export function Footer() {
               </span>
             </div>
 
-            {/* Carte Bretagne */}
-            <div className="mt-8 hidden sm:block">
-              <BretagneMap />
-            </div>
           </div>
 
           {/* Liens */}

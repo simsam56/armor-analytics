@@ -20,6 +20,7 @@ export function HeroV3() {
     <VideoBackground
       src="/videos/drone-baie-bretonne.mp4"
       poster="/videos/poster-baie.jpg"
+      startTime={3}
       overlayClassName="bg-gradient-to-b from-breton-navy/40 via-breton-navy/55 to-breton-navy/75"
       className="relative min-h-screen grain-texture flex items-center justify-center text-center overflow-hidden pt-28 pb-16 sm:py-0"
     >
@@ -56,8 +57,8 @@ export function HeroV3() {
             variants={child}
             className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[520px] mx-auto"
           >
-            Automatisation, tableaux de bord et IA pour les PME bretonnes. On élimine ce qui
-            vous freine et on forme vos équipes.
+            On aide les PME bretonnes à intégrer l&apos;intelligence artificielle dans leurs
+            process. Automatisation, pilotage data, formation de vos équipes.
           </motion.p>
 
           {/* 4. CTAs */}

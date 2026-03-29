@@ -3,21 +3,27 @@
 import Link from 'next/link';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
-import { Factory, BarChart3, Recycle } from 'lucide-react';
+import { Factory, BarChart3, Recycle, Store, Bot, ShieldCheck } from 'lucide-react';
 import { PROJECTS } from '@/lib/constants';
 import { staggerContainer, cardReveal } from '@/lib/animations';
 
 const PROJECT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   'commandes-agroalimentaire': Factory,
   'pilotage-metallurgie': BarChart3,
+  'pilotage-reseau-franchises': Store,
   'dechets-plasturgie': Recycle,
+  'agent-ia-logistique': Bot,
+  'conformite-agroalimentaire': ShieldCheck,
 };
 
 // Metric highlights derived from PROJECTS results
 const PROJECT_METRICS: Record<string, { value: string; label: string }> = {
   'commandes-agroalimentaire': { value: '−80%', label: 'de temps de traitement' },
   'pilotage-metallurgie': { value: '4h/sem', label: 'gagnées sur le reporting' },
+  'pilotage-reseau-franchises': { value: '150', label: 'points de vente unifiés' },
   'dechets-plasturgie': { value: '−25%', label: 'de coûts de collecte' },
+  'agent-ia-logistique': { value: '90%', label: 'de réponses automatisées' },
+  'conformite-agroalimentaire': { value: '2h', label: 'au lieu de 2 semaines' },
 };
 
 interface ProjectsProps {

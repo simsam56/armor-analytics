@@ -15,6 +15,7 @@ export function CtaContact() {
     <VideoBackground
       src="/videos/drone-sunset-voilier.mp4"
       poster="/videos/poster-sunset.jpg"
+      startTime={3}
       overlayClassName="bg-breton-navy/75"
       className="grain-texture py-24 sm:py-[120px]"
     >

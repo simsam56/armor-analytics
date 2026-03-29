@@ -14,6 +14,8 @@ interface VideoBackgroundProps {
   children: React.ReactNode;
   /** Additional CSS classes for the outer container */
   className?: string;
+  /** Seconds to skip at the start of the video */
+  startTime?: number;
 }
 
 export function VideoBackground({
@@ -22,6 +24,7 @@ export function VideoBackground({
   overlayClassName = 'bg-breton-navy/80',
   children,
   className = '',
+  startTime = 0,
 }: VideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -46,6 +49,29 @@ export function VideoBackground({
     observer.observe(video);
     return () => observer.disconnect();
   }, [src, prefersReducedMotion]);
+
+  // Skip to startTime when video loads and on each loop
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !startTime) return;
+
+    const setStart = () => {
+      video.currentTime = startTime;
+    };
+
+    // Set start time when video data is loaded
+    video.addEventListener('loadeddata', setStart);
+    // Reset to startTime on each loop iteration
+    video.addEventListener('seeking', () => {
+      if (video.currentTime < startTime) {
+        video.currentTime = startTime;
+      }
+    });
+
+    return () => {
+      video.removeEventListener('loadeddata', setStart);
+    };
+  }, [startTime]);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
