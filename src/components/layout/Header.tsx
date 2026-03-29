@@ -64,13 +64,12 @@ export function Header() {
           </button>
         </div>
 
-        {/* CTAs droite — diagnostic + contact */}
+        {/* CTAs droite — contact + diagnostic */}
         <div className="hidden lg:flex lg:items-center lg:gap-x-3">
           <Button
             asChild
-            variant="outline"
             size="sm"
-            className="border-breton-navy/20 text-breton-navy hover:bg-breton-foam"
+            className="bg-breton-navy text-white hover:bg-breton-slate"
           >
             <Link href="/contact">Contact</Link>
           </Button>
@@ -79,7 +78,7 @@ export function Header() {
             size="sm"
             className="gap-2 bg-breton-navy text-white hover:bg-breton-slate"
           >
-            <Link href="/audit-ia">Diagnostic gratuit &rarr;</Link>
+            <Link href="/audit-ia">Diagnostic &rarr;</Link>
           </Button>
         </div>
       </nav>
@@ -98,14 +97,14 @@ export function Header() {
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 pt-4 border-t border-slate-200">
-            <Button asChild variant="outline" className="w-full border-breton-navy/20 text-breton-navy">
+            <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
               <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
                 Contact
               </Link>
             </Button>
             <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
               <Link href="/audit-ia" onClick={() => setMobileMenuOpen(false)}>
-                Diagnostic gratuit &rarr;
+                Diagnostic &rarr;
               </Link>
             </Button>
           </div>

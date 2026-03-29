@@ -1,8 +1,11 @@
 'use client';
 
+import Link from 'next/link';
+
 const pillars = [
   {
     key: 'ia',
+    href: '/ia',
     title: 'Intelligence artificielle',
     accentFrom: 'rgba(193,127,89,.8)',
     accentTo: 'rgba(193,127,89,.1)',
@@ -10,6 +13,7 @@ const pillars = [
   },
   {
     key: 'data',
+    href: '/data',
     title: 'Pilotage data',
     accentFrom: 'rgba(232,224,213,.6)',
     accentTo: 'rgba(232,224,213,.1)',
@@ -17,6 +21,7 @@ const pillars = [
   },
   {
     key: 'formation',
+    href: '/formation',
     title: 'Formation des \u00e9quipes',
     accentFrom: 'rgba(26,107,74,.8)',
     accentTo: 'rgba(26,107,74,.1)',
@@ -28,12 +33,14 @@ export function ThreePillars() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mx-auto">
       {pillars.map((p) => (
-        <Card key={p.key} accentFrom={p.accentFrom} accentTo={p.accentTo}>
-          {p.svg}
-          <span className="text-[13.5px] font-bold text-[#E8E0D5]/88 tracking-tight leading-snug text-center">
-            {p.title}
-          </span>
-        </Card>
+        <Link key={p.key} href={p.href}>
+          <Card accentFrom={p.accentFrom} accentTo={p.accentTo}>
+            {p.svg}
+            <span className="text-[13.5px] font-bold text-[#E8E0D5]/88 tracking-tight leading-snug text-center">
+              {p.title}
+            </span>
+          </Card>
+        </Link>
       ))}
     </div>
   );
@@ -55,8 +62,8 @@ function Card({
         group relative overflow-hidden
         flex flex-col items-center gap-5
         px-5 pt-8 pb-7 rounded-[22px]
-        bg-white/[0.07] backdrop-blur-xl
-        border border-white/[0.12]
+        bg-white/[0.05] backdrop-blur-xl
+        border border-white/[0.06]
         cursor-default text-center
         transition-all duration-400 ease-[cubic-bezier(.16,1,.3,1)]
         hover:bg-white/[0.11] hover:border-white/20 hover:-translate-y-[6px]

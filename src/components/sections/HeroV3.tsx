@@ -2,9 +2,7 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { ThreePillars } from '@/components/sections/ThreePillars';
-import { Button } from '@/components/ui/button';
 import { VideoBackground } from '@/components/ui/video-background';
 import { LocationBadge } from '@/components/animations';
 import { scaleInApple, sectionStagger, sectionChild } from '@/lib/animations';
@@ -62,29 +60,23 @@ export function HeroV3() {
             data, formation de vos équipes.
           </motion.p>
 
-          {/* 4. CTAs */}
+          {/* 4. CTAs — compacts */}
           <motion.div
             variants={child}
-            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-10 flex flex-row gap-6 justify-center items-center"
           >
-            <Button
-              asChild
-              className="bg-breton-sand text-breton-navy hover:bg-white rounded-[14px] px-8 py-4 h-auto font-semibold transition-all duration-200 hover:-translate-y-[3px] hover:shadow-lg"
+            <Link
+              href="/audit-ia"
+              className="text-sm font-semibold text-white/90 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors"
             >
-              <Link href="/audit-ia" className="inline-flex items-center gap-2.5">
-                Identifier mes quick wins →
-              </Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border border-white/20 text-white hover:border-white/50 hover:bg-white/10 bg-transparent rounded-[14px] px-8 py-4 h-auto transition-all duration-200 hover:-translate-y-[3px] hover:shadow-md"
+              Identifier mes quick wins →
+            </Link>
+            <Link
+              href="/cas-clients"
+              className="text-sm font-semibold text-white/90 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors"
             >
-              <Link href="/cas-clients" className="inline-flex items-center gap-2.5">
-                Voir les résultats clients
-                <ArrowRight className="h-4 w-4 shrink-0" />
-              </Link>
-            </Button>
+              Voir les résultats clients →
+            </Link>
           </motion.div>
 
           {/* 5. Trois piliers animés */}
