@@ -57,8 +57,8 @@ export function HeroV3() {
             variants={child}
             className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[520px] mx-auto"
           >
-            On aide les PME bretonnes à intégrer l&apos;intelligence artificielle dans leurs
-            process. Automatisation, pilotage data, formation de vos équipes.
+            Intégrateur d&apos;IA dans les entreprises bretonnes. Automatisation, pilotage
+            data, formation de vos équipes.
           </motion.p>
 
           {/* 4. CTAs */}

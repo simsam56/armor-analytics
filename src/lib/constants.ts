@@ -157,7 +157,7 @@ export const SERVICES = [
     navLabel: 'Automatisation',
     tagline: 'Vos équipes méritent mieux que de la ressaisie',
     description:
-      'OCR, agents IA, workflows automatisés, intégrations ERP. On élimine les tâches répétitives et on mesure les gains.',
+      'Agents IA, extraction de documents, workflows automatisés, intégrations ERP. On élimine les tâches répétitives et on mesure les gains.',
     href: '/ia',
     icon: 'Bot',
     tools: ['n8n', 'Make', 'Python', 'Claude', 'LangChain'],
@@ -228,56 +228,52 @@ export const FREE_RESOURCES: FreeResource[] = [];
 // Projets clients réels, anonymisés
 export const PROJECTS = [
   {
-    id: 'commandes-agroalimentaire',
-    title: `Comment une PME agroalimentaire a éliminé 80% de ses ressaisies`,
-    sector: 'Agroalimentaire',
+    id: 'agent-ia-logistique',
+    title: 'Comment un transporteur a automatisé 90% de ses réponses clients',
+    sector: 'Logistique',
     location: 'Morbihan',
-    companySize: '35 salariés',
-    existingTools: 'ERP Sage, Excel, emails',
-    context: `Cette PME agroalimentaire recevait ses commandes par email, fax et téléphone. Deux personnes passaient leur journée à ressaisir les commandes dans l'ERP. Erreurs fréquentes, retards de traitement.`,
-    pain: 'Ressaisie manuelle = 2 ETP mobilisés + erreurs récurrentes',
-    // V2 : métriques avant/après
+    companySize: '60 salariés',
+    existingTools: 'TMS maison, Outlook, téléphone',
+    context: `Ce transporteur breton recevait 80 à 120 appels et emails par jour pour des demandes de suivi de livraison. Deux personnes à temps plein étaient mobilisées pour répondre aux mêmes questions : "Où est mon colis ?", "Quand sera-t-il livré ?". Le TMS contenait toutes les réponses, mais personne ne pouvait y accéder directement.`,
+    pain: '2 ETP mobilisés sur des réponses répétitives, temps de réponse > 4h',
     beforeAfter: {
       before: [
-        { metric: 'Temps de saisie/commande', value: '8 min' },
-        { metric: `Taux d'erreur`, value: '5%' },
-        { metric: 'Délai de traitement', value: '24-48h' },
+        { metric: 'Demandes traitées/jour', value: '80-120 (manuel)' },
+        { metric: 'Temps de réponse moyen', value: '4h' },
+        { metric: 'ETP mobilisés', value: '2' },
       ],
       after: [
-        { metric: 'Temps de saisie/commande', value: '30 sec (vérification)' },
-        { metric: `Taux d'erreur`, value: '< 0.5%' },
-        { metric: 'Délai de traitement', value: '< 2h' },
+        { metric: 'Demandes traitées/jour', value: '90% automatisées' },
+        { metric: 'Temps de réponse moyen', value: '< 30 sec' },
+        { metric: 'ETP mobilisés', value: '0.3 (supervision)' },
       ],
     },
     approach: [
-      'Diagnostic des flux de commandes (1 semaine)',
-      `Mise en place d'une solution OCR pour extraction automatique`,
-      'Pipeline de validation et injection dans Sage',
-      'Interface de vérification pour les cas ambigus',
+      'Analyse des flux email et téléphone (1 semaine)',
+      'Connexion au TMS via API pour récupérer les statuts en temps réel',
+      'Déploiement d\u2019un agent IA (email + formulaire web) entraîné sur les FAQ',
+      'Interface de supervision pour les cas complexes',
     ],
     deliverables: [
-      'Solution OCR configurée et entraînée',
-      `Pipeline d'intégration ERP automatisé`,
-      'Dashboard de suivi des commandes',
-      'Formation des équipes (2h)',
+      'Agent IA connecté au TMS (réponses automatiques par email)',
+      'Formulaire web de suivi en temps réel',
+      'Dashboard de supervision des demandes non résolues',
+      'Formation de l\u2019équipe ADV (2h)',
     ],
-    // V2 : précision technique sur l'IA utilisée
-    techNote:
-      'OCR : extraction de texte structuré via modèle entraîné sur formats de commandes clients (PDF, emails). Pas de deep learning complexe, solution légère et maintenable.',
+    techNote: 'Agent IA basé sur Claude avec RAG sur la base de connaissances interne + API TMS. Réponses en langage naturel, pas de chatbot scriptée.',
     results: {
-      main: '80% du temps de traitement éliminé',
+      main: '90% des demandes de suivi traitées automatiquement',
       secondary: [
-        'Erreurs de saisie quasi nulles',
-        '1 ETP réaffecté à des tâches à valeur ajoutée',
-        'Délai de traitement divisé par 3',
+        'Temps de réponse passé de 4h à 30 secondes',
+        '1.7 ETP réaffectés au service commercial',
+        'Satisfaction client en hausse (NPS +12 points)',
       ],
     },
-    duration: '6 semaines',
-    tags: ['OCR', 'Automatisation', 'ERP'],
+    duration: '5 semaines',
+    tags: ['Agent IA', 'Automatisation', 'Service client'],
     testimonial: {
-      quote:
-        'On ne revient pas en arrière. Les filles qui faisaient la saisie peuvent enfin se concentrer sur le relationnel client.',
-      author: 'Responsable ADV',
+      quote: 'Nos clients ont la réponse avant même d\u2019avoir raccroché. Et mes équipes peuvent enfin se concentrer sur les vrais problèmes.',
+      author: 'Directeur logistique',
     },
   },
   {
@@ -328,6 +324,109 @@ export const PROJECTS = [
     testimonial: {
       quote: `Le vendredi après-midi, je pilote au lieu de compiler des tableaux. Et je vois les problèmes avant qu'ils n'explosent.`,
       author: 'Responsable production',
+    },
+  },
+  {
+    id: 'commandes-agroalimentaire',
+    title: `Comment une entreprise agroalimentaire a éliminé 80% de ses ressaisies`,
+    sector: 'Agroalimentaire',
+    location: 'Morbihan',
+    companySize: '35 salariés',
+    existingTools: 'ERP Sage, Excel, emails',
+    context: `Cette entreprise agroalimentaire recevait ses commandes par email, fax et téléphone. Deux personnes passaient leur journée à ressaisir les commandes dans l'ERP. Erreurs fréquentes, retards de traitement.`,
+    pain: 'Ressaisie manuelle = 2 ETP mobilisés + erreurs récurrentes',
+    // V2 : métriques avant/après
+    beforeAfter: {
+      before: [
+        { metric: 'Temps de saisie/commande', value: '8 min' },
+        { metric: `Taux d'erreur`, value: '5%' },
+        { metric: 'Délai de traitement', value: '24-48h' },
+      ],
+      after: [
+        { metric: 'Temps de saisie/commande', value: '30 sec (vérification)' },
+        { metric: `Taux d'erreur`, value: '< 0.5%' },
+        { metric: 'Délai de traitement', value: '< 2h' },
+      ],
+    },
+    approach: [
+      'Diagnostic des flux de commandes (1 semaine)',
+      `Mise en place d'une solution OCR pour extraction automatique`,
+      'Pipeline de validation et injection dans Sage',
+      'Interface de vérification pour les cas ambigus',
+    ],
+    deliverables: [
+      'Solution OCR configurée et entraînée',
+      `Pipeline d'intégration ERP automatisé`,
+      'Dashboard de suivi des commandes',
+      'Formation des équipes (2h)',
+    ],
+    // V2 : précision technique sur l'IA utilisée
+    techNote:
+      'OCR : extraction de texte structuré via modèle entraîné sur formats de commandes clients (PDF, emails). Pas de deep learning complexe, solution légère et maintenable.',
+    results: {
+      main: '80% du temps de traitement éliminé',
+      secondary: [
+        'Erreurs de saisie quasi nulles',
+        '1 ETP réaffecté à des tâches à valeur ajoutée',
+        'Délai de traitement divisé par 3',
+      ],
+    },
+    duration: '6 semaines',
+    tags: ['OCR', 'Automatisation', 'ERP'],
+    testimonial: {
+      quote:
+        'On ne revient pas en arrière. Les filles qui faisaient la saisie peuvent enfin se concentrer sur le relationnel client.',
+      author: 'Responsable ADV',
+    },
+  },
+  {
+    id: 'conformite-agroalimentaire',
+    title: 'Comment un IAA a automatisé son reporting réglementaire',
+    sector: 'Agroalimentaire',
+    location: 'Finistère',
+    companySize: '85 salariés',
+    existingTools: 'ERP Sage X3, LIMS, Excel, classeurs papier',
+    context: `Cette entreprise agroalimentaire passait chaque trimestre par une course contre la montre pour compiler ses données de traçabilité et de conformité. Trois personnes mobilisées pendant deux semaines pour rassembler les lots, les résultats d'analyses, les non-conformités, et les mettre en forme pour les audits.`,
+    pain: 'Compilation manuelle des données de traçabilité, stress des audits',
+    beforeAfter: {
+      before: [
+        { metric: 'Temps de préparation audit', value: '2 semaines (3 pers.)' },
+        { metric: 'Risque de non-conformité', value: 'Élevé (données manquantes)' },
+        { metric: 'Traçabilité lot', value: 'Manuelle (classeurs)' },
+      ],
+      after: [
+        { metric: 'Temps de préparation audit', value: '2 heures (1 pers.)' },
+        { metric: 'Risque de non-conformité', value: 'Quasi nul' },
+        { metric: 'Traçabilité lot', value: 'Automatisée (temps réel)' },
+      ],
+    },
+    approach: [
+      'Cartographie des flux de traçabilité (ERP, LIMS, fiches terrain)',
+      'Centralisation des données dans un entrepôt structuré',
+      'Génération automatique des rapports de conformité',
+      'Alertes en temps réel sur les écarts et non-conformités',
+    ],
+    deliverables: [
+      'Pipeline de centralisation ERP + LIMS',
+      'Rapports de conformité générés automatiquement',
+      'Dashboard traçabilité avec recherche par lot',
+      'Alertes sur non-conformités en temps réel',
+      'Formation QHSE (demi-journée)',
+    ],
+    techNote: 'ETL Python + PostgreSQL pour la centralisation. Rapports auto via Metabase avec export PDF programmé. Alertes Slack/email sur seuils critiques.',
+    results: {
+      main: 'Préparation d\u2019audit passée de 2 semaines à 2 heures',
+      secondary: [
+        'Traçabilité lot accessible en 3 clics',
+        'Zéro non-conformité détectée lors du dernier audit',
+        'Équipe QHSE libérée pour de la prévention',
+      ],
+    },
+    duration: '8 semaines',
+    tags: ['Conformité', 'Traçabilité', 'Data Engineering'],
+    testimonial: {
+      quote: 'L\u2019auditeur a été bluffé. Pour la première fois, on avait tout, structuré, à jour, en 2 clics.',
+      author: 'Responsable QHSE',
     },
   },
   {
@@ -432,143 +531,29 @@ export const PROJECTS = [
       author: 'Responsable QHSE',
     },
   },
-  {
-    id: 'agent-ia-logistique',
-    title: 'Comment un transporteur a automatisé 90% de ses réponses clients',
-    sector: 'Logistique',
-    location: 'Morbihan',
-    companySize: '60 salariés',
-    existingTools: 'TMS maison, Outlook, téléphone',
-    context: `Ce transporteur breton recevait 80 à 120 appels et emails par jour pour des demandes de suivi de livraison. Deux personnes à temps plein étaient mobilisées pour répondre aux mêmes questions : "Où est mon colis ?", "Quand sera-t-il livré ?". Le TMS contenait toutes les réponses, mais personne ne pouvait y accéder directement.`,
-    pain: '2 ETP mobilisés sur des réponses répétitives, temps de réponse > 4h',
-    beforeAfter: {
-      before: [
-        { metric: 'Demandes traitées/jour', value: '80-120 (manuel)' },
-        { metric: 'Temps de réponse moyen', value: '4h' },
-        { metric: 'ETP mobilisés', value: '2' },
-      ],
-      after: [
-        { metric: 'Demandes traitées/jour', value: '90% automatisées' },
-        { metric: 'Temps de réponse moyen', value: '< 30 sec' },
-        { metric: 'ETP mobilisés', value: '0.3 (supervision)' },
-      ],
-    },
-    approach: [
-      'Analyse des flux email et téléphone (1 semaine)',
-      'Connexion au TMS via API pour récupérer les statuts en temps réel',
-      'Déploiement d\u2019un agent IA (email + formulaire web) entraîné sur les FAQ',
-      'Interface de supervision pour les cas complexes',
-    ],
-    deliverables: [
-      'Agent IA connecté au TMS (réponses automatiques par email)',
-      'Formulaire web de suivi en temps réel',
-      'Dashboard de supervision des demandes non résolues',
-      'Formation de l\u2019équipe ADV (2h)',
-    ],
-    techNote: 'Agent IA basé sur Claude avec RAG sur la base de connaissances interne + API TMS. Réponses en langage naturel, pas de chatbot scriptée.',
-    results: {
-      main: '90% des demandes de suivi traitées automatiquement',
-      secondary: [
-        'Temps de réponse passé de 4h à 30 secondes',
-        '1.7 ETP réaffectés au service commercial',
-        'Satisfaction client en hausse (NPS +12 points)',
-      ],
-    },
-    duration: '5 semaines',
-    tags: ['Agent IA', 'Automatisation', 'Service client'],
-    testimonial: {
-      quote: 'Nos clients ont la réponse avant même d\u2019avoir raccroché. Et mes équipes peuvent enfin se concentrer sur les vrais problèmes.',
-      author: 'Directeur logistique',
-    },
-  },
-  {
-    id: 'conformite-agroalimentaire',
-    title: 'Comment un IAA a automatisé son reporting réglementaire',
-    sector: 'Agroalimentaire',
-    location: 'Finistère',
-    companySize: '85 salariés',
-    existingTools: 'ERP Sage X3, LIMS, Excel, classeurs papier',
-    context: `Cette entreprise agroalimentaire passait chaque trimestre par une course contre la montre pour compiler ses données de traçabilité et de conformité. Trois personnes mobilisées pendant deux semaines pour rassembler les lots, les résultats d'analyses, les non-conformités, et les mettre en forme pour les audits.`,
-    pain: 'Compilation manuelle des données de traçabilité, stress des audits',
-    beforeAfter: {
-      before: [
-        { metric: 'Temps de préparation audit', value: '2 semaines (3 pers.)' },
-        { metric: 'Risque de non-conformité', value: 'Élevé (données manquantes)' },
-        { metric: 'Traçabilité lot', value: 'Manuelle (classeurs)' },
-      ],
-      after: [
-        { metric: 'Temps de préparation audit', value: '2 heures (1 pers.)' },
-        { metric: 'Risque de non-conformité', value: 'Quasi nul' },
-        { metric: 'Traçabilité lot', value: 'Automatisée (temps réel)' },
-      ],
-    },
-    approach: [
-      'Cartographie des flux de traçabilité (ERP, LIMS, fiches terrain)',
-      'Centralisation des données dans un entrepôt structuré',
-      'Génération automatique des rapports de conformité',
-      'Alertes en temps réel sur les écarts et non-conformités',
-    ],
-    deliverables: [
-      'Pipeline de centralisation ERP + LIMS',
-      'Rapports de conformité générés automatiquement',
-      'Dashboard traçabilité avec recherche par lot',
-      'Alertes sur non-conformités en temps réel',
-      'Formation QHSE (demi-journée)',
-    ],
-    techNote: 'ETL Python + PostgreSQL pour la centralisation. Rapports auto via Metabase avec export PDF programmé. Alertes Slack/email sur seuils critiques.',
-    results: {
-      main: 'Préparation d\u2019audit passée de 2 semaines à 2 heures',
-      secondary: [
-        'Traçabilité lot accessible en 3 clics',
-        'Zéro non-conformité détectée lors du dernier audit',
-        'Équipe QHSE libérée pour de la prévention',
-      ],
-    },
-    duration: '8 semaines',
-    tags: ['Conformité', 'Traçabilité', 'Data Engineering'],
-    testimonial: {
-      quote: 'L\u2019auditeur a été bluffé. Pour la première fois, on avait tout, structuré, à jour, en 2 clics.',
-      author: 'Responsable QHSE',
-    },
-  },
 ];
 
 // FAQ — questions fréquentes (homepage)
 export const FAQ_ITEMS = [
   {
     category: 'Approche',
-    question: `Par où commencer quand on n'a jamais fait de projet IA ou data ?`,
-    answer: `Par un diagnostic. En 5 minutes (quiz en ligne) ou 30 minutes (appel découverte), on identifie vos irritants concrets et les 2-3 projets les plus rentables. Pas besoin de stratégie data préalable — on part de votre réalité terrain.`,
-  },
-  {
-    category: 'Fonctionnement',
-    question: 'Avec quel type de PME travaillez-vous ?',
-    answer: `Toute PME bretonne qui a des données, des flux et des process à optimiser. Agroalimentaire, métallurgie, réseaux de franchises, logistique, services... Ce qui compte, c'est que vous ayez des irritants concrets à résoudre, pas votre secteur.`,
+    question: `Par où commencer quand on n'a jamais fait de projet IA ?`,
+    answer: `Par un diagnostic. En 5 minutes (quiz en ligne) ou 30 minutes (appel découverte), on identifie vos irritants concrets et les 2-3 projets les plus rentables. On part de votre réalité terrain, pas d'une feuille blanche.`,
   },
   {
     category: 'Prérequis',
     question: 'Faut-il déjà avoir des outils modernes en place ?',
-    answer: `Non. On travaille avec ce qui existe : ERP anciens, fichiers Excel, exports manuels, outils hétérogènes. Le diagnostic sert justement à comprendre votre environnement avant de proposer quoi que ce soit.`,
-  },
-  {
-    category: 'Déroulement',
-    question: `Quelle différence entre automatisation et data ?`,
-    answer: `L'automatisation élimine vos tâches manuelles : ressaisies, classification, extraction de données. La data vous donne de la visibilité : dashboards, alertes, pilotage en temps réel. Les deux se combinent souvent — on commence par ce qui a le plus d'impact chez vous.`,
-  },
-  {
-    category: 'Fonctionnement',
-    question: 'Est-ce que vous intervenez sur site ?',
-    answer: `Oui. L'ancrage local fait partie de notre façon de travailler : cadrage, déploiement, formation. On est basés à Lorient et on se déplace dans toute la Bretagne.`,
+    answer: `Non. On travaille avec ce qui existe : ERP anciens, fichiers Excel, exports manuels. Le diagnostic sert justement à comprendre votre environnement avant de proposer quoi que ce soit.`,
   },
   {
     category: 'Résultats',
     question: 'Combien de temps pour voir un résultat ?',
-    answer: `Le diagnostic livre une feuille de route en 2 à 4 semaines. Les premiers gains sont mesurables dès le premier mois de déploiement. On mesure systématiquement l'avant et l'après.`,
+    answer: `Les premiers gains sont mesurables dès le premier mois de déploiement. On mesure systématiquement l'avant et l'après.`,
   },
   {
     category: 'Sécurité',
     question: 'Mes données sont-elles en sécurité ?',
-    answer: `NDA systématique, données hébergées en France, conformité RGPD. On ne travaille qu'avec des solutions maîtrisées et traçables. Vos données restent les vôtres.`,
+    answer: `NDA systématique, données hébergées en France, conformité RGPD. Vos données restent les vôtres.`,
   },
   {
     category: 'Engagement',

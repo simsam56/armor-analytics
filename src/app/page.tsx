@@ -8,7 +8,7 @@ import { CtaContact } from '@/components/sections/CtaContact';
 import { JsonLd } from '@/components/JsonLd';
 import { ScanDivider } from '@/components/animations';
 import Link from 'next/link';
-import { Bot, BarChart3, Users, ArrowRight } from 'lucide-react';
+import { Bot, BarChart3, Users, ArrowRight, Shield, Server, Lock } from 'lucide-react';
 
 export default function Home() {
   const piliers = [
@@ -16,8 +16,8 @@ export default function Home() {
       href: '/ia',
       title: 'Éliminer les tâches manuelles',
       description:
-        'OCR, agents IA, workflows automatisés. Vos équipes arrêtent de ressaisir et se concentrent sur ce qui compte.',
-      tags: ['n8n', 'Make', 'Python', 'Claude'],
+        'Agents IA, extraction de documents, workflows automatisés. Vos équipes arrêtent de ressaisir et se concentrent sur ce qui compte.',
+      tags: ['Claude', 'Python', 'n8n', 'Make'],
       copper: false,
     },
     {
@@ -33,6 +33,7 @@ export default function Home() {
       title: 'Rendre vos équipes autonomes',
       description:
         'Formations sur site, accompagnement mensuel. Vos équipes prennent la main sur l\u2019IA et la data.',
+
       tags: ['Sur site', 'IA', 'Data'],
       copper: true,
     },
@@ -41,7 +42,7 @@ export default function Home() {
   const personas = [
     {
       icon: Bot,
-      role: 'Dirigeant / DG',
+      role: 'Dirigeant',
       pain: 'Vous pilotez à l\u2019instinct faute de données fiables. Vos équipes perdent du temps sur des tâches répétitives. Vous savez que l\u2019IA peut aider, mais par où commencer ?',
       cta: 'Identifier vos priorités',
       href: '/audit-ia',
@@ -55,8 +56,8 @@ export default function Home() {
     },
     {
       icon: Users,
-      role: 'DAF / DSI',
-      pain: 'Vous consolidez des fichiers de 12 services différents. Les erreurs de saisie coûtent cher. Vous cherchez un partenaire fiable, pas un vendor lock-in.',
+      role: 'Responsable administratif',
+      pain: 'Vous consolidez des fichiers de 12 services différents. Les erreurs de saisie coûtent cher. Vous cherchez un partenaire fiable, pas un prestataire de plus.',
       cta: 'Découvrir notre approche',
       href: '/a-propos',
     },
@@ -73,7 +74,7 @@ export default function Home() {
       <section className="py-[110px] bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
-            Trois leviers concrets pour votre PME
+            Trois leviers concrets pour votre entreprise
           </h2>
           <p className="text-center text-lg text-breton-slate mb-12 max-w-2xl mx-auto">
             Automatisation, pilotage data, formation. On part de vos irritants, pas d&apos;un
@@ -121,7 +122,7 @@ export default function Home() {
             Vous vous reconnaissez ?
           </h2>
           <p className="text-center text-lg text-breton-slate mb-12 max-w-2xl mx-auto">
-            Chaque PME a ses irritants. Voici les profils que l&apos;on accompagne le plus souvent.
+            Chaque entreprise a ses irritants. Voici les profils que l&apos;on accompagne le plus souvent.
           </p>
           <div className="grid gap-6 md:grid-cols-3">
             {personas.map((persona) => (
@@ -159,6 +160,51 @@ export default function Home() {
 
       {/* Section : FAQ */}
       <FAQ />
+
+      {/* Section : Éthique & protection des données */}
+      <section className="py-16 sm:py-20 bg-white border-t border-breton-sand">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-serif text-3xl sm:text-4xl text-breton-navy mb-4">
+            Vos données, notre responsabilité
+          </h2>
+          <p className="text-center text-breton-slate mb-12 max-w-2xl mx-auto">
+            L&apos;IA est un outil puissant. On s&apos;engage à l&apos;utiliser de façon
+            responsable, transparente et au service de vos équipes.
+          </p>
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10 mb-4">
+                <Lock className="h-6 w-6 text-breton-emerald" />
+              </div>
+              <h3 className="font-semibold text-breton-navy mb-2">NDA systématique</h3>
+              <p className="text-sm text-breton-slate leading-relaxed">
+                Chaque mission commence par un accord de confidentialité. Vos données ne sortent
+                jamais de votre périmètre.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10 mb-4">
+                <Server className="h-6 w-6 text-breton-emerald" />
+              </div>
+              <h3 className="font-semibold text-breton-navy mb-2">Hébergement en France</h3>
+              <p className="text-sm text-breton-slate leading-relaxed">
+                Toutes les solutions que nous déployons sont hébergées en France, conformes RGPD.
+                Pas de transfert hors UE.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10 mb-4">
+                <Shield className="h-6 w-6 text-breton-emerald" />
+              </div>
+              <h3 className="font-semibold text-breton-navy mb-2">IA transparente</h3>
+              <p className="text-sm text-breton-slate leading-relaxed">
+                On n&apos;utilise que des modèles d&apos;IA maîtrisés et traçables. Vos équipes
+                comprennent ce que fait l&apos;IA et gardent le contrôle.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Section : CTA final */}
       <CtaContact />
