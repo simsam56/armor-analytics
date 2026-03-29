@@ -19,11 +19,12 @@ export function QuizCta() {
             Diagnostic gratuit
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
-            Quels sont vos quick wins IA &amp; data ?
+            Quelles sont vos priorités IA &amp; data ?
           </h2>
           <p className="mt-4 text-lg text-breton-slate">
-            En 5 minutes, identifiez les 2-3 projets les plus rentables pour votre PME. Résultats
-            immédiats.
+            En 5 minutes, vous identifiez vos 2-3 priorités IA &amp; data : automatisation,
+            tableaux de bord et intégration d&apos;intelligences artificielles. Résultats
+            immédiats par email.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">

@@ -1,7 +1,6 @@
 import Link from 'next/link';
-import { Linkedin, Mail, MapPin, ArrowRight, Shield, Flag, Phone } from 'lucide-react';
+import { Linkedin, Mail, MapPin, Shield, Flag, Phone } from 'lucide-react';
 import { NAV_LINKS, SITE_CONFIG, getContactEmail } from '@/lib/constants';
-import { Button } from '@/components/ui/button';
 import { LogoWithIcon } from '@/components/ui/logo';
 
 // Contours simplifiés de la Bretagne avec villes marquées
@@ -78,31 +77,6 @@ export function Footer() {
 
   return (
     <footer className="bg-breton-navy">
-      {/* CTA Banner */}
-      <div className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div className="text-center sm:text-left">
-              <p className="text-lg font-semibold text-white">
-                Prêt à supprimer vos ressaisies ?
-              </p>
-              <p className="text-white/60 text-sm">
-                Diagnostic gratuit de 30 minutes, sans engagement.
-              </p>
-            </div>
-            <Button
-              asChild
-              className="gap-2 shrink-0 bg-white text-breton-navy hover:bg-breton-sand"
-            >
-              <Link href="/contact">
-                Nous contacter
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
