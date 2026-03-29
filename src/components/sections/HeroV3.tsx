@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { ThreePillars } from '@/components/sections/ThreePillars';
 import { Button } from '@/components/ui/button';
 import { VideoBackground } from '@/components/ui/video-background';
 import { LocationBadge } from '@/components/animations';
@@ -86,23 +87,9 @@ export function HeroV3() {
             </Button>
           </motion.div>
 
-          {/* 5. Micro-preuves */}
-          <motion.div
-            variants={child}
-            className="mt-14 flex flex-col sm:flex-row gap-4 sm:gap-9 justify-center"
-          >
-            {[
-              'Automatisation sur mesure',
-              'Dashboards temps réel',
-              'Formation des équipes',
-            ].map((item) => (
-              <span key={item} className="flex items-center gap-2 text-sm text-white/70">
-                <span className="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-breton-emerald/20 shrink-0">
-                  <Check className="w-3 h-3 stroke-breton-emerald" strokeWidth={2.5} />
-                </span>
-                {item}
-              </span>
-            ))}
+          {/* 5. Trois piliers animés */}
+          <motion.div variants={child} className="mt-14 w-full">
+            <ThreePillars />
           </motion.div>
         </motion.div>
       </div>
