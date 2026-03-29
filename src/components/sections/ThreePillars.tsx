@@ -62,11 +62,11 @@ function Card({
         group relative overflow-hidden
         flex flex-col items-center gap-5
         px-5 pt-8 pb-7 rounded-[22px]
-        bg-white/[0.05] backdrop-blur-xl
-        border border-white/[0.06]
-        cursor-default text-center
+        bg-white/[0.03] backdrop-blur-sm
+        border border-transparent
+        cursor-pointer text-center
         transition-all duration-400 ease-[cubic-bezier(.16,1,.3,1)]
-        hover:bg-white/[0.11] hover:border-white/20 hover:-translate-y-[6px]
+        hover:bg-white/[0.08] hover:border-white/10 hover:-translate-y-[6px]
         hover:shadow-[0_20px_60px_rgba(0,0,0,0.35)]
       "
     >
