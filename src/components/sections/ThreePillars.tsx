@@ -31,12 +31,12 @@ const pillars = [
 
 export function ThreePillars() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-3xl mx-auto">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-4xl mx-auto">
       {pillars.map((p) => (
         <Link key={p.key} href={p.href}>
           <Card accentFrom={p.accentFrom} accentTo={p.accentTo}>
             {p.svg}
-            <span className="text-[13.5px] font-bold text-[#E8E0D5]/88 tracking-tight leading-snug text-center">
+            <span className="text-[15px] font-bold text-[#E8E0D5]/88 tracking-tight leading-snug text-center">
               {p.title}
             </span>
           </Card>
@@ -61,7 +61,7 @@ function Card({
       className="
         group relative overflow-hidden
         flex flex-col items-center gap-5
-        px-5 pt-8 pb-7 rounded-[22px]
+        px-6 pt-10 pb-8 rounded-[22px]
         bg-white/[0.03] backdrop-blur-sm
         border border-transparent
         cursor-pointer text-center
@@ -93,7 +93,7 @@ function Card({
 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 function IASvg() {
   return (
-    <svg width="78" height="56" viewBox="0 0 78 56" fill="none" overflow="visible">
+    <svg width="104" height="75" viewBox="0 0 78 56" fill="none" overflow="visible">
       {/* Inputs */}
       {[4, 18, 32].map((y) => (
         <g
@@ -233,7 +233,7 @@ function IASvg() {
 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 function DataSvg() {
   return (
-    <svg width="72" height="58" viewBox="0 0 72 58" fill="none">
+    <svg width="96" height="77" viewBox="0 0 72 58" fill="none">
       {/* Frame */}
       <rect
         className="opacity-0 scale-[.08] origin-center transition-all duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] group-hover:opacity-100 group-hover:scale-100"
@@ -369,7 +369,7 @@ function DataSvg() {
 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 function FormationSvg() {
   return (
-    <svg width="72" height="60" viewBox="0 0 72 60" fill="none">
+    <svg width="96" height="80" viewBox="0 0 72 60" fill="none">
       {/* Pages du livre */}
       {[
         'M36 10 C30 8 20 9 10 12 L10 52 C20 49 30 50 36 52 Z',

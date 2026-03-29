@@ -60,28 +60,34 @@ export function HeroV3() {
             data, formation de vos équipes.
           </motion.p>
 
-          {/* 4. CTAs — compacts */}
+          {/* 4. Trois piliers animés */}
+          <motion.div variants={child} className="mt-12 w-full">
+            <ThreePillars />
+          </motion.div>
+
+          {/* 5. CTAs — boutons sous les cartes */}
           <motion.div
             variants={child}
-            className="mt-10 flex flex-row gap-6 justify-center items-center"
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Link
               href="/audit-ia"
-              className="text-sm font-semibold text-white/90 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-3.5 text-sm font-semibold
+                bg-breton-sand text-breton-navy
+                hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
+                transition-all duration-200"
             >
               Identifier mes quick wins →
             </Link>
             <Link
               href="/cas-clients"
-              className="text-sm font-semibold text-white/90 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white/60 transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-3.5 text-sm font-semibold
+                bg-breton-sand text-breton-navy
+                hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
+                transition-all duration-200"
             >
               Voir les résultats clients →
             </Link>
-          </motion.div>
-
-          {/* 5. Trois piliers animés */}
-          <motion.div variants={child} className="mt-14 w-full">
-            <ThreePillars />
           </motion.div>
         </motion.div>
       </div>
