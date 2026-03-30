@@ -102,7 +102,7 @@ export function JsonLd() {
         description:
           'Vid\u00e9o drone du littoral breton illustrant l\u2019ancrage local de balise-ia, collectif data et IA pour les PME bretonnes.',
         thumbnailUrl: 'https://www.balise-ia.fr/videos/poster-sunset.jpg',
-        uploadDate: '2026-03-27',
+        uploadDate: '2026-03-27T10:00:00+02:00',
         contentUrl: 'https://www.balise-ia.fr/videos/drone-sunset-voilier.mp4',
         duration: 'PT12S',
       },
