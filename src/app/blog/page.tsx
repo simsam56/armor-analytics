@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.balise-ia.fr/blog',
+    types: {
+      'application/rss+xml': 'https://www.balise-ia.fr/blog/feed.xml',
+    },
   },
 };
 

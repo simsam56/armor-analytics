@@ -8,6 +8,7 @@ import { QuizQuestion } from './QuizQuestion';
 import { EmailCapture } from './EmailCapture';
 import { AuditResult } from './AuditResult';
 import { AUDIT_QUESTIONS, TOTAL_QUESTIONS } from '@/data/audit-questions';
+import { trackEvent } from '@/components/Analytics';
 import { generateAuditResult } from '@/lib/audit-scoring';
 import type { AuditResult as AuditResultType, QuizState } from '@/types/audit';
 
@@ -111,6 +112,10 @@ export function AuditQuiz() {
 
     setIsSubmitting(false);
     setPhase('results');
+    trackEvent('audit_quiz_complete', {
+      score: auditResult.score,
+      maturity: auditResult.maturityLevel,
+    });
   };
 
   const handleRestart = () => {

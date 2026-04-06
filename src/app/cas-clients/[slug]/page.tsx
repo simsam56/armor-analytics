@@ -92,6 +92,27 @@ export default async function CaseStudyPage({ params }: PageProps) {
     },
   };
 
+  const reviewJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    reviewBody: caseStudy.testimonial,
+    author: {
+      '@type': 'Person',
+      name: caseStudy.author,
+      jobTitle: caseStudy.role,
+    },
+    itemReviewed: {
+      '@type': 'ProfessionalService',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: 5,
+      bestRating: 5,
+    },
+  };
+
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -119,6 +140,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
       />
 
       <Hero title={caseStudy.title} subtitle={`${caseStudy.sector} — ${caseStudy.location}`} />

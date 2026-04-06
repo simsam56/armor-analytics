@@ -46,4 +46,19 @@ test.describe('SEO et metadata', () => {
     const response = await page.goto('/interventions/paris');
     expect(response?.status()).toBe(404);
   });
+
+  test('les pages cas-clients individuelles ont les meta tags', async ({ page }) => {
+    await page.goto('/cas-clients/agroalimentaire-morbihan');
+    const description = await page.locator('meta[name="description"]').getAttribute('content');
+    expect(description).toBeTruthy();
+    const ogTitle = await page.locator('meta[property="og:title"]').getAttribute('content');
+    expect(ogTitle).toBeTruthy();
+  });
+
+  test('le sitemap contient les nouvelles pages', async ({ page }) => {
+    await page.goto('/sitemap.xml');
+    const body = await page.content();
+    expect(body).toContain('/cas-clients/agroalimentaire-morbihan');
+    expect(body).toContain('/politique-confidentialite');
+  });
 });

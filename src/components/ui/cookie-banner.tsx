@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from '@/components/Analytics';
 
 const CONSENT_KEY = 'balise-ia-cookie-consent';
 
@@ -44,6 +45,7 @@ export function CookieBanner() {
   const handleAccept = useCallback(() => {
     localStorage.setItem(CONSENT_KEY, 'accepted');
     enableAnalytics();
+    trackEvent('cookie_consent', { action: 'accepted' });
     setVisible(false);
   }, []);
 

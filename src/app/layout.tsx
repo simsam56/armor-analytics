@@ -7,6 +7,8 @@ import { StickyCta } from '@/components/ui/sticky-cta';
 import { CookieBanner } from '@/components/ui/cookie-banner';
 import { GoogleAnalytics, GoogleTagManager, GoogleTagManagerNoscript } from '@/components/Analytics';
 import { SITE_CONFIG } from '@/lib/constants';
+import { ErrorBoundary } from '@/components/ui/error-boundary';
+import { WebVitals } from '@/components/WebVitals';
 import './globals.css';
 
 const geistSans = Geist({
@@ -79,6 +81,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     images: [`${SITE_CONFIG.url}/api/og`],
   },
+  manifest: '/manifest.json',
   robots: {
     index: true,
     follow: true,
@@ -109,12 +112,15 @@ export default function RootLayout({
           Aller au contenu principal
         </a>
         <Header />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
+        <ErrorBoundary>
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+        </ErrorBoundary>
         <Footer />
         <StickyCta />
         <CookieBanner />
+        <WebVitals />
         <Analytics />
         <GoogleAnalytics />
         <GoogleTagManager />

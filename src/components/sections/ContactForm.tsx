@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { trackEvent } from '@/components/Analytics';
 
 interface FormData {
   name: string;
@@ -66,6 +67,10 @@ export function ContactForm({
         throw new Error("Une erreur est survenue lors de l'envoi du message.");
       }
 
+      trackEvent('contact_form_submit', {
+        form_location: 'contact_page',
+        company: formData.company,
+      });
       router.push('/merci');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue.');

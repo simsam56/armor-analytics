@@ -77,4 +77,22 @@ test.describe('Navigation et pages principales', () => {
     await expect(page.getByText('Accompagnement sur site')).toBeVisible();
     await expect(page.getByText('Ressources gratuites')).toBeVisible();
   });
+
+  test('/politique-confidentialite se charge', async ({ page }) => {
+    await page.goto('/politique-confidentialite');
+    await expect(page).toHaveTitle(/Politique de confidentialit/);
+    await expect(page.locator('h1')).toContainText('Politique de confidentialité');
+  });
+
+  test('/cas-clients/agroalimentaire-morbihan se charge', async ({ page }) => {
+    await page.goto('/cas-clients/agroalimentaire-morbihan');
+    await expect(page).toHaveTitle(/Agroalimentaire/i);
+    await expect(page.locator('h1')).toBeVisible();
+    await expect(page.getByText('Retour aux cas clients')).toBeVisible();
+  });
+
+  test('un slug cas-client inexistant retourne 404', async ({ page }) => {
+    const response = await page.goto('/cas-clients/slug-inexistant');
+    expect(response?.status()).toBe(404);
+  });
 });

@@ -7,7 +7,7 @@ const CITY_SLUGS = ['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-br
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
-  const lastUpdated = new Date('2026-03-26');
+  const lastUpdated = new Date('2026-04-06');
 
   const mainPages: MetadataRoute.Sitemap = [
     {
@@ -120,6 +120,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: lastUpdated,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
+    images: cs.image.startsWith('http') ? [cs.image] : [`${baseUrl}${cs.image}`],
   }));
 
   const legalPages: MetadataRoute.Sitemap = [

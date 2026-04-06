@@ -27,6 +27,11 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          {
+            key: 'Content-Security-Policy',
+            value:
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: images.unsplash.com; font-src 'self' fonts.gstatic.com; connect-src 'self' www.google-analytics.com region1.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
+          },
         ],
       },
     ];
