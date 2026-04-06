@@ -14,7 +14,7 @@ npm run build        # Build production
 npm run lint         # ESLint avec --fix
 npm run typecheck    # TypeScript check
 npm run format       # Prettier write
-npm run test:e2e     # Tests E2E Playwright (24 tests, chromium)
+npm run test:e2e     # Tests E2E Playwright (30 tests, chromium)
 npm run test:e2e:ui  # Tests E2E avec interface graphique
 ```
 
@@ -39,6 +39,11 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 ### Configuration unique
 
 `src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (4 expertises modulables), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (6 questions), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
+
+Autres fichiers de données :
+- `src/data/blog-articles.ts` — Articles blog (metadata + contenu HTML)
+- `src/data/case-studies.ts` — Cas clients (5 études, utilisées par listing et pages individuelles)
+- `src/data/audit-questions.ts` — Questions du quiz audit IA
 
 ### Design system
 
@@ -79,37 +84,59 @@ Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll
 ### Blog
 
 - Route `/blog` avec listing + `/blog/[slug]` (SSG via `generateStaticParams`)
-- Articles stockés dans `src/data/blog-articles.ts` (metadata + contenu HTML)
-- JSON-LD Article schema par article
+- Articles stockés dans `src/data/blog-articles.ts` (metadata + contenu HTML, 9 articles)
+- JSON-LD Article + BreadcrumbList schema par article
 - Prose styling via `.article-prose` dans `globals.css`
+- RSS feed : `/blog/feed.xml` (Route Handler, cache 1h)
+- Contenu HTML sanitisé via `sanitizeHtml()` (strip script/iframe/event handlers)
+
+### Cas clients
+
+- Route `/cas-clients` avec listing + `/cas-clients/[slug]` (SSG via `generateStaticParams`)
+- 5 études de cas dans `src/data/case-studies.ts`
+- JSON-LD Article + BreadcrumbList + Review schema par cas
+- Avant/après, métriques, témoignage, outils
 
 ### Landing pages SEO
 
-- `/power-bi-bretagne` — Power BI pour PME en Bretagne
-- `/automatisation-commandes-pme` — Automatisation commandes ERP
-- `/consultant-data-lorient` — Consultant data local
+- `/power-bi-bretagne` — Power BI pour PME en Bretagne (JSON-LD FAQPage)
+- `/automatisation-commandes-pme` — Automatisation commandes ERP (JSON-LD FAQPage)
+- `/consultant-data-lorient` — Consultant data local (JSON-LD LocalBusiness)
+- `/formation-ia-pme` — Formation IA pour PME (JSON-LD FAQPage)
+- `/intelligence-artificielle-bretagne` — IA pour PME Bretagne (JSON-LD FAQPage)
 
-### Analytics
+### Pages légales
+
+- `/mentions-legales` — Mentions légales (noindex)
+- `/politique-confidentialite` — Politique de confidentialité RGPD CNIL-compliant (noindex)
+
+### Analytics & Tracking
 
 - **Vercel Analytics** : toujours actif
 - **GA4** : actif — `G-FEZEF30YF9` — consent mode v2 (denied par défaut)
-- **GTM** : activable via `NEXT_PUBLIC_GTM_ID` (env var Vercel)
+- **GTM** : activable via `NEXT_PUBLIC_GTM_ID` (env var Vercel) — avec fallback `<noscript>`
 - Composant `src/components/Analytics.tsx` — rendu conditionnel si env var définie
-- **Cookie banner RGPD** : `src/components/ui/cookie-banner.tsx` — accepter/refuser, localStorage
+- **Cookie banner RGPD** : `src/components/ui/cookie-banner.tsx` — accepter/refuser, localStorage, `role="dialog"`, focus trap, Escape
+- **Conversion events GA4** : `contact_form_submit`, `audit_quiz_complete`, `cookie_consent` — via `trackEvent()` dans `Analytics.tsx`
+- **Web Vitals** : `src/components/WebVitals.tsx` — LCP/CLS/INP/TTFB reportés vers GA4
 
 ### API Routes
 
-- `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot, envoi Resend
-- `POST /api/audit` — Scoring quiz, email résultats, sauvegarde Google Sheets (optionnel)
-- `GET /api/og` — Image OpenGraph dynamique 1200×630 (edge runtime, @vercel/og)
+- `POST /api/contact` — Validation Zod, rate limiting (5 req/15min/IP), honeypot, envoi Resend, HTML échappé (anti-XSS)
+- `POST /api/audit` — Validation Zod, rate limiting, scoring quiz, email résultats, HTML échappé, sauvegarde Google Sheets (optionnel)
+- `POST /api/subscribe` — Validation email, rate limiting, newsletter
+- `GET /api/og` — Image OpenGraph dynamique 1200×630 (edge runtime, @vercel/og), params sanitisés
+- `GET /blog/feed.xml` — Flux RSS 2.0 (cache 1h)
+
+Rate limiting : `src/lib/rate-limit.ts` — in-memory par défaut, Upstash Redis si `UPSTASH_REDIS_REST_URL` configuré.
 
 ### Tests E2E
 
-24 tests Playwright dans `e2e/` :
-- `navigation.spec.ts` — 9 tests : pages principales, header, footer, offres, redirect /projets→/cas-clients, /mentions-legales
-- `seo.spec.ts` — 5 tests : meta tags, sitemap, robots, pages localisées, 404
+30 tests Playwright dans `e2e/` :
+- `navigation.spec.ts` — 12 tests : pages principales, header, footer, offres, redirect /projets→/cas-clients, /mentions-legales, /politique-confidentialite, /cas-clients/[slug], 404 slug inexistant
+- `seo.spec.ts` — 7 tests : meta tags, sitemap, robots, pages localisées, 404, meta cas-clients, sitemap nouvelles pages
 - `contact-form.spec.ts` — 3 tests : validation, saisie, honeypot
-- `api.spec.ts` — 7 tests : validation Zod contact, honeypot, body incomplet audit
+- `api.spec.ts` — 8 tests : validation Zod contact, honeypot, body incomplet audit, rate limiting audit
 
 Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`).
 
@@ -124,6 +151,25 @@ Le serveur de dev est réutilisé si déjà lancé (`reuseExistingServer: true`)
 - Commits : Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`)
 - **Title tags** : ne PAS inclure `balise-ia` dans les titles de page — le template layout.tsx l'ajoute automatiquement via `template: '%s | balise-ia'`
 
+## Sécurité
+
+- **Headers HTTP** (`next.config.ts`) : X-Frame-Options DENY, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, CSP
+- **CSP** : `script-src 'self' 'unsafe-inline' 'unsafe-eval'` (GA4, GTM, Vercel), `img-src 'self' data: https:`, `font-src 'self' fonts.gstatic.com`
+- **Rate limiting** : `src/lib/rate-limit.ts` — in-memory (Map) ou distribué (Upstash Redis)
+- **XSS** : échappement HTML dans les emails, sanitization du contenu blog, validation/sanitization des params OG
+- **RGPD** : consent mode GA4 denied par défaut, cookie banner avec focus trap, politique de confidentialité dédiée
+
+## PWA
+
+- `public/manifest.json` — nom, couleurs, icônes 192×512
+- Icônes dans `public/icon-192.png` et `public/icon-512.png` (phare balise-ia)
+- `manifest` référencé dans `layout.tsx` metadata
+
+## Error Handling
+
+- `src/components/ui/error-boundary.tsx` — ErrorBoundary React class component, fallback UI en français
+- Wraps `<main>` dans `layout.tsx`
+
 ## Environnement
 
-Voir `.env.example` pour toutes les variables. Les 3 variables Resend sont requises, les 3 Google Sheets et les 2 Analytics sont optionnelles.
+Voir `.env.example` pour toutes les variables. Les 3 variables Resend sont requises, les 3 Google Sheets, les 2 Analytics et les 2 Upstash sont optionnelles.
