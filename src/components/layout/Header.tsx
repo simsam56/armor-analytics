@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +11,7 @@ import { LogoBalise } from '@/components/animations';
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -18,6 +19,23 @@ export function Header() {
     onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setMobileMenuOpen(false);
+    menuBtnRef.current?.focus();
+  }, []);
+
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen, closeMobileMenu]);
 
   return (
     <header
@@ -48,10 +66,12 @@ export function Header() {
         {/* Mobile burger */}
         <div className="flex lg:hidden">
           <button
+            ref={menuBtnRef}
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-breton-navy"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <span className="sr-only">
               {mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
@@ -84,26 +104,26 @@ export function Header() {
       </nav>
 
       {/* Mobile menu */}
-      <div className={cn('lg:hidden', mobileMenuOpen ? 'block' : 'hidden')}>
+      <div id="mobile-menu" className={cn('lg:hidden', mobileMenuOpen ? 'block' : 'hidden')}>
         <div className="space-y-1 px-4 pb-4 bg-white rounded-b-xl shadow-lg">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className="block rounded-lg px-3 py-2.5 text-base font-medium text-breton-slate hover:bg-breton-foam hover:text-breton-navy"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMobileMenu}
             >
               {link.label}
             </Link>
           ))}
           <div className="mt-4 flex flex-col gap-2 pt-4 border-t border-slate-200">
             <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/contact" onClick={closeMobileMenu}>
                 Contact
               </Link>
             </Button>
             <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
-              <Link href="/audit-ia" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/audit-ia" onClick={closeMobileMenu}>
                 Mes priorit&eacute;s IA &rarr;
               </Link>
             </Button>

@@ -1,8 +1,17 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Hero } from '@/components/sections/Hero';
-import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+const VideoBackground = dynamic(
+  () =>
+    import('@/components/ui/video-background').then((m) => ({ default: m.VideoBackground })),
+  {
+    ssr: false,
+    loading: () => <div className="relative w-full aspect-video" />,
+  }
+);
 import { FREE_RESOURCES } from '@/lib/constants';
 import { BookOpen, Users, Download, BrainCircuit, BarChart3, Wrench, ChevronDown } from 'lucide-react';
 
@@ -10,6 +19,12 @@ export const metadata: Metadata = {
   title: 'Formation IA et data pour PME en Bretagne — Sur site',
   description:
     'Formez vos équipes à l’IA et à la data. Ateliers sur site en Bretagne, accompagnement mensuel, transfert de compétences. Pas de jargon, des outils concrets.',
+  openGraph: {
+    title: 'Formation IA et data pour PME en Bretagne',
+    description: 'Ateliers sur site en Bretagne, accompagnement mensuel, transfert de comp\u00e9tences.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
   alternates: { canonical: 'https://www.balise-ia.fr/formation' },
 };
 
@@ -276,6 +291,32 @@ export default function FormationPage() {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Maillage interne */}
+      <section className="py-12 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4 justify-center">
+          <Link
+            href="/blog/intelligence-artificielle-pme-bretagne-guide"
+            className="text-sm text-breton-emerald hover:underline font-medium"
+          >
+            Lire : Guide IA pour les PME bretonnes →
+          </Link>
+          <span className="text-breton-sand">|</span>
+          <Link
+            href="/ia"
+            className="text-sm text-breton-emerald hover:underline font-medium"
+          >
+            Voir aussi : Automatisation et IA →
+          </Link>
+          <span className="text-breton-sand">|</span>
+          <Link
+            href="/data"
+            className="text-sm text-breton-emerald hover:underline font-medium"
+          >
+            Voir aussi : Tableaux de bord et reporting →
+          </Link>
         </div>
       </section>
 

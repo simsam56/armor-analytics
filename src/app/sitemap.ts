@@ -1,12 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { SITE_CONFIG } from '@/lib/constants';
 import { BLOG_ARTICLES } from '@/data/blog-articles';
+import { CASE_STUDIES } from '@/data/case-studies';
 
 const CITY_SLUGS = ['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url;
-  const lastUpdated = new Date('2026-03-26');
+  const lastUpdated = new Date('2026-04-06');
 
   const mainPages: MetadataRoute.Sitemap = [
     {
@@ -114,5 +115,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  return [...mainPages, ...landingPages, ...cityPages, ...blogPages];
+  const caseStudyPages: MetadataRoute.Sitemap = CASE_STUDIES.map((cs) => ({
+    url: `${baseUrl}/cas-clients/${cs.slug}`,
+    lastModified: lastUpdated,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+    images: cs.image.startsWith('http') ? [cs.image] : [`${baseUrl}${cs.image}`],
+  }));
+
+  const legalPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/politique-confidentialite`,
+      lastModified: lastUpdated,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+  ];
+
+  return [...mainPages, ...landingPages, ...cityPages, ...blogPages, ...caseStudyPages, ...legalPages];
 }

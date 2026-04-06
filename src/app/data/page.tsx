@@ -1,9 +1,18 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
-import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+const VideoBackground = dynamic(
+  () =>
+    import('@/components/ui/video-background').then((m) => ({ default: m.VideoBackground })),
+  {
+    ssr: false,
+    loading: () => <div className="relative w-full aspect-video" />,
+  }
+);
 import {
   BarChart3,
   Database,
@@ -20,6 +29,12 @@ export const metadata: Metadata = {
   title: 'Tableaux de bord et reporting pour PME en Bretagne — Power BI, Metabase',
   description:
     'Pilotez votre PME en temps réel : dashboards Power BI, data engineering, reporting automatisé. Connectés à vos ERP, livrés en quelques semaines.',
+  openGraph: {
+    title: 'Tableaux de bord et reporting pour PME en Bretagne',
+    description: 'Dashboards Power BI, data engineering, reporting automatis\u00e9. Connect\u00e9s \u00e0 vos ERP.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
   alternates: { canonical: 'https://www.balise-ia.fr/data' },
 };
 

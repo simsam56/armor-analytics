@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { z } from 'zod';
+import { isRateLimited } from '@/lib/rate-limit';
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
 
 // Zod schema for contact form validation
 const contactSchema = z.object({
@@ -14,29 +24,11 @@ const contactSchema = z.object({
   website: z.string().max(0, 'Champ invalide.').optional(),
 });
 
-// Simple in-memory rate limiter (per IP, 5 requests per 15 minutes)
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const RATE_LIMIT_MAX = 5;
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000;
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const entry = rateLimitMap.get(ip);
-
-  if (!entry || now > entry.resetAt) {
-    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-    return false;
-  }
-
-  entry.count++;
-  return entry.count > RATE_LIMIT_MAX;
-}
-
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
-    if (isRateLimited(ip)) {
+    if (await isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Trop de demandes. Veuillez réessayer dans quelques minutes.' },
         { status: 429 }
@@ -74,19 +66,19 @@ export async function POST(request: NextRequest) {
     // Send email via Resend
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL || 'hello@balise-ia.fr',
+      to: process.env.CONTACT_EMAIL || 'contact@balise-ia.fr',
       replyTo: data.email,
       subject: `[balise-ia] Nouvelle demande de ${data.company}`,
       html: `
         <h2>Nouvelle demande de contact</h2>
-        <p><strong>Nom :</strong> ${data.name}</p>
-        <p><strong>Email :</strong> ${data.email}</p>
-        <p><strong>Entreprise :</strong> ${data.company}</p>
-        ${data.role ? `<p><strong>Fonction :</strong> ${data.role}</p>` : ''}
-        ${data.phone ? `<p><strong>Téléphone :</strong> ${data.phone}</p>` : ''}
+        <p><strong>Nom :</strong> ${escapeHtml(data.name)}</p>
+        <p><strong>Email :</strong> ${escapeHtml(data.email)}</p>
+        <p><strong>Entreprise :</strong> ${escapeHtml(data.company)}</p>
+        ${data.role ? `<p><strong>Fonction :</strong> ${escapeHtml(data.role)}</p>` : ''}
+        ${data.phone ? `<p><strong>Téléphone :</strong> ${escapeHtml(data.phone)}</p>` : ''}
         <hr />
         <h3>Message</h3>
-        <p>${data.message.replace(/\n/g, '<br />')}</p>
+        <p>${escapeHtml(data.message).replace(/\n/g, '<br />')}</p>
       `,
       text: `
 Nouvelle demande de contact

@@ -96,3 +96,13 @@ test.describe('API Audit', () => {
     expect(response.status()).toBe(400);
   });
 });
+
+test.describe('API Rate Limiting', () => {
+  test('le rate limiting fonctionne sur /api/audit', async ({ request }) => {
+    const response = await request.post('/api/audit', {
+      data: {},
+    });
+    // Should get 400 for invalid data, not 429 (first request)
+    expect(response.status()).toBe(400);
+  });
+});

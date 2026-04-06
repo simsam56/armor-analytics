@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import { trackEvent } from '@/components/Analytics';
 
 interface FormData {
   name: string;
@@ -66,6 +67,10 @@ export function ContactForm({
         throw new Error("Une erreur est survenue lors de l'envoi du message.");
       }
 
+      trackEvent('contact_form_submit', {
+        form_location: 'contact_page',
+        company: formData.company,
+      });
       router.push('/merci');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue.');
@@ -102,6 +107,7 @@ export function ContactForm({
               name="name"
               type="text"
               required
+              autoComplete="name"
               value={formData.name}
               onChange={handleChange}
               placeholder="Jean Dupont"
@@ -114,6 +120,7 @@ export function ContactForm({
               name="email"
               type="email"
               required
+              autoComplete="email"
               value={formData.email}
               onChange={handleChange}
               placeholder="jean.dupont@entreprise.fr"
@@ -129,6 +136,7 @@ export function ContactForm({
               name="company"
               type="text"
               required
+              autoComplete="organization"
               value={formData.company}
               onChange={handleChange}
               placeholder="Nom de votre entreprise"
@@ -161,6 +169,7 @@ export function ContactForm({
             id="phone"
             name="phone"
             type="tel"
+            autoComplete="tel"
             value={formData.phone}
             onChange={handleChange}
             placeholder="06 00 00 00 00"
@@ -191,9 +200,13 @@ export function ContactForm({
           </div>
         </div>
 
-        {error && <div className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</div>}
+        {error && (
+          <div id="form-error" role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700">
+            {error}
+          </div>
+        )}
 
-        <Button type="submit" size="lg" className="w-full gap-2" disabled={isLoading}>
+        <Button type="submit" size="lg" className="w-full gap-2" disabled={isLoading} aria-describedby={error ? 'form-error' : undefined}>
           {isLoading ? (
             <>
               <Loader2 className="h-5 w-5 animate-spin" />

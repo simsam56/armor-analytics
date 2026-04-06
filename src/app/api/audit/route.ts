@@ -1,14 +1,38 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import type { AuditResult } from '@/types/audit';
+import { z } from 'zod';
 import { AUDIT_QUESTIONS } from '@/data/audit-questions';
+import { isRateLimited } from '@/lib/rate-limit';
 
-interface AuditRequestBody {
-  email: string;
-  company: string;
-  answers: Record<string, string>;
-  result: AuditResult;
-}
+// Zod schema
+const recommendationSchema = z.object({
+  id: z.string(),
+  title: z.string().max(200),
+  description: z.string().max(1000),
+  benefits: z.array(z.string().max(500)),
+  roiEstimate: z.string().max(100),
+  duration: z.string().max(100),
+  complexity: z.enum(['simple', 'moyen', 'complexe']),
+  matchingTags: z.array(z.string()),
+  priority: z.number(),
+});
+
+const auditResultSchema = z.object({
+  score: z.number().min(0).max(100),
+  maturityLevel: z.enum(['debutant', 'intermediaire', 'avance']),
+  maturityLabel: z.string().max(100),
+  maturityDescription: z.string().max(500),
+  recommendations: z.array(recommendationSchema).max(10),
+  strengths: z.array(z.string().max(500)).max(20),
+  improvements: z.array(z.string().max(500)).max(20),
+});
+
+const auditRequestSchema = z.object({
+  email: z.string().email(),
+  company: z.string().min(1).max(200),
+  answers: z.record(z.string(), z.string().max(200)),
+  result: auditResultSchema,
+});
 
 // Fonction pour obtenir le label d'une réponse
 function getAnswerLabel(questionId: string, answerValue: string): string {
@@ -18,20 +42,37 @@ function getAnswerLabel(questionId: string, answerValue: string): string {
   return option?.label || answerValue;
 }
 
+// Échapper le HTML pour prévenir les XSS dans les emails
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(request: Request) {
   try {
-    const body: AuditRequestBody = await request.json();
-
-    // Validation basique
-    if (!body.email || !body.company || !body.answers || !body.result) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    // Rate limiting
+    const forwarded = request.headers.get('x-forwarded-for');
+    const ip = forwarded?.split(',')[0]?.trim() || 'unknown';
+    if (await isRateLimited(ip)) {
+      return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
     }
 
-    // Valider l'email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
-      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
+    const rawBody = await request.json();
+
+    // Validation Zod
+    const parseResult = auditRequestSchema.safeParse(rawBody);
+    if (!parseResult.success) {
+      return NextResponse.json(
+        { error: 'Invalid request data', details: parseResult.error.flatten() },
+        { status: 400 }
+      );
     }
+
+    const body = parseResult.data;
 
     // Préparer les données
     const { email, company, answers, result } = body;
@@ -43,7 +84,7 @@ export async function POST(request: Request) {
     // Construire la liste des réponses formatées
     const answersFormatted = AUDIT_QUESTIONS.map((q) => {
       const answer = answers[q.id];
-      if (!answer) return null;
+      if (!answer || typeof answer !== 'string') return null;
       return `• ${q.question}\n  → ${getAnswerLabel(q.id, answer)}`;
     })
       .filter(Boolean)
@@ -72,7 +113,7 @@ export async function POST(request: Request) {
 
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.CONTACT_EMAIL || 'hello@balise-ia.fr',
+      to: process.env.CONTACT_EMAIL || 'contact@balise-ia.fr',
       replyTo: email,
       subject: `🎯 Nouveau lead Audit IA - ${company} (Score: ${result.score}/100)`,
       html: `
@@ -84,8 +125,8 @@ export async function POST(request: Request) {
 
           <div style="background: #f8faf9; padding: 20px; border: 1px solid #e2e8e5;">
             <h2 style="color: #1B4D3E; margin-top: 0;">Contact</h2>
-            <p><strong>Email :</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Entreprise :</strong> ${company}</p>
+            <p><strong>Email :</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+            <p><strong>Entreprise :</strong> ${escapeHtml(company)}</p>
           </div>
 
           <div style="background: white; padding: 20px; border: 1px solid #e2e8e5; border-top: none;">
@@ -108,7 +149,7 @@ export async function POST(request: Request) {
           <div style="background: #ecfdf5; padding: 20px; border: 1px solid #d1fae5; border-top: none;">
             <h3 style="color: #065f46; margin-top: 0;">✓ Points forts</h3>
             <ul style="margin: 0; padding-left: 20px; color: #047857;">
-              ${result.strengths.map((s) => `<li>${s}</li>`).join('')}
+              ${result.strengths.map((s) => `<li>${escapeHtml(s)}</li>`).join('')}
             </ul>
           </div>
           `
@@ -121,7 +162,7 @@ export async function POST(request: Request) {
           <div style="background: #fffbeb; padding: 20px; border: 1px solid #fef3c7; border-top: none;">
             <h3 style="color: #92400e; margin-top: 0;">💡 Axes d'amélioration</h3>
             <ul style="margin: 0; padding-left: 20px; color: #b45309;">
-              ${result.improvements.map((i) => `<li>${i}</li>`).join('')}
+              ${result.improvements.map((i) => `<li>${escapeHtml(i)}</li>`).join('')}
             </ul>
           </div>
           `
@@ -134,8 +175,8 @@ export async function POST(request: Request) {
               .map(
                 (rec, i) => `
               <div style="background: #f8faf9; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
-                <h4 style="margin: 0 0 5px; color: #1B4D3E;">${i + 1}. ${rec.title}</h4>
-                <p style="margin: 0 0 10px; color: #64756c; font-size: 14px;">${rec.description}</p>
+                <h4 style="margin: 0 0 5px; color: #1B4D3E;">${i + 1}. ${escapeHtml(rec.title)}</h4>
+                <p style="margin: 0 0 10px; color: #64756c; font-size: 14px;">${escapeHtml(rec.description)}</p>
                 <p style="margin: 0; font-size: 13px;">
                   <span style="background: #1B4D3E; color: white; padding: 2px 8px; border-radius: 4px;">ROI: ${rec.roiEstimate}</span>
                   <span style="margin-left: 10px; color: #64756c;">Durée: ${rec.duration}</span>

@@ -61,6 +61,13 @@ export default function LegalPage() {
             exercer votre droit d&apos;accès aux données vous concernant et les faire rectifier en
             nous contactant à : {SITE_CONFIG.email}
           </p>
+          <p>
+            Pour plus de détails, consultez notre{' '}
+            <a href="/politique-confidentialite" className="text-breton-copper hover:underline">
+              politique de confidentialité
+            </a>
+            .
+          </p>
 
           <h2>Cookies</h2>
           <p>
