@@ -224,11 +224,30 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
     },
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_CONFIG.url },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Interventions',
+        item: `${SITE_CONFIG.url}/interventions`,
+      },
+      { '@type': 'ListItem', position: 3, name: city.name },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Hero title={`Data & automatisation\nà ${city.name}`} subtitle={city.description} />
 

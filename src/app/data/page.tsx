@@ -1,9 +1,18 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
-import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+
+const VideoBackground = dynamic(
+  () =>
+    import('@/components/ui/video-background').then((m) => ({ default: m.VideoBackground })),
+  {
+    ssr: false,
+    loading: () => <div className="relative w-full aspect-video" />,
+  }
+);
 import {
   BarChart3,
   Database,

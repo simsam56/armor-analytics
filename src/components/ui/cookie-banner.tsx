@@ -112,7 +112,7 @@ export function CookieBanner() {
             Refuser
           </Button>
           <a
-            href="/mentions-legales"
+            href="/politique-confidentialite"
             className="text-xs text-slate-400 hover:text-slate-600 self-center transition-colors"
           >
             En savoir plus

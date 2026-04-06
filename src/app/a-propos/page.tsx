@@ -120,9 +120,54 @@ const STORY_CHAPTERS = [
 
 const AREAS = ['Lorient', 'Vannes', 'Quimper', 'Brest', 'Rennes', 'Saint-Brieuc', 'Nantes'];
 
+const FAQ_ABOUT = [
+  {
+    question: 'Qui compose le collectif balise-ia ?',
+    answer:
+      'balise-ia est un collectif d\u2019experts seniors en data, automatisation et IA. Pas de juniors, pas d\u2019interm\u00e9diaires : les personnes que vous rencontrez au d\u00e9but du projet sont celles qui le r\u00e9alisent. Nous sommes bas\u00e9s \u00e0 Lorient.',
+  },
+  {
+    question: 'Dans quelle zone g\u00e9ographique intervenez-vous ?',
+    answer:
+      'Nous intervenons sur site en Bretagne : Lorient, Vannes, Quimper, Brest, Rennes, Saint-Brieuc et Nantes. Les phases cl\u00e9s (diagnostic, ateliers, formation) se font chez vous. Le d\u00e9veloppement et le suivi courant peuvent se faire \u00e0 distance.',
+  },
+  {
+    question: 'Travaillez-vous avec tous les secteurs d\u2019activit\u00e9 ?',
+    answer:
+      'Nous accompagnons principalement les PME industrielles et de services : agroalimentaire, naval, logistique, m\u00e9tallurgie, distribution, BTP. Notre approche s\u2019adapte \u00e0 tout secteur qui g\u00e9n\u00e8re des donn\u00e9es m\u00e9tier \u00e0 structurer.',
+  },
+  {
+    question: 'Comment se passe un premier contact ?',
+    answer:
+      'Un \u00e9change de 30 minutes, sans engagement et sans jargon. On \u00e9coute votre contexte, vos irritants, vos objectifs. Si nos expertises correspondent, on propose un diagnostic sur site de 1 \u00e0 2 semaines.',
+  },
+  {
+    question: 'Quelle est votre politique de confidentialit\u00e9 ?',
+    answer:
+      'Nous signons un accord de confidentialit\u00e9 (NDA) avant tout acc\u00e8s \u00e0 vos donn\u00e9es. L\u2019h\u00e9bergement est en France. Les donn\u00e9es de test sont supprim\u00e9es apr\u00e8s livraison. Le d\u00e9tail est disponible dans nos mentions l\u00e9gales.',
+  },
+];
+
 export default function AboutPage() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_ABOUT.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Hero
         title={'Un collectif terrain,\nspécialisé PME bretonnes'}
         subtitle="On connaît vos ERP, vos contraintes de production, vos enjeux de fiabilité. Parce qu'on a travaillé dans l'industrie avant de faire du conseil."
