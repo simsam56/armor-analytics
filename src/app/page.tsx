@@ -9,8 +9,13 @@ import { JsonLd } from '@/components/JsonLd';
 import { ScanDivider } from '@/components/animations';
 import Link from 'next/link';
 import { Bot, BarChart3, Users, ArrowRight, Shield, Server, Lock } from 'lucide-react';
+import { BLOG_ARTICLES } from '@/data/blog-articles';
 
 export default function Home() {
+  const latestArticles = [...BLOG_ARTICLES]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
+
   const piliers = [
     {
       href: '/ia',
@@ -160,6 +165,53 @@ export default function Home() {
 
       {/* Section : FAQ */}
       <FAQ />
+
+      {/* Section : Blog */}
+      <section className="py-16 sm:py-20 bg-breton-foam">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center font-serif text-3xl sm:text-4xl text-breton-navy mb-4">
+            Derniers articles
+          </h2>
+          <p className="text-center text-breton-slate mb-12 max-w-2xl mx-auto">
+            Conseils pratiques pour tirer parti de la data et de l&apos;IA dans votre PME.
+          </p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {latestArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="group rounded-2xl border-2 border-breton-sand bg-white p-6 hover:border-breton-emerald transition-colors"
+              >
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {article.tags.slice(0, 2).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-breton-foam border border-breton-sand rounded-full px-3 py-1 text-breton-slate"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-lg font-bold text-breton-navy group-hover:text-breton-emerald transition-colors mb-2">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-breton-slate line-clamp-2 mb-3">
+                  {article.description}
+                </p>
+                <span className="text-xs text-slate-400">{article.readTime}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="text-sm font-semibold text-breton-emerald hover:underline"
+            >
+              Voir tous les articles →
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Section : Éthique & protection des données */}
       <section className="py-16 sm:py-20 bg-white border-t border-breton-sand">

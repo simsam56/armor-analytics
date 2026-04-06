@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { Header, Footer } from '@/components/layout';
 import { StickyCta } from '@/components/ui/sticky-cta';
 import { CookieBanner } from '@/components/ui/cookie-banner';
-import { GoogleAnalytics, GoogleTagManager, GoogleTagManagerNoscript } from '@/components/Analytics';
+import { GoogleAnalytics, GoogleTagManager, GoogleTagManagerNoscript, MicrosoftClarity, LinkedInInsightTag } from '@/components/Analytics';
 import { SITE_CONFIG } from '@/lib/constants';
 import { ErrorBoundary } from '@/components/ui/error-boundary';
 import { WebVitals } from '@/components/WebVitals';
@@ -125,6 +125,8 @@ export default function RootLayout({
         <GoogleAnalytics />
         <GoogleTagManager />
         <GoogleTagManagerNoscript />
+        <MicrosoftClarity />
+        <LinkedInInsightTag />
       </body>
     </html>
   );

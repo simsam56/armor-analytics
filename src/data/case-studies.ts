@@ -233,6 +233,6 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'Réactivité', value: 'x3' },
       { label: 'ROI', value: '3 mois' },
     ],
-    image: '/metallurgie.jpg',
+    image: '/metallurgie.webp',
   },
 ];

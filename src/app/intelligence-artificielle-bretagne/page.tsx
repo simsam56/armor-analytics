@@ -22,7 +22,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Intelligence artificielle pour PME en Bretagne',
   description:
-    "Déploiement de solutions d'intelligence artificielle pour PME bretonnes : OCR, prévision de demande, classification, automatisation IA. Consultant basé à Lorient, interventions sur site en Bretagne.",
+    "Solutions d'IA pour PME bretonnes : OCR, prévision, classification, automatisation. Déployées sur site par un consultant basé à Lorient.",
   keywords:
     'intelligence artificielle Bretagne, IA PME Bretagne, agence IA Lorient, consultant IA Bretagne, IA industrielle Bretagne, intelligence artificielle PME, IA Lorient, IA Morbihan, deploiement IA PME',
   openGraph: {

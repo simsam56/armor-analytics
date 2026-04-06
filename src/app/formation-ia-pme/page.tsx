@@ -17,7 +17,7 @@ import { Hero, CtaContact } from '@/components/sections';
 export const metadata: Metadata = {
   title: 'Formation IA et data pour PME en Bretagne',
   description:
-    'Formations pratiques IA et data pour PME bretonnes : Claude Code, n8n, prompting m\u00e9tier, Power BI. Ateliers adapt\u00e9s \u00e0 vos \u00e9quipes, sur site ou en visio. Consultant bas\u00e9 \u00e0 Lorient.',
+    'Formations IA et data pour PME bretonnes : Claude Code, n8n, prompting, Power BI. Ateliers sur site ou en visio, à Lorient.',
   keywords:
     'formation IA PME, formation data entreprise Bretagne, formation intelligence artificielle PME, formation n8n, formation Claude Code, formation prompting, formation Power BI Bretagne',
   openGraph: {

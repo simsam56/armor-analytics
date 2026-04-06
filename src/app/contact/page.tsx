@@ -16,9 +16,31 @@ export const metadata: Metadata = {
   },
 };
 
+const contactPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'balise-ia',
+    url: 'https://www.balise-ia.fr',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'contact@balise-ia.fr',
+      telephone: '+33663857739',
+      contactType: 'customer service',
+      areaServed: 'FR',
+      availableLanguage: 'French',
+    },
+  },
+};
+
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
+      />
       <Hero
         title="Parlons de votre projet"
         subtitle="Premier échange gratuit et sans engagement. On analyse votre contexte et on vous propose une approche adaptée à vos enjeux."

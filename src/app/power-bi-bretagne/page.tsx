@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Power BI pour les PME en Bretagne',
   description:
-    'Déploiement de tableaux de bord Power BI pour PME bretonnes : production, commercial, stocks, direction. Connectés à vos ERP (Sage, Cegid, Dynamics), livrés en 4 à 8 semaines. Consultant basé à Lorient.',
+    'Tableaux de bord Power BI pour PME bretonnes : production, commercial, stocks. Connectés à vos ERP, livrés en 4 à 8 semaines.',
   keywords:
     'Power BI Bretagne, Power BI PME, tableau de bord Power BI Bretagne, Power BI Lorient, reporting PME Bretagne, dataviz PME industrie',
   openGraph: {

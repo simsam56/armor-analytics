@@ -33,7 +33,7 @@ Voir historique git pour le détail.
 - [x] Hero /audit-ia : overlap header fixé
 - [x] CLAUDE.md et TODO.md mis à jour
 
-## Phase 12 — Acquisition SEO (à faire — priorité haute)
+## Phase 12 — Acquisition SEO (terminé — 2026-04-06)
 
 ### Prérequis immédiats (Simon, hors code)
 - [x] Créer Google Search Console + soumettre sitemap (fait, indexation en cours)
@@ -43,47 +43,75 @@ Voir historique git pour le détail.
 
 ### Blog / contenu éditorial
 - [x] Route /blog avec listing articles
-- [x] 5 premiers articles SEO rédigés et publiés :
-  - /blog/power-bi-pme-industrielle
-  - /blog/automatiser-saisie-commandes-erp
-  - /blog/tableau-de-bord-production-kpi
-  - /blog/consultant-data-bretagne
-  - /blog/erp-excel-comment-en-sortir
-- [ ] Rédiger 5 articles supplémentaires (longue traîne)
-- [x] Landing pages SEO dédiées :
-  - /power-bi-bretagne
-  - /automatisation-commandes-pme
-  - /consultant-data-lorient
+- [x] 9 articles SEO rédigés et publiés (5 initiaux + 4 ajoutés en phase audit)
+- [x] Landing pages SEO dédiées (5 total) :
+  - /power-bi-bretagne (JSON-LD FAQPage)
+  - /automatisation-commandes-pme (JSON-LD FAQPage)
+  - /consultant-data-lorient (JSON-LD LocalBusiness)
+  - /formation-ia-pme (JSON-LD FAQPage)
+  - /intelligence-artificielle-bretagne (JSON-LD FAQPage)
+- [x] RSS feed /blog/feed.xml
+- [x] BreadcrumbList JSON-LD sur blog/[slug] et interventions/[ville]
+- [x] Section "Derniers articles" sur homepage
+- [x] Maillage interne blog ↔ services
 
-### Backlinks
+### Backlinks (Simon, hors code)
 - [ ] CCI Morbihan — demander inscription annuaire partenaires
 - [ ] BDI Bretagne — annuaire acteurs numériques
 - [ ] Technopôle Lorient — partenariat
 - [ ] Presse locale (Télégramme, Ouest-France) — article/interview
 - [ ] Guest posts sur blogs PME/industrie
 
-## Phase 13 — Crédibilité & preuves sociales (à faire — priorité haute)
+## Phase 13 — Crédibilité & preuves sociales (en cours)
 
 - [ ] Obtenir 3-5 autorisations clients pour logos + citations nommées
 - [x] Photos réelles équipe + terrain intégrées (simon, rémy, camille — portraits + action)
+- [x] Photos compressées WebP (2.1MB → 30KB, 97-99% réduction)
 - [ ] Vidéo témoignage client (même courte, smartphone)
 - [ ] Métriques vérifiées et sourcées (remplacer "10+ ans", "20+ projets")
 - [ ] Avis Google Business Profile (viser 5+ avis)
+- [x] Pages cas-clients/[slug] individuelles (5 pages SSG)
+- [x] Schema Review/Testimonial JSON-LD sur cas-clients
+- [x] AggregateRating JSON-LD sur homepage
 
 ## Phase 14 — Conversion / CRO (à faire — priorité moyenne)
 
-- [ ] Email capture quiz : demander l'email AVANT de montrer les résultats
-- [ ] Formulaire contact rapide (email + 1 question) comme alternative Calendly
 - [ ] Email nurturing post-quiz (séquence 3-5 emails via Resend)
+- [ ] Formulaire contact rapide (email + 1 question)
 - [ ] A/B test CTA homepage quand trafic suffisant
 - [ ] Page /ressources ou /guides avec PDF téléchargeables (lead magnets)
+- [x] Conversion tracking GA4 (contact_form_submit, audit_quiz_complete, cookie_consent)
 
-## Phase 15 — Technique (à faire — priorité moyenne)
+## Phase 15 — Technique (terminé — 2026-04-06)
 
-- [ ] Security headers (CSP, X-Frame-Options, etc.) via next.config.ts
-- [x] Cookie banner RGPD — consent mode v2, denied par défaut
-- [ ] Microsoft Clarity (heatmaps gratuites)
-- [ ] LinkedIn Insight Tag (retargeting B2B)
-- [ ] Sentry monitoring erreurs
-- [ ] Audit Lighthouse mobile post-déploiement
-- [ ] Enrichir pages villes OU consolider en 1 page (anti-doorway)
+- [x] Security headers (X-Frame-Options, HSTS, Referrer-Policy, Permissions-Policy, CSP)
+- [x] Cookie banner RGPD — consent mode v2, denied par défaut, role="dialog", focus trap, Escape
+- [x] Politique de confidentialité /politique-confidentialite (CNIL-compliant)
+- [x] Microsoft Clarity (heatmaps) — activable via NEXT_PUBLIC_CLARITY_ID
+- [x] LinkedIn Insight Tag (retargeting B2B) — activable via NEXT_PUBLIC_LINKEDIN_PARTNER_ID
+- [ ] Sentry monitoring erreurs (à configurer en production)
+- [x] Error boundary + error.tsx custom
+- [x] Web Vitals reporting vers GA4
+- [x] Rate limiting distribué (Upstash-ready)
+- [x] PWA manifest + icônes 192×512
+- [x] Dynamic imports VideoBackground (lazy loading)
+- [x] Images WebP/AVIF config
+- [x] npm audit fix (0 vulnérabilités)
+- [x] 30 tests E2E Playwright
+
+## Phase 16 — Prochaines étapes (à faire)
+
+### Contenu (priorité haute)
+- [ ] 5 articles blog longue traîne : RGPD et IA, n8n vs Make, coût data engineer vs consultant, migration Excel → Power BI, IA générative service client
+- [ ] Page /ressources avec guides PDF (lead magnets)
+
+### Infrastructure (priorité moyenne)
+- [ ] Sentry error tracking (free tier)
+- [ ] Base de données leads (Turso/Neon/Supabase)
+- [ ] Templates email réutilisables (extraire du code des routes API)
+
+### Code quality (priorité basse)
+- [ ] Extraire composants réutilisables : FAQ accordion (×6), ProcessSteps (×4), VideoHeroCTA (×3)
+- [ ] Convertir composants 'use client' inutiles en server components
+- [ ] Storybook pour documentation composants
+- [ ] Pages villes : enrichir contenu ou consolider (anti-doorway)

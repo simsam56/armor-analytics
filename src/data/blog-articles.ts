@@ -22,6 +22,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       'exemples-ia-pme-industrielles-bretagne',
       'automatisation-pme-bretagne-guide',
       'consultant-data-bretagne',
+      'formation-ia-equipes-pme-guide',
     ],
     content: `
 <h2>L'IA pour les PME : au-delà du buzz</h2>
@@ -203,7 +204,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-03-25',
     readTime: '12 min',
     tags: ['Automatisation', 'PME', 'Bretagne', 'Guide', 'IA'],
-    relatedSlugs: ['automatiser-saisie-commandes-erp', 'power-bi-pme-industrielle', 'intelligence-artificielle-pme-bretagne-guide'],
+    relatedSlugs: ['automatiser-saisie-commandes-erp', 'power-bi-pme-industrielle', 'intelligence-artificielle-pme-bretagne-guide', 'exemples-ia-pme-industrielles-bretagne'],
     content: `
 <h2>Pourquoi l&apos;automatisation est devenue un sujet pour les PME bretonnes</h2>
 
@@ -305,7 +306,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-03-15',
     readTime: '8 min',
     tags: ['Power BI', 'PME industrielle', 'Tableau de bord', 'Bretagne'],
-    relatedSlugs: ['tableau-de-bord-production-kpi', 'automatiser-saisie-commandes-erp'],
+    relatedSlugs: ['tableau-de-bord-production-kpi', 'automatiser-saisie-commandes-erp', 'erp-excel-comment-en-sortir'],
     content: `
 <h2>Pourquoi Power BI est pertinent pour une PME industrielle</h2>
 
@@ -452,7 +453,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-25',
     readTime: '10 min',
     tags: ['KPI', 'Production', 'PME industrielle', 'Tableau de bord'],
-    relatedSlugs: ['power-bi-pme-industrielle', 'erp-excel-comment-en-sortir'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'erp-excel-comment-en-sortir', 'consultant-data-bretagne'],
     content: `
 <h2>Pourquoi un tableau de bord production est devenu indispensable</h2>
 
@@ -532,7 +533,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-18',
     readTime: '9 min',
     tags: ['Consultant data', 'Bretagne', 'PME', 'Conseil'],
-    relatedSlugs: ['power-bi-pme-industrielle', 'automatiser-saisie-commandes-erp', 'intelligence-artificielle-pme-bretagne-guide'],
+    relatedSlugs: ['power-bi-pme-industrielle', 'automatiser-saisie-commandes-erp', 'intelligence-artificielle-pme-bretagne-guide', 'formation-ia-equipes-pme-guide'],
     content: `
 <h2>Les signaux qui indiquent que vous avez besoin d&apos;un consultant data</h2>
 
@@ -611,7 +612,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     date: '2026-02-10',
     readTime: '8 min',
     tags: ['ERP', 'Excel', 'Centralisation', 'PME'],
-    relatedSlugs: ['tableau-de-bord-production-kpi', 'automatiser-saisie-commandes-erp'],
+    relatedSlugs: ['tableau-de-bord-production-kpi', 'automatiser-saisie-commandes-erp', 'automatisation-pme-bretagne-guide'],
     content: `
 <h2>Pourquoi Excel persiste à côté de l&apos;ERP</h2>
 

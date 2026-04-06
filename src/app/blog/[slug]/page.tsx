@@ -47,6 +47,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: article.date,
       authors: [SITE_CONFIG.name],
       locale: 'fr_FR',
+      images: [
+        {
+          url: `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(article.title)}`,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
     },
     alternates: {
       canonical: `${SITE_CONFIG.url}/blog/${article.slug}`,

@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Consultant data et IA à Lorient',
   description:
-    'Consultant data et IA basé à Lorient, interventions sur site en Bretagne. Audit data, tableaux de bord, automatisation et formation pour PME et réseaux bretons. Collectif senior, résultats mesurables.',
+    'Consultant data et IA basé à Lorient. Audit, tableaux de bord, automatisation et formation pour PME bretonnes. Résultats mesurables.',
   keywords:
     'consultant data Lorient, consultant data Bretagne, consultant IA Lorient, consultant IA Bretagne, data scientist Lorient, expert data PME Morbihan, consultant Power BI Lorient',
   openGraph: {

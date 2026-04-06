@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Automatisation des commandes pour PME industrielles',
   description:
-    'Automatisez la saisie de vos commandes clients grâce à l&apos;OCR et à l&apos;intégration ERP. Fin des ressaisies manuelles, zéro erreur, traitement en quelques minutes. Compatible Sage, Cegid, Dynamics, EBP.',
+    "Automatisez la saisie de vos commandes grâce à l'OCR et l'intégration ERP. Zéro ressaisie, zéro erreur. Compatible Sage, Cegid, EBP.",
   keywords:
     'automatisation commandes PME, OCR commandes, automatisation saisie ERP, automatisation commandes Sage, OCR bon de commande, intégration ERP automatique, automatisation ADV',
   openGraph: {

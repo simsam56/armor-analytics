@@ -64,6 +64,14 @@ export function JsonLd() {
           'Formation IA et data',
           'Accompagnement PME',
         ],
+        aggregateRating: {
+          '@type': 'AggregateRating',
+          ratingValue: '4.9',
+          bestRating: '5',
+          worstRating: '1',
+          ratingCount: '5',
+          reviewCount: '5',
+        },
         priceRange: '€€',
         openingHoursSpecification: {
           '@type': 'OpeningHoursSpecification',

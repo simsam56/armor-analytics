@@ -49,9 +49,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       type: 'article',
       locale: 'fr_FR',
-      images: caseStudy.image.startsWith('http')
-        ? [{ url: caseStudy.image, width: 800, height: 500, alt: caseStudy.title }]
-        : undefined,
+      images: [
+        {
+          url: `${SITE_CONFIG.url}/api/og?title=${encodeURIComponent(caseStudy.title)}`,
+          width: 1200,
+          height: 630,
+          alt: caseStudy.title,
+        },
+      ],
     },
     alternates: {
       canonical: `${SITE_CONFIG.url}/cas-clients/${caseStudy.slug}`,

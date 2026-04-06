@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
           {
             key: 'Content-Security-Policy',
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' www.googletagmanager.com www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: images.unsplash.com; font-src 'self' fonts.gstatic.com; connect-src 'self' www.google-analytics.com region1.google-analytics.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com www.clarity.ms snap.licdn.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: images.unsplash.com px.ads.linkedin.com; font-src 'self' fonts.gstatic.com; connect-src 'self' www.google-analytics.com region1.google-analytics.com www.clarity.ms; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'",
           },
         ],
       },
