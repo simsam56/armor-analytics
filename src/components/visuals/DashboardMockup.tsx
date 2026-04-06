@@ -31,7 +31,7 @@ export function DashboardMockup() {
             <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
             <div className="w-2.5 h-2.5 rounded-full bg-white/20" />
           </div>
-          <span className="text-xs text-white/40 ml-2">balise-ia — Tableau de bord</span>
+          <span className="text-xs text-white/60 ml-2">balise-ia — Tableau de bord</span>
         </div>
 
         {/* KPI cards */}
@@ -83,7 +83,7 @@ export function DashboardMockup() {
 
         {/* Mini line chart */}
         <div className="mt-4 pt-3 border-t border-white/10">
-          <p className="text-[10px] text-white/40 mb-2">Productivité (6 mois)</p>
+          <p className="text-[10px] text-white/60 mb-2">Productivité (6 mois)</p>
           <svg viewBox="0 0 200 40" className="w-full h-8" fill="none">
             <motion.path
               d="M0 35 C20 32 40 28 60 25 C80 22 100 20 120 15 C140 10 160 8 180 5 L200 3"

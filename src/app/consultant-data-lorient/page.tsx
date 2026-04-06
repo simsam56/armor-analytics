@@ -156,9 +156,45 @@ const CITIES = [
   },
 ];
 
+const consultantJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'balise-ia \u2014 Consultant data Lorient',
+  description:
+    'Collectif data et IA bas\u00e9 \u00e0 Lorient. Audit, tableaux de bord, automatisation et formation pour PME bretonnes.',
+  url: 'https://www.balise-ia.fr/consultant-data-lorient',
+  email: 'contact@balise-ia.fr',
+  telephone: '+33663857739',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Lorient',
+    addressRegion: 'Bretagne',
+    postalCode: '56100',
+    addressCountry: 'FR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 47.7486,
+    longitude: -3.3702,
+  },
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'Bretagne',
+  },
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'balise-ia',
+    url: 'https://www.balise-ia.fr',
+  },
+};
+
 export default function ConsultantDataLorientPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(consultantJsonLd) }}
+      />
       <Hero
         title="Votre consultant data à Lorient"
         subtitle="Un collectif de spécialistes data et IA, basé à Lorient, qui intervient sur site dans toute la Bretagne. Audit, tableaux de bord, automatisation, formation — des solutions concrètes pour les PME bretonnes."

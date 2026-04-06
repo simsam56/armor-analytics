@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   title: 'Tableaux de bord et reporting pour PME en Bretagne — Power BI, Metabase',
   description:
     'Pilotez votre PME en temps réel : dashboards Power BI, data engineering, reporting automatisé. Connectés à vos ERP, livrés en quelques semaines.',
+  openGraph: {
+    title: 'Tableaux de bord et reporting pour PME en Bretagne',
+    description: 'Dashboards Power BI, data engineering, reporting automatis\u00e9. Connect\u00e9s \u00e0 vos ERP.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
   alternates: { canonical: 'https://www.balise-ia.fr/data' },
 };
 

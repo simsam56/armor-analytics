@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   title: 'Formation IA et data pour PME en Bretagne — Sur site',
   description:
     'Formez vos équipes à l’IA et à la data. Ateliers sur site en Bretagne, accompagnement mensuel, transfert de compétences. Pas de jargon, des outils concrets.',
+  openGraph: {
+    title: 'Formation IA et data pour PME en Bretagne',
+    description: 'Ateliers sur site en Bretagne, accompagnement mensuel, transfert de comp\u00e9tences.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
   alternates: { canonical: 'https://www.balise-ia.fr/formation' },
 };
 

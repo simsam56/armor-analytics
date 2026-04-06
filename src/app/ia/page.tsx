@@ -20,6 +20,12 @@ export const metadata: Metadata = {
   title: 'Automatisation et IA pour PME en Bretagne — OCR, agents IA, workflows',
   description:
     'Éliminez vos ressaisies et automatisez vos process avec l’IA. OCR, agents IA, workflows n8n pour PME bretonnes. Résultats mesurés avant et après.',
+  openGraph: {
+    title: 'Automatisation et IA pour PME en Bretagne',
+    description: 'OCR, agents IA, workflows n8n pour PME bretonnes. R\u00e9sultats mesur\u00e9s avant et apr\u00e8s.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
   alternates: { canonical: 'https://www.balise-ia.fr/ia' },
 };
 

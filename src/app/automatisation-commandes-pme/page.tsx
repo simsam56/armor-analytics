@@ -136,9 +136,44 @@ const COMPATIBLE_ERPS = [
   },
 ];
 
+const autoFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Quels ERP sont compatibles avec votre solution d\u2019automatisation ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Notre solution s\u2019int\u00e8gre avec Sage, Cegid, EBP, Dynamics et tout syst\u00e8me disposant d\u2019une API ou d\u2019un import CSV/EDI.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Combien de temps faut-il pour automatiser la saisie des commandes ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Un projet typique dure 4 \u00e0 8 semaines, du diagnostic \u00e0 la mise en production. Les premiers gains sont mesurables d\u00e8s le premier mois.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quel est le taux de fiabilit\u00e9 de l\u2019OCR sur les bons de commande ?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Avec un bon param\u00e9trage, le taux de reconnaissance d\u00e9passe 95\u00a0%. Les cas ambigus sont signal\u00e9s pour validation humaine avant injection dans l\u2019ERP.',
+      },
+    },
+  ],
+};
+
 export default function AutomatisationCommandesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(autoFaqJsonLd) }}
+      />
       <Hero
         title="Automatisation des commandes pour PME industrielles"
         subtitle="Vos commandes sont extraites, validées et injectées dans votre ERP en quelques minutes. Fin des ressaisies manuelles, zéro erreur, plus de temps pour vos clients."

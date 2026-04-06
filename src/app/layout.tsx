@@ -5,7 +5,7 @@ import { Analytics } from '@vercel/analytics/next';
 import { Header, Footer } from '@/components/layout';
 import { StickyCta } from '@/components/ui/sticky-cta';
 import { CookieBanner } from '@/components/ui/cookie-banner';
-import { GoogleAnalytics, GoogleTagManager } from '@/components/Analytics';
+import { GoogleAnalytics, GoogleTagManager, GoogleTagManagerNoscript } from '@/components/Analytics';
 import { SITE_CONFIG } from '@/lib/constants';
 import './globals.css';
 
@@ -118,6 +118,7 @@ export default function RootLayout({
         <Analytics />
         <GoogleAnalytics />
         <GoogleTagManager />
+        <GoogleTagManagerNoscript />
       </body>
     </html>
   );

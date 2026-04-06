@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useRef } from 'react';
 import { UserCheck, Clock, Shield, MapPin } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
@@ -31,6 +31,7 @@ const SIGNALS = [
 export function TrustBand() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <section className="border-y border-slate-200 bg-slate-50/50">
@@ -38,14 +39,14 @@ export function TrustBand() {
         <motion.div
           ref={ref}
           className="grid grid-cols-2 gap-8 lg:grid-cols-4"
-          variants={staggerContainer}
-          initial="hidden"
+          variants={prefersReducedMotion ? undefined : staggerContainer}
+          initial={prefersReducedMotion ? 'visible' : 'hidden'}
           animate={isInView ? 'visible' : 'hidden'}
         >
           {SIGNALS.map((signal) => {
             const Icon = signal.icon;
             return (
-              <motion.div key={signal.title} variants={fadeInUp} className="flex items-start gap-3">
+              <motion.div key={signal.title} variants={prefersReducedMotion ? undefined : fadeInUp} className="flex items-start gap-3">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
                   <Icon className="h-5 w-5 text-breton-emerald" />
                 </div>

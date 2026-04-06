@@ -255,8 +255,8 @@ export default function AboutPage() {
                   <span className="text-sm text-white font-medium">{diff.us}</span>
                 </div>
                 <div className="flex items-center gap-3 rounded-xl bg-white/5 px-5 py-4">
-                  <span className="text-white/30 shrink-0 text-sm">✗</span>
-                  <span className="text-sm text-white/40">{diff.them}</span>
+                  <span className="text-white/60 shrink-0 text-sm">✗</span>
+                  <span className="text-sm text-white/60">{diff.them}</span>
                 </div>
               </div>
             ))}

@@ -8,6 +8,15 @@ import { LeadMagnet } from '@/components/ui/lead-magnet';
 import { BLOG_ARTICLES } from '@/data/blog-articles';
 import { SITE_CONFIG } from '@/lib/constants';
 
+function sanitizeHtml(html: string): string {
+  return html
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
+    .replace(/<embed\b[^>]*\/?>/gi, '')
+    .replace(/\bon\w+\s*=/gi, 'data-removed=');
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -125,7 +134,7 @@ export default async function BlogArticlePage({ params }: PageProps) {
           {/* Article content */}
           <div
             className="article-prose"
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{ __html: sanitizeHtml(article.content) }}
           />
 
           {/* Back link */}

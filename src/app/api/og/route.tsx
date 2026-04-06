@@ -3,11 +3,20 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
+function sanitizeParam(value: string, maxLength: number): string {
+  return value.replace(/<[^>]*>/g, '').replace(/[^\w\sÀ-ÿ.,;:!?&''«»—–\-()éèêëàâäùûüôöîïç]/gi, '').slice(0, maxLength);
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get('title') || 'Data & automatisation pour PME bretonnes';
-  const subtitle =
-    searchParams.get('subtitle') || 'Collectif data et IA pour PME bretonnes';
+  const title = sanitizeParam(
+    searchParams.get('title') || 'Data & automatisation pour PME bretonnes',
+    120
+  );
+  const subtitle = sanitizeParam(
+    searchParams.get('subtitle') || 'Collectif data et IA pour PME bretonnes',
+    200
+  );
 
   return new ImageResponse(
     <div
