@@ -76,4 +76,7 @@
   <rect x="240" y="600" width="12" height="12" fill="#C17F59" rx="2"/>
   <text x="260" y="611" font-size="12" fill="#E8E0D5">reasoning</text>
   <text x="1140" y="611" font-size="11" font-style="italic" fill="#8B9AAB" text-anchor="end">⭐ mesure directe constructeur</text>
+
+  <!-- BRAND -->
+  <text x="1140" y="638" font-size="14" font-weight="800" text-anchor="end"><tspan fill="#E8E0D5">balise</tspan><tspan fill="#C17F59">-ia</tspan></text>
 </svg>

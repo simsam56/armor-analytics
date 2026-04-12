@@ -70,8 +70,8 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 <p>L'énergie consommée par vos prompts, ramenée à la métrique la plus familière du quotidien : une TV LED de 60 watts qui tourne.</p>
 
 <figure>
-<img src="/blog/empreinte-llm/visuel-1-energie.svg" alt="Graphique en barres de la consommation énergétique annuelle de 9 modèles LLM, en heures d'une lampe LED 10 W équivalentes" width="1200" height="650" loading="eager" />
-<figcaption>9 modèles, 3 650 requêtes/an, équivalence en heures d'une lampe LED 10 W. Échelle logarithmique. Sources : Jegham et al., Google, Hugging Face AI Energy Score.</figcaption>
+<img src="/blog/empreinte-llm/visuel-1-energie.svg" alt="Graphique en barres de la consommation énergétique annuelle de 9 modèles LLM, en heures de TV LED 60 W équivalentes" width="1200" height="650" loading="eager" />
+<figcaption>9 modèles, 3 650 requêtes/an, équivalence en heures de TV LED 60 W. Échelle logarithmique. Sources : Jegham et al., Google, Hugging Face AI Energy Score.</figcaption>
 </figure>
 
 <p>La lecture est nette : passer d'un Gemini Flash (~18 h de TV, soit moins d'un jour) à un o3 d'OpenAI (~2 370 h, soit <strong>99 jours d'une TV allumée 24/24</strong>) représente un facteur × 130 sur l'année — et pourtant ces deux modèles font tourner la même volumétrie de prompts.</p>
@@ -91,7 +91,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <h3>🚗 CO₂ — en kilomètres en voiture</h3>
 
-<p>Et la métrique la plus parlante de toutes : le CO₂ émis par an, ramené à des kilomètres parcourus en voiture thermique moyenne (120 g CO₂/km, ADEME). J'ai ajouté des équivalents géographiques locaux pour rendre les distances tangibles.</p>
+<p>Et la métrique la plus parlante de toutes : le CO₂ émis par an, ramené à des kilomètres parcourus en voiture thermique moyenne (120 g CO₂/km, ADEME). Les équivalents géographiques locaux rendent les distances tangibles.</p>
 
 <figure>
 <img src="/blog/empreinte-llm/visuel-3-co2.svg" alt="Graphique en barres des émissions CO₂ annuelles de 9 modèles LLM, en kilomètres en voiture équivalents" width="1200" height="650" loading="lazy" />
