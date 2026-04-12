@@ -11,6 +11,461 @@ export interface BlogArticle {
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    slug: 'empreinte-energetique-llm',
+    title: "L'empreinte environnementale des modèles d'IA — décodage complet",
+    description:
+      "Audit sourcé de la consommation énergétique, eau et CO₂ de 10 modèles d'IA. Combien ça représente vraiment sur 1 an d'usage ? Et pourquoi le « reasoning tax » est le levier que personne ne mentionne.",
+    date: '2026-04-15',
+    readTime: '25 min',
+    tags: ['Intelligence artificielle', 'Empreinte environnementale', 'LLM', 'Analyse'],
+    relatedSlugs: [
+      'intelligence-artificielle-pme-bretagne-guide',
+      'exemples-ia-pme-industrielles-bretagne',
+    ],
+    content: `
+<p><em>Pour 3 650 requêtes par an : combien d'heures de TV, de douches et de kilomètres en voiture pour chaque modèle ? Analyse sourcée de 10 LLM, du Gemini Flash à GPT-5, avec toutes les références primaires et les limites de chaque chiffre.</em></p>
+
+<nav class="article-toc" aria-label="Sommaire">
+<span class="toc-title">Sommaire</span>
+<ol>
+<li><a href="#section-1"><span class="toc-num">01</span><span>Pourquoi ce document</span></a></li>
+<li><a href="#section-2"><span class="toc-num">02</span><span>Sur 1 an d'usage : ce que ça donne</span></a></li>
+<li><a href="#section-3"><span class="toc-num">03</span><span>Le « reasoning tax »</span></a></li>
+<li><a href="#section-4"><span class="toc-num">04</span><span>Pourquoi les chiffres varient</span></a></li>
+<li><a href="#section-5"><span class="toc-num">05</span><span>Et le training dans tout ça ?</span></a></li>
+<li><a href="#section-6"><span class="toc-num">06</span><span>Perspective macro IEA</span></a></li>
+<li><a href="#section-7"><span class="toc-num">07</span><span>Comparaisons à d'autres activités</span></a></li>
+<li><a href="#section-8"><span class="toc-num">08</span><span>Image et vidéo : le grand oublié</span></a></li>
+<li><a href="#section-9"><span class="toc-num">09</span><span>Le combat de la transparence</span></a></li>
+<li><a href="#section-10"><span class="toc-num">10</span><span>Critiques méthodologiques</span></a></li>
+<li><a href="#section-11"><span class="toc-num">11</span><span>Que faire concrètement</span></a></li>
+</ol>
+</nav>
+
+<h2 id="section-1">01 — Pourquoi ce document</h2>
+
+<p>J'ai écrit ce document parce qu'en cherchant des chiffres fiables sur la consommation énergétique des modèles d'IA, je suis tombé sur trois choses qui m'ont énervé.</p>
+
+<p><strong>La majorité des chiffres qui circulent dans la presse et sur LinkedIn sont faux ou mal sourcés.</strong> L'estimation la plus citée — « ChatGPT consomme 3 Wh par requête » — vient d'une étude de 2023 (de Vries) qui a depuis été démentie d'un facteur 10 par les chiffres officiels d'OpenAI, de Google, et par des modélisations indépendantes plus récentes.</p>
+
+<p><strong>Les seules entreprises qui publient des données vérifiables (Google et Mistral) le font avec des méthodologies différentes</strong>, ce qui rend les comparaisons impossibles. Et les autres (OpenAI, Anthropic, DeepSeek, xAI, Meta) ne publient quasiment rien.</p>
+
+<p><strong>Le levier d'action concret le plus puissant — désactiver le mode reasoning quand on n'en a pas besoin — est complètement absent du débat public</strong>, alors qu'il représente potentiellement un facteur × 30 en moyenne, et jusqu'à × 700 sur des cas extrêmes.</p>
+
+<p>Ce document est ma tentative de remettre les chiffres au clair, sans bullshit et sans alarmisme, à partir des sources primaires uniquement. Et de les rendre <em>concrets</em> — pas en watts par requête, mais en équivalents qu'on peut sentir dans une vie quotidienne.</p>
+
+<h2 id="section-2">02 — Sur 1 an d'usage : ce que ça donne</h2>
+
+<p>Plutôt que de noyer le lecteur sous les watts par requête, j'ai choisi de raisonner sur une année complète d'utilisation. Le profil de référence :</p>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Profil utilisateur de référence</span>
+<p><strong>10 requêtes par jour × 365 jours = 3 650 prompts/an.</strong> C'est un usage business modéré : quelqu'un qui s'appuie quotidiennement sur l'IA pour rédiger des emails, résumer des documents, brainstormer, traduire. Pour un développeur en pair-programming intensif ou un consultant qui code/écrit toute la journée, multipliez par 10 à 20.</p>
+</div>
+
+<p>Trois métriques. Trois équivalents tangibles. Tout est calculé à partir des mêmes valeurs par requête (sources primaires Jegham, Google, Mistral, Hugging Face), simplement multipliées par 3 650 et converties.</p>
+
+<h3>⚡ Énergie — en heures de TV allumée</h3>
+
+<p>L'énergie consommée par vos prompts, ramenée à la métrique la plus familière du quotidien : une TV LED de 60 watts qui tourne.</p>
+
+<figure>
+<img src="/blog/empreinte-llm/visuel-1-energie.svg" alt="Graphique en barres de la consommation énergétique annuelle de 9 modèles LLM, en heures d'une lampe LED 10 W équivalentes" width="1200" height="650" loading="eager" />
+<figcaption>9 modèles, 3 650 requêtes/an, équivalence en heures d'une lampe LED 10 W. Échelle logarithmique. Sources : Jegham et al., Google, Hugging Face AI Energy Score.</figcaption>
+</figure>
+
+<p>La lecture est nette : passer d'un Gemini Flash (~18 h de TV, soit moins d'un jour) à un o3 d'OpenAI (~2 370 h, soit <strong>99 jours d'une TV allumée 24/24</strong>) représente un facteur × 130 sur l'année — et pourtant ces deux modèles font tourner la même volumétrie de prompts.</p>
+
+<h3>💧 Eau — en litres et équivalent douches</h3>
+
+<p>Pour cette métrique, j'ai gardé les <strong>litres bruts</strong> comme valeur principale, avec des équivalences variables selon l'échelle (verres d'eau pour les modèles légers, douches pour les gros).</p>
+
+<figure>
+<img src="/blog/empreinte-llm/visuel-2-eau.svg" alt="Graphique en barres de la consommation d'eau annuelle de 9 modèles LLM, en litres" width="1200" height="650" loading="lazy" />
+<figcaption>Eau consommée par an pour 3 650 requêtes. Hypothèse douche standard 50 L (ADEME). Échelle logarithmique. Sources : Google paper, Mistral LCA, Jegham et al.</figcaption>
+</figure>
+
+<p>Cette métrique est probablement celle qui surprend le plus. <strong>À titre individuel, l'eau consommée par vos prompts reste vraiment modeste</strong> : moins d'une dizaine de litres par an pour un usage léger ou standard, soit largement moins qu'une douche unique. C'est seulement sur les modèles reasoning qu'on bascule dans des chiffres significatifs (4 à 9 douches/an).</p>
+
+<p>Mais attention : ce sont les chiffres « on-site » (eau de refroidissement directe des datacenters). Si on inclut l'eau de production électrique en amont, il faut multiplier par 2 à 5. Et si on agrège sur les 100 millions d'utilisateurs ChatGPT, le cumul devient un sujet local sérieux dans certaines régions (Virginie, Irlande, Arizona).</p>
+
+<h3>🚗 CO₂ — en kilomètres en voiture</h3>
+
+<p>Et la métrique la plus parlante de toutes : le CO₂ émis par an, ramené à des kilomètres parcourus en voiture thermique moyenne (120 g CO₂/km, ADEME). J'ai ajouté des équivalents géographiques locaux pour rendre les distances tangibles.</p>
+
+<figure>
+<img src="/blog/empreinte-llm/visuel-3-co2.svg" alt="Graphique en barres des émissions CO₂ annuelles de 9 modèles LLM, en kilomètres en voiture équivalents" width="1200" height="650" loading="lazy" />
+<figcaption>CO₂ émis par an pour 3 650 requêtes. Hypothèse voiture moyenne France 120 g CO₂/km. Échelle logarithmique. Sources : Google, Mistral LCA, Jegham et al.</figcaption>
+</figure>
+
+<p>Là encore, l'écart est saisissant : pour la même volumétrie de requêtes annuelles, vous avez le choix entre faire l'équivalent d'un tour du quartier (Gemini médian, ~1 km) ou d'un Lorient → Bordeaux (o3, ~426 km). C'est exactement le même usage, mais le choix du modèle change tout.</p>
+
+<div class="article-callout callout-warning">
+<span class="callout-title">Bonus géographie : le levier ignoré</span>
+<p>Le même Claude Sonnet émet <strong>~7× plus de CO₂</strong> via AWS US Virginie qu'en France — uniquement à cause du mix électrique. Préférer les régions cloud européennes est probablement le levier d'action le plus simple à mettre en place, et personne n'en parle.</p>
+</div>
+
+<h2 id="section-3">03 — Le « reasoning tax »</h2>
+
+<p>C'est la trouvaille la plus actionnable de tout ce dossier. Source primaire : <strong>Hugging Face AI Energy Score v2</strong> (Sasha Luccioni & Boris Gamazaychikov, décembre 2025). C'est le seul benchmark indépendant qui teste les modèles dans des conditions strictement identiques : NVIDIA H100 isolé, mêmes prompts, méthodologie reproductible et open-source.</p>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Le constat brut</span>
+<p>Les modèles de reasoning utilisent en moyenne <strong>30 fois plus d'énergie</strong> que les modèles sans reasoning. Sur les cas les plus extrêmes, l'écart pour le même modèle avec reasoning activé vs désactivé monte à <strong>150 à 700 fois plus d'énergie</strong>.</p>
+<p>Cause mécanique : un modèle reasoning génère <strong>300 à 800 fois plus de tokens en interne</strong> (chain of thought) avant de produire sa réponse visible.</p>
+</div>
+
+<h3>Les chiffres exacts du benchmark Hugging Face</h3>
+
+<p>La fourchette × 150-700 vient de trois modèles open-source spécifiques testés par HF v2 :</p>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr><th>Modèle</th><th>Reasoning OFF</th><th>Reasoning ON</th><th>Multiplicateur</th></tr>
+</thead>
+<tbody>
+<tr><td>DeepSeek-R1-Distill-Llama-70B</td><td>49,5 Wh</td><td>7 626 Wh</td><td>× 154</td></tr>
+<tr><td>Phi-4-reasoning-plus (Microsoft)</td><td>18,4 Wh</td><td>9 461 Wh</td><td>× 514</td></tr>
+<tr><td>SmolLM3-3B</td><td>18,3 Wh</td><td>12 791 Wh</td><td>× 697</td></tr>
+</tbody>
+</table>
+</div>
+
+<p><em>Wh GPU pour 1 000 requêtes. Mesures isolées sur NVIDIA H100. Source : HF AI Energy Score v2.</em></p>
+
+<p>Donc la lecture honnête est la suivante : <strong>la moyenne du benchmark est × 30</strong>, et les cas extrêmes (sur des modèles open-source distillés) atteignent × 700. Ce n'est pas la même chose que dire que tous les modèles reasoning consomment 700 fois plus.</p>
+
+<h3>Pourquoi c'est aussi spectaculaire</h3>
+
+<p>Un modèle « reasoning » ne se contente pas de générer une réponse. Il génère d'abord une longue chaîne de pensée interne où il « réfléchit » au problème, explore plusieurs pistes, vérifie ses propres erreurs, puis produit la réponse finale visible.</p>
+
+<p>Cette chaîne de pensée est invisible pour l'utilisateur (sauf si on l'affiche explicitement, ce que font certains modèles comme DeepSeek-R1 ou Claude Extended Thinking). Mais elle est facturée énergétiquement comme n'importe quel token généré.</p>
+
+<p>Concrètement : pour répondre « la racine carrée de 144 est 12 » :</p>
+
+<ul>
+<li>Un modèle standard génère ~10 tokens.</li>
+<li>Un modèle reasoning génère ~3 000 tokens (qui disent en interne « bon, 12² = 144, vérifions, oui c'est ça, donc √144 = 12, je vais répondre 12 »).</li>
+</ul>
+
+<p>Multipliez par le nombre de requêtes par jour, et vous obtenez le facteur × 30 en moyenne sur l'ensemble du benchmark.</p>
+
+<h3>Confirmation indépendante sur GPT-5</h3>
+
+<p>Source : <strong>Jegham et al. v5</strong> (novembre 2025), papier University of Rhode Island. GPT-5 utilise un système d'« adaptive routing » : le modèle décide lui-même, selon le prompt, s'il doit activer le reasoning ou non. C'est invisible pour l'utilisateur.</p>
+
+<div class="article-statgrid">
+<div class="article-stat"><span class="stat-value">2,3 Wh</span><span class="stat-label">Reasoning minimal</span><span class="stat-caption">prompt medium</span></div>
+<div class="article-stat"><span class="stat-value">17,2 Wh</span><span class="stat-label">Reasoning élevé</span><span class="stat-caption">même prompt, ×7</span></div>
+<div class="article-stat"><span class="stat-value">40 Wh</span><span class="stat-label">Maximum observé</span><span class="stat-caption">prompts complexes</span></div>
+</div>
+
+<div class="article-callout callout-warning">
+<span class="callout-title">Caveat important</span>
+<p>Les chiffres GPT-5 de Jegham sont une <strong>modélisation</strong> qui suppose une infrastructure DGX H100. Tom's Hardware a publié en août 2025 une critique de cette étude, soulignant que si OpenAI utilise déjà du Blackwell B100/B200 (4× plus efficace que H100), les chiffres absolus sont surestimés. Les rapports relatifs (mode normal vs reasoning) restent valables, mais les valeurs absolues doivent être prises comme un ordre de grandeur, pas comme une vérité.</p>
+</div>
+
+<h3>Ce qu'il faut en faire</h3>
+
+<p><strong>80 % des tâches business courantes ne nécessitent PAS de reasoning :</strong></p>
+
+<ul>
+<li>Rédaction d'email, résumé de document, brainstorm, reformulation, traduction.</li>
+<li>Code simple (boilerplate, fonctions standards), classification, extraction.</li>
+<li>Réponse à des questions factuelles.</li>
+<li>Création de contenu (article, post, ad copy).</li>
+</ul>
+
+<p><strong>20 % des tâches le justifient :</strong></p>
+
+<ul>
+<li>Démonstration mathématique formelle.</li>
+<li>Code complexe avec contraintes multiples (performance, sécurité, edge cases).</li>
+<li>Analyse multi-étapes avec dépendances logiques.</li>
+<li>Diagnostic de bug subtil.</li>
+<li>Planification stratégique avec multiples scénarios.</li>
+<li>Toute tâche où une erreur intermédiaire compromet le résultat final.</li>
+</ul>
+
+<h2 id="section-4">04 — Pourquoi les chiffres varient autant</h2>
+
+<p>Si vous cherchez « consommation ChatGPT » sur Google, vous trouverez des chiffres allant de 0,03 g de CO₂ à 14 g, soit un facteur 470. Ce n'est pas du hasard, et ce n'est pas non plus que les chercheurs sont incompétents. C'est que la question est plus complexe qu'elle n'en a l'air.</p>
+
+<h3>Pourquoi Google et Mistral donnent des chiffres si différents</h3>
+
+<div class="article-statgrid">
+<div class="article-stat"><span class="stat-value">0,03 g</span><span class="stat-label">Google (Gemini Apps médian)</span><span class="stat-caption">CO₂e par requête</span></div>
+<div class="article-stat"><span class="stat-value">1,14 g</span><span class="stat-label">Mistral (Le Chat / Large 2)</span><span class="stat-caption">CO₂e pour 400 tokens</span></div>
+</div>
+
+<p>C'est un facteur × 38. Mistral serait-il 38 fois plus polluant que Gemini ? <strong>Non.</strong> Quatre raisons cumulatives expliquent l'écart :</p>
+
+<ol>
+<li><strong>Périmètre</strong> : Mistral inclut une part amortie de l'entraînement et de la fabrication serveur dans son chiffre par requête. Google compte uniquement l'inférence opérationnelle.</li>
+<li><strong>Méthode CO₂</strong> : Google utilise le « market-based » qui valorise ses achats massifs d'énergies renouvelables (PPA). Son facteur électrique market-based est de <strong>94 gCO₂/kWh</strong>. Sa réalité physique (location-based) est de <strong>345 gCO₂/kWh</strong>, soit × 3,7.</li>
+<li><strong>Modèle et infra</strong> : Gemini est probablement un Mixture-of-Experts ultra-optimisé sur TPU Google maison. Mistral Large 2 est un modèle dense de 123 milliards de paramètres sur GPU loués.</li>
+<li><strong>Définition de « requête »</strong> : Google parle du prompt médian, Mistral d'une réponse de 400 tokens. Ce ne sont pas les mêmes objets statistiques.</li>
+</ol>
+
+<div class="article-callout callout-warning">
+<span class="callout-title">Conclusion</span>
+<p>On ne peut pas conclure que Gemini est « 38 fois plus écologique » que Mistral. On peut conclure que les deux entreprises ont des comptabilités différentes, et que sans standard commun, comparer à la louche est trompeur.</p>
+</div>
+
+<h3>L'impact du facteur électrique</h3>
+
+<p>C'est probablement le levier le plus important — et le plus invisible — sur l'empreinte CO₂ d'un usage IA.</p>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr><th>Région / fournisseur</th><th>gCO₂/kWh</th></tr>
+</thead>
+<tbody>
+<tr><td>France (mix RTE 2024)</td><td>56</td></tr>
+<tr><td>Google market-based (PPA renouvelables)</td><td>94</td></tr>
+<tr><td>Microsoft Azure (déclaré)</td><td>353</td></tr>
+<tr><td>AWS (estimation US)</td><td>385</td></tr>
+<tr><td>Mix mondial moyen 2024 (IEA)</td><td>430</td></tr>
+<tr><td>Chine (mix moyen)</td><td>600</td></tr>
+<tr><td>Pologne (mix charbon)</td><td>720</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="article-callout callout-info">
+<span class="callout-title">Implication pratique</span>
+<p>Un même usage de Claude Sonnet émet ~7× plus de CO₂ s'il tourne sur un datacenter US qu'en France. Et ~15× plus que via une infra chinoise. <strong>Le choix d'infrastructure pèse autant que le choix de modèle.</strong></p>
+</div>
+
+<h2 id="section-5">05 — Et le training dans tout ça ?</h2>
+
+<p>Question récurrente, et légitime : « OK l'inférence n'est rien, mais entraîner ces modèles, ça doit être gigantesque, non ? » Réponse : oui et non.</p>
+
+<h3>Les chiffres connus</h3>
+
+<div class="article-statgrid">
+<div class="article-stat"><span class="stat-value">552 tCO₂</span><span class="stat-label">GPT-3 (175B)</span><span class="stat-caption">estimation 2020</span></div>
+<div class="article-stat"><span class="stat-value">2 740 tCO₂</span><span class="stat-label">Llama 3.1 405B</span><span class="stat-caption">déclaré Meta</span></div>
+<div class="article-stat"><span class="stat-value">20 400 tCO₂</span><span class="stat-label">Mistral Large 2</span><span class="stat-caption">LCA peer-reviewée*</span></div>
+</div>
+
+<p>20 400 tCO₂, c'est l'équivalent annuel de ~4 500 voitures thermiques. Pour les modèles frontier actuels (GPT-5, Claude 4.6, Gemini 3.1), on parle probablement de plusieurs dizaines de milliers de tonnes par training run, mais aucune entreprise ne publie le chiffre.</p>
+
+<p><em>* Le chiffre Mistral inclut training + inférence cumulée sur 18 mois, ce qui le rend non strictement comparable aux autres.</em></p>
+
+<h3>L'amortissement par milliards de requêtes</h3>
+
+<p>Le truc qu'il faut comprendre : <strong>le coût d'entraînement est fixe, le coût d'inférence est variable.</strong> Plus un modèle est utilisé, plus le training devient marginal en proportion.</p>
+
+<p>Selon Epoch AI (analyse de 2024), <strong>le coût cumulé d'inférence dépasse celui du training entre 100 et 200 jours d'utilisation</strong> pour un modèle frontier en production à grande échelle. Pour ChatGPT en 2024 (1 milliard de requêtes/jour), l'inférence représentait déjà ~85 % des émissions cumulées.</p>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Conclusion training vs inference</span>
+<p>Pour les modèles frontier en production massive (ChatGPT, Gemini, Claude), l'inférence représente la majorité des émissions cumulées. C'est donc bien sur l'inférence qu'il faut concentrer l'attention pour réduire l'impact — et c'est le sujet de ce document.</p>
+<p>Mais pour des modèles utilisés de façon plus ponctuelle (modèles internes spécialisés, fine-tunes d'entreprise), le training reste dominant.</p>
+</div>
+
+<h2 id="section-6">06 — Perspective macro IEA</h2>
+
+<p>Source primaire : <strong>IEA, Energy and AI</strong>, rapport spécial publié en avril 2025 (~300 pages). C'est aujourd'hui la référence la plus solide sur le sujet macro.</p>
+
+<div class="article-statgrid">
+<div class="article-stat"><span class="stat-value">415 TWh</span><span class="stat-label">Datacenters mondiaux 2024</span><span class="stat-caption">≈ 1,5 % de l'élec mondiale</span></div>
+<div class="article-stat"><span class="stat-value">945 TWh</span><span class="stat-label">Projection 2030</span><span class="stat-caption">≈ 3 % de l'élec mondiale</span></div>
+<div class="article-stat"><span class="stat-value">× 2,3</span><span class="stat-label">Croissance en 6 ans</span><span class="stat-caption">≈ 15 % par an</span></div>
+</div>
+
+<h3>Le contre-intuitif important</h3>
+
+<p>Si vous lisez la presse sur ce sujet, vous avez probablement l'impression que l'IA est en train de manger la planète. Le rapport IEA dit autre chose, plus nuancé.</p>
+
+<ol>
+<li>L'IA ne représente que <strong>~10 % de la croissance globale</strong> de la demande électrique d'ici 2030. C'est <strong>moins</strong> que la croissance liée aux véhicules électriques, à la climatisation, ou aux moteurs industriels.</li>
+<li>Les émissions des datacenters atteindront <strong>~1 % des émissions mondiales de CO₂</strong> en 2030 dans le scénario central. Ce n'est pas négligeable, mais ce n'est pas le climaticide qu'on dépeint.</li>
+<li>C'est pourtant <strong>l'un des rares secteurs où les émissions augmentent</strong>, alors que la plupart décarbonent. Donc politiquement et stratégiquement, ça reste un sujet majeur.</li>
+<li><strong>L'enjeu réel est local et concentré.</strong> Les datacenters s'installent dans quelques régions (Virginie aux US, Irlande en Europe, Pékin en Chine), où ils créent un stress énorme sur le réseau électrique, sur l'eau, et sur les infrastructures locales. C'est là que se joue le vrai problème, pas dans les statistiques globales.</li>
+</ol>
+
+<h3>L'effet rebond (paradoxe de Jevons)</h3>
+
+<p>Tous les rapports s'accordent sur ce point : <strong>l'efficacité énergétique par requête s'améliore très vite</strong> (Google a divisé par 33 sa conso/prompt en 12 mois), mais le volume global explose plus vite encore.</p>
+
+<p>C'est pour ça que l'argument « ne vous inquiétez pas, l'IA s'optimise » est partiellement vrai mais incomplet. L'optimisation par requête ne suffira pas à compenser la croissance d'usage.</p>
+
+<h2 id="section-7">07 — Comparaisons à d'autres activités</h2>
+
+<p>Pour calibrer les ordres de grandeur dans votre tête, voici des points de repère convergents (sources : ADEME, IEA, Carbon Trust, The Shift Project, Mistral, Google).</p>
+
+<h3>En CO₂</h3>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr><th>Activité</th><th>g CO₂e</th></tr>
+</thead>
+<tbody>
+<tr><td>1 prompt Gemini médian</td><td>0,03</td></tr>
+<tr><td>1 prompt ChatGPT moyen (Sam Altman)</td><td>~0,15</td></tr>
+<tr><td>1 prompt Claude Sonnet</td><td>~1</td></tr>
+<tr><td>1 prompt Mistral Large 2 (400 tokens)</td><td>1,14</td></tr>
+<tr><td>1 prompt o3 long</td><td>~14</td></tr>
+<tr><td>1 recherche Google (estimation 2009)</td><td>0,2</td></tr>
+<tr><td>1 minute streaming vidéo HD</td><td>~5</td></tr>
+<tr><td>1 minute Zoom (caméra activée)</td><td>~3</td></tr>
+<tr><td>1 km voiture thermique moyenne</td><td>~120</td></tr>
+<tr><td>1 baguette de pain</td><td>~150</td></tr>
+<tr><td>1 kg de bœuf</td><td>~27 000</td></tr>
+<tr><td>1 vol Paris-New York éco</td><td>~1 000 000</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="article-callout callout-info">
+<span class="callout-title">Le repère qui marque les esprits</span>
+<p>Un prompt Gemini = environ <strong>1/5000ᵉ d'une baguette de pain</strong> en CO₂. Un Français consomme ~140 baguettes par an. À l'échelle individuelle, l'IA est invisible.</p>
+</div>
+
+<h2 id="section-8">08 — Image et vidéo : le grand oublié</h2>
+
+<p>Tous les chiffres précédents concernent la <strong>génération de texte</strong>. Or de plus en plus de gens utilisent l'IA pour générer des images (Midjourney, DALL·E, Imagen, Stable Diffusion) et bientôt des vidéos (Sora, Veo, Runway). Et là, c'est une autre échelle.</p>
+
+<p>Source : <strong>Luccioni, Jernite & Strubell, Power Hungry Processing</strong> (FAccT 2024) + AI Energy Score.</p>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr><th>Tâche</th><th>Énergie</th></tr>
+</thead>
+<tbody>
+<tr><td>Classification de texte (BERT)</td><td>~0,002 Wh</td></tr>
+<tr><td>1 prompt LLM léger</td><td>~0,1 Wh</td></tr>
+<tr><td>1 prompt LLM standard</td><td>~0,5 Wh</td></tr>
+<tr><td>1 image Stable Diffusion XL sur H100</td><td>~1,6 Wh</td></tr>
+<tr><td>1 image SDXL sur A100 (réglages par défaut)</td><td>~11 Wh</td></tr>
+<tr><td>Variation entre 17 modèles d'image testés</td><td>× 46</td></tr>
+<tr><td>Génération de vidéo (Sora, Veo)</td><td>estimation 50-500× le texte</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="article-callout callout-warning">
+<span class="callout-title">Implication pratique</span>
+<p>Si vous utilisez beaucoup de génération d'images ou de vidéos, votre empreinte AI vient sans doute davantage de là que de vos chatbots. <strong>Et personne n'en parle.</strong></p>
+</div>
+
+<h2 id="section-9">09 — Le combat de la transparence</h2>
+
+<p>État des lieux à avril 2026.</p>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr><th>Acteur</th><th>Données publiques</th><th>Score</th></tr>
+</thead>
+<tbody>
+<tr><td>Google</td><td>Mesures réelles Gemini Apps</td><td>★★★★★</td></tr>
+<tr><td>Mistral AI</td><td>LCA Mistral Large 2 peer-reviewée ADEME</td><td>★★★★</td></tr>
+<tr><td>OpenAI</td><td>Une phrase Sam Altman, sans méthodo</td><td>★</td></tr>
+<tr><td>Anthropic</td><td>Engagements politiques fév 2026, aucune donnée chiffrée</td><td>★</td></tr>
+<tr><td>DeepSeek</td><td>Aucune</td><td>0</td></tr>
+<tr><td>xAI (Grok)</td><td>Aucune</td><td>0</td></tr>
+<tr><td>Microsoft Copilot</td><td>Aucune par modèle</td><td>0</td></tr>
+<tr><td>Meta (LLaMA en API)</td><td>Aucune</td><td>0</td></tr>
+<tr><td>Apple Intelligence</td><td>Aucune</td><td>0</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="article-callout callout-warning">
+<span class="callout-title">Cas Anthropic : nuance importante</span>
+<p>Anthropic a publié en <strong>février 2026</strong> un communiqué intitulé <em>« Investing in energy to secure America's AI future »</em>, qui engage l'entreprise à couvrir les hausses de prix d'électricité pour les consommateurs causées par leurs datacenters, à investir dans la production d'électricité, et à déployer des systèmes de curtailment.</p>
+<p><strong>Mais ce communiqué ne contient aucune donnée quantitative</strong> : pas de Wh par requête, pas d'inventaire Scope 1/2/3, pas de rapport sustainability annuel. C'est de l'engagement politique, pas de la donnée vérifiable. Anthropic reste l'un des rares grands labs sans transparence quantitative — c'est d'autant plus paradoxal que l'entreprise se positionne publiquement comme « responsable » et « safety-first ».</p>
+<p>Ironie : Claude 3.7 Sonnet ressort en tête du classement éco-efficacité de Jegham, mais c'est invérifiable sans données publiques.</p>
+</div>
+
+<h2 id="section-10">10 — Critiques méthodologiques</h2>
+
+<p>Pour rester intellectuellement honnête, voici les limites principales de chaque source.</p>
+
+<h3>Jegham et al. (2025)</h3>
+
+<p>C'est de la <strong>modélisation, pas de la mesure</strong>. Les chiffres absolus peuvent diverger de la réalité d'un facteur × 2 à × 4. Hypothèses fortes sur le hardware (DGX H100, batch size = 8). Si OpenAI utilise déjà du Blackwell, les chiffres GPT-5 sont surestimés. Anthropic et OpenAI n'ont pas validé ces chiffres. <strong>Tom's Hardware a publié en août 2025 une critique</strong> de ces estimations, soulignant que les hypothèses hardware ne reflètent probablement pas la réalité d'OpenAI.</p>
+
+<p><strong>Ce qui reste solide :</strong> les rapports relatifs entre modèles dans la même étude. L'écart × 175 entre Gemini médian et o3 est crédible, même si les valeurs absolues peuvent être imprécises.</p>
+
+<h3>Google paper (2025)</h3>
+
+<p>Médiane uniquement (pas P90/P99). Market-based CO₂ qui flatte le chiffre (94 vs 345 gCO₂/kWh en location-based). Eau on-site uniquement (× 2 à 5 si on inclut l'eau de production électrique). Pas de breakdown par modèle. Volume total non publié.</p>
+
+<h3>Mistral / ADEME</h3>
+
+<p>Le rapport complet n'a pas été publié, seuls les chiffres synthétiques. Pas de séparation training vs inférence. 400 tokens est déjà un prompt « moyen-long ». Ne couvre que Mistral Large 2.</p>
+
+<h3>Hugging Face AI Energy Score v2</h3>
+
+<p>Tests en environnement isolé (H100 dédié), donc minore l'énergie réelle de production (qui inclut le PUE datacenter, soit × 1,1 à × 1,5 en plus). Ne teste que des modèles open-weights, pas les modèles propriétaires comme Claude ou GPT-5 directement. <strong>Mais c'est de la mesure réelle reproductible</strong>, ce qui en fait probablement la source la plus fiable du benchmark.</p>
+
+<h3>Sam Altman / OpenAI</h3>
+
+<p>Un seul chiffre, sans méthodologie, sans modèle précisé, dans un billet de blog perso. À traiter comme une déclaration corporate, pas comme une donnée scientifique.</p>
+
+<h2 id="section-11">11 — Que faire concrètement</h2>
+
+<h3>Pour un utilisateur individuel</h3>
+
+<p><strong>À l'échelle individuelle, votre empreinte AI est marginale.</strong> Faire 10 requêtes par jour à un chatbot standard pendant un an = ~3,6 kWh/an, soit 0,2 % de la consommation électrique d'un Français moyen. C'est moins qu'un cycle de sèche-linge par mois.</p>
+
+<p>Mais c'est précisément l'agrégation de ces usages individuels qui crée le problème macro (× 2,3 sur la conso datacenters d'ici 2030 selon l'IEA). Le levier est donc collectif, pas culpabilisant.</p>
+
+<p>Trois gestes simples qui ne coûtent rien :</p>
+
+<ol>
+<li><strong>Désactivez le mode reasoning par défaut</strong> sur vos outils. Réservez-le aux problèmes complexes.</li>
+<li><strong>Utilisez le bon modèle pour la tâche.</strong> Inutile de passer à Opus pour reformuler un email.</li>
+<li><strong>Préférez les régions cloud européennes.</strong> Le même Claude Sonnet émet ~7× plus de CO₂ via AWS US Virginie qu'en France.</li>
+</ol>
+
+<h3>Pour une entreprise / un usage professionnel</h3>
+
+<p>L'impact agrégé devient significatif quand on parle de centaines ou milliers d'utilisateurs. Ici les leviers sont plus nets.</p>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Implémenter un model routing intelligent</span>
+<p>70 % des requêtes → modèle léger (Haiku, Flash, Mini)<br/>20 % → modèle standard (Sonnet, GPT-4o, Gemini Pro)<br/>10 % → modèle avancé (Opus, GPT-5, o3) uniquement quand nécessaire</p>
+<p><strong>Économies typiques : × 5 sur la facture, × 30 sur l'impact énergétique.</strong></p>
+</div>
+
+<h3>Pour un dirigeant / décideur</h3>
+
+<p>Avant de mettre une IA en production, posez ces 3 questions à votre fournisseur ou intégrateur :</p>
+
+<ol>
+<li><strong>Quel modèle exactement ?</strong> (pas « ChatGPT », mais « GPT-5 mini avec reasoning désactivé »)</li>
+<li><strong>Quel datacenter ?</strong> (région, fournisseur cloud, mix électrique)</li>
+<li><strong>Quelle volumétrie attendue ?</strong> (requêtes/jour, taille moyenne)</li>
+</ol>
+
+<p>Avec ces 3 informations, vous pouvez calculer l'ordre de grandeur de l'impact en ~5 minutes. Sans elles, vous achetez à l'aveugle.</p>
+
+<p>C'est exactement le genre de diagnostic qu'on pratique chez balise-ia : audit énergétique de workflows IA, sélection de modèles adaptés à chaque usage, et design de systèmes sobres et efficaces. Pour en savoir plus, consultez notre <a href="/intelligence-artificielle-bretagne">page IA</a> ou demandez un <a href="/audit-ia">diagnostic IA</a>.</p>
+
+<h2 id="sources">Sources principales</h2>
+
+<ul class="article-sources">
+<li>Luccioni, S., Gamazaychikov, B. (2025). <em>AI Energy Score v2.</em> Hugging Face Blog (déc 2025).</li>
+<li>Jegham, N., Abdelatti, M., Elmoubarki, L., Hendawi, A. (2025). <em>How Hungry is AI?</em> arXiv:2505.09598 v6.</li>
+<li>Elsworth, C. et al. / Google (2025). <em>Measuring the environmental impact of delivering AI at Google Scale.</em> arXiv:2508.15734.</li>
+<li>Mistral AI, Carbone 4, ADEME (2025). <em>Our contribution to a global environmental standard for AI.</em></li>
+<li>You, J. / Epoch AI (2025). <em>How much energy does ChatGPT use?</em></li>
+<li>IEA (avril 2025). <em>Energy and AI</em> (rapport ~300 pages).</li>
+<li>Luccioni, S., Jernite, Y., Strubell, E. (2024). <em>Power Hungry Processing.</em> FAccT '24.</li>
+<li>Anthropic (février 2026). <em>Investing in energy to secure America's AI future.</em></li>
+</ul>
+`,
+  },
+  {
     slug: 'intelligence-artificielle-pme-bretagne-guide',
     title: 'Intelligence artificielle pour PME : guide pratique pour les entreprises bretonnes',
     description:

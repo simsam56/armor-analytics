@@ -595,7 +595,6 @@ export const TRUST_SIGNALS = [
 ];
 
 // Helper functions (ex site-config.ts)
-// getCalendlyUrl() supprimé — remplacé par /audit-ia (quiz) et /contact
 
 export function getContactEmail(): string {
   return SITE_CONFIG.email;

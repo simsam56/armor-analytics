@@ -38,7 +38,7 @@ Déploiement : chaque push sur `master` déclenche un déploiement automatique s
 
 ### Configuration unique
 
-`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (4 expertises modulables), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (6 questions), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getCalendlyUrl()`, `getContactEmail()`, `getBrandName()`.
+`src/lib/constants.ts` est la seule source de vérité pour tout le contenu textuel. Il exporte `SITE_CONFIG`, `KEY_METRICS`, `SERVICES` (4 expertises modulables), `PROJECTS` (4 cas clients), `FAQ_ITEMS` (6 questions), `NAV_LINKS`, `PROCESS_STEPS` (4 étapes), `TRUST_SIGNALS`, `TECH_STACK`, `SECTORS`, `METHODOLOGY`, `PRICE_FACTORS` et les helpers `getContactEmail()`, `getBrandName()`. Calendly a été retiré du site — les CTA pointent vers `/audit-ia` (quiz) et `/contact` (formulaire Resend).
 
 Autres fichiers de données :
 - `src/data/blog-articles.ts` — Articles blog (metadata + contenu HTML)
@@ -49,7 +49,7 @@ Autres fichiers de données :
 
 - **Hero homepage** (`HeroV3`) : fond gradient `breton-foam` → `breton-sand`, badge local centré avec dot emerald pulsant, titre Instrument Serif centré + sous-titre + 2 CTAs + micro-preuves. `min-h-screen`, centré `text-center`.
 - **Hero pages intérieures** (`Hero`) : fond gradient `breton-foam` → `breton-sand`, API simplifiée `title` + `subtitle`, `-mt-16 pt-32` pour chevaucher le header.
-- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). Un seul CTA "Demander un diagnostic" (Calendly).
+- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). CTA principal "Mes priorités IA →" (pointe vers `/audit-ia`, le quiz de diagnostic).
 - **Sections** : alternance `bg-white` / `bg-breton-foam` / bande `bg-breton-sand`. Le navy n'apparaît qu'au CTA final et au footer. Padding `py-[110px]` desktop, `py-16` mobile
 - **Cards** : `rounded-2xl`, borders `breton-sand`, hover shadows
 - **CTA sombres** : fond `breton-navy`, bouton sable inversé `bg-breton-sand text-breton-navy`

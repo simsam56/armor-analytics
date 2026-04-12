@@ -23,7 +23,7 @@ Voir historique git pour le détail.
 - [x] Fix title tags doublonnés (5 pages)
 - [x] Footer H3 → p sémantiques
 - [x] Canonical URL homepage
-- [x] Preconnect Calendly
+- [x] Preconnect Calendly (supprimé depuis — Calendly retiré du site)
 - [x] Footer tagline mis à jour
 - [x] Quiz /audit-ia promu en homepage (CTA micro-conversion)
 - [x] Contrastes WCAG (text-white/40 → /60)
@@ -76,8 +76,9 @@ Voir historique git pour le détail.
 
 ## Phase 14 — Conversion / CRO (à faire — priorité moyenne)
 
+- [ ] Email capture quiz : demander l'email AVANT de montrer les résultats
+- [ ] Formulaire contact rapide (email + 1 question) en entrée de conversion
 - [ ] Email nurturing post-quiz (séquence 3-5 emails via Resend)
-- [ ] Formulaire contact rapide (email + 1 question)
 - [ ] A/B test CTA homepage quand trafic suffisant
 - [ ] Page /ressources ou /guides avec PDF téléchargeables (lead magnets)
 - [x] Conversion tracking GA4 (contact_form_submit, audit_quiz_complete, cookie_consent)

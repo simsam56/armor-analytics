@@ -223,8 +223,17 @@
   @apply text-base text-slate-700 leading-relaxed mb-5;
 }
 
+.article-prose ul,
+.article-prose ol {
+  @apply my-6 space-y-2 pl-6;
+}
+
 .article-prose ul {
-  @apply my-6 space-y-2 pl-6 list-disc;
+  @apply list-disc;
+}
+
+.article-prose ol {
+  @apply list-decimal;
 }
 
 .article-prose li {
@@ -243,6 +252,135 @@
   @apply text-breton-copper font-medium hover:underline;
 }
 
+.article-prose figure {
+  @apply my-10;
+}
+
+.article-prose figure img {
+  @apply w-full h-auto rounded-2xl border border-breton-sand;
+}
+
+.article-prose figcaption {
+  @apply mt-3 text-center text-sm italic text-slate-500;
+}
+
+.article-prose .article-table-wrapper {
+  @apply my-8 overflow-x-auto rounded-2xl border border-breton-sand;
+}
+
+.article-prose table {
+  @apply w-full text-sm border-collapse;
+}
+
+.article-prose thead {
+  @apply bg-breton-foam;
+}
+
+.article-prose th {
+  @apply text-left p-3 font-semibold text-xs uppercase tracking-wide text-slate-600;
+}
+
+.article-prose td {
+  @apply p-3 text-slate-700 border-t border-breton-sand align-top;
+}
+
+.article-prose tbody tr:nth-child(even) td {
+  @apply bg-breton-foam/50;
+}
+
+.article-prose .article-callout {
+  @apply my-8 rounded-2xl border-l-4 bg-breton-foam pl-6 pr-5 py-5;
+}
+
+.article-prose .article-callout p {
+  @apply mb-3 text-slate-700;
+}
+
+.article-prose .article-callout p:last-child {
+  @apply mb-0;
+}
+
+.article-prose .article-callout .callout-title {
+  @apply block font-semibold text-xs tracking-wide uppercase mb-2;
+}
+
+.article-prose .article-callout.callout-info {
+  @apply border-breton-granite;
+}
+.article-prose .article-callout.callout-info .callout-title {
+  @apply text-breton-slate;
+}
+
+.article-prose .article-callout.callout-warning {
+  @apply border-breton-copper;
+}
+.article-prose .article-callout.callout-warning .callout-title {
+  @apply text-breton-copper;
+}
+
+.article-prose .article-callout.callout-key {
+  @apply border-breton-emerald;
+}
+.article-prose .article-callout.callout-key .callout-title {
+  @apply text-breton-emerald;
+}
+
+.article-prose .article-statgrid {
+  @apply my-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3;
+}
+
+.article-prose .article-stat {
+  @apply rounded-2xl border border-breton-sand bg-breton-foam p-5;
+}
+
+.article-prose .article-stat .stat-value {
+  @apply block text-3xl font-bold text-breton-copper mb-1;
+}
+
+.article-prose .article-stat .stat-label {
+  @apply block text-slate-900 font-medium mb-1;
+}
+
+.article-prose .article-stat .stat-caption {
+  @apply block text-sm italic text-slate-500;
+}
+
+.article-prose .article-toc {
+  @apply my-8 rounded-2xl border border-breton-sand bg-breton-foam p-6;
+}
+
+.article-prose .article-toc .toc-title {
+  @apply block text-xs uppercase tracking-widest font-semibold text-slate-500 mb-4;
+}
+
+.article-prose .article-toc ol {
+  @apply my-0 grid gap-x-8 gap-y-1 pl-0 list-none md:grid-cols-2;
+}
+
+.article-prose .article-toc li {
+  @apply text-sm;
+}
+
+.article-prose .article-toc a {
+  @apply flex items-baseline gap-3 py-1 text-slate-700 hover:text-breton-copper transition-colors;
+}
+
+.article-prose .article-toc .toc-num {
+  @apply font-mono text-xs text-breton-copper;
+}
+
+.article-prose .article-sources {
+  @apply my-6 space-y-3 text-sm text-slate-600 list-none pl-0;
+}
+
+.article-prose .article-sources li {
+  @apply text-sm text-slate-600 leading-relaxed;
+}
+
 .article-prose > *:first-child {
   margin-top: 0;
+}
+
+.article-prose h2[id] {
+  scroll-margin-top: 6rem;
 }

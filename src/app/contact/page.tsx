@@ -49,7 +49,7 @@ export default function ContactPage() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
-            {/* Left side - Calendly + Info */}
+            {/* Left side - Info + Coordonnées */}
             <div className="space-y-8">
               <div className="rounded-2xl border border-breton-sand bg-breton-foam p-8">
                 <h2 className="text-2xl font-bold text-slate-900">Appel découverte gratuit</h2>
