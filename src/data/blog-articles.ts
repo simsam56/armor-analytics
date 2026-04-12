@@ -78,7 +78,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <h3>💧 Eau — en litres et équivalent douches</h3>
 
-<p>Pour cette métrique, j'ai gardé les <strong>litres bruts</strong> comme valeur principale, avec des équivalences variables selon l'échelle (verres d'eau pour les modèles légers, douches pour les gros).</p>
+<p>Pour cette métrique, j'ai gardé les <strong>litres bruts</strong> comme valeur principale.</p>
 
 <figure>
 <img src="/blog/empreinte-llm/visuel-2-eau.svg" alt="Graphique en barres de la consommation d'eau annuelle de 9 modèles LLM, en litres" width="1200" height="650" loading="lazy" />
@@ -236,7 +236,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
 
 <div class="article-callout callout-info">
 <span class="callout-title">Implication pratique</span>
-<p>Un même usage de Claude Sonnet émet ~7× plus de CO₂ s'il tourne sur un datacenter US qu'en France. Et ~15× plus que via une infra chinoise. <strong>Le choix d'infrastructure pèse autant que le choix de modèle.</strong></p>
+<p>Un même usage de Claude Sonnet émet ~7× plus de CO₂ s'il tourne sur un datacenter US qu'en France. Et ~11× plus via une infra chinoise (mix charbon). <strong>Le choix d'infrastructure pèse autant que le choix de modèle.</strong></p>
 </div>
 
 <h2 id="section-5">05 — Et le training dans tout ça ?</h2>
