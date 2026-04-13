@@ -153,7 +153,7 @@ export function Header() {
             size="sm"
             className="gap-2 bg-breton-navy text-white hover:bg-breton-slate"
           >
-            <Link href="/audit-ia">Diagnostic 490€ &rarr;</Link>
+            <Link href="/audit-ia">Diagnostic gratuit &rarr;</Link>
           </Button>
         </div>
       </nav>
@@ -194,7 +194,7 @@ export function Header() {
             </Button>
             <Button asChild className="w-full bg-breton-navy hover:bg-breton-slate">
               <Link href="/audit-ia" onClick={closeMobileMenu}>
-                Diagnostic 490€ &rarr;
+                Diagnostic gratuit &rarr;
               </Link>
             </Button>
           </div>

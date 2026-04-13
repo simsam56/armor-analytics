@@ -19,13 +19,13 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'IA et automatisation pour PME agroalimentaire en Bretagne',
   description:
-    'Automatisation des commandes, traçabilité qualité, conformité réglementaire. Diagnostic terrain 490\u00a0\u20ac pour PME agroalimentaires bretonnes.',
+    'Automatisation des commandes, traçabilité qualité, conformité réglementaire. Diagnostic terrain gratuit pour PME agroalimentaires bretonnes.',
   keywords:
     'IA agroalimentaire Bretagne, automatisation commandes agroalimentaire, traçabilité qualité agroalimentaire, audit IFS BRC automatisé, PME agroalimentaire Bretagne, LIMS ERP agroalimentaire',
   openGraph: {
     title: 'IA et automatisation pour PME agroalimentaire en Bretagne \u2014 balise-ia',
     description:
-      'Automatisation des commandes, tra\u00e7abilit\u00e9 qualit\u00e9, conformit\u00e9 r\u00e9glementaire. Diagnostic terrain 490\u00a0\u20ac pour PME agroalimentaires bretonnes.',
+      'Automatisation des commandes, tra\u00e7abilit\u00e9 qualit\u00e9, conformit\u00e9 r\u00e9glementaire. Diagnostic terrain gratuit pour PME agroalimentaires bretonnes.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -295,7 +295,7 @@ export default function IaAgroalimentaireBretagnePage() {
               Première étape
             </p>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Diagnostic terrain — 490&nbsp;€ HT, 3 jours sur site
+              Diagnostic terrain gratuit — 3 jours sur site
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
               On vient dans vos locaux, on observe vos process, on échange avec vos équipes. Vous

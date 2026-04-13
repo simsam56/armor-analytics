@@ -413,7 +413,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               className="h-13 bg-white px-8 text-base font-semibold text-breton-emerald hover:bg-white/90"
             >
               <Link href="/audit-ia" className="gap-2">
-                Diagnostic terrain 490€ →
+                Diagnostic terrain gratuit →
               </Link>
             </Button>
             <Button

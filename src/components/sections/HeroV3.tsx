@@ -80,7 +80,7 @@ export function HeroV3() {
                 hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
                 transition-all duration-200"
             >
-              Diagnostic terrain 490€ →
+              Diagnostic terrain gratuit →
             </Link>
             <Link
               href="/cas-clients"

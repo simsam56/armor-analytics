@@ -334,21 +334,18 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
                 step: '1',
                 title: 'Diagnostic sur site',
                 description: `On vient à ${city.name} pour comprendre vos process, vos données, vos irritants. Durée : 1 à 2 semaines.`,
-                price: '2 000 – 5 000 € HT',
               },
               {
                 step: '2',
                 title: 'Automatisation',
                 description:
                   'On met en place les automatisations et tableaux de bord. Vos équipes sont formées et autonomes.',
-                price: '8 000 – 25 000 € HT',
               },
               {
                 step: '3',
                 title: 'IA ciblée',
                 description:
                   "Si pertinent, on déploie une solution IA sur un cas d'usage précis. OCR, prévision, classification.",
-                price: '15 000 – 40 000 € HT',
               },
             ].map((offer) => (
               <div
@@ -360,7 +357,6 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-slate-900">{offer.title}</h3>
                 <p className="mt-2 text-sm text-slate-600">{offer.description}</p>
-                <p className="mt-4 text-sm font-medium text-slate-500">{offer.price}</p>
               </div>
             ))}
           </div>

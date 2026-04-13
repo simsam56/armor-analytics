@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Diagnostic production PME — Quiz gratuit 5 min + Terrain 490€',
+  title: 'Diagnostic production PME — Quiz gratuit 5 min + Terrain gratuit',
   description:
-    'Identifiez vos priorités pilotage production en 5 minutes (quiz gratuit) ou en 3 jours sur site (diagnostic terrain 490€ HT). Pour PME industrielles bretonnes.',
+    'Identifiez vos priorités pilotage production en 5 minutes (quiz gratuit) ou en 3 jours sur site (diagnostic terrain gratuit). Pour PME industrielles bretonnes.',
   keywords: [
     'diagnostic production PME',
     'audit IA PME industrielle',
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     'diagnostic terrain PME',
   ],
   openGraph: {
-    title: 'Diagnostic production PME — Quiz gratuit + Terrain 490€',
+    title: 'Diagnostic production PME — Quiz gratuit + Terrain gratuit',
     description:
-      'Quiz gratuit 5 min ou diagnostic terrain 3 jours sur site. Pour PME industrielles bretonnes.',
+      'Quiz gratuit 5 min ou diagnostic terrain gratuit 3 jours sur site. Pour PME industrielles bretonnes.',
     type: 'website',
   },
   alternates: {
@@ -51,7 +51,7 @@ const AUDIT_FAQ = [
   },
   {
     q: 'Quelle différence entre le quiz en ligne et le diagnostic terrain ?',
-    a: 'Le quiz en ligne est gratuit et donne un premier aperçu en 5 minutes. Le diagnostic terrain (490\u20ac HT) va beaucoup plus loin : 3 jours sur site, échanges avec vos équipes, cartographie détaillée de vos process, et roadmap priorisée avec les 3 chantiers les plus impactants.',
+    a: 'Le quiz en ligne est gratuit et donne un premier aperçu en 5 minutes. Le diagnostic terrain va beaucoup plus loin : 3 jours sur site, échanges avec vos équipes, cartographie détaillée de vos process, et roadmap priorisée avec les 3 chantiers les plus impactants.',
   },
   {
     q: 'C\u2019est pour quel type d\u2019entreprise ?',
@@ -209,7 +209,7 @@ export default function AuditPage() {
               Pour aller plus loin
             </p>
             <h2 className="text-2xl font-bold text-breton-navy sm:text-3xl">
-              Diagnostic terrain — 490€ HT, 3 jours sur site
+              Diagnostic terrain — 3 jours sur site
             </h2>
             <p className="mt-4 text-breton-slate max-w-2xl mx-auto leading-relaxed">
               Je viens dans votre entreprise. J&apos;observe, j&apos;échange avec vos équipes,
@@ -247,7 +247,7 @@ export default function AuditPage() {
               <Link href="/contact">Demander un diagnostic terrain →</Link>
             </Button>
             <p className="mt-3 text-sm text-breton-granite">
-              490€ HT · Déplacement Bretagne inclus · Rapport écrit sous 1 semaine
+              Déplacement Bretagne inclus · Rapport écrit sous 1 semaine
             </p>
           </div>
         </div>

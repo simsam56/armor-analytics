@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
 const STATS = [
   { value: '5', label: 'Secteurs industriels' },
-  { value: '490€', label: 'Diagnostic terrain' },
+  { value: 'Gratuit', label: 'Diagnostic terrain' },
   { value: '100%', label: 'Projets livrés en Bretagne' },
 ];
 

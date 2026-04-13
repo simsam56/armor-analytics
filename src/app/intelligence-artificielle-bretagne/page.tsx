@@ -166,9 +166,9 @@ const IA_FAQ = [
       "Les cas d\u2019usage les plus courants en PME industrielle sont l\u2019OCR (extraction automatique de données depuis des documents), la prévision de demande, la classification automatique de documents, le contrôle qualité par vision et les chatbots sur documentation interne. Il ne s\u2019agit pas de déployer ChatGPT partout, mais de cibler les tâches où l\u2019IA apporte un gain mesurable : temps, fiabilité, réactivité.",
   },
   {
-    question: "Combien coûte un projet d\u2019intelligence artificielle pour une PME ?",
+    question: "Comment se lance un projet d\u2019intelligence artificielle dans une PME ?",
     answer:
-      "Un premier projet IA coûte entre 5 000 et 20 000 \u20AC HT selon la complexité du cas d\u2019usage. On commence toujours par un cas ciblé à ROI rapide. Le retour sur investissement est généralement visible en 2 à 3 mois. L\u2019audit initial (2 000 à 5 000 \u20AC HT) permet de chiffrer précisément le projet avant engagement.",
+      "On commence toujours par un diagnostic terrain gratuit pour identifier le cas d\u2019usage le plus rentable. Le retour sur investissement est généralement visible en 2 à 3 mois. Chaque projet est chiffré précisément après le diagnostic, sans engagement.",
   },
   {
     question: "Faut-il des données structurées avant de lancer un projet IA ?",

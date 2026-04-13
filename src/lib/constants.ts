@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'balise-ia',
   tagline: 'Pilotage production et IA pour PME industrielles bretonnes',
   description:
-    'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain 490\u20ac, Bretagne.',
+    'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain gratuit, Bretagne.',
   url: 'https://www.balise-ia.fr',
   email: 'contact@balise-ia.fr',
   phone: '06 63 85 77 39',

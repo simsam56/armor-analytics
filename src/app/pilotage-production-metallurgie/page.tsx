@@ -19,13 +19,13 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
   title: 'Pilotage production pour PME m\u00e9tallurgie et chaudronnerie | Bretagne',
   description:
-    'Dashboard production temps r\u00e9el, TRS automatis\u00e9, tra\u00e7abilit\u00e9 qualit\u00e9. Par un ancien superviseur de production navale. Diagnostic terrain 490\u20ac, Bretagne.',
+    'Dashboard production temps r\u00e9el, TRS automatis\u00e9, tra\u00e7abilit\u00e9 qualit\u00e9. Par un ancien superviseur de production navale. Diagnostic terrain gratuit, Bretagne.',
   keywords:
     'pilotage production m\u00e9tallurgie, TRS automatis\u00e9, dashboard production PME, chaudronnerie Bretagne, tra\u00e7abilit\u00e9 qualit\u00e9 m\u00e9tallurgie, suivi production temps r\u00e9el',
   openGraph: {
     title: 'Pilotage production pour PME m\u00e9tallurgie et chaudronnerie \u2014 balise-ia',
     description:
-      'Dashboard production temps r\u00e9el, TRS automatis\u00e9, tra\u00e7abilit\u00e9 qualit\u00e9. Par un ancien superviseur de production navale. Diagnostic terrain 490\u20ac, Bretagne.',
+      'Dashboard production temps r\u00e9el, TRS automatis\u00e9, tra\u00e7abilit\u00e9 qualit\u00e9. Par un ancien superviseur de production navale. Diagnostic terrain gratuit, Bretagne.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -258,7 +258,7 @@ export default function PilotageProductionMetallurgiePage() {
       <section className="py-20 sm:py-24 bg-breton-navy">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Diagnostic terrain &mdash; 490&nbsp;&euro; HT
+            Diagnostic terrain gratuit
           </h2>
           <p className="mt-4 mx-auto max-w-2xl text-lg text-white/70 leading-relaxed">
             3 jours sur site. On observe vos flux, on &eacute;change avec vos &eacute;quipes, on

@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pilotage production IA pour PME industrielles | Lorient, Bretagne',
   description:
-    'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain 490\u20ac, Bretagne.',
+    'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain gratuit, Bretagne.',
 };
 
 export default function Home() {
@@ -169,88 +169,6 @@ export default function Home() {
 
       {/* Section : Cas clients */}
       <Projects limit={3} showLink />
-
-      {/* Section : Budget & financement */}
-      <section className="py-16 sm:py-20 bg-white">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center font-serif text-3xl sm:text-4xl text-breton-navy mb-4">
-            Quel budget prévoir ?
-          </h2>
-          <p className="text-center text-breton-slate mb-12 max-w-2xl mx-auto">
-            Des fourchettes honnêtes. Chaque projet commence par le diagnostic terrain — les
-            montants dépendent du périmètre défini ensemble.
-          </p>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: 'Diagnostic terrain',
-                price: '490€ HT',
-                detail: '3 jours sur site, rapport écrit, roadmap priorisée',
-                highlight: true,
-              },
-              {
-                title: 'Dashboard production',
-                price: '3 000 – 8 000€ HT',
-                detail: 'Tableau de bord temps réel connecté à votre ERP/GPAO',
-                highlight: false,
-              },
-              {
-                title: 'Automatisation de flux',
-                price: '5 000 – 15 000€ HT',
-                detail: 'Commandes, reporting, extraction de données, intégration ERP',
-                highlight: false,
-              },
-              {
-                title: 'Mémoire opérationnelle',
-                price: '5 000 – 12 000€ HT',
-                detail: 'Base de connaissances métier, accessible à toute l\u2019équipe',
-                highlight: false,
-              },
-              {
-                title: 'Formation sur site',
-                price: '800 – 2 000€ HT/mois',
-                detail: 'Accompagnement mensuel, dans votre contexte, avec vos données',
-                highlight: false,
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className={`rounded-2xl p-6 border-2 ${
-                  item.highlight
-                    ? 'border-breton-emerald bg-breton-foam'
-                    : 'border-breton-sand bg-white'
-                }`}
-              >
-                <h3 className="font-semibold text-breton-navy mb-1">{item.title}</h3>
-                <p className="text-2xl font-bold text-breton-emerald mb-2">{item.price}</p>
-                <p className="text-sm text-breton-slate">{item.detail}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Aides au financement */}
-          <div className="mt-12 rounded-2xl bg-breton-foam border border-breton-sand p-8">
-            <h3 className="font-semibold text-breton-navy mb-3 text-lg">
-              Aides au financement disponibles
-            </h3>
-            <p className="text-breton-slate mb-4 leading-relaxed">
-              Vos projets data et IA peuvent être éligibles à des dispositifs de financement.
-              Je vous accompagne dans le montage des dossiers.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {['BPI France', 'Région Bretagne', 'OPCO (formation)', 'CCI'].map((aide) => (
-                <span
-                  key={aide}
-                  className="text-xs bg-white border border-breton-sand rounded-full px-4 py-1.5 text-breton-slate font-medium"
-                >
-                  {aide}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Section : FAQ */}
       <FAQ />

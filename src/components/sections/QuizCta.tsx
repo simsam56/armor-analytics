@@ -19,7 +19,7 @@ export function QuizCta() {
             Offre d&apos;entrée
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
-            Diagnostic terrain — 490€, 3 jours sur site
+            Diagnostic terrain — 3 jours sur site
           </h2>
           <p className="mt-4 text-lg text-breton-slate max-w-2xl mx-auto">
             Je viens dans votre entreprise. J&apos;observe, j&apos;échange avec vos équipes,
@@ -36,7 +36,7 @@ export function QuizCta() {
             </Button>
           </div>
           <p className="mt-4 text-sm text-breton-granite">
-            3 jours · 490€ HT · Rapport écrit inclus · Déplacement Bretagne inclus
+            3 jours sur site · Rapport écrit inclus · Déplacement Bretagne inclus
           </p>
         </motion.div>
       </div>

@@ -45,7 +45,7 @@ const DIFFERENTIATORS = [
     them: 'Projet de 12-18 mois',
   },
   {
-    us: 'Diagnostic terrain 490€, prix clairs',
+    us: 'Diagnostic terrain gratuit, sans engagement',
     them: 'Régie au jour facturé',
   },
   {
@@ -276,7 +276,7 @@ export default function AboutPage() {
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="h-13 px-8 text-base gap-2">
-              <Link href="/audit-ia">Diagnostic terrain 490€ →</Link>
+              <Link href="/audit-ia">Diagnostic terrain gratuit →</Link>
             </Button>
             <Button
               asChild
