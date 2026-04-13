@@ -1,28 +1,24 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Users,
-  Target,
-  Shield,
   MapPin,
   CheckCircle,
   Lock,
   Wrench,
   BookOpen,
+  XCircle,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
-import { TeamSection } from '@/components/sections/TeamSection';
-import { CoastalBand } from '@/components/sections/CoastalBand';
 
 export const metadata: Metadata = {
-  title: 'Collectif data et IA pour PME bretonnes — Lorient, Bretagne',
+  title: '7 ans de terrain industriel, puis la data',
   description:
-    'Experts seniors data, IA et automatisation. Basés à Lorient, on intervient sur site en Bretagne. Pas de juniors, pas d\u2019intermédiaires, des résultats mesurables.',
+    'Supervision navale (frégates FDI, Naval Group), planification de production, achats, logistique. 7 ans de terrain industriel avant de fonder BALISE IA à Lorient pour les PME bretonnes.',
   openGraph: {
     title: 'À propos — balise-ia',
     description:
-      'Collectif data et IA pour PME bretonnes. Basés à Lorient, on intervient sur site.',
+      '7 ans de terrain industriel puis la data. Fondateur de BALISE IA, basé à Lorient.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -31,59 +27,17 @@ export const metadata: Metadata = {
   },
 };
 
-const VALUES = [
-  {
-    icon: Target,
-    title: 'Pragmatisme',
-    description:
-      'On part de vos irritants quotidiens — pas d\u2019un cahier des charges théorique. Chaque intervention vise un gain concret et mesurable.',
-  },
-  {
-    icon: Users,
-    title: 'Proximité',
-    description:
-      'Basés à Lorient, on se déplace chez vous. Entretiens métier, ateliers terrain, formation : on comprend votre réalité avant de proposer quoi que ce soit.',
-  },
-  {
-    icon: Shield,
-    title: 'Transparence',
-    description:
-      'Prix clairs dès le départ, délais tenus, résultats documentés dans un bilan chiffré. Pas de surprise en fin de projet.',
-  },
-];
-
-const GUARANTEES = [
-  {
-    icon: Lock,
-    title: 'Confidentialité',
-    description:
-      'NDA systématique avant tout accès à vos données. Hébergement en France. Suppression des données de test après livraison.',
-  },
-  {
-    icon: Wrench,
-    title: 'Vos outils, pas les nôtres',
-    description:
-      'On se branche sur votre ERP, votre Excel, vos process existants. Pas de grand remplacement, pas de migration forcée.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Autonomie garantie',
-    description:
-      'Documentation complète, formation des équipes, support post-livraison. L\u2019objectif : que vous n\u2019ayez plus besoin de nous au quotidien.',
-  },
-];
-
 const DIFFERENTIATORS = [
   {
-    us: 'Experts seniors uniquement',
-    them: 'Juniors sur le terrain',
+    us: 'Expérience terrain industriel (7 ans)',
+    them: 'Consultants sortis d\u2019école',
   },
   {
     us: 'Interlocuteur unique du début à la fin',
     them: 'Commercial ≠ consultant ≠ développeur',
   },
   {
-    us: 'On utilise vos outils existants',
+    us: 'J\u2019utilise vos outils existants',
     them: 'Remplacement complet du SI',
   },
   {
@@ -91,7 +45,7 @@ const DIFFERENTIATORS = [
     them: 'Projet de 12-18 mois',
   },
   {
-    us: 'Tarifs clairs, budget maîtrisé',
+    us: 'Diagnostic terrain 490€, prix clairs',
     them: 'Régie au jour facturé',
   },
   {
@@ -100,195 +54,164 @@ const DIFFERENTIATORS = [
   },
 ];
 
-const STORY_CHAPTERS = [
-  {
-    title: 'Le constat',
-    content:
-      'Dans les PME bretonnes, le schéma est toujours le même : des équipes compétentes qui perdent du temps sur des tâches sans valeur. Des données dispersées entre ERP, Excel et fiches papier. Des décisions prises à l\u2019instinct faute de vision claire.',
-  },
-  {
-    title: 'Le problème',
-    content:
-      'Les ESN proposent des solutions calibrées pour les grands comptes : chères, longues, et qui nécessitent des équipes IT dédiées. Les éditeurs vendent des logiciels génériques qui ne collent pas au métier. Résultat : les PME restent bloquées.',
-  },
-  {
-    title: 'Notre réponse',
-    content:
-      'balise-ia intervient différemment : on part de vos vrais problèmes, on utilise vos outils existants, et on livre des résultats rapides. L\u2019objectif n\u2019est pas de vous rendre dépendants, mais de vous rendre autonomes.',
-  },
-];
-
 const AREAS = ['Lorient', 'Vannes', 'Quimper', 'Brest', 'Rennes', 'Saint-Brieuc', 'Nantes'];
 
-const FAQ_ABOUT = [
-  {
-    question: 'Qui compose le collectif balise-ia ?',
-    answer:
-      'balise-ia est un collectif d\u2019experts seniors en data, automatisation et IA. Pas de juniors, pas d\u2019interm\u00e9diaires : les personnes que vous rencontrez au d\u00e9but du projet sont celles qui le r\u00e9alisent. Nous sommes bas\u00e9s \u00e0 Lorient.',
-  },
-  {
-    question: 'Dans quelle zone g\u00e9ographique intervenez-vous ?',
-    answer:
-      'Nous intervenons sur site en Bretagne : Lorient, Vannes, Quimper, Brest, Rennes, Saint-Brieuc et Nantes. Les phases cl\u00e9s (diagnostic, ateliers, formation) se font chez vous. Le d\u00e9veloppement et le suivi courant peuvent se faire \u00e0 distance.',
-  },
-  {
-    question: 'Travaillez-vous avec tous les secteurs d\u2019activit\u00e9 ?',
-    answer:
-      'Nous accompagnons principalement les PME industrielles et de services : agroalimentaire, naval, logistique, m\u00e9tallurgie, distribution, BTP. Notre approche s\u2019adapte \u00e0 tout secteur qui g\u00e9n\u00e8re des donn\u00e9es m\u00e9tier \u00e0 structurer.',
-  },
-  {
-    question: 'Comment se passe un premier contact ?',
-    answer:
-      'Un \u00e9change de 30 minutes, sans engagement et sans jargon. On \u00e9coute votre contexte, vos irritants, vos objectifs. Si nos expertises correspondent, on propose un diagnostic sur site de 1 \u00e0 2 semaines.',
-  },
-  {
-    question: 'Quelle est votre politique de confidentialit\u00e9 ?',
-    answer:
-      'Nous signons un accord de confidentialit\u00e9 (NDA) avant tout acc\u00e8s \u00e0 vos donn\u00e9es. L\u2019h\u00e9bergement est en France. Les donn\u00e9es de test sont supprim\u00e9es apr\u00e8s livraison. Le d\u00e9tail est disponible dans nos mentions l\u00e9gales.',
-  },
-];
-
 export default function AboutPage() {
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQ_ABOUT.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
       <Hero
-        title={'Un collectif terrain,\nspécialisé PME bretonnes'}
-        subtitle="On connaît vos ERP, vos contraintes de production, vos enjeux de fiabilité. Parce qu'on a travaillé dans l'industrie avant de faire du conseil."
+        title="7 ans de terrain. Puis la data."
+        subtitle="De la supervision de frégates de défense à l&apos;IA pour PME industrielles — par quelqu&apos;un qui a fait ce travail à la main."
       />
 
-      {/* Ce qu'on fait concrètement */}
+      {/* Section 1 — Le parcours */}
       <section className="py-20 sm:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 items-start">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
-                Ce qu&apos;on fait
-              </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-                On automatise ce qui vous fait perdre du temps
-              </h2>
-              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                Ressaisies entre outils, reporting manuel, données dispersées, fichiers Excel qui
-                circulent par email — on élimine tout ça. On met en place des flux automatisés, des
-                tableaux de bord utiles, et on forme vos équipes pour qu&apos;elles soient
-                autonomes.
-              </p>
-              <p className="mt-4 text-slate-600 leading-relaxed">
-                On ne vend pas de la technologie. On vend du temps gagné, des erreurs évitées et de
-                la visibilité sur votre activité.
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            <div className="relative pl-8 border-l-2 border-breton-sand">
+              <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
+                <span className="text-xs font-bold text-white">1</span>
+              </div>
+              <h3 className="text-lg font-semibold text-breton-navy mb-2">2014–2021 : Le terrain</h3>
+              <p className="text-breton-slate leading-relaxed">
+                Supervision de construction navale (frégates FDI, Naval Group Lorient),
+                planification de production, achats industriels, logistique.
+                Des plannings Excel, des retards fournisseurs, des réunions de prod à 7h du matin.
               </p>
             </div>
 
-            <div className="space-y-4">
-              {GUARANTEES.map((guarantee) => (
-                <div
-                  key={guarantee.title}
-                  className="flex gap-4 p-5 rounded-xl bg-breton-foam border border-breton-sand"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-breton-emerald/10">
-                    <guarantee.icon className="h-5 w-5 text-breton-emerald" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">{guarantee.title}</h3>
-                    <p className="mt-1 text-sm text-slate-600 leading-relaxed">
-                      {guarantee.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="relative pl-8 border-l-2 border-breton-sand">
+              <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
+                <span className="text-xs font-bold text-white">2</span>
+              </div>
+              <h3 className="text-lg font-semibold text-breton-navy mb-2">2022 : Le virage</h3>
+              <p className="text-breton-slate leading-relaxed">
+                Bootcamp Data Science &amp; IA au Wagon (Nantes). Pas pour fuir l&apos;industrie —
+                pour lui apporter les outils qu&apos;elle n&apos;a pas encore.
+              </p>
+            </div>
+
+            <div className="relative pl-8 border-l-2 border-breton-emerald">
+              <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
+                <span className="text-xs font-bold text-white">3</span>
+              </div>
+              <h3 className="text-lg font-semibold text-breton-navy mb-2">Aujourd&apos;hui</h3>
+              <p className="text-breton-slate leading-relaxed">
+                Fondateur de BALISE IA, basé à Lorient. J&apos;interviens sur site dans les PME
+                industrielles bretonnes pour remplacer les plannings manuels par du pilotage
+                temps réel et capturer la connaissance métier avant qu&apos;elle ne parte.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Pourquoi balise-ia existe */}
-      <section className="py-20 sm:py-24 bg-breton-foam">
+      {/* Section 2 — Ma conviction */}
+      <section className="py-20 sm:py-24 bg-breton-sand">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss mb-4">
+            Ma conviction
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl mb-6">
+            L&apos;IA ne sert à rien si les équipes ne l&apos;adoptent pas.
+          </h2>
+          <p className="text-lg text-breton-slate leading-relaxed">
+            Et les équipes n&apos;adoptent pas ce qu&apos;elles ne comprennent pas. Mon travail
+            c&apos;est de faire le lien entre la technologie et les gens du terrain — parce que
+            j&apos;ai été de leur côté.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 3 — Ce que je ne fais pas */}
+      <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
-              Notre histoire
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Pourquoi balise-ia existe
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
+              Ce que je ne fais pas
             </h2>
           </div>
-
-          <div className="space-y-8">
-            {STORY_CHAPTERS.map((chapter, index) => (
-              <div key={chapter.title} className="relative pl-8 border-l-2 border-breton-sand">
-                <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
-                  <span className="text-xs font-bold text-white">{index + 1}</span>
-                </div>
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">{chapter.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{chapter.content}</p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                icon: XCircle,
+                text: 'Je ne livre pas des outils et je disparais.',
+              },
+              {
+                icon: XCircle,
+                text: 'Je ne vends pas des logiciels à 50k€ qui ne tournent jamais.',
+              },
+              {
+                icon: XCircle,
+                text: 'Je ne travaille pas avec des entreprises qui veulent remplacer leurs équipes par de l\u2019IA.',
+              },
+            ].map((item) => (
+              <div
+                key={item.text}
+                className="flex gap-3 p-6 rounded-2xl bg-breton-foam border border-breton-sand"
+              >
+                <item.icon className="h-5 w-5 text-red-400 shrink-0 mt-0.5" />
+                <p className="text-breton-slate leading-relaxed text-sm">{item.text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bande vidéo côtière */}
-      <CoastalBand />
-
-      {/* Valeurs */}
-      <section className="py-20 sm:py-24 bg-white">
+      {/* Garanties */}
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
-              Nos principes
-            </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Ce sur quoi on ne transige pas
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
+              Mes engagements
             </h2>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {VALUES.map((value) => (
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Lock,
+                title: 'Confidentialité',
+                description:
+                  'NDA systématique avant tout accès à vos données. Hébergement en France. Suppression des données de test après livraison.',
+              },
+              {
+                icon: Wrench,
+                title: 'Vos outils, pas les miens',
+                description:
+                  'Je me branche sur votre ERP, votre Excel, vos process existants. Pas de grand remplacement, pas de migration forcée.',
+              },
+              {
+                icon: BookOpen,
+                title: 'Autonomie garantie',
+                description:
+                  'Documentation complète, formation des équipes, support post-livraison. L\u2019objectif : que vous n\u2019ayez plus besoin de moi au quotidien.',
+              },
+            ].map((guarantee) => (
               <div
-                key={value.title}
-                className="p-8 rounded-2xl bg-breton-foam border border-breton-sand"
+                key={guarantee.title}
+                className="p-8 rounded-2xl bg-white border border-breton-sand"
               >
                 <div className="h-12 w-12 rounded-xl bg-breton-emerald/10 flex items-center justify-center mb-6">
-                  <value.icon className="h-6 w-6 text-breton-emerald" />
+                  <guarantee.icon className="h-6 w-6 text-breton-emerald" />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">{value.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-semibold text-breton-navy mb-3">{guarantee.title}</h3>
+                <p className="text-breton-slate leading-relaxed">{guarantee.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Équipe */}
-      <TeamSection />
-
-      {/* Comparaison ESN */}
+      {/* Comparaison */}
       <section className="py-20 sm:py-24 bg-breton-navy">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ce qui nous différencie
+              Ce qui me différencie
             </h2>
             <p className="mt-4 text-lg text-white/60">
-              Concrètement, voici ce que ça change de travailler avec un collectif terrain plutôt
-              qu&apos;une ESN ou un grand cabinet.
+              Concrètement, voici ce que ça change de travailler avec quelqu&apos;un qui vient
+              du terrain plutôt qu&apos;une ESN ou un grand cabinet.
             </p>
           </div>
 
@@ -316,10 +239,10 @@ export default function AboutPage() {
             <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
               Zone d&apos;intervention
             </p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Basés à Lorient, on intervient en Bretagne
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
+              Basé à Lorient, j&apos;interviens en Bretagne
             </h2>
-            <p className="mt-4 text-slate-600">
+            <p className="mt-4 text-breton-slate">
               Les phases clés se font sur site. Le développement et le suivi courant peuvent se
               faire à distance pour optimiser vos coûts.
             </p>
@@ -330,7 +253,7 @@ export default function AboutPage() {
               <Link
                 key={city}
                 href={`/interventions/${city.toLowerCase().replace("'", '').replace(' ', '-')}`}
-                className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-slate-700 border border-breton-sand hover:border-breton-emerald/30 transition-colors"
+                className="px-5 py-2.5 bg-white rounded-full text-sm font-medium text-breton-slate border border-breton-sand hover:border-breton-emerald/30 transition-colors"
               >
                 <MapPin className="inline h-3.5 w-3.5 mr-1.5 text-breton-emerald" />
                 {city}
@@ -343,29 +266,29 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Un premier échange ?
+          <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
+            Prêt à en discuter ?
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
-            30 minutes pour comprendre votre contexte. Sans engagement, sans jargon, on parle
-            concret.
+          <p className="mt-4 text-lg text-breton-slate">
+            Diagnostic terrain de 3 jours sur site, ou échange gratuit de 30 minutes. Sans
+            engagement, sans jargon.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="h-13 px-8 text-base gap-2">
-              <Link href="/audit-ia">Faire le diagnostic →</Link>
+              <Link href="/audit-ia">Diagnostic terrain 490€ →</Link>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="h-13 px-8 text-base border-slate-300"
+              className="h-13 px-8 text-base border-breton-sand"
             >
               <Link href="/contact">Nous contacter</Link>
             </Button>
           </div>
 
-          <p className="mt-6 text-sm text-slate-500">contact@balise-ia.fr</p>
+          <p className="mt-6 text-sm text-breton-granite">contact@balise-ia.fr</p>
         </div>
       </section>
     </>

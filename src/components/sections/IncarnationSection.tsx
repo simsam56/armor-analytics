@@ -3,23 +3,23 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useInView, useReducedMotion, useScroll, useTransform } from 'framer-motion';
-import { Flag, Lock, MapPin } from 'lucide-react';
+import { Factory, Wrench, MapPin } from 'lucide-react';
 import { sectionStagger, sectionChild, cardReveal } from '@/lib/animations';
 
 const noMotion = { hidden: {}, visible: {} };
 
 const TRUST_BADGES = [
   {
-    icon: Flag,
-    label: 'Données hébergées en France',
+    icon: Factory,
+    label: '7 ans en industrie navale',
   },
   {
-    icon: Lock,
-    label: 'NDA systématique',
+    icon: Wrench,
+    label: 'Planning, achats, logistique',
   },
   {
     icon: MapPin,
-    label: 'Interventions sur site',
+    label: 'Basé à Lorient, interventions sur site',
   },
 ] as const;
 
@@ -48,8 +48,8 @@ export function IncarnationSection() {
   return (
     <section
       ref={sectionRef}
-      id="qui-sommes-nous"
-      className="bg-white py-[80px] sm:py-[110px]"
+      id="pourquoi-moi"
+      className="bg-breton-sand py-[80px] sm:py-[110px]"
     >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -68,7 +68,7 @@ export function IncarnationSection() {
             >
               <Image
                 src="/simon-ordinateur.jpg"
-                alt="Simon Hingant présentant un tableau de bord data à un client"
+                alt="Simon Hingant, fondateur balise-ia, ancien superviseur de production navale"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -87,26 +87,40 @@ export function IncarnationSection() {
               variants={child}
               className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-6"
             >
-              Qui sommes-nous
+              Pourquoi moi
             </motion.p>
 
-            {/* Quote */}
-            <motion.blockquote variants={child} className="relative pl-7 mb-7">
-              <span
-                className="absolute left-0 top-1 bottom-1 w-[3px] bg-gradient-to-b from-breton-emerald to-breton-copper-light rounded-full"
-                aria-hidden="true"
-              />
-              <p className="font-serif text-[26px] lg:text-[34px] leading-[1.35] text-breton-navy italic">
-                On ne vend pas de la technologie. On simplifie le quotidien des équipes qui font
-                tourner les PME bretonnes.
+            {/* Title */}
+            <motion.h2
+              variants={child}
+              className="font-serif text-[26px] lg:text-[38px] leading-[1.2] text-breton-navy mb-6"
+            >
+              Je ne suis pas un consultant IA qui découvre l&apos;industrie.
+            </motion.h2>
+
+            {/* Body */}
+            <motion.div variants={child} className="space-y-4 text-breton-slate leading-relaxed">
+              <p>
+                J&apos;ai passé 7 ans sur le terrain — supervision de construction de frégates
+                de défense chez Naval Group, planification de production, achats, logistique.
+                J&apos;ai fait tourner des plannings à la main, géré des retards fournisseurs
+                à 4h du matin, et consolidé des Excel que personne d&apos;autre ne comprenait.
               </p>
-            </motion.blockquote>
+              <p>
+                Aujourd&apos;hui je construis les outils que j&apos;aurais voulu avoir à l&apos;époque.
+              </p>
+              <p className="font-medium text-breton-navy">
+                Ce que ça change pour vous : je n&apos;ai pas besoin qu&apos;on m&apos;explique
+                ce qu&apos;est un ordre de fabrication, un TRS ou un aléa de ligne. Je comprends
+                votre métier avant de parler technologie.
+              </p>
+            </motion.div>
 
             {/* Name & role */}
-            <motion.div variants={child}>
+            <motion.div variants={child} className="mt-6">
               <p className="text-base font-semibold text-breton-navy">Simon Hingant</p>
               <p className="text-sm text-breton-granite mt-0.5">
-                Fondateur, balise-ia · Lorient
+                Fondateur, BALISE IA · Lorient
               </p>
             </motion.div>
 
@@ -115,13 +129,13 @@ export function IncarnationSection() {
               variants={child}
               className="flex flex-wrap gap-2.5 mt-7"
               role="list"
-              aria-label="Garanties"
+              aria-label="Expérience terrain"
             >
               {TRUST_BADGES.map(({ icon: Icon, label }) => (
                 <div
                   key={label}
                   role="listitem"
-                  className="bg-breton-foam border border-breton-sand px-4 py-2 rounded-xl text-xs text-breton-slate flex items-center gap-1.5 hover:border-breton-emerald/20 hover:bg-breton-emerald/[0.03] transition-colors"
+                  className="bg-white/60 border border-breton-sand px-4 py-2 rounded-xl text-xs text-breton-slate flex items-center gap-1.5 hover:border-breton-emerald/20 hover:bg-white transition-colors"
                 >
                   <Icon size={14} className="text-breton-emerald shrink-0" aria-hidden="true" />
                   {label}

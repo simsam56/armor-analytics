@@ -39,15 +39,15 @@ export function CtaContact() {
             variants={prefersReducedMotion ? {} : sectionChild}
             className="font-serif text-[36px] sm:text-[60px] leading-[1.06] text-white tracking-[-0.025em]"
           >
-            Prêt à passer de la donnée brute à <br />
-            <span className="text-breton-copper-light">l&apos;action ?</span>
+            Prêt à reprendre le contrôle de votre{' '}
+            <span className="text-breton-copper-light">production ?</span>
           </motion.h2>
 
           <motion.p
             variants={prefersReducedMotion ? {} : sectionChild}
             className="text-lg text-white/60 mt-4"
           >
-            Quiz en ligne (5 min) ou échange gratuit de 30 minutes, sans engagement.
+            Diagnostic terrain de 3 jours sur site, ou échange gratuit de 30 minutes. Sans engagement.
           </motion.p>
 
           <motion.div
@@ -61,7 +61,7 @@ export function CtaContact() {
                 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)] hover:-translate-y-[3px]
                 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              Identifier mes priorités IA &amp; data →
+              Diagnostic terrain 490€ →
             </Link>
 
             <Link

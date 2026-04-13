@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ThreePillars } from '@/components/sections/ThreePillars';
 import { VideoBackground } from '@/components/ui/video-background';
 import { LocationBadge } from '@/components/animations';
 import { scaleInApple, sectionStagger, sectionChild } from '@/lib/animations';
@@ -40,10 +39,10 @@ export function HeroV3() {
             variants={scale}
             className="mt-8 font-serif text-[40px] sm:text-5xl lg:text-[76px] leading-[1.05] tracking-[-0.03em] text-white max-w-[820px] mx-auto"
           >
-            De la donnée brute à la{' '}
+            Arrêtez de piloter votre production{' '}
             <br />
             <span className="relative inline-block text-breton-sand italic">
-              décision claire.
+              à l&apos;aveugle.
               <span
                 className="absolute bottom-0.5 -inset-x-1 h-2 bg-white/10 rounded"
                 aria-hidden="true"
@@ -54,18 +53,22 @@ export function HeroV3() {
           {/* 3. Sous-titre */}
           <motion.p
             variants={child}
-            className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[520px] mx-auto"
+            className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[600px] mx-auto"
           >
-            Automatisation, tableaux de bord et IA pour des projets terrain, avec
-            interventions sur site et accompagnement local en Bretagne.
+            J&apos;aide les PME industrielles bretonnes à remplacer leur planning Excel
+            par un pilotage temps réel — et à ne plus dépendre d&apos;une seule personne
+            pour faire tourner leur atelier.
           </motion.p>
 
-          {/* 4. Trois piliers animés */}
-          <motion.div variants={child} className="mt-12 w-full">
-            <ThreePillars />
-          </motion.div>
+          {/* 4. Accroche secondaire */}
+          <motion.p
+            variants={child}
+            className="mt-4 text-sm sm:text-base text-breton-copper-light font-medium tracking-wide"
+          >
+            Par quelqu&apos;un qui a fait ce travail à la main pendant 7 ans.
+          </motion.p>
 
-          {/* 5. CTAs — boutons sous les cartes */}
+          {/* 5. CTAs */}
           <motion.div
             variants={child}
             className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
@@ -77,7 +80,7 @@ export function HeroV3() {
                 hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
                 transition-all duration-200"
             >
-              Identifier mes priorités IA &amp; data →
+              Diagnostic terrain 490€ →
             </Link>
             <Link
               href="/cas-clients"

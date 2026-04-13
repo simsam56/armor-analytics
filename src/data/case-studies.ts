@@ -31,6 +31,47 @@ export interface CaseStudy {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    slug: 'metallurgie-finistere',
+    title: 'De 4h de reporting manuel à un dashboard temps réel — PME métallurgie, Finistère',
+    sector: 'Métallurgie',
+    location: 'Finistère (29)',
+    employees: '80 salariés',
+    duration: '8 semaines',
+    beforeState: {
+      painPoints: [
+        '4h de compilation manuelle chaque semaine',
+        'Découverte des problèmes à J+5 minimum',
+        'Pas de vision temps réel sur les encours',
+      ],
+    },
+    intervention: {
+      description: 'Tableau de bord production connecté en temps réel.',
+      actions: [
+        'Connexion aux données machines et ERP',
+        'Dashboard temps réel : TRS, encours, écarts',
+        'Alertes automatiques sur anomalies',
+      ],
+      tools: ['API machines', 'Python', 'Metabase'],
+    },
+    afterState: {
+      results: [
+        '4h/semaine de reporting économisées',
+        'Problèmes détectés en temps réel',
+        '2 arrêts de ligne évités le premier mois',
+      ],
+    },
+    testimonial:
+      'On voit les problèmes en temps réel au lieu de les découvrir en fin de semaine.',
+    author: 'Jean-Pierre Morin',
+    role: 'Directeur de production',
+    metrics: [
+      { label: 'Reporting', value: '-4h/sem', highlight: true },
+      { label: 'Réactivité', value: 'x3' },
+      { label: 'ROI', value: '3 mois' },
+    ],
+    image: '/metallurgie.webp',
+  },
+  {
     slug: 'transport-logistique-cotes-armor',
     title: 'Reporting automatisé en J+0 — Transport & Logistique',
     sector: 'Transport & Logistique',
@@ -193,46 +234,5 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '4 mois' },
     ],
     image: '/agroalimentaire.jpg',
-  },
-  {
-    slug: 'metallurgie-finistere',
-    title: 'Dashboard production temps réel — Métallurgie',
-    sector: 'Métallurgie',
-    location: 'Finistère (29)',
-    employees: '80 salariés',
-    duration: '8 semaines',
-    beforeState: {
-      painPoints: [
-        '4h de compilation manuelle chaque semaine',
-        'Découverte des problèmes à J+5 minimum',
-        'Pas de vision temps réel sur les encours',
-      ],
-    },
-    intervention: {
-      description: 'Tableau de bord production connecté en temps réel.',
-      actions: [
-        'Connexion aux données machines et ERP',
-        'Dashboard temps réel : TRS, encours, écarts',
-        'Alertes automatiques sur anomalies',
-      ],
-      tools: ['API machines', 'Python', 'Metabase'],
-    },
-    afterState: {
-      results: [
-        '4h/semaine de reporting économisées',
-        'Problèmes détectés en temps réel',
-        '2 arrêts de ligne évités le premier mois',
-      ],
-    },
-    testimonial:
-      'On voit les problèmes en temps réel au lieu de les découvrir en fin de semaine.',
-    author: 'Jean-Pierre Morin',
-    role: 'Directeur de production',
-    metrics: [
-      { label: 'Reporting', value: '-4h/sem', highlight: true },
-      { label: 'Réactivité', value: 'x3' },
-      { label: 'ROI', value: '3 mois' },
-    ],
-    image: '/metallurgie.webp',
   },
 ];

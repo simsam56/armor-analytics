@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: 'balise-ia',
-  tagline: 'Data, automatisation et IA pour les PME bretonnes',
+  tagline: 'Pilotage production et IA pour PME industrielles bretonnes',
   description:
-    'Automatisation, tableaux de bord et IA pour les PME bretonnes. Diagnostic gratuit, dashboards temps réel, élimination des tâches manuelles. Basés à Lorient, interventions sur site en Bretagne.',
+    'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain 490\u20ac, Bretagne.',
   url: 'https://www.balise-ia.fr',
   email: 'contact@balise-ia.fr',
   phone: '06 63 85 77 39',
@@ -18,14 +18,14 @@ export const SITE_CONFIG = {
 
 // Chiffres clés pour la crédibilité
 export const KEY_METRICS = {
-  timesSaved: '4h',
-  timesSavedContext: 'gagnées par semaine en moyenne',
-  errorReduction: '80%',
-  errorReductionContext: 'de ressaisies manuelles éliminées',
-  projectsDelivered: '12+',
-  projectsDeliveredContext: 'projets livrés en Bretagne',
-  responseTime: '48h',
-  responseTimeContext: 'pour une première réponse',
+  timesSaved: '1h30',
+  timesSavedContext: 'économisées par jour en moyenne sur la gestion planning',
+  errorReduction: '145%',
+  errorReductionContext: 'ROI médian constaté sur l\u2019optimisation de production',
+  projectsDelivered: '3 jours',
+  projectsDeliveredContext: 'pour un premier diagnostic terrain complet',
+  responseTime: '7 ans',
+  responseTimeContext: 'd\u2019expérience industrielle terrain avant la data',
 };
 
 // Stack et outils maîtrisés
@@ -228,6 +228,55 @@ export const FREE_RESOURCES: FreeResource[] = [];
 // Projets clients réels, anonymisés
 export const PROJECTS = [
   {
+    id: 'pilotage-metallurgie',
+    title: 'De 4h de reporting manuel à un dashboard temps réel — PME métallurgie, Finistère',
+    sector: 'Métallurgie',
+    location: 'Finistère',
+    companySize: '45 salariés',
+    existingTools: 'ERP GPAO, Excel, fiches papier',
+    context: `Les données de production étaient dispersées entre l'ERP, des fichiers Excel et des fiches papier. Le responsable production passait son vendredi après-midi à consolider les chiffres de la semaine.`,
+    pain: 'Aucune visibilité temps réel, 4h/semaine de reporting manuel',
+    beforeAfter: {
+      before: [
+        { metric: 'Temps de reporting/semaine', value: '4h' },
+        { metric: 'Fraîcheur des données', value: 'J+5' },
+        { metric: 'Détection anomalies', value: 'Rétrospective' },
+      ],
+      after: [
+        { metric: 'Temps de reporting/semaine', value: '0 (automatisé)' },
+        { metric: 'Fraîcheur des données', value: 'Temps réel' },
+        { metric: 'Détection anomalies', value: 'Alertes automatiques' },
+      ],
+    },
+    approach: [
+      'Cartographie des sources de données',
+      `Conception d'un entrepôt de données unifié`,
+      'Automatisation de la collecte (ERP + Excel + saisies terrain)',
+      'Création de tableaux de bord temps réel',
+    ],
+    deliverables: [
+      'Base de données centralisée',
+      'Connecteurs automatiques vers ERP et fichiers',
+      'Tableaux de bord Metabase (production, qualité, stocks)',
+      'Alertes automatisées sur les dérives',
+    ],
+    techNote: `Data engineering classique : ETL Python, base PostgreSQL, dashboards Metabase. Pas d'IA, juste de la bonne plomberie data.`,
+    results: {
+      main: '4h/semaine gagnées pour le responsable production',
+      secondary: [
+        'Visibilité temps réel sur les encours',
+        'Détection précoce des dérives qualité',
+        'Reporting mensuel généré automatiquement',
+      ],
+    },
+    duration: '5 semaines',
+    tags: ['Data Engineering', 'Reporting', 'Production'],
+    testimonial: {
+      quote: `Le vendredi après-midi, je pilote au lieu de compiler des tableaux. Et je vois les problèmes avant qu'ils n'explosent.`,
+      author: 'Responsable production',
+    },
+  },
+  {
     id: 'agent-ia-logistique',
     title: 'Comment un transporteur a automatisé 90% de ses réponses clients',
     sector: 'Logistique',
@@ -274,56 +323,6 @@ export const PROJECTS = [
     testimonial: {
       quote: 'Nos clients ont la réponse avant même d\u2019avoir raccroché. Et mes équipes peuvent enfin se concentrer sur les vrais problèmes.',
       author: 'Directeur logistique',
-    },
-  },
-  {
-    id: 'pilotage-metallurgie',
-    title: 'Comment un métallurgiste pilote sa production en temps réel',
-    sector: 'Métallurgie',
-    location: 'Finistère',
-    companySize: '45 salariés',
-    existingTools: 'ERP GPAO, Excel, fiches papier',
-    context: `Les données de production étaient dispersées entre l'ERP, des fichiers Excel et des fiches papier. Le responsable production passait son vendredi après-midi à consolider les chiffres de la semaine.`,
-    pain: 'Aucune visibilité temps réel, 4h/semaine de reporting manuel',
-    // V2 : métriques avant/après
-    beforeAfter: {
-      before: [
-        { metric: 'Temps de reporting/semaine', value: '4h' },
-        { metric: 'Fraîcheur des données', value: 'J+5' },
-        { metric: 'Détection anomalies', value: 'Rétrospective' },
-      ],
-      after: [
-        { metric: 'Temps de reporting/semaine', value: '0 (automatisé)' },
-        { metric: 'Fraîcheur des données', value: 'Temps réel' },
-        { metric: 'Détection anomalies', value: 'Alertes automatiques' },
-      ],
-    },
-    approach: [
-      'Cartographie des sources de données',
-      `Conception d'un entrepôt de données unifié`,
-      'Automatisation de la collecte (ERP + Excel + saisies terrain)',
-      'Création de tableaux de bord temps réel',
-    ],
-    deliverables: [
-      'Base de données centralisée',
-      'Connecteurs automatiques vers ERP et fichiers',
-      'Tableaux de bord Metabase (production, qualité, stocks)',
-      'Alertes automatisées sur les dérives',
-    ],
-    techNote: `Data engineering classique : ETL Python, base PostgreSQL, dashboards Metabase. Pas d'IA, juste de la bonne plomberie data.`,
-    results: {
-      main: '4h/semaine gagnées pour le responsable production',
-      secondary: [
-        'Visibilité temps réel sur les encours',
-        'Détection précoce des dérives qualité',
-        'Reporting mensuel généré automatiquement',
-      ],
-    },
-    duration: '5 semaines',
-    tags: ['Data Engineering', 'Reporting', 'Production'],
-    testimonial: {
-      quote: `Le vendredi après-midi, je pilote au lieu de compiler des tableaux. Et je vois les problèmes avant qu'ils n'explosent.`,
-      author: 'Responsable production',
     },
   },
   {
@@ -538,7 +537,7 @@ export const FAQ_ITEMS = [
   {
     category: 'Approche',
     question: `Par où commencer quand on n'a jamais fait de projet IA ?`,
-    answer: `Par un diagnostic. En 5 minutes (quiz en ligne) ou 30 minutes (appel découverte), on identifie vos irritants concrets et les 2-3 projets les plus rentables. On part de votre réalité terrain, pas d'une feuille blanche.`,
+    answer: `Par un diagnostic terrain. En 3 jours sur site, on cartographie vos irritants concrets et on identifie les 2-3 chantiers les plus rentables. On part de votre réalité terrain, pas d\u2019une feuille blanche.`,
   },
   {
     category: 'Prérequis',
@@ -546,9 +545,9 @@ export const FAQ_ITEMS = [
     answer: `Non. On travaille avec ce qui existe : ERP anciens, fichiers Excel, exports manuels. Le diagnostic sert justement à comprendre votre environnement avant de proposer quoi que ce soit.`,
   },
   {
-    category: 'Résultats',
-    question: 'Combien de temps pour voir un résultat ?',
-    answer: `Les premiers gains sont mesurables dès le premier mois de déploiement. On mesure systématiquement l'avant et l'après.`,
+    category: 'Cible',
+    question: 'Vous intervenez dans quel type d\u2019entreprises ?',
+    answer: `PME industrielles de 50 à 200 salariés, principalement en Bretagne. Mes secteurs de prédilection : métallurgie, mécanique, agroalimentaire, sous-traitance industrielle, nautisme. J\u2019interviens là où il y a du planning, de la production, et des équipes terrain.`,
   },
   {
     category: 'Sécurité',
@@ -556,18 +555,23 @@ export const FAQ_ITEMS = [
     answer: `NDA systématique, données hébergées en France, conformité RGPD. Vos données restent les vôtres.`,
   },
   {
-    category: 'Engagement',
-    question: 'Et si le diagnostic ne débouche sur rien ?',
-    answer: `Vous repartez avec votre feuille de route, sans engagement. Le diagnostic a de la valeur en soi — il vous donne une vision claire de vos priorités, que vous travailliez avec nous ou non.`,
+    category: 'Adoption',
+    question: 'Est-ce que mes équipes vont vraiment adopter les outils ?',
+    answer: `C\u2019est la vraie question — et la raison pour laquelle je viens sur site plutôt que de livrer un outil à distance. Je sais comment parler à un chef d\u2019atelier parce que j\u2019ai été de leur côté. L\u2019adoption c\u2019est 80% de méthode de présentation, 20% de technologie.`,
   },
 ];
 
 export const NAV_LINKS = [
-  { href: '/ia', label: 'Intelligences artificielles' },
-  { href: '/data', label: 'Data' },
-  { href: '/formation', label: 'Formations' },
   { href: '/cas-clients', label: 'Réalisations' },
+  { href: '/a-propos', label: 'À propos' },
   { href: '/blog', label: 'Blog' },
+];
+
+// Sous-liens du dropdown "Nos offres" dans le header
+export const OFFER_LINKS = [
+  { href: '/ia', label: 'Pilotage production' },
+  { href: '/data', label: 'Mémoire opérationnelle' },
+  { href: '/formation', label: 'Formation terrain' },
 ];
 
 // Éléments de réassurance

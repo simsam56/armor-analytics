@@ -16,25 +16,28 @@ export function QuizCta() {
           viewport={{ once: true }}
         >
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss mb-4">
-            Diagnostic gratuit
+            Offre d&apos;entrée
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
-            Quelles sont vos priorités IA &amp; data ?
+            Diagnostic terrain — 490€, 3 jours sur site
           </h2>
-          <p className="mt-4 text-lg text-breton-slate">
-            En 5 minutes, vous identifiez vos 2-3 priorités IA &amp; data : automatisation,
-            tableaux de bord et intégration d&apos;intelligences artificielles. Résultats
-            immédiats par email.
+          <p className="mt-4 text-lg text-breton-slate max-w-2xl mx-auto">
+            Je viens dans votre entreprise. J&apos;observe, j&apos;échange avec vos équipes,
+            je cartographie vos irritants opérationnels. Vous repartez avec une roadmap claire
+            et priorisée — les 3 chantiers qui auront le plus d&apos;impact, dans l&apos;ordre.
+            Sans engagement sur la suite.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <Link href="/audit-ia">Identifier mes priorit&eacute;s IA &amp; data →</Link>
+              <Link href="/audit-ia">Prendre rendez-vous →</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-breton-sand">
               <Link href="/contact">Ou nous contacter directement</Link>
             </Button>
           </div>
-          <p className="mt-4 text-sm text-breton-granite">5 min · Gratuit · Sans engagement</p>
+          <p className="mt-4 text-sm text-breton-granite">
+            3 jours · 490€ HT · Rapport écrit inclus · Déplacement Bretagne inclus
+          </p>
         </motion.div>
       </div>
     </section>

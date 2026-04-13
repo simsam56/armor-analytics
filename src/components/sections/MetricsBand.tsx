@@ -16,15 +16,16 @@ const METRICS: MetricItem[] = [
   { value: KEY_METRICS.responseTime, label: KEY_METRICS.responseTimeContext },
 ];
 
-function parseMetric(value: string): { num: number; suffix: string } {
-  const match = value.match(/^(\d+)(.*)$/);
-  if (!match) return { num: 0, suffix: value };
-  return { num: parseInt(match[1], 10), suffix: match[2] };
+function parseMetric(value: string): { prefix: string; num: number; suffix: string } {
+  // Handles: "1h30", "145%", "3 jours", "7 ans", "4h", "12+"
+  const match = value.match(/^([^\d]*)(\d+)(.*)$/);
+  if (!match) return { prefix: '', num: 0, suffix: value };
+  return { prefix: match[1], num: parseInt(match[2], 10), suffix: match[3] };
 }
 
 function AnimatedCounter({ value, label }: MetricItem) {
   const shouldReduceMotion = useReducedMotion();
-  const { num, suffix } = parseMetric(value);
+  const { prefix, num, suffix } = parseMetric(value);
   const [display, setDisplay] = useState(0);
   const hasAnimated = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -58,6 +59,7 @@ function AnimatedCounter({ value, label }: MetricItem) {
   return (
     <div ref={ref} className="flex flex-col items-center text-center">
       <span className="font-serif text-[32px] sm:text-[48px] font-normal text-breton-navy tracking-tight">
+        {prefix}
         {display}
         {suffix}
       </span>
