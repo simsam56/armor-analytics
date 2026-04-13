@@ -1,9 +1,8 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
-import { VideoBackground } from '@/components/ui/video-background';
-import { LocationBadge } from '@/components/animations';
 import { scaleInApple, sectionStagger, sectionChild } from '@/lib/animations';
 
 const noMotion = { hidden: {}, visible: {} };
@@ -15,85 +14,79 @@ export function HeroV3() {
   const scale = prefersReducedMotion ? noMotion : scaleInApple;
 
   return (
-    <VideoBackground
-      src="/videos/drone-baie-bretonne.mp4"
-      poster="/videos/poster-baie.jpg"
-      startTime={3}
-      overlayClassName="bg-gradient-to-b from-breton-navy/40 via-breton-navy/55 to-breton-navy/75"
-      className="relative min-h-screen grain-texture flex items-center justify-center text-center overflow-hidden pt-28 pb-16 sm:py-0"
-    >
-      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80"
+          alt="Atelier de production industrielle"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-breton-navy/90 via-breton-navy/70 to-breton-navy/40" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <motion.div
-          className="flex flex-col items-center gap-0"
+          className="max-w-2xl"
           variants={stagger}
           initial="hidden"
           animate="visible"
         >
-          {/* 1. Badge local — sonar animé */}
-          <motion.div variants={child}>
-            <LocationBadge variant="dark" />
-          </motion.div>
+          {/* Eyebrow */}
+          <motion.p
+            variants={child}
+            className="text-sm font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-6"
+          >
+            IA, data et automatisation
+          </motion.p>
 
-          {/* 2. H1 */}
+          {/* H1 */}
           <motion.h1
             variants={scale}
-            className="mt-8 font-serif text-[40px] sm:text-5xl lg:text-[76px] leading-[1.05] tracking-[-0.03em] text-white max-w-[820px] mx-auto"
+            className="font-serif text-[40px] sm:text-5xl lg:text-[64px] leading-[1.08] tracking-[-0.03em] text-white"
           >
-            Arrêtez de piloter votre production{' '}
-            <br />
-            <span className="relative inline-block text-breton-sand italic">
-              à l&apos;aveugle.
-              <span
-                className="absolute bottom-0.5 -inset-x-1 h-2 bg-white/10 rounded"
-                aria-hidden="true"
-              />
-            </span>
+            Votre partenaire IA &amp; data pour le pilotage de production.
           </motion.h1>
 
-          {/* 3. Sous-titre */}
+          {/* Sous-titre */}
           <motion.p
             variants={child}
-            className="mt-7 text-lg sm:text-xl text-white/80 leading-relaxed max-w-[600px] mx-auto"
+            className="mt-6 text-lg sm:text-xl text-white/75 leading-relaxed max-w-xl"
           >
-            J&apos;aide les PME industrielles bretonnes à remplacer leur planning Excel
-            par un pilotage temps réel — et à ne plus dépendre d&apos;une seule personne
-            pour faire tourner leur atelier.
+            On transforme vos plannings Excel en pilotage temps réel et vos tâches
+            répétitives en automatisations robustes, pour les PME industrielles bretonnes.
           </motion.p>
 
-          {/* 4. Accroche secondaire */}
-          <motion.p
-            variants={child}
-            className="mt-4 text-sm sm:text-base text-breton-copper-light font-medium tracking-wide"
-          >
-            Par quelqu&apos;un qui a fait ce travail à la main pendant 7 ans.
-          </motion.p>
-
-          {/* 5. CTAs */}
+          {/* CTAs */}
           <motion.div
             variants={child}
-            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-10 flex flex-col sm:flex-row items-start gap-4"
           >
             <Link
-              href="/audit-ia"
-              className="inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-3.5 text-sm font-semibold
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-[14px] px-8 py-4 text-sm font-semibold
                 bg-breton-sand text-breton-navy
                 hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
                 transition-all duration-200"
             >
-              Diagnostic terrain gratuit →
+              Demander un diagnostic terrain →
             </Link>
             <Link
               href="/cas-clients"
-              className="inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-3.5 text-sm font-semibold
-                bg-breton-sand text-breton-navy
-                hover:-translate-y-[3px] hover:shadow-lg hover:bg-white
+              className="inline-flex items-center justify-center rounded-[14px] px-8 py-4 text-sm font-semibold
+                border border-white/20 text-white
+                hover:border-white/40 hover:-translate-y-[3px]
                 transition-all duration-200"
             >
-              Voir les résultats clients →
+              Voir un exemple de dashboard
             </Link>
           </motion.div>
         </motion.div>
       </div>
-    </VideoBackground>
+    </section>
   );
 }

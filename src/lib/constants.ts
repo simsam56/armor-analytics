@@ -562,15 +562,18 @@ export const FAQ_ITEMS = [
 ];
 
 export const NAV_LINKS = [
-  { href: '/cas-clients', label: 'Réalisations' },
-  { href: '/a-propos', label: 'À propos' },
+  { href: '#services', label: 'Services' },
+  { href: '#secteur', label: 'Secteur' },
+  { href: '/cas-clients', label: 'Cas clients' },
   { href: '/blog', label: 'Blog' },
+  { href: '/a-propos', label: '\u00c0 propos' },
+  { href: '/contact', label: 'Contact' },
 ];
 
-// Sous-liens du dropdown "Nos offres" dans le header
+// Liens offres (utilisé dans le footer)
 export const OFFER_LINKS = [
   { href: '/ia', label: 'Pilotage production' },
-  { href: '/data', label: 'Mémoire opérationnelle' },
+  { href: '/data', label: 'Tableaux de bord' },
   { href: '/formation', label: 'Formation terrain' },
 ];
 

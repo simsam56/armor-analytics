@@ -1,14 +1,24 @@
 import { HeroV3 } from '@/components/sections/HeroV3';
-import { LogoCarousel } from '@/components/sections/LogoCarousel';
-import { MetricsBand } from '@/components/sections/MetricsBand';
 import { Projects } from '@/components/sections/Projects';
-import { QuizCta } from '@/components/sections/QuizCta';
-import { FAQ } from '@/components/sections/FAQ';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { IncarnationSection } from '@/components/sections/IncarnationSection';
 import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
-import { Factory, BarChart3, ArrowRight, Cpu, BookOpen, BrainCircuit } from 'lucide-react';
+import Image from 'next/image';
+import {
+  BarChart3,
+  Cpu,
+  BookOpen,
+  ArrowRight,
+  Search,
+  Layers,
+  GraduationCap,
+  Factory,
+  Anchor,
+  UtensilsCrossed,
+  Cog,
+} from 'lucide-react';
+import { BLOG_ARTICLES } from '@/data/blog-articles';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,132 +28,235 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const personas = [
-    {
-      icon: Factory,
-      role: 'Directeur de production / Responsable planning',
-      title: 'Votre planning repose sur une seule personne ?',
-      pain: 'Chaque aléa — retard fournisseur, absence, panne — vous oblige à tout recalculer à la main. Vous passez 2h par jour à mettre à jour des Excel que personne d\u2019autre ne comprend vraiment. Et si vous étiez absent une semaine, l\u2019atelier tournerait en roue libre.',
-      cta: 'Voir comment on règle ça',
-      href: '/cas-clients',
-    },
-    {
-      icon: BarChart3,
-      role: 'Directeur général / Gérant',
-      title: 'Vous pilotez encore à l\u2019instinct ?',
-      pain: 'Votre reporting arrive trop tard, vos données sont éparpillées entre l\u2019ERP, Excel et les têtes de vos équipes. Vous avez déjà failli perdre un client à cause d\u2019un retard que personne n\u2019avait vu venir. Vous savez que ça doit changer — mais par où commencer ?',
-      cta: 'Identifier vos priorités',
-      href: '/audit-ia',
-    },
-  ];
-
-  const leviers = [
-    {
-      href: '/ia',
-      icon: Cpu,
-      title: 'Pilotage production temps réel',
-      description:
-        'Votre planning Excel devient un tableau de bord vivant. Aléas détectés automatiquement, charge atelier visible d\u2019un coup d\u2019\u0153il, reporting généré sans intervention manuelle.',
-      tags: ['Power BI', 'Metabase', 'Python', 'ERP'],
-    },
-    {
-      href: '/data',
-      icon: BrainCircuit,
-      title: 'Mémoire opérationnelle de l\u2019atelier',
-      description:
-        'Le régleur saisit son problème : « ma machine X vibre au démarrage ». L\u2019outil renvoie les 3 causes historiques et les solutions — y compris ce que Bernard avait noté il y a 2 ans. Quand il part en retraite, sa connaissance reste.',
-      tags: ['Claude', 'RAG', 'Base de connaissances'],
-    },
-    {
-      href: '/formation',
-      icon: BookOpen,
-      title: 'Formation terrain — pas en salle',
-      description:
-        'Vos équipes forment vraiment les outils, pas juste pendant 2 jours. J\u2019interviens sur site, dans votre contexte, avec vos données. Adoption réelle, pas adoption de façade.',
-      tags: ['Sur site', 'IA', 'Data'],
-    },
-  ];
+  const latestArticles = [...BLOG_ARTICLES]
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 
   return (
     <>
       <JsonLd />
+
+      {/* 1. Hero */}
       <HeroV3 />
-      <MetricsBand />
 
-      {/* Bandeau disponibilité */}
-      <div className="bg-breton-navy py-3 text-center">
-        <p className="text-sm text-white/80">
-          <span className="inline-block h-2 w-2 rounded-full bg-breton-emerald mr-2 animate-pulse" />
-          Actuellement : 1 créneau disponible pour un diagnostic terrain en mai 2026
-        </p>
-      </div>
-
-      <LogoCarousel />
-
-      {/* Section : Vous vous reconnaissez ? (2 personas) */}
-      <section className="py-16 sm:py-24 bg-breton-foam">
+      {/* 2. Services — 3 cartes horizontales */}
+      <section id="services" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
-            Vous vous reconnaissez ?
-          </h2>
-          <p className="text-center text-lg text-breton-slate mb-12 max-w-2xl mx-auto">
-            Deux profils que j&apos;accompagne au quotidien dans les PME industrielles bretonnes.
+          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+            Services
           </p>
-          <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-            {personas.map((persona) => (
-              <div
-                key={persona.role}
-                className="rounded-2xl border-2 border-breton-sand bg-white p-8 flex flex-col"
+          <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-3">
+            Du diagnostic terrain à la mise en production
+          </h2>
+          <p className="text-lg text-breton-slate mb-12 max-w-2xl">
+            On intervient du diagnostic terrain à la mise en production de vos outils.
+          </p>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              {
+                icon: BarChart3,
+                title: 'Tableaux de bord & pilotage de production',
+                description:
+                  'Votre planning Excel devient un dashboard temps r\u00e9el. TRS, encours, cadence par ligne — visible d\u2019un coup d\u2019\u0153il.',
+                href: '/data',
+                image:
+                  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
+              },
+              {
+                icon: Cpu,
+                title: 'Automatisations & IA m\u00e9tier',
+                description:
+                  'OCR commandes, base de connaissances atelier, workflows ERP. On \u00e9limine les t\u00e2ches r\u00e9p\u00e9titives.',
+                href: '/ia',
+                image:
+                  'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80',
+              },
+              {
+                icon: BookOpen,
+                title: 'Formation IA & data sur site',
+                description:
+                  'Directement en atelier, avec vos donn\u00e9es. Vos \u00e9quipes montent en comp\u00e9tences sur leurs vrais outils.',
+                href: '/formation',
+                image:
+                  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
+              },
+            ].map((service) => (
+              <Link
+                key={service.href}
+                href={service.href}
+                className="group rounded-2xl border border-breton-sand overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-breton-emerald/10">
-                    <persona.icon className="h-5 w-5 text-breton-emerald" />
-                  </div>
-                  <p className="text-sm font-medium text-breton-granite">{persona.role}</p>
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
                 </div>
-                <h3 className="text-xl font-bold text-breton-navy mb-3">{persona.title}</h3>
-                <p className="text-breton-slate text-sm leading-relaxed mb-6 flex-1">
-                  {persona.pain}
-                </p>
-                <Link
-                  href={persona.href}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-breton-emerald hover:underline"
-                >
-                  {persona.cta}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <service.icon className="h-5 w-5 text-breton-emerald" />
+                    <h3 className="text-lg font-bold text-breton-navy">{service.title}</h3>
+                  </div>
+                  <p className="text-sm text-breton-slate leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                  <span className="text-sm font-semibold text-breton-emerald group-hover:underline">
+                    En savoir plus →
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Secteur : PME industrielles bretonnes */}
+      <section id="secteur" className="py-16 sm:py-24 bg-breton-foam">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <div>
+              <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+                Secteur
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-6">
+                PME industrielles bretonnes
+              </h2>
+              <p className="text-breton-slate leading-relaxed mb-6">
+                Ateliers de production, plannings GPAO, contraintes de livraison, dépendance
+                aux personnes-clés — on connaît ces réalités parce qu&apos;on les a vécues.
+                On travaille avec des PME de 50 à 200 salariés qui ont du planning, de la
+                production et des équipes terrain.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { icon: Factory, label: 'M\u00e9tallurgie & chaudronnerie' },
+                  { icon: UtensilsCrossed, label: 'Agroalimentaire' },
+                  { icon: Anchor, label: 'Nautisme & naval' },
+                  { icon: Cog, label: 'M\u00e9canique & sous-traitance' },
+                ].map((sector) => (
+                  <div
+                    key={sector.label}
+                    className="flex items-center gap-2 rounded-xl bg-white border border-breton-sand px-4 py-3"
+                  >
+                    <sector.icon className="h-4 w-4 text-breton-emerald shrink-0" />
+                    <span className="text-sm text-breton-navy font-medium">{sector.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative h-[350px] lg:h-[450px] rounded-2xl overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
+                alt="Atelier de production industrielle en Bretagne"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. R\u00e9sultats & chiffres cl\u00e9s */}
+      <section className="py-16 sm:py-20 bg-breton-navy">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+            Quelques rep&egrave;res
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl text-white mb-12">
+            Chiffres cl&eacute;s
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { value: '7 ans', label: 'en pilotage de production industrielle' },
+              { value: 'Lorient', label: 'base, interventions sur site en Bretagne' },
+              { value: '100%', label: 'PME industrielles' },
+              { value: '3 jours', label: 'pour un premier diagnostic terrain' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="font-serif text-4xl sm:text-5xl text-breton-sand">{stat.value}</p>
+                <p className="mt-2 text-sm text-white/60">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section : Trois leviers */}
+      {/* 5. M\u00e9thode en 3 \u00e9tapes */}
       <section className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
-            Trois leviers concrets pour votre production
-          </h2>
-          <p className="text-center text-lg text-breton-slate mb-12 max-w-2xl mx-auto">
-            Pilotage, mémoire opérationnelle, formation. On part de vos irritants terrain,
-            pas d&apos;un catalogue de solutions.
+          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+            M&eacute;thode
           </p>
-          <div className="grid gap-6 md:grid-cols-3">
-            {leviers.map((levier) => (
-              <Link
-                key={levier.href}
-                href={levier.href}
-                className="group rounded-2xl border-2 border-breton-sand p-8 hover:border-breton-emerald transition-colors"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-breton-emerald/10 mb-4">
-                  <levier.icon className="h-5 w-5 text-breton-emerald" />
+          <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-12">
+            Comment on travaille avec vous
+          </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                step: '01',
+                icon: Search,
+                title: 'Diagnostic terrain',
+                description:
+                  '3 jours sur site. On observe vos process, on \u00e9change avec vos \u00e9quipes, on cartographie vos irritants. Vous repartez avec une roadmap prioris\u00e9e.',
+              },
+              {
+                step: '02',
+                icon: Layers,
+                title: 'Prototype & validation',
+                description:
+                  'On d\u00e9ploie un premier cas d\u2019usage sur un p\u00e9rim\u00e8tre restreint. Vous validez la valeur avant d\u2019\u00e9tendre.',
+              },
+              {
+                step: '03',
+                icon: GraduationCap,
+                title: 'D\u00e9ploiement & formation',
+                description:
+                  'Mise en production, formation de vos \u00e9quipes sur site, documentation. L\u2019objectif : que vous soyez autonomes.',
+              },
+            ].map((item) => (
+              <div key={item.step} className="relative">
+                <span className="text-[64px] font-serif text-breton-sand/50 leading-none">
+                  {item.step}
+                </span>
+                <div className="mt-2">
+                  <div className="flex items-center gap-2 mb-2">
+                    <item.icon className="h-5 w-5 text-breton-emerald" />
+                    <h3 className="text-lg font-bold text-breton-navy">{item.title}</h3>
+                  </div>
+                  <p className="text-sm text-breton-slate leading-relaxed">{item.description}</p>
                 </div>
-                <h3 className="text-xl font-bold text-breton-navy mb-3">
-                  {levier.title}
-                </h3>
-                <p className="text-breton-slate mb-4 leading-relaxed">{levier.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {levier.tags.map((tag) => (
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Cas clients */}
+      <Projects limit={3} showLink />
+
+      {/* 7. Insights & blog */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+            Insights
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-12">
+            Blog
+          </h2>
+          <div className="grid gap-6 md:grid-cols-3">
+            {latestArticles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/blog/${article.slug}`}
+                className="group rounded-2xl border border-breton-sand p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="flex flex-wrap gap-2 mb-3">
+                  {article.tags.slice(0, 2).map((tag) => (
                     <span
                       key={tag}
                       className="text-xs bg-breton-foam border border-breton-sand rounded-full px-3 py-1 text-breton-slate"
@@ -152,28 +265,29 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <span className="text-sm font-semibold text-breton-emerald group-hover:underline">
-                  En savoir plus →
-                </span>
+                <h3 className="text-base font-bold text-breton-navy group-hover:text-breton-emerald transition-colors mb-2 line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-sm text-breton-slate line-clamp-2">{article.description}</p>
               </Link>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-breton-emerald hover:underline"
+            >
+              Voir tous les articles
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Section : Pourquoi moi */}
+      {/* 8. &Agrave; propos */}
       <IncarnationSection />
 
-      {/* Section : Diagnostic terrain CTA */}
-      <QuizCta />
-
-      {/* Section : Cas clients */}
-      <Projects limit={3} showLink />
-
-      {/* Section : FAQ */}
-      <FAQ />
-
-      {/* Section : CTA final */}
+      {/* 9. CTA final */}
       <CtaContact />
     </>
   );

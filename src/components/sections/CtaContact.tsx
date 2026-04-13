@@ -39,15 +39,15 @@ export function CtaContact() {
             variants={prefersReducedMotion ? {} : sectionChild}
             className="font-serif text-[36px] sm:text-[60px] leading-[1.06] text-white tracking-[-0.025em]"
           >
-            Prêt à reprendre le contrôle de votre{' '}
-            <span className="text-breton-copper-light">production ?</span>
+            Prêt à voir vos plannings{' '}
+            <span className="text-breton-copper-light">autrement ?</span>
           </motion.h2>
 
           <motion.p
             variants={prefersReducedMotion ? {} : sectionChild}
             className="text-lg text-white/60 mt-4"
           >
-            Diagnostic terrain de 3 jours sur site, ou échange gratuit de 30 minutes. Sans engagement.
+            En 30 minutes, on identifie ensemble vos quick wins en data et automatisation.
           </motion.p>
 
           <motion.div
@@ -55,13 +55,13 @@ export function CtaContact() {
             className="flex flex-col sm:flex-row gap-4 justify-center mt-11"
           >
             <Link
-              href="/audit-ia"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-[14px] px-8 py-4 font-semibold
                 bg-breton-sand text-breton-navy
                 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)] hover:-translate-y-[3px]
                 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              Diagnostic terrain gratuit →
+              Demander un diagnostic terrain →
             </Link>
 
             <Link
