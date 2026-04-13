@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { SITE_CONFIG } from '@/lib/constants';
 
 interface CityData {
@@ -170,8 +171,8 @@ export function generateMetadata({
     if (!city) return { title: 'Page non trouvée' };
 
     return {
-      title: `Data & automatisation PME ${city.name} (${city.departmentCode})`,
-      description: `Automatisation des données et tableaux de bord pour PME à ${city.name}, ${city.department}. Intervention sur site. Diagnostic gratuit.`,
+      title: `IA et pilotage production \u00e0 ${city.name} (${city.departmentCode})`,
+      description: `Pilotage production, dashboards et IA pour PME industrielles \u00e0 ${city.name}, ${city.department}. 7 ans de terrain industriel. Diagnostic gratuit sur site.`,
       openGraph: {
         title: `Data & automatisation PME à ${city.name} — balise-ia`,
         description: `Collectif data spécialisé PME. Basés à Lorient, on intervient à ${city.name} et en ${city.department}.`,
@@ -224,20 +225,6 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
     },
   };
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_CONFIG.url },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Interventions',
-        item: `${SITE_CONFIG.url}/interventions`,
-      },
-      { '@type': 'ListItem', position: 3, name: city.name },
-    ],
-  };
 
   return (
     <>
@@ -245,11 +232,8 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <Hero title={`Data & automatisation\nà ${city.name}`} subtitle={city.description} />
+      <Breadcrumbs items={[{ label: city.name }]} />
+      <Hero title={`Pilotage production et IA\n\u00e0 ${city.name}`} subtitle={city.description} />
 
       {/* Tissu économique local */}
       <section className="py-16 sm:py-20 bg-breton-foam">

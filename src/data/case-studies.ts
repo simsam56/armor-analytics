@@ -42,7 +42,7 @@ export interface CaseStudy {
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'metallurgie-finistere',
-    title: 'De 4h de reporting manuel à un dashboard temps réel — PME métallurgie, Finistère',
+    title: 'Dashboard production temps r\u00e9el — PME m\u00e9tallurgie, Finist\u00e8re',
     sector: 'Métallurgie',
     location: 'Finistère (29)',
     employees: '80 salariés',

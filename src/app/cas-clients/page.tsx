@@ -19,7 +19,7 @@ import { CASE_STUDIES } from '@/data/case-studies';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Cas clients — Résultats concrets pour PME industrielles bretonnes',
+  title: 'Cas clients — R\u00e9sultats concrets PME industrielles',
   description:
     'Dashboard production temps réel, automatisation commandes, traçabilité qualité. Résultats concrets et mesurés dans des PME industrielles en Bretagne.',
   openGraph: {

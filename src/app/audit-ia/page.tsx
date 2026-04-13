@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Diagnostic production PME — Quiz gratuit 5 min + Terrain gratuit',
+  title: 'Diagnostic production PME — Quiz gratuit + Terrain',
   description:
     'Identifiez vos priorités pilotage production en 5 minutes (quiz gratuit) ou en 3 jours sur site (diagnostic terrain gratuit). Pour PME industrielles bretonnes.',
   openGraph: {
