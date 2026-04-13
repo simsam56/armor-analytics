@@ -204,25 +204,6 @@ export default function FormationPage() {
 
       {/* Section Ressources gratuites supprimée — à réactiver quand le contenu sera prêt */}
 
-      {/* Maillage interne */}
-      <section className="py-12 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-wrap gap-4 justify-center">
-          <Link
-            href="/ia"
-            className="text-sm text-breton-emerald hover:underline font-medium"
-          >
-            Découvrir nos missions automatisation →
-          </Link>
-          <span className="text-breton-sand">|</span>
-          <Link
-            href="/data"
-            className="text-sm text-breton-emerald hover:underline font-medium"
-          >
-            Découvrir nos missions data →
-          </Link>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="py-16 sm:py-20 bg-breton-foam">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">

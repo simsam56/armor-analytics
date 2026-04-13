@@ -4,12 +4,12 @@ import { ContactForm, Hero } from '@/components/sections';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Contact - Demander un diagnostic',
+  title: 'Contact — Diagnostic terrain gratuit pour PME industrielles',
   description:
-    'Demandez un diagnostic ou réservez un appel découverte gratuit. Premier échange sans engagement pour comprendre vos enjeux et identifier les opportunités.',
+    'Demandez un diagnostic terrain gratuit ou réservez un appel découverte. Par un ancien superviseur de production navale, pour PME industrielles bretonnes.',
   openGraph: {
-    title: 'Contact - Demander un diagnostic | balise-ia',
-    description: 'Demandez un diagnostic ou réservez un appel découverte gratuit. Sans engagement.',
+    title: 'Contact — Diagnostic terrain gratuit | balise-ia',
+    description: 'Diagnostic terrain gratuit pour PME industrielles bretonnes. Appel découverte 30 min sans engagement.',
   },
   alternates: {
     canonical: 'https://www.balise-ia.fr/contact',
@@ -42,8 +42,8 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
       />
       <Hero
-        title="Parlons de votre projet"
-        subtitle="Premier échange gratuit et sans engagement. On analyse votre contexte et on vous propose une approche adaptée à vos enjeux."
+        title="Parlons de votre production"
+        subtitle="Premier échange gratuit et sans engagement. Par quelqu&apos;un qui a piloté des plannings de production pendant 7 ans — pas un commercial."
       />
 
       <section className="py-16 sm:py-20 bg-white">

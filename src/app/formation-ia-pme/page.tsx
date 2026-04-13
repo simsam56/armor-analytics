@@ -15,15 +15,15 @@ import {
 import { Hero, CtaContact } from '@/components/sections';
 
 export const metadata: Metadata = {
-  title: 'Formation IA et data pour PME en Bretagne',
+  title: 'Formation IA et data pour PME industrielles en Bretagne',
   description:
-    'Formations IA et data pour PME bretonnes : Claude Code, n8n, prompting, Power BI. Ateliers sur site ou en visio, à Lorient.',
+    'Formations IA et data sur site pour PME industrielles bretonnes. Directement en atelier, avec vos données de production. 80% méthode, 20% technologie.',
   keywords:
-    'formation IA PME, formation data entreprise Bretagne, formation intelligence artificielle PME, formation n8n, formation Claude Code, formation prompting, formation Power BI Bretagne',
+    'formation IA PME industrielle, formation data production Bretagne, formation Power BI industrie, formation n8n atelier, formation IA terrain PME',
   openGraph: {
-    title: 'Formation IA et data pour PME en Bretagne \u2014 balise-ia',
+    title: 'Formation IA et data pour PME industrielles en Bretagne',
     description:
-      'Ateliers pratiques IA et data pour PME bretonnes. Claude Code, n8n, prompting m\u00e9tier, Power BI. Vos \u00e9quipes deviennent autonomes.',
+      'Ateliers pratiques IA et data directement en atelier. Pour PME industrielles bretonnes. Vos \u00e9quipes deviennent autonomes.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -154,8 +154,8 @@ export default function FormationIaPmePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(formationFaqJsonLd) }}
       />
       <Hero
-        title="Formation IA et data pour les PME en Bretagne"
-        subtitle="Des ateliers pratiques pour que vos &eacute;quipes ma&icirc;trisent l&apos;IA au quotidien. Claude Code, n8n, prompting m&eacute;tier, Power BI &mdash; on forme sur ce qui vous sert vraiment."
+        title="Formation IA et data pour PME industrielles"
+        subtitle="Directement en atelier, avec vos vraies donn&eacute;es de production. Vos op&eacute;rateurs, chefs d&apos;&eacute;quipe et responsables production montent en comp&eacute;tences sur leurs outils."
       />
 
       {/* Pourquoi former vos equipes a l'IA */}

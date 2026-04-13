@@ -17,15 +17,15 @@ import { Hero, CtaContact } from '@/components/sections';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Consultant data et IA à Lorient',
+  title: 'Consultant data et IA à Lorient — PME industrielles',
   description:
-    'Consultant data et IA basé à Lorient. Audit, tableaux de bord, automatisation et formation pour PME bretonnes. Résultats mesurables.',
+    'Consultant data et IA basé à Lorient, ancien superviseur de production navale (Naval Group). Pilotage production, dashboards, automatisation pour PME industrielles bretonnes.',
   keywords:
-    'consultant data Lorient, consultant data Bretagne, consultant IA Lorient, consultant IA Bretagne, data scientist Lorient, expert data PME Morbihan, consultant Power BI Lorient',
+    'consultant data Lorient, consultant IA Lorient, consultant data PME industrielle, pilotage production Lorient, Power BI industrie Lorient, data scientist PME Morbihan',
   openGraph: {
-    title: 'Consultant data et IA à Lorient — balise-ia',
+    title: 'Consultant data et IA à Lorient — PME industrielles',
     description:
-      'Collectif data senior basé à Lorient. Audit, pilotage data, automatisation et formation pour PME bretonnes. Interventions sur site.',
+      'Ancien superviseur de production navale, basé à Lorient. Pilotage production et IA pour PME industrielles bretonnes. Interventions sur site.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -196,8 +196,8 @@ export default function ConsultantDataLorientPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(consultantJsonLd) }}
       />
       <Hero
-        title="Votre consultant data à Lorient"
-        subtitle="Un collectif de spécialistes data et IA, basé à Lorient, qui intervient sur site dans toute la Bretagne. Audit, tableaux de bord, automatisation, formation — des solutions concrètes pour les PME bretonnes."
+        title="Votre consultant data et IA à Lorient"
+        subtitle="Ancien superviseur de production navale (Naval Group), basé à Lorient. Pilotage production, dashboards temps réel, automatisation — interventions sur site pour PME industrielles bretonnes."
       />
 
       {/* Ce qu'un consultant data fait concrètement */}
