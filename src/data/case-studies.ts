@@ -4,6 +4,14 @@ export interface CaseStudyMetric {
   highlight?: boolean;
 }
 
+export interface CaseStudyNarrative {
+  context: string;
+  trigger: string;
+  approach: string;
+  difficulties?: string;
+  firstValue: string;
+}
+
 export interface CaseStudy {
   slug: string;
   title: string;
@@ -27,6 +35,7 @@ export interface CaseStudy {
   role: string;
   metrics: CaseStudyMetric[];
   image: string;
+  narrative?: CaseStudyNarrative;
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -70,6 +79,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '3 mois' },
     ],
     image: '/metallurgie.webp',
+    narrative: {
+      context:
+        'Cette PME de métallurgie fine dans le Finistère (80 salariés, 2 lignes de production) avait un problème classique : les données de production existaient, mais personne ne les voyait au bon moment. Le responsable production passait chaque vendredi après-midi à compiler manuellement les chiffres de la semaine — TRS, encours, écarts qualité — depuis l\u2019ERP (GPAO), des fichiers Excel et des fiches papier remplies par les opérateurs.',
+      trigger:
+        'Le déclic est venu quand un problème qualité récurrent sur une ligne n\u2019a été détecté qu\u2019au bout de 5 jours — après avoir produit 3 lots défectueux. Le directeur de production a réalisé que son reporting à J+5 était un rétroviseur, pas un tableau de bord. Il a cherché quelqu\u2019un qui comprenne la réalité d\u2019un atelier de production — pas un éditeur de logiciel qui vend une solution générique.',
+      approach:
+        'On a commencé par 3 jours sur site pour cartographier les sources de données réelles : ce qui était dans la GPAO, ce qui était dans Excel, et ce qui n\u2019était que dans la tête du chef d\u2019atelier. Ensuite, on a construit un pipeline de collecte automatique (ETL Python) qui aspire les données de la GPAO, des fichiers terrain et des saisies opérateurs. Le tout alimente une base PostgreSQL et des dashboards Metabase consultables en temps réel sur un écran dans l\u2019atelier.',
+      difficulties:
+        'Le principal obstacle n\u2019était pas technique — c\u2019était l\u2019adoption. Les opérateurs avaient l\u2019habitude de leurs fiches papier. On a travaillé avec le chef d\u2019atelier pour que la saisie soit aussi rapide que le papier (tablette, 3 champs maximum). Au bout de 2 semaines, le papier a disparu naturellement.',
+      firstValue:
+        'Dès la troisième semaine, le responsable production a détecté une dérive de cadence sur la ligne 2 — un problème qui, normalement, n\u2019aurait été visible qu\u2019en fin de semaine. Intervention immédiate, zéro lot défectueux. C\u2019est à ce moment que toute l\u2019équipe a compris la valeur du temps réel. Aujourd\u2019hui, le vendredi après-midi est consacré à l\u2019analyse et à l\u2019amélioration continue — plus à la compilation.',
+    },
   },
   {
     slug: 'agroalimentaire-morbihan',

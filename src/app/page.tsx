@@ -69,6 +69,15 @@ export default function Home() {
       <JsonLd />
       <HeroV3 />
       <MetricsBand />
+
+      {/* Bandeau disponibilité */}
+      <div className="bg-breton-navy py-3 text-center">
+        <p className="text-sm text-white/80">
+          <span className="inline-block h-2 w-2 rounded-full bg-breton-emerald mr-2 animate-pulse" />
+          Actuellement : 1 créneau disponible pour un diagnostic terrain en mai 2026
+        </p>
+      </div>
+
       <LogoCarousel />
 
       {/* Section : Vous vous reconnaissez ? (2 personas) */}

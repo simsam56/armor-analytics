@@ -236,6 +236,34 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
           </div>
 
+          {/* Narration détaillée (si disponible) */}
+          {caseStudy.narrative && (
+            <div className="mb-12 space-y-8">
+              <div>
+                <h2 className="text-xl font-bold text-breton-navy mb-3">Le contexte</h2>
+                <p className="text-breton-slate leading-relaxed">{caseStudy.narrative.context}</p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-breton-navy mb-3">Le déclic</h2>
+                <p className="text-breton-slate leading-relaxed">{caseStudy.narrative.trigger}</p>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-breton-navy mb-3">La démarche</h2>
+                <p className="text-breton-slate leading-relaxed">{caseStudy.narrative.approach}</p>
+              </div>
+              {caseStudy.narrative.difficulties && (
+                <div>
+                  <h2 className="text-xl font-bold text-breton-navy mb-3">Les difficultés rencontrées</h2>
+                  <p className="text-breton-slate leading-relaxed">{caseStudy.narrative.difficulties}</p>
+                </div>
+              )}
+              <div>
+                <h2 className="text-xl font-bold text-breton-navy mb-3">La première valeur</h2>
+                <p className="text-breton-slate leading-relaxed">{caseStudy.narrative.firstValue}</p>
+              </div>
+            </div>
+          )}
+
           {/* Avant / Après */}
           <div className="mb-12 grid gap-6 md:grid-cols-2">
             {/* AVANT */}
@@ -375,8 +403,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
             Votre situation ressemble à cette problématique ?
           </h2>
           <p className="mt-4 text-lg text-white/60">
-            Faites le point sur votre maturité data en 3 minutes et découvrez les projets adaptés à
-            votre contexte.
+            Diagnostic terrain de 3 jours sur site, ou échange gratuit de 30 minutes.
+            Sans engagement.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Button
@@ -385,8 +413,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               className="h-13 bg-white px-8 text-base font-semibold text-breton-emerald hover:bg-white/90"
             >
               <Link href="/audit-ia" className="gap-2">
-                Faire mon audit IA
-                <ArrowRight className="h-4 w-4" />
+                Diagnostic terrain 490€ →
               </Link>
             </Button>
             <Button

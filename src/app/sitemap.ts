@@ -91,6 +91,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/pilotage-production-metallurgie`,
+      lastModified: lastUpdated,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ia-agroalimentaire-bretagne`,
+      lastModified: lastUpdated,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
   ];
 
   const cityPages: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
