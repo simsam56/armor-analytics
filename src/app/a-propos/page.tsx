@@ -93,8 +93,8 @@ export default function AboutPage() {
       />
       <Breadcrumbs items={[{ label: 'À propos' }]} />
       <Hero
-        title="7 ans de terrain. Puis la data."
-        subtitle="De la supervision de frégates de défense à l&apos;IA pour PME industrielles — par quelqu&apos;un qui a fait ce travail à la main."
+        title="7 ans de terrain industriel. Puis la data."
+        subtitle="Ingénieur en génie des systèmes industriels, 7 ans sur le terrain — puis formation data science et IA pour créer balise-ia."
       />
 
       {/* Section 1 — Le parcours */}
@@ -105,11 +105,11 @@ export default function AboutPage() {
               <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
                 <span className="text-xs font-bold text-white">1</span>
               </div>
-              <h3 className="text-lg font-semibold text-breton-navy mb-2">2014–2021 : Le terrain</h3>
+              <h3 className="text-lg font-semibold text-breton-navy mb-2">2017–2024 : Le terrain</h3>
               <p className="text-breton-slate leading-relaxed">
-                Supervision de construction navale (frégates FDI, Naval Group Lorient),
-                planification de production, achats industriels, logistique.
-                Des plannings Excel, des retards fournisseurs, des réunions de prod à 7h du matin.
+                Ingénieur en génie des systèmes industriels. 7 ans dans l&apos;industrie — chargé
+                d&apos;affaires, responsable technique d&apos;exécution. Des plannings, des achats,
+                de la logistique, de la production. Je connais le terrain.
               </p>
             </div>
 
@@ -117,9 +117,9 @@ export default function AboutPage() {
               <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
                 <span className="text-xs font-bold text-white">2</span>
               </div>
-              <h3 className="text-lg font-semibold text-breton-navy mb-2">2022 : Le virage</h3>
+              <h3 className="text-lg font-semibold text-breton-navy mb-2">2024 : La formation</h3>
               <p className="text-breton-slate leading-relaxed">
-                Bootcamp Data Science &amp; IA au Wagon (Nantes). Pas pour fuir l&apos;industrie —
+                Formation data science et intelligence artificielle. Pas pour fuir l&apos;industrie —
                 pour lui apporter les outils qu&apos;elle n&apos;a pas encore.
               </p>
             </div>
@@ -128,11 +128,11 @@ export default function AboutPage() {
               <div className="absolute -left-2.5 top-0 h-5 w-5 rounded-full bg-breton-emerald flex items-center justify-center">
                 <span className="text-xs font-bold text-white">3</span>
               </div>
-              <h3 className="text-lg font-semibold text-breton-navy mb-2">Aujourd&apos;hui</h3>
+              <h3 className="text-lg font-semibold text-breton-navy mb-2">2025 : balise-ia</h3>
               <p className="text-breton-slate leading-relaxed">
-                Fondateur de BALISE IA, basé à Lorient. J&apos;interviens sur site dans les PME
-                industrielles bretonnes pour remplacer les plannings manuels par du pilotage
-                temps réel et capturer la connaissance métier avant qu&apos;elle ne parte.
+                Création de balise-ia, basé à Lorient. J&apos;aide les PME industrielles
+                bretonnes à piloter leur production autrement — dashboards temps réel,
+                automatisation des tâches répétitives, capture de la connaissance métier.
               </p>
             </div>
           </div>

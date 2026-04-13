@@ -283,8 +283,8 @@ export const PROJECTS = [
     location: 'Morbihan',
     companySize: '35 salariés',
     existingTools: 'ERP Sage, Excel, emails',
-    context: `Cette entreprise agroalimentaire recevait ses commandes par email, fax et téléphone. Deux personnes passaient leur journée à ressaisir les commandes dans l'ERP. Erreurs fréquentes, retards de traitement.`,
-    pain: 'Ressaisie manuelle = 2 ETP mobilisés + erreurs récurrentes',
+    context: `Cette entreprise agroalimentaire recevait ses commandes par email et téléphone. L\u2019équipe ADV passait plusieurs heures par jour à ressaisir manuellement les commandes dans l\u2019ERP Sage. Erreurs fréquentes, retards de traitement.`,
+    pain: 'Ressaisie manuelle chronophage + erreurs récurrentes',
     // V2 : métriques avant/après
     beforeAfter: {
       before: [

@@ -8,11 +8,10 @@ import Image from 'next/image';
 import {
   BarChart3,
   Cpu,
-  BookOpen,
+  GraduationCap,
   ArrowRight,
   Search,
   Layers,
-  GraduationCap,
   Factory,
   Anchor,
   UtensilsCrossed,
@@ -39,29 +38,25 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroV3 />
 
-      {/* 2. Services — 3 cartes horizontales */}
-      <section id="services" className="py-16 sm:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+      {/* 2. Services — style Atos avec grandes images */}
+      <section id="services" className="py-20 sm:py-32 bg-white">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
             Services
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-3">
+          <h2 className="font-display text-[clamp(32px,5vw,64px)] font-bold leading-[1.05] tracking-[-0.03em] text-breton-navy mb-16 max-w-3xl">
             Du diagnostic terrain à la mise en production
           </h2>
-          <p className="text-lg text-breton-slate mb-12 max-w-2xl">
-            On intervient du diagnostic terrain à la mise en production de vos outils.
-          </p>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3">
             {[
               {
                 icon: BarChart3,
-                title: 'Tableaux de bord & pilotage de production',
+                title: 'Tableaux de bord & pilotage',
                 description:
-                  'Votre planning Excel devient un dashboard temps r\u00e9el. TRS, encours, cadence par ligne — visible d\u2019un coup d\u2019\u0153il.',
+                  'Votre planning Excel devient un dashboard temps r\u00e9el. TRS, encours, cadence — visible en un coup d\u2019\u0153il.',
                 href: '/data',
-                image:
-                  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
+                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
               },
               {
                 icon: Cpu,
@@ -69,43 +64,39 @@ export default function Home() {
                 description:
                   'OCR commandes, base de connaissances atelier, workflows ERP. On \u00e9limine les t\u00e2ches r\u00e9p\u00e9titives.',
                 href: '/ia',
-                image:
-                  'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80',
+                image: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80',
               },
               {
-                icon: BookOpen,
-                title: 'Formation IA & data sur site',
+                icon: GraduationCap,
+                title: 'Formation aux outils mis en place',
                 description:
-                  'Directement en atelier, avec vos donn\u00e9es. Vos \u00e9quipes montent en comp\u00e9tences sur leurs vrais outils.',
+                  'Directement en atelier, avec vos donn\u00e9es. Vos \u00e9quipes adoptent vraiment les outils qu\u2019on d\u00e9ploie.',
                 href: '/formation',
-                image:
-                  'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80',
+                image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80',
               },
             ].map((service) => (
               <Link
                 key={service.href}
                 href={service.href}
-                className="group rounded-2xl border border-breton-sand overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group rounded-2xl overflow-hidden bg-breton-foam hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <service.icon className="h-5 w-5 text-breton-emerald" />
-                    <h3 className="text-lg font-bold text-breton-navy">{service.title}</h3>
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <service.icon className="h-5 w-5 text-breton-copper" />
+                    <h3 className="text-xl font-bold text-breton-navy">{service.title}</h3>
                   </div>
-                  <p className="text-sm text-breton-slate leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                  <span className="text-sm font-semibold text-breton-emerald group-hover:underline">
-                    En savoir plus →
+                  <p className="text-breton-slate leading-relaxed mb-4">{service.description}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
+                    D\u00e9couvrir <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
               </Link>
@@ -114,44 +105,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Secteur : PME industrielles bretonnes */}
-      <section id="secteur" className="py-16 sm:py-24 bg-breton-foam">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
+      {/* 3. Secteur */}
+      <section id="secteur" className="py-20 sm:py-32 bg-breton-navy">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <div className="grid gap-16 lg:grid-cols-2 items-center">
             <div>
-              <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+              <p className="text-sm font-semibold text-breton-emerald uppercase tracking-[0.15em] mb-4">
                 Secteur
               </p>
-              <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-6">
+              <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-white mb-6">
                 PME industrielles bretonnes
               </h2>
-              <p className="text-breton-slate leading-relaxed mb-6">
+              <p className="text-lg text-white/60 leading-relaxed mb-8">
                 Ateliers de production, plannings GPAO, contraintes de livraison, dépendance
-                aux personnes-clés — on connaît ces réalités parce qu&apos;on les a vécues.
-                On travaille avec des PME de 50 à 200 salariés qui ont du planning, de la
-                production et des équipes terrain.
+                aux personnes-clés. On connaît ces réalités parce qu&apos;on les a vécues
+                pendant 7 ans.
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon: Factory, label: 'M\u00e9tallurgie & chaudronnerie' },
+                  { icon: Factory, label: 'Métallurgie & chaudronnerie' },
                   { icon: UtensilsCrossed, label: 'Agroalimentaire' },
                   { icon: Anchor, label: 'Nautisme & naval' },
-                  { icon: Cog, label: 'M\u00e9canique & sous-traitance' },
+                  { icon: Cog, label: 'Mécanique & sous-traitance' },
                 ].map((sector) => (
                   <div
                     key={sector.label}
-                    className="flex items-center gap-2 rounded-xl bg-white border border-breton-sand px-4 py-3"
+                    className="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3"
                   >
                     <sector.icon className="h-4 w-4 text-breton-emerald shrink-0" />
-                    <span className="text-sm text-breton-navy font-medium">{sector.label}</span>
+                    <span className="text-sm text-white/80 font-medium">{sector.label}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative h-[350px] lg:h-[450px] rounded-2xl overflow-hidden">
+            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
-                alt="Atelier de production industrielle en Bretagne"
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=900&q=80"
+                alt="Atelier de production industrielle"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -161,41 +151,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. R\u00e9sultats & chiffres cl\u00e9s */}
-      <section className="py-16 sm:py-20 bg-breton-navy">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
-            Quelques rep&egrave;res
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-white mb-12">
-            Chiffres cl&eacute;s
-          </h2>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 4. Chiffres clés */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { value: '7 ans', label: 'en pilotage de production industrielle' },
+              { value: '7 ans', label: 'de terrain en production industrielle' },
               { value: 'Lorient', label: 'base, interventions sur site en Bretagne' },
               { value: '100%', label: 'PME industrielles' },
               { value: '3 jours', label: 'pour un premier diagnostic terrain' },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-serif text-4xl sm:text-5xl text-breton-sand">{stat.value}</p>
-                <p className="mt-2 text-sm text-white/60">{stat.label}</p>
+                <p className="font-display text-[clamp(40px,5vw,64px)] font-bold tracking-[-0.03em] text-breton-navy leading-none">
+                  {stat.value}
+                </p>
+                <p className="mt-3 text-breton-granite">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 5. M\u00e9thode en 3 \u00e9tapes */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
-            M&eacute;thode
+      {/* 5. Méthode en 3 étapes */}
+      <section className="py-20 sm:py-32 bg-breton-foam">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
+            Méthode
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-12">
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
             Comment on travaille avec vous
           </h2>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-12 md:grid-cols-3">
             {[
               {
                 step: '01',
@@ -214,21 +200,21 @@ export default function Home() {
               {
                 step: '03',
                 icon: GraduationCap,
-                title: 'D\u00e9ploiement & formation',
+                title: 'Déploiement & formation',
                 description:
                   'Mise en production, formation de vos \u00e9quipes sur site, documentation. L\u2019objectif : que vous soyez autonomes.',
               },
             ].map((item) => (
-              <div key={item.step} className="relative">
-                <span className="text-[64px] font-serif text-breton-sand/50 leading-none">
+              <div key={item.step}>
+                <span className="font-display text-[80px] font-bold text-breton-sand leading-none">
                   {item.step}
                 </span>
-                <div className="mt-2">
-                  <div className="flex items-center gap-2 mb-2">
-                    <item.icon className="h-5 w-5 text-breton-emerald" />
-                    <h3 className="text-lg font-bold text-breton-navy">{item.title}</h3>
+                <div className="mt-4">
+                  <div className="flex items-center gap-3 mb-3">
+                    <item.icon className="h-5 w-5 text-breton-copper" />
+                    <h3 className="text-xl font-bold text-breton-navy">{item.title}</h3>
                   </div>
-                  <p className="text-sm text-breton-slate leading-relaxed">{item.description}</p>
+                  <p className="text-breton-slate leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -239,52 +225,46 @@ export default function Home() {
       {/* 6. Cas clients */}
       <Projects limit={3} showLink />
 
-      {/* 7. Insights & blog */}
-      <section className="py-16 sm:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.12em] mb-3">
+      {/* 7. Blog */}
+      <section className="py-20 sm:py-32 bg-white">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
             Insights
           </p>
-          <h2 className="font-serif text-3xl sm:text-4xl text-breton-navy mb-12">
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16">
             Blog
           </h2>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             {latestArticles.map((article) => (
               <Link
                 key={article.slug}
                 href={`/blog/${article.slug}`}
-                className="group rounded-2xl border border-breton-sand p-6 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group"
               >
                 <div className="flex flex-wrap gap-2 mb-3">
                   {article.tags.slice(0, 2).map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs bg-breton-foam border border-breton-sand rounded-full px-3 py-1 text-breton-slate"
+                      className="text-xs font-medium text-breton-granite uppercase tracking-wider"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-base font-bold text-breton-navy group-hover:text-breton-emerald transition-colors mb-2 line-clamp-2">
+                <h3 className="text-xl font-bold text-breton-navy group-hover:text-breton-copper transition-colors mb-3 line-clamp-2">
                   {article.title}
                 </h3>
-                <p className="text-sm text-breton-slate line-clamp-2">{article.description}</p>
+                <p className="text-breton-slate line-clamp-2 mb-4">{article.description}</p>
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
+                  Lire <ArrowRight className="h-4 w-4" />
+                </span>
               </Link>
             ))}
-          </div>
-          <div className="text-center mt-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-breton-emerald hover:underline"
-            >
-              Voir tous les articles
-              <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* 8. &Agrave; propos */}
+      {/* 8. À propos */}
       <IncarnationSection />
 
       {/* 9. CTA final */}

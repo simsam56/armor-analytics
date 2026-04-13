@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { Instrument_Serif } from 'next/font/google';
+import { Geist, Geist_Mono, Montserrat, Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { Header, Footer } from '@/components/layout';
 import { StickyCta } from '@/components/ui/sticky-cta';
@@ -27,6 +26,12 @@ const instrumentSerif = Instrument_Serif({
   variable: '--font-serif',
   subsets: ['latin'],
   weight: '400',
+  display: 'swap',
+});
+
+const montserrat = Montserrat({
+  variable: '--font-display',
+  subsets: ['latin'],
   display: 'swap',
 });
 
@@ -90,7 +95,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.google-analytics.com" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${montserrat.variable} font-sans antialiased`}
       >
         <a
           href="#main-content"

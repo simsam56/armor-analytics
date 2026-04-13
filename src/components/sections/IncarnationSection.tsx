@@ -77,20 +77,21 @@ export function IncarnationSection() {
 
             <motion.h2
               variants={child}
-              className="font-serif text-[28px] lg:text-[36px] leading-[1.15] text-breton-navy mb-5"
+              className="font-display text-[28px] lg:text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-breton-navy mb-5"
             >
               7 ans de terrain industriel. Puis la data.
             </motion.h2>
 
             <motion.div variants={child} className="space-y-4 text-breton-slate leading-relaxed">
               <p>
-                J&apos;ai passé 7 ans en supervision de production navale chez Naval Group — frégates
-                FDI, planification, achats, logistique. Aujourd&apos;hui, je construis les outils que
-                j&apos;aurais voulu avoir à l&apos;époque.
+                Ingénieur en génie des systèmes industriels, j&apos;ai travaillé 7 ans
+                dans l&apos;industrie (2017–2024) — chargé d&apos;affaires, responsable technique
+                d&apos;exécution. Je connais le terrain : plannings, achats, logistique, production.
               </p>
               <p>
-                Mon objectif : amener l&apos;IA et la data dans les ateliers des PME industrielles
-                bretonnes, avec pragmatisme et ancrage terrain.
+                En 2024, je me suis formé à la data science et à l&apos;intelligence artificielle.
+                En 2025, j&apos;ai créé balise-ia pour aider les PME industrielles bretonnes
+                à piloter leur production autrement.
               </p>
             </motion.div>
 
