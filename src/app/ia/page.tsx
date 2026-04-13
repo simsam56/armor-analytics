@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Projects } from '@/components/sections/Projects';
 import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
@@ -18,7 +19,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'IA & automatisation pour PME industrielles en Bretagne — GPAO, OF, qualité',
+  title: 'IA et automatisation pour PME industrielles en Bretagne',
   description:
     'Automatisez vos flux de production avec l\u2019IA : GPAO, ordres de fabrication, contrôle qualité, CBN. Pour PME industrielles bretonnes de 50 à 200 salariés.',
   openGraph: {
@@ -162,6 +163,7 @@ export default function IaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(iaFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'Pilotage production' }]} />
       <Hero
         title="Automatisez ce qui ralentit votre atelier"
         subtitle="Connectez votre GPAO, votre ERP et votre terrain — sans tout refaire. Des automatisations concrètes pour PME industrielles, directement sur vos outils existants."

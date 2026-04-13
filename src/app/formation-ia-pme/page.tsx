@@ -13,13 +13,12 @@ import {
   Bot,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Formation IA et data pour PME industrielles en Bretagne',
   description:
     'Formations IA et data sur site pour PME industrielles bretonnes. Directement en atelier, avec vos données de production. 80% méthode, 20% technologie.',
-  keywords:
-    'formation IA PME industrielle, formation data production Bretagne, formation Power BI industrie, formation n8n atelier, formation IA terrain PME',
   openGraph: {
     title: 'Formation IA et data pour PME industrielles en Bretagne',
     description:
@@ -153,6 +152,7 @@ export default function FormationIaPmePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(formationFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Formation', href: '/formation' }, { label: 'Formation IA PME' }]} />
       <Hero
         title="Formation IA et data pour PME industrielles"
         subtitle="Directement en atelier, avec vos vraies donn&eacute;es de production. Vos op&eacute;rateurs, chefs d&apos;&eacute;quipe et responsables production montent en comp&eacute;tences sur leurs outils."

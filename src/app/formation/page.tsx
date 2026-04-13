@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -8,7 +9,7 @@ import { Users, BrainCircuit, BarChart3, Wrench, ChevronDown } from 'lucide-reac
 export const metadata: Metadata = {
   title: 'Formation IA et data pour PME industrielles en Bretagne — Sur site',
   description:
-    'Formez vos équipes terrain à l\u2019IA et à la data. Ateliers directement en atelier ou en production, avec vos vraies données. 80 % méthode, 20 % techno. PME industrielles en Bretagne.',
+    'Formez vos \u00e9quipes terrain \u00e0 l\u2019IA et \u00e0 la data. Ateliers sur site avec vos vraies donn\u00e9es. 80 % m\u00e9thode, 20 % techno. PME industrielles en Bretagne.',
   openGraph: {
     title: 'Formation IA et data pour PME industrielles en Bretagne',
     description: 'Ateliers sur site en production, avec vos vraies donn\u00e9es. PME industrielles en Bretagne.',
@@ -85,6 +86,7 @@ export default function FormationPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(formationFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/formation' }, { label: 'Formation terrain' }]} />
       <Hero
         title="Rendez vos équipes autonomes sur l&apos;IA et la data"
         subtitle="Formations sur site en Bretagne. Pratique, pas théorique. Vos équipes repartent avec des outils qu&apos;elles utilisent dès le lendemain."

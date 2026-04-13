@@ -8,13 +8,6 @@ export const metadata: Metadata = {
   title: 'Diagnostic production PME — Quiz gratuit 5 min + Terrain gratuit',
   description:
     'Identifiez vos priorités pilotage production en 5 minutes (quiz gratuit) ou en 3 jours sur site (diagnostic terrain gratuit). Pour PME industrielles bretonnes.',
-  keywords: [
-    'diagnostic production PME',
-    'audit IA PME industrielle',
-    'pilotage production Bretagne',
-    'quiz IA entreprise',
-    'diagnostic terrain PME',
-  ],
   openGraph: {
     title: 'Diagnostic production PME — Quiz gratuit + Terrain gratuit',
     description:
@@ -98,9 +91,9 @@ export default function AuditPage() {
             <span className="inline-block px-4 py-1.5 bg-white/10 text-breton-moss text-sm font-medium rounded-full mb-4">
               Gratuit · Sans engagement · 5 minutes
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
               Où en êtes-vous avec le pilotage de votre production ?
-            </h2>
+            </h1>
             <p className="mt-4 text-lg text-white/70">
               5 minutes pour identifier vos opportunités concrètes. Résultats immédiats, sans
               inscription.

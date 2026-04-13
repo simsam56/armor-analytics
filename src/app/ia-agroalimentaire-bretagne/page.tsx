@@ -14,14 +14,13 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'IA et automatisation pour PME agroalimentaire en Bretagne',
   description:
     'Automatisation des commandes, traçabilité qualité, conformité réglementaire. Diagnostic terrain gratuit pour PME agroalimentaires bretonnes.',
-  keywords:
-    'IA agroalimentaire Bretagne, automatisation commandes agroalimentaire, traçabilité qualité agroalimentaire, audit IFS BRC automatisé, PME agroalimentaire Bretagne, LIMS ERP agroalimentaire',
   openGraph: {
     title: 'IA et automatisation pour PME agroalimentaire en Bretagne \u2014 balise-ia',
     description:
@@ -147,6 +146,7 @@ export default function IaAgroalimentaireBretagnePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'Agroalimentaire' }]} />
       <Hero
         title="IA et automatisation pour l&apos;agroalimentaire breton"
         subtitle="Traçabilité, conformité, automatisation des commandes — des solutions terrain pour les PME agroalimentaires de 30 à 200 salariés."

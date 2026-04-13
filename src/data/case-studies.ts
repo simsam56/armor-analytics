@@ -36,6 +36,7 @@ export interface CaseStudy {
   metrics: CaseStudyMetric[];
   image: string;
   narrative?: CaseStudyNarrative;
+  relatedLinks?: { label: string; href: string }[];
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -79,6 +80,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '3 mois' },
     ],
     image: '/metallurgie.webp',
+    relatedLinks: [
+      { label: 'Tableaux de bord production', href: '/data' },
+      { label: 'Pilotage production m\u00e9tallurgie', href: '/pilotage-production-metallurgie' },
+      { label: 'IA et automatisation', href: '/ia' },
+    ],
     narrative: {
       context:
         'Cette PME de métallurgie fine dans le Finistère (80 salariés, 2 lignes de production) avait un problème classique : les données de production existaient, mais personne ne les voyait au bon moment. Le responsable production passait chaque vendredi après-midi à compiler manuellement les chiffres de la semaine — TRS, encours, écarts qualité — depuis l\u2019ERP (GPAO), des fichiers Excel et des fiches papier remplies par les opérateurs.',
@@ -132,6 +138,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '4 mois' },
     ],
     image: '/agroalimentaire.jpg',
+    relatedLinks: [
+      { label: 'IA et automatisation', href: '/ia' },
+      { label: 'IA pour l\u2019agroalimentaire breton', href: '/ia-agroalimentaire-bretagne' },
+      { label: 'Tableaux de bord production', href: '/data' },
+    ],
   },
   {
     slug: 'transport-logistique-cotes-armor',
@@ -173,6 +184,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '5 mois' },
     ],
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80',
+    relatedLinks: [
+      { label: 'IA et automatisation', href: '/ia' },
+      { label: 'Tableaux de bord production', href: '/data' },
+    ],
   },
   {
     slug: 'industrie-plastique-ille-et-vilaine',
@@ -214,6 +229,10 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '6 mois' },
     ],
     image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    relatedLinks: [
+      { label: 'Tableaux de bord production', href: '/data' },
+      { label: 'IA et automatisation', href: '/ia' },
+    ],
   },
   {
     slug: 'negoce-b2b-loire-atlantique',
@@ -255,5 +274,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '2 mois' },
     ],
     image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80',
+    relatedLinks: [
+      { label: 'Tableaux de bord production', href: '/data' },
+      { label: 'IA et automatisation', href: '/ia' },
+    ],
   },
 ];

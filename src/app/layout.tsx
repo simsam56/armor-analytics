@@ -40,23 +40,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_CONFIG.url,
   },
-  keywords: [
-    'pilotage production PME industrielle',
-    'dashboard production temps réel',
-    'IA PME industrielle Bretagne',
-    'planning production PME',
-    'consultant data Lorient',
-    'consultant IA industrie Bretagne',
-    'tableau de bord production',
-    'Power BI industrie Bretagne',
-    'mémoire opérationnelle atelier',
-    'formation IA terrain PME',
-    'diagnostic production PME',
-    'automatisation planning industriel',
-    'pilotage atelier temps réel',
-    'reporting production automatisé',
-    'gestion connaissance industrielle',
-  ],
   authors: [{ name: SITE_CONFIG.name }],
   creator: SITE_CONFIG.name,
   openGraph: {
@@ -102,6 +85,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} font-sans antialiased`}
       >

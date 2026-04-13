@@ -14,14 +14,13 @@ import {
   Compass,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Consultant data et IA à Lorient — PME industrielles',
   description:
     'Consultant data et IA basé à Lorient, ancien superviseur de production navale (Naval Group). Pilotage production, dashboards, automatisation pour PME industrielles bretonnes.',
-  keywords:
-    'consultant data Lorient, consultant IA Lorient, consultant data PME industrielle, pilotage production Lorient, Power BI industrie Lorient, data scientist PME Morbihan',
   openGraph: {
     title: 'Consultant data et IA à Lorient — PME industrielles',
     description:
@@ -195,6 +194,7 @@ export default function ConsultantDataLorientPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(consultantJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Consultant data Lorient' }]} />
       <Hero
         title="Votre consultant data et IA à Lorient"
         subtitle="Ancien superviseur de production navale (Naval Group), basé à Lorient. Pilotage production, dashboards temps réel, automatisation — interventions sur site pour PME industrielles bretonnes."

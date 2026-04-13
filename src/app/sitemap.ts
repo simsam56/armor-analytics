@@ -132,7 +132,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: lastUpdated,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
-    images: cs.image.startsWith('http') ? [cs.image] : [`${baseUrl}${cs.image}`],
+    // Only include local images — Unsplash URLs with query params break XML validation
+    ...(cs.image.startsWith('/') ? { images: [`${baseUrl}${cs.image}`] } : {}),
   }));
 
   const legalPages: MetadataRoute.Sitemap = [

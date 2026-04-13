@@ -14,14 +14,14 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { CASE_STUDIES } from '@/data/case-studies';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Cas clients — Résultats concrets pour PME industrielles bretonnes',
   description:
     'Dashboard production temps réel, automatisation commandes, traçabilité qualité. Résultats concrets et mesurés dans des PME industrielles en Bretagne.',
-  keywords:
-    'cas clients IA PME industrielle Bretagne, résultats automatisation production, dashboard production PME, success stories data Bretagne',
   openGraph: {
     title: 'Cas clients — Résultats concrets IA et data pour PME bretonnes',
     description:
@@ -51,11 +51,28 @@ const otherCases = CASE_STUDIES.filter(
 );
 
 export default function CasClientsPage() {
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Cas clients balise-ia',
+    itemListElement: CASE_STUDIES.map((cs, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: cs.title,
+      url: `${SITE_CONFIG.url}/cas-clients/${cs.slug}`,
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <Breadcrumbs items={[{ label: 'Cas clients' }]} />
       <Hero
         title={'Des résultats concrets\net mesurables'}
-        subtitle="Découvrez comment nous avons aidé des PME bretonnes à automatiser leurs flux de données et améliorer leur pilotage."
+        subtitle="Découvrez comment nous avons aidé des PME industrielles bretonnes à automatiser leurs flux et améliorer leur pilotage production."
       />
 
       {/* Stats */}

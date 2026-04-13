@@ -14,14 +14,13 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Pilotage production pour PME m\u00e9tallurgie et chaudronnerie | Bretagne',
+  title: 'Pilotage production PME m\u00e9tallurgie et chaudronnerie',
   description:
     'Dashboard production temps r\u00e9el, TRS automatis\u00e9, tra\u00e7abilit\u00e9 qualit\u00e9. Par un ancien superviseur de production navale. Diagnostic terrain gratuit, Bretagne.',
-  keywords:
-    'pilotage production m\u00e9tallurgie, TRS automatis\u00e9, dashboard production PME, chaudronnerie Bretagne, tra\u00e7abilit\u00e9 qualit\u00e9 m\u00e9tallurgie, suivi production temps r\u00e9el',
   openGraph: {
     title: 'Pilotage production pour PME m\u00e9tallurgie et chaudronnerie \u2014 balise-ia',
     description:
@@ -131,6 +130,7 @@ export default function PilotageProductionMetallurgiePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'Métallurgie' }]} />
       <Hero
         title="Pilotage production pour PME m&eacute;tallurgie et chaudronnerie"
         subtitle="Dashboard temps r&eacute;el, TRS automatis&eacute;, tra&ccedil;abilit&eacute; qualit&eacute; &mdash; par quelqu&apos;un qui a pilot&eacute; des lignes de production pendant 7 ans."

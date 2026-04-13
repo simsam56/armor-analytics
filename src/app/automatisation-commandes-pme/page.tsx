@@ -14,14 +14,13 @@ import {
   ArrowDownToLine,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Automatisation des commandes pour PME industrielles',
   description:
     "Automatisez la saisie de vos commandes grâce à l'OCR et l'intégration ERP. Zéro ressaisie, zéro erreur. Compatible Sage, Cegid, EBP.",
-  keywords:
-    'automatisation commandes PME, OCR commandes, automatisation saisie ERP, automatisation commandes Sage, OCR bon de commande, intégration ERP automatique, automatisation ADV',
   openGraph: {
     title: 'Automatisation des commandes pour PME industrielles — balise-ia',
     description:
@@ -174,6 +173,7 @@ export default function AutomatisationCommandesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(autoFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'Automatisation commandes' }]} />
       <Hero
         title="Automatisation des commandes pour PME industrielles"
         subtitle="Vos commandes sont extraites, validées et injectées dans votre ERP en quelques minutes. Fin des ressaisies manuelles, zéro erreur, plus de temps pour vos clients."

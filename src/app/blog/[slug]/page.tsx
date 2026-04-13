@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { LeadMagnet } from '@/components/ui/lead-magnet';
 import { BLOG_ARTICLES } from '@/data/blog-articles';
@@ -100,27 +101,14 @@ export default async function BlogArticlePage({ params }: PageProps) {
     },
   };
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_CONFIG.url },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_CONFIG.url}/blog` },
-      { '@type': 'ListItem', position: 3, name: article.title },
-    ],
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
 
+      <Breadcrumbs items={[{ label: 'Blog', href: '/blog' }, { label: article.title }]} />
       <Hero title={article.title} />
 
       <article className="py-16 sm:py-20 bg-white">

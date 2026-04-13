@@ -17,14 +17,13 @@ import {
   MessageSquare,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Intelligence artificielle pour PME en Bretagne',
   description:
     "Solutions d'IA pour PME bretonnes : OCR, prévision, classification, automatisation. Déployées sur site par un consultant basé à Lorient.",
-  keywords:
-    'intelligence artificielle Bretagne, IA PME Bretagne, agence IA Lorient, consultant IA Bretagne, IA industrielle Bretagne, intelligence artificielle PME, IA Lorient, IA Morbihan, deploiement IA PME',
   openGraph: {
     title: 'Intelligence artificielle pour PME en Bretagne — balise-ia',
     description:
@@ -212,6 +211,7 @@ export default function IntelligenceArtificielleBretagnePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(iaFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'IA Bretagne' }]} />
       <Hero
         title="Intelligence artificielle pour les PME en Bretagne"
         subtitle="Des solutions d&apos;IA concrètes pour vos problèmes métier. OCR, prévision, classification, automatisation intelligente — déployées sur site, connectées à vos outils existants."

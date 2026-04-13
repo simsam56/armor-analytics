@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 import { CASE_STUDIES } from '@/data/case-studies';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -118,21 +119,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
     },
   };
 
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_CONFIG.url },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Cas clients',
-        item: `${SITE_CONFIG.url}/cas-clients`,
-      },
-      { '@type': 'ListItem', position: 3, name: caseStudy.title },
-    ],
-  };
-
   // Find other case studies for "related" section
   const otherCaseStudies = CASE_STUDIES.filter((cs) => cs.slug !== caseStudy.slug).slice(0, 2);
 
@@ -144,13 +130,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
       />
 
+      <Breadcrumbs items={[{ label: 'Cas clients', href: '/cas-clients' }, { label: caseStudy.title }]} />
       <Hero title={caseStudy.title} subtitle={`${caseStudy.sector} — ${caseStudy.location}`} />
 
       {/* Métriques clés */}
@@ -350,6 +333,23 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
+          {/* Liens internes */}
+          {caseStudy.relatedLinks && caseStudy.relatedLinks.length > 0 && (
+            <div className="rounded-2xl border border-breton-sand bg-breton-foam p-6">
+              <p className="text-sm font-semibold text-breton-navy mb-3">En savoir plus</p>
+              <div className="flex flex-wrap gap-3">
+                {caseStudy.relatedLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-breton-emerald font-medium hover:underline"
+                  >
+                    {link.label} →
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
           </div>
         </div>
       </section>

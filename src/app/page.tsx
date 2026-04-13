@@ -14,7 +14,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Pilotage production IA pour PME industrielles | Lorient, Bretagne',
   description:
-    'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain gratuit, Bretagne.',
+    'Remplacez le planning Excel par un tableau de bord production temps r\u00e9el. 7 ans de terrain industriel. Diagnostic gratuit, Bretagne.',
 };
 
 export default function Home() {
@@ -81,7 +81,7 @@ export default function Home() {
       <LogoCarousel />
 
       {/* Section : Vous vous reconnaissez ? (2 personas) */}
-      <section className="py-[110px] bg-breton-foam">
+      <section className="py-16 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
             Vous vous reconnaissez ?
@@ -119,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* Section : Trois leviers */}
-      <section className="py-[110px] bg-white">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center font-serif text-4xl sm:text-[44px] leading-[1.1] tracking-[-0.02em] text-breton-navy mb-4">
             Trois leviers concrets pour votre production

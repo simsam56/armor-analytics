@@ -10,11 +10,12 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 
 export const metadata: Metadata = {
   title: '7 ans de terrain industriel, puis la data',
   description:
-    'Supervision navale (frégates FDI, Naval Group), planification de production, achats, logistique. 7 ans de terrain industriel avant de fonder BALISE IA à Lorient pour les PME bretonnes.',
+    '7 ans de terrain industriel (Naval Group, fr\u00e9gates FDI) avant de fonder balise-ia \u00e0 Lorient. Data, IA et automatisation pour PME bretonnes.',
   openGraph: {
     title: 'À propos — balise-ia',
     description:
@@ -57,8 +58,40 @@ const DIFFERENTIATORS = [
 const AREAS = ['Lorient', 'Vannes', 'Quimper', 'Brest', 'Rennes', 'Saint-Brieuc', 'Nantes'];
 
 export default function AboutPage() {
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Simon Hingant',
+    jobTitle: 'Fondateur',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'balise-ia',
+      url: 'https://www.balise-ia.fr',
+    },
+    sameAs: ['https://www.linkedin.com/company/balise-ia'],
+    knowsAbout: [
+      'Pilotage de production',
+      'Data engineering',
+      'Intelligence artificielle',
+      'Power BI',
+      'Automatisation industrielle',
+      'Construction navale',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Lorient',
+      addressRegion: 'Bretagne',
+      addressCountry: 'FR',
+    },
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <Breadcrumbs items={[{ label: 'À propos' }]} />
       <Hero
         title="7 ans de terrain. Puis la data."
         subtitle="De la supervision de frégates de défense à l&apos;IA pour PME industrielles — par quelqu&apos;un qui a fait ce travail à la main."

@@ -14,7 +14,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'empreinte-energetique-llm',
     title: "L'empreinte environnementale des modèles d'IA — décodage complet",
     description:
-      "Audit sourcé de la consommation énergétique, eau et CO₂ de 10 modèles d'IA. Combien ça représente vraiment sur 1 an d'usage ? Et pourquoi le « reasoning tax » est le levier que personne ne mentionne.",
+      "\u00c9nergie, eau, CO\u2082 de 10 mod\u00e8les d\u2019IA sur 1 an d\u2019usage : audit sourc\u00e9 avec \u00e9quivalents concrets. Et pourquoi le reasoning tax change tout.",
     date: '2026-04-15',
     readTime: '25 min',
     tags: ['Intelligence artificielle', 'Empreinte environnementale', 'LLM', 'Analyse'],
@@ -469,7 +469,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'intelligence-artificielle-pme-bretagne-guide',
     title: 'Intelligence artificielle pour PME : guide pratique pour les entreprises bretonnes',
     description:
-      "L'intelligence artificielle n'est plus réservée aux grands groupes. Découvrez comment les PME bretonnes utilisent l'IA concrètement : cas d'usage, budget, ROI et méthode étape par étape.",
+      "L\u2019IA n\u2019est plus r\u00e9serv\u00e9e aux grands groupes. Comment les PME bretonnes l\u2019utilisent concr\u00e8tement : cas d\u2019usage, budget, ROI et m\u00e9thode.",
     date: '2026-03-28',
     readTime: '12 min',
     tags: ['Intelligence artificielle', 'PME', 'Bretagne', 'Guide', 'IA'],
@@ -562,7 +562,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'exemples-ia-pme-industrielles-bretagne',
     title: "5 exemples concrets d'IA dans les PME industrielles bretonnes",
     description:
-      "OCR, prévision de demande, contrôle qualité, classification de documents, chatbot interne : 5 cas d'usage réels d'intelligence artificielle dans les PME industrielles en Bretagne.",
+      "OCR, pr\u00e9vision, contr\u00f4le qualit\u00e9, classification, chatbot : 5 cas d\u2019usage r\u00e9els d\u2019IA dans les PME industrielles bretonnes.",
     date: '2026-03-28',
     readTime: '10 min',
     tags: ['Intelligence artificielle', 'PME industrielle', 'Bretagne', 'Exemples', 'IA'],
@@ -655,7 +655,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     slug: 'automatisation-pme-bretagne-guide',
     title: 'Automatisation des PME en Bretagne : par où commencer',
     description:
-      'Guide complet pour automatiser les processus d&apos;une PME en Bretagne. Identifier les quick wins, choisir les bons outils, et mesurer le ROI. Avec des exemples concrets de PME bretonnes.',
+      'Guide pour automatiser les processus d&apos;une PME en Bretagne : quick wins, outils et ROI. Exemples concrets de PME bretonnes.',
     date: '2026-03-25',
     readTime: '12 min',
     tags: ['Automatisation', 'PME', 'Bretagne', 'Guide', 'IA'],

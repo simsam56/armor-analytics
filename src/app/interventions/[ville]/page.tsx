@@ -363,6 +363,33 @@ export default async function CityPage({ params }: { params: Promise<{ ville: st
         </div>
       </section>
 
+      {/* Maillage interne */}
+      <section className="py-12 bg-white border-t border-breton-sand">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-sm font-semibold text-breton-navy mb-4">
+            Nos expertises pour les PME industrielles à {city.name}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { label: 'Pilotage production temps réel', href: '/ia' },
+              { label: 'Tableaux de bord et reporting', href: '/data' },
+              { label: 'Formation terrain', href: '/formation' },
+              { label: 'Pilotage métallurgie', href: '/pilotage-production-metallurgie' },
+              { label: 'IA agroalimentaire', href: '/ia-agroalimentaire-bretagne' },
+              { label: 'Cas clients', href: '/cas-clients' },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm rounded-full border border-breton-sand px-4 py-2 text-breton-slate hover:border-breton-emerald/30 hover:text-breton-navy transition-colors"
+              >
+                {link.label} →
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 sm:py-20 bg-breton-navy">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">

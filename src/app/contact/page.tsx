@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Mail, MapPin, Linkedin, CheckCircle, Shield, Clock, Phone } from 'lucide-react';
 import { ContactForm, Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Contact' }]} />
       <Hero
         title="Parlons de votre production"
         subtitle="Premier échange gratuit et sans engagement. Par quelqu&apos;un qui a piloté des plannings de production pendant 7 ans — pas un commercial."

@@ -11,14 +11,13 @@ import {
   Shield,
 } from 'lucide-react';
 import { Hero, CtaContact } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
   title: 'Power BI pour les PME en Bretagne',
   description:
     'Tableaux de bord Power BI pour PME bretonnes : production, commercial, stocks. Connectés à vos ERP, livrés en 4 à 8 semaines.',
-  keywords:
-    'Power BI Bretagne, Power BI PME, tableau de bord Power BI Bretagne, Power BI Lorient, reporting PME Bretagne, dataviz PME industrie',
   openGraph: {
     title: 'Power BI pour les PME en Bretagne — balise-ia',
     description:
@@ -154,6 +153,7 @@ export default function PowerBiBretagnePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(powerBiFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/data' }, { label: 'Power BI Bretagne' }]} />
       <Hero
         title="Power BI pour les PME en Bretagne"
         subtitle="Des tableaux de bord connectés à vos ERP, livrés clé en main. Vous pilotez votre activité en temps réel, sans dépendre d&apos;un fichier Excel."

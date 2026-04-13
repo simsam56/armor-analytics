@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { Hero } from '@/components/sections';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { BLOG_ARTICLES } from '@/data/blog-articles';
 
@@ -55,6 +56,7 @@ export default function BlogPage() {
 
   return (
     <>
+      <Breadcrumbs items={[{ label: 'Blog' }]} />
       <Hero
         title="Blog"
         subtitle="Conseils pratiques pour piloter votre production, automatiser vos process et exploiter vos données industrielles."

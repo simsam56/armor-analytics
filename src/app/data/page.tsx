@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hero } from '@/components/sections/Hero';
+import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Projects } from '@/components/sections/Projects';
 import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
@@ -18,9 +19,9 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Tableaux de bord production industrielle en Bretagne — TRS, Power BI, Metabase',
+  title: 'Tableaux de bord production industrielle en Bretagne',
   description:
-    'Pilotez votre production en temps réel : TRS, suivi d\u2019encours, taux de non-conformité. Dashboards Power BI connectés à votre ERP/GPAO, livrés en quelques semaines.',
+    'Pilotez votre production en temps r\u00e9el : TRS, encours, non-conformit\u00e9. Dashboards Power BI connect\u00e9s \u00e0 votre ERP/GPAO.',
   openGraph: {
     title: 'Tableaux de bord production industrielle en Bretagne',
     description: 'TRS, suivi d\u2019encours, non-conformit\u00e9s : dashboards Power BI connect\u00e9s \u00e0 votre ERP/GPAO.',
@@ -162,6 +163,7 @@ export default function DataPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(dataFaqJsonLd) }}
       />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/data' }, { label: 'Mémoire opérationnelle' }]} />
       <Hero
         title="Votre TRS en temps réel. Vos OF suivis. Votre reporting sans Excel."
         subtitle="Dashboard production connecté à votre ERP et votre terrain. Fini le reporting J+5 compilé à la main."
