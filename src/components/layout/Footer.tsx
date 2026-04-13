@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Linkedin, Mail, MapPin, Shield, Flag, Phone } from 'lucide-react';
-import { NAV_LINKS, SITE_CONFIG, getContactEmail } from '@/lib/constants';
+import { NAV_LINKS, OFFER_LINKS, SITE_CONFIG, getContactEmail } from '@/lib/constants';
 import { LogoWithIcon } from '@/components/ui/logo';
 
 // Contours simplifiés de la Bretagne avec villes marquées
@@ -86,8 +86,8 @@ export function Footer() {
               <LogoWithIcon size="sm" variant="white" />
             </Link>
             <p className="mt-4 max-w-sm text-sm text-white/60 leading-relaxed">
-              Data, automatisation et IA pour les PME bretonnes. On accompagne les PME et réseaux
-              bretons du diagnostic à la mise en production.
+              Pilotage production et IA pour PME industrielles bretonnes. Du diagnostic terrain
+              à la mise en production, sur site en Bretagne.
             </p>
 
             {/* Badges confiance */}
@@ -114,6 +114,16 @@ export function Footer() {
             <div>
               <p className="text-sm font-semibold text-white/90">Navigation</p>
               <ul className="mt-4 space-y-2.5">
+                {OFFER_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
                 {NAV_LINKS.map((link) => (
                   <li key={link.href}>
                     <Link
@@ -178,7 +188,7 @@ export function Footer() {
             <div>
               <p className="text-sm font-semibold text-white/90">Interventions</p>
               <ul className="mt-4 space-y-2.5">
-                {['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc'].map((city) => (
+                {['lorient', 'vannes', 'quimper', 'rennes', 'brest', 'saint-brieuc', 'nantes'].map((city) => (
                   <li key={city}>
                     <Link
                       href={`/interventions/${city}`}

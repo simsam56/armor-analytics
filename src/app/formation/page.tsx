@@ -7,12 +7,12 @@ import { FREE_RESOURCES } from '@/lib/constants';
 import { BookOpen, Users, Download, BrainCircuit, BarChart3, Wrench, ChevronDown } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Formation IA et data pour PME en Bretagne — Sur site',
+  title: 'Formation IA et data pour PME industrielles en Bretagne — Sur site',
   description:
-    'Formez vos équipes à l’IA et à la data. Ateliers sur site en Bretagne, accompagnement mensuel, transfert de compétences. Pas de jargon, des outils concrets.',
+    'Formez vos équipes terrain à l\u2019IA et à la data. Ateliers directement en atelier ou en production, avec vos vraies données. 80 % méthode, 20 % techno. PME industrielles en Bretagne.',
   openGraph: {
-    title: 'Formation IA et data pour PME en Bretagne',
-    description: 'Ateliers sur site en Bretagne, accompagnement mensuel, transfert de comp\u00e9tences.',
+    title: 'Formation IA et data pour PME industrielles en Bretagne',
+    description: 'Ateliers sur site en production, avec vos vraies donn\u00e9es. PME industrielles en Bretagne.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const FORMATION_FAQ = [
   {
     q: 'Faut-il des compétences techniques préalables ?',
-    a: 'Non. Nos formations partent de zéro et s’adaptent au niveau de chaque participant. On forme des dirigeants, des commerciaux, des techniciens et des administratifs.',
+    a: 'Non. Nos formations partent de zéro et s\u2019adaptent au niveau de chaque participant. On forme des dirigeants, des commerciaux, des techniciens et des administratifs.',
   },
   {
     q: 'Combien de personnes par session ?',
@@ -30,7 +30,7 @@ const FORMATION_FAQ = [
   },
   {
     q: 'La formation est-elle finançable ?',
-    a: 'Nous travaillons à l’obtention de la certification Qualiopi pour permettre la prise en charge par les OPCO. En attendant, nos formations restent accessibles et rentabilisées dès la première semaine d’application.',
+    a: 'Nous travaillons à l\u2019obtention de la certification Qualiopi pour permettre la prise en charge par les OPCO. En attendant, nos formations restent accessibles et rentabilisées dès la première semaine d\u2019application.',
   },
   {
     q: 'Quel suivi après la formation ?',
@@ -38,7 +38,7 @@ const FORMATION_FAQ = [
   },
   {
     q: 'Vous formez à quels outils exactement ?',
-    a: 'Claude et ChatGPT (prompting avancé), Power BI (tableaux de bord), n8n et Make (automatisation), Excel avec IA. On s’adapte à vos outils existants.',
+    a: 'Claude et ChatGPT (prompting avancé), Power BI (tableaux de bord), n8n et Make (automatisation), Excel avec IA. On s\u2019adapte à vos outils existants.',
   },
 ];
 
@@ -61,21 +61,21 @@ export default function FormationPage() {
       icon: BrainCircuit,
       title: 'Formation IA & prompting',
       description:
-        'Vos équipes apprennent à utiliser l’IA au quotidien : rédaction, analyse, automatisation de tâches. Cas pratiques sur leurs vrais sujets.',
-      topics: ['Prompting avancé', 'Claude / ChatGPT', 'Cas d’usage métier', 'Limites et bonnes pratiques'],
+        'On forme vos opérateurs et chefs d&apos;équipe directement en atelier, sur leurs vrais sujets : fiches qualité, comptes rendus, analyse de non-conformités. Pas de salle de cours — du concret avec leurs données de production.',
+      topics: ['Prompting avancé', 'Claude / ChatGPT', 'Cas d\u2019usage métier', 'Limites et bonnes pratiques'],
     },
     {
       icon: BarChart3,
       title: 'Formation data & Power BI',
       description:
-        'Vos équipes apprennent à lire, créer et modifier des tableaux de bord. Pour que le reporting ne dépende plus d’une seule personne.',
+        'Vos responsables production et ADV apprennent à lire, créer et modifier des tableaux de bord avec leurs vraies données : suivi de rendement, taux de rebut, délais de livraison. Le reporting ne dépend plus d&apos;une seule personne.',
       topics: ['Lecture de dashboards', 'Création de rapports', 'Filtres et alertes', 'Bonnes pratiques data'],
     },
     {
       icon: Wrench,
       title: 'Formation automatisation',
       description:
-        'Vos équipes apprennent à créer et maintenir des automatisations simples. Pour que les process continuent de tourner sans nous.',
+        'Vos équipes apprennent à créer et maintenir des automatisations simples sur leurs process réels : bons de commande, relances fournisseurs, saisie ERP. 80 % méthode, 20 % technologie — l&apos;adoption est le vrai défi.',
       topics: ['n8n / Make', 'Scénarios de base', 'Déboggage', 'Bonnes pratiques'],
     },
   ];
@@ -156,18 +156,20 @@ export default function FormationPage() {
                 <Users className="h-6 w-6 text-breton-emerald" />
               </div>
               <h2 className="text-3xl font-bold tracking-tight text-breton-navy">
-                Accompagnement sur site
+                Accompagnement sur site, dans vos ateliers
               </h2>
               <p className="mt-4 text-lg text-breton-slate leading-relaxed">
-                On vient chez vous. Vos équipes apprennent en faisant, sur leurs vrais outils,
-                avec leurs vrais process. La formation et la mise en place se font en même temps.
+                On vient directement dans vos locaux de production. Opérateurs, chefs d&apos;équipe,
+                responsable production — chacun apprend en faisant, sur ses vrais outils et ses
+                vraies données. La formation et la mise en place se font en même temps, au plus
+                près du terrain.
               </p>
               <ul className="mt-6 space-y-3">
                 {[
-                  'Ateliers pratiques en petits groupes (2-3h)',
-                  'Adaptés à chaque métier (production, ADV, direction)',
-                  'Documentation et support post-formation inclus',
-                  'Accompagnement mensuel disponible',
+                  'Ateliers pratiques en petits groupes, directement en atelier (2-3h)',
+                  'Adaptés à chaque poste : opérateurs, chefs d\u0027équipe, ADV, direction',
+                  'Documentation terrain et support post-formation inclus',
+                  'Accompagnement mensuel pour ancrer l\u0027adoption dans la durée',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-1 h-2 w-2 rounded-full bg-breton-emerald shrink-0" />

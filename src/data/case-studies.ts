@@ -72,6 +72,47 @@ export const CASE_STUDIES: CaseStudy[] = [
     image: '/metallurgie.webp',
   },
   {
+    slug: 'agroalimentaire-morbihan',
+    title: 'Automatisation des commandes — Agroalimentaire',
+    sector: 'Agroalimentaire',
+    location: 'Morbihan (56)',
+    employees: '45 salariés',
+    duration: '6 semaines',
+    beforeState: {
+      painPoints: [
+        '2h de ressaisie par jour pour 3 personnes',
+        '5-10 erreurs de saisie par semaine',
+        'Délai de traitement commande : 4h en moyenne',
+      ],
+    },
+    intervention: {
+      description: 'Automatisation du flux de commandes entrantes.',
+      actions: [
+        'Extraction automatique des données des PDF et emails',
+        'Validation et injection directe dans l\u2019ERP',
+        'Alertes sur les commandes urgentes',
+      ],
+      tools: ['Python', 'API ERP', 'Email automation'],
+    },
+    afterState: {
+      results: [
+        '80% du temps de traitement éliminé',
+        'Zéro erreur de saisie depuis 6 mois',
+        'Délai de traitement : 15 minutes',
+      ],
+    },
+    testimonial:
+      'On a récupéré 2 heures par jour. L\u2019équipe peut enfin se concentrer sur la relation client.',
+    author: 'Marie Lebreton',
+    role: 'Responsable ADV',
+    metrics: [
+      { label: 'Temps gagné', value: '2h/jour', highlight: true },
+      { label: 'Erreurs', value: '0' },
+      { label: 'ROI', value: '4 mois' },
+    ],
+    image: '/agroalimentaire.jpg',
+  },
+  {
     slug: 'transport-logistique-cotes-armor',
     title: 'Reporting automatisé en J+0 — Transport & Logistique',
     sector: 'Transport & Logistique',
@@ -193,46 +234,5 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: 'ROI', value: '2 mois' },
     ],
     image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80',
-  },
-  {
-    slug: 'agroalimentaire-morbihan',
-    title: 'Automatisation des commandes — Agroalimentaire',
-    sector: 'Agroalimentaire',
-    location: 'Morbihan (56)',
-    employees: '45 salariés',
-    duration: '6 semaines',
-    beforeState: {
-      painPoints: [
-        '2h de ressaisie par jour pour 3 personnes',
-        '5-10 erreurs de saisie par semaine',
-        'Délai de traitement commande : 4h en moyenne',
-      ],
-    },
-    intervention: {
-      description: 'Automatisation du flux de commandes entrantes.',
-      actions: [
-        'Extraction automatique des données des PDF et emails',
-        'Validation et injection directe dans l\u2019ERP',
-        'Alertes sur les commandes urgentes',
-      ],
-      tools: ['Python', 'API ERP', 'Email automation'],
-    },
-    afterState: {
-      results: [
-        '80% du temps de traitement éliminé',
-        'Zéro erreur de saisie depuis 6 mois',
-        'Délai de traitement : 15 minutes',
-      ],
-    },
-    testimonial:
-      'On a récupéré 2 heures par jour. L\u2019équipe peut enfin se concentrer sur la relation client.',
-    author: 'Marie Lebreton',
-    role: 'Responsable ADV',
-    metrics: [
-      { label: 'Temps gagné', value: '2h/jour', highlight: true },
-      { label: 'Erreurs', value: '0' },
-      { label: 'ROI', value: '4 mois' },
-    ],
-    image: '/agroalimentaire.jpg',
   },
 ];

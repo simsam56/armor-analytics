@@ -18,12 +18,12 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Tableaux de bord et reporting pour PME en Bretagne — Power BI, Metabase',
+  title: 'Tableaux de bord production industrielle en Bretagne — TRS, Power BI, Metabase',
   description:
-    'Pilotez votre PME en temps réel : dashboards Power BI, data engineering, reporting automatisé. Connectés à vos ERP, livrés en quelques semaines.',
+    'Pilotez votre production en temps réel : TRS, suivi d\u2019encours, taux de non-conformité. Dashboards Power BI connectés à votre ERP/GPAO, livrés en quelques semaines.',
   openGraph: {
-    title: 'Tableaux de bord et reporting pour PME en Bretagne',
-    description: 'Dashboards Power BI, data engineering, reporting automatis\u00e9. Connect\u00e9s \u00e0 vos ERP.',
+    title: 'Tableaux de bord production industrielle en Bretagne',
+    description: 'TRS, suivi d\u2019encours, non-conformit\u00e9s : dashboards Power BI connect\u00e9s \u00e0 votre ERP/GPAO.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -68,62 +68,62 @@ const dataFaqJsonLd = {
 
 export default function DataPage() {
   const painPoints = [
-    'Votre reporting, c\u2019est un Excel que quelqu\u2019un met \u00e0 jour le vendredi',
-    'Vos donn\u00e9es sont \u00e9clat\u00e9es entre 3 syst\u00e8mes qui ne se parlent pas',
-    'Vous d\u00e9cidez au feeling, faute de chiffres \u00e0 jour',
-    'Vous d\u00e9tectez les probl\u00e8mes qualit\u00e9 apr\u00e8s coup, jamais avant',
-    'L\u2019audit arrive et vous paniquez pour compiler les donn\u00e9es',
-    'Vous ne savez pas quels clients ou produits sont r\u00e9ellement rentables',
+    'Votre TRS est calcul\u00e9 \u00e0 la main sur un fichier Excel mis \u00e0 jour en fin de semaine',
+    'Le suivi de production repose sur 3 syst\u00e8mes qui ne se parlent pas : ERP, GPAO, fichiers terrain',
+    'Vos encours atelier sont un angle mort — vous d\u00e9couvrez les retards apr\u00e8s coup',
+    'Le taux de non-conformit\u00e9 n\u2019est consolid\u00e9 qu\u2019au reporting mensuel, jamais en temps r\u00e9el',
+    'Votre reporting production arrive \u00e0 J+5 apr\u00e8s compilation manuelle par le responsable qualit\u00e9',
+    'Vous ne savez pas quelles lignes ou quels OF sont r\u00e9ellement rentables',
   ];
 
   const useCases = [
     {
       icon: BarChart3,
-      title: 'Dashboards temps réel',
+      title: 'Pilotage production & TRS',
       description:
-        'Vos KPIs disponibles en un coup d\u2019\u0153il. Connect\u00e9 directement \u00e0 votre ERP, votre CRM ou vos fichiers.',
+        'TRS, taux de rebut, cadence par ligne : vos indicateurs atelier disponibles en temps r\u00e9el, connect\u00e9s \u00e0 votre ERP/GPAO.',
     },
     {
       icon: Database,
-      title: 'Data warehouse & centralisation',
+      title: 'Centralisation ERP, GPAO & terrain',
       description:
-        'Centralisez vos sources dans un entrepôt de données propre. Microsoft Fabric, DuckDB, PostgreSQL selon vos besoins. Nous choisissons l\u2019outil adapt\u00e9, vous gardez le focus sur vos d\u00e9cisions.',
+        'On unifie vos sources : ERP, GPAO, saisies op\u00e9rateurs, fichiers Excel terrain. Un entrep\u00f4t de donn\u00e9es propre, automatis\u00e9, sans ressaisie.',
     },
     {
       icon: Layers,
-      title: 'Data quality & nettoyage',
+      title: 'Fiabilit\u00e9 des donn\u00e9es production',
       description:
-        'Doublons, incohérences, données manquantes : on audite et on nettoie avant de construire.',
-    },
-    {
-      icon: RefreshCw,
-      title: 'Reporting automatisé',
-      description:
-        'Finis les rapports manuels du lundi matin. Vos équipes reçoivent automatiquement les bons chiffres.',
+        'Doublons d\u2019OF, \u00e9carts de stock, saisies incoh\u00e9rentes : on audite et on nettoie vos donn\u00e9es avant de construire les dashboards.',
     },
     {
       icon: AlertTriangle,
-      title: 'Suivi qualité & alertes',
+      title: 'Non-conformit\u00e9s & alertes process',
       description:
-        'Monitoring temps r\u00e9el, alertes sur d\u00e9rives. D\u00e9tectez les probl\u00e8mes avant qu\u2019ils n\u2019explosent.',
+        'D\u00e9tectez les d\u00e9rives process et les non-conformit\u00e9s en temps r\u00e9el. Alertes automatiques sur seuils qualit\u00e9, avant que le lot ne parte.',
+    },
+    {
+      icon: RefreshCw,
+      title: 'Reporting production automatis\u00e9',
+      description:
+        'Fini le reporting \u00e0 J+5 compil\u00e9 \u00e0 la main. Vos indicateurs atelier — TRS, encours, rendement — arrivent automatiquement chaque matin.',
     },
     {
       icon: Users,
-      title: 'CRM analytique & segmentation',
+      title: 'Suivi encours & ordres de fabrication',
       description:
-        'Exploitez enfin vos données clients. Segmentation, scoring, analyse de rentabilité.',
+        'Visualisez vos encours atelier, l\u2019avancement des OF et les goulets d\u2019\u00e9tranglement en un coup d\u2019\u0153il.',
     },
     {
       icon: TrendingUp,
-      title: 'Pilotage en temps réel',
+      title: 'Pilotage en temps r\u00e9el',
       description:
-        'D\u00e9cidez sur la base de donn\u00e9es fra\u00eeches, pas d\u2019exports d\u2019hier. Seuils et alertes configurables.',
+        'D\u00e9cidez sur la base de donn\u00e9es fra\u00eeches, pas d\u2019exports d\u2019hier. Seuils et alertes configurables par ligne ou par atelier.',
     },
     {
       icon: ShieldCheck,
-      title: 'Conformité & traçabilité',
+      title: 'Conformit\u00e9 & tra\u00e7abilit\u00e9',
       description:
-        'Reporting réglementaire automatisé pour vos audits. Fini le stress de la compilation manuelle.',
+        'Reporting r\u00e9glementaire automatis\u00e9 pour vos audits qualit\u00e9 et certifications. Tra\u00e7abilit\u00e9 lot par lot, sans compilation manuelle.',
     },
   ];
 

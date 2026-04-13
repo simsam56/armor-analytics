@@ -277,55 +277,6 @@ export const PROJECTS = [
     },
   },
   {
-    id: 'agent-ia-logistique',
-    title: 'Comment un transporteur a automatisé 90% de ses réponses clients',
-    sector: 'Logistique',
-    location: 'Morbihan',
-    companySize: '60 salariés',
-    existingTools: 'TMS maison, Outlook, téléphone',
-    context: `Ce transporteur breton recevait 80 à 120 appels et emails par jour pour des demandes de suivi de livraison. Deux personnes à temps plein étaient mobilisées pour répondre aux mêmes questions : "Où est mon colis ?", "Quand sera-t-il livré ?". Le TMS contenait toutes les réponses, mais personne ne pouvait y accéder directement.`,
-    pain: '2 ETP mobilisés sur des réponses répétitives, temps de réponse > 4h',
-    beforeAfter: {
-      before: [
-        { metric: 'Demandes traitées/jour', value: '80-120 (manuel)' },
-        { metric: 'Temps de réponse moyen', value: '4h' },
-        { metric: 'ETP mobilisés', value: '2' },
-      ],
-      after: [
-        { metric: 'Demandes traitées/jour', value: '90% automatisées' },
-        { metric: 'Temps de réponse moyen', value: '< 30 sec' },
-        { metric: 'ETP mobilisés', value: '0.3 (supervision)' },
-      ],
-    },
-    approach: [
-      'Analyse des flux email et téléphone (1 semaine)',
-      'Connexion au TMS via API pour récupérer les statuts en temps réel',
-      'Déploiement d\u2019un agent IA (email + formulaire web) entraîné sur les FAQ',
-      'Interface de supervision pour les cas complexes',
-    ],
-    deliverables: [
-      'Agent IA connecté au TMS (réponses automatiques par email)',
-      'Formulaire web de suivi en temps réel',
-      'Dashboard de supervision des demandes non résolues',
-      'Formation de l\u2019équipe ADV (2h)',
-    ],
-    techNote: 'Agent IA basé sur Claude avec RAG sur la base de connaissances interne + API TMS. Réponses en langage naturel, pas de chatbot scriptée.',
-    results: {
-      main: '90% des demandes de suivi traitées automatiquement',
-      secondary: [
-        'Temps de réponse passé de 4h à 30 secondes',
-        '1.7 ETP réaffectés au service commercial',
-        'Satisfaction client en hausse (NPS +12 points)',
-      ],
-    },
-    duration: '5 semaines',
-    tags: ['Agent IA', 'Automatisation', 'Service client'],
-    testimonial: {
-      quote: 'Nos clients ont la réponse avant même d\u2019avoir raccroché. Et mes équipes peuvent enfin se concentrer sur les vrais problèmes.',
-      author: 'Directeur logistique',
-    },
-  },
-  {
     id: 'commandes-agroalimentaire',
     title: `Comment une entreprise agroalimentaire a éliminé 80% de ses ressaisies`,
     sector: 'Agroalimentaire',
@@ -429,57 +380,6 @@ export const PROJECTS = [
     },
   },
   {
-    id: 'pilotage-reseau-franchises',
-    title: 'Comment un réseau de 150 franchises a unifié ses données en un seul écran',
-    sector: 'Réseau de franchises',
-    location: 'Loire-Atlantique',
-    companySize: '150 points de vente',
-    existingTools: 'ERP Dynamics 365, logiciels de caisse (2 éditeurs), Excel',
-    context: `Ce réseau national de franchises spécialisé dans le commerce de détail avait ses données éclatées entre deux logiciels de caisse différents, un ERP central et des fichiers Excel par magasin. Aucune vision consolidée du CA, des marges ou des comportements clients.`,
-    pain: 'Données éclatées entre 3 systèmes, zéro vision client, reporting manuel à J+7',
-    beforeAfter: {
-      before: [
-        { metric: 'Temps de reporting', value: 'J+7 (manuel)' },
-        { metric: 'Vision client', value: 'Inexistante' },
-        { metric: 'Couverture données', value: '60% des magasins' },
-      ],
-      after: [
-        { metric: 'Temps de reporting', value: 'Temps réel' },
-        { metric: 'Vision client', value: 'Segmentation RFM complète' },
-        { metric: 'Couverture données', value: '100% des magasins' },
-      ],
-    },
-    approach: [
-      'Diagnostic des flux entre ERP, caisses et fichiers (2 semaines)',
-      `Construction d'une data platform centralisée (Microsoft Fabric, architecture Medallion)`,
-      'Dashboards Power BI : pilotage commercial B2B et B2C, analyse clients',
-      `Mini CRM analytique avec segmentation RFM pour l'équipe marketing`,
-    ],
-    deliverables: [
-      'Data platform centralisée (Bronze → Silver → Gold)',
-      'Connecteurs automatisés ERP + 2 logiciels de caisse',
-      '3 dashboards Power BI (commercial B2B, B2C, clients)',
-      'Segmentation client RFM avec scoring',
-      'Documentation et formation équipes siège',
-    ],
-    techNote: `Data platform Microsoft Fabric avec architecture Medallion. Ingestion via API GraphQL (caisse principale) + connecteur ERP Dynamics 365. Vues SQL Gold alimentant Power BI. Pas d'IA sur ce projet, uniquement de la structuration et de la visualisation.`,
-    results: {
-      main: 'Vision temps réel sur 150 points de vente',
-      secondary: [
-        `Première segmentation client de l'histoire du réseau`,
-        'Reporting automatisé pour la direction commerciale',
-        'Identification des magasins sous-performants en 2 clics',
-      ],
-    },
-    duration: '10 semaines + pilotage continu',
-    tags: ['Data Platform', 'Power BI', 'Réseau franchises', 'Microsoft Fabric'],
-    testimonial: {
-      quote:
-        'Pour la première fois, on voit nos 150 magasins dans un seul écran. Et on sait enfin qui sont nos clients.',
-      author: 'Directeur commercial',
-    },
-  },
-  {
     id: 'dechets-plasturgie',
     title: `Comment un plasturgiste a réduit ses coûts déchets de 25%`,
     sector: 'Plasturgie',
@@ -528,6 +428,106 @@ export const PROJECTS = [
     testimonial: {
       quote: `On anticipe au lieu de subir. Et on a divisé notre budget déchets par quatre sur l'année.`,
       author: 'Responsable QHSE',
+    },
+  },
+  {
+    id: 'agent-ia-logistique',
+    title: 'Comment un transporteur a automatisé 90% de ses réponses clients',
+    sector: 'Logistique',
+    location: 'Morbihan',
+    companySize: '60 salariés',
+    existingTools: 'TMS maison, Outlook, téléphone',
+    context: `Ce transporteur breton recevait 80 à 120 appels et emails par jour pour des demandes de suivi de livraison. Deux personnes à temps plein étaient mobilisées pour répondre aux mêmes questions : "Où est mon colis ?", "Quand sera-t-il livré ?". Le TMS contenait toutes les réponses, mais personne ne pouvait y accéder directement.`,
+    pain: '2 ETP mobilisés sur des réponses répétitives, temps de réponse > 4h',
+    beforeAfter: {
+      before: [
+        { metric: 'Demandes traitées/jour', value: '80-120 (manuel)' },
+        { metric: 'Temps de réponse moyen', value: '4h' },
+        { metric: 'ETP mobilisés', value: '2' },
+      ],
+      after: [
+        { metric: 'Demandes traitées/jour', value: '90% automatisées' },
+        { metric: 'Temps de réponse moyen', value: '< 30 sec' },
+        { metric: 'ETP mobilisés', value: '0.3 (supervision)' },
+      ],
+    },
+    approach: [
+      'Analyse des flux email et téléphone (1 semaine)',
+      'Connexion au TMS via API pour récupérer les statuts en temps réel',
+      'Déploiement d\u2019un agent IA (email + formulaire web) entraîné sur les FAQ',
+      'Interface de supervision pour les cas complexes',
+    ],
+    deliverables: [
+      'Agent IA connecté au TMS (réponses automatiques par email)',
+      'Formulaire web de suivi en temps réel',
+      'Dashboard de supervision des demandes non résolues',
+      'Formation de l\u2019équipe ADV (2h)',
+    ],
+    techNote: 'Agent IA basé sur Claude avec RAG sur la base de connaissances interne + API TMS. Réponses en langage naturel, pas de chatbot scriptée.',
+    results: {
+      main: '90% des demandes de suivi traitées automatiquement',
+      secondary: [
+        'Temps de réponse passé de 4h à 30 secondes',
+        '1.7 ETP réaffectés au service commercial',
+        'Satisfaction client en hausse (NPS +12 points)',
+      ],
+    },
+    duration: '5 semaines',
+    tags: ['Agent IA', 'Automatisation', 'Service client'],
+    testimonial: {
+      quote: 'Nos clients ont la réponse avant même d\u2019avoir raccroché. Et mes équipes peuvent enfin se concentrer sur les vrais problèmes.',
+      author: 'Directeur logistique',
+    },
+  },
+  {
+    id: 'pilotage-reseau-franchises',
+    title: 'Comment un réseau de 150 franchises a unifié ses données en un seul écran',
+    sector: 'Réseau de franchises',
+    location: 'Loire-Atlantique',
+    companySize: '150 points de vente',
+    existingTools: 'ERP Dynamics 365, logiciels de caisse (2 éditeurs), Excel',
+    context: `Ce réseau national de franchises spécialisé dans le commerce de détail avait ses données éclatées entre deux logiciels de caisse différents, un ERP central et des fichiers Excel par magasin. Aucune vision consolidée du CA, des marges ou des comportements clients.`,
+    pain: 'Données éclatées entre 3 systèmes, zéro vision client, reporting manuel à J+7',
+    beforeAfter: {
+      before: [
+        { metric: 'Temps de reporting', value: 'J+7 (manuel)' },
+        { metric: 'Vision client', value: 'Inexistante' },
+        { metric: 'Couverture données', value: '60% des magasins' },
+      ],
+      after: [
+        { metric: 'Temps de reporting', value: 'Temps réel' },
+        { metric: 'Vision client', value: 'Segmentation RFM complète' },
+        { metric: 'Couverture données', value: '100% des magasins' },
+      ],
+    },
+    approach: [
+      'Diagnostic des flux entre ERP, caisses et fichiers (2 semaines)',
+      `Construction d'une data platform centralisée (Microsoft Fabric, architecture Medallion)`,
+      'Dashboards Power BI : pilotage commercial B2B et B2C, analyse clients',
+      `Mini CRM analytique avec segmentation RFM pour l'équipe marketing`,
+    ],
+    deliverables: [
+      'Data platform centralisée (Bronze → Silver → Gold)',
+      'Connecteurs automatisés ERP + 2 logiciels de caisse',
+      '3 dashboards Power BI (commercial B2B, B2C, clients)',
+      'Segmentation client RFM avec scoring',
+      'Documentation et formation équipes siège',
+    ],
+    techNote: `Data platform Microsoft Fabric avec architecture Medallion. Ingestion via API GraphQL (caisse principale) + connecteur ERP Dynamics 365. Vues SQL Gold alimentant Power BI. Pas d'IA sur ce projet, uniquement de la structuration et de la visualisation.`,
+    results: {
+      main: 'Vision temps réel sur 150 points de vente',
+      secondary: [
+        `Première segmentation client de l'histoire du réseau`,
+        'Reporting automatisé pour la direction commerciale',
+        'Identification des magasins sous-performants en 2 clics',
+      ],
+    },
+    duration: '10 semaines + pilotage continu',
+    tags: ['Data Platform', 'Power BI', 'Réseau franchises', 'Microsoft Fabric'],
+    testimonial: {
+      quote:
+        'Pour la première fois, on voit nos 150 magasins dans un seul écran. Et on sait enfin qui sont nos clients.',
+      author: 'Directeur commercial',
     },
   },
 ];

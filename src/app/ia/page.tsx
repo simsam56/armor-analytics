@@ -18,12 +18,12 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Automatisation et IA pour PME en Bretagne — OCR, agents IA, workflows',
+  title: 'IA & automatisation pour PME industrielles en Bretagne — GPAO, OF, qualité',
   description:
-    'Éliminez vos ressaisies et automatisez vos process avec l’IA. OCR, agents IA, workflows n8n pour PME bretonnes. Résultats mesurés avant et après.',
+    'Automatisez vos flux de production avec l\u2019IA : GPAO, ordres de fabrication, contrôle qualité, CBN. Pour PME industrielles bretonnes de 50 à 200 salariés.',
   openGraph: {
-    title: 'Automatisation et IA pour PME en Bretagne',
-    description: 'OCR, agents IA, workflows n8n pour PME bretonnes. R\u00e9sultats mesur\u00e9s avant et apr\u00e8s.',
+    title: 'IA & automatisation pour PME industrielles en Bretagne',
+    description: 'Automatisez vos flux de production : GPAO, ordres de fabrication, contr\u00f4le qualit\u00e9, CBN. PME industrielles bretonnes.',
     type: 'website',
     locale: 'fr_FR',
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 const IA_FAQ = [
   {
-    q: 'Par où commencer quand on n’a aucune expérience en IA ?',
+    q: 'Par où commencer quand on n\u2019a aucune expérience en IA ?',
     a: 'Par le diagnostic. En 5 minutes (quiz) ou 30 minutes (appel), on identifie les 2-3 automatisations les plus rentables pour votre PME. Pas besoin de compétences techniques.',
   },
   {
@@ -45,11 +45,11 @@ const IA_FAQ = [
   },
   {
     q: 'Est-ce que mes équipes devront changer leurs habitudes ?',
-    a: 'Le moins possible. On conçoit des solutions qui s’intègrent dans vos outils existants. Formation incluse pour que vos équipes soient autonomes.',
+    a: 'Le moins possible. On conçoit des solutions qui s\u2019intègrent dans vos outils existants. Formation incluse pour que vos équipes soient autonomes.',
   },
   {
     q: 'Mes données sont-elles en sécurité ?',
-    a: 'NDA systématique, données hébergées en France, conformité RGPD. On ne travaille qu’avec des solutions maîtrisées et traçables.',
+    a: 'NDA systématique, données hébergées en France, conformité RGPD. On ne travaille qu\u2019avec des solutions maîtrisées et traçables.',
   },
 ];
 
@@ -68,50 +68,50 @@ const iaFaqJsonLd = {
 
 export default function IaPage() {
   const painPoints = [
-    'Vos équipes ressaisissent des données d’un outil à l’autre',
-    'Le traitement des commandes, factures ou BL est manuel',
-    'Vos collaborateurs passent du temps sur des tâches répétitives à faible valeur',
-    'Vous répondez aux mêmes questions clients encore et encore',
-    'Vos prévisions de stock ou de demande sont approximatives',
-    'Vos emails et demandes entrantes sont triés et routés à la main',
+    'Vos opérateurs ressaisissent les OF entre la GPAO et le terrain',
+    'Le traitement des bons de commande, BL et fiches qualité est encore manuel',
+    'Vos temps de cycle et taux de rebut ne sont suivis que dans Excel',
+    'Vos équipes atelier posent les mêmes questions sur les gammes et les procédures',
+    'Votre CBN tourne sur des prévisions approximatives, les ruptures sont fréquentes',
+    'Le MES n\u2019est pas connecté à l\u2019ERP : double saisie, données en retard',
   ];
 
   const useCases = [
     {
       icon: ScanText,
-      title: 'OCR & extraction de données',
+      title: 'OCR bons de commande, BL & fiches qualité',
       description:
-        'Éliminez la ressaisie manuelle. Traitez automatiquement vos bons de commande, factures et documents entrants.',
+        'Éliminez la ressaisie des bons de commande, bons de livraison et fiches qualité. L\u2019IA extrait, structure et injecte les données dans votre GPAO.',
     },
     {
       icon: MessageSquare,
-      title: 'Agents IA conversationnels',
+      title: 'Base de connaissances atelier',
       description:
-        'FAQ interne, support client, qualification de leads. Des agents qui répondent 24/7 dans le ton de votre entreprise.',
+        'Un agent IA qui répond 24/7 aux questions des opérateurs : gammes, procédures, fiches de poste, consignes qualité. Accessible sur tablette au pied de la machine.',
     },
     {
       icon: Workflow,
-      title: 'Automatisation de workflows',
+      title: 'Automatisation des flux de production',
       description:
-        'Connectez vos outils (ERP, CRM, email) avec n8n ou Make. Zéro code côté client, tout piloté par vos données.',
+        'Connectez GPAO, MES et ERP avec n8n. Synchronisation automatique des OF, gammes et temps de cycle. Zéro double saisie.',
     },
     {
       icon: FileText,
       title: 'Génération de contenus métier',
       description:
-        'Fiches produit, comptes-rendus, réponses à appels d’offres, rapports. L’IA rédige, vous validez.',
+        'Fiches produit, comptes-rendus, réponses à appels d\u2019offres, rapports. L\u2019IA rédige, vous validez.',
     },
     {
       icon: Eye,
-      title: 'Vision & analyse d’images',
+      title: 'Vision & contrôle qualité',
       description:
-        'Contrôle qualité visuel, lecture de compteurs, analyse de photos terrain. L’IA voit ce que l’œil humain rate.',
+        'Contrôle qualité visuel en sortie de ligne, lecture de compteurs, détection de défauts. L\u2019IA réduit le taux de rebut.',
     },
     {
       icon: TrendingUp,
-      title: 'Prévision de demande & stocks',
+      title: 'CBN & prévision d\u2019approvisionnement',
       description:
-        'Anticipez au lieu de subir. Modèles de prévision connectés à vos données historiques et à votre planning.',
+        'Fiabilisez votre calcul des besoins nets. Modèles de prévision connectés à vos historiques de commande et à votre plan de production.',
     },
     {
       icon: Bot,
@@ -123,7 +123,7 @@ export default function IaPage() {
       icon: BrainCircuit,
       title: 'Classification & indexation',
       description:
-        'Documents, tickets, emails : l’IA trie, classe et route automatiquement vers les bonnes personnes.',
+        'Documents, tickets, emails : l\u2019IA trie, classe et route automatiquement vers les bonnes personnes.',
     },
   ];
 
@@ -138,7 +138,7 @@ export default function IaPage() {
       step: '2',
       title: 'Prototype',
       description:
-        'On déploie un premier cas d’usage sur un périmètre restreint. Vous validez la valeur avant de scaler.',
+        'On déploie un premier cas d\u2019usage sur un périmètre restreint. Vous validez la valeur avant de scaler.',
     },
     {
       step: '3',
@@ -184,7 +184,7 @@ export default function IaPage() {
         </div>
       </div>
 
-      {/* Problèmes que l'on résout */}
+      {/* Problèmes que l\u2019on résout */}
       <section className="py-16 sm:py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-breton-navy mb-8">
@@ -206,7 +206,7 @@ export default function IaPage() {
         </div>
       </section>
 
-      {/* Cas d'usage */}
+      {/* Cas d\u2019usage */}
       <section className="py-[110px] bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight text-breton-navy mb-4">

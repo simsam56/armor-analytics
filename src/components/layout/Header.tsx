@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { NAV_LINKS, OFFER_LINKS } from '@/lib/constants';
+import { NAV_LINKS, OFFER_LINKS, SITE_CONFIG } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { LogoBalise } from '@/components/animations';
 
@@ -132,6 +132,15 @@ export function Header() {
 
         {/* CTAs droite */}
         <div className="hidden lg:flex lg:items-center lg:gap-x-3">
+          {SITE_CONFIG.phone && (
+            <a
+              href={`tel:+33${SITE_CONFIG.phone.replace(/\s/g, '').slice(1)}`}
+              className="flex items-center gap-1.5 text-sm text-breton-slate hover:text-breton-navy transition-colors"
+            >
+              <Phone className="h-3.5 w-3.5" />
+              {SITE_CONFIG.phone}
+            </a>
+          )}
           <Button
             asChild
             size="sm"
