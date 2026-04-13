@@ -3,8 +3,7 @@ import { Hero } from '@/components/sections/Hero';
 import { VideoBackground } from '@/components/ui/video-background';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { FREE_RESOURCES } from '@/lib/constants';
-import { BookOpen, Users, Download, BrainCircuit, BarChart3, Wrench, ChevronDown } from 'lucide-react';
+import { Users, BrainCircuit, BarChart3, Wrench, ChevronDown } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Formation IA et data pour PME industrielles en Bretagne — Sur site',
@@ -203,45 +202,7 @@ export default function FormationPage() {
         </div>
       </section>
 
-      {/* Ressources gratuites */}
-      <section className="py-16 sm:py-20 bg-white border-y border-breton-sand">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-copper/10 mb-6">
-            <BookOpen className="h-6 w-6 text-breton-copper" />
-          </div>
-          <h2 className="text-3xl font-bold tracking-tight text-breton-navy">
-            Ressources gratuites
-          </h2>
-          <p className="mt-4 text-lg text-breton-slate">
-            Guides et checklists pratiques, téléchargeables gratuitement.
-          </p>
-
-          {FREE_RESOURCES.length === 0 ? (
-            <div className="mt-12 rounded-2xl border border-dashed border-breton-sand bg-breton-foam p-12 text-center">
-              <Download className="mx-auto h-8 w-8 text-breton-granite mb-4" />
-              <p className="text-breton-slate">Ressources en préparation — revenez bientôt.</p>
-            </div>
-          ) : (
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {FREE_RESOURCES.map((resource) => (
-                <div key={resource.id} className="rounded-2xl bg-breton-foam border border-breton-sand p-6">
-                  <span className="inline-block bg-breton-emerald/10 text-breton-emerald text-xs font-semibold px-2 py-1 rounded-full mb-4">
-                    GRATUIT
-                  </span>
-                  <h3 className="font-bold text-breton-navy mb-2">{resource.title}</h3>
-                  <p className="text-sm text-breton-slate mb-4">{resource.description}</p>
-                  <Button asChild variant="outline" size="sm" className="w-full">
-                    <Link href="/contact">
-                      <Download className="h-4 w-4 mr-2" />
-                      Télécharger gratuitement
-                    </Link>
-                  </Button>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+      {/* Section Ressources gratuites supprimée — à réactiver quand le contenu sera prêt */}
 
       {/* Maillage interne */}
       <section className="py-12 bg-white">

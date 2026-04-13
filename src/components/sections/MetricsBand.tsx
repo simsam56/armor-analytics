@@ -26,13 +26,21 @@ function parseMetric(value: string): { prefix: string; num: number; suffix: stri
 function AnimatedCounter({ value, label }: MetricItem) {
   const shouldReduceMotion = useReducedMotion();
   const { prefix, num, suffix } = parseMetric(value);
-  const [display, setDisplay] = useState(0);
+  // Initialize to final value so SSR/noscript shows correct numbers
+  const [display, setDisplay] = useState(num);
+  const [hydrated, setHydrated] = useState(false);
   const hasAnimated = useRef(false);
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
+  // After hydration, reset to 0 to prepare for animation
   useEffect(() => {
-    if (!isInView || hasAnimated.current) return;
+    setHydrated(true);
+    setDisplay(0);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated || !isInView || hasAnimated.current) return;
     hasAnimated.current = true;
 
     if (shouldReduceMotion) {
@@ -54,7 +62,7 @@ function AnimatedCounter({ value, label }: MetricItem) {
     }
 
     requestAnimationFrame(step);
-  }, [isInView, num, shouldReduceMotion]);
+  }, [hydrated, isInView, num, shouldReduceMotion]);
 
   return (
     <div ref={ref} className="flex flex-col items-center text-center">

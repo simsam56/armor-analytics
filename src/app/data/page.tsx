@@ -163,8 +163,8 @@ export default function DataPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(dataFaqJsonLd) }}
       />
       <Hero
-        title="Pilotez votre activité avec des données fiables"
-        subtitle="Dashboards, pipelines de données, reporting automatisé. Vos données centralisées et exploitables."
+        title="Votre TRS en temps réel. Vos OF suivis. Votre reporting sans Excel."
+        subtitle="Dashboard production connecté à votre ERP et votre terrain. Fini le reporting J+5 compilé à la main."
       />
 
       {/* CTA sous le hero */}

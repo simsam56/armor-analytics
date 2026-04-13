@@ -163,8 +163,8 @@ export default function IaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(iaFaqJsonLd) }}
       />
       <Hero
-        title="Éliminez ce qui freine vos équipes"
-        subtitle="Automatisation et IA pour les entreprises bretonnes, directement sur vos outils existants. Des projets terrain, des interventions sur site, des résultats mesurés."
+        title="Automatisez ce qui ralentit votre atelier"
+        subtitle="Connectez votre GPAO, votre ERP et votre terrain — sans tout refaire. Des automatisations concrètes pour PME industrielles, directement sur vos outils existants."
       />
 
       {/* CTA sous le hero */}

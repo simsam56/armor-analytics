@@ -17,11 +17,11 @@ import { Hero } from '@/components/sections';
 import { CASE_STUDIES } from '@/data/case-studies';
 
 export const metadata: Metadata = {
-  title: 'Cas clients — Résultats concrets IA et data pour PME bretonnes',
+  title: 'Cas clients — Résultats concrets pour PME industrielles bretonnes',
   description:
-    '80% de ressaisies éliminées, 4h/semaine gagnées, reporting temps réel. Découvrez les résultats concrets de nos missions IA et data en Bretagne.',
+    'Dashboard production temps réel, automatisation commandes, traçabilité qualité. Résultats concrets et mesurés dans des PME industrielles en Bretagne.',
   keywords:
-    'cas clients IA PME Bretagne, résultats automatisation PME Bretagne, témoignages data PME Lorient, success stories IA Morbihan',
+    'cas clients IA PME industrielle Bretagne, résultats automatisation production, dashboard production PME, success stories data Bretagne',
   openGraph: {
     title: 'Cas clients — Résultats concrets IA et data pour PME bretonnes',
     description:
@@ -36,10 +36,19 @@ export const metadata: Metadata = {
 
 
 const STATS = [
-  { value: '5', label: 'Secteurs couverts' },
-  { value: '48h', label: 'Délai de première réponse' },
+  { value: '5', label: 'Secteurs industriels' },
+  { value: '490€', label: 'Diagnostic terrain' },
   { value: '100%', label: 'Projets livrés en Bretagne' },
 ];
+
+// Séparer cas industriels et autres secteurs
+const INDUSTRIAL_SECTORS = ['Métallurgie', 'Agroalimentaire', 'Industrie plastique'];
+const industrialCases = CASE_STUDIES.filter((cs) =>
+  INDUSTRIAL_SECTORS.some((s) => cs.sector.includes(s))
+);
+const otherCases = CASE_STUDIES.filter(
+  (cs) => !INDUSTRIAL_SECTORS.some((s) => cs.sector.includes(s))
+);
 
 export default function CasClientsPage() {
   return (
@@ -63,12 +72,12 @@ export default function CasClientsPage() {
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* Case Studies — Industrie */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="space-y-20">
-            {CASE_STUDIES.map((caseStudy, index) => (
-              <article key={index} className="relative">
+            {industrialCases.map((caseStudy, index) => (
+              <article key={caseStudy.slug} className="relative">
                 {/* Header avec image */}
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 mb-8">
                   {/* Image */}
@@ -249,7 +258,7 @@ export default function CasClientsPage() {
                 </div>
 
                 {/* Séparateur */}
-                {index < CASE_STUDIES.length - 1 && (
+                {index < industrialCases.length - 1 && (
                   <div className="mt-16 border-b border-[#E2E8E5]" />
                 )}
               </article>
@@ -257,6 +266,49 @@ export default function CasClientsPage() {
           </div>
         </div>
       </section>
+
+      {/* Autres secteurs accompagnés */}
+      {otherCases.length > 0 && (
+        <section className="py-16 sm:py-20 bg-breton-foam">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="text-center text-2xl font-bold text-breton-navy mb-4">
+              Autres secteurs accompagnés
+            </h2>
+            <p className="text-center text-breton-slate mb-12 max-w-2xl mx-auto">
+              Notre approche terrain s&apos;applique aussi en logistique, distribution et services.
+            </p>
+            <div className="grid gap-6 md:grid-cols-2">
+              {otherCases.map((caseStudy) => (
+                <Link
+                  key={caseStudy.slug}
+                  href={`/cas-clients/${caseStudy.slug}`}
+                  className="group rounded-2xl border-2 border-breton-sand bg-white p-6 hover:border-breton-emerald transition-colors"
+                >
+                  <span className="text-xs font-medium text-breton-granite uppercase tracking-wider">
+                    {caseStudy.sector} · {caseStudy.location}
+                  </span>
+                  <h3 className="text-lg font-bold text-breton-navy mt-2 mb-2 group-hover:text-breton-emerald transition-colors">
+                    {caseStudy.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-3 mb-3">
+                    {caseStudy.metrics.map((metric) => (
+                      <span
+                        key={metric.label}
+                        className="text-sm text-breton-emerald font-semibold"
+                      >
+                        {metric.value} {metric.label.toLowerCase()}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="text-sm font-medium text-breton-emerald group-hover:underline">
+                    Voir le cas →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-20 sm:py-24 bg-breton-navy">
