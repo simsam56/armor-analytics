@@ -206,10 +206,10 @@ export default function ConsultantDataLorientPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Nos missions
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Ce qu&apos;un consultant data fait concrètement
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Un consultant data, ce n&apos;est pas quelqu&apos;un qui parle de &ldquo;big
             data&rdquo; et de &ldquo;machine learning&rdquo; en CODIR. C&apos;est quelqu&apos;un
             qui résout des problèmes concrets : éliminer les ressaisies, fiabiliser les données,
@@ -220,20 +220,20 @@ export default function ConsultantDataLorientPage() {
             {MISSIONS.map((mission) => (
               <div
                 key={mission.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-2xl border border-breton-sand bg-white p-8 shadow-sm"
               >
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
                     <mission.icon className="h-6 w-6 text-breton-emerald" />
                   </div>
-                  <h3 className="text-xl font-semibold text-slate-900">{mission.title}</h3>
+                  <h3 className="text-xl font-semibold text-breton-navy">{mission.title}</h3>
                 </div>
-                <p className="mt-4 text-slate-600 leading-relaxed">{mission.description}</p>
+                <p className="mt-4 text-breton-slate leading-relaxed">{mission.description}</p>
                 <ul className="mt-5 space-y-2">
                   {mission.examples.map((example) => (
                     <li key={example} className="flex items-start gap-2.5">
                       <CheckCircle className="h-4 w-4 text-breton-moss shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-600">{example}</span>
+                      <span className="text-sm text-breton-slate">{example}</span>
                     </li>
                   ))}
                 </ul>
@@ -244,15 +244,15 @@ export default function ConsultantDataLorientPage() {
       </section>
 
       {/* Pourquoi un consultant local */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Proximité
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Pourquoi choisir un consultant local
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Les projets data qui échouent ont souvent un point commun : le prestataire ne connaît
             pas le terrain. Il travaille à distance, ne comprend pas les contraintes
             opérationnelles, et livre une solution qui ne colle pas à la réalité. Nous faisons
@@ -265,8 +265,8 @@ export default function ConsultantDataLorientPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-navy/10">
                   <advantage.icon className="h-6 w-6 text-breton-navy" />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-900">{advantage.title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed">{advantage.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-breton-navy">{advantage.title}</h3>
+                <p className="mt-3 text-breton-slate leading-relaxed">{advantage.description}</p>
               </div>
             ))}
           </div>
@@ -281,10 +281,10 @@ export default function ConsultantDataLorientPage() {
               <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
                 Notre méthode
               </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
                 Comprendre, Prioriser, Déployer, Transmettre
               </h2>
-              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+              <p className="mt-4 text-lg text-breton-slate leading-relaxed">
                 Quatre étapes, toujours les mêmes. On ne brûle pas les étapes et on ne commence
                 jamais par la solution technique. Le point de départ, c&apos;est toujours un
                 irritant métier concret.
@@ -295,7 +295,7 @@ export default function ConsultantDataLorientPage() {
                   variant="outline"
                   className="border-breton-emerald text-breton-emerald hover:bg-breton-emerald/5"
                 >
-                  <Link href="/pilotage-augmente" className="gap-2">
+                  <Link href="/offres" className="gap-2">
                     Découvrir nos offres
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -310,13 +310,13 @@ export default function ConsultantDataLorientPage() {
                     {item.step}
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900">
+                    <h3 className="text-lg font-semibold text-breton-navy">
                       {item.title}{' '}
-                      <span className="text-sm font-normal text-slate-400">
+                      <span className="text-sm font-normal text-breton-granite">
                         — {item.subtitle}
                       </span>
                     </h3>
-                    <p className="mt-1 text-slate-600 leading-relaxed">{item.description}</p>
+                    <p className="mt-1 text-breton-slate leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -326,15 +326,15 @@ export default function ConsultantDataLorientPage() {
       </section>
 
       {/* Zone d'intervention */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Zone d&apos;intervention
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Basés à Lorient, nous intervenons dans toute la Bretagne
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Notre siège est à Lorient (Morbihan). Nous intervenons régulièrement sur site dans
             toute la Bretagne et ponctuellement en Loire-Atlantique. Les phases de travail à
             distance sont complétées par des déplacements pour les ateliers, les formations et les
@@ -348,18 +348,18 @@ export default function ConsultantDataLorientPage() {
                 className={`rounded-xl border p-5 ${
                   city.name === 'Lorient'
                     ? 'border-breton-emerald bg-breton-emerald/5'
-                    : 'border-slate-200 bg-white'
+                    : 'border-breton-sand bg-white'
                 }`}
               >
                 <div className="flex items-center gap-2">
                   <MapPin
                     className={`h-4 w-4 ${city.name === 'Lorient' ? 'text-breton-emerald' : 'text-breton-copper'}`}
                   />
-                  <h3 className="font-semibold text-slate-900">{city.name}</h3>
+                  <h3 className="font-semibold text-breton-navy">{city.name}</h3>
                 </div>
-                <p className="mt-1 text-xs text-slate-500">{city.department}</p>
+                <p className="mt-1 text-xs text-breton-granite">{city.department}</p>
                 <p
-                  className={`mt-2 text-sm ${city.name === 'Lorient' ? 'font-medium text-breton-emerald' : 'text-slate-600'}`}
+                  className={`mt-2 text-sm ${city.name === 'Lorient' ? 'font-medium text-breton-emerald' : 'text-breton-slate'}`}
                 >
                   {city.note}
                 </p>
@@ -371,10 +371,10 @@ export default function ConsultantDataLorientPage() {
             <div className="flex items-start gap-4">
               <Compass className="h-6 w-6 text-breton-navy shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-lg font-semibold text-breton-navy">
                   Visio ou sur site, selon la phase du projet
                 </h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">
+                <p className="mt-2 text-breton-slate leading-relaxed">
                   Les phases de cadrage et de restitution se font en présentiel. Les phases de
                   développement technique se font à distance, avec des points réguliers. C&apos;est
                   un modèle qui permet de limiter les coûts de déplacement tout en maintenant une
@@ -390,10 +390,10 @@ export default function ConsultantDataLorientPage() {
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
               Des PME et des réseaux bretons
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-breton-slate leading-relaxed">
               Nous travaillons principalement avec des PME de 20 à 200 salariés, dans des secteurs
               où la donnée est abondante mais mal exploitée. Voici les secteurs où nous intervenons
               le plus souvent.
@@ -435,10 +435,10 @@ export default function ConsultantDataLorientPage() {
             ].map((item) => (
               <div
                 key={item.sector}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
+                className="rounded-2xl border border-breton-sand bg-breton-foam p-6"
               >
                 <h3 className="text-lg font-semibold text-breton-navy">{item.sector}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.context}</p>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed">{item.context}</p>
               </div>
             ))}
           </div>
@@ -459,27 +459,27 @@ export default function ConsultantDataLorientPage() {
       </section>
 
       {/* Nos expertises — cross-links */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Nos expertises
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Aller plus loin
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Découvrez en détail nos offres et nos pages spécialisées pour les PME bretonnes.
           </p>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link
-              href="/pilotage-augmente"
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+              href="/offres"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Nos offres complètes
               </h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-sm text-breton-slate leading-relaxed">
                 Découvrez l&apos;ensemble de nos offres : Le Repérage, Le Cap et
                 L&apos;Équipage.
               </p>
@@ -491,12 +491,12 @@ export default function ConsultantDataLorientPage() {
 
             <Link
               href="/power-bi-bretagne"
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Power BI en Bretagne
               </h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-sm text-breton-slate leading-relaxed">
                 Pilotez votre activité avec des tableaux de bord Power BI connectés à vos ERP.
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
@@ -507,12 +507,12 @@ export default function ConsultantDataLorientPage() {
 
             <Link
               href="/automatisation-commandes-pme"
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Automatisation des commandes
               </h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-sm text-breton-slate leading-relaxed">
                 Automatisez la saisie de vos commandes et éliminez les ressaisies manuelles.
               </p>
               <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-breton-emerald">
@@ -523,12 +523,12 @@ export default function ConsultantDataLorientPage() {
 
             <Link
               href="/intelligence-artificielle-bretagne"
-              className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
+              className="group rounded-2xl border border-breton-sand bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Intelligence artificielle
               </h3>
-              <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+              <p className="mt-2 text-sm text-breton-slate leading-relaxed">
                 Vous envisagez un projet d&apos;IA ? Découvrez nos solutions d&apos;intelligence
                 artificielle pour PME bretonnes.
               </p>

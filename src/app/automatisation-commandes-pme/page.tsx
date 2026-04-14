@@ -173,7 +173,7 @@ export default function AutomatisationCommandesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(autoFaqJsonLd) }}
       />
-      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'Automatisation commandes' }]} />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/offres' }, { label: 'Automatisation commandes' }]} />
       <Hero
         title="Automatisation des commandes pour PME industrielles"
         subtitle="Vos commandes sont extraites, validées et injectées dans votre ERP en quelques minutes. Fin des ressaisies manuelles, zéro erreur, plus de temps pour vos clients."
@@ -185,10 +185,10 @@ export default function AutomatisationCommandesPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Le constat
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             La saisie manuelle coûte plus cher qu&apos;on ne le croit
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Dans la plupart des PME industrielles, les commandes arrivent par email sous forme de
             PDF, de fichiers Excel ou de documents scannés. L&apos;équipe ADV les ressaisit
             manuellement dans l&apos;ERP — commande par commande, ligne par ligne. C&apos;est une
@@ -201,8 +201,8 @@ export default function AutomatisationCommandesPage() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-100">
                   <pain.icon className="h-6 w-6 text-red-600" />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-900">{pain.title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed">{pain.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-breton-navy">{pain.title}</h3>
+                <p className="mt-3 text-breton-slate leading-relaxed">{pain.description}</p>
               </div>
             ))}
           </div>
@@ -210,15 +210,15 @@ export default function AutomatisationCommandesPage() {
       </section>
 
       {/* Notre solution */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Notre solution
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             OCR + pipeline + intégration ERP
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Nous déployons une chaîne complète d&apos;automatisation, de la réception de
             l&apos;email à l&apos;injection dans votre ERP. Le système apprend les formats de vos
             clients et s&apos;améliore avec le temps.
@@ -226,15 +226,15 @@ export default function AutomatisationCommandesPage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {SOLUTION_STEPS.map((item) => (
-              <div key={item.step} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={item.step} className="rounded-2xl border border-breton-sand bg-white p-6">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl font-bold text-breton-copper/30">{item.step}</span>
                   <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-breton-emerald/10">
                     <item.icon className="h-5 w-5 text-breton-emerald" />
                   </div>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                <h3 className="mt-4 text-lg font-semibold text-breton-navy">{item.title}</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -243,10 +243,10 @@ export default function AutomatisationCommandesPage() {
             <div className="flex items-start gap-4">
               <Cog className="h-6 w-6 text-breton-emerald shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-lg font-semibold text-breton-navy">
                   Un système pragmatique, pas une usine à gaz
                 </h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">
+                <p className="mt-2 text-breton-slate leading-relaxed">
                   Notre approche est progressive. On commence par les formats de commandes les plus
                   fréquents, on valide avec vos équipes, et on élargit ensuite. Le système inclut
                   toujours une interface de vérification pour les cas ambigus : vos équipes gardent
@@ -264,10 +264,10 @@ export default function AutomatisationCommandesPage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Résultats mesurés
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Résultats concrets chez un client agroalimentaire
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             PME agroalimentaire dans le Morbihan, 45 salariés. L&apos;équipe ADV (3 personnes)
             passait 2 heures par jour à ressaisir les commandes reçues par email. Projet déployé en
             6 semaines.
@@ -286,7 +286,7 @@ export default function AutomatisationCommandesPage() {
                     key={item.metric}
                     className="flex items-center justify-between border-b border-red-200/50 pb-3 last:border-0"
                   >
-                    <span className="text-sm text-slate-700">{item.metric}</span>
+                    <span className="text-sm text-breton-slate">{item.metric}</span>
                     <span className="text-sm font-semibold text-red-700">{item.value}</span>
                   </div>
                 ))}
@@ -305,7 +305,7 @@ export default function AutomatisationCommandesPage() {
                     key={item.metric}
                     className="flex items-center justify-between border-b border-emerald-200/50 pb-3 last:border-0"
                   >
-                    <span className="text-sm text-slate-700">{item.metric}</span>
+                    <span className="text-sm text-breton-slate">{item.metric}</span>
                     <span className="text-sm font-semibold text-breton-emerald">{item.value}</span>
                   </div>
                 ))}
@@ -322,10 +322,10 @@ export default function AutomatisationCommandesPage() {
             ].map((metric) => (
               <div
                 key={metric.label}
-                className="rounded-2xl border border-slate-200 bg-white px-8 py-6 text-center shadow-sm"
+                className="rounded-2xl border border-breton-sand bg-white px-8 py-6 text-center shadow-sm"
               >
                 <p className="text-3xl font-bold text-breton-emerald">{metric.value}</p>
-                <p className="mt-1 text-sm text-slate-500">{metric.label}</p>
+                <p className="mt-1 text-sm text-breton-granite">{metric.label}</p>
               </div>
             ))}
           </div>
@@ -346,15 +346,15 @@ export default function AutomatisationCommandesPage() {
       </section>
 
       {/* Compatible avec vos outils */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Compatibilité
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Compatible avec vos outils
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Notre solution s&apos;adapte à votre ERP, pas l&apos;inverse. Nous avons déjà intégré
             les principaux ERP du marché PME. Si le vôtre n&apos;est pas dans la liste, contactez-nous :
             il suffit d&apos;une API ou d&apos;un mécanisme d&apos;import.
@@ -362,10 +362,10 @@ export default function AutomatisationCommandesPage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {COMPATIBLE_ERPS.map((erp) => (
-              <div key={erp.name} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={erp.name} className="rounded-2xl border border-breton-sand bg-white p-6">
                 <h3 className="text-lg font-bold text-breton-navy">{erp.name}</h3>
-                <p className="mt-1 text-sm text-slate-500">{erp.versions}</p>
-                <p className="mt-3 flex items-start gap-2 text-sm text-slate-600">
+                <p className="mt-1 text-sm text-breton-granite">{erp.versions}</p>
+                <p className="mt-3 flex items-start gap-2 text-sm text-breton-slate">
                   <Zap className="h-4 w-4 text-breton-copper shrink-0 mt-0.5" />
                   {erp.note}
                 </p>
@@ -379,10 +379,10 @@ export default function AutomatisationCommandesPage() {
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
               Comment on travaille
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-breton-slate leading-relaxed">
               Un projet d&apos;automatisation des commandes dure en moyenne 4 à 8 semaines, de
               l&apos;analyse des formats existants à la mise en production.
             </p>
@@ -415,10 +415,10 @@ export default function AutomatisationCommandesPage() {
                   'On bascule progressivement. On forme l&apos;équipe ADV à l&apos;interface de vérification. On assure le suivi post-déploiement.',
               },
             ].map((item) => (
-              <div key={item.step} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div key={item.step} className="rounded-2xl border border-breton-sand bg-breton-foam p-6">
                 <span className="text-3xl font-bold text-breton-copper/30">{item.step}</span>
-                <h3 className="mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                <h3 className="mt-3 text-lg font-semibold text-breton-navy">{item.title}</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -426,24 +426,24 @@ export default function AutomatisationCommandesPage() {
       </section>
 
       {/* Nos autres expertises */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Aller plus loin
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Nos autres expertises
           </h2>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/power-bi-bretagne"
-              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
+              className="group rounded-2xl border border-breton-sand bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Tableaux de bord Power BI
               </h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Suivez vos gains en temps réel avec un tableau de bord Power BI connecté à votre ERP.
               </p>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-breton-copper group-hover:gap-3 transition-all">
@@ -454,12 +454,12 @@ export default function AutomatisationCommandesPage() {
 
             <Link
               href="/consultant-data-lorient"
-              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
+              className="group rounded-2xl border border-breton-sand bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Conseil data à Lorient
               </h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Besoin d&apos;un accompagnement data sur mesure ? Découvrez notre offre de conseil
                 basée à Lorient.
               </p>
@@ -471,12 +471,12 @@ export default function AutomatisationCommandesPage() {
 
             <Link
               href="/intelligence-artificielle-bretagne"
-              className="group rounded-2xl border border-slate-200 bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
+              className="group rounded-2xl border border-breton-sand bg-white p-8 transition-all hover:border-breton-emerald/30 hover:shadow-lg"
             >
-              <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
+              <h3 className="text-lg font-semibold text-breton-navy group-hover:text-breton-emerald transition-colors">
                 Intelligence artificielle en Bretagne
               </h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Vous envisagez un projet d&apos;intelligence artificielle ? Découvrez nos solutions IA
                 pour PME bretonnes.
               </p>

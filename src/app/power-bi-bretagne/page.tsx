@@ -153,7 +153,7 @@ export default function PowerBiBretagnePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(powerBiFaqJsonLd) }}
       />
-      <Breadcrumbs items={[{ label: 'Nos offres', href: '/data' }, { label: 'Power BI Bretagne' }]} />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/offres' }, { label: 'Power BI Bretagne' }]} />
       <Hero
         title="Power BI pour les PME en Bretagne"
         subtitle="Des tableaux de bord connectés à vos ERP, livrés clé en main. Vous pilotez votre activité en temps réel, sans dépendre d&apos;un fichier Excel."
@@ -165,10 +165,10 @@ export default function PowerBiBretagnePage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Pilotage data
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Pourquoi Power BI pour votre PME
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Power BI n&apos;est pas réservé aux grands groupes. Pour une PME industrielle bretonne,
             c&apos;est l&apos;outil le plus adapté pour passer du pilotage à l&apos;aveugle au
             pilotage par la donnée — sans révolutionner votre informatique.
@@ -178,13 +178,13 @@ export default function PowerBiBretagnePage() {
             {BENEFITS.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-2xl border border-breton-sand bg-white p-8 shadow-sm"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
                   <benefit.icon className="h-6 w-6 text-breton-emerald" />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-900">{benefit.title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed">{benefit.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-breton-navy">{benefit.title}</h3>
+                <p className="mt-3 text-breton-slate leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -192,15 +192,15 @@ export default function PowerBiBretagnePage() {
       </section>
 
       {/* Ce que nous déployons */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Livrables concrets
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Ce que nous déployons
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Chaque tableau de bord est conçu sur mesure, connecté à vos sources de données et livré
             avec la documentation et la formation nécessaires. Voici les cas les plus fréquents.
           </p>
@@ -209,13 +209,13 @@ export default function PowerBiBretagnePage() {
             {DELIVERABLES.map((deliverable) => (
               <div
                 key={deliverable.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8"
+                className="rounded-2xl border border-breton-sand bg-white p-8"
               >
                 <div className="flex items-center gap-3">
                   <BarChart3 className="h-5 w-5 text-breton-copper" />
-                  <h3 className="text-lg font-semibold text-slate-900">{deliverable.title}</h3>
+                  <h3 className="text-lg font-semibold text-breton-navy">{deliverable.title}</h3>
                 </div>
-                <p className="mt-3 text-slate-600 leading-relaxed">{deliverable.description}</p>
+                <p className="mt-3 text-breton-slate leading-relaxed">{deliverable.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {deliverable.kpis.map((kpi) => (
                     <span
@@ -234,10 +234,10 @@ export default function PowerBiBretagnePage() {
             <div className="flex items-start gap-4">
               <Settings className="h-6 w-6 text-breton-emerald shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-lg font-semibold text-breton-navy">
                   Connecté à vos outils existants
                 </h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">
+                <p className="mt-2 text-breton-slate leading-relaxed">
                   Nous connectons Power BI directement à votre ERP (Sage, Cegid, Dynamics 365,
                   EBP), à vos fichiers Excel et CSV, à vos bases de données, et à vos outils
                   métier. Pas de migration, pas de changement d&apos;habitudes : on se branche sur
@@ -255,10 +255,10 @@ export default function PowerBiBretagnePage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Nos outils
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Power BI, Metabase ou Looker Studio ?
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Nous maîtrisons les trois outils et recommandons celui qui correspond le mieux à votre
             contexte technique et à vos usages. Pas de dogme : la meilleure solution est celle que
             vos équipes utiliseront vraiment.
@@ -268,7 +268,7 @@ export default function PowerBiBretagnePage() {
             {TOOLS_COMPARISON.map((tool) => (
               <div
                 key={tool.name}
-                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-2xl border border-breton-sand bg-white p-8 shadow-sm"
               >
                 <h3 className="text-xl font-bold text-breton-navy">{tool.name}</h3>
                 <p className="mt-2 text-sm font-medium text-breton-moss">{tool.ideal}</p>
@@ -276,13 +276,13 @@ export default function PowerBiBretagnePage() {
                   {tool.strengths.map((strength) => (
                     <li key={strength} className="flex items-start gap-2.5">
                       <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0 mt-0.5" />
-                      <span className="text-sm text-slate-600">{strength}</span>
+                      <span className="text-sm text-breton-slate">{strength}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-6 rounded-lg bg-slate-50 px-4 py-3">
-                  <p className="text-xs text-slate-500">Licence</p>
-                  <p className="text-sm font-semibold text-slate-900">{tool.license}</p>
+                <div className="mt-6 rounded-lg bg-breton-foam px-4 py-3">
+                  <p className="text-xs text-breton-granite">Licence</p>
+                  <p className="text-sm font-semibold text-breton-navy">{tool.license}</p>
                 </div>
               </div>
             ))}
@@ -291,20 +291,20 @@ export default function PowerBiBretagnePage() {
       </section>
 
       {/* Cas concret */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Cas concret
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Du reporting J+5 au pilotage en temps réel
           </h2>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
             {/* Contexte */}
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">Le contexte</h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-semibold text-breton-navy">Le contexte</h3>
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Une entreprise de métallurgie dans le Finistère (80 salariés) compilait ses données
                 de production chaque vendredi. Le responsable production passait 4 heures par semaine
                 à consolider les chiffres provenant de l&apos;ERP, de fichiers Excel et de fiches
@@ -322,7 +322,7 @@ export default function PowerBiBretagnePage() {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
                     <span className="text-red-400 mt-0.5 text-sm">&#x2717;</span>
-                    <span className="text-sm text-slate-600">{item}</span>
+                    <span className="text-sm text-breton-slate">{item}</span>
                   </div>
                 ))}
               </div>
@@ -330,8 +330,8 @@ export default function PowerBiBretagnePage() {
 
             {/* Résultats */}
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">Les résultats</h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-semibold text-breton-navy">Les résultats</h3>
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Nous avons connecté les sources de données existantes, construit une base
                 centralisée et déployé des tableaux de bord Metabase en temps réel. Le projet a
                 duré 8 semaines, formation des équipes incluse.
@@ -348,7 +348,7 @@ export default function PowerBiBretagnePage() {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
                     <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-600">{item}</span>
+                    <span className="text-sm text-breton-slate">{item}</span>
                   </div>
                 ))}
               </div>
@@ -358,13 +358,13 @@ export default function PowerBiBretagnePage() {
                   <p className="text-2xl font-bold text-white">J+0</p>
                   <p className="text-xs text-white/70">Fraîcheur données</p>
                 </div>
-                <div className="rounded-lg bg-slate-100 px-4 py-3 text-center">
+                <div className="rounded-lg bg-breton-sand px-4 py-3 text-center">
                   <p className="text-2xl font-bold text-breton-emerald">-4h/sem</p>
-                  <p className="text-xs text-slate-500">Temps gagné</p>
+                  <p className="text-xs text-breton-granite">Temps gagné</p>
                 </div>
-                <div className="rounded-lg bg-slate-100 px-4 py-3 text-center">
+                <div className="rounded-lg bg-breton-sand px-4 py-3 text-center">
                   <p className="text-2xl font-bold text-breton-emerald">3 mois</p>
-                  <p className="text-xs text-slate-500">ROI atteint</p>
+                  <p className="text-xs text-breton-granite">ROI atteint</p>
                 </div>
               </div>
             </div>
@@ -389,10 +389,10 @@ export default function PowerBiBretagnePage() {
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
               Comment se passe un projet Power BI
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-breton-slate leading-relaxed">
               De l&apos;expression du besoin au tableau de bord en production, comptez 4 à 8
               semaines. Voici les grandes étapes.
             </p>
@@ -429,10 +429,10 @@ export default function PowerBiBretagnePage() {
                 duration: '1 semaine',
               },
             ].map((item) => (
-              <div key={item.step} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={item.step} className="rounded-2xl border border-breton-sand bg-white p-6">
                 <span className="text-3xl font-bold text-breton-copper/30">{item.step}</span>
-                <h3 className="mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                <h3 className="mt-3 text-lg font-semibold text-breton-navy">{item.title}</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed">{item.description}</p>
                 <p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-breton-moss">
                   <Zap className="h-3.5 w-3.5" />
                   {item.duration}
@@ -444,16 +444,16 @@ export default function PowerBiBretagnePage() {
       </section>
 
       {/* FAQ rapide */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl text-center">
             Questions fréquentes
           </h2>
           <div className="mt-12 space-y-8">
             {POWER_BI_FAQ.map((faq) => (
               <div key={faq.question}>
-                <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">{faq.answer}</p>
+                <h3 className="text-lg font-semibold text-breton-navy">{faq.question}</h3>
+                <p className="mt-2 text-breton-slate leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -463,7 +463,7 @@ export default function PowerBiBretagnePage() {
       {/* Nos autres expertises */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-breton-navy sm:text-3xl">
             Nos autres expertises
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -471,7 +471,7 @@ export default function PowerBiBretagnePage() {
               href="/automatisation-commandes-pme"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Vous cherchez aussi à automatiser vos saisies de commandes ? Découvrez notre solution
                 d&apos;automatisation des commandes pour PME.
               </p>
@@ -484,7 +484,7 @@ export default function PowerBiBretagnePage() {
               href="/consultant-data-lorient"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Basés à Lorient, nous intervenons sur toute la Bretagne. En savoir plus sur notre
                 accompagnement data local.
               </p>
@@ -497,7 +497,7 @@ export default function PowerBiBretagnePage() {
               href="/intelligence-artificielle-bretagne"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Vous envisagez un projet d&apos;intelligence artificielle ? Découvrez nos solutions IA
                 pour PME bretonnes.
               </p>

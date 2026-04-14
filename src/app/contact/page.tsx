@@ -54,14 +54,14 @@ export default function ContactPage() {
             {/* Left side - Info + Coordonnées */}
             <div className="space-y-8">
               <div className="rounded-2xl border border-breton-sand bg-breton-foam p-8">
-                <h2 className="text-2xl font-bold text-slate-900">Appel découverte gratuit</h2>
-                <p className="mt-2 text-slate-600">
+                <h2 className="text-2xl font-bold text-breton-navy">Appel découverte gratuit</h2>
+                <p className="mt-2 text-breton-slate">
                   30 minutes pour comprendre votre contexte, identifier les irritants et évaluer les
                   opportunités. On parle concret, pas jargon.
                 </p>
 
                 {/* Réassurance inline */}
-                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-500">
+                <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm text-breton-granite">
                   <span className="flex items-center gap-1.5">
                     <CheckCircle className="h-3.5 w-3.5 text-breton-moss" />
                     Sans engagement
@@ -79,7 +79,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <h2 className="text-lg font-semibold text-slate-900 mb-4">Coordonnées</h2>
+                <h2 className="text-lg font-semibold text-breton-navy mb-4">Coordonnées</h2>
                 <div className="space-y-3">
                   <a
                     href={`mailto:${SITE_CONFIG.email}`}
@@ -87,8 +87,8 @@ export default function ContactPage() {
                   >
                     <Mail className="h-5 w-5 text-breton-emerald" />
                     <div>
-                      <p className="text-xs text-slate-500">Email</p>
-                      <p className="font-medium text-slate-900">{SITE_CONFIG.email}</p>
+                      <p className="text-xs text-breton-granite">Email</p>
+                      <p className="font-medium text-breton-navy">{SITE_CONFIG.email}</p>
                     </div>
                   </a>
                   <a
@@ -97,8 +97,8 @@ export default function ContactPage() {
                   >
                     <Phone className="h-5 w-5 text-breton-emerald" />
                     <div>
-                      <p className="text-xs text-slate-500">Téléphone</p>
-                      <p className="font-medium text-slate-900">{SITE_CONFIG.phone}</p>
+                      <p className="text-xs text-breton-granite">Téléphone</p>
+                      <p className="font-medium text-breton-navy">{SITE_CONFIG.phone}</p>
                     </div>
                   </a>
                   <a
@@ -109,16 +109,16 @@ export default function ContactPage() {
                   >
                     <Linkedin className="h-5 w-5 text-breton-emerald" />
                     <div>
-                      <p className="text-xs text-slate-500">LinkedIn</p>
-                      <p className="font-medium text-slate-900">balise-ia</p>
+                      <p className="text-xs text-breton-granite">LinkedIn</p>
+                      <p className="font-medium text-breton-navy">balise-ia</p>
                     </div>
                   </a>
                   <div className="flex items-center gap-3 rounded-xl border border-breton-sand p-4">
                     <MapPin className="h-5 w-5 text-breton-emerald" />
                     <div>
-                      <p className="text-xs text-slate-500">Localisation</p>
-                      <p className="font-medium text-slate-900">Lorient, Bretagne</p>
-                      <p className="text-xs text-slate-500">Interventions sur site en Bretagne</p>
+                      <p className="text-xs text-breton-granite">Localisation</p>
+                      <p className="font-medium text-breton-navy">Lorient, Bretagne</p>
+                      <p className="text-xs text-breton-granite">Interventions sur site en Bretagne</p>
                     </div>
                   </div>
                 </div>

@@ -211,7 +211,7 @@ export default function IntelligenceArtificielleBretagnePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(iaFaqJsonLd) }}
       />
-      <Breadcrumbs items={[{ label: 'Nos offres', href: '/ia' }, { label: 'IA Bretagne' }]} />
+      <Breadcrumbs items={[{ label: 'Nos offres', href: '/offres' }, { label: 'IA Bretagne' }]} />
       <Hero
         title="Intelligence artificielle pour les PME en Bretagne"
         subtitle="Des solutions d&apos;IA concrètes pour vos problèmes métier. OCR, prévision, classification, automatisation intelligente — déployées sur site, connectées à vos outils existants."
@@ -223,10 +223,10 @@ export default function IntelligenceArtificielleBretagnePage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Intelligence artificielle
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Ce que l&apos;IA change concrètement
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             L&apos;intelligence artificielle n&apos;est pas un gadget. Pour une PME industrielle
             bretonne, c&apos;est un levier concret pour gagner du temps, fiabiliser les process et
             prendre de meilleures décisions — sans révolutionner votre informatique.
@@ -236,13 +236,13 @@ export default function IntelligenceArtificielleBretagnePage() {
             {BENEFITS.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-2xl border border-breton-sand bg-white p-8 shadow-sm"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
                   <benefit.icon className="h-6 w-6 text-breton-emerald" />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-900">{benefit.title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed">{benefit.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-breton-navy">{benefit.title}</h3>
+                <p className="mt-3 text-breton-slate leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -250,15 +250,15 @@ export default function IntelligenceArtificielleBretagnePage() {
       </section>
 
       {/* 5 cas d'usage concrets */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Cas d&apos;usage
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             5 cas d&apos;usage concrets de l&apos;IA dans les PME bretonnes
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Pas de promesses abstraites. Voici les projets d&apos;IA que nous déployons le plus
             souvent dans les PME industrielles et de services en Bretagne.
           </p>
@@ -267,7 +267,7 @@ export default function IntelligenceArtificielleBretagnePage() {
             {USE_CASES.map((useCase) => (
               <div
                 key={useCase.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8"
+                className="rounded-2xl border border-breton-sand bg-white p-8"
               >
                 <div className="flex items-center gap-3">
                   <span className="rounded-full bg-breton-emerald/10 px-3 py-1 text-xs font-medium text-breton-emerald">
@@ -276,9 +276,9 @@ export default function IntelligenceArtificielleBretagnePage() {
                 </div>
                 <div className="mt-4 flex items-center gap-3">
                   <useCase.icon className="h-5 w-5 text-breton-copper" />
-                  <h3 className="text-lg font-semibold text-slate-900">{useCase.title}</h3>
+                  <h3 className="text-lg font-semibold text-breton-navy">{useCase.title}</h3>
                 </div>
-                <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                <p className="mt-3 text-sm text-breton-slate leading-relaxed">
                   {useCase.description}
                 </p>
                 <div className="mt-4 rounded-lg bg-breton-foam px-3 py-2">
@@ -296,10 +296,10 @@ export default function IntelligenceArtificielleBretagnePage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Proximité
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Pourquoi un partenaire IA local en Bretagne
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Déployer de l&apos;IA dans une PME, ce n&apos;est pas livrer un algorithme depuis
             Paris. C&apos;est comprendre vos process sur le terrain, former vos équipes en
             personne et assurer un suivi de proximité.
@@ -312,8 +312,8 @@ export default function IntelligenceArtificielleBretagnePage() {
                   <advantage.icon className="h-5 w-5 text-breton-emerald" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900">{advantage.title}</h3>
-                  <p className="mt-2 text-slate-600 leading-relaxed">{advantage.description}</p>
+                  <h3 className="text-lg font-semibold text-breton-navy">{advantage.title}</h3>
+                  <p className="mt-2 text-breton-slate leading-relaxed">{advantage.description}</p>
                 </div>
               </div>
             ))}
@@ -322,13 +322,13 @@ export default function IntelligenceArtificielleBretagnePage() {
       </section>
 
       {/* Notre méthode */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
               Notre méthode pour vos projets IA
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-breton-slate leading-relaxed">
               Du diagnostic initial au déploiement en production, comptez 4 à 10 semaines. Voici
               les grandes étapes.
             </p>
@@ -336,10 +336,10 @@ export default function IntelligenceArtificielleBretagnePage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {PROCESS_STEPS.map((item) => (
-              <div key={item.step} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={item.step} className="rounded-2xl border border-breton-sand bg-white p-6">
                 <span className="text-3xl font-bold text-breton-copper/30">{item.step}</span>
-                <h3 className="mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                <h3 className="mt-3 text-lg font-semibold text-breton-navy">{item.title}</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed">{item.description}</p>
                 <p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-breton-moss">
                   <Zap className="h-3.5 w-3.5" />
                   {item.duration}
@@ -356,15 +356,15 @@ export default function IntelligenceArtificielleBretagnePage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Résultats concrets
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             De la saisie manuelle au traitement IA en temps réel
           </h2>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
             {/* Contexte */}
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">Le contexte</h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-semibold text-breton-navy">Le contexte</h3>
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Une PME agroalimentaire dans le Morbihan (120 salariés) recevait ses commandes
                 clients par fax, email et PDF. Trois personnes passaient 6 heures par jour à
                 ressaisir manuellement les lignes de commande dans l&apos;ERP Sage. Un travail
@@ -382,7 +382,7 @@ export default function IntelligenceArtificielleBretagnePage() {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
                     <span className="text-red-400 mt-0.5 text-sm">&#x2717;</span>
-                    <span className="text-sm text-slate-600">{item}</span>
+                    <span className="text-sm text-breton-slate">{item}</span>
                   </div>
                 ))}
               </div>
@@ -390,8 +390,8 @@ export default function IntelligenceArtificielleBretagnePage() {
 
             {/* Résultats */}
             <div>
-              <h3 className="text-xl font-semibold text-slate-900">Les résultats</h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-semibold text-breton-navy">Les résultats</h3>
+              <p className="mt-3 text-breton-slate leading-relaxed">
                 Nous avons déployé une solution d&apos;OCR couplée à un modèle d&apos;extraction
                 IA, connectée directement à l&apos;ERP Sage. Les commandes sont désormais lues,
                 interprétées et injectées automatiquement. Une personne vérifie les cas ambigus
@@ -409,7 +409,7 @@ export default function IntelligenceArtificielleBretagnePage() {
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5">
                     <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0 mt-0.5" />
-                    <span className="text-sm text-slate-600">{item}</span>
+                    <span className="text-sm text-breton-slate">{item}</span>
                   </div>
                 ))}
               </div>
@@ -419,13 +419,13 @@ export default function IntelligenceArtificielleBretagnePage() {
                   <p className="text-2xl font-bold text-white">-95 %</p>
                   <p className="text-xs text-white/70">Temps de saisie</p>
                 </div>
-                <div className="rounded-lg bg-slate-100 px-4 py-3 text-center">
+                <div className="rounded-lg bg-breton-sand px-4 py-3 text-center">
                   <p className="text-2xl font-bold text-breton-emerald">&lt;0,5 %</p>
-                  <p className="text-xs text-slate-500">Erreurs</p>
+                  <p className="text-xs text-breton-granite">Erreurs</p>
                 </div>
-                <div className="rounded-lg bg-slate-100 px-4 py-3 text-center">
+                <div className="rounded-lg bg-breton-sand px-4 py-3 text-center">
                   <p className="text-2xl font-bold text-breton-emerald">6 sem.</p>
-                  <p className="text-xs text-slate-500">ROI atteint</p>
+                  <p className="text-xs text-breton-granite">ROI atteint</p>
                 </div>
               </div>
             </div>
@@ -447,16 +447,16 @@ export default function IntelligenceArtificielleBretagnePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl text-center">
             Questions fréquentes
           </h2>
           <div className="mt-12 space-y-8">
             {IA_FAQ.map((faq) => (
               <div key={faq.question}>
-                <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">{faq.answer}</p>
+                <h3 className="text-lg font-semibold text-breton-navy">{faq.question}</h3>
+                <p className="mt-2 text-breton-slate leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -466,7 +466,7 @@ export default function IntelligenceArtificielleBretagnePage() {
       {/* Nos autres expertises */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-breton-navy sm:text-3xl">
             Nos autres expertises
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -474,7 +474,7 @@ export default function IntelligenceArtificielleBretagnePage() {
               href="/power-bi-bretagne"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Vous cherchez aussi à piloter votre activité avec des tableaux de bord connectés ?
                 Découvrez notre offre Power BI pour les PME bretonnes.
               </p>
@@ -487,7 +487,7 @@ export default function IntelligenceArtificielleBretagnePage() {
               href="/automatisation-commandes-pme"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Vos commandes arrivent par email, fax ou PDF ? Découvrez comment automatiser leur
                 saisie et leur injection dans votre ERP.
               </p>
@@ -500,7 +500,7 @@ export default function IntelligenceArtificielleBretagnePage() {
               href="/formation-ia-pme"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Vous souhaitez former vos équipes à l&apos;IA et à la data ? Découvrez nos
                 formations pratiques adaptées aux PME.
               </p>
@@ -513,7 +513,7 @@ export default function IntelligenceArtificielleBretagnePage() {
               href="/consultant-data-lorient"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Basés à Lorient, nous intervenons sur toute la Bretagne. En savoir plus sur notre
                 accompagnement data local.
               </p>

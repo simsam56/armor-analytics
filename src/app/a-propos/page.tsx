@@ -236,13 +236,13 @@ export default function AboutPage() {
       </section>
 
       {/* Comparaison */}
-      <section className="py-20 sm:py-24 bg-breton-navy">
+      <section className="py-20 sm:py-24 bg-breton-sand">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
               Ce qui me différencie
             </h2>
-            <p className="mt-4 text-lg text-white/60">
+            <p className="mt-4 text-lg text-breton-slate">
               Concrètement, voici ce que ça change de travailler avec quelqu&apos;un qui vient
               du terrain plutôt qu&apos;une ESN ou un grand cabinet.
             </p>
@@ -251,13 +251,13 @@ export default function AboutPage() {
           <div className="space-y-3">
             {DIFFERENTIATORS.map((diff) => (
               <div key={diff.us} className="grid grid-cols-2 gap-3">
-                <div className="flex items-center gap-3 rounded-xl bg-white/10 px-5 py-4">
-                  <CheckCircle className="h-4 w-4 text-breton-moss shrink-0" />
-                  <span className="text-sm text-white font-medium">{diff.us}</span>
+                <div className="flex items-center gap-3 rounded-xl bg-breton-emerald/10 border border-breton-emerald/20 px-5 py-4">
+                  <CheckCircle className="h-4 w-4 text-breton-emerald shrink-0" />
+                  <span className="text-sm text-breton-navy font-medium">{diff.us}</span>
                 </div>
-                <div className="flex items-center gap-3 rounded-xl bg-white/5 px-5 py-4">
-                  <span className="text-white/60 shrink-0 text-sm">✗</span>
-                  <span className="text-sm text-white/60">{diff.them}</span>
+                <div className="flex items-center gap-3 rounded-xl bg-white border border-breton-sand px-5 py-4">
+                  <span className="text-breton-granite shrink-0 text-sm">✗</span>
+                  <span className="text-sm text-breton-granite">{diff.them}</span>
                 </div>
               </div>
             ))}
