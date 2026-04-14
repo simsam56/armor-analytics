@@ -600,9 +600,10 @@ export const NAV_LINKS: NavLink[] = [
 
 // Liens offres (utilisé dans le footer)
 export const OFFER_LINKS = [
-  { href: '/ia', label: 'Pilotage production' },
-  { href: '/data', label: 'Tableaux de bord' },
-  { href: '/formation', label: 'Formation terrain' },
+  { href: '/diagnostic-ia', label: 'Diagnostic IA terrain' },
+  { href: '/pilotage-augmente', label: 'Pilotage augment\u00e9' },
+  { href: '/automatisation-agents-ia', label: 'Automatisation & Agents IA' },
+  { href: '/formation-ia', label: 'Formation IA terrain' },
 ];
 
 // Éléments de réassurance

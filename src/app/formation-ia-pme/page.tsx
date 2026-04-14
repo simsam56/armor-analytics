@@ -302,7 +302,7 @@ export default function FormationIaPmePage() {
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link
-              href="/formation"
+              href="/formation-ia"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
               <p className="text-slate-600 leading-relaxed">

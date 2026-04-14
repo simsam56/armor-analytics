@@ -295,7 +295,7 @@ export default function ConsultantDataLorientPage() {
                   variant="outline"
                   className="border-breton-emerald text-breton-emerald hover:bg-breton-emerald/5"
                 >
-                  <Link href="/data" className="gap-2">
+                  <Link href="/pilotage-augmente" className="gap-2">
                     Découvrir nos offres
                     <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -473,7 +473,7 @@ export default function ConsultantDataLorientPage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link
-              href="/data"
+              href="/pilotage-augmente"
               className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-breton-emerald hover:shadow-md"
             >
               <h3 className="text-lg font-semibold text-slate-900 group-hover:text-breton-emerald transition-colors">
