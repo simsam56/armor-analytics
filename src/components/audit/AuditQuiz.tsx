@@ -154,7 +154,7 @@ export function AuditQuiz() {
               variant="outline"
               onClick={handlePrevious}
               disabled={currentStep === 1}
-              className="border-[#E2E8E5] text-[#64756C] hover:bg-[#F1F5F3]"
+              className="border-breton-sand text-breton-granite hover:bg-breton-foam"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Précédent
@@ -164,7 +164,7 @@ export function AuditQuiz() {
               type="button"
               onClick={handleNext}
               disabled={!currentAnswer}
-              className="bg-breton-emerald hover:bg-[#143D31] text-white"
+              className="bg-breton-emerald hover:bg-breton-moss text-white rounded-xl"
             >
               {currentStep === TOTAL_QUESTIONS ? 'Voir mes résultats' : 'Suivant'}
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -181,7 +181,7 @@ export function AuditQuiz() {
               type="button"
               variant="ghost"
               onClick={() => setPhase('questions')}
-              className="text-[#64756C] hover:text-[#1E2922]"
+              className="text-breton-granite hover:text-breton-navy"
             >
               <ArrowLeft className="mr-2 h-4 w-4" />
               Revenir aux questions
@@ -201,7 +201,7 @@ export function AuditQuiz() {
             <button
               type="button"
               onClick={handleRestart}
-              className="text-sm text-[#64756C] hover:text-breton-emerald underline"
+              className="text-sm text-breton-granite hover:text-breton-emerald underline"
             >
               Refaire le quiz
             </button>
