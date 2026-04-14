@@ -1,6 +1,6 @@
 export const SITE_CONFIG = {
   name: 'balise-ia',
-  tagline: 'Pilotage production et IA pour PME industrielles bretonnes',
+  tagline: 'Pilotage industriel, automatisation et agents IA pour vos ateliers et back-offices',
   description:
     'Vous pilotez votre production à l\u2019Excel ? Je remplace le planning manuel par un tableau de bord temps réel — par quelqu\u2019un qui a fait ce travail à la main pendant 7 ans. Diagnostic terrain gratuit, Bretagne.',
   url: 'https://www.balise-ia.fr',
@@ -149,56 +149,68 @@ export const PRICE_FACTORS = {
   ],
 };
 
-// 3 piliers d'offre — reformulés par problème client
+// 4 offres — positionnement agents IA terrain
 export const SERVICES = [
   {
-    id: 'ia',
-    title: 'Éliminer les tâches manuelles',
-    navLabel: 'Automatisation',
-    tagline: 'Vos équipes méritent mieux que de la ressaisie',
+    id: 'diagnostic',
+    title: 'Diagnostic IA terrain',
+    navLabel: 'Diagnostic',
+    tagline: 'On vient chez vous. 3 jours pour cartographier vos flux et identifier les gains IA.',
     description:
-      'Agents IA, extraction de documents, workflows automatisés, intégrations ERP. On élimine les tâches répétitives et on mesure les gains.',
-    href: '/ia',
-    icon: 'Bot',
-    tools: ['n8n', 'Make', 'Python', 'Claude', 'LangChain'],
+      'Audit sur site de vos processus, identification des gisements d\'automatisation, feuille de route priorisée par ROI.',
+    href: '/diagnostic-ia',
+    icon: 'Search',
+    isEntryPoint: true,
+    tools: ['Observation terrain', 'Cartographie flux', 'Analyse ROI'],
     useCases: [
-      'OCR & extraction de données',
-      'Agents IA conversationnels',
-      'Automatisation de workflows',
-      'Génération de contenus métier',
-      'Vision & analyse d\u2019images',
-      'Prévision de demande & stocks',
-      'Intégration ERP',
+      'Cartographie des flux de production',
+      'Identification des tâches manuelles éliminables',
+      'Feuille de route IA priorisée',
+      'Estimation ROI par chantier',
     ],
   },
   {
-    id: 'data',
-    title: 'Piloter avec des données fiables',
-    navLabel: 'Data',
+    id: 'pilotage',
+    title: 'Pilotage augmenté',
+    navLabel: 'Pilotage',
     tagline: 'Décidez sur des faits, pas sur des impressions',
     description:
-      'Dashboards temps réel, data engineering, centralisation des sources. Vos données enfin exploitables.',
-    href: '/data',
+      'Indicateurs temps réel connectés à vos outils, alertes anomalies, pilotage augmenté par l\'IA.',
+    href: '/pilotage-augmente',
     icon: 'BarChart3',
     tools: ['Power BI', 'Metabase', 'Microsoft Fabric', 'DuckDB', 'dbt'],
     useCases: [
-      'Dashboards temps réel',
+      'Indicateurs de production temps réel',
       'Data warehouse & centralisation',
-      'Data quality & nettoyage',
       'Suivi qualité & alertes',
-      'CRM analytique & segmentation',
-      'Conformité & reporting réglementaire',
       'Reporting automatisé',
     ],
   },
   {
-    id: 'formation',
-    title: 'Rendre vos équipes autonomes',
-    navLabel: 'Formation',
-    tagline: 'L\u2019IA et la data ne servent à rien si personne ne les utilise',
+    id: 'ia',
+    title: 'Automatisation & Agents IA métier',
+    navLabel: 'Automatisation',
+    tagline: 'Vos équipes méritent mieux que de la ressaisie',
     description:
-      'Formations sur site, accompagnement mensuel, transfert de compétences. Vos équipes prennent la main.',
-    href: '/formation',
+      'Agents back-office, assistant documentaire (RAG), alertes production. On automatise ce qui vous ralentit.',
+    href: '/automatisation-agents-ia',
+    icon: 'Bot',
+    tools: ['n8n', 'Make', 'Python', 'Claude', 'LangChain'],
+    useCases: [
+      'Agent back-office (commandes, devis, relances)',
+      'Agent documentaire RAG (fiches techniques, normes)',
+      'Agent de pilotage (alertes anomalies, résumés)',
+      'Automatisation de workflows',
+    ],
+  },
+  {
+    id: 'formation',
+    title: 'Formation & adoption IA terrain',
+    navLabel: 'Formation',
+    tagline: 'L\'IA ne sert à rien si personne ne l\'utilise',
+    description:
+      'Vos équipes maîtrisent les outils. Dirigeants et opérateurs. Formations sur site, accompagnement mensuel.',
+    href: '/formation-ia',
     icon: 'GraduationCap',
     tools: ['Claude', 'Power BI', 'n8n', 'Prompting IA'],
     useCases: [
@@ -561,12 +573,28 @@ export const FAQ_ITEMS = [
   },
 ];
 
-export const NAV_LINKS = [
-  { href: '#services', label: 'Services' },
+export type NavLink =
+  | { href: string; label: string; children?: never }
+  | {
+      label: string;
+      href?: never;
+      children: { href: string; label: string }[];
+    };
+
+export const NAV_LINKS: NavLink[] = [
+  {
+    label: 'Services',
+    children: [
+      { href: '/diagnostic-ia', label: 'Diagnostic IA terrain' },
+      { href: '/pilotage-augmente', label: 'Pilotage augmenté' },
+      { href: '/automatisation-agents-ia', label: 'Automatisation & Agents IA' },
+      { href: '/formation-ia', label: 'Formation IA terrain' },
+    ],
+  },
   { href: '#secteur', label: 'Secteur' },
   { href: '/cas-clients', label: 'Cas clients' },
   { href: '/blog', label: 'Blog' },
-  { href: '/a-propos', label: '\u00c0 propos' },
+  { href: '/a-propos', label: 'À propos' },
   { href: '/contact', label: 'Contact' },
 ];
 
