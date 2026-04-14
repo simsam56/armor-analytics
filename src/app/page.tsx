@@ -1,4 +1,5 @@
 import { HeroV3 } from '@/components/sections/HeroV3';
+import { UseCases } from '@/components/sections/UseCases';
 import { Projects } from '@/components/sections/Projects';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { IncarnationSection } from '@/components/sections/IncarnationSection';
@@ -105,7 +106,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Secteur */}
+      {/* 3. Cas d'usage — visuels interactifs */}
+      <UseCases />
+
+      {/* 4. Secteur */}
       <section id="secteur" className="py-20 sm:py-32 bg-breton-navy">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <div className="grid gap-16 lg:grid-cols-2 items-center">
