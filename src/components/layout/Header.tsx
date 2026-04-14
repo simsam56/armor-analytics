@@ -51,10 +51,10 @@ export function Header() {
 
         {/* Nav links — directs, pas de dropdown */}
         <div className="hidden lg:flex lg:items-center lg:gap-x-7">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.filter((link) => 'href' in link).map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={link.href!}
               className="text-[0.9rem] font-medium transition-colors text-breton-slate hover:text-breton-navy"
             >
               {link.label}
@@ -107,10 +107,10 @@ export function Header() {
       {/* Mobile menu */}
       <div id="mobile-menu" className={cn('lg:hidden', mobileMenuOpen ? 'block' : 'hidden')}>
         <div className="space-y-1 px-4 pb-4 bg-white rounded-b-xl shadow-lg">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.filter((link) => 'href' in link).map((link) => (
             <Link
               key={link.href}
-              href={link.href}
+              href={link.href!}
               className="block rounded-lg px-3 py-2.5 text-base font-medium text-breton-slate hover:bg-breton-foam hover:text-breton-navy"
               onClick={closeMobileMenu}
             >

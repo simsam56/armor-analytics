@@ -124,10 +124,10 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
-                {NAV_LINKS.map((link) => (
+                {NAV_LINKS.filter((link) => 'href' in link).map((link) => (
                   <li key={link.href}>
                     <Link
-                      href={link.href}
+                      href={link.href!}
                       className="text-sm text-white/50 transition-colors hover:text-breton-copper"
                     >
                       {link.label}
