@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Identité
 
-**balise-ia** — Site vitrine B2B pour un collectif data ciblant les PME et réseaux bretons (Lorient). Le nom du repo (`armor-analytics`) est un vestige historique ; le produit s'appelle **balise-ia**. Tagline : "Data, automatisation et IA pour les PME bretonnes". Tout le contenu est en français.
+**balise-ia** — Site vitrine B2B pour un collectif data ciblant les PME industrielles bretonnes (Lorient). Le nom du repo (`armor-analytics`) est un vestige historique ; le produit s'appelle **balise-ia**. Tagline : "Pilotage industriel, automatisation et agents IA pour vos ateliers et back-offices". Tout le contenu est en français.
 
 ## Commandes
 
@@ -49,8 +49,8 @@ Autres fichiers de données :
 
 - **Hero homepage** (`HeroV3`) : fond gradient `breton-foam` → `breton-sand`, badge local centré avec dot emerald pulsant, titre Instrument Serif centré + sous-titre + 2 CTAs + micro-preuves. `min-h-screen`, centré `text-center`.
 - **Hero pages intérieures** (`Hero`) : fond gradient `breton-foam` → `breton-sand`, API simplifiée `title` + `subtitle`, `-mt-16 pt-32` pour chevaucher le header.
-- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). CTA principal "Mes priorités IA →" (pointe vers `/audit-ia`, le quiz de diagnostic).
-- **Sections** : alternance `bg-white` / `bg-breton-foam` / bande `bg-breton-sand`. Le navy n'apparaît qu'au CTA final et au footer. Padding `py-[110px]` desktop, `py-16` mobile
+- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). Dropdown "Services" avec 4 items. CTA principal "Diagnostic gratuit →" (pointe vers `/contact`).
+- **Sections** : alternance `bg-white` / `bg-breton-foam` / bande `bg-breton-sand`. Le navy n'apparaît qu'au CTA final et au footer. Padding `py-24` desktop, `py-16` mobile
 - **Cards** : `rounded-2xl`, borders `breton-sand`, hover shadows
 - **CTA sombres** : fond `breton-navy`, bouton sable inversé `bg-breton-sand text-breton-navy`
 - **Footer** : fond `breton-navy`, carte SVG Bretagne, badges confiance. Labels de colonnes = `<p>` (pas `<h3>`).
@@ -60,9 +60,9 @@ Autres fichiers de données :
 ### Homepage — ordre des sections
 
 ```
-HeroV3 (badge local + titre centré) → MetricsBand (bande sable, 4 métriques) →
-LogoCarousel (logos clients marquee) → PillarsSection (3 piliers foam) →
-Services (grille 2×2, 4 offres) → Projects (3 cas clients compact) →
+HeroV3 (badge local + titre centré, fond clair foam/sand) → Chiffres clés (4 stats) →
+ProblemsSection (4 problèmes métier cliquables) → Services (grille 2×2, 4 offres) →
+Projects (3 cas clients compact) → Méthode 3 étapes →
 IncarnationSection (photo + citation + badges) → CtaContact (CTA final navy)
 ```
 
@@ -70,15 +70,20 @@ Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll
 
 ### Offres (SERVICES)
 
-4 expertises modulables :
-1. **Audit & Diagnostic** (`isEntryPoint: true`) — 2 000–5 000 € HT — 1 à 2 semaines
-2. **Pilotage data** — pipeline + dataviz — sur devis — 4 à 10 semaines
-3. **Automatisations & IA utiles** — OCR, prévision, classification — 5 000–20 000 € HT — 4 à 10 semaines
-4. **Formation & Accompagnement** — forfait mensuel — 800–3 200 € HT/mois — selon besoin
+4 expertises modulables (pas de prix affiché sur le site) :
+1. **Diagnostic IA terrain** (`isEntryPoint: true`) — route `/diagnostic-ia`
+2. **Pilotage augmenté** — route `/pilotage-augmente`
+3. **Automatisation & Agents IA métier** — route `/automatisation-agents-ia`
+4. **Formation & adoption IA terrain** — route `/formation-ia`
+
+Navigation : dropdown "Services" dans le Header avec les 4 items. NAV_LINKS supporte `children` pour les dropdowns.
 
 ### Redirections
 
 - `/projets` → 301 → `/cas-clients` (anti-cannibalisation SEO, configuré dans `next.config.ts`)
+- `/ia` → 301 → `/automatisation-agents-ia`
+- `/data` → 301 → `/pilotage-augmente`
+- `/formation` → 301 → `/formation-ia`
 - `balise-ia.fr` → 308 → `www.balise-ia.fr` (configuré dans Vercel Domains + `vercel.json`)
 
 ### Blog
