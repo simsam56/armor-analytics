@@ -1,6 +1,5 @@
 import { HeroV3 } from '@/components/sections/HeroV3';
 import { UseCases } from '@/components/sections/UseCases';
-import { Projects } from '@/components/sections/Projects';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { IncarnationSection } from '@/components/sections/IncarnationSection';
 import { JsonLd } from '@/components/JsonLd';
@@ -13,25 +12,16 @@ import {
   ArrowRight,
   Search,
   Layers,
-  Factory,
-  Anchor,
-  UtensilsCrossed,
-  Cog,
 } from 'lucide-react';
-import { BLOG_ARTICLES } from '@/data/blog-articles';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Pilotage production IA pour PME industrielles | Lorient, Bretagne',
   description:
-    'Remplacez le planning Excel par un tableau de bord production temps r\u00e9el. 7 ans de terrain industriel. Diagnostic gratuit, Bretagne.',
+    'Pilotage temps réel, automatisation et agents IA pour PME industrielles bretonnes. 7 ans de terrain. Résultats mesurés. Diagnostic gratuit.',
 };
 
 export default function Home() {
-  const latestArticles = [...BLOG_ARTICLES]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
-
   return (
     <>
       <JsonLd />
@@ -39,7 +29,59 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroV3 />
 
-      {/* 2. Services — style Atos avec grandes images */}
+      {/* 2. Preuves — Résultats clients */}
+      <section className="py-20 sm:py-28 bg-breton-foam">
+        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
+          <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
+            Résultats
+          </p>
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
+            Des résultats mesurés, pas des promesses
+          </h2>
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              {
+                sector: 'Métallurgie',
+                problem: 'Reporting manuel chaque vendredi, 4h minimum',
+                result: '4h/semaine économisées',
+                detail: 'Dashboard production temps réel déployé en 6 semaines',
+              },
+              {
+                sector: 'Agroalimentaire',
+                problem: 'Ressaisie manuelle de chaque commande fournisseur',
+                result: '80% du temps de traitement éliminé',
+                detail: 'OCR + workflow automatisé, intégration ERP',
+              },
+              {
+                sector: 'Transport & Logistique',
+                problem: 'Reporting livré à J+3, données peu fiables',
+                result: 'Reporting disponible en J+0',
+                detail: 'Centralisation données + reporting automatisé',
+              },
+            ].map((proof) => (
+              <Link
+                key={proof.sector}
+                href="/cas-clients"
+                className="group rounded-2xl border border-breton-sand bg-white p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">
+                  {proof.sector}
+                </span>
+                <p className="mt-3 text-breton-slate text-sm">{proof.problem}</p>
+                <p className="mt-4 font-display text-2xl font-bold text-breton-navy">
+                  {proof.result}
+                </p>
+                <p className="mt-2 text-sm text-breton-granite">{proof.detail}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
+                  Voir le cas <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Services — style Atos avec grandes images */}
       <section id="services" className="py-20 sm:py-32 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
@@ -106,75 +148,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Cas d'usage — visuels interactifs */}
+      {/* 4. Cas d'usage — visuels interactifs */}
       <UseCases />
-
-      {/* 4. Secteur */}
-      <section id="secteur" className="py-20 sm:py-32 bg-breton-navy">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="grid gap-16 lg:grid-cols-2 items-center">
-            <div>
-              <p className="text-sm font-semibold text-breton-emerald uppercase tracking-[0.15em] mb-4">
-                Secteur
-              </p>
-              <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-white mb-6">
-                PME industrielles bretonnes
-              </h2>
-              <p className="text-lg text-white/60 leading-relaxed mb-8">
-                Ateliers de production, plannings GPAO, contraintes de livraison, dépendance
-                aux personnes-clés. On connaît ces réalités parce qu&apos;on les a vécues
-                pendant 7 ans.
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { icon: Factory, label: 'Métallurgie & chaudronnerie' },
-                  { icon: UtensilsCrossed, label: 'Agroalimentaire' },
-                  { icon: Anchor, label: 'Nautisme & naval' },
-                  { icon: Cog, label: 'Mécanique & sous-traitance' },
-                ].map((sector) => (
-                  <div
-                    key={sector.label}
-                    className="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-4 py-3"
-                  >
-                    <sector.icon className="h-4 w-4 text-breton-emerald shrink-0" />
-                    <span className="text-sm text-white/80 font-medium">{sector.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=900&q=80"
-                alt="Atelier de production industrielle"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Chiffres clés */}
-      <section className="py-20 sm:py-28 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { value: '7 ans', label: 'de terrain en production industrielle' },
-              { value: 'Lorient', label: 'base, interventions sur site en Bretagne' },
-              { value: '100%', label: 'PME industrielles' },
-              { value: '3 jours', label: 'pour un premier diagnostic terrain' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-display text-[clamp(40px,5vw,64px)] font-bold tracking-[-0.03em] text-breton-navy leading-none">
-                  {stat.value}
-                </p>
-                <p className="mt-3 text-breton-granite">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 5. Méthode en 3 étapes */}
       <section className="py-20 sm:py-32 bg-breton-foam">
@@ -226,52 +201,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. Cas clients */}
-      <Projects limit={3} showLink />
-
-      {/* 7. Blog */}
-      <section className="py-20 sm:py-32 bg-white">
-        <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
-            Insights
-          </p>
-          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16">
-            Blog
-          </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            {latestArticles.map((article) => (
-              <Link
-                key={article.slug}
-                href={`/blog/${article.slug}`}
-                className="group"
-              >
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {article.tags.slice(0, 2).map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-medium text-breton-granite uppercase tracking-wider"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <h3 className="text-xl font-bold text-breton-navy group-hover:text-breton-copper transition-colors mb-3 line-clamp-2">
-                  {article.title}
-                </h3>
-                <p className="text-breton-slate line-clamp-2 mb-4">{article.description}</p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
-                  Lire <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 8. À propos */}
+      {/* 6. À propos */}
       <IncarnationSection />
 
-      {/* 9. CTA final */}
+      {/* 7. CTA final */}
       <CtaContact />
     </>
   );
