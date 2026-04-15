@@ -35,7 +35,7 @@ export function IncarnationSection() {
     <section
       ref={sectionRef}
       id="a-propos"
-      className="bg-breton-foam py-16 sm:py-24"
+      className="bg-breton-foam py-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -77,7 +77,7 @@ export function IncarnationSection() {
 
             <motion.h2
               variants={child}
-              className="font-display text-[28px] lg:text-[40px] font-bold leading-[1.1] tracking-[-0.02em] text-breton-navy mb-5"
+              className="font-sans text-[28px] lg:text-[40px] font-semibold leading-[1.1] tracking-[-0.02em] text-breton-navy mb-5"
             >
               7 ans de terrain industriel. Puis la data.
             </motion.h2>

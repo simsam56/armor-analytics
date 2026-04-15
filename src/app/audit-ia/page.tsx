@@ -85,16 +85,16 @@ export default function AuditPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(auditFaqJsonLd) }}
       />
       {/* Hero — promesse concrète */}
-      <section className="bg-breton-navy -mt-16 pt-28 sm:pt-32 pb-12 sm:pb-16">
+      <section className="bg-gradient-to-b from-breton-foam to-breton-sand -mt-16 pt-28 sm:pt-32 pb-16 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-1.5 bg-white/10 text-breton-moss text-sm font-medium rounded-full mb-4">
+            <span className="inline-block px-4 py-1.5 bg-breton-emerald/10 text-breton-emerald text-sm font-medium rounded-full mb-4">
               Gratuit · Sans engagement · 5 minutes
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-breton-navy leading-tight">
               Où en êtes-vous avec le pilotage de votre production ?
             </h1>
-            <p className="mt-4 text-lg text-white/70">
+            <p className="mt-4 text-lg text-breton-slate">
               5 minutes pour identifier vos opportunités concrètes. Résultats immédiats, sans
               inscription.
             </p>
@@ -102,16 +102,16 @@ export default function AuditPage() {
             <div className="mt-8 grid grid-cols-3 gap-4 max-w-lg mx-auto">
               {BENEFITS.map((benefit) => (
                 <div key={benefit.title} className="text-center">
-                  <benefit.icon className="w-5 h-5 text-breton-moss mx-auto mb-1.5" />
-                  <p className="text-sm font-medium text-white">{benefit.title}</p>
-                  <p className="text-xs text-white/50">{benefit.description}</p>
+                  <benefit.icon className="w-5 h-5 text-breton-emerald mx-auto mb-1.5" />
+                  <p className="text-sm font-medium text-breton-navy">{benefit.title}</p>
+                  <p className="text-xs text-breton-granite">{benefit.description}</p>
                 </div>
               ))}
             </div>
 
             <a
               href="#quiz"
-              className="mt-8 inline-flex items-center gap-2 bg-white text-breton-emerald font-semibold px-8 py-3.5 rounded-lg hover:bg-white/90 transition-colors text-base"
+              className="mt-8 inline-flex items-center gap-2 bg-breton-navy text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-breton-slate transition-colors text-base"
             >
               Commencer le quiz gratuit
               <ChevronDown className="w-4 h-4" />
@@ -121,7 +121,7 @@ export default function AuditPage() {
       </section>
 
       {/* Quiz — zone focus */}
-      <section id="quiz" className="py-12 sm:py-16 bg-white">
+      <section id="quiz" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AuditQuiz />
         </div>
@@ -139,7 +139,7 @@ export default function AuditPage() {
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="text-2xl font-bold text-breton-emerald">{stat.value}</p>
-                <p className="text-xs text-slate-500 mt-1">{stat.label}</p>
+                <p className="text-xs text-breton-granite mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -147,7 +147,7 @@ export default function AuditPage() {
       </section>
 
       {/* Ce que vous obtenez — concret */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
@@ -195,7 +195,7 @@ export default function AuditPage() {
       </section>
 
       {/* Diagnostic terrain — offre clairement séparée */}
-      <section className="py-16 sm:py-20 bg-breton-sand">
+      <section className="py-16 sm:py-24 bg-breton-sand">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss mb-4">
@@ -247,7 +247,7 @@ export default function AuditPage() {
       </section>
 
       {/* Et après ? */}
-      <section className="py-16 sm:py-20 bg-breton-foam">
+      <section className="py-16 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-breton-navy sm:text-3xl">Et après le quiz ?</h2>
           <p className="mt-4 text-breton-slate leading-relaxed">
@@ -259,7 +259,7 @@ export default function AuditPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#quiz"
-              className="inline-flex items-center justify-center gap-2 bg-breton-emerald text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-breton-emerald/90 transition-colors text-base"
+              className="inline-flex items-center justify-center gap-2 bg-breton-emerald text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-breton-emerald/90 transition-colors text-base"
             >
               Commencer le quiz gratuit
               <ChevronDown className="w-4 h-4" />
@@ -279,7 +279,7 @@ export default function AuditPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-breton-navy text-center mb-10">
             Questions fréquentes

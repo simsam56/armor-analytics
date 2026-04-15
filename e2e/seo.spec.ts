@@ -21,10 +21,9 @@ test.describe('SEO et metadata', () => {
     expect(response?.status()).toBe(200);
     const body = await page.content();
     expect(body).toContain('balise-ia.fr');
-    expect(body).toContain('/ia');
-    expect(body).toContain('/data');
-    expect(body).toContain('/formation');
     expect(body).toContain('/interventions/lorient');
+    expect(body).toContain('/cas-clients');
+    expect(body).toContain('/contact');
   });
 
   test('le robots.txt est accessible', async ({ page }) => {

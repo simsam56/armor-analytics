@@ -45,7 +45,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/services',
-        destination: '/ia',
+        destination: '/diagnostic-ia',
+        permanent: true,
+      },
+      {
+        source: '/ia',
+        destination: '/automatisation-agents-ia',
+        permanent: true,
+      },
+      {
+        source: '/data',
+        destination: '/pilotage-augmente',
+        permanent: true,
+      },
+      {
+        source: '/formation',
+        destination: '/formation-ia',
         permanent: true,
       },
     ];

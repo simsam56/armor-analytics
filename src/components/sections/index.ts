@@ -16,3 +16,4 @@ export { PillarsSection } from './PillarsSection';
 export { IncarnationSection } from './IncarnationSection';
 export { Testimonials } from './Testimonials';
 export { CoastalBand } from './CoastalBand';
+export { ProblemsSection } from './ProblemsSection';

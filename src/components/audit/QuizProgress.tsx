@@ -15,7 +15,7 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
     <div className="w-full">
       {/* Progress bar */}
       <div className="relative">
-        <div className="h-2 bg-[#E2E8E5] rounded-full overflow-hidden">
+        <div className="h-2 bg-breton-sand rounded-full overflow-hidden">
           <div
             className="h-full bg-breton-emerald rounded-full transition-all duration-500 ease-out"
             style={{ width: `${progressPercentage}%` }}
@@ -28,7 +28,7 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
         <span className="text-sm font-medium text-breton-emerald">
           Question {currentStep} sur {totalSteps}
         </span>
-        <span className="text-sm text-[#64756C]">{Math.round(progressPercentage)}% complété</span>
+        <span className="text-sm text-breton-granite">{Math.round(progressPercentage)}% complété</span>
       </div>
 
       {/* Step dots for desktop */}
@@ -48,7 +48,7 @@ export function QuizProgress({ currentStep, totalSteps, completedSteps }: QuizPr
                     ? 'bg-breton-emerald text-white'
                     : isCurrent
                       ? 'bg-breton-emerald/10 text-breton-emerald ring-2 ring-breton-emerald'
-                      : 'bg-[#F1F5F3] text-[#64756C]'
+                      : 'bg-breton-foam text-breton-granite'
                 }
               `}
             >

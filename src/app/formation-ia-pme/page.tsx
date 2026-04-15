@@ -152,7 +152,7 @@ export default function FormationIaPmePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(formationFaqJsonLd) }}
       />
-      <Breadcrumbs items={[{ label: 'Formation', href: '/formation' }, { label: 'Formation IA PME' }]} />
+      <Breadcrumbs items={[{ label: 'Formation IA PME' }]} />
       <Hero
         title="Formation IA et data pour PME industrielles"
         subtitle="Directement en atelier, avec vos vraies donn&eacute;es de production. Vos op&eacute;rateurs, chefs d&apos;&eacute;quipe et responsables production montent en comp&eacute;tences sur leurs outils."
@@ -164,10 +164,10 @@ export default function FormationIaPmePage() {
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Formation &amp; autonomie
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Pourquoi former vos &eacute;quipes &agrave; l&apos;IA
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             L&apos;IA n&apos;est utile que si vos &eacute;quipes savent l&apos;utiliser. Pas besoin
             d&apos;&ecirc;tre d&eacute;veloppeur : il faut comprendre les outils, savoir poser les
             bonnes questions et int&eacute;grer l&apos;IA dans ses habitudes de travail.
@@ -177,13 +177,13 @@ export default function FormationIaPmePage() {
             {BENEFITS.map((benefit) => (
               <div
                 key={benefit.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-2xl border border-breton-sand bg-white p-8 shadow-sm"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-breton-emerald/10">
                   <benefit.icon className="h-6 w-6 text-breton-emerald" />
                 </div>
-                <h3 className="mt-5 text-xl font-semibold text-slate-900">{benefit.title}</h3>
-                <p className="mt-3 text-slate-600 leading-relaxed">{benefit.description}</p>
+                <h3 className="mt-5 text-xl font-semibold text-breton-navy">{benefit.title}</h3>
+                <p className="mt-3 text-breton-slate leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -191,15 +191,15 @@ export default function FormationIaPmePage() {
       </section>
 
       {/* Notre programme */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-breton-moss">
             Programme
           </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
             Notre programme de formation
           </h2>
-          <p className="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 max-w-2xl text-lg text-breton-slate leading-relaxed">
             Cinq modules compl&eacute;mentaires, &agrave; combiner selon vos besoins. Chaque module
             est construit autour d&apos;ateliers pratiques en petits groupes (2-3h), sur site ou en
             visio.
@@ -209,13 +209,13 @@ export default function FormationIaPmePage() {
             {MODULES.map((mod) => (
               <div
                 key={mod.title}
-                className="rounded-2xl border border-slate-200 bg-white p-8"
+                className="rounded-2xl border border-breton-sand bg-white p-8"
               >
                 <div className="flex items-center gap-3">
                   <mod.icon className="h-5 w-5 text-breton-copper" />
-                  <h3 className="text-lg font-semibold text-slate-900">{mod.title}</h3>
+                  <h3 className="text-lg font-semibold text-breton-navy">{mod.title}</h3>
                 </div>
-                <p className="mt-3 text-slate-600 leading-relaxed">{mod.description}</p>
+                <p className="mt-3 text-breton-slate leading-relaxed">{mod.description}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {mod.topics.map((topic) => (
                     <span
@@ -234,10 +234,10 @@ export default function FormationIaPmePage() {
             <div className="flex items-start gap-4">
               <Users className="h-6 w-6 text-breton-emerald shrink-0 mt-1" />
               <div>
-                <h3 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-lg font-semibold text-breton-navy">
                   Format adapt&eacute; &agrave; votre entreprise
                 </h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">
+                <p className="mt-2 text-breton-slate leading-relaxed">
                   Sessions en petits groupes (4-8 personnes), sur site &agrave; Lorient et en
                   Bretagne ou en visio. Chaque atelier repart de vos fichiers, vos process, vos
                   outils. Pas de cas d&apos;&eacute;cole : on travaille sur votre quotidien.
@@ -252,10 +252,10 @@ export default function FormationIaPmePage() {
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl">
               Comment &ccedil;a se passe
             </h2>
-            <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+            <p className="mt-4 text-lg text-breton-slate leading-relaxed">
               Un parcours en trois &eacute;tapes, adapt&eacute; &agrave; votre rythme et &agrave;
               vos contraintes op&eacute;rationnelles.
             </p>
@@ -263,10 +263,10 @@ export default function FormationIaPmePage() {
 
           <div className="mt-12 grid gap-6 sm:grid-cols-3">
             {PROCESS_STEPS.map((item) => (
-              <div key={item.step} className="rounded-2xl border border-slate-200 bg-white p-6">
+              <div key={item.step} className="rounded-2xl border border-breton-sand bg-white p-6">
                 <span className="text-3xl font-bold text-breton-copper/30">{item.step}</span>
-                <h3 className="mt-3 text-lg font-semibold text-slate-900">{item.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                <h3 className="mt-3 text-lg font-semibold text-breton-navy">{item.title}</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed">{item.description}</p>
                 <p className="mt-4 flex items-center gap-1.5 text-xs font-medium text-breton-moss">
                   <Zap className="h-3.5 w-3.5" />
                   {item.duration}
@@ -278,16 +278,16 @@ export default function FormationIaPmePage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 sm:py-24 bg-slate-50">
+      <section className="py-20 sm:py-24 bg-breton-foam">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-breton-navy sm:text-4xl text-center">
             Questions fr&eacute;quentes
           </h2>
           <div className="mt-12 space-y-8">
             {FORMATION_FAQ.map((faq) => (
               <div key={faq.question}>
-                <h3 className="text-lg font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-2 text-slate-600 leading-relaxed">{faq.answer}</p>
+                <h3 className="text-lg font-semibold text-breton-navy">{faq.question}</h3>
+                <p className="mt-2 text-breton-slate leading-relaxed">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -297,15 +297,15 @@ export default function FormationIaPmePage() {
       {/* Nos autres expertises */}
       <section className="py-20 sm:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+          <h2 className="text-2xl font-bold tracking-tight text-breton-navy sm:text-3xl">
             Nos autres expertises
           </h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <Link
-              href="/formation"
+              href="/offres"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 D&eacute;couvrez l&apos;ensemble de nos offres : audit, pilotage data,
                 automatisations et IA pour les PME bretonnes.
               </p>
@@ -318,7 +318,7 @@ export default function FormationIaPmePage() {
               href="/power-bi-bretagne"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Tableaux de bord Power BI connect&eacute;s &agrave; vos ERP, livr&eacute;s
                 cl&eacute; en main pour les PME bretonnes.
               </p>
@@ -331,7 +331,7 @@ export default function FormationIaPmePage() {
               href="/automatisation-commandes-pme"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Automatisez la saisie de commandes, la lecture de documents et
                 l&apos;int&eacute;gration ERP avec l&apos;IA.
               </p>
@@ -344,7 +344,7 @@ export default function FormationIaPmePage() {
               href="/intelligence-artificielle-bretagne"
               className="group rounded-2xl border border-breton-sand bg-white p-6 transition hover:shadow-md"
             >
-              <p className="text-slate-600 leading-relaxed">
+              <p className="text-breton-slate leading-relaxed">
                 Vous envisagez un projet d&apos;IA ? D&eacute;couvrez nos solutions
                 d&apos;intelligence artificielle pour PME bretonnes.
               </p>

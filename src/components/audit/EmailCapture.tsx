@@ -46,8 +46,8 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
   return (
     <div>
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-slate-900 sm:text-3xl">Vos résultats sont prêts</h2>
-        <p className="mt-2 text-slate-600">
+        <h2 className="text-2xl font-bold text-breton-navy sm:text-3xl">Vos résultats sont prêts</h2>
+        <p className="mt-2 text-breton-slate">
           Indiquez votre entreprise et votre email pour recevoir votre analyse personnalisée.
         </p>
       </div>
@@ -56,9 +56,9 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
         <div className="space-y-1.5">
           <Label
             htmlFor="audit-company"
-            className="text-slate-900 font-medium flex items-center gap-2"
+            className="text-breton-navy font-medium flex items-center gap-2"
           >
-            <Building2 className="w-4 h-4 text-slate-400" />
+            <Building2 className="w-4 h-4 text-breton-granite" />
             Entreprise
           </Label>
           <Input
@@ -78,9 +78,9 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
         <div className="space-y-1.5">
           <Label
             htmlFor="audit-email"
-            className="text-slate-900 font-medium flex items-center gap-2"
+            className="text-breton-navy font-medium flex items-center gap-2"
           >
-            <Mail className="w-4 h-4 text-slate-400" />
+            <Mail className="w-4 h-4 text-breton-granite" />
             Email professionnel
           </Label>
           <Input
@@ -111,7 +111,7 @@ export function EmailCapture({ onSubmit, isLoading = false }: EmailCaptureProps)
           )}
         </Button>
 
-        <div className="flex items-center justify-center gap-2 text-xs text-slate-400 pt-1">
+        <div className="flex items-center justify-center gap-2 text-xs text-breton-granite pt-1">
           <Shield className="h-3.5 w-3.5" />
           <span>Données confidentielles · Pas de spam · Pas de revente</span>
         </div>

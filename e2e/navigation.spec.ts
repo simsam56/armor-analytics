@@ -12,16 +12,17 @@ test.describe('Navigation et pages principales', () => {
     await page.goto('/');
     await expect(page.locator('header')).toBeVisible();
     await expect(page.locator('header a[href="/"]').first()).toBeVisible();
-    await expect(page.locator('header nav a[href="/ia"]')).toBeVisible();
-    await expect(page.locator('header nav a[href="/data"]')).toBeVisible();
-    await expect(page.locator('header nav a[href="/formation"]')).toBeVisible();
+    // Le menu Services est un dropdown — vérification du bouton déclencheur
+    await expect(page.locator('header button', { hasText: 'Services' })).toBeVisible();
+    // Le CTA principal pointe vers /contact
+    await expect(page.locator('header a[href="/contact"]').first()).toBeVisible();
   });
 
   test('le footer contient les liens et le CTA', async ({ page }) => {
     await page.goto('/');
     const siteFooter = page.locator('footer.bg-breton-navy');
     await expect(siteFooter).toBeVisible();
-    await expect(siteFooter.locator('a[href="/ia"]').first()).toBeVisible();
+    await expect(siteFooter.locator('a[href="/diagnostic-ia"]').first()).toBeVisible();
     await expect(siteFooter).toContainText('balise-ia');
   });
 
@@ -57,25 +58,46 @@ test.describe('Navigation et pages principales', () => {
     await expect(page.locator('h1')).toContainText('Mentions légales');
   });
 
-  test('/ia se charge avec le contenu IA', async ({ page }) => {
-    await page.goto('/ia');
+  test('/automatisation-agents-ia se charge avec le contenu IA', async ({ page }) => {
+    await page.goto('/automatisation-agents-ia');
     await expect(page).toHaveTitle(/Automatisation/i);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.getByRole('link', { name: /diagnostic/i }).first()).toBeVisible();
   });
 
-  test('/data se charge avec le contenu Data', async ({ page }) => {
-    await page.goto('/data');
-    await expect(page).toHaveTitle(/Tableaux de bord|reporting/i);
+  test('/pilotage-augmente se charge avec le contenu Data', async ({ page }) => {
+    await page.goto('/pilotage-augmente');
+    await expect(page).toHaveTitle(/Pilotage/i);
     await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
     await expect(page.getByRole('link', { name: /diagnostic/i }).first()).toBeVisible();
   });
 
-  test('/formation se charge avec les deux sous-sections', async ({ page }) => {
-    await page.goto('/formation');
+  test('/formation-ia se charge', async ({ page }) => {
+    await page.goto('/formation-ia');
     await expect(page).toHaveTitle(/Formation/i);
-    await expect(page.getByText('Accompagnement sur site')).toBeVisible();
-    await expect(page.getByText('Ressources gratuites')).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  });
+
+  test('/diagnostic-ia se charge', async ({ page }) => {
+    await page.goto('/diagnostic-ia');
+    await expect(page).toHaveTitle(/Diagnostic/i);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+  });
+
+  test('/ia redirige vers /automatisation-agents-ia', async ({ page }) => {
+    await page.goto('/ia');
+    await expect(page).toHaveURL(/automatisation-agents-ia/);
+    await expect(page).toHaveTitle(/Automatisation/i);
+  });
+
+  test('/data redirige vers /pilotage-augmente', async ({ page }) => {
+    await page.goto('/data');
+    await expect(page).toHaveURL(/pilotage-augmente/);
+  });
+
+  test('/formation redirige vers /formation-ia', async ({ page }) => {
+    await page.goto('/formation');
+    await expect(page).toHaveURL(/formation-ia/);
   });
 
   test('/politique-confidentialite se charge', async ({ page }) => {

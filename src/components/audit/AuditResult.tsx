@@ -19,23 +19,23 @@ interface AuditResultProps {
 
 export function AuditResult({ result, company }: AuditResultProps) {
   const getScoreColor = (score: number) => {
-    if (score <= 40) return 'text-orange-600';
+    if (score <= 40) return 'text-breton-copper';
     if (score <= 70) return 'text-breton-emerald';
-    return 'text-emerald-600';
+    return 'text-breton-emerald';
   };
 
   const getScoreBg = (score: number) => {
-    if (score <= 40) return 'bg-orange-50 border-orange-200';
+    if (score <= 40) return 'bg-breton-sand border-breton-sand';
     if (score <= 70) return 'bg-breton-emerald/5 border-breton-emerald/20';
-    return 'bg-emerald-50 border-emerald-200';
+    return 'bg-breton-foam border-breton-emerald/20';
   };
 
   return (
     <div>
       {/* Score */}
       <div className="text-center mb-10">
-        <p className="text-sm text-slate-500 mb-1">Résultats pour</p>
-        <h2 className="text-2xl font-bold text-slate-900 mb-6">{company}</h2>
+        <p className="text-sm text-breton-granite mb-1">Résultats pour</p>
+        <h2 className="text-2xl font-bold text-breton-navy mb-6">{company}</h2>
 
         <div
           className={`inline-flex flex-col items-center justify-center w-36 h-36 rounded-full border-4 ${getScoreBg(result.score)}`}
@@ -43,7 +43,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
           <span className={`text-5xl font-bold ${getScoreColor(result.score)}`}>
             {result.score}
           </span>
-          <span className="text-sm text-slate-500">/ 100</span>
+          <span className="text-sm text-breton-granite">/ 100</span>
         </div>
 
         <div className="mt-5">
@@ -52,7 +52,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
           >
             {result.maturityLabel}
           </span>
-          <p className="mt-3 text-slate-600 max-w-lg mx-auto text-sm leading-relaxed">
+          <p className="mt-3 text-breton-slate max-w-lg mx-auto text-sm leading-relaxed">
             {result.maturityDescription}
           </p>
         </div>
@@ -61,15 +61,15 @@ export function AuditResult({ result, company }: AuditResultProps) {
       {/* Points forts & améliorations */}
       <div className="grid sm:grid-cols-2 gap-5 mb-10">
         {result.strengths.length > 0 && (
-          <div className="rounded-xl bg-emerald-50 p-5 border border-emerald-100">
-            <h3 className="flex items-center gap-2 font-semibold text-emerald-800 mb-3">
+          <div className="rounded-2xl bg-breton-foam p-5 border border-breton-sand">
+            <h3 className="flex items-center gap-2 font-semibold text-breton-emerald mb-3">
               <CheckCircle className="w-4 h-4" />
               Points forts
             </h3>
             <ul className="space-y-1.5">
               {result.strengths.map((s, i) => (
-                <li key={i} className="text-sm text-emerald-700 flex items-start gap-2">
-                  <span className="text-emerald-400 mt-1">•</span>
+                <li key={i} className="text-sm text-breton-slate flex items-start gap-2">
+                  <span className="text-breton-emerald mt-1">•</span>
                   {s}
                 </li>
               ))}
@@ -78,14 +78,14 @@ export function AuditResult({ result, company }: AuditResultProps) {
         )}
 
         {result.improvements.length > 0 && (
-          <div className="rounded-xl bg-amber-50 p-5 border border-amber-100">
-            <h3 className="flex items-center gap-2 font-semibold text-amber-800 mb-3">
+          <div className="rounded-2xl bg-breton-sand p-5 border border-breton-sand">
+            <h3 className="flex items-center gap-2 font-semibold text-breton-copper mb-3">
               <Lightbulb className="w-4 h-4" />À améliorer
             </h3>
             <ul className="space-y-1.5">
               {result.improvements.map((imp, i) => (
-                <li key={i} className="text-sm text-amber-700 flex items-start gap-2">
-                  <span className="text-amber-400 mt-1">•</span>
+                <li key={i} className="text-sm text-breton-slate flex items-start gap-2">
+                  <span className="text-breton-copper mt-1">•</span>
                   {imp}
                 </li>
               ))}
@@ -96,7 +96,7 @@ export function AuditResult({ result, company }: AuditResultProps) {
 
       {/* Recommandations */}
       <div className="mb-10">
-        <h3 className="flex items-center gap-2 text-xl font-bold text-slate-900 mb-5">
+        <h3 className="flex items-center gap-2 text-xl font-bold text-breton-navy mb-5">
           <Target className="w-5 h-5 text-breton-emerald" />3 projets recommandés pour {company}
         </h3>
 
@@ -104,39 +104,39 @@ export function AuditResult({ result, company }: AuditResultProps) {
           {result.recommendations.map((rec, index) => (
             <div
               key={rec.id}
-              className="rounded-xl border border-slate-200 p-5 hover:shadow-md transition-shadow"
+              className="rounded-2xl border border-breton-sand p-5 hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 w-9 h-9 bg-breton-emerald text-white rounded-full flex items-center justify-center font-bold text-sm">
                   {index + 1}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-semibold text-slate-900 mb-1">{rec.title}</h4>
-                  <p className="text-sm text-slate-600 mb-3">{rec.description}</p>
+                  <h4 className="font-semibold text-breton-navy mb-1">{rec.title}</h4>
+                  <p className="text-sm text-breton-slate mb-3">{rec.description}</p>
 
                   <ul className="space-y-1 mb-3">
                     {rec.benefits.map((b, i) => (
-                      <li key={i} className="flex items-center gap-2 text-sm text-slate-700">
+                      <li key={i} className="flex items-center gap-2 text-sm text-breton-slate">
                         <CheckCircle className="w-3.5 h-3.5 text-breton-moss flex-shrink-0" />
                         {b}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-3 text-xs text-slate-500">
+                  <div className="flex flex-wrap gap-3 text-xs text-breton-granite">
                     <span className="flex items-center gap-1">
                       <TrendingUp className="w-3.5 h-3.5 text-breton-emerald" />
-                      ROI : <strong className="text-slate-700">{rec.roiEstimate}</strong>
+                      ROI : <strong className="text-breton-navy">{rec.roiEstimate}</strong>
                     </span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-breton-emerald" />
-                      <strong className="text-slate-700">{rec.duration}</strong>
+                      <strong className="text-breton-navy">{rec.duration}</strong>
                     </span>
                     <span
-                      className={`px-2 py-0.5 rounded font-medium
-                        ${rec.complexity === 'simple' ? 'bg-emerald-100 text-emerald-700' : ''}
-                        ${rec.complexity === 'moyen' ? 'bg-amber-100 text-amber-700' : ''}
-                        ${rec.complexity === 'complexe' ? 'bg-orange-100 text-orange-700' : ''}
+                      className={`px-2 py-0.5 rounded-lg font-medium
+                        ${rec.complexity === 'simple' ? 'bg-breton-emerald/10 text-breton-emerald' : ''}
+                        ${rec.complexity === 'moyen' ? 'bg-breton-sand text-breton-copper' : ''}
+                        ${rec.complexity === 'complexe' ? 'bg-breton-sand text-breton-slate' : ''}
                       `}
                     >
                       {rec.complexity === 'simple' && 'Quick win'}

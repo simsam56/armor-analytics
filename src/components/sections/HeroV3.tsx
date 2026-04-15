@@ -13,61 +13,60 @@ export function HeroV3() {
 
   return (
     <section className="relative min-h-screen flex items-center bg-breton-navy overflow-hidden">
-      {/* Subtle gradient overlay */}
-      <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(26,107,74,0.15)_0%,transparent_60%)]"
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1400px] w-full px-6 sm:px-8 lg:px-12 py-32 sm:py-40">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(26,107,74,0.15),transparent_50%)]" />
+      <div className="relative mx-auto max-w-[1400px] w-full px-6 sm:px-8 lg:px-12 py-24 sm:py-32">
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="visible"
+          className="max-w-3xl"
         >
-          {/* H1 — Montserrat massive comme Atos */}
           <motion.h1
             variants={child}
-            className="font-display text-[clamp(48px,10vw,120px)] font-normal leading-[0.95] tracking-[-0.05em] text-white max-w-[900px]"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.08] tracking-tight text-white"
           >
-            Pilotage
-            <br />
-            de production_
+            Vos donn&eacute;es de production m&eacute;ritent mieux qu&apos;un fichier Excel
           </motion.h1>
 
-          {/* Sous-titre */}
           <motion.p
             variants={child}
-            className="mt-8 text-xl sm:text-2xl text-white/60 leading-relaxed max-w-[640px]"
+            className="mt-8 text-lg md:text-xl text-white/60 max-w-[560px] leading-relaxed"
           >
-            On transforme vos plannings Excel en pilotage temps réel
-            et vos tâches répétitives en automatisations robustes.
-            Pour les PME industrielles bretonnes.
+            Pilotage augment&eacute;, automatisation et agents IA pour vos ateliers et back-offices.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div
             variants={child}
-            className="mt-12 flex flex-col sm:flex-row items-start gap-4"
+            className="mt-10 flex flex-col sm:flex-row items-start gap-4"
           >
             <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-medium
-                bg-white text-breton-navy
-                hover:bg-white/90 hover:-translate-y-[2px]
-                transition-all duration-200"
+              href="/audit-ia"
+              className="inline-flex items-center justify-center bg-white text-breton-navy rounded-full px-8 py-4 font-semibold hover:bg-breton-sand transition-colors duration-200"
             >
-              Demander un diagnostic terrain →
+              Diagnostic IA terrain &rarr;
             </Link>
             <Link
               href="/cas-clients"
-              className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-medium
-                border border-white/20 text-white
-                hover:border-white/40 hover:-translate-y-[2px]
-                transition-all duration-200"
+              className="inline-flex items-center justify-center border border-white/20 text-white rounded-full px-8 py-4 font-semibold hover:bg-white/10 transition-colors duration-200"
             >
-              Voir nos réalisations
+              Voir nos r&eacute;alisations
             </Link>
+          </motion.div>
+
+          <motion.div
+            variants={child}
+            className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-4"
+          >
+            {[
+              { value: '7 ans', label: 'de terrain industriel' },
+              { value: '3 jours', label: 'pour un diagnostic' },
+              { value: '100%', label: 'PME industrielles' },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <p className="text-2xl font-bold text-white">{stat.value}</p>
+                <p className="text-sm text-white/50">{stat.label}</p>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>
