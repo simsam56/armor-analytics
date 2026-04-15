@@ -205,19 +205,19 @@ export const SERVICES = [
   },
   {
     id: 'formation',
-    title: 'Formation & adoption IA terrain',
-    navLabel: 'Formation',
-    tagline: 'L\'IA ne sert à rien si personne ne l\'utilise',
+    title: 'Adoption & prise en main',
+    navLabel: 'Adoption',
+    tagline: 'On ne vous laisse pas seuls avec les outils',
     description:
-      'Vos équipes maîtrisent les outils. Dirigeants et opérateurs. Formations sur site, accompagnement mensuel.',
+      'Accompagnement à la prise en main des outils déployés. Vos équipes deviennent autonomes, à leur rythme.',
     href: '/formation-ia',
     icon: 'GraduationCap',
     tools: ['Claude', 'Power BI', 'n8n', 'Prompting IA'],
     useCases: [
-      'Formation IA & prompting',
-      'Formation Power BI & dashboards',
-      'Accompagnement mensuel',
-      'Transfert de compétences post-projet',
+      'Prise en main des dashboards',
+      'Accompagnement au démarrage',
+      'Support post-déploiement',
+      'Transfert de compétences',
     ],
   },
 ];
@@ -588,10 +588,9 @@ export const NAV_LINKS: NavLink[] = [
       { href: '/diagnostic-ia', label: 'Diagnostic IA terrain' },
       { href: '/pilotage-augmente', label: 'Pilotage augmenté' },
       { href: '/automatisation-agents-ia', label: 'Automatisation & Agents IA' },
-      { href: '/formation-ia', label: 'Formation IA terrain' },
+      { href: '/formation-ia', label: 'Adoption & prise en main' },
     ],
   },
-  { href: '#secteur', label: 'Secteur' },
   { href: '/cas-clients', label: 'Cas clients' },
   { href: '/blog', label: 'Blog' },
   { href: '/a-propos', label: 'À propos' },
@@ -603,7 +602,7 @@ export const OFFER_LINKS = [
   { href: '/diagnostic-ia', label: 'Diagnostic IA terrain' },
   { href: '/pilotage-augmente', label: 'Pilotage augment\u00e9' },
   { href: '/automatisation-agents-ia', label: 'Automatisation & Agents IA' },
-  { href: '/formation-ia', label: 'Formation IA terrain' },
+  { href: '/formation-ia', label: 'Adoption & prise en main' },
 ];
 
 // Éléments de réassurance

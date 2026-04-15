@@ -9,9 +9,9 @@ import { Button } from '@/components/ui/button';
 const service = SERVICES.find((s) => s.id === 'formation')!;
 
 export const metadata: Metadata = {
-  title: 'Formation & adoption IA terrain — PME industrielles Bretagne',
+  title: 'Adoption & prise en main IA — PME industrielles Bretagne',
   description:
-    'Formez vos \u00e9quipes terrain \u00e0 l\u2019IA et \u00e0 la data. Ateliers sur site avec vos vraies donn\u00e9es. Dirigeants et op\u00e9rateurs. Accompagnement mensuel. PME industrielles en Bretagne.',
+    'Accompagnement \u00e0 la prise en main des outils IA et data d\u00e9ploy\u00e9s. Vos \u00e9quipes deviennent autonomes sur les dashboards, agents IA et automatisations. PME industrielles en Bretagne.',
   alternates: { canonical: 'https://www.balise-ia.fr/formation-ia' },
 };
 
@@ -25,7 +25,7 @@ export default function FormationIaPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold tracking-tight text-breton-navy mb-4">
-              L&apos;IA ne sert &agrave; rien si personne ne l&apos;utilise
+              On ne vous laisse pas seuls avec les outils
             </h2>
             <p className="text-lg text-breton-slate leading-relaxed">
               {service.description}

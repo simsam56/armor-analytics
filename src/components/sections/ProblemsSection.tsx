@@ -29,9 +29,9 @@ const PROBLEMS = [
   },
   {
     icon: GraduationCap,
-    problem: 'Former mes \u00e9quipes \u00e0 l\u2019IA, par o\u00f9 commencer\u00a0?',
-    solution: 'Formation terrain',
-    description: 'Dirigeants et op\u00e9rateurs form\u00e9s sur site, \u00e0 votre rythme.',
+    problem: 'On a d\u00e9ploy\u00e9 des outils mais personne ne les utilise',
+    solution: 'Adoption & prise en main',
+    description: 'Accompagnement terrain pour que vos \u00e9quipes ma\u00eetrisent vraiment les outils.',
     href: '/formation-ia',
   },
 ];
