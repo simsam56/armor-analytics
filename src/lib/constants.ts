@@ -562,8 +562,7 @@ export const FAQ_ITEMS = [
 ];
 
 export const NAV_LINKS = [
-  { href: '#services', label: 'Services' },
-  { href: '#secteur', label: 'Secteur' },
+  { href: '/#services', label: 'Services' },
   { href: '/cas-clients', label: 'Cas clients' },
   { href: '/blog', label: 'Blog' },
   { href: '/a-propos', label: '\u00c0 propos' },
@@ -572,9 +571,9 @@ export const NAV_LINKS = [
 
 // Liens offres (utilisé dans le footer)
 export const OFFER_LINKS = [
-  { href: '/ia', label: 'Pilotage production' },
-  { href: '/data', label: 'Tableaux de bord' },
-  { href: '/formation', label: 'Formation terrain' },
+  { href: '/ia', label: 'Automatisation & IA' },
+  { href: '/data', label: 'Pilotage & dashboards' },
+  { href: '/formation', label: 'Adoption & prise en main' },
 ];
 
 // Éléments de réassurance
