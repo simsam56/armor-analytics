@@ -11,6 +11,7 @@ import {
   FileText,
   ClipboardList,
   PackageSearch,
+  Users,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -89,10 +90,10 @@ export default function Home() {
             Ce qu&apos;on d&eacute;ploie
           </p>
           <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
-            Les 3 agents les plus demand&eacute;s
+            Nos agents les plus demand&eacute;s
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: FileText,
@@ -119,6 +120,15 @@ export default function Home() {
                   'Consolide vos donn\u00e9es GPAO, alerte quand un OF d\u00e9rape. Visibilit\u00e9 instantan\u00e9e sur l\u2019atelier.',
                 result: 'Donn\u00e9es en J+0',
                 sector: 'Transport & Logistique',
+                href: '/cas-clients',
+              },
+              {
+                icon: Users,
+                title: 'Agent de prospection',
+                description:
+                  'Qualifie vos leads, enrichit votre CRM, d\u00e9clenche les relances. Votre pipe commercial aliment\u00e9 sans effort.',
+                result: '+3 pts de marge',
+                sector: 'N\u00e9goce B2B',
                 href: '/cas-clients',
               },
             ].map((agent) => (
