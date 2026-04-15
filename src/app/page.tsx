@@ -9,11 +9,8 @@ import {
   Layers,
   GraduationCap,
   FileText,
-  BarChart3,
   ClipboardList,
   PackageSearch,
-  ShieldCheck,
-  Repeat,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
@@ -31,114 +28,104 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroV3 />
 
-      {/* 2. Gains terrain — preuves imm\u00e9diates */}
-      <section className="py-20 sm:py-28 bg-breton-foam">
+      {/* 2. Avant / Apr\u00e8s — preuve visuelle */}
+      <section className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-          <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
-            R&eacute;sultats terrain
-          </p>
-          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
-            Gains op&eacute;rationnels observ&eacute;s chez nos clients
-          </h2>
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                sector: 'M\u00e9tallurgie',
-                problem: 'Reporting manuel chaque vendredi, 4h minimum',
-                result: '4h/semaine \u00e9conomis\u00e9es',
-                agent: 'Agent IA de reporting production',
-              },
-              {
-                sector: 'Agroalimentaire',
-                problem: 'Ressaisie manuelle de chaque commande fournisseur',
-                result: '80% du temps de traitement \u00e9limin\u00e9',
-                agent: 'Agent IA de commandes fournisseurs',
-              },
-              {
-                sector: 'Transport & Logistique',
-                problem: 'Reporting livr\u00e9 \u00e0 J+3, donn\u00e9es peu fiables',
-                result: 'Reporting disponible en J+0',
-                agent: 'Agent IA de centralisation donn\u00e9es',
-              },
-            ].map((proof) => (
-              <Link
-                key={proof.sector}
-                href="/cas-clients"
-                className="group rounded-2xl border border-breton-sand bg-white p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-              >
-                <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">
-                  {proof.sector}
-                </span>
-                <p className="mt-3 text-breton-slate text-sm">{proof.problem}</p>
-                <p className="mt-4 font-display text-2xl font-bold text-breton-navy">
-                  {proof.result}
-                </p>
-                <p className="mt-2 text-sm text-breton-copper font-medium">{proof.agent}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
-                  Voir le cas <ArrowRight className="h-4 w-4" />
-                </span>
-              </Link>
-            ))}
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Avant */}
+            <div className="rounded-2xl border border-breton-sand bg-breton-foam p-8 sm:p-10">
+              <p className="text-xs font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
+                Avant
+              </p>
+              <ul className="space-y-4">
+                {[
+                  'Reporting Excel chaque vendredi, 4h minimum',
+                  'Ressaisie manuelle des commandes dans l\u2019ERP',
+                  'Donn\u00e9es \u00e9parpill\u00e9es, personne n\u2019a la m\u00eame version',
+                  'D\u00e9pendance totale \u00e0 une personne-cl\u00e9',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-1 flex-shrink-0 h-5 w-5 rounded-full bg-red-100 flex items-center justify-center text-red-500 text-xs font-bold">
+                      &times;
+                    </span>
+                    <span className="text-breton-slate text-sm leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Apr\u00e8s */}
+            <div className="rounded-2xl border-2 border-breton-emerald/30 bg-breton-emerald/5 p-8 sm:p-10">
+              <p className="text-xs font-semibold text-breton-emerald uppercase tracking-[0.15em] mb-4">
+                Apr&egrave;s
+              </p>
+              <ul className="space-y-4">
+                {[
+                  { text: 'Reporting automatique chaque matin', metric: '4h/sem \u00e9conomis\u00e9es' },
+                  { text: 'Agent OCR qui saisit les commandes', metric: '80% du temps \u00e9limin\u00e9' },
+                  { text: 'Dashboard temps r\u00e9el, une seule source', metric: 'Donn\u00e9es en J+0' },
+                  { text: 'Process document\u00e9, autonomie de l\u2019\u00e9quipe', metric: 'Z\u00e9ro d\u00e9pendance' },
+                ].map((item) => (
+                  <li key={item.text} className="flex items-start gap-3">
+                    <span className="mt-1 flex-shrink-0 h-5 w-5 rounded-full bg-breton-emerald/20 flex items-center justify-center text-breton-emerald text-xs font-bold">
+                      &check;
+                    </span>
+                    <span className="text-breton-slate text-sm leading-relaxed">
+                      {item.text}{' '}
+                      <span className="font-semibold text-breton-navy">{item.metric}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 3. Ce qu&apos;on d\u00e9ploie — agents IA concrets */}
-      <section id="services" className="py-20 sm:py-32 bg-white">
+      {/* 3. Agents IA — les 3 plus d\u00e9ploy\u00e9s */}
+      <section id="services" className="py-20 sm:py-28 bg-breton-foam">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
-            Agents IA m&eacute;tier
+            Ce qu&apos;on d&eacute;ploie
           </p>
-          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-6 max-w-3xl">
-            Ce qu&apos;on d&eacute;ploie dans vos ateliers
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
+            Les 3 agents les plus demand&eacute;s
           </h2>
-          <p className="text-lg text-breton-slate max-w-2xl mb-16">
-            Chaque agent IA est sp&eacute;cialis&eacute; sur un irritant pr&eacute;cis de votre quotidien. On les d&eacute;ploie sur vos process existants, sans tout changer.
-          </p>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-3">
             {[
               {
                 icon: FileText,
-                title: 'Agent de reporting production',
-                description: 'G\u00e9n\u00e8re vos rapports de production automatiquement. TRS, encours, cadence \u2014 disponibles en temps r\u00e9el, plus le vendredi \u00e0 la main.',
-                href: '/data',
+                title: 'Agent de reporting',
+                description:
+                  'G\u00e9n\u00e8re vos rapports de production automatiquement. TRS, encours, cadence \u2014 chaque matin, sans intervention.',
+                result: '4h/sem \u00e9conomis\u00e9es',
+                sector: 'M\u00e9tallurgie, Finist\u00e8re',
+                href: '/cas-clients',
               },
               {
                 icon: ClipboardList,
-                title: 'Agent de commandes fournisseurs',
-                description: 'Extrait les donn\u00e9es de vos bons de commande (OCR), v\u00e9rifie les \u00e9carts, saisit dans l\u2019ERP. Z\u00e9ro ressaisie manuelle.',
-                href: '/ia',
+                title: 'Agent de commandes',
+                description:
+                  'Lit vos bons de commande (OCR), v\u00e9rifie les \u00e9carts, saisit dans l\u2019ERP. Z\u00e9ro ressaisie.',
+                result: '80% du temps \u00e9limin\u00e9',
+                sector: 'Agroalimentaire',
+                href: '/cas-clients',
               },
               {
                 icon: PackageSearch,
                 title: 'Agent de suivi d\u2019encours',
-                description: 'Consolide vos donn\u00e9es GPAO et vous alerte quand un OF d\u00e9rape. Visibilit\u00e9 instantan\u00e9e sur l\u2019avancement atelier.',
-                href: '/data',
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Agent de relance qualit\u00e9',
-                description: 'D\u00e9tecte les non-conformit\u00e9s, d\u00e9clenche les actions correctives, trace l\u2019historique. Votre qualit\u00e9 document\u00e9e sans effort.',
-                href: '/ia',
-              },
-              {
-                icon: BarChart3,
-                title: 'Agent de pilotage temps r\u00e9el',
-                description: 'Dashboard connect\u00e9 \u00e0 vos sources de donn\u00e9es. Indicateurs, alertes anomalies, synth\u00e8ses automatiques chaque matin.',
-                href: '/data',
-              },
-              {
-                icon: Repeat,
-                title: 'Agent de pr\u00e9paration planning',
-                description: 'Pr\u00e9-calcule votre charge, identifie les conflits de ressources, propose un ordonnancement. Vous validez, il ex\u00e9cute.',
-                href: '/ia',
+                description:
+                  'Consolide vos donn\u00e9es GPAO, alerte quand un OF d\u00e9rape. Visibilit\u00e9 instantan\u00e9e sur l\u2019atelier.',
+                result: 'Donn\u00e9es en J+0',
+                sector: 'Transport & Logistique',
+                href: '/cas-clients',
               },
             ].map((agent) => (
               <Link
                 key={agent.title}
                 href={agent.href}
-                className="group rounded-2xl border border-breton-sand bg-breton-foam/50 p-8 hover:shadow-lg hover:bg-white hover:-translate-y-1 transition-all duration-300"
+                className="group flex flex-col rounded-2xl border border-breton-sand bg-white p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="rounded-xl bg-breton-emerald/10 p-2.5">
@@ -146,15 +133,33 @@ export default function Home() {
                   </div>
                   <h3 className="text-lg font-bold text-breton-navy">{agent.title}</h3>
                 </div>
-                <p className="text-breton-slate text-sm leading-relaxed">{agent.description}</p>
+                <p className="text-breton-slate text-sm leading-relaxed flex-1">
+                  {agent.description}
+                </p>
+                <div className="mt-6 pt-4 border-t border-breton-sand/60">
+                  <p className="font-display text-xl font-bold text-breton-navy">{agent.result}</p>
+                  <p className="text-xs text-breton-granite mt-1">{agent.sector}</p>
+                </div>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
+                  Voir le cas <ArrowRight className="h-4 w-4" />
+                </span>
               </Link>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/ia"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-breton-copper hover:gap-3 transition-all"
+            >
+              Voir tous les cas d&apos;usage <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 4. M\u00e9thode en 3 \u00e9tapes */}
-      <section className="py-20 sm:py-32 bg-breton-foam">
+      {/* 4. M\u00e9thode */}
+      <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
             M&eacute;thode
@@ -169,7 +174,7 @@ export default function Home() {
                 icon: Search,
                 title: 'Diagnostic terrain',
                 description:
-                  '3 jours sur site. On observe vos process, on \u00e9change avec vos \u00e9quipes, on cartographie vos irritants. Vous repartez avec une roadmap prioris\u00e9e.',
+                  '3 jours sur site. On observe, on \u00e9change, on cartographie vos irritants. Vous repartez avec une roadmap.',
               },
               {
                 step: '02',
@@ -183,7 +188,7 @@ export default function Home() {
                 icon: GraduationCap,
                 title: 'D\u00e9ploiement & adoption',
                 description:
-                  'Mise en production, prise en main par vos \u00e9quipes sur site, documentation. L\u2019objectif\u00a0: que vous soyez autonomes.',
+                  'Mise en production, prise en main par vos \u00e9quipes. L\u2019objectif\u00a0: que vous soyez autonomes.',
               },
             ].map((item) => (
               <div key={item.step}>
