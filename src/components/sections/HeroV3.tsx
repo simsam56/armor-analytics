@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { sectionStagger, sectionChild } from '@/lib/animations';
+import { TransformationDemo } from '@/components/visuals/TransformationDemo';
 
 const noMotion = { hidden: {}, visible: {} };
 
@@ -12,101 +13,83 @@ export function HeroV3() {
   const child = prefersReducedMotion ? noMotion : sectionChild;
 
   return (
-    <section className="relative min-h-[85vh] flex items-center bg-breton-navy overflow-hidden">
-      <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(26,107,74,0.12)_0%,transparent_60%)]"
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1400px] w-full px-6 sm:px-8 lg:px-12 py-28 sm:py-36">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left — Text */}
-          <motion.div variants={stagger} initial="hidden" animate="visible">
-            <motion.p
-              variants={child}
-              className="text-sm font-semibold text-breton-emerald uppercase tracking-[0.15em] mb-6"
-            >
-              Agents IA m&eacute;tier &bull; PME industrielles
-            </motion.p>
-
-            <motion.h1
-              variants={child}
-              className="font-display text-[clamp(32px,5.5vw,64px)] font-bold leading-[1.08] tracking-[-0.03em] text-white"
-            >
-              Reporting, commandes, suivi d&apos;encours&nbsp;: des agents IA d&eacute;ploy&eacute;s
-              sur vos process m&eacute;tier.
-            </motion.h1>
-
-            <motion.p
-              variants={child}
-              className="mt-6 text-lg text-white/55 leading-relaxed max-w-[480px]"
-            >
-              On automatise les t&acirc;ches r&eacute;p&eacute;titives de vos ateliers et
-              back-offices. Sur vos outils, avec vos &eacute;quipes.
-            </motion.p>
-
-            <motion.div variants={child} className="mt-8">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold bg-white text-breton-navy hover:bg-breton-sand transition-colors duration-200"
-              >
-                Diagnostic terrain gratuit &rarr;
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Right — Visual: Dashboard mockup */}
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, x: 40 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hidden lg:block"
+    <section className="relative -mt-16 flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-breton-foam to-breton-sand pt-32 pb-16">
+      <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12">
+        {/* Text block — centered */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
+          className="mx-auto max-w-3xl text-center"
+        >
+          <motion.p
+            variants={child}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-breton-sand bg-white/80 px-4 py-1.5 text-sm font-semibold text-breton-navy backdrop-blur-sm"
           >
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm">
-              {/* Mock dashboard header */}
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-breton-emerald" />
-                  <span className="text-sm font-medium text-white/70">
-                    Production &mdash; Temps r&eacute;el
-                  </span>
-                </div>
-                <span className="text-xs text-white/40">Mis &agrave; jour il y a 2 min</span>
-              </div>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-breton-emerald/60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-breton-emerald" />
+            </span>
+            PME industrielles &bull; Bretagne
+          </motion.p>
 
-              {/* KPI row */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="rounded-xl bg-white/5 p-4">
-                  <p className="text-xs text-white/40 mb-1">TRS</p>
-                  <p className="text-2xl font-bold text-breton-emerald">87%</p>
-                </div>
-                <div className="rounded-xl bg-white/5 p-4">
-                  <p className="text-xs text-white/40 mb-1">Encours</p>
-                  <p className="text-2xl font-bold text-white">142</p>
-                </div>
-                <div className="rounded-xl bg-white/5 p-4">
-                  <p className="text-xs text-white/40 mb-1">Rebut</p>
-                  <p className="text-2xl font-bold text-breton-copper">1.2%</p>
-                </div>
-              </div>
+          <motion.h1
+            variants={child}
+            className="font-display text-[clamp(32px,5.5vw,64px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy"
+          >
+            Vos donn&eacute;es terrain, enfin pilotables
+          </motion.h1>
 
-              {/* Mini bar chart */}
-              <div className="flex items-end gap-1.5 h-20">
-                {[65, 72, 58, 80, 75, 90, 85, 88, 70, 92, 87, 78].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1 rounded-t bg-breton-emerald/60"
-                    style={{ height: `${h}%` }}
-                  />
-                ))}
-              </div>
-              <div className="flex justify-between mt-2">
-                <span className="text-[10px] text-white/30">6h</span>
-                <span className="text-[10px] text-white/30">18h</span>
-              </div>
-            </div>
+          <motion.p
+            variants={child}
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-breton-slate"
+          >
+            On remplace vos fichiers Excel, ressaisies et suivis manuels par des agents IA
+            branch&eacute;s sur vos outils m&eacute;tier.
+          </motion.p>
+
+          <motion.div
+            variants={child}
+            className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="/audit-ia"
+              className="inline-flex items-center justify-center rounded-full bg-breton-navy px-8 py-4 text-base font-semibold text-white transition-colors duration-200 hover:bg-breton-slate"
+            >
+              Mes priorit&eacute;s IA &rarr;
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full border border-breton-navy/20 bg-white px-8 py-4 text-base font-semibold text-breton-navy transition-colors duration-200 hover:bg-breton-foam"
+            >
+              Diagnostic gratuit
+            </Link>
           </motion.div>
-        </div>
+        </motion.div>
+
+        {/* Visual demo */}
+        <motion.div
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 30, scale: 0.96 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12 sm:mt-16"
+        >
+          <TransformationDemo />
+        </motion.div>
+
+        {/* Micro-proofs */}
+        <motion.div
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-sm text-breton-granite"
+        >
+          <span>7 ans de terrain industriel</span>
+          <span className="hidden sm:inline">&bull;</span>
+          <span>12+ projets d&eacute;ploy&eacute;s</span>
+          <span className="hidden sm:inline">&bull;</span>
+          <span>Lorient, Bretagne</span>
+        </motion.div>
       </div>
     </section>
   );
