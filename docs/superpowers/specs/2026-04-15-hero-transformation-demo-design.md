@@ -36,7 +36,9 @@ Layout vertical centré sur fond `bg-gradient-to-b from-breton-foam to-breton-sa
 [micro-preuves] 7 ans terrain · 12+ projets (breton-granite)
 ```
 
-Espacement : `-mt-16 pt-32` pour chevaucher le header (pattern existant). `min-h-screen` sur desktop. `pb-16`.
+Espacement : `-mt-16 pt-32` pour chevaucher le header (pattern existant). `min-h-[85vh]` sur desktop (cohérent avec le hero actuel). `pb-16`.
+
+**Note** : Le hero actuel (HeroV3) utilise un layout 2-colonnes sombre (navy). Ce nouveau hero passe à un layout vertical centré sur fond clair. C'est un changement intentionnel de direction.
 
 ### Mobile
 
@@ -66,8 +68,8 @@ Faux tableur minimaliste simulant un planning de production.
 | 2454 | Armor Métal | Ctrl qualité | J-1 |
 
 - Fond blanc, bordures fines `breton-sand`
-- Cellule "J+2 ⚠️" : fond `amber-50`, texte `amber-700`
-- Cellule "?" : fond `red-50`, texte `red-600`
+- Cellule "J+2 ⚠️" : fond `breton-copper/10`, texte `breton-copper` (alerte tiède)
+- Cellule "?" : fond `breton-copper/20`, texte `breton-copper` (alerte chaude, font-bold)
 - Cellule "Ressaisie ADV" : italique, `breton-granite`
 - Une cellule avec texte tronqué (overflow hidden)
 
@@ -81,7 +83,7 @@ Fondu-enchaîné structuré, pas de morphing :
 3. **400–1000ms** : blur léger (0→4px→0) sur le conteneur
 4. **600–1500ms** : structure dashboard apparaît en fade-in (opacity 0→1)
 
-Implémenté via `AnimatePresence` avec `mode="wait"` ou crossfade custom.
+Implémenté via crossfade custom (animation orchestrée manuellement avec des `motion.div` superposés et des délais staggered). Ne pas utiliser `AnimatePresence mode="wait"` car il ne supporte pas les animations d'entrée/sortie qui se chevauchent.
 
 ### Phase 3 — "Après" (durée : 3s + 0.5s pause)
 
@@ -136,6 +138,14 @@ Si `prefers-reduced-motion: reduce` :
 
 Le composant observe son `inView` via `useInView` (Framer Motion). L'animation ne démarre que quand le composant est visible et se pause quand il sort du viewport.
 
+### Accessibilité
+
+Le composant est décoratif (le H1 + sous-titre portent déjà le message). Ajouter `aria-hidden="true"` sur le conteneur `TransformationDemo`. Pas d'`aria-live` ni de texte alternatif nécessaire.
+
+### Nettoyage des timers
+
+Les timers internes (`setTimeout`/`requestAnimationFrame`) doivent être nettoyés au unmount (cleanup dans `useEffect`). Le composant doit aussi respecter `document.visibilityState` : mettre en pause la boucle quand l'onglet est inactif pour éviter le jank au retour.
+
 ## Fichiers impactés
 
 | Fichier | Action |
@@ -167,4 +177,4 @@ Le composant observe son `inView` via `useInView` (Framer Motion). L'animation n
 3. L'animation est fluide (60fps), sans jank
 4. Le hero garde les éléments critiques : badge, titre, CTAs, micro-preuves
 5. `prefers-reduced-motion` respecté — version statique fonctionnelle
-6. Pas de régression sur les tests E2E existants (navigation, SEO)
+6. Pas de régression sur les tests E2E existants (navigation, SEO) — mettre à jour les assertions sur le texte du H1 homepage si nécessaire
