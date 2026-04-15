@@ -1,24 +1,26 @@
 import { HeroV3 } from '@/components/sections/HeroV3';
-import { UseCases } from '@/components/sections/UseCases';
 import { CtaContact } from '@/components/sections/CtaContact';
 import { IncarnationSection } from '@/components/sections/IncarnationSection';
 import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
-import Image from 'next/image';
 import {
-  BarChart3,
-  Cpu,
-  GraduationCap,
   ArrowRight,
   Search,
   Layers,
+  GraduationCap,
+  FileText,
+  BarChart3,
+  ClipboardList,
+  PackageSearch,
+  ShieldCheck,
+  Repeat,
 } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Pilotage production IA pour PME industrielles | Lorient, Bretagne',
+  title: 'Agents IA m\u00e9tier pour PME industrielles | balise-ia, Lorient',
   description:
-    'Pilotage temps réel, automatisation et agents IA pour PME industrielles bretonnes. 7 ans de terrain. Résultats mesurés. Diagnostic gratuit.',
+    'Agents IA m\u00e9tier pour supprimer les ressaisies, fiabiliser le reporting et piloter la production. 7 ans de terrain industriel. Diagnostic gratuit, Bretagne.',
 };
 
 export default function Home() {
@@ -29,34 +31,34 @@ export default function Home() {
       {/* 1. Hero */}
       <HeroV3 />
 
-      {/* 2. Preuves — Résultats clients */}
+      {/* 2. Gains terrain — preuves imm\u00e9diates */}
       <section className="py-20 sm:py-28 bg-breton-foam">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
-            Résultats
+            R&eacute;sultats terrain
           </p>
           <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
-            Des résultats mesurés, pas des promesses
+            Gains op&eacute;rationnels observ&eacute;s chez nos clients
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {[
               {
-                sector: 'Métallurgie',
+                sector: 'M\u00e9tallurgie',
                 problem: 'Reporting manuel chaque vendredi, 4h minimum',
-                result: '4h/semaine économisées',
-                detail: 'Dashboard production temps réel déployé en 6 semaines',
+                result: '4h/semaine \u00e9conomis\u00e9es',
+                agent: 'Agent IA de reporting production',
               },
               {
                 sector: 'Agroalimentaire',
                 problem: 'Ressaisie manuelle de chaque commande fournisseur',
-                result: '80% du temps de traitement éliminé',
-                detail: 'OCR + workflow automatisé, intégration ERP',
+                result: '80% du temps de traitement \u00e9limin\u00e9',
+                agent: 'Agent IA de commandes fournisseurs',
               },
               {
                 sector: 'Transport & Logistique',
-                problem: 'Reporting livré à J+3, données peu fiables',
+                problem: 'Reporting livr\u00e9 \u00e0 J+3, donn\u00e9es peu fiables',
                 result: 'Reporting disponible en J+0',
-                detail: 'Centralisation données + reporting automatisé',
+                agent: 'Agent IA de centralisation donn\u00e9es',
               },
             ].map((proof) => (
               <Link
@@ -71,7 +73,7 @@ export default function Home() {
                 <p className="mt-4 font-display text-2xl font-bold text-breton-navy">
                   {proof.result}
                 </p>
-                <p className="mt-2 text-sm text-breton-granite">{proof.detail}</p>
+                <p className="mt-2 text-sm text-breton-copper font-medium">{proof.agent}</p>
                 <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
                   Voir le cas <ArrowRight className="h-4 w-4" />
                 </span>
@@ -81,84 +83,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Services — style Atos avec grandes images */}
+      {/* 3. Ce qu&apos;on d\u00e9ploie — agents IA concrets */}
       <section id="services" className="py-20 sm:py-32 bg-white">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
-            Services
+            Agents IA m&eacute;tier
           </p>
-          <h2 className="font-display text-[clamp(32px,5vw,64px)] font-bold leading-[1.05] tracking-[-0.03em] text-breton-navy mb-16 max-w-3xl">
-            Du diagnostic terrain à la mise en production
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-6 max-w-3xl">
+            Ce qu&apos;on d&eacute;ploie dans vos ateliers
           </h2>
+          <p className="text-lg text-breton-slate max-w-2xl mb-16">
+            Chaque agent IA est sp&eacute;cialis&eacute; sur un irritant pr&eacute;cis de votre quotidien. On les d&eacute;ploie sur vos process existants, sans tout changer.
+          </p>
 
-          <div className="grid gap-8 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: BarChart3,
-                title: 'Tableaux de bord & pilotage',
-                description:
-                  'Votre planning Excel devient un dashboard temps r\u00e9el. TRS, encours, cadence — visible en un coup d\u2019\u0153il.',
+                icon: FileText,
+                title: 'Agent de reporting production',
+                description: 'G\u00e9n\u00e8re vos rapports de production automatiquement. TRS, encours, cadence \u2014 disponibles en temps r\u00e9el, plus le vendredi \u00e0 la main.',
                 href: '/data',
-                image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80',
               },
               {
-                icon: Cpu,
-                title: 'Automatisations & IA m\u00e9tier',
-                description:
-                  'OCR commandes, base de connaissances atelier, workflows ERP. On \u00e9limine les t\u00e2ches r\u00e9p\u00e9titives.',
+                icon: ClipboardList,
+                title: 'Agent de commandes fournisseurs',
+                description: 'Extrait les donn\u00e9es de vos bons de commande (OCR), v\u00e9rifie les \u00e9carts, saisit dans l\u2019ERP. Z\u00e9ro ressaisie manuelle.',
                 href: '/ia',
-                image: 'https://images.unsplash.com/photo-1563986768609-322da13575f2?w=800&q=80',
               },
               {
-                icon: GraduationCap,
-                title: 'Formation aux outils mis en place',
-                description:
-                  'Directement en atelier, avec vos donn\u00e9es. Vos \u00e9quipes adoptent vraiment les outils qu\u2019on d\u00e9ploie.',
-                href: '/formation',
-                image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80',
+                icon: PackageSearch,
+                title: 'Agent de suivi d\u2019encours',
+                description: 'Consolide vos donn\u00e9es GPAO et vous alerte quand un OF d\u00e9rape. Visibilit\u00e9 instantan\u00e9e sur l\u2019avancement atelier.',
+                href: '/data',
               },
-            ].map((service) => (
+              {
+                icon: ShieldCheck,
+                title: 'Agent de relance qualit\u00e9',
+                description: 'D\u00e9tecte les non-conformit\u00e9s, d\u00e9clenche les actions correctives, trace l\u2019historique. Votre qualit\u00e9 document\u00e9e sans effort.',
+                href: '/ia',
+              },
+              {
+                icon: BarChart3,
+                title: 'Agent de pilotage temps r\u00e9el',
+                description: 'Dashboard connect\u00e9 \u00e0 vos sources de donn\u00e9es. Indicateurs, alertes anomalies, synth\u00e8ses automatiques chaque matin.',
+                href: '/data',
+              },
+              {
+                icon: Repeat,
+                title: 'Agent de pr\u00e9paration planning',
+                description: 'Pr\u00e9-calcule votre charge, identifie les conflits de ressources, propose un ordonnancement. Vous validez, il ex\u00e9cute.',
+                href: '/ia',
+              },
+            ].map((agent) => (
               <Link
-                key={service.href}
-                href={service.href}
-                className="group rounded-2xl overflow-hidden bg-breton-foam hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                key={agent.title}
+                href={agent.href}
+                className="group rounded-2xl border border-breton-sand bg-breton-foam/50 p-8 hover:shadow-lg hover:bg-white hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-3">
-                    <service.icon className="h-5 w-5 text-breton-copper" />
-                    <h3 className="text-xl font-bold text-breton-navy">{service.title}</h3>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="rounded-xl bg-breton-emerald/10 p-2.5">
+                    <agent.icon className="h-5 w-5 text-breton-emerald" />
                   </div>
-                  <p className="text-breton-slate leading-relaxed mb-4">{service.description}</p>
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-breton-copper group-hover:gap-3 transition-all">
-                    D\u00e9couvrir <ArrowRight className="h-4 w-4" />
-                  </span>
+                  <h3 className="text-lg font-bold text-breton-navy">{agent.title}</h3>
                 </div>
+                <p className="text-breton-slate text-sm leading-relaxed">{agent.description}</p>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Cas d'usage — visuels interactifs */}
-      <UseCases />
-
-      {/* 5. Méthode en 3 étapes */}
+      {/* 4. M\u00e9thode en 3 \u00e9tapes */}
       <section className="py-20 sm:py-32 bg-breton-foam">
         <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
           <p className="text-sm font-semibold text-breton-granite uppercase tracking-[0.15em] mb-4">
-            Méthode
+            M&eacute;thode
           </p>
           <h2 className="font-display text-[clamp(32px,5vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-breton-navy mb-16 max-w-2xl">
-            Comment on travaille avec vous
+            3 &eacute;tapes, du diagnostic au d&eacute;ploiement
           </h2>
           <div className="grid gap-12 md:grid-cols-3">
             {[
@@ -174,14 +176,14 @@ export default function Home() {
                 icon: Layers,
                 title: 'Prototype & validation',
                 description:
-                  'On d\u00e9ploie un premier cas d\u2019usage sur un p\u00e9rim\u00e8tre restreint. Vous validez la valeur avant d\u2019\u00e9tendre.',
+                  'On d\u00e9ploie un premier agent IA sur un p\u00e9rim\u00e8tre restreint. Vous validez la valeur avant d\u2019\u00e9tendre.',
               },
               {
                 step: '03',
                 icon: GraduationCap,
-                title: 'Déploiement & formation',
+                title: 'D\u00e9ploiement & adoption',
                 description:
-                  'Mise en production, formation de vos \u00e9quipes sur site, documentation. L\u2019objectif : que vous soyez autonomes.',
+                  'Mise en production, prise en main par vos \u00e9quipes sur site, documentation. L\u2019objectif\u00a0: que vous soyez autonomes.',
               },
             ].map((item) => (
               <div key={item.step}>
@@ -201,10 +203,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. À propos */}
+      {/* 5. &Agrave; propos */}
       <IncarnationSection />
 
-      {/* 7. CTA final */}
+      {/* 6. CTA final */}
       <CtaContact />
     </>
   );

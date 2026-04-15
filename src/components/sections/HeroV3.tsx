@@ -24,27 +24,21 @@ export function HeroV3() {
             variants={child}
             className="text-sm font-semibold text-breton-emerald uppercase tracking-[0.15em] mb-6"
           >
-            PME industrielles &bull; Bretagne
+            Agents IA m&eacute;tier &bull; PME industrielles &bull; Bretagne
           </motion.p>
 
           <motion.h1
             variants={child}
-            className="font-display text-[clamp(36px,8vw,88px)] font-bold leading-[1.02] tracking-[-0.04em] text-white max-w-[900px]"
+            className="font-display text-[clamp(36px,7vw,80px)] font-bold leading-[1.05] tracking-[-0.04em] text-white max-w-[950px]"
           >
-            Votre planning Excel,{' '}
-            <span className="text-white/40">vos ressaisies,</span>{' '}
-            <span className="text-white/40">vos reportings du vendredi.</span>
-            <br />
-            On s&apos;en occupe.
+            On d&eacute;ploie les agents IA m&eacute;tier qui suppriment vos ressaisies, fiabilisent votre reporting et pilotent votre production.
           </motion.h1>
 
           <motion.p
             variants={child}
-            className="mt-8 text-xl text-white/60 leading-relaxed max-w-[560px]"
+            className="mt-8 text-xl text-white/60 leading-relaxed max-w-[600px]"
           >
-            Pilotage temps r&eacute;el, automatisation et agents IA d&eacute;ploy&eacute;s
-            directement dans vos ateliers. Par quelqu&apos;un qui a v&eacute;cu 7&nbsp;ans sur le
-            terrain.
+            Agent de reporting, agent de commandes fournisseurs, agent de suivi d&apos;encours&nbsp;&mdash; d&eacute;ploy&eacute;s directement dans vos ateliers, sans changer vos &eacute;quipes ni vos outils.
           </motion.p>
 
           <motion.div variants={child} className="mt-10">
@@ -52,30 +46,25 @@ export function HeroV3() {
               href="/contact"
               className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold bg-white text-breton-navy hover:bg-breton-sand transition-colors duration-200"
             >
-              Demander un diagnostic terrain &rarr;
+              Diagnostic terrain gratuit &rarr;
             </Link>
           </motion.div>
 
-          {/* Proof strip */}
           <motion.div
             variants={child}
             className="mt-16 flex flex-wrap items-center gap-8 border-t border-white/10 pt-8"
           >
             <div>
-              <p className="text-3xl font-bold text-white">4h</p>
-              <p className="text-sm text-white/50">
-                &eacute;conomis&eacute;es / semaine en reporting
-              </p>
+              <p className="text-3xl font-bold text-white">7 ans</p>
+              <p className="text-sm text-white/50">de terrain industriel</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-white">80%</p>
-              <p className="text-sm text-white/50">du temps de traitement &eacute;limin&eacute;</p>
+              <p className="text-3xl font-bold text-white">3 jours</p>
+              <p className="text-sm text-white/50">pour un diagnostic complet</p>
             </div>
             <div>
-              <p className="text-3xl font-bold text-white">J+0</p>
-              <p className="text-sm text-white/50">
-                reporting disponible le jour m&ecirc;me
-              </p>
+              <p className="text-3xl font-bold text-white">100%</p>
+              <p className="text-sm text-white/50">PME industrielles</p>
             </div>
           </motion.div>
         </motion.div>
