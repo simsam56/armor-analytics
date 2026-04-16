@@ -389,7 +389,7 @@ function PilotageContent({ reducedMotion }: { reducedMotion: boolean }) {
           severity="critical"
           agent="Agent Production"
           agentColor="bg-breton-copper/10 text-breton-copper"
-          message="OF 2454 : retard fournisseur détecté (+1j)"
+          message="OF 2454 : retard fournisseur d&eacute;tect&eacute; (+1j)"
           action="Relancer fournisseur"
           time="2 min"
           animate={animate}
@@ -400,8 +400,8 @@ function PilotageContent({ reducedMotion }: { reducedMotion: boolean }) {
           severity="warning"
           agent="Agent Logistique"
           agentColor="bg-breton-navy/10 text-breton-navy"
-          message="Capacité atelier jeudi à 94% — risque surcharge"
-          action="Réaffecter OF 2458"
+          message="Capacit&eacute; atelier jeudi &agrave; 94% — risque surcharge"
+          action="R&eacute;affecter OF 2458"
           time="8 min"
           animate={animate}
           delay={0.35}
@@ -411,13 +411,32 @@ function PilotageContent({ reducedMotion }: { reducedMotion: boolean }) {
           severity="info"
           agent="Agent Commandes"
           agentColor="bg-breton-emerald/10 text-breton-emerald"
-          message="Cde #2452 : écart prix +3% vs devis initial"
-          action="Approuver l'écart"
+          message="Cde #2452 : &eacute;cart prix +3% vs devis initial"
+          action="Approuver l&apos;&eacute;cart"
           time="12 min"
           animate={animate}
           delay={0.5}
           reducedMotion={reducedMotion}
         />
+      </div>
+
+      {/* Daily summary */}
+      <div className="mx-3 mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg bg-breton-foam/60 px-3 py-2 sm:mx-4">
+        <div className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-breton-copper" />
+          <span className="text-[8px] text-breton-slate sm:text-[9px]">3 OF en retard</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-breton-emerald" />
+          <span className="text-[8px] text-breton-slate sm:text-[9px]">12 OF en cours</span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-breton-navy" />
+          <span className="text-[8px] text-breton-slate sm:text-[9px]">96% taux service</span>
+        </div>
+        <span className="ml-auto text-[8px] font-medium text-breton-navy sm:text-[9px]">
+          Prochaine livraison : demain 14h
+        </span>
       </div>
     </>
   );
@@ -454,13 +473,50 @@ const commandeRows = [
     statut: 'À vérifier',
     color: 'text-breton-copper',
   },
+  {
+    ref: 'CMD-1251',
+    client: 'Kéroual Indus.',
+    montant: '6 200 €',
+    statut: 'En production',
+    color: 'text-breton-navy',
+  },
+  {
+    ref: 'CMD-1252',
+    client: 'DCN Services',
+    montant: '22 100 €',
+    statut: 'Validée',
+    color: 'text-breton-emerald',
+  },
 ];
 
 function CommandesContent({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <>
+      {/* KPI summary */}
+      <div className="grid grid-cols-2 gap-2 px-3 pt-2.5 sm:grid-cols-4 sm:px-4">
+        {[
+          { label: 'Total', value: '39 350 \u20AC', color: 'text-breton-navy' },
+          { label: 'Commandes', value: '6', color: 'text-breton-navy' },
+          { label: '\u00C0 traiter', value: '2', color: 'text-breton-copper' },
+          { label: 'D\u00E9lai moy.', value: '4.2j', color: 'text-breton-navy' },
+        ].map((kpi, i) => (
+          <motion.div
+            key={kpi.label}
+            className="rounded-lg border border-breton-sand/50 bg-breton-foam/40 px-2.5 py-1.5 sm:px-3"
+            initial={reducedMotion ? {} : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: i * 0.08, ease: 'easeOut' }}
+          >
+            <p className="text-[8px] font-medium uppercase tracking-wider text-breton-granite sm:text-[9px]">
+              {kpi.label}
+            </p>
+            <span className={`text-base font-bold sm:text-lg ${kpi.color}`}>{kpi.value}</span>
+          </motion.div>
+        ))}
+      </div>
+
       {/* Table */}
-      <div className="mx-3 mt-2.5 overflow-hidden rounded-lg border border-breton-sand/50 sm:mx-4">
+      <div className="mx-3 mt-2 overflow-hidden rounded-lg border border-breton-sand/50 sm:mx-4">
         <table className="w-full text-left text-[9px] sm:text-[10px]">
           <thead>
             <tr className="border-b border-breton-sand/50 bg-breton-foam/40">
@@ -547,13 +603,38 @@ const stockRows = [
   { ref: 'INX-18', designation: 'Inox 316L', stock: '85 m', seuil: '50 m', alert: false },
   { ref: 'BOU-07', designation: 'Boulonnerie M12', stock: '450', seuil: '100', alert: false },
   { ref: 'ALU-22', designation: 'Alu 6061', stock: '30 kg', seuil: '80 kg', alert: true },
+  { ref: 'PVC-11', designation: 'Tube PVC \u00D850', stock: '320 m', seuil: '100 m', alert: false },
+  { ref: 'TFL-05', designation: 'T\u00F4le fine 1mm', stock: '45 m\u00B2', seuil: '60 m\u00B2', alert: true },
 ];
 
 function StocksContent({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <>
+      {/* KPI summary */}
+      <div className="grid grid-cols-2 gap-2 px-3 pt-2.5 sm:grid-cols-4 sm:px-4">
+        {[
+          { label: 'R\u00E9f\u00E9rences', value: '24', color: 'text-breton-navy' },
+          { label: 'Alertes', value: '3', color: 'text-breton-copper' },
+          { label: 'Couverture moy.', value: '14j', color: 'text-breton-navy' },
+          { label: 'En commande', value: '3', color: 'text-breton-emerald' },
+        ].map((kpi, i) => (
+          <motion.div
+            key={kpi.label}
+            className="rounded-lg border border-breton-sand/50 bg-breton-foam/40 px-2.5 py-1.5 sm:px-3"
+            initial={reducedMotion ? {} : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, delay: i * 0.08, ease: 'easeOut' }}
+          >
+            <p className="text-[8px] font-medium uppercase tracking-wider text-breton-granite sm:text-[9px]">
+              {kpi.label}
+            </p>
+            <span className={`text-base font-bold sm:text-lg ${kpi.color}`}>{kpi.value}</span>
+          </motion.div>
+        ))}
+      </div>
+
       {/* Table */}
-      <div className="mx-3 mt-2.5 overflow-hidden rounded-lg border border-breton-sand/50 sm:mx-4">
+      <div className="mx-3 mt-2 overflow-hidden rounded-lg border border-breton-sand/50 sm:mx-4">
         <table className="w-full text-left text-[9px] sm:text-[10px]">
           <thead>
             <tr className="border-b border-breton-sand/50 bg-breton-foam/40">
