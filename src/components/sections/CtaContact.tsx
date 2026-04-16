@@ -61,17 +61,17 @@ export function CtaContact() {
                 hover:shadow-[0_16px_48px_rgba(0,0,0,0.35)] hover:-translate-y-[3px]
                 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              Demander un diagnostic terrain →
+              Nous contacter →
             </Link>
 
             <Link
-              href="/contact"
+              href="/cas-clients"
               className="inline-flex items-center justify-center gap-2 rounded-[14px] px-8 py-4
                 border border-white/15 text-white
                 hover:border-white/35 hover:-translate-y-[3px]
                 transition-all duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
             >
-              Prendre contact →
+              Voir nos cas clients →
             </Link>
           </motion.div>
         </motion.div>
