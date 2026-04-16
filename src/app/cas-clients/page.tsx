@@ -101,13 +101,24 @@ export default function CasClientsPage() {
                   <div
                     className={`relative aspect-[16/10] rounded-xl overflow-hidden shadow-lg ${index % 2 === 1 ? 'lg:order-2' : ''}`}
                   >
-                    <Image
-                      src={caseStudy.image}
-                      alt={`Cas client ${caseStudy.sector}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                    />
+                    {caseStudy.image.endsWith('.mp4') ? (
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        src={caseStudy.image}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    ) : (
+                      <Image
+                        src={caseStudy.image}
+                        alt={`Cas client ${caseStudy.sector}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
                       <span className="px-3 py-1 bg-breton-emerald text-white rounded-full text-sm font-medium">
