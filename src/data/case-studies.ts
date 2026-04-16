@@ -212,61 +212,85 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'metallurgie-finistere',
-    title: 'Dashboard production temps r\u00e9el — PME m\u00e9tallurgie, Finist\u00e8re',
-    sector: 'Métallurgie',
+    title: 'Agent IA de pilotage production — PME métallurgie, Finistère',
+    sector: 'Métallurgie / Industrie',
     location: 'Finistère (29)',
     employees: '80 salariés',
     duration: '8 semaines',
     beforeState: {
       painPoints: [
-        '4h de compilation manuelle chaque semaine',
-        'Découverte des problèmes à J+5 minimum',
-        'Pas de vision temps réel sur les encours',
+        '4h de compilation manuelle chaque semaine pour produire le rapport de production',
+        'Découverte des problèmes qualité à J+5 minimum — après avoir produit des lots défectueux',
+        'Pas de vision temps réel sur les cadences, TRS et taux de rebut par ligne',
+        'Alertes inexistantes : les dérives passent inaperçues jusqu\'à ce qu\'elles deviennent critiques',
       ],
     },
     intervention: {
-      description: 'Tableau de bord production connecté en temps réel.',
+      description:
+        'Un agent IA autonome qui collecte les données machines et ERP chaque matin à 5h30, calcule les KPIs de production (TRS, OEE, cadence, rebuts), détecte les anomalies, génère un rapport hebdomadaire rédigé en français, et envoie des alertes Slack en temps réel quand un seuil est franchi.',
       actions: [
-        'Connexion aux données machines et ERP',
-        'Dashboard temps réel : TRS, encours, écarts',
-        'Alertes automatiques sur anomalies',
+        'Agent de collecte — connexion OPC-UA aux 3 lignes de production (pièces usinées, sous-ensembles soudés, assemblage) et synchronisation avec SAP pour les données qualité. Cycle automatique chaque matin à 5h30, sans intervention humaine.',
+        'Dashboard temps réel — TRS, OEE, cadence et taux de rebut actualisés en continu. Production horaire sur 24h avec code couleur (vert/orange/rouge selon seuils). État des 3 lignes avec temps d\'arrêt cumulé.',
+        'Détection d\'anomalies — l\'agent croise les données machines, qualité et approvisionnement pour identifier les corrélations. Exemple : chute de cadence ligne 2 corrélée au changement de lot matière première.',
+        'Rapport hebdomadaire automatique — résumé exécutif rédigé par l\'IA, tableau comparatif semaine N vs N-1, points d\'attention identifiés avec analyse causale, plan d\'action suggéré avec priorités et responsables. Envoyé par email chaque lundi à 6h02.',
+        'Alertes intelligentes — notification Slack immédiate quand une cadence passe sous seuil, quand un taux de rebut dépasse la tolérance, ou quand l\'analyse prédictive identifie un risque (usure plaquettes, dérive thermique broche).',
       ],
-      tools: ['API machines', 'Python', 'Metabase'],
+      tools: ['Claude (IA)', 'Next.js', 'Vercel', 'OPC-UA', 'API SAP', 'Slack'],
     },
     afterState: {
       results: [
-        '4h/semaine de reporting économisées',
-        'Problèmes détectés en temps réel',
-        '2 arrêts de ligne évités le premier mois',
+        '4h/semaine de reporting économisées — le rapport est généré automatiquement',
+        'Problèmes détectés en temps réel au lieu de J+5',
+        '2 arrêts de ligne évités le premier mois grâce aux alertes prédictives',
+        'TRS en hausse de 2 points grâce à la réactivité sur les anomalies',
+        'Plan d\'action hebdomadaire priorisé — le directeur de production pilote au lieu de compiler',
       ],
     },
     testimonial:
-      'On voit les problèmes en temps réel au lieu de les découvrir en fin de semaine.',
-    author: 'Jean-Pierre Morin',
+      'Le lundi matin, le rapport est dans ma boîte mail avant que j\'arrive. Avec le plan d\'action priorisé, je sais exactement quoi traiter en premier. On a gagné 2 points de TRS en 3 mois.',
+    author: 'Jean-Pierre M.',
     role: 'Directeur de production',
     metrics: [
       { label: 'Reporting', value: '-4h/sem', highlight: true },
-      { label: 'Réactivité', value: 'x3' },
+      { label: 'TRS', value: '+2 pts' },
+      { label: 'Réactivité', value: 'Temps réel' },
       { label: 'ROI', value: '3 mois' },
     ],
-    image: '/metallurgie.webp',
-    relatedLinks: [
-      { label: 'Tableaux de bord production', href: '/data' },
-      { label: 'Pilotage production m\u00e9tallurgie', href: '/pilotage-production-metallurgie' },
-      { label: 'IA et automatisation', href: '/ia' },
-    ],
+    image: '/videos/demo-production.mp4',
     narrative: {
       context:
-        'Cette PME de métallurgie fine dans le Finistère (80 salariés, 2 lignes de production) avait un problème classique : les données de production existaient, mais personne ne les voyait au bon moment. Le responsable production passait chaque vendredi après-midi à compiler manuellement les chiffres de la semaine — TRS, encours, écarts qualité — depuis l\u2019ERP (GPAO), des fichiers Excel et des fiches papier remplies par les opérateurs.',
+        'Cette PME de métallurgie fine dans le Finistère (80 salariés, 3 lignes de production) avait un problème classique : les données de production existaient — dans la GPAO, dans les automates machines, dans les fichiers Excel du chef d\'atelier — mais personne ne les voyait au bon moment. Le responsable production passait chaque vendredi après-midi à compiler manuellement les chiffres de la semaine : TRS, cadences, écarts qualité, temps d\'arrêt. 4 heures de copier-coller pour un rapport que le directeur lisait le lundi matin.',
       trigger:
-        'Le déclic est venu quand un problème qualité récurrent sur une ligne n\u2019a été détecté qu\u2019au bout de 5 jours — après avoir produit 3 lots défectueux. Le directeur de production a réalisé que son reporting à J+5 était un rétroviseur, pas un tableau de bord. Il a cherché quelqu\u2019un qui comprenne la réalité d\u2019un atelier de production — pas un éditeur de logiciel qui vend une solution générique.',
+        'Le déclic est venu quand un problème qualité récurrent sur la ligne 2 n\'a été détecté qu\'au bout de 5 jours — après avoir produit 3 lots défectueux. Un changement de lot matière première (acier S355) avait provoqué une dispersion accrue sur les épaisseurs, impactant les temps de réglage. Personne ne l\'avait vu parce que le reporting était un rétroviseur à J+5, pas un outil de pilotage. Le directeur de production a cherché quelqu\'un qui comprenne la réalité d\'un atelier — pas un éditeur qui vend un MES à 200K€.',
       approach:
-        'On a commencé par 3 jours sur site pour cartographier les sources de données réelles : ce qui était dans la GPAO, ce qui était dans Excel, et ce qui n\u2019était que dans la tête du chef d\u2019atelier. Ensuite, on a construit un pipeline de collecte automatique (ETL Python) qui aspire les données de la GPAO, des fichiers terrain et des saisies opérateurs. Le tout alimente une base PostgreSQL et des dashboards Metabase consultables en temps réel sur un écran dans l\u2019atelier.',
+        'On a déployé un agent IA autonome connecté aux automates machines (OPC-UA) et à SAP. Chaque matin à 5h30, l\'agent collecte les données, calcule les KPIs, détecte les anomalies et croise les sources (machines + qualité + approvisionnement). À 6h02, le rapport hebdomadaire est dans la boîte mail du directeur — rédigé en français, avec analyse causale et plan d\'action priorisé. En parallèle, un dashboard temps réel affiche l\'état des 3 lignes en continu, et des alertes Slack partent instantanément quand un seuil est franchi.',
       difficulties:
-        'Le principal obstacle n\u2019était pas technique — c\u2019était l\u2019adoption. Les opérateurs avaient l\u2019habitude de leurs fiches papier. On a travaillé avec le chef d\u2019atelier pour que la saisie soit aussi rapide que le papier (tablette, 3 champs maximum). Au bout de 2 semaines, le papier a disparu naturellement.',
+        'Le principal défi : calibrer les seuils d\'alerte. Trop sensibles, on noie l\'équipe sous les notifications. Pas assez, on rate les vrais problèmes. On a itéré avec le chef d\'atelier pendant 2 semaines pour trouver le bon réglage par ligne et par indicateur. L\'analyse prédictive (usure plaquettes, dérive thermique) a aussi nécessité 3 semaines de données historiques avant d\'être fiable.',
       firstValue:
-        'Dès la troisième semaine, le responsable production a détecté une dérive de cadence sur la ligne 2 — un problème qui, normalement, n\u2019aurait été visible qu\u2019en fin de semaine. Intervention immédiate, zéro lot défectueux. C\u2019est à ce moment que toute l\u2019équipe a compris la valeur du temps réel. Aujourd\u2019hui, le vendredi après-midi est consacré à l\u2019analyse et à l\u2019amélioration continue — plus à la compilation.',
+        'Dès la troisième semaine, l\'agent a détecté une dérive de cadence sur la ligne 2 — corrélée au changement de lot matière première S355 (fournisseur AcierPlus, lot #2026-1542). Alerte Slack envoyée en temps réel, investigation lancée dans l\'heure, zéro lot défectueux. Le même problème qui avait causé 3 lots perdus quelques mois plus tôt. Le vendredi suivant, le responsable production a regardé le rapport automatique et a dit : "C\'est exactement ce que je passais 4 heures à faire, en mieux."',
     },
+    screenshots: [
+      {
+        src: '/cas-clients/metallurgie-finistere/dashboard.jpg',
+        alt: 'Dashboard production temps réel — TRS, cadence, OEE, état des lignes et alertes',
+        caption: 'Le dashboard affiche les KPIs en temps réel (TRS 87%, cadence 142 p/h, OEE 82%), la production horaire sur 24h avec code couleur, l\'état des 3 lignes et les alertes actives.',
+      },
+      {
+        src: '/cas-clients/metallurgie-finistere/rapport-hebdo.jpg',
+        alt: 'Rapport hebdomadaire généré automatiquement — plan d\'action, résumé exécutif, comparatif',
+        caption: 'Le rapport de la semaine 16 : plan d\'action priorisé en haut, résumé exécutif rédigé par l\'IA, tableau comparatif semaine N vs N-1, et points d\'attention avec analyse causale.',
+      },
+      {
+        src: '/cas-clients/metallurgie-finistere/journal-agent.jpg',
+        alt: 'Journal de l\'agent — timeline horodatée des actions automatiques',
+        caption: 'L\'agent trace chaque action : collecte ERP à 5h30, calcul KPIs à 5h45, génération rapport à 6h00, envoi email à 6h02, alerte Slack à 6h15. Tout est auditable.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Automatisation commandes PME', href: '/automatisation-commandes-pme' },
+      { label: 'Pilotage production métallurgie', href: '/pilotage-production-metallurgie' },
+      { label: 'Intelligence artificielle Bretagne', href: '/intelligence-artificielle-bretagne' },
+    ],
   },
   {
     slug: 'agroalimentaire-morbihan',
