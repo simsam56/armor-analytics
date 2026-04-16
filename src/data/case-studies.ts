@@ -211,6 +211,87 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
+    slug: 'assistant-documentaire',
+    title: 'Assistant IA documentaire — PME construction navale, Morbihan',
+    sector: 'Construction navale',
+    location: 'Morbihan (56)',
+    employees: '80 salariés',
+    duration: '6 semaines',
+    beforeState: {
+      painPoints: [
+        '247 documents qualité, production, maintenance et HSE dispersés entre SharePoint, dossiers réseau et classeurs papier — personne ne sait où chercher',
+        'Un opérateur qui a une question sur une procédure doit interrompre le responsable qualité ou chercher lui-même dans les dossiers — 15 à 30 minutes perdues par demande',
+        'Les nouvelles révisions de procédures ne sont pas connues de tous : des opérateurs travaillent avec des versions obsolètes sans le savoir',
+        'Les audits qualité révèlent systématiquement des écarts liés à la méconnaissance des documents en vigueur',
+      ],
+    },
+    intervention: {
+      description:
+        'Un assistant IA conversationnel connecté aux 247 documents internes de l\'entreprise (procédures, modes opératoires, fiches techniques, consignes HSE), capable de répondre aux questions des équipes en langage naturel, en citant ses sources avec le paragraphe exact.',
+      actions: [
+        'Indexation automatique des 247 documents depuis SharePoint — procédures qualité, modes opératoires, fiches techniques, consignes HSE, formulaires RH. Chaque document est découpé en sections sémantiques pour une recherche précise.',
+        'Assistant conversationnel accessible à tous les salariés — interface de chat simple, réponses en français avec citation des sources (référence, section, page). Indicateur de confiance basé sur le nombre de sources concordantes.',
+        'Base documentaire consultable — arborescence par catégorie (Qualité, Production, Maintenance, RH, HSE), recherche plein texte, métadonnées complètes (version, statut, auteur, date de dernière révision).',
+        'Synchronisation automatique avec SharePoint toutes les 2 heures — les nouvelles révisions sont indexées sans intervention humaine, les documents archivés sont retirés de l\'index actif.',
+        'Dashboard administration — suivi de l\'usage (89 questions/semaine), top des questions posées, documents les plus consultés, journal de synchronisation. Permet d\'identifier les lacunes documentaires.',
+      ],
+      tools: ['Claude (IA)', 'Next.js', 'Vercel', 'RAG (embeddings)', 'API SharePoint', 'OCR'],
+    },
+    afterState: {
+      results: [
+        'Réponse à une question documentaire en 3 secondes au lieu de 15-30 minutes',
+        '89 questions posées par semaine — preuve que l\'outil est adopté par les équipes terrain',
+        'Zéro écart documentaire lors du dernier audit qualité — chaque opérateur accède à la bonne version',
+        '12 utilisateurs actifs sur 80 salariés dès le premier mois, sans formation formelle',
+        'Identification de 3 procédures obsolètes grâce à l\'analyse des questions sans réponse',
+      ],
+    },
+    testimonial:
+      'Avant, quand un soudeur avait un doute sur une procédure, il venait me voir ou il faisait à sa façon. Maintenant il pose la question à l\'assistant et il a la réponse en 3 secondes, avec le bon paragraphe. Ça a changé notre dernier audit : zéro écart documentaire.',
+    author: 'Jean-Marc L.G.',
+    role: 'Responsable Qualité',
+    metrics: [
+      { label: 'Temps de réponse', value: '3s', highlight: true },
+      { label: 'Questions/semaine', value: '89' },
+      { label: 'Écarts audit', value: '0' },
+      { label: 'Adoption', value: '15%' },
+    ],
+    image: '/assistant-documentaire.mp4',
+    narrative: {
+      context:
+        'Kervag Industries, 80 salariés en construction navale dans le Morbihan, gère 247 documents internes : procédures qualité (contrôle soudures EN ISO 5817, gestion des non-conformités), modes opératoires (réglage presse, soudage MIG/MAG), fiches techniques matériaux, consignes HSE et formulaires RH. Ces documents sont répartis entre SharePoint, des dossiers réseau et — pour les plus anciens — des classeurs physiques dans le bureau du responsable qualité.',
+      trigger:
+        'Lors d\'un audit qualité, un écart a été constaté : un soudeur appliquait la révision B d\'une procédure de contrôle alors que la révision C était en vigueur depuis 3 mois. Le responsable qualité l\'avait bien diffusée — par email. Mais entre les emails, les dossiers réseau et SharePoint, personne ne savait plus quelle version était la bonne. Le responsable qualité passait 30% de son temps à répondre aux questions des opérateurs sur les procédures en vigueur.',
+      approach:
+        'On a déployé un assistant IA connecté directement à SharePoint. Tous les documents sont indexés automatiquement avec découpage sémantique (chaque section, chaque paragraphe est identifié). Quand un opérateur pose une question — "Quelle est la procédure de contrôle pour les soudures classe B ?" — l\'assistant retrouve les passages pertinents dans les documents en vigueur, formule une réponse structurée avec les étapes numérotées, et cite ses sources avec la référence exacte (PRO-QUA-012 §4.3). Un indicateur de confiance indique combien de sources concordent.',
+      difficulties:
+        'Le principal défi : la qualité variable des documents. Certaines fiches techniques dataient de 2019, scannées en 150 dpi. D\'autres étaient des Word avec des tableaux complexes mal parsés. On a ajouté une couche OCR pour les scans et itéré sur le chunking pour que les tableaux de normes (EN ISO 5817, NF EN ISO 3452-1) soient correctement découpés et rattachés à leur contexte. La synchronisation SharePoint a aussi nécessité un travail sur les permissions — chaque service ne doit voir que ses documents.',
+      firstValue:
+        'Dès la première semaine, un opérateur a posé la question sur les soudures classe B. L\'assistant a répondu en 3 secondes avec la procédure complète, les 4 étapes de contrôle, les normes de référence et les critères d\'acceptation — en citant PRO-QUA-012 §4.3. Le responsable qualité a vérifié : c\'était exactement ce qu\'il aurait répondu, mais en 3 secondes au lieu de 15 minutes. La semaine suivante, 89 questions ont été posées. Le dashboard a aussi révélé que 3 procédures n\'avaient pas de réponse satisfaisante — elles étaient obsolètes et n\'avaient jamais été mises à jour.',
+    },
+    screenshots: [
+      {
+        src: '/cas-clients/assistant-documentaire/chat.jpg',
+        alt: 'Assistant IA documentaire — conversation avec citations de sources et indicateur de confiance',
+        caption: 'L\'assistant répond en langage naturel avec les étapes numérotées, les normes de référence et les critères d\'acceptation. Chaque source est cliquable (PRO-QUA-012, EN ISO 5817, FT-QUA-003). L\'indicateur vert confirme que 3 sources concordent.',
+      },
+      {
+        src: '/cas-clients/assistant-documentaire/documents.jpg',
+        alt: 'Base documentaire — arborescence par catégorie avec recherche et métadonnées',
+        caption: 'Les 247 documents sont organisés par catégorie (Qualité, Production, Maintenance, RH, HSE). Chaque document affiche sa référence, version, statut et date de dernière révision. La recherche plein texte couvre le contenu indexé.',
+      },
+      {
+        src: '/cas-clients/assistant-documentaire/admin.jpg',
+        alt: 'Dashboard administration — KPIs, top questions, documents consultés et journal de synchronisation',
+        caption: 'Le dashboard montre l\'adoption (89 questions/semaine, 12 utilisateurs actifs), les questions les plus fréquentes, les documents les plus consultés et le statut de synchronisation SharePoint en temps réel.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Automatisation commandes PME', href: '/automatisation-commandes-pme' },
+      { label: 'Intelligence artificielle Bretagne', href: '/intelligence-artificielle-bretagne' },
+    ],
+  },
+  {
     slug: 'metallurgie-finistere',
     title: 'Agent IA de pilotage production — PME métallurgie, Finistère',
     sector: 'Métallurgie',
