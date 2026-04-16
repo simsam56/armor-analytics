@@ -124,6 +124,93 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
   },
   {
+    slug: 'commandes-industrielles',
+    title: 'Extraction automatique des commandes clients — PME métallurgie, Lorient',
+    sector: 'Métallurgie / Industrie',
+    location: 'Lorient (56)',
+    employees: '45 salariés',
+    duration: '3 semaines',
+    beforeState: {
+      painPoints: [
+        'Commandes reçues par email en PDF — ressaisie manuelle dans l\'ERP, ligne par ligne',
+        '8 minutes en moyenne par bon de commande, avec un risque d\'erreur à chaque saisie',
+        'Aucune vérification automatique des prix : les écarts avec le catalogue passent inaperçus',
+        'Pièces jointes éparpillées dans 3 boîtes mail, sans suivi centralisé',
+      ],
+    },
+    intervention: {
+      description:
+        'Un agent IA connecté aux boîtes mail de l\'entreprise, qui détecte automatiquement les bons de commande, extrait les données par OCR, vérifie chaque ligne contre le catalogue ERP, et signale les écarts avant saisie.',
+      actions: [
+        'Connexion et synchronisation automatique de 3 boîtes mail (commandes, achats, comptabilité) — surveillance continue des emails entrants',
+        'Détection IA des emails contenant un bon de commande (PDF en pièce jointe) avec score de certitude — les emails incertains sont signalés pour vérification humaine',
+        'Extraction OCR des lignes de commande : référence article, désignation, quantité, prix unitaire, total — même sur des PDF scannés ou mal formatés',
+        'Comparaison automatique avec le catalogue ERP : validation des prix, détection des écarts, signalement des références inconnues',
+        'Saisie automatique dans SAP MM pour les commandes validées — les écarts sont remontés à un opérateur pour décision',
+        'Tableau de bord temps réel : volume traité, taux de saisie automatique, temps moyen, fiabilité OCR, journal d\'exécution',
+      ],
+      tools: ['Claude (IA)', 'Next.js', 'Vercel', 'OCR (Vision)', 'API SAP MM', 'IMAP'],
+    },
+    afterState: {
+      results: [
+        'Traitement d\'un bon de commande en 45 secondes au lieu de 8 minutes',
+        '92% des commandes saisies automatiquement sans intervention humaine',
+        'Détection systématique des écarts de prix et des références inconnues',
+        '0 erreur de saisie depuis la mise en production',
+        'Gain estimé : 1,5 jour/semaine pour l\'assistante achats',
+      ],
+    },
+    testimonial:
+      'Avant, je passais mes matinées à copier-coller des bons de commande dans SAP. Maintenant c\'est fait quand j\'arrive. Et les écarts de prix, on les voit enfin — on en ratait avant.',
+    author: 'Marine K.',
+    role: 'Assistante achats',
+    metrics: [
+      { label: 'Temps de traitement', value: '45s', highlight: true },
+      { label: 'Saisie automatique', value: '92%' },
+      { label: 'Erreurs de saisie', value: '0' },
+      { label: 'Gain hebdo', value: '1,5j' },
+    ],
+    image: '/videos/demo-commandes.mp4',
+    narrative: {
+      context:
+        'Chez Scorff Métallurgie, une PME de 45 salariés à Lorient, les commandes clients arrivent par email — parfois sur la boîte commandes@, parfois directement à l\'acheteur ou à la comptable. Chaque jour, une dizaine de bons de commande en PDF à ouvrir, lire, et ressaisir manuellement dans SAP. 8 minutes par commande, sans compter les vérifications.',
+      trigger:
+        'Le vrai problème n\'était pas la lenteur — c\'était l\'invisible. Quand un fournisseur envoie un prix qui a changé de 12%, personne ne le voit si on ne compare pas ligne par ligne avec le catalogue. Et quand une référence article est inconnue, elle est saisie quand même, sans alerte. Les erreurs s\'accumulent silencieusement.',
+      approach:
+        'Nous avons connecté un agent IA aux 3 boîtes mail de l\'entreprise. Toutes les 15 minutes, il synchronise les emails, analyse chaque message et détecte ceux qui contiennent un bon de commande — avec un score de certitude. Les PDF sont extraits par OCR (même les scans), chaque ligne est comparée au catalogue ERP, et les écarts sont remontés avant saisie. Les commandes propres passent directement dans SAP.',
+      difficulties:
+        'Le principal défi : la qualité variable des PDF reçus. Certains fournisseurs envoient des scans à 150 dpi, d\'autres des PDF générés par leur ERP avec des mises en page exotiques. Nous avons itéré sur les prompts OCR et ajouté un score de confiance par ligne — en dessous de 85%, la commande passe en vérification humaine plutôt que d\'être saisie avec un doute.',
+      firstValue:
+        'Dès le 2e jour, l\'agent a détecté un écart de prix sur des joints toriques DN50 : 1,85 € au lieu de 1,65 € au catalogue. Sur 200 pièces, ça faisait 40 € d\'écart — invisible à l\'œil, mais détecté automatiquement. Le fournisseur avait changé son tarif sans prévenir.',
+    },
+    screenshots: [
+      {
+        src: '/cas-clients/commandes-industrielles/boites-mail.jpg',
+        alt: 'Extraction des commandes clients — 3 boîtes mail connectées avec détection IA',
+        caption: 'Les 3 boîtes mail de l\'entreprise sont synchronisées automatiquement. Chaque email est analysé par l\'IA : commande détectée (98%), à vérifier (62%), ou ignoré. Le statut ERP (Intégré / En attente) est visible en un coup d\'œil.',
+      },
+      {
+        src: '/cas-clients/commandes-industrielles/inbox-commandes.jpg',
+        alt: 'Inbox commandes — pipeline de traitement en 5 étapes',
+        caption: 'Le pipeline complet : réception email → extraction OCR → vérification catalogue → validation humaine → saisie ERP. Chaque commande est suivie avec son statut en temps réel.',
+      },
+      {
+        src: '/cas-clients/commandes-industrielles/detail-ocr.jpg',
+        alt: 'Détail OCR — aperçu PDF et comparaison catalogue ERP',
+        caption: 'L\'aperçu du PDF à gauche, les lignes extraites à droite. Chaque ligne est comparée au catalogue : vert = conforme, orange = écart de prix détecté, rouge = référence inconnue.',
+      },
+      {
+        src: '/cas-clients/commandes-industrielles/tableau-bord.jpg',
+        alt: 'Tableau de bord — KPIs, fiabilité OCR et journal d\'exécution',
+        caption: 'Le tableau de bord affiche les KPIs (45s/commande, 92% auto, 0 erreur), la fiabilité OCR par niveau de confiance, et le journal d\'exécution en temps réel.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Automatisation commandes PME', href: '/automatisation-commandes-pme' },
+      { label: 'Intelligence artificielle Bretagne', href: '/intelligence-artificielle-bretagne' },
+    ],
+  },
+  {
     slug: 'metallurgie-finistere',
     title: 'Dashboard production temps r\u00e9el — PME m\u00e9tallurgie, Finist\u00e8re',
     sector: 'Métallurgie',
