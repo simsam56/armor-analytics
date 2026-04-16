@@ -561,8 +561,19 @@ export const FAQ_ITEMS = [
   },
 ];
 
-export const NAV_LINKS = [
-  { href: '/#services', label: 'Services' },
+export type NavLink =
+  | { href: string; label: string }
+  | { label: string; children: { href: string; label: string }[] };
+
+export const NAV_LINKS: NavLink[] = [
+  {
+    label: 'Services',
+    children: [
+      { href: '/audit-ia', label: 'Audit & Diagnostic' },
+      { href: '/ia', label: 'IA & Automatisation' },
+      { href: '/data', label: 'Pilotage data' },
+    ],
+  },
   { href: '/cas-clients', label: 'Cas clients' },
   { href: '/blog', label: 'Blog' },
   { href: '/a-propos', label: '\u00c0 propos' },
