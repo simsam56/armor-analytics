@@ -133,7 +133,7 @@ export default function CasClientsPage() {
                   >
                     <Link href={`/cas-clients/${caseStudy.slug}`}>
                       <h3 className="text-2xl lg:text-3xl font-bold text-[#1E2922] mb-4 hover:text-breton-emerald transition-colors">
-                        {caseStudy.sector}
+                        {caseStudy.title}
                       </h3>
                     </Link>
                     <div className="flex flex-wrap gap-4 text-sm text-[#64756C]">

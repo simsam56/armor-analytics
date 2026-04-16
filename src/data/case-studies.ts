@@ -126,7 +126,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'commandes-industrielles',
     title: 'Extraction automatique des commandes clients — PME métallurgie, Lorient',
-    sector: 'Métallurgie / Industrie',
+    sector: 'Métallurgie',
     location: 'Lorient (56)',
     employees: '45 salariés',
     duration: '3 semaines',
@@ -213,7 +213,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'metallurgie-finistere',
     title: 'Agent IA de pilotage production — PME métallurgie, Finistère',
-    sector: 'Métallurgie / Industrie',
+    sector: 'Métallurgie',
     location: 'Finistère (29)',
     employees: '80 salariés',
     duration: '8 semaines',
