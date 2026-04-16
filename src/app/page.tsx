@@ -51,51 +51,33 @@ export default function Home() {
           </h2>
 
           <div className="grid gap-8 md:grid-cols-2">
-            {/* Agent de reporting */}
+            {/* Agent CRM — vidéo démo */}
             <Link
-              href="/cas-clients"
+              href="/cas-clients/crm-intelligent"
               className="group relative flex flex-col rounded-2xl border border-breton-sand bg-white overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-breton-emerald focus-visible:ring-offset-2"
             >
-              {/* Mockup dashboard */}
-              <div className="bg-breton-navy/[0.03] p-5 border-b border-breton-sand/60">
-                <div className="rounded-xl bg-white border border-breton-sand p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-breton-emerald" />
-                      <span className="text-[11px] font-medium text-breton-slate">Reporting production</span>
-                    </div>
-                    <span className="text-[10px] text-breton-granite">Automatique &bull; 6h02</span>
-                  </div>
-                  <div className="grid grid-cols-3 gap-2 mb-3">
-                    <div className="rounded-lg bg-breton-foam p-2">
-                      <p className="text-[10px] text-breton-granite">TRS</p>
-                      <p className="text-sm font-bold text-breton-emerald">87%</p>
-                    </div>
-                    <div className="rounded-lg bg-breton-foam p-2">
-                      <p className="text-[10px] text-breton-granite">Cadence</p>
-                      <p className="text-sm font-bold text-breton-navy">142/h</p>
-                    </div>
-                    <div className="rounded-lg bg-breton-foam p-2">
-                      <p className="text-[10px] text-breton-granite">Rebut</p>
-                      <p className="text-sm font-bold text-breton-copper">1.2%</p>
-                    </div>
-                  </div>
-                  <div className="flex items-end gap-1 h-10">
-                    {[60, 72, 55, 80, 68, 90, 85, 88, 75, 92, 87, 78].map((h, i) => (
-                      <div key={i} className="flex-1 rounded-t bg-breton-emerald/40" style={{ height: `${h}%` }} />
-                    ))}
-                  </div>
-                </div>
+              <div className="bg-breton-navy/[0.03] border-b border-breton-sand/60">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto"
+                  poster=""
+                >
+                  <source src="/videos/demo-crm.mp4" type="video/mp4" />
+                </video>
               </div>
               <div className="p-6 flex-1 flex flex-col">
-                <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">M&eacute;tallurgie</span>
-                <h3 className="mt-2 text-lg font-bold text-breton-navy group-hover:text-breton-emerald transition-colors">Agent de reporting</h3>
+                <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">Prospection intelligente</span>
+                <h3 className="mt-2 text-lg font-bold text-breton-navy group-hover:text-breton-emerald transition-colors">CRM connect&eacute; &agrave; l&apos;IA</h3>
                 <p className="mt-2 text-sm text-breton-slate leading-relaxed flex-1">
-                  G&eacute;n&egrave;re vos rapports de production chaque matin. TRS, encours, cadence &mdash; sans intervention.
+                  Un agent scrute le web chaque jour, d&eacute;tecte les signaux business (recrutement, lev&eacute;e, investissement) et identifie vos prospects chauds. Fini la prospection &agrave; l&apos;aveugle.
                 </p>
-                <div className="mt-4 pt-4 border-t border-breton-sand/60 flex items-center justify-between">
-                  <p className="font-display text-lg font-bold text-breton-navy">4h/sem &eacute;conomis&eacute;es</p>
-                  <ArrowRight className="h-4 w-4 text-breton-copper group-hover:translate-x-1 transition-transform" />
+                <div className="mt-4 pt-4 border-t border-breton-sand/60 flex items-center justify-end">
+                  <span className="text-sm font-semibold text-breton-copper flex items-center gap-1">
+                    D&eacute;couvrir <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
                 </div>
               </div>
             </Link>
@@ -118,7 +100,7 @@ export default function Home() {
                   <div className="space-y-2">
                     {[
                       { ref: 'BDC-2847', status: 'Saisi ERP', statusColor: 'text-breton-emerald bg-breton-emerald/10' },
-                      { ref: 'BDC-2848', status: 'V&eacute;rifi&eacute;', statusColor: 'text-breton-emerald bg-breton-emerald/10' },
+                      { ref: 'BDC-2848', status: 'Vérifié', statusColor: 'text-breton-emerald bg-breton-emerald/10' },
                       { ref: 'BDC-2849', status: 'OCR en cours', statusColor: 'text-breton-copper bg-breton-copper/10' },
                     ].map((cmd) => (
                       <div key={cmd.ref} className="flex items-center justify-between rounded-lg bg-breton-foam px-3 py-2">

@@ -201,16 +201,28 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </span>
           </div>
 
-          {/* Image */}
+          {/* Image ou vidéo */}
           <div className="relative mb-12 aspect-[16/9] overflow-hidden rounded-2xl shadow-lg">
-            <Image
-              src={caseStudy.image}
-              alt={`Cas client ${caseStudy.sector}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
-              priority
-            />
+            {caseStudy.image.endsWith('.mp4') ? (
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                <source src={caseStudy.image} type="video/mp4" />
+              </video>
+            ) : (
+              <Image
+                src={caseStudy.image}
+                alt={`Cas client ${caseStudy.sector}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 800px"
+                priority
+              />
+            )}
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-4 left-4">
               <span className="rounded-full bg-breton-emerald px-3 py-1 text-sm font-medium text-white">
@@ -308,6 +320,32 @@ export default async function CaseStudyPage({ params }: PageProps) {
               ))}
             </div>
           </div>
+
+          {/* Screenshots */}
+          {caseStudy.screenshots && caseStudy.screenshots.length > 0 && (
+            <div className="mb-12">
+              <h2 className="mb-6 text-sm font-bold uppercase tracking-wide text-breton-granite">
+                En images
+              </h2>
+              <div className="space-y-8">
+                {caseStudy.screenshots.map((screenshot, i) => (
+                  <div key={i} className="overflow-hidden rounded-2xl border border-breton-sand shadow-lg">
+                    <Image
+                      src={screenshot.src}
+                      alt={screenshot.alt}
+                      width={1280}
+                      height={720}
+                      className="w-full h-auto"
+                      sizes="(max-width: 768px) 100vw, 800px"
+                    />
+                    <div className="bg-breton-foam px-6 py-4">
+                      <p className="text-sm text-breton-slate leading-relaxed">{screenshot.caption}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Témoignage */}
           <div className="mb-12 rounded-2xl bg-breton-emerald p-6 lg:p-8">

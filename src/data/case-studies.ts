@@ -36,10 +36,93 @@ export interface CaseStudy {
   metrics: CaseStudyMetric[];
   image: string;
   narrative?: CaseStudyNarrative;
+  screenshots?: { src: string; alt: string; caption: string }[];
   relatedLinks?: { label: string; href: string }[];
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
+  {
+    slug: 'crm-intelligent',
+    title: 'CRM connecté — veille personnalisée automatique et prospection intelligente',
+    sector: 'Commercial / Prospection',
+    location: 'Bretagne',
+    employees: 'PME 10-250 salariés',
+    duration: '4 semaines',
+    beforeState: {
+      painPoints: [
+        'Prospection manuelle : recherche de contacts un par un sur LinkedIn ou Google',
+        'Aucune veille structurée sur les signaux business (recrutements, levées de fonds, investissements)',
+        'CRM classique rempli de contacts froids, sans priorisation',
+        'Temps perdu à contacter des prospects qui n\'ont aucun besoin immédiat',
+      ],
+    },
+    intervention: {
+      description:
+        'Un CRM piloté par une chaîne de 6 agents IA en cascade, chacun spécialisé sur une étape du pipeline commercial. Chaque jour, ils travaillent ensemble — sans intervention humaine — pour trouver, qualifier et contacter les bons prospects.',
+      actions: [
+        'Agent Prospector — scrute chaque jour des dizaines de sources web (presse économique, annonces légales, sites d\'emploi, réseaux sociaux) pour détecter les signaux business : recrutements, investissements, levées de fonds, ouvertures de sites. Résultat : une liste quotidienne d\'entreprises en mouvement, pertinentes pour votre activité.',
+        'Agent Enricher — prend le relais sur chaque entreprise détectée. Il va chercher les contacts décisionnaires via les API Sirene, Hunter.io et Apollo : nom, poste, email vérifié, téléphone. Il croise plusieurs sources pour garantir la fiabilité des données.',
+        'Agent Qualifier — applique un scoring ICP (Ideal Customer Profile) sur chaque lead enrichi. Il note sur 6 axes : secteur, taille, localisation, signaux détectés, historique, et pertinence métier. Seuls les leads qui correspondent à votre cible passent à l\'étape suivante.',
+        'Agent Writer — rédige des emails personnalisés pour chaque prospect qualifié, en s\'appuyant sur le signal détecté. Pas de template générique : chaque message fait référence à l\'actualité concrète de l\'entreprise (« Vous recrutez un responsable qualité — nous aidons les industriels à structurer leur data qualité »).',
+        'Agent Sender — gère l\'envoi avec warm-up SMTP intégré pour garantir la délivrabilité. Il respecte les quotas, espace les envois, et surveille les taux de rebond en temps réel.',
+        'Agent Follow-up — programme et exécute les relances automatiques selon des règles configurables. Il adapte le message en fonction des interactions (ouverture, clic, réponse).',
+      ],
+      tools: ['Claude (IA)', 'Next.js', 'Vercel', 'Apollo', 'Hunter.io', 'API Sirene', 'SMTP warm-up'],
+    },
+    afterState: {
+      results: [
+        'Veille quotidienne automatique : les signaux business arrivent chaque matin',
+        '342 leads détectés et enrichis automatiquement par semaine',
+        'Scoring ICP à 100% — seuls les prospects qualifiés entrent dans le pipeline',
+        'Emails personnalisés rédigés par l\'IA avec un taux d\'ouverture de 97%',
+        'Temps de prospection divisé par 5 : l\'équipe se concentre sur les rendez-vous',
+      ],
+    },
+    testimonial:
+      'On ne prospecte plus à l\'aveugle. Chaque matin, l\'outil nous dit qui contacter et pourquoi. C\'est un changement radical.',
+    author: 'Dirigeant PME',
+    role: 'Gérant',
+    metrics: [
+      { label: 'Leads qualifiés / semaine', value: '342', highlight: true },
+      { label: 'Taux scoring ICP', value: '100%' },
+      { label: 'Taux ouverture emails', value: '97%' },
+      { label: 'Temps prospection', value: '÷5' },
+    ],
+    image: '/videos/demo-crm.mp4',
+    narrative: {
+      context:
+        'La plupart des PME prospectent encore à l\'ancienne : recherche manuelle sur LinkedIn, emails génériques envoyés à froid, relances oubliées dans un coin de tableur. Le commercial passe plus de temps à chercher des contacts qu\'à vendre. Et quand il trouve un prospect, il n\'a aucune idée de si c\'est le bon moment pour le contacter.',
+      trigger:
+        'Le vrai problème n\'est pas le CRM — c\'est qu\'il est déconnecté du monde réel. Un CRM classique stocke des contacts, mais il ne sait pas que l\'entreprise X vient de lever 2M€, que l\'usine Y recrute un responsable qualité, ou que le groupe Z investit dans un nouvel atelier. Ces signaux existent, ils sont publics — mais personne n\'a le temps de les surveiller manuellement.',
+      approach:
+        'Nous avons conçu un CRM d\'un nouveau genre : une chaîne de 6 agents IA qui travaillent en cascade, chacun spécialisé sur une étape. Le Prospector scrute chaque jour des dizaines de sources (presse éco, annonces légales, sites d\'emploi) et remonte les signaux pertinents. L\'Enricher va chercher les contacts décisionnaires via API. Le Qualifier note chaque lead selon votre profil client idéal. Le Writer rédige un email personnalisé qui fait référence au signal détecté — pas de template générique. Le Sender gère l\'envoi avec warm-up SMTP. Et le Follow-up programme les relances. Tout ça tourne chaque jour, sans intervention humaine.',
+      difficulties:
+        'Le principal défi : calibrer la pertinence des signaux. Un recrutement n\'est pas toujours une opportunité. Une levée de fonds peut concerner un secteur hors cible. Nous avons itéré sur les règles de scoring avec le client pour que seuls les signaux réellement exploitables remontent — et éviter le bruit.',
+      firstValue:
+        'Dès la première semaine, l\'outil a remonté un signal qu\'aucun commercial n\'aurait vu : une PME industrielle du Morbihan venait de publier un poste de responsable qualité, signe d\'une structuration en cours. L\'email personnalisé a été envoyé le jour même. Rendez-vous pris en 48h.',
+    },
+    screenshots: [
+      {
+        src: '/cas-clients/crm-intelligent/signaux.jpg',
+        alt: 'Les 6 agents IA en cascade — Prospector, Enricher, Qualifier, Writer, Sender, Follow-up',
+        caption: 'Les 6 agents IA travaillent en cascade. Chacun est spécialisé sur une étape : détection, enrichissement, scoring, rédaction, envoi, relance. Le pipeline à droite montre les volumes traités en temps réel.',
+      },
+      {
+        src: '/cas-clients/crm-intelligent/pipeline.jpg',
+        alt: 'Signaux business détectés automatiquement — recrutement, investissement, innovation',
+        caption: 'La veille automatique remonte chaque jour les signaux business pertinents : recrutements, investissements, innovations. Chaque signal est rattaché à une entreprise avec ses contacts décisionnaires.',
+      },
+      {
+        src: '/cas-clients/crm-intelligent/dashboard.jpg',
+        alt: 'Vue campagnes — destinataires scorés et envoi automatique',
+        caption: 'Les campagnes d\'emailing sont générées automatiquement. Chaque destinataire est scoré (A = priorité haute). L\'envoi respecte le warm-up SMTP pour garantir la délivrabilité.',
+      },
+    ],
+    relatedLinks: [
+      { label: 'Automatisation commandes PME', href: '/automatisation-commandes-pme' },
+      { label: 'Intelligence artificielle Bretagne', href: '/intelligence-artificielle-bretagne' },
+    ],
+  },
   {
     slug: 'metallurgie-finistere',
     title: 'Dashboard production temps r\u00e9el — PME m\u00e9tallurgie, Finist\u00e8re',
