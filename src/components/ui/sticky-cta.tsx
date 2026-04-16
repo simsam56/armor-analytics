@@ -33,10 +33,10 @@ export function StickyCta() {
         >
           <div className="bg-breton-navy/95 backdrop-blur-sm border-t border-white/10 px-4 py-3 flex items-center justify-between gap-3">
             <Link
-              href="/audit-ia"
+              href="/contact"
               className="flex-1 flex items-center justify-center gap-2 bg-white text-breton-navy font-semibold px-4 py-2.5 rounded-lg text-sm"
             >
-              Diagnostic gratuit →
+              Nous contacter →
             </Link>
             <button
               onClick={() => setDismissed(true)}
