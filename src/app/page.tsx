@@ -3,7 +3,7 @@ import { CtaContact } from '@/components/sections/CtaContact';
 import { IncarnationSection } from '@/components/sections/IncarnationSection';
 import { JsonLd } from '@/components/JsonLd';
 import Link from 'next/link';
-import { ArrowRight, Search, Layers, GraduationCap } from 'lucide-react';
+import { ArrowRight, Search, Layers, GraduationCap, ClipboardList } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -50,64 +50,102 @@ export default function Home() {
             Nos agents IA les plus d&eacute;ploy&eacute;s
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                title: 'Agent de reporting',
-                description:
-                  'G\u00e9n\u00e8re vos rapports de production chaque matin. TRS, encours, cadence \u2014 sans intervention.',
-                metric: '4h/sem \u00e9conomis\u00e9es',
-                sector: 'M\u00e9tallurgie',
-                href: '/cas-clients',
-                color: 'bg-breton-emerald/10',
-              },
-              {
-                title: 'Agent de commandes',
-                description:
-                  'Lit vos bons de commande, v\u00e9rifie les \u00e9carts, saisit dans l\u2019ERP. Z\u00e9ro ressaisie.',
-                metric: '80% du temps \u00e9limin\u00e9',
-                sector: 'Agroalimentaire',
-                href: '/cas-clients',
-                color: 'bg-breton-copper/10',
-              },
-              {
-                title: 'Agent de prospection',
-                description:
-                  'Qualifie vos leads, enrichit votre CRM, d\u00e9clenche les relances au bon moment.',
-                metric: '+3 pts de marge',
-                sector: 'N\u00e9goce B2B',
-                href: '/cas-clients',
-                color: 'bg-breton-navy/5',
-              },
-            ].map((agent) => (
-              <Link
-                key={agent.title}
-                href={agent.href}
-                className="group relative flex flex-col rounded-2xl border border-breton-sand bg-white overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-breton-emerald focus-visible:ring-offset-2"
-              >
-                {/* Image placeholder */}
-                <div className={`h-40 ${agent.color} flex items-center justify-center`}>
-                  <span className="text-sm text-breton-granite/60 font-medium">
-                    Visuel &agrave; venir
-                  </span>
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">
-                    {agent.sector}
-                  </span>
-                  <h3 className="mt-2 text-lg font-bold text-breton-navy group-hover:text-breton-emerald transition-colors">
-                    {agent.title}
-                  </h3>
-                  <p className="mt-2 text-sm text-breton-slate leading-relaxed flex-1">
-                    {agent.description}
-                  </p>
-                  <div className="mt-4 pt-4 border-t border-breton-sand/60 flex items-center justify-between">
-                    <p className="font-display text-lg font-bold text-breton-navy">{agent.metric}</p>
-                    <ArrowRight className="h-4 w-4 text-breton-copper group-hover:translate-x-1 transition-transform" />
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Agent de reporting */}
+            <Link
+              href="/cas-clients"
+              className="group relative flex flex-col rounded-2xl border border-breton-sand bg-white overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-breton-emerald focus-visible:ring-offset-2"
+            >
+              {/* Mockup dashboard */}
+              <div className="bg-breton-navy/[0.03] p-5 border-b border-breton-sand/60">
+                <div className="rounded-xl bg-white border border-breton-sand p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-breton-emerald" />
+                      <span className="text-[11px] font-medium text-breton-slate">Reporting production</span>
+                    </div>
+                    <span className="text-[10px] text-breton-granite">Automatique &bull; 6h02</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-2 mb-3">
+                    <div className="rounded-lg bg-breton-foam p-2">
+                      <p className="text-[10px] text-breton-granite">TRS</p>
+                      <p className="text-sm font-bold text-breton-emerald">87%</p>
+                    </div>
+                    <div className="rounded-lg bg-breton-foam p-2">
+                      <p className="text-[10px] text-breton-granite">Cadence</p>
+                      <p className="text-sm font-bold text-breton-navy">142/h</p>
+                    </div>
+                    <div className="rounded-lg bg-breton-foam p-2">
+                      <p className="text-[10px] text-breton-granite">Rebut</p>
+                      <p className="text-sm font-bold text-breton-copper">1.2%</p>
+                    </div>
+                  </div>
+                  <div className="flex items-end gap-1 h-10">
+                    {[60, 72, 55, 80, 68, 90, 85, 88, 75, 92, 87, 78].map((h, i) => (
+                      <div key={i} className="flex-1 rounded-t bg-breton-emerald/40" style={{ height: `${h}%` }} />
+                    ))}
                   </div>
                 </div>
-              </Link>
-            ))}
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">M&eacute;tallurgie</span>
+                <h3 className="mt-2 text-lg font-bold text-breton-navy group-hover:text-breton-emerald transition-colors">Agent de reporting</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed flex-1">
+                  G&eacute;n&egrave;re vos rapports de production chaque matin. TRS, encours, cadence &mdash; sans intervention.
+                </p>
+                <div className="mt-4 pt-4 border-t border-breton-sand/60 flex items-center justify-between">
+                  <p className="font-display text-lg font-bold text-breton-navy">4h/sem &eacute;conomis&eacute;es</p>
+                  <ArrowRight className="h-4 w-4 text-breton-copper group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+
+            {/* Agent de commandes */}
+            <Link
+              href="/cas-clients"
+              className="group relative flex flex-col rounded-2xl border border-breton-sand bg-white overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-breton-emerald focus-visible:ring-offset-2"
+            >
+              {/* Mockup flux commandes */}
+              <div className="bg-breton-navy/[0.03] p-5 border-b border-breton-sand/60">
+                <div className="rounded-xl bg-white border border-breton-sand p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="h-2 w-2 rounded-full bg-breton-copper" />
+                      <span className="text-[11px] font-medium text-breton-slate">Traitement commandes</span>
+                    </div>
+                    <span className="text-[10px] text-breton-granite">3 trait&eacute;es &bull; 0 erreur</span>
+                  </div>
+                  <div className="space-y-2">
+                    {[
+                      { ref: 'BDC-2847', status: 'Saisi ERP', statusColor: 'text-breton-emerald bg-breton-emerald/10' },
+                      { ref: 'BDC-2848', status: 'V&eacute;rifi&eacute;', statusColor: 'text-breton-emerald bg-breton-emerald/10' },
+                      { ref: 'BDC-2849', status: 'OCR en cours', statusColor: 'text-breton-copper bg-breton-copper/10' },
+                    ].map((cmd) => (
+                      <div key={cmd.ref} className="flex items-center justify-between rounded-lg bg-breton-foam px-3 py-2">
+                        <div className="flex items-center gap-2">
+                          <ClipboardList className="h-3 w-3 text-breton-granite" />
+                          <span className="text-xs font-medium text-breton-navy">{cmd.ref}</span>
+                        </div>
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${cmd.statusColor}`}>
+                          {cmd.status}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <span className="text-xs font-semibold text-breton-emerald uppercase tracking-wider">Agroalimentaire</span>
+                <h3 className="mt-2 text-lg font-bold text-breton-navy group-hover:text-breton-emerald transition-colors">Agent de commandes</h3>
+                <p className="mt-2 text-sm text-breton-slate leading-relaxed flex-1">
+                  Lit vos bons de commande, v&eacute;rifie les &eacute;carts, saisit dans l&apos;ERP. Z&eacute;ro ressaisie.
+                </p>
+                <div className="mt-4 pt-4 border-t border-breton-sand/60 flex items-center justify-between">
+                  <p className="font-display text-lg font-bold text-breton-navy">80% du temps &eacute;limin&eacute;</p>
+                  <ArrowRight className="h-4 w-4 text-breton-copper group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
           </div>
 
           <div className="mt-10 text-center">
