@@ -12,9 +12,10 @@ test.describe('Navigation et pages principales', () => {
     await page.goto('/');
     await expect(page.locator('header')).toBeVisible();
     await expect(page.locator('header a[href="/"]').first()).toBeVisible();
-    await expect(page.locator('header nav a[href="/ia"]')).toBeVisible();
-    await expect(page.locator('header nav a[href="/data"]')).toBeVisible();
-    await expect(page.locator('header nav a[href="/formation"]')).toBeVisible();
+    // Services est un dropdown avec Audit, IA, Data
+    await expect(page.locator('header nav button:has-text("Services")')).toBeVisible();
+    await expect(page.locator('header nav a[href="/cas-clients"]')).toBeVisible();
+    await expect(page.locator('header nav a[href="/contact"]')).toBeVisible();
   });
 
   test('le footer contient les liens et le CTA', async ({ page }) => {

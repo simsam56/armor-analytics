@@ -49,7 +49,7 @@ Autres fichiers de données :
 
 - **Hero homepage** (`HeroV3`) : fond gradient `breton-foam` → `breton-sand`, badge local centré avec dot emerald pulsant, titre Instrument Serif centré + sous-titre + 2 CTAs + micro-preuves. `min-h-screen`, centré `text-center`.
 - **Hero pages intérieures** (`Hero`) : fond gradient `breton-foam` → `breton-sand`, API simplifiée `title` + `subtitle`, `-mt-16 pt-32` pour chevaucher le header.
-- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). CTA principal "Mes priorités IA →" (pointe vers `/audit-ia`, le quiz de diagnostic).
+- **Header** : sticky top-0 z-50, frosted glass (`backdrop-blur-[24px] saturate-[1.8]`), toujours clair. Logo toujours `variant='default'` (navy + cuivre). CTA principal "Nous contacter →" (pointe vers `/contact`). Nav "Services" est un dropdown avec 3 entrées : Audit & Diagnostic (`/audit-ia`), IA & Automatisation (`/ia`), Pilotage data (`/data`).
 - **Sections** : alternance `bg-white` / `bg-breton-foam` / bande `bg-breton-sand`. Le navy n'apparaît qu'au CTA final et au footer. Padding `py-[110px]` desktop, `py-16` mobile
 - **Cards** : `rounded-2xl`, borders `breton-sand`, hover shadows
 - **CTA sombres** : fond `breton-navy`, bouton sable inversé `bg-breton-sand text-breton-navy`
@@ -60,10 +60,9 @@ Autres fichiers de données :
 ### Homepage — ordre des sections
 
 ```
-HeroV3 (badge local + titre centré) → MetricsBand (bande sable, 4 métriques) →
-LogoCarousel (logos clients marquee) → PillarsSection (3 piliers foam) →
-Services (grille 2×2, 4 offres) → Projects (3 cas clients compact) →
-IncarnationSection (photo + citation + badges) → CtaContact (CTA final navy)
+HeroV3 (badge local + titre centré, pas de démo visuelle) → Proof strip (bande blanche, 3 métriques) →
+ExpertisesSection (3 cartes foam : Audit, IA, Data) → CaseStudiesPreview (3 vignettes vidéo) →
+Méthode (3 étapes, diagnostic → prototype → déploiement) → IncarnationSection (photo + citation) → CtaContact (CTA final navy)
 ```
 
 Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll du hero.
@@ -75,6 +74,10 @@ Sections wrappées dans `<AnimatedSection>`. StickyCta mobile fixe après scroll
 2. **Pilotage data** — pipeline + dataviz — sur devis — 4 à 10 semaines
 3. **Automatisations & IA utiles** — OCR, prévision, classification — 5 000–20 000 € HT — 4 à 10 semaines
 4. **Formation & Accompagnement** — forfait mensuel — 800–3 200 € HT/mois — selon besoin
+
+### CTA — Flux principal
+
+Les CTA principaux (header, hero, CTA final, sticky mobile) pointent vers `/contact` ("Nous contacter" via formulaire Resend). L'audit-ia reste accessible via le dropdown Services mais n'est plus le CTA principal du site.
 
 ### Redirections
 
