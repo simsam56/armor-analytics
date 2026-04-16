@@ -25,7 +25,7 @@ const EXPERTISES = [
     icon: BarChart3,
     title: 'Pilotage data',
     description:
-      'Dashboards temps réel connectés à votre ERP/GPAO. Vos KPIs en un coup d&apos;œil.',
+      'Dashboards temps réel connectés à votre ERP/GPAO. Vos KPIs en un coup d\u2019œil.',
     href: '/data',
   },
 ];

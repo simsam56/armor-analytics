@@ -67,7 +67,7 @@ export default function Home() {
                 step: '02',
                 title: 'Prototype & validation',
                 description:
-                  'Un premier agent IA sur un périmètre restreint. Vous validez la valeur avant d&apos;étendre.',
+                  'Un premier agent IA sur un périmètre restreint. Vous validez la valeur avant d\u2019étendre.',
               },
               {
                 step: '03',
