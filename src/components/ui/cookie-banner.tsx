@@ -98,7 +98,7 @@ export function CookieBanner() {
     >
       <div className="mx-auto max-w-2xl rounded-2xl bg-white border border-slate-200 shadow-xl p-5 sm:p-6">
         <p className="text-sm text-slate-700 leading-relaxed">
-          Nous utilisons des cookies d&apos;analyse (Google Analytics) pour comprendre comment vous
+          Nous utilisons des cookies d&apos;analyse pour comprendre comment vous
           utilisez notre site et l&apos;améliorer. Aucune donnée personnelle n&apos;est revendue.
         </p>
         <div className="mt-4 flex flex-col sm:flex-row gap-3">

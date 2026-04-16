@@ -40,11 +40,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Nos expertises */}
-      <ExpertisesSection />
-
-      {/* 4. Cas clients */}
+      {/* 3. Cas clients */}
       <CaseStudiesPreview />
+
+      {/* 4. Nos expertises */}
+      <ExpertisesSection />
 
       {/* 5. Méthode */}
       <section className="py-20 sm:py-28 bg-breton-foam">
