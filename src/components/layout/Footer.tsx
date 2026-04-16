@@ -124,16 +124,29 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
-                {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/50 transition-colors hover:text-breton-copper"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {NAV_LINKS.flatMap((link) =>
+                  'children' in link
+                    ? link.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))
+                    : [
+                        <li key={link.href}>
+                          <Link
+                            href={link.href}
+                            className="text-sm text-white/50 transition-colors hover:text-breton-copper"
+                          >
+                            {link.label}
+                          </Link>
+                        </li>,
+                      ]
+                )}
               </ul>
             </div>
 
