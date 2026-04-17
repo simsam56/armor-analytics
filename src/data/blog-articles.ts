@@ -11,6 +11,256 @@ export interface BlogArticle {
 
 export const BLOG_ARTICLES: BlogArticle[] = [
   {
+    slug: 'bi-conversationnelle-pme-guide-terrain',
+    title: 'BI conversationnelle en PME : ce que les démos Microsoft ne vous montrent pas',
+    description:
+      'Power BI Copilot promet de r\u00e9pondre \u00e0 vos questions m\u00e9tier en langage naturel. Voici ce qui fonctionne vraiment, les 3 pr\u00e9requis que personne ne mentionne, le co\u00fbt r\u00e9el et par o\u00f9 commencer.',
+    date: '2026-04-17',
+    readTime: '15 min',
+    tags: ['Power BI', 'Pilotage data', 'Intelligence artificielle', 'Guide terrain'],
+    relatedSlugs: [
+      'power-bi-pme-industrielle',
+      'intelligence-artificielle-pme-bretagne-guide',
+      'tableau-de-bord-production-kpi',
+    ],
+    content: `
+<p><em>La démo est convaincante : vous tapez "montre-moi les commandes en retard" et Power BI vous répond en quelques secondes. Mais entre la démonstration sur scène et votre PME de 80 salariés avec des données dans trois Excel et un ERP vieillissant, il y a un écart que personne ne vous explique clairement. Ce guide est là pour ça.</em></p>
+
+<nav class="article-toc" aria-label="Sommaire">
+<span class="toc-title">Sommaire</span>
+<ol>
+<li><a href="#section-1"><span class="toc-num">01</span><span>Ce que "BI conversationnelle" veut vraiment dire</span></a></li>
+<li><a href="#section-2"><span class="toc-num">02</span><span>Les 3 prérequis que personne ne vous dit</span></a></li>
+<li><a href="#section-3"><span class="toc-num">03</span><span>Pour quelle PME ça marche vraiment</span></a></li>
+<li><a href="#section-4"><span class="toc-num">04</span><span>Ce que la mise à jour 2026 change (et ce qu&apos;elle ne change pas)</span></a></li>
+<li><a href="#section-5"><span class="toc-num">05</span><span>Les alternatives sans licence Copilot</span></a></li>
+<li><a href="#section-6"><span class="toc-num">06</span><span>Le vrai coût total</span></a></li>
+<li><a href="#section-7"><span class="toc-num">07</span><span>Par où commencer concrètement</span></a></li>
+</ol>
+</nav>
+
+<h2 id="section-1">01 — Ce que "BI conversationnelle" veut vraiment dire</h2>
+
+<p>La promesse est simple : posez une question en français, obtenez une réponse de vos données. Pas de formation DAX, pas de tableau croisé dynamique, pas d&apos;attente que l&apos;IT sorte un rapport.</p>
+
+<p>Dans Power BI, c&apos;est le composant <strong>Copilot</strong> (anciennement Q&amp;A, remplacé progressivement depuis janvier 2026) qui réalise cette magie. Mécaniquement, voici ce qui se passe quand vous tapez une question :</p>
+
+<ol>
+<li>Copilot analyse votre question en langage naturel</li>
+<li>Il la traduit en une requête DAX (le langage de formules Power BI)</li>
+<li>Cette requête s&apos;exécute contre votre <strong>modèle sémantique</strong> — c&apos;est-à-dire vos tables, vos relations, vos mesures définies</li>
+<li>Le résultat remonte sous forme de tableau, graphique ou chiffre</li>
+</ol>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Le point clé à retenir</span>
+<p>Copilot ne lit pas vos données brutes. Il interroge votre <strong>modèle sémantique</strong>. Si ce modèle est incomplet, mal nommé ou mal structuré, les réponses seront fausses ou absentes — peu importe la qualité de l&apos;IA derrière.</p>
+</div>
+
+<p>Ce n&apos;est pas un défaut du produit. C&apos;est une caractéristique fondamentale de comment fonctionne la BI analytique. Le conversationnel rend l&apos;accès aux données plus fluide — il ne remplace pas la structuration en amont.</p>
+
+<h2 id="section-2">02 — Les 3 prérequis que personne ne vous dit</h2>
+
+<h3>Prérequis 1 : un modèle sémantique propre</h3>
+
+<p>Votre modèle Power BI doit avoir des mesures nommées en langage métier, des tables bien reliées entre elles, et des libellés de colonnes compréhensibles. "CA_HT_2023_v2_final" ne donnera pas de bon résultat. "Chiffre d&apos;affaires HT" oui.</p>
+
+<p>Si vous partez d&apos;exports ERP bruts avec 400 colonnes non documentées, ou de fichiers Excel renommés manuellement chaque mois, Copilot ne pourra pas comprendre ce que vous lui demandez. Au mieux il répond à côté. Au pire il répond avec confiance et donne un chiffre faux.</p>
+
+<div class="article-callout callout-warning">
+<span class="callout-title">L&apos;amplificateur, pas le correcteur</span>
+<p>Le conversationnel n&apos;améliore pas la qualité de vos données. Il l&apos;amplifie. Un bon modèle devient très accessible. Un modèle bancal devient plus rapidement faux — et plus difficile à détecter, puisque les réponses arrivent avec confiance et sans formule visible.</p>
+</div>
+
+<h3>Prérequis 2 : des définitions métier alignées</h3>
+
+<p>Qu&apos;est-ce que le "chiffre d&apos;affaires" dans votre PME ? Est-ce le montant des bons de commande signés, des factures émises, ou des encaissements réels ? Si le commercial et le DAF n&apos;ont pas la même réponse, Copilot non plus.</p>
+
+<p>En pratique, dans la majorité des PME industrielles que nous accompagnons en Bretagne, ces définitions ne sont pas formalisées. Elles existent dans les têtes, pas dans les systèmes. Le projet BI conversationnelle est souvent l&apos;occasion — forcée — de les mettre à plat. C&apos;est long (2 à 4 semaines de travail), mais c&apos;est aussi le travail le plus utile que vous puissiez faire pour votre pilotage.</p>
+
+<h3>Prérequis 3 : une gouvernance minimale des accès</h3>
+
+<p>Copilot respecte les droits d&apos;accès configurés dans votre modèle Power BI (Row Level Security, RLS). Un commercial ne voit que sa région, un directeur voit tout. C&apos;est une bonne nouvelle.</p>
+
+<p>Mais si vous n&apos;avez pas encore configuré ces droits, vous avez deux risques :</p>
+<ul>
+<li><strong>Tout le monde voit tout</strong> : un opérateur peut interroger les marges par client, les salaires, les objectifs non publiés</li>
+<li><strong>Personne ne voit rien de pertinent</strong> : vous avez cloisonné trop fort et Copilot répond "données insuffisantes" à la moitié des questions</li>
+</ul>
+
+<p>Configurer le RLS correctement avant de déployer Copilot n&apos;est pas optionnel — c&apos;est un prérequis de sécurité élémentaire.</p>
+
+<h2 id="section-3">03 — Pour quelle PME ça marche vraiment</h2>
+
+<p>On a croisé plusieurs configurations terrain. Voici honnêtement où le conversationnel apporte de la valeur, et où il est prématuré.</p>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Profil PME</th>
+<th>Résultat probable</th>
+<th>Pourquoi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft 365 + Power BI Pro existant + modèle structuré + référent data</td>
+<td><strong>Excellent</strong></td>
+<td>Tous les prérequis sont là, Copilot apporte une vraie fluidité</td>
+</tr>
+<tr>
+<td>Microsoft 365 + Power BI mais modèle construit à la va-vite</td>
+<td><strong>Moyen</strong></td>
+<td>Réponses partielles, frustration des équipes — retravailler le modèle d&apos;abord</td>
+</tr>
+<tr>
+<td>Données en silos (Excel + ERP + CRM non connectés)</td>
+<td><strong>Prématuré</strong></td>
+<td>Pas de modèle unifié à interroger — commencer par la consolidation</td>
+</tr>
+<tr>
+<td>Pas de référent data interne</td>
+<td><strong>Risqué</strong></td>
+<td>Qui maintient le modèle, corrige les erreurs, forme les nouveaux arrivants ?</td>
+</tr>
+<tr>
+<td>Pas sous Microsoft 365</td>
+<td><strong>Non applicable</strong></td>
+<td>Copilot pour Power BI nécessite un tenant Microsoft</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Le profil idéal</span>
+<p>Une PME de 50 à 300 salariés, déjà sous Microsoft 365, avec Power BI Pro actif, un modèle utilisé quotidiennement par les équipes, et au moins une personne qui comprend la structure des données — même à 20 % de son temps. Ce n&apos;est pas courant, mais c&apos;est atteignable en 3 à 6 mois de travail préparatoire.</p>
+</div>
+
+<h2 id="section-4">04 — Ce que la mise à jour 2026 change (et ce qu&apos;elle ne change pas)</h2>
+
+<p>Microsoft a fait une annonce importante en <strong>janvier 2026</strong> : Power BI Q&amp;A (l&apos;ancêtre conversationnel, introduit en 2018) est officiellement déprécié. Copilot devient la seule interface conversationnelle officielle. La transition est progressive et Q&amp;A reste disponible jusqu&apos;à mi-2026, mais le message est clair.</p>
+
+<h3>Ce qui change concrètement</h3>
+
+<ul>
+<li><strong>Copilot depuis la page d&apos;accueil Power BI</strong> : plus besoin d&apos;ouvrir un rapport pour poser des questions — vous pouvez interroger directement depuis le hub</li>
+<li><strong>Modèles "Approved for Copilot"</strong> : les administrateurs peuvent labelliser les modèles validés pour le chat, évitant qu&apos;on interroge des ébauches non finalisées</li>
+<li><strong>Fabric IQ</strong> : la couche d&apos;intelligence de Microsoft Fabric qui alimente Copilot commence à comprendre le contexte de vos workspaces, pas seulement des tables isolées</li>
+</ul>
+
+<h3>Ce qui ne change pas</h3>
+
+<ul>
+<li>La dépendance à un modèle sémantique propre — inchangée</li>
+<li>Le besoin d&apos;une <strong>licence Copilot dédiée</strong> (30 €/utilisateur/mois) — inchangé</li>
+<li>Les fonctionnalités avancées (résumés automatiques, génération de rapports) nécessitent toujours Power BI Premium Per User (20 €/user/mois) en plus</li>
+</ul>
+
+<p>La bonne nouvelle : Microsoft simplifie l&apos;expérience utilisateur. La mauvaise : le coût et les prérequis techniques restent identiques.</p>
+
+<h2 id="section-5">05 — Les alternatives sans licence Copilot</h2>
+
+<p>La licence Copilot n&apos;est pas toujours justifiée, surtout en début de démarche. Voici des alternatives concrètes, classées par effort technique :</p>
+
+<h3>Power BI Smart Narrative (gratuit, Power BI Pro)</h3>
+<p>Ce visuel intégré génère automatiquement des commentaires textuels sur vos graphiques — tendances, valeurs remarquables, comparaisons. Pas de chat, mais une narration automatique accessible sans surcoût. Utile pour des rapports de direction ou des comptes-rendus hebdomadaires.</p>
+
+<h3>Power BI Q&amp;A jusqu&apos;à mi-2026 (gratuit, Power BI Pro)</h3>
+<p>Tant que Q&amp;A est encore disponible, c&apos;est une bonne façon de tester le conversationnel sans frais supplémentaires. L&apos;expérience est moins fluide que Copilot, mais elle permet de valider si votre modèle répond correctement aux questions naturelles avant d&apos;investir dans une licence.</p>
+
+<h3>LLM connecté à votre modèle sur mesure</h3>
+<p>C&apos;est l&apos;approche que nous déployons chez balise-ia pour les PME qui ne veulent pas dépendre de l&apos;écosystème Microsoft ou qui ont des données hors Power BI. Le principe : connecter un LLM (OpenAI, Claude, ou un modèle local) directement à votre base de données ou entrepôt, avec un prompt système qui connaît votre vocabulaire métier.</p>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Avantage de l&apos;approche sur mesure</span>
+<p>Vous n&apos;êtes pas limité à Power BI. Vos données peuvent être dans PostgreSQL, dans votre ERP, dans un Google Sheet — l&apos;interface conversationnelle fonctionne pareil. Et vous payez à l&apos;usage, pas 30 € par utilisateur par mois.</p>
+</div>
+
+<h2 id="section-6">06 — Le vrai coût total</h2>
+
+<p>Les articles sur la BI conversationnelle parlent rarement du coût complet. Voici une estimation honnête pour une PME de 50 salariés, 10 utilisateurs Power BI réguliers.</p>
+
+<div class="article-table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Poste</th>
+<th>Scénario A — Modèle déjà propre</th>
+<th>Scénario B — Modèle à restructurer</th>
+<th>Scénario C — Données en silos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licences Copilot (10 users × 30€ × 12 mois)</td>
+<td>3 600 €/an</td>
+<td>3 600 €/an</td>
+<td>Non applicable</td>
+</tr>
+<tr>
+<td>Mise en place et structuration du modèle</td>
+<td>1 500 € (2 jours)</td>
+<td>6 000 – 12 000 € (8-16 jours)</td>
+<td>15 000 – 30 000 € (consolidation complète)</td>
+</tr>
+<tr>
+<td>Formation équipes</td>
+<td>800 €</td>
+<td>1 200 €</td>
+<td>1 500 €</td>
+</tr>
+<tr>
+<td>Maintenance annuelle</td>
+<td>1 500 €</td>
+<td>2 500 €</td>
+<td>3 000 €</td>
+</tr>
+<tr>
+<td><strong>Total année 1</strong></td>
+<td><strong>~7 400 €</strong></td>
+<td><strong>~13 000 – 19 000 €</strong></td>
+<td><strong>Démarche préalable nécessaire</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>À ces chiffres, ajoutez Power BI Premium Per User (20 €/user/mois) si vous voulez les fonctions de génération de rapports avancées — soit 2 400 €/an supplémentaires pour 10 utilisateurs.</p>
+
+<p>Le scénario A est rentable en quelques mois si vos équipes gagnent 30 minutes par semaine de recherche d&apos;information. Le scénario B le devient en 12 à 18 mois, à condition que le modèle soit bien construit. Le scénario C est un investissement de fond qui va au-delà du conversationnel — et qui en est le prérequis.</p>
+
+<h2 id="section-7">07 — Par où commencer concrètement</h2>
+
+<p>Si vous voulez aller dans cette direction, voici l&apos;enchaînement logique :</p>
+
+<h3>Étape 1 — Listez les 5 questions que vos équipes posent le plus souvent</h3>
+<p>Pas les questions que vous pensez qu&apos;elles posent. Celles qu&apos;elles posent vraiment, à la personne qui gère Excel, à l&apos;IT, en réunion. Ces 5 questions sont votre cas d&apos;usage de base.</p>
+
+<h3>Étape 2 — Vérifiez si votre modèle actuel peut y répondre</h3>
+<p>Ouvrez Power BI, essayez de construire la réponse manuellement. Si vous pouvez la construire, le conversationnel peut potentiellement la donner. Si vous ne pouvez pas la construire, la structuration du modèle est le travail prioritaire.</p>
+
+<h3>Étape 3 — Testez Q&amp;A ou Copilot free preview sur votre tenant</h3>
+<p>Avant d&apos;acheter des licences, testez avec les outils gratuits disponibles. La qualité des réponses vous dira très vite si votre modèle est prêt ou non.</p>
+
+<h3>Étape 4 — Faites un pilote sur 5 utilisateurs max</h3>
+<p>Choisissez un département homogène (production, commercial, logistique) avec des questions bien identifiées. Mesurez le taux de questions auxquelles Copilot répond correctement du premier coup. En dessous de 70 %, le modèle doit être revu.</p>
+
+<h3>Étape 5 — Généralisez avec un plan de formation</h3>
+<p>Le changement d&apos;habitude est sous-estimé. Certains utilisateurs vont adorer, d&apos;autres vont continuer à appeler l&apos;IT. Prévoyez une heure de prise en main par équipe et désignez un référent interne.</p>
+
+<div class="article-callout callout-key">
+<span class="callout-title">Notre approche chez balise-ia</span>
+<p>On commence toujours par un <strong>audit de maturité data</strong> avant de parler d&apos;outil. En 1 à 2 jours, on identifie l&apos;état de vos données, vos questions métier prioritaires, et si Copilot est la bonne réponse ou si une autre approche serait plus adaptée. L&apos;objectif : vous éviter d&apos;investir dans une solution qui ne peut pas fonctionner avec votre SI actuel.</p>
+</div>
+
+<p>La BI conversationnelle n&apos;est pas un gadget. C&apos;est une évolution réelle dans la façon dont les équipes accèdent à leurs données. Mais comme toute évolution data, elle ne saute pas par-dessus les fondations. Si vos données sont propres et votre modèle structuré, le conversationnel est l&apos;étape naturelle suivante. Sinon, c&apos;est l&apos;occasion de le faire — avec un objectif concret en ligne de mire.</p>
+
+<p>Vous voulez savoir où vous en êtes ? <a href="/contact">Parlons-en directement</a> — sans engagement, sans présentation commerciale.</p>
+`,
+  },
+  {
     slug: 'empreinte-energetique-llm',
     title: "L'empreinte environnementale des modèles d'IA — décodage complet",
     description:
